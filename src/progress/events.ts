@@ -73,7 +73,24 @@ export interface SettingEvent extends Base {
   value: unknown;
 }
 
-export type Event = ReadEvent | ExerciseEvent | ReviewEvent | TimeEvent | SettingEvent;
+/**
+ * A test-out attempt: a handful of the harder exercises from a section, chapter or calculus unit.
+ * Passing (every problem right on the first try) counts all of `units` as complete.
+ */
+export interface TestOutEvent extends Base {
+  type: 'testout';
+  scope: 'section' | 'chapter' | 'volume';
+  /** "V1.2.3" (section), "V1.2" (chapter) or "V1" (calculus unit). */
+  target: string;
+  /** Sections the test covers. */
+  units: string[];
+  passed: boolean;
+  /** Problems answered correctly, out of `total`. */
+  score: number;
+  total: number;
+}
+
+export type Event = ReadEvent | ExerciseEvent | ReviewEvent | TimeEvent | SettingEvent | TestOutEvent;
 export type EventType = Event['type'];
 
 type DistributiveOmit<T, K extends PropertyKey> = T extends unknown ? Omit<T, K> : never;
@@ -89,7 +106,7 @@ export function randomId(): string {
 /** `V1.2.3/e59`: an exercise or reading card anywhere in the course. */
 export const itemKey = (unit: string, item: string): string => `${unit}/${item}`;
 
-const TYPES: ReadonlySet<string> = new Set(['read', 'ex', 'review', 'time', 'set']);
+const TYPES: ReadonlySet<string> = new Set(['read', 'ex', 'review', 'time', 'set', 'testout']);
 
 /** Shape check for events coming from a backup file or the server. */
 export function isEvent(x: unknown): x is Event {
@@ -108,6 +125,14 @@ export function isEvent(x: unknown): x is Event {
       return typeof e.ms === 'number' && e.ms >= 0 && e.ms < 24 * 3600e3;
     case 'set':
       return typeof e.key === 'string';
+    case 'testout':
+      return (
+        typeof e.target === 'string' &&
+        typeof e.passed === 'boolean' &&
+        Array.isArray(e.units) &&
+        e.units.length <= 500 &&
+        e.units.every((u) => typeof u === 'string')
+      );
   }
   return false;
 }

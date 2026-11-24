@@ -6,6 +6,7 @@
   import Settings from './lib/Settings.svelte';
   import Stats from './lib/Stats.svelte';
   import Practice from './practice/Practice.svelte';
+  import TestOut from './testout/TestOut.svelte';
   import Pair from './sync/Pair.svelte';
   import { loadIndex } from './content/load';
   import { continueTarget, nextUnitId } from './progress/derive';
@@ -26,6 +27,7 @@
    *   #/section/V1.2.3  a section's stats, with open / redo (B15)
    *   #/stats         stats screen (B16)
    *   #/practice      Practice mistakes (B13)
+   *   #/test/V1.2.3   test out of a section (…/V1.2 a chapter, …/V1 a calculus unit)
    *   #/settings      settings, account, offline, backup
    *   #/pair/CODE     sign in this device with a pairing code from another device (B12)
    */
@@ -41,6 +43,8 @@
     if (p) return { name: 'pair' as const, code: p[1] };
     if (hash === '#/settings') return { name: 'settings' as const };
     if (hash === '#/practice') return { name: 'practice' as const };
+    const t = /^#\/test\/(V\d(?:\.\d+){0,2})$/.exec(hash);
+    if (t) return { name: 'test' as const, target: t[1] };
     if (hash === '#/continue') return { name: 'continue' as const, kind: undefined };
     const ck = /^#\/continue\/(reading|exercises)$/.exec(hash);
     if (ck) return { name: 'continue' as const, kind: ck[1] as 'reading' | 'exercises' };
@@ -93,6 +97,8 @@
     <Settings />
   {:else if route.name === 'practice'}
     <Practice />
+  {:else if route.name === 'test'}
+    {#key route.target}<TestOut target={route.target} />{/key}
   {:else if route.name === 'pair'}
     <Pair code={route.code} />
   {:else if route.name === 'continue'}

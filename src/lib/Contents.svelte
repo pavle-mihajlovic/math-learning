@@ -55,29 +55,33 @@
           <span class="vname muted">{v.title}</span>
           <span class="vpct">{pc(vf)}%</span>
         </div>
+        {#if pc(vf) < 100}<a class="testlink" href="#/test/V{v.volume}">Test out of {meta.name} →</a>{/if}
       {/if}
       <div class="bar thick" aria-hidden="true"><div style="width: {pct(vf) * 100}%"></div></div>
 
       {#each v.chapters as c (c.chapter)}
         {@const cf = chapterFraction(progress.d, c)}
         {@const allDone = c.units.every((u) => unitComplete(progress.d, u))}
+        {@const allTested = c.units.every((u) => progress.d.testedOut.has(u.id))}
         <div class="chapter">
           <h3>
             <span class="cnum">{c.chapter}</span>
             <span class="ctitle">{c.title}</span>
-            <span class="chpct" class:complete={allDone}>{allDone ? '✓' : `${pc(cf)}%`}</span>
+            {#if !allDone}<a class="chtest" href="#/test/V{v.volume}.{c.chapter}" aria-label="Test out of chapter {c.chapter}">test out</a>{/if}
+            <span class="chpct" class:complete={allDone} class:tested={allTested}>{allTested ? '◆' : allDone ? '✓' : `${pc(cf)}%`}</span>
           </h3>
           <div class="bar" aria-hidden="true"><div style="width: {pct(cf) * 100}%"></div></div>
           <ol class="units">
             {#each c.units as u (u.id)}
               {@const f = unitFraction(progress.d, u)}
               {@const complete = unitComplete(progress.d, u)}
-              <li>
+              {@const tested = progress.d.testedOut.has(u.id)}
+              <li class:tested>
                 <a href="#/section/{u.id}" class:current={u.id === nextId}>
                   <span class="num">{c.chapter}.{u.id.split('.')[2]}</span>
                   <span class="title">{u.title}</span>
                   <span class="count" class:complete>
-                    {#if complete}✓{:else if f.done}{pc(f)}%{:else if u.id === nextId}next{/if}
+                    {#if tested}◆{:else if complete}✓{:else if f.done}{pc(f)}%{:else if u.id === nextId}next{/if}
                   </span>
                 </a>
                 <div class="ubar" aria-hidden="true"><div style="width: {pct(f) * 100}%"></div></div>
@@ -88,6 +92,7 @@
       {/each}
     </section>
   {/each}
+  <p class="legend">✓ finished · <span style="color: var(--tested)">◆ tested out</span></p>
   {#if single}
     <p class="all"><a href="#/map">Whole course map →</a></p>
   {/if}
@@ -127,4 +132,10 @@
   .ubar { height: 2px; margin: 0 4px 0 calc(2.6em + 16px); }
   .ubar div { height: 100%; background: var(--c); border-radius: 1px; }
   .all { text-align: center; font-size: 0.9rem; }
+  /* Tested out: complete, in its own colour. */
+  .units li.tested .count, .chpct.tested { color: var(--tested); }
+  .units li.tested .ubar div { background: var(--tested); }
+  .testlink { display: inline-block; margin-top: 8px; font-size: 0.85rem; color: var(--tested); }
+  .chtest { font-size: 0.75rem; font-weight: 500; color: var(--tested); opacity: 0.85; }
+  .legend { font-size: 0.8rem; color: var(--faint); text-align: center; margin-top: 18px; }
 </style>

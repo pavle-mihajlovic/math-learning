@@ -38,6 +38,8 @@ export interface Derived {
   unitMs: Map<string, number>;
   /** Last time anything happened in each unit (read, exercise, practice, time). */
   unitLast: Map<string, number>;
+  /** Sections covered by a passed test-out (count as complete). */
+  testedOut: Set<string>;
 }
 
 export function dayKey(t: number): string {
@@ -53,7 +55,7 @@ function add<K>(m: Map<K, Set<string>>, k: K, v: string) {
 
 /** Events must be sorted by time (the store keeps them that way). */
 export function derive(events: readonly Event[]): Derived {
-  const d: Derived = { read: new Map(), done: new Map(), correct: new Map(), first: new Map(), solved: 0, ms: 0, days: new Map(), settings: {}, unitMs: new Map(), unitLast: new Map() };
+  const d: Derived = { read: new Map(), done: new Map(), correct: new Map(), first: new Map(), solved: 0, ms: 0, days: new Map(), settings: {}, unitMs: new Map(), unitLast: new Map(), testedOut: new Set() };
   const settingAt: Record<string, number> = {};
   const day = (t: number) => {
     const k = dayKey(t);
@@ -100,6 +102,9 @@ export function derive(events: readonly Event[]): Derived {
         day(e.t).ms += e.ms;
         if (e.unit) d.unitMs.set(e.unit, (d.unitMs.get(e.unit) ?? 0) + e.ms);
         break;
+      case 'testout':
+        if (e.passed) for (const u of e.units) d.testedOut.add(u);
+        break;
       case 'set':
         if ((settingAt[e.key] ?? -Infinity) <= e.t) {
           settingAt[e.key] = e.t;
@@ -120,9 +125,11 @@ export const pct = (f: Fraction): number => (f.total ? f.done / f.total : 0);
 
 /**
  * Progress through a unit: reading cards plus exercises (proof cards are optional and don't count).
+ * A section you tested out of counts as fully done.
  * Counts are capped at the index totals in case a content update renamed cards.
  */
 export function unitFraction(d: Derived, u: IndexUnit): Fraction {
+  if (d.testedOut.has(u.id)) return { done: u.reading + u.exercises, total: u.reading + u.exercises };
   const r = Math.min(d.read.get(u.id)?.size ?? 0, u.reading);
   const x = Math.min(d.done.get(u.id)?.size ?? 0, u.exercises);
   return { done: r + x, total: u.reading + u.exercises };
@@ -219,7 +226,7 @@ export function continueTarget(kind: StopKind, d: Derived, index: BookIndex, sto
   const units = index.volumes.flatMap((v) => v.chapters.flatMap((c) => c.units));
   if (stop?.unit && units.some((u) => u.id === stop.unit)) return { unit: stop.unit, item: stop.item };
   const u = units.find((u) =>
-    kind === 'reading' ? (d.read.get(u.id)?.size ?? 0) < u.reading : (d.done.get(u.id)?.size ?? 0) < u.exercises,
+    !d.testedOut.has(u.id) && (kind === 'reading' ? (d.read.get(u.id)?.size ?? 0) < u.reading : (d.done.get(u.id)?.size ?? 0) < u.exercises),
   );
   return u ? { unit: u.id, item: null } : null;
 }
