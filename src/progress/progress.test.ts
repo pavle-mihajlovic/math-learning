@@ -5,7 +5,7 @@ import type { BookIndex } from '../content/types';
 import { buildSteps } from '../cards/types';
 import { ActiveTimer, IDLE_MS } from './activity';
 import { memoryStore, openIdb } from './db';
-import { courseFraction, derive, firstTry, firstUndoneStep, nextUnitId, unitComplete, unitFraction } from './derive';
+import { continueTarget, courseFraction, derive, firstTry, firstUndoneStep, isStop, latestStop, nextUnitId, unitComplete, unitFraction } from './derive';
 import { isEvent, type Event, type NewEvent } from './events';
 
 let n = 0;
@@ -272,5 +272,40 @@ describe('legacy localStorage import', () => {
     expect(d.correct.get('V1.1.1')?.size).toBe(2);
     expect(d.read.get('V1.1.1')?.size).toBe(2);
     expect(d.days.get('2026-11-23')).toMatchObject({ ms: 600000, pages: 1.2, solved: 2 });
+  });
+});
+
+describe('continue reading / continue exercises', () => {
+  it('falls back to the first unit with unread cards, and with unfinished exercises, separately', () => {
+    const d = derive([
+      ev({ type: 'read', unit: 'V1.1.1', item: 'r1' }), // all of V1.1.1's reading
+    ]);
+    expect(continueTarget('reading', d, index, null)).toEqual({ unit: 'V1.1.2', item: null });
+    expect(continueTarget('exercises', d, index, null)).toEqual({ unit: 'V1.1.1', item: null });
+  });
+
+  it('uses the saved stop point, and nothing once everything is done', () => {
+    const d = derive([]);
+    expect(continueTarget('exercises', d, index, { unit: 'V1.1.2', item: 'e1', t: 1 })).toEqual({ unit: 'V1.1.2', item: 'e1' });
+    // A stop past the end of the course (or in a unit that no longer exists) falls back.
+    expect(continueTarget('reading', d, index, { unit: '', item: null, t: 1 })).toEqual({ unit: 'V1.1.1', item: null });
+    expect(continueTarget('reading', d, index, { unit: 'V9.9.9', item: null, t: 1 })).toEqual({ unit: 'V1.1.1', item: null });
+    const all = derive([
+      ev({ type: 'read', unit: 'V1.1.1', item: 'r1' }),
+      ev({ type: 'read', unit: 'V1.1.2', item: 'r1' }),
+      ev({ type: 'read', unit: 'V1.1.2', item: 'r2' }),
+    ]);
+    expect(continueTarget('reading', all, index, { unit: '', item: null, t: 1 })).toBeNull();
+    expect(continueTarget('exercises', all, index, null)).toEqual({ unit: 'V1.1.1', item: null });
+  });
+
+  it('the later of the local and synced stop wins', () => {
+    const a = { unit: 'V1.1.1', item: 'r1', t: 5 };
+    const b = { unit: 'V1.1.2', item: null, t: 9 };
+    expect(latestStop(a, b)).toBe(b);
+    expect(latestStop(b, a)).toBe(b);
+    expect(latestStop(null, a)).toBe(a);
+    expect(isStop(b)).toBe(true);
+    expect(isStop({ unit: 'V1.1.1' })).toBe(false);
   });
 });
