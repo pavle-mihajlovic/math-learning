@@ -2,6 +2,18 @@ import 'katex/dist/katex.min.css';
 import './app.css';
 import { mount } from 'svelte';
 import App from './App.svelte';
+import { registerServiceWorker } from './pwa/offline.svelte';
+import { progress } from './progress/store.svelte';
+import { startSync } from './sync/client.svelte';
+import { applySyncedSettings } from './lib/settings.svelte';
+import { importLegacyProgress } from './lib/progress.svelte';
+
+registerServiceWorker();
+progress.init().then(async () => {
+  await importLegacyProgress();
+  applySyncedSettings();
+  startSync();
+});
 
 const app = mount(App, { target: document.getElementById('app')! });
 

@@ -4,6 +4,10 @@
   import { check } from '../check/check';
   import type { Answer } from '../check/answer';
   import { texHtml } from '../content/render';
+  import Account from '../sync/Account.svelte';
+  import { progress } from '../progress/store.svelte';
+  import { clearDownloads, downloadAll, isIos, isStandalone, pwa, storageEstimate } from '../pwa/offline.svelte';
+  import { formatBytes } from './format';
 
   function setMode(m: InputMode) {
     settings.inputMode = m;
@@ -17,6 +21,56 @@
   function trySample() {
     const r = check(sample, values);
     result = r.parseError ?? (r.correct ? '✓ Correct' : '✗ Not quite');
+  }
+
+  // Offline (B10)
+  let usage = $state('');
+  let offlineMsg = $state('');
+  function refreshUsage() {
+    storageEstimate().then((e) => (usage = e ? `${formatBytes(e.usage)} used on this device` : '')).catch(() => {});
+  }
+  refreshUsage();
+  async function getAll() {
+    offlineMsg = '';
+    try {
+      await downloadAll();
+      offlineMsg = 'Everything is available offline.';
+    } catch (e) {
+      offlineMsg = `Download stopped: ${(e as Error).message}`;
+    }
+    refreshUsage();
+  }
+  async function clearAll() {
+    await clearDownloads();
+    offlineMsg = 'Downloads removed. Chapters download again as you open them.';
+    refreshUsage();
+  }
+  const showInstall = typeof window !== 'undefined' && isIos() && !isStandalone();
+
+  // Backup (B12)
+  let backupMsg = $state('');
+  function exportBackup() {
+    const blob = new Blob([progress.exportJson()], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `road-to-rudin-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 10_000);
+    backupMsg = `Saved ${progress.events.length.toLocaleString()} events.`;
+  }
+  async function importBackup(e: Event) {
+    const input = e.currentTarget as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file) return;
+    try {
+      const n = await progress.importJson(await file.text());
+      backupMsg = n ? `Restored ${n.toLocaleString()} events.` : 'Nothing new in that file.';
+    } catch (err) {
+      backupMsg = (err as Error).message;
+    }
+    input.value = '';
   }
 </script>
 
@@ -49,6 +103,43 @@
       {#if result}<span class="muted">{result}</span>{/if}
     </div>
   </div>
+</section>
+
+<section>
+  <h2>Account and sync</h2>
+  <Account />
+</section>
+
+<section>
+  <h2>Offline</h2>
+  {#if showInstall}
+    <p class="note">
+      <strong>Install on iPhone:</strong> tap <strong>Share</strong> → <strong>Add to Home Screen</strong>. The Home
+      Screen app opens full screen, works offline, and iOS keeps its downloads.
+    </p>
+  {/if}
+  <p class="muted">
+    The chapter you’re in and the next one download automatically. {pwa.chapters.length} chapter{pwa.chapters.length === 1 ? '' : 's'}
+    on this device{usage ? ` · ${usage}` : ''}.
+  </p>
+  <div class="actions">
+    <button class="btn" disabled={pwa.allProgress >= 0 || !pwa.online} onclick={getAll}>
+      {pwa.allProgress >= 0 ? `Downloading… ${Math.round(pwa.allProgress * 100)}%` : 'Download everything (about 27 MB)'}
+    </button>
+    <button class="btn ghost small" disabled={pwa.allProgress >= 0} onclick={clearAll}>Remove downloads</button>
+  </div>
+  {#if !pwa.online}<p class="muted">You’re offline.</p>{/if}
+  {#if offlineMsg}<p class="muted">{offlineMsg}</p>{/if}
+</section>
+
+<section>
+  <h2>Backup</h2>
+  <p class="muted">Your whole attempt log as one file. Restoring merges it with what’s here; nothing is overwritten.</p>
+  <div class="actions">
+    <button class="btn" onclick={exportBackup}>Export backup</button>
+    <label class="btn">Restore from file<input type="file" accept="application/json,.json" hidden onchange={importBackup} /></label>
+  </div>
+  {#if backupMsg}<p class="muted">{backupMsg}</p>{/if}
 </section>
 
 <section>
@@ -97,4 +188,6 @@
   .keys, .syntax { padding-left: 1.1em; }
   .keys li, .syntax li { margin: 0.35em 0; }
   code { font-family: var(--mono); font-size: 0.88em; }
+  .note { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  label.btn { cursor: pointer; }
 </style>

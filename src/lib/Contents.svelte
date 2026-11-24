@@ -2,7 +2,9 @@
   import type { BookIndex } from '../content/types';
   import { loadIndex } from '../content/load';
   import { CALC } from './subjects';
-  import { progress } from './progress.svelte';
+  import { nextUnitId, unitComplete } from '../progress/derive';
+  import { progress } from '../progress/store.svelte';
+  import { solvedIn } from './progress.svelte';
 
   /** One calculus unit's sections, with progress per chapter and section. */
   let { volume }: { volume: number } = $props();
@@ -13,7 +15,8 @@
 
   const meta = $derived(CALC.find((c) => c.volume === volume) ?? CALC[0]);
   const vol = $derived(index?.volumes.find((v) => v.volume === volume));
-  const solved = (id: string, total: number) => Math.min(total, progress.solved[id]?.length ?? 0);
+  const solved = (id: string, total: number) => Math.min(total, solvedIn(id));
+  const nextId = $derived(index ? nextUnitId(progress.d, index) : null);
 </script>
 
 <header class="top" style="--c: {meta.color}">
@@ -37,9 +40,9 @@
       <ol class="units">
         {#each c.units as u (u.id)}
           {@const s = solved(u.id, u.exercises)}
-          {@const complete = !!progress.completed[u.id]}
+          {@const complete = unitComplete(progress.d, u)}
           <li>
-            <a href="#/unit/{u.id}">
+            <a href="#/unit/{u.id}" class:current={u.id === nextId}>
               <span class="num">{c.chapter}.{u.id.split('.')[2]}</span>
               <span class="title">{u.title}</span>
               <span class="count" class:complete>{complete ? '✓' : ''} {s}/{u.exercises}</span>
@@ -63,6 +66,7 @@
   .units li { border-bottom: 1px solid var(--surface-2); }
   .units a { display: flex; gap: 12px; padding: 9px 4px 6px; color: var(--text); text-decoration: none; }
   .units a:hover { background: var(--surface); }
+  .units a.current .title { color: var(--accent); }
   .num { color: var(--muted); min-width: 2.6em; font-variant-numeric: tabular-nums; }
   .title { flex: 1; }
   .count { color: var(--faint); font-size: 0.85rem; font-variant-numeric: tabular-nums; white-space: nowrap; }

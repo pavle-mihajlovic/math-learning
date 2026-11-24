@@ -1,160 +1,40 @@
 /**
- * Progress log, kept in localStorage: per-day time / pages / problems, plus which exercises
- * are solved, which reading cards are read and which units are finished.
- * B11/B12 can move this into IndexedDB and the synced account; the shape is kept simple for that.
+ * Day/week summaries for the home screen and activity map, read from the B11 attempt log
+ * (`src/progress/`). Also imports the older localStorage log (`rtr.progress.v1`) once.
  */
-import type { ReadingCard } from '../content/types';
-import { cardPages } from './pages';
+import type { Event } from '../progress/events';
+import { randomId } from '../progress/events';
+import { dayKey as dayKeyAt } from '../progress/derive';
+import { progress } from '../progress/store.svelte';
 
 export interface DayStats {
-  /** Active milliseconds inside units. */
+  /** Active milliseconds. */
   ms: number;
   /** Estimated book pages read. */
   pages: number;
-  /** Exercises solved for the first time. */
+  /** Exercises solved (main flow and Practice mistakes). */
   problems: number;
-}
-
-interface Progress {
-  v: 1;
-  days: Record<string, DayStats>;
-  /** unitId → exercise ids solved at least once. */
-  solved: Record<string, string[]>;
-  /** unitId → reading card ids read at least once. */
-  read: Record<string, string[]>;
-  /** unitId → date the unit was first finished. */
-  completed: Record<string, string>;
-}
-
-const KEY = 'rtr.progress.v1';
-
-function empty(): Progress {
-  return { v: 1, days: {}, solved: {}, read: {}, completed: {} };
-}
-
-function load(): Progress {
-  try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) return { ...empty(), ...JSON.parse(raw) };
-  } catch {
-    /* private mode or blocked storage */
-  }
-  return empty();
-}
-
-export const progress = $state<Progress>(load());
-
-let saveTimer: ReturnType<typeof setTimeout> | null = null;
-export function save(now = false): void {
-  if (saveTimer) clearTimeout(saveTimer);
-  saveTimer = null;
-  const write = () => {
-    try {
-      localStorage.setItem(KEY, JSON.stringify(progress));
-    } catch {
-      /* ignore */
-    }
-  };
-  if (now) write();
-  else saveTimer = setTimeout(write, 1500);
 }
 
 /** Local calendar date, YYYY-MM-DD. */
 export function dayKey(d = new Date()): string {
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${d.getFullYear()}-${m}-${day}`;
+  return dayKeyAt(d.getTime());
 }
 
-function today(): DayStats {
-  const k = dayKey();
-  return (progress.days[k] ??= { ms: 0, pages: 0, problems: 0 });
+export function dayStats(key: string): DayStats | undefined {
+  const s = progress.d.days.get(key);
+  return s && { ms: s.ms, pages: s.pages, problems: s.solved };
 }
 
-export function markSolved(unitId: string, exerciseId: string): void {
-  const list = (progress.solved[unitId] ??= []);
-  if (list.includes(exerciseId)) return;
-  list.push(exerciseId);
-  today().problems += 1;
-  save();
+/** Exercises of a unit solved correctly at least once. */
+export function solvedIn(unitId: string): number {
+  return progress.d.correct.get(unitId)?.size ?? 0;
 }
 
-export function markRead(unitId: string, card: ReadingCard): void {
-  const list = (progress.read[unitId] ??= []);
-  if (list.includes(card.id)) return;
-  list.push(card.id);
-  today().pages += cardPages(card);
-  save();
-}
-
-export function markCompleted(unitId: string): void {
-  if (progress.completed[unitId]) return;
-  progress.completed[unitId] = dayKey();
-  save();
-}
-
-export function solvedCount(unitId: string): number {
-  return progress.solved[unitId]?.length ?? 0;
-}
-
-// ---------------------------------------------------------------- active time
-
-const IDLE_MS = 3 * 60 * 1000;
-let lastInput = Date.now();
-let ticker: ReturnType<typeof setInterval> | null = null;
-let lastTick = 0;
-let sinceSave = 0;
-
-const bump = () => (lastInput = Date.now());
-const flush = () => save(true);
-const onVisibility = () => {
-  if (document.visibilityState === 'hidden') flush();
-  else {
-    bump();
-    lastTick = Date.now();
-  }
-};
-
-/** Count time while you're in a unit, the tab is visible and you've touched it in the last 3 minutes. */
-export function startTimer(): () => void {
-  if (ticker) return stopTimer;
-  bump();
-  lastTick = Date.now();
-  ticker = setInterval(() => {
-    const now = Date.now();
-    // Cap the step so a suspended tab doesn't credit the whole gap.
-    const step = Math.min(now - lastTick, 2000);
-    lastTick = now;
-    if (document.visibilityState !== 'visible' || now - lastInput > IDLE_MS) return;
-    today().ms += step;
-    sinceSave += step;
-    if (sinceSave >= 15000) {
-      sinceSave = 0;
-      save(true);
-    }
-  }, 1000);
-  for (const e of ['pointerdown', 'keydown', 'scroll', 'touchstart', 'wheel']) window.addEventListener(e, bump, { passive: true });
-  document.addEventListener('visibilitychange', onVisibility);
-  window.addEventListener('pagehide', flush);
-  return stopTimer;
-}
-
-export function stopTimer(): void {
-  if (!ticker) return;
-  clearInterval(ticker);
-  ticker = null;
-  for (const e of ['pointerdown', 'keydown', 'scroll', 'touchstart', 'wheel']) window.removeEventListener(e, bump);
-  document.removeEventListener('visibilitychange', onVisibility);
-  window.removeEventListener('pagehide', flush);
-  flush();
-}
-
-// ---------------------------------------------------------------- summaries
-
-export function sumDays(keys: string[]): DayStats {
+export function sumDays(keys: Iterable<string>): DayStats {
   const t: DayStats = { ms: 0, pages: 0, problems: 0 };
   for (const k of keys) {
-    const d = progress.days[k];
+    const d = dayStats(k);
     if (!d) continue;
     t.ms += d.ms;
     t.pages += d.pages;
@@ -181,9 +61,9 @@ export function active(d: DayStats | undefined): boolean {
 /** Consecutive active days ending today (or yesterday, if today has nothing yet). */
 export function streak(): number {
   const d = new Date();
-  if (!active(progress.days[dayKey(d)])) d.setDate(d.getDate() - 1);
+  if (!active(dayStats(dayKey(d)))) d.setDate(d.getDate() - 1);
   let n = 0;
-  while (active(progress.days[dayKey(d)])) {
+  while (active(dayStats(dayKey(d)))) {
     n++;
     d.setDate(d.getDate() - 1);
   }
@@ -199,4 +79,74 @@ export function fmtTime(ms: number): string {
 
 export function fmtPages(p: number): string {
   return p < 10 ? p.toFixed(1).replace(/\.0$/, '') : String(Math.round(p));
+}
+
+// ---------------------------------------------------------------- one-time import
+
+const LEGACY_KEY = 'rtr.progress.v1';
+
+interface Legacy {
+  days?: Record<string, { ms?: number; pages?: number; problems?: number }>;
+  solved?: Record<string, string[]>;
+  read?: Record<string, string[]>;
+  completed?: Record<string, string>;
+}
+
+/**
+ * Turn the pre-B11 localStorage log into attempt-log events. Time and pages keep their days;
+ * solved exercises and read cards are dated to the day the unit was finished, or else the
+ * last active day, since the old log didn't record when each one happened.
+ */
+export function legacyEvents(old: Legacy, dev: string): Event[] {
+  const noon = (k: string) => new Date(k + 'T12:00:00').getTime();
+  const days = Object.keys(old.days ?? {}).filter((k) => /^\d{4}-\d\d-\d\d$/.test(k)).sort();
+  const fallback = days.length ? noon(days[days.length - 1]) : Date.now();
+  const when = (unit: string) => {
+    const c = old.completed?.[unit];
+    return c && /^\d{4}-\d\d-\d\d$/.test(c) ? noon(c) : fallback;
+  };
+  const out: Event[] = [];
+  const base = (t: number) => ({ id: randomId(), t, dev });
+  for (const k of days) {
+    const d = old.days![k];
+    if (d.ms && d.ms >= 1000 && d.ms < 24 * 3600e3) out.push({ ...base(noon(k)), type: 'time', ms: Math.round(d.ms) });
+  }
+  // The old log kept pages per day, not per card: each day's pages ride on one read event dated
+  // that day, and the remaining cards carry no pages.
+  const reads: [string, string][] = [];
+  for (const [unit, ids] of Object.entries(old.read ?? {})) for (const id of ids) reads.push([unit, id]);
+  const pageDays = days.filter((k) => (old.days![k].pages ?? 0) > 0);
+  reads.forEach(([unit, item], i) => {
+    const pd = pageDays[i];
+    const pages = pd ? old.days![pd].pages : undefined;
+    out.push({ ...base(pd ? noon(pd) : when(unit)), type: 'read', unit, item, ...(pages ? { pages } : {}) });
+  });
+  for (const [unit, ids] of Object.entries(old.solved ?? {}))
+    for (const item of ids)
+      out.push({ ...base(when(unit)), type: 'ex', unit, item, correct: true, firstTry: true, tries: 1, sawSolution: false, self: false });
+  return out;
+}
+
+/** Run once after `progress.init()`. Safe to call again: the old log is removed after import. */
+export async function importLegacyProgress(): Promise<number> {
+  let raw: string | null = null;
+  try {
+    raw = localStorage.getItem(LEGACY_KEY);
+  } catch {
+    return 0;
+  }
+  if (!raw) return 0;
+  let n = 0;
+  try {
+    n = await progress.merge(legacyEvents(JSON.parse(raw) as Legacy, progress.device), false);
+  } catch {
+    return 0;
+  }
+  try {
+    localStorage.setItem(LEGACY_KEY + '.imported', raw);
+    localStorage.removeItem(LEGACY_KEY);
+  } catch {
+    /* ignore */
+  }
+  return n;
 }

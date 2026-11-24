@@ -1,9 +1,26 @@
-// Cloudflare Workers config (B09). The site is static: `npm run build` writes dist/,
-// and Workers serves it as static assets. public/_headers is applied by Cloudflare.
+// Cloudflare Workers config.
+// B09: the site is static. `npm run build` writes dist/, served as static assets; public/_headers applies.
+// B12: /api/* runs worker/index.ts (email login, QR pairing, attempt-log sync) backed by a D1 database.
+//      Setup steps (database id, secrets, schema) are in docs/DEPLOY.md.
 {
   "name": "road-to-rudin",
   "compatibility_date": "2026-11-01",
+  "main": "worker/index.ts",
   "assets": {
-    "directory": "./dist"
-  }
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "road-to-rudin",
+      // Paste the Database ID from the Cloudflare dashboard (Storage & Databases → D1 → road-to-rudin).
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "worker/migrations"
+    }
+  ],
+  // Keep variables set in the dashboard across deploys. OWNER_EMAIL and RESEND_API_KEY are secrets.
+  "keep_vars": true,
+  "observability": { "enabled": true }
 }

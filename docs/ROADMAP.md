@@ -26,16 +26,18 @@ The chat reads `docs/`, does the work, ticks the box, and opens a pull request. 
 
 ## Stage B: Daily driver
 
-- [ ] **B10 PWA + offline.** Manifest, icons, service worker, iOS "Add to Home Screen" install. Content downloads chapter by chapter. *Needs:* B09.
-- [ ] **B11 Progress engine.** IndexedDB attempt log, strict-order "next card" logic, unit and chapter completion %, all-time problems-solved counter, active-time tracking (pauses when idle or in the background). *Needs:* B08.
-- [ ] **B12 Account + sync.** Cloudflare Worker + D1, email one-time-code login, QR pairing for new devices, attempt-log sync, export/backup button. *Needs:* B11, B09.
-- [ ] **B13 Practice mistakes.** Separate "Practice mistakes" button. Missed exercises come back on a spaced-repetition schedule (ts-fsrs) as variants with random parameters, and the answer is computed per variant. *Needs:* B04, B11.
+- [x] **B10 PWA + offline.** Manifest, icons, service worker, iOS "Add to Home Screen" install. Content downloads chapter by chapter. *Needs:* B09.
+- [x] **B11 Progress engine.** IndexedDB attempt log, strict-order "next card" logic, unit and chapter completion %, all-time problems-solved counter, active-time tracking (pauses when idle or in the background). *Needs:* B08.
+- [x] **B12 Account + sync.** Cloudflare Worker + D1, email one-time-code login, QR pairing for new devices, attempt-log sync, export/backup button. *Needs:* B11, B09.
+- [x] **B13 Practice mistakes.** Separate "Practice mistakes" button. Missed exercises come back on a spaced-repetition schedule (ts-fsrs) as variants with random parameters, and the answer is computed per variant. *Needs:* B04, B11.
 
 **🎯 Milestone B: phone and computer in sync, works offline, separate mistakes practice.**
 
+> Status after B10–B13: the app installs to the iPhone Home Screen and works offline (the chapter you're in and the next one download automatically; Settings can download all 27 MB). Every card you finish goes into an append-only attempt log in IndexedDB, which drives "Continue", the % complete, problems solved and active time. Sign in by emailed code or a QR pairing code and the log syncs through a Worker + D1. Missed exercises come back under **Practice mistakes** on an FSRS schedule, with new numbers once a K-task adds a `variant` (none exist yet, so for now the original exercise comes back). Sync needs the one-time D1 + Resend setup in [DEPLOY.md](DEPLOY.md#b12-sync-setup-one-time).
+
 ## Stage C: Progress views (serious and minimal)
 
-> **Done early (home + progress pass):** the home screen now shows Calculus I, II and III as separate unit cards (a % and per-chapter bar on each), then the next units (Linear Algebra, Proofs, Spivak, and optional Differential Equations / PDE) and Rudin as the goal. A localStorage log (`src/lib/progress.svelte.ts`) records time in units, estimated pages read (reading-card words ÷ 350) and problems solved per day, which feeds a "This week" summary and a GitHub-style daily map. `#/calc/1` – `#/calc/3` list sections with progress. B11 still moves this log to IndexedDB, and B12 syncs it.
+> **Done early (home + progress pass):** the home screen now shows Calculus I, II and III as separate unit cards (a % and per-chapter bar on each), then the next units (Linear Algebra, Proofs, Spivak, and optional Differential Equations / PDE) and Rudin as the goal. Time, estimated pages read (reading-card words ÷ 350) and problems solved per day come from the B11 attempt log (`src/lib/progress.svelte.ts` summarizes it), so they sync with B12. They feed a "This week" summary and a GitHub-style daily map. `#/calc/1` – `#/calc/3` list sections with progress. Any progress recorded in the earlier localStorage log is imported into the attempt log once.
 
 - [ ] **B14 Home screen.** "Continue" button, % of Calc I–III complete, all-time problems solved, total time spent. *Needs:* B11.
 - [ ] **B15 Course map.** Volumes → chapters → sections in table-of-contents layout, a % bar on each, ✓ on finished sections, tap a section for its stats or to redo it. *Needs:* B11.

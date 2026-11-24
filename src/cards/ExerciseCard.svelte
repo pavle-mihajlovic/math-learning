@@ -13,7 +13,21 @@
    * Auto-checked flow (D13): check → ✗ → one retry → ✗ → hint and one more try → ✗ → step-by-step solution.
    * Self-check flow: reveal the answer, then mark ✓ or ✗ yourself.
    */
-  let { exercise, unitId, ondone }: { exercise: Exercise; unitId: string; ondone: (o: Outcome) => void } = $props();
+  let {
+    exercise,
+    unitId,
+    ondone,
+    kicker,
+    computedAnswer,
+  }: {
+    exercise: Exercise;
+    unitId: string;
+    ondone: (o: Outcome) => void;
+    /** Replaces the source line at the top (Practice mistakes). */
+    kicker?: string;
+    /** Answer computed for a variant's numbers, shown instead of the book's solution. */
+    computedAnswer?: string;
+  } = $props();
 
   const auto = $derived(exercise.check === 'auto' && !!exercise.answer);
   const hasHints = $derived((exercise.hints?.length ?? 0) > 0);
@@ -101,7 +115,7 @@
 
 <article class="card">
   <div class="kicker">
-    {sourceLabel(unitId, exercise.number)}{#if exercise.review} · Chapter review{/if}
+    {kicker ?? sourceLabel(unitId, exercise.number)}{#if exercise.review && !kicker} · Chapter review{/if}
   </div>
   {#if exercise.instructions?.length}
     <div class="content instructions"><Blocks blocks={exercise.instructions} /></div>
@@ -145,7 +159,10 @@
             </ol>
           </div>
         {/if}
-        {#if exercise.solution}
+        {#if computedAnswer}
+          <div class="tag">Answer for these numbers</div>
+          <p class="content">{@html inlineHtml(computedAnswer)}</p>
+        {:else if exercise.solution}
           <SolutionLabel label={exercise.solution.label} />
           <div class="content"><Blocks blocks={exercise.solution.body} /></div>
         {:else}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { dayKey, fmtPages, fmtTime, progress, weekStart, type DayStats } from './progress.svelte';
+  import { dayKey, dayStats, fmtPages, fmtTime, weekStart, type DayStats } from './progress.svelte';
 
   type Metric = 'problems' | 'pages' | 'ms';
   let metric = $state<Metric>('problems');
@@ -53,7 +53,7 @@
 
   let picked = $state<string>(todayKey);
   const pickedDate = $derived(new Date(picked + 'T12:00:00'));
-  const pickedStats = $derived(progress.days[picked]);
+  const pickedStats = $derived(dayStats(picked));
 
   let scroller: HTMLDivElement | undefined = $state();
   $effect(() => {
@@ -78,7 +78,7 @@
           {#if c.future}
             <span class="cell future" aria-hidden="true"></span>
           {:else}
-            {@const d = progress.days[c.key]}
+            {@const d = dayStats(c.key)}
             {@const v = metric === 'ms' ? (d?.ms ?? 0) : metric === 'pages' ? (d?.pages ?? 0) : (d?.problems ?? 0)}
             <button
               class="cell l{level(v)}"

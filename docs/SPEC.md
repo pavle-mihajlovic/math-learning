@@ -87,11 +87,19 @@ Importers (scripts/, run in chats)
   (later: PDF/photo importer for Spivak, Abbott, Rudin)
 Content chats (K-tasks): required reading, checkable answer formats, solutions for
   exercises without book answers, hints, variants, proof cards → validator + SymPy check
-Static PWA on Cloudflare Pages: Svelte + Vite + TypeScript, KaTeX, own answer checker (src/check),
+Static PWA on Cloudflare Workers static assets: Svelte + Vite + TypeScript, KaTeX, own answer checker (src/check),
   MathLive (visual editor mode), ts-fsrs scheduler, IndexedDB, service worker
 Cloudflare Worker + D1: email login (one-time code by email, through a free email API)
   + QR device pairing + attempt-log sync
 ```
+
+### Attempt log and sync (B11–B13)
+- Every finished card is an **event** (`src/progress/events.ts`): `read`, `ex` (main flow), `review` (Practice mistakes), `time` (active time), `set` (a synced setting). Events are append-only and have random ids.
+- Everything shown is **derived** from the log (`src/progress/derive.ts`): a unit's % = (reading cards read + exercises finished, right or wrong) ÷ (reading cards + exercises); proof cards don't count. "Continue" opens the first unfinished unit in book order, at its first unread card or unfinished exercise. **Problems solved** counts every exercise finished correctly, in the main flow or in practice, redos included.
+- **Practice mistakes** (`src/practice/queue.ts`): an exercise enters the queue when you miss it in the main flow (wrong, or you needed the solution of an auto-checked exercise). Practice results feed FSRS (ts-fsrs, no fuzz, so every device computes the same schedule): first-try right = Good, right after retries = Hard, wrong or needed the solution = Again. A miss in a redo also counts as Again. Each review draws new numbers from the exercise's `variant` with a seed from the exercise and review count; without a variant the original exercise comes back.
+- **Sync**: the device pushes events the server hasn't acknowledged and pulls everything after its cursor. The server stores events with `INSERT OR IGNORE` by id, so there are no conflicts. The newest `set` event per key wins.
+- **Login**: one account (the `OWNER_EMAIL` secret). A 6-digit code is emailed through Resend (10 minutes, 5 tries). A signed-in device can show a QR pairing code (single use, 10 minutes) for another device. Sessions are random tokens in an HttpOnly, SameSite=Strict cookie; the database stores only their SHA-256.
+- The app works fully without signing in; the account only adds sync. Settings has an export/restore of the whole log as a JSON file.
 - **Figures:** OpenStax diagrams (CC BY-NC-SA) are included as resized WebP files. They are shown on a light rounded panel, so they're readable in dark mode.
 - **Attribution:** a footer on each unit credits OpenStax (CC BY-NC-SA 4.0) and links the original section.
 

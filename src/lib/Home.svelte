@@ -1,14 +1,15 @@
 <script lang="ts">
   import type { BookIndex } from '../content/types';
   import { loadIndex } from '../content/load';
-  import { lastUnit } from './settings.svelte';
   import { CALC, NEXT } from './subjects';
   import Heatmap from './Heatmap.svelte';
-  import { fmtPages, fmtTime, progress, streak, sumDays, weekKeys, weekStart } from './progress.svelte';
+  import { dayStats, fmtPages, fmtTime, solvedIn, streak, sumDays, weekKeys, weekStart } from './progress.svelte';
+  import { nextUnitId, unitComplete } from '../progress/derive';
+  import { progress } from '../progress/store.svelte';
+  import { mistakes } from '../practice/store.svelte';
 
   let index = $state<BookIndex | null>(null);
   let error = $state('');
-  const last = lastUnit();
 
   loadIndex().then((i) => (index = i)).catch((e: Error) => (error = e.message));
 
@@ -18,8 +19,8 @@
       const v = index!.volumes.find((x) => x.volume === meta.volume);
       const chapters = (v?.chapters ?? []).map((c) => {
         const total = c.units.reduce((a, u) => a + u.exercises, 0);
-        const solved = c.units.reduce((a, u) => a + Math.min(u.exercises, progress.solved[u.id]?.length ?? 0), 0);
-        const done = c.units.filter((u) => progress.completed[u.id]).length;
+        const solved = c.units.reduce((a, u) => a + Math.min(u.exercises, solvedIn(u.id)), 0);
+        const done = c.units.filter((u) => unitComplete(progress.d, u)).length;
         return { chapter: c.chapter, title: c.title, total, solved, done, units: c.units.length };
       });
       const total = chapters.reduce((a, c) => a + c.total, 0);
@@ -46,19 +47,19 @@
   }
 
   const thisWeek = $derived.by(() => {
-    void progress.days;
+    void progress.d;
     const start = weekStart();
     const prevStart = new Date(start);
     prevStart.setDate(prevStart.getDate() - 7);
     const week = sumDays(weekKeys(start));
     const prev = sumDays(weekKeys(prevStart));
-    const days = weekKeys(start).map((k) => progress.days[k]?.problems ?? 0);
+    const days = weekKeys(start).map((k) => dayStats(k)?.problems ?? 0);
     return { week, prev, days };
   });
 
-  const allTime = $derived(sumDays(Object.keys(progress.days)));
+  const allTime = $derived(sumDays(progress.d.days.keys()));
   const streakDays = $derived.by(() => {
-    void progress.days;
+    void progress.d;
     return streak();
   });
 
@@ -69,6 +70,10 @@
     return `${d >= 0 ? '▲' : '▼'} ${fmt(Math.abs(d))} vs last wk`;
   }
 
+  const nextId = $derived(index ? nextUnitId(progress.d, index) : 'V1.1.1');
+  const started = $derived(progress.d.read.size > 0 || progress.d.done.size > 0);
+  const due = $derived(mistakes.due().length);
+
   const dayNames = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   const todayIdx = (new Date().getDay() + 6) % 7;
 </script>
@@ -78,7 +83,12 @@
   <a href="#/settings" class="settings">Settings</a>
 </header>
 
-<a class="btn primary continue" href="#/unit/{last ?? 'V1.1.1'}">{last ? 'Continue' : 'Start'} · §{(last ?? 'V1.1.1').slice(3)}</a>
+{#if nextId}
+  <a class="btn primary continue" href="#/continue">{started ? 'Continue' : 'Start'} · §{nextId.slice(3)}</a>
+{:else}
+  <p class="feedback good">You’ve finished Calculus I–III.</p>
+{/if}
+<a class="btn practice" href="#/practice">Practice mistakes{#if due} <span class="badge">{due}</span>{/if}</a>
 
 <!-- This week -->
 <section class="week" aria-label="This week">
@@ -174,7 +184,7 @@
   <h2 class="caps">Activity</h2>
   <Heatmap />
   <p class="all-time">
-    All time: <strong>{Object.values(progress.solved).reduce((a, l) => a + l.length, 0).toLocaleString()}</strong> problems ·
+    All time: <strong>{progress.d.solved.toLocaleString()}</strong> problems ·
     <strong>{fmtPages(allTime.pages)}</strong> pages · <strong>{fmtTime(allTime.ms)}</strong>
   </p>
 </section>
@@ -183,7 +193,9 @@
   .top { display: flex; justify-content: space-between; align-items: baseline; padding-top: calc(18px + env(safe-area-inset-top, 0px)); }
   h1 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 0 0 16px; }
   .settings { font-size: 0.9rem; color: var(--muted); }
-  .continue { width: 100%; margin-bottom: 22px; }
+  .continue { width: 100%; margin-bottom: 10px; }
+  .practice { width: 100%; margin-bottom: 22px; }
+  .badge { background: var(--text); color: var(--bg); border-radius: 999px; padding: 0 0.55em; font-size: 0.8rem; margin-left: 0.4em; font-variant-numeric: tabular-nums; }
   .caps, .sec-head h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; margin: 0; }
   section { margin-bottom: 30px; }
 
