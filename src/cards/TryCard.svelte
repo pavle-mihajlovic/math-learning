@@ -8,7 +8,10 @@
   import SolutionLabel from './SolutionLabel.svelte';
 
   /** A worked example or checkpoint: "try it first", then see the book's solution (D23). */
-  let { card, ondone }: { card: TryCard; ondone: () => void } = $props();
+  let { card, ondone }: { card: TryCard; ondone: (solved: boolean) => void } = $props();
+
+  /** Checkpoints count as problems: solved when auto-checked correct, or (no answer to type) worked on paper. */
+  const finish = () => ondone(card.answer ? result?.correct === true : true);
 
   let values = $state<string[]>([]);
   let result = $state<CheckResult | null>(null);
@@ -25,7 +28,7 @@
     if (!revealed) {
       if (card.answer && values.some((v) => v.trim())) submit();
       else revealed = true;
-    } else ondone();
+    } else finish();
   }
 </script>
 
@@ -57,7 +60,7 @@
       {#if card.answer}<button class="btn primary" onclick={submit}>Check <kbd>Enter</kbd></button>{/if}
       <button class="btn" class:primary={!card.answer} onclick={() => (revealed = true)}>Show solution</button>
     {:else}
-      <button class="btn primary" onclick={ondone}>Got it <kbd>Space</kbd></button>
+      <button class="btn primary" onclick={finish}>Got it <kbd>Space</kbd></button>
     {/if}
   </div>
 </article>

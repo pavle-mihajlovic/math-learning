@@ -33,6 +33,11 @@ export interface ReadEvent extends Base {
   item: string;
   /** Estimated book pages the card covers (words ÷ 350), for the "pages read" stats. */
   pages?: number;
+  /**
+   * Checkpoint problems only: set when the checkpoint was finished with "Got it" (true = solved).
+   * Counts toward problems solved/attempted, but never toward first-try accuracy.
+   */
+  solved?: boolean;
 }
 
 /** An exercise finished in the main flow (first time or a redo). */

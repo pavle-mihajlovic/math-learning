@@ -12,7 +12,7 @@ export interface DayStats {
   ms: number;
   /** Estimated book pages read. */
   pages: number;
-  /** Exercises solved (main flow and Practice mistakes). */
+  /** Problems solved: exercises (main flow and Practice mistakes) and checkpoints. */
   problems: number;
 }
 

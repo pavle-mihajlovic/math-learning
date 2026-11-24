@@ -26,7 +26,7 @@ export interface Derived {
   correct: Map<string, Set<string>>;
   /** Result of the very first main-flow attempt at each exercise (`V1.2.3/e59` → right on the first try?). */
   first: Map<string, boolean>;
-  /** All-time count of exercises finished correctly, main flow and practice, redos included. */
+  /** All-time count of problems finished correctly: exercises (main flow and practice, redos included) and checkpoints. */
   solved: number;
   /** Total active study time in ms. */
   ms: number;
@@ -68,6 +68,15 @@ export function derive(events: readonly Event[]): Derived {
         const seen = d.read.get(e.unit)?.has(e.item);
         add(d.read, e.unit, e.item);
         if (!seen && e.pages) day(e.t).pages += e.pages;
+        // A finished checkpoint is a problem (solved/attempted), but stays out of accuracy.
+        if (typeof e.solved === 'boolean') {
+          const s = day(e.t);
+          s.attempted++;
+          if (e.solved) {
+            d.solved++;
+            s.solved++;
+          }
+        }
         break;
       }
       case 'ex':

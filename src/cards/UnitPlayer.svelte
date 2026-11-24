@@ -91,6 +91,15 @@
     next();
   }
 
+  /** "Got it" on a try card. Checkpoints are also logged as a problem (not for accuracy). */
+  function finishTry(solved: boolean) {
+    const cur = steps[at];
+    if (cur?.kind === 'reading' && cur.card.kind === 'checkpoint') {
+      progress.recordCheckpoint(unitId, cur.card.id, solved, cardPages(cur.card));
+      go(at + 1, false);
+    } else next();
+  }
+
   function skipProofs() {
     const i = steps.findIndex((s) => s.kind === 'complete');
     go(i, false);
@@ -217,7 +226,7 @@
           {/if}
           <TextCard card={step.card} ondone={next} />
         {:else}
-          <TryCard bind:this={cardRef} card={step.card} ondone={next} />
+          <TryCard bind:this={cardRef} card={step.card} ondone={finishTry} />
         {/if}
         {#if at > 0 && steps[at - 1]?.kind === 'reading'}
           <button class="link back" onclick={prev}>← Previous card</button>
