@@ -1,93 +1,96 @@
-# Spec sheet (draft v0, to be revised after QUESTIONS.md is answered)
+# Spec sheet (v1, after round-1 answers)
 
 ## 1. Product in one sentence
-A private, phone-first practice app. It turns your math textbook PDFs into an endless, spaced-repetition stream of problems with solutions, usable in 60-second bursts and synced across devices.
+A private web app, installed to the iPhone home screen, that serves bite-sized lessons and auto-checked practice problems. It covers precalculus → Calc I–III → linear algebra → proofs → analysis, and is built toward Baby Rudin and Big Rudin. It works in 1–2 minute bursts and syncs between phone and computer.
 
-## 2. Hard requirements
-1. **Zero setup per session.** Tap the home-screen icon and a problem is on screen in under 2 seconds. No menus first.
-2. **Never scroll a PDF.** Each problem shows on its own screen, and the solution is revealed step by step.
-3. **Sync** between phone and computer, automatically. Offline works and syncs later.
-4. **Problems and solutions come from real books.** Every problem stores its source (book, section, problem number, page).
-5. **Volume.** Thousands of problems per subject, with spaced repetition so they don't pile up.
-6. **Scales to proofs.** The same app works for Stewart and for Rudin.
+## 2. Decisions so far
 
-## 3. Core loop (the two-minute session)
-```
-open app → problem card (KaTeX)
-        → [work on paper / in head]
-        → tap "Answer"  → compare (or type answer → auto-check)
-        → tap "Solution" → steps revealed one at a time
-        → self-grade ✗ / ~ / ✓   → scheduler picks the next card
-        → swipe for the next one; quit anytime, nothing lost
-```
-
-## 4. Card types
-| Type | Best for | Phone-friendly? |
+| # | Decision | Why |
 |---|---|---|
-| Compute → reveal → self-grade | Most calculus and linear algebra | ✅✅ |
-| Compute → type answer → auto-check | Numeric and short symbolic answers | ✅ (needs a math keyboard) |
-| Multiple choice / "which method?" | Picking the right technique (e.g. which integration method?) | ✅✅ |
-| Definition / theorem recall | Every phase, especially Rudin | ✅✅ |
-| Proof reorder (shuffled proof steps) | Phases 0, 4, 5, 7 | ✅✅ |
-| Proof fill-in-the-gap | Phases 4, 5, 7 | ✅ |
-| True/false + counterexample | Analysis | ✅✅ |
-| Full proof write-up → AI critique | Rudin exercises | Computer or photo of paper |
-| Photo of handwritten work → AI feedback | Long computations | ✅ |
+| D1 | **Web app (PWA)** added to the iPhone home screen. No App Store, no Mac needed. | No Mac means no native iOS build; a PWA opens like an app. |
+| D2 | **Typed answers, auto-checked.** No handwriting or scanning in the core loop. | Your preference; scanning stays an optional later feature. |
+| D3 | **Content comes from chats.** Each unit is made in one Claude chat or Claude Code session and saved as JSON in this repo. | No API bill; the "AI-generated bite-sized chunks" you asked for. |
+| D4 | **Solution priority: human > AI verified by a math library (SymPy) > AI**, and the app labels which one you're seeing. | You prefer human solutions, and AI ones are OK if labeled. |
+| D5 | **Start with free textbooks** (OpenStax Calculus 1–3, Hefferon *Linear Algebra*, Hammack *Book of Proof*, Axler *Linear Algebra Done Right* 4e). Add PDFs you own later. | You have no PDFs yet; these are legal, and several have human-written solutions. |
+| D6 | **Review everything from scratch**, starting with a short precalculus refresh. | It's been 7 years. |
+| D7 | **Hosting $0:** Cloudflare Pages for the app, plus a Cloudflare Worker with a D1 database for sync. | Free tiers, no monthly bill, and the database never pauses for inactivity (Supabase's free tier does). |
+| D8 | **I write the code; you use the app.** Each roadmap task is one chat: you paste the task ID and the chat does it and opens a pull request. | This was question 7, and you don't need to code. |
+| D9 | **Repo stays private.** If commercial-book content is added, the site goes behind Cloudflare Access (an email login that lasts a month). | Avoids publishing copyrighted material. |
 
-## 5. Architecture (proposed)
+## 3. Hard requirements
+1. Tap the icon and a problem or lesson card is on screen in under 2 s. No menus first.
+2. Everything fits on one phone screen per step. You never scroll a PDF.
+3. Typing math on an iPhone is fast: a helper key row and a live rendered preview.
+4. Answer checking runs **in the browser**, so it works offline.
+5. Progress syncs automatically. Offline works and syncs later.
+6. Every problem records its source (book and number, or "AI") and which kind of solution it has.
 
+## 4. The two-minute loop
 ```
- ┌───────────── Ingestion (runs on your computer or in a cloud session) ─────────────┐
- │ PDF → page images → Claude vision → JSON problems/solutions → validator → review UI │
- │                              ↘ SymPy check for computational answers               │
- └──────────────────────────────────────────┬─────────────────────────────────────────┘
-                                            ▼
-                         Database (Supabase Postgres + storage for figures)
-                                            ▲
- ┌──────────────────────────────────────────┴─────────────────────────────────────────┐
- │  PWA (installable on phone and desktop): KaTeX, offline cache, FSRS scheduler       │
- │  optional server functions: answer checking (SymPy), AI hints and grading (Claude)  │
- └─────────────────────────────────────────────────────────────────────────────────────┘
+open → next card in today's queue
+  ├─ Lesson card: short concept / worked example → "Got it"
+  └─ Problem card: statement → type answer (live preview) → Check
+        ✓ → optional "see solution" → next
+        ✗ → retry once  or  "Hint" → retry  or  "Show solution" (step by step)
+  → scheduler records the result → next card; quit anytime
 ```
+A wrong problem comes back later through spaced repetition, ideally as a **variant with new numbers** rather than the same problem.
 
-Default stack (to confirm):
-- **Frontend:** SvelteKit or Next.js as a PWA, KaTeX for rendering, MathLive for math input.
-- **Backend:** Supabase (auth, Postgres, storage, edge functions). Free tier is enough for one user.
-- **Hosting:** Vercel or Cloudflare Pages, so it's just a URL with no app store.
-- **Ingestion:** Python scripts using PyMuPDF (PDF to images) and the Claude API (vision extraction, structured output).
-- **Scheduler:** FSRS (open-source spaced repetition algorithm, used by Anki).
+## 5. Content structure
+- **Track:** A (precalc), C1, C2, C3, L (linear algebra), P (proofs), then R (analysis).
+- **Unit:** one topic, e.g. `C121 u-substitution`. Units are listed in [CURRICULUM.md](CURRICULUM.md).
+- **Chunk:** about 2 minutes. One concept card, one worked example, and 3–5 problems.
+- **Unit size:** 4–8 chunks, a mixed review set, and 40–60 problems in total.
 
-Alternative with almost nothing to build: export the cards to **Anki** (syncs phone and desktop with AnkiWeb). It's cheap, but you lose auto-checking, step-by-step reveal and AI hints. It could serve as an M2 fallback.
+### Answer kinds the checker must support
+| Kind | Example answer | How it's checked |
+|---|---|---|
+| number | `-3/4`, `2.718` | exact value or within a tolerance |
+| expression | `x^2*e^x + C` | evaluate both expressions at random points; `+C` handled |
+| equation | `y = 2x + 1` | rearrange to one side and compare, up to a constant multiple |
+| interval / set | `(-inf, 2] U (3, 5)`, `{1, -2}` | parse and compare |
+| vector / matrix | `[1, 2, 3]`, `[[1,0],[0,1]]` | compare entry by entry |
+| special | `DNE`, `inf`, `-inf` | exact keyword |
+| choice | multiple choice / true-false | exact match |
+| multi-part | (a)…(b)… | each part checked separately |
+| proof-ish | reorder steps, fill a gap | exact order or exact gap answer (rigorous proofs are a later AI-critique feature) |
 
-## 6. Data model (sketch)
+### Problem JSON (sketch, formalized in task B02)
+```json
+{
+  "id": "C121-017",
+  "unit": "C121",
+  "chunk": 3,
+  "difficulty": 2,
+  "statement": "Evaluate $\\int x\\cos(x^2)\\,dx$.",
+  "answer": { "kind": "expression", "value": "sin(x^2)/2 + C", "var": ["x"] },
+  "hints": ["Let $u = x^2$."],
+  "solution": ["Let $u=x^2$, $du = 2x\\,dx$.", "$\\tfrac12\\int\\cos u\\,du = \\tfrac12\\sin u + C$."],
+  "solution_source": "ai_verified",
+  "source": { "type": "ai" },
+  "variant_of": null
+}
 ```
-Book(id, title, edition, license, pdf_hash)
-Unit(id, book_id, chapter, section, title, skills[])
-Problem(id, unit_id, number, page, type,
-        statement_tex, figures[], answer_tex, answer_kind{numeric|symbolic|choice|proof|none},
-        solution_steps_tex[], solution_source{book|manual|ai|ai_verified|community},
-        difficulty, skills[], status{draft|approved|rejected})
-Card(id, problem_id, card_kind)       -- one problem can produce several cards
-ReviewState(card_id, user_id, fsrs_stability, fsrs_difficulty, due_at, lapses)
-Attempt(id, card_id, at, grade, typed_answer?, photo?, time_spent_s, hint_level_used)
+`solution_source` is one of `book`, `ai_verified`, `ai`. `source.type` is `book` (with book, section and number) or `ai`.
+
+## 6. Architecture
 ```
+Content chats (Claude Code on this repo)
+  → content/<track>/<unit>.json  (checked by the validator + SymPy) → git → Cloudflare Pages build
+Phone / computer browser (PWA)
+  ├─ content bundle (cached offline by the service worker)
+  ├─ answer checker (TypeScript, math.js)
+  ├─ FSRS scheduler (ts-fsrs) + IndexedDB local progress
+  └─ sync ⇄ Cloudflare Worker + D1   (append-only attempt log, keyed by a one-time "sync code")
+```
+- **Stack:** Svelte + Vite + TypeScript, KaTeX, math.js, ts-fsrs.
+- **Sync:** each device sends its new attempts and pulls the others. Because the log is append-only, merging never conflicts. You set up a device once by pasting the sync code or scanning a QR code.
+- **Optional later:** AI hints and photo critique through the Claude API, pay-per-use and off by default.
 
-## 7. Ingestion pipeline details
-1. **Register** the PDF: hash it, record the book metadata, and map PDF page numbers to printed page numbers.
-2. **Segment**: find exercise sections, using the table of contents or the PDF outline when present.
-3. **Extract**: send page images to Claude and get back JSON for each problem, with LaTeX, the problem number and any figure regions.
-4. **Answer match**: extract the answer key and solution-manual pages, then join them on (chapter, section, number).
-5. **Fill gaps**: generate a solution for any problem that has none. Verify it with SymPy when the answer is computational; otherwise flag it.
-6. **Validate**: check that the LaTeX compiles in KaTeX, that no problem numbers are missing, and that answers are present.
-7. **Review**: a desktop screen showing the problem side by side with the PDF crop: approve, edit or reject.
-8. **Publish** to the database.
+## 7. Later phases (not in v1)
+- Turning PDFs into problems, for books you provide (each chapter is one chat).
+- Proof critique for Abbott and Rudin exercises, typed on a computer.
+- Push reminders (iOS supports these for home-screen web apps).
 
-Measured in M1: accuracy, cost per page, and minutes of human review per 100 problems.
-
-## 8. Non-goals (for now)
-- Multiple users, social features, or a public app store release.
-- Video lectures (link out to them instead).
-- Building a theorem prover or Lean checker. Maybe later for Rudin, but not before M7.
-
-## 9. Open decisions
-See [QUESTIONS.md](QUESTIONS.md).
+## 8. Non-goals
+A native iOS app, multiple users, social features, and video.
