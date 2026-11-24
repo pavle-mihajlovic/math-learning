@@ -1,40 +1,51 @@
-# Deploy (B09): Cloudflare Pages
+# Deploy (B09): Cloudflare Workers
 
-About 5 minutes of clicking. The site is static (`npm run build` → `dist/`), and every push to `main` redeploys it automatically.
+The site is static: `npm run build` writes `dist/`, and Cloudflare Workers serves it as static assets (configured in `wrangler.jsonc`). Every push to `main` redeploys it automatically.
 
-## One-time setup
+## One-time setup (already done)
 
-1. Go to **dash.cloudflare.com** and sign in (or create a free account).
-2. In the left sidebar, open **Compute (Workers) → Workers & Pages**. Click **Create**, choose the **Pages** tab, then **Connect to Git** (Import an existing Git repository).
-3. Click **Connect GitHub**. In the GitHub window, choose **Only select repositories**, pick **math-learning**, and click **Install & Authorize**. Cloudflare only needs read access, and the repo stays private.
-4. Back in Cloudflare, select **math-learning** and click **Begin setup**.
-5. Fill in the build settings:
-   - **Project name:** `road-to-rudin` (this becomes `road-to-rudin.pages.dev`; pick another if it's taken)
-   - **Production branch:** `main`
-   - **Framework preset:** `None`
+1. Go to **dash.cloudflare.com** → **Compute (Workers) → Workers & Pages** → **Create** → **Import a repository**.
+2. Connect GitHub and select **pavle-mihajlovic/math-learning**. Cloudflare only needs read access; the repo stays private.
+3. Fill in **Set up your application**:
+   - **Project name:** `road-to-rudin`
    - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-   - Under **Environment variables (advanced)**, add `NODE_VERSION` = `22`
-6. Click **Save and Deploy**. The first build takes about a minute.
-7. Open `https://road-to-rudin.pages.dev` (or the name you chose):
-   - **iPhone:** open it in Safari. Tap Share → **Add to Home Screen** for an app icon. Full offline support comes in B10.
-   - **Windows / Linux:** open it in Chrome, Edge or Firefox.
+   - **Deploy command:** `npx wrangler deploy`
+   - **Preview command:** `npx wrangler versions upload`
+   - **Enable Preview builds:** on (pull requests get their own preview URL)
+   - **Protect with Cloudflare Access:** optional, see below
+   - **Advanced settings:** leave Path as `/` and the API token on "Create new token". Add the variable `NODE_VERSION` = `22`.
+4. Click **Deploy**. The site appears at `https://road-to-rudin.<your-subdomain>.workers.dev`.
 
-Pull requests also get their own preview URL (`<hash>.road-to-rudin.pages.dev`), which Cloudflare posts on the PR.
+The production branch is the repo's default branch (`main`). To change it later, go to the project's **Settings → Builds**.
+
+> The first deploy used the commands `npx wrangler deploy --assets=./dist --name=road-to-rudin --compatibility-date=2026-11-01` (and the same flags for `versions upload`), because `wrangler.jsonc` didn't exist yet. Both forms work. Now that the config file exists, the short commands above are enough, and you can simplify them in **Settings → Builds** if you like.
+
+## Opening it on your devices
+
+**iPhone**
+
+1. Open the `workers.dev` URL in **Safari**. (Only Safari can add it to the Home Screen as an app.)
+2. Tap **Share** (the square with an arrow) → **Add to Home Screen** → **Add**.
+3. Open it from the new **Road to Rudin** icon. It runs full screen, without Safari's address bar.
+
+Offline use comes with B10. Until then it needs a connection.
+
+**Windows / Linux**
+
+Open the URL in Chrome, Edge or Firefox, and bookmark it. Keyboard shortcuts: Enter = check, Space = next, H = hint, Y/N = self-check.
 
 ## Keeping it private until login exists (optional)
 
-The URL isn't linked anywhere and `noindex` is set, but anyone with the link can open it until B12 adds login. The calculus content is OpenStax (CC BY-NC-SA), so this is fine. To lock it now anyway:
+Until B12 adds login, anyone with the link can open the site. The URL isn't published anywhere and search engines are told not to index it. The calculus content is OpenStax (CC BY-NC-SA), so this is fine. To lock it anyway:
 
-1. In the Pages project, open **Settings → General → Access policy** and click **Manage** (this uses Cloudflare Zero Trust, which is free for up to 50 users).
-2. Add an **Allow** policy with **Include → Emails →** your email address.
-3. Visiting the site then asks for a one-time code sent to that email.
+- In the project, open **Settings → Domains & Routes**. Next to the `workers.dev` route, enable **Cloudflare Access** (free for up to 50 users).
+- Add an **Allow** policy for your email address. Opening the site then asks for a one-time code sent to that email.
 
-## What the build includes
+## What gets deployed
 
-- `dist/content/os-calc/*.json`: 110 units plus `index.json` (about 9 MB in total, loaded one unit at a time)
+- `dist/content/os-calc/*.json`: 110 units plus `index.json` (about 9 MB, loaded one unit at a time)
 - `dist/figures/os-calc/*.webp`: about 1,550 figures (about 18 MB)
 - `dist/mathlive/fonts`: fonts for the visual editor, served locally
-- `public/_headers`: long cache lifetimes for hashed assets and figures; content JSON is always revalidated so content PRs show up right away
+- `public/_headers`: long cache lifetimes for hashed assets and figures; content JSON is always revalidated, so content PRs show up right away
 
-Cloudflare Pages' limits (20,000 files, 25 MiB per file) are far away.
+Workers static assets allow 20,000 files and 25 MiB per file, far more than this needs.
