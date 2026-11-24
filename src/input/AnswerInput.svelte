@@ -24,6 +24,9 @@
     answer.kind === 'multi' ? answer.parts.map((p) => ({ label: p.label, answer: p.answer })) : [{ label: null, answer }],
   );
 
+  /** Bare part letters ("a", "b2") get a period and sit beside the input; longer labels ("domain", "$y$-intercept") sit above it. */
+  const isShortLabel = (label: string) => /^[a-z0-9]{1,3}$/i.test(label);
+
   /** The part whose math keys are shown. It stays put on blur so tapping Check doesn't shift the layout. */
   let active = $state(0);
 
@@ -61,8 +64,8 @@
 
 <div class="answer-input">
   {#each parts as p, i (i)}
-    <div class="answer-part" class:right={partStates[i] === true} class:wrong={partStates[i] === false}>
-      {#if p.label}<span class="label">{p.label}.</span>{/if}
+    <div class="answer-part" class:stacked={p.label && !isShortLabel(p.label)} class:right={partStates[i] === true} class:wrong={partStates[i] === false}>
+      {#if p.label}<span class="label">{@html inlineHtml(isShortLabel(p.label) ? `${p.label}.` : p.label)}</span>{/if}
       <div class="field">
         {#if p.answer.prompt}<div class="prompt">{@html inlineHtml(p.answer.prompt)}</div>{/if}
         {#if p.answer.kind === 'choice'}
@@ -100,6 +103,9 @@
   .answer-input { display: flex; flex-direction: column; gap: 14px; }
   .answer-part { display: flex; gap: 10px; align-items: flex-start; }
   .label { font-weight: 600; color: var(--muted); padding-top: 12px; min-width: 1.4em; }
+  .answer-part.stacked { flex-direction: column; gap: 4px; }
+  .answer-part.stacked .label { padding-top: 0; }
+  .answer-part.stacked .field { width: 100%; }
   .field { flex: 1; min-width: 0; }
   .prompt { font-size: 0.88rem; color: var(--muted); margin-bottom: 4px; }
   .answer-part.right :global(.field input), .answer-part.right :global(math-field) { border-color: var(--good); }

@@ -13,6 +13,8 @@ export interface DayStats {
   solved: number;
   attempted: number;
   ms: number;
+  /** Estimated book pages read (first read of each card only). */
+  pages: number;
 }
 
 export interface Derived {
@@ -20,6 +22,8 @@ export interface Derived {
   read: Map<string, Set<string>>;
   /** Exercises finished in the main flow (right or wrong), per unit. */
   done: Map<string, Set<string>>;
+  /** Exercises solved correctly at least once in the main flow, per unit. */
+  correct: Map<string, Set<string>>;
   /** Result of the very first main-flow attempt at each exercise (`V1.2.3/e59` → right on the first try?). */
   first: Map<string, boolean>;
   /** All-time count of exercises finished correctly, main flow and practice, redos included. */
@@ -45,25 +49,29 @@ function add<K>(m: Map<K, Set<string>>, k: K, v: string) {
 
 /** Events must be sorted by time (the store keeps them that way). */
 export function derive(events: readonly Event[]): Derived {
-  const d: Derived = { read: new Map(), done: new Map(), first: new Map(), solved: 0, ms: 0, days: new Map(), settings: {} };
+  const d: Derived = { read: new Map(), done: new Map(), correct: new Map(), first: new Map(), solved: 0, ms: 0, days: new Map(), settings: {} };
   const settingAt: Record<string, number> = {};
   const day = (t: number) => {
     const k = dayKey(t);
     let s = d.days.get(k);
-    if (!s) d.days.set(k, (s = { solved: 0, attempted: 0, ms: 0 }));
+    if (!s) d.days.set(k, (s = { solved: 0, attempted: 0, ms: 0, pages: 0 }));
     return s;
   };
   for (const e of events) {
     switch (e.type) {
-      case 'read':
+      case 'read': {
+        const seen = d.read.get(e.unit)?.has(e.item);
         add(d.read, e.unit, e.item);
+        if (!seen && e.pages) day(e.t).pages += e.pages;
         break;
+      }
       case 'ex':
       case 'review': {
         if (e.type === 'ex') {
           add(d.done, e.unit, e.item);
           const k = itemKey(e.unit, e.item);
           if (!d.first.has(k)) d.first.set(k, e.correct && e.firstTry);
+          if (e.correct) add(d.correct, e.unit, e.item);
         }
         const s = day(e.t);
         s.attempted++;

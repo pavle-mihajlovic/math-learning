@@ -31,6 +31,8 @@ export interface ReadEvent extends Base {
   type: 'read';
   unit: string;
   item: string;
+  /** Estimated book pages the card covers (words ÷ 350), for the "pages read" stats. */
+  pages?: number;
 }
 
 /** An exercise finished in the main flow (first time or a redo). */

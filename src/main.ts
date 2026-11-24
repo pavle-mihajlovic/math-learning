@@ -6,9 +6,11 @@ import { registerServiceWorker } from './pwa/offline.svelte';
 import { progress } from './progress/store.svelte';
 import { startSync } from './sync/client.svelte';
 import { applySyncedSettings } from './lib/settings.svelte';
+import { importLegacyProgress } from './lib/progress.svelte';
 
 registerServiceWorker();
-progress.init().then(() => {
+progress.init().then(async () => {
+  await importLegacyProgress();
   applySyncedSettings();
   startSync();
 });

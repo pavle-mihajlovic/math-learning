@@ -196,3 +196,38 @@ describe('isEvent', () => {
     expect(isEvent(null)).toBe(false);
   });
 });
+
+describe('pages read and correct exercises', () => {
+  it('counts pages on the first read of a card only, and tracks correct exercises per unit', () => {
+    const t = new Date('2026-03-02T10:00:00').getTime();
+    const d = derive([
+      ev({ type: 'read', unit: 'V1.1.1', item: 'r1', pages: 0.5 }, t),
+      ev({ type: 'read', unit: 'V1.1.1', item: 'r1', pages: 0.5 }, t + 1),
+      ev({ type: 'ex', unit: 'V1.1.1', item: 'e1', ...miss }, t + 2),
+      ev({ type: 'ex', unit: 'V1.1.1', item: 'e2', ...ok }, t + 3),
+    ]);
+    expect(d.days.get('2026-03-02')?.pages).toBe(0.5);
+    expect([...(d.correct.get('V1.1.1') ?? [])]).toEqual(['e2']);
+  });
+});
+
+describe('legacy localStorage import', () => {
+  it('turns the old log into valid events', async () => {
+    const { legacyEvents } = await import('../lib/progress.svelte');
+    const evs = legacyEvents(
+      {
+        days: { '2026-11-23': { ms: 600000, pages: 1.2, problems: 2 } },
+        solved: { 'V1.1.1': ['e1', 'e3'] },
+        read: { 'V1.1.1': ['r1', 'r2'] },
+        completed: {},
+      },
+      'dev',
+    );
+    expect(evs.every(isEvent)).toBe(true);
+    const d = derive([...evs].sort((a, b) => a.t - b.t));
+    expect(d.ms).toBe(600000);
+    expect(d.correct.get('V1.1.1')?.size).toBe(2);
+    expect(d.read.get('V1.1.1')?.size).toBe(2);
+    expect(d.days.get('2026-11-23')).toMatchObject({ ms: 600000, pages: 1.2, solved: 2 });
+  });
+});

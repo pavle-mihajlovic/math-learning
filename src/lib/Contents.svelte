@@ -1,107 +1,76 @@
 <script lang="ts">
   import type { BookIndex } from '../content/types';
   import { loadIndex } from '../content/load';
-  import { courseFraction, nextUnitId, pct, unitFraction } from '../progress/derive';
+  import { CALC } from './subjects';
+  import { nextUnitId, unitComplete } from '../progress/derive';
   import { progress } from '../progress/store.svelte';
-  import { mistakes } from '../practice/store.svelte';
-  import { formatDuration } from './format';
+  import { solvedIn } from './progress.svelte';
 
-  /** Minimal table of contents with progress. B14/B15 replace it with the home screen and course map. */
+  /** One calculus unit's sections, with progress per chapter and section. */
+  let { volume }: { volume: number } = $props();
+
   let index = $state<BookIndex | null>(null);
   let error = $state('');
-
   loadIndex().then((i) => (index = i)).catch((e: Error) => (error = e.message));
 
-  const d = $derived(progress.d);
-  const nextId = $derived(index ? nextUnitId(d, index) : null);
-  const nextTitle = $derived.by(() => {
-    if (!index || !nextId) return '';
-    for (const v of index.volumes) for (const c of v.chapters) for (const u of c.units) if (u.id === nextId) return `§${c.chapter}.${u.id.split('.')[2]} ${u.title}`;
-    return '';
-  });
-  const course = $derived(index ? pct(courseFraction(d, index)) : 0);
-  const due = $derived(mistakes.due().length);
-  const started = $derived(d.read.size > 0 || d.done.size > 0);
-
-  function percent(x: number): string {
-    if (x > 0 && x < 0.001) return '<0.1%';
-    return `${(x * 100).toFixed(x < 0.1 ? 1 : 0)}%`;
-  }
+  const meta = $derived(CALC.find((c) => c.volume === volume) ?? CALC[0]);
+  const vol = $derived(index?.volumes.find((v) => v.volume === volume));
+  const solved = (id: string, total: number) => Math.min(total, solvedIn(id));
+  const nextId = $derived(index ? nextUnitId(progress.d, index) : null);
 </script>
 
-<header class="top">
-  <h1>Road to Rudin</h1>
-  <a href="#/settings" class="settings" aria-label="Settings">Settings</a>
+<header class="top" style="--c: {meta.color}">
+  <a href="#/" aria-label="Home">←</a>
+  <h1><span class="numeral">{meta.numeral}</span> {meta.name}</h1>
 </header>
 
 {#if error}
   <p class="feedback bad">{error}</p>
-{:else if !index}
+{:else if !vol}
   <p class="muted">Loading…</p>
 {:else}
-  {#if nextId}
-    <a class="btn primary continue" href="#/continue">
-      {started ? 'Continue' : 'Start'}<span class="next">{nextTitle}</span>
-    </a>
-  {:else}
-    <p class="feedback good">You’ve finished Calculus I–III.</p>
-  {/if}
-  <a class="btn practice" href="#/practice">Practice mistakes{#if due} <span class="badge">{due}</span>{/if}</a>
-
-  <dl class="stats">
-    <div><dt>Complete</dt><dd>{percent(course)}</dd></div>
-    <div><dt>Problems solved</dt><dd>{d.solved.toLocaleString()}</dd></div>
-    <div><dt>Time spent</dt><dd>{formatDuration(d.ms)}</dd></div>
-  </dl>
-
-  {#each index.volumes as v (v.volume)}
-    <section class="vol">
-      <h2>{v.title}</h2>
-      {#each v.chapters as c (c.chapter)}
-        <h3>{c.chapter}. {c.title}</h3>
-        <ol class="units">
-          {#each c.units as u (u.id)}
-            {@const f = pct(unitFraction(d, u))}
-            <li>
-              <a href="#/unit/{u.id}" class:current={u.id === nextId}>
-                <span class="num">{c.chapter}.{u.id.split('.')[2]}</span>
-                <span class="title">{u.title}</span>
-                <span class="count">{f >= 1 ? '✓' : f > 0 ? percent(f) : ''}</span>
-              </a>
-            </li>
-          {/each}
-        </ol>
-      {/each}
+  {#each vol.chapters as c (c.chapter)}
+    {@const total = c.units.reduce((a, u) => a + u.exercises, 0)}
+    {@const done = c.units.reduce((a, u) => a + solved(u.id, u.exercises), 0)}
+    <section style="--c: {meta.color}">
+      <h3>
+        <span>{c.chapter}. {c.title}</span>
+        <span class="chpct">{total ? Math.floor((done / total) * 100) : 0}%</span>
+      </h3>
+      <ol class="units">
+        {#each c.units as u (u.id)}
+          {@const s = solved(u.id, u.exercises)}
+          {@const complete = unitComplete(progress.d, u)}
+          <li>
+            <a href="#/unit/{u.id}" class:current={u.id === nextId}>
+              <span class="num">{c.chapter}.{u.id.split('.')[2]}</span>
+              <span class="title">{u.title}</span>
+              <span class="count" class:complete>{complete ? '✓' : ''} {s}/{u.exercises}</span>
+            </a>
+            <div class="ubar" aria-hidden="true"><div style="width: {u.exercises ? (s / u.exercises) * 100 : 0}%"></div></div>
+          </li>
+        {/each}
+      </ol>
     </section>
   {/each}
 {/if}
 
 <style>
-  .top { display: flex; justify-content: space-between; align-items: baseline; padding-top: calc(18px + env(safe-area-inset-top, 0px)); }
-  h1 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 0 0 16px; }
-  .settings { font-size: 0.9rem; color: var(--muted); }
-  .continue { width: 100%; margin-bottom: 10px; display: flex; flex-direction: column; gap: 2px; }
-  .next { font-weight: 400; font-size: 0.85rem; opacity: 0.75; }
-  .practice { width: 100%; margin-bottom: 18px; }
-  .badge { background: var(--text); color: var(--bg); border-radius: 999px; padding: 0 0.55em; font-size: 0.8rem; margin-left: 0.4em; font-variant-numeric: tabular-nums; }
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0 0 8px; }
-  .stats div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
-  .stats dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-  .stats dd { margin: 2px 0 0; font-size: 1.25rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-  .vol h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 30px 0 4px; }
-  h3 { font-size: 1rem; font-weight: 600; margin: 18px 0 6px; }
+  .top { display: flex; gap: 12px; align-items: baseline; padding-top: calc(18px + env(safe-area-inset-top, 0px)); }
+  .top a { color: var(--muted); font-size: 1.1rem; }
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 0 0 10px; }
+  .numeral { color: var(--c); margin-right: 4px; }
+  h3 { display: flex; justify-content: space-between; gap: 12px; font-size: 1rem; font-weight: 600; margin: 22px 0 6px; }
+  .chpct { color: var(--c); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
   .units { list-style: none; padding: 0; margin: 0; }
-  .units a {
-    display: flex;
-    gap: 12px;
-    padding: 9px 4px;
-    border-bottom: 1px solid var(--surface-2);
-    color: var(--text);
-    text-decoration: none;
-  }
+  .units li { border-bottom: 1px solid var(--surface-2); }
+  .units a { display: flex; gap: 12px; padding: 9px 4px 6px; color: var(--text); text-decoration: none; }
   .units a:hover { background: var(--surface); }
   .units a.current .title { color: var(--accent); }
   .num { color: var(--muted); min-width: 2.6em; font-variant-numeric: tabular-nums; }
   .title { flex: 1; }
-  .count { color: var(--faint); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  .count { color: var(--faint); font-size: 0.85rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .count.complete { color: var(--c); }
+  .ubar { height: 2px; margin: 0 4px 0 calc(2.6em + 16px); background: transparent; }
+  .ubar div { height: 100%; background: var(--c); border-radius: 1px; }
 </style>

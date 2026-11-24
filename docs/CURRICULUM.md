@@ -35,11 +35,13 @@ Exercise counts are end-of-section exercises only. The worked examples and check
 ## Volume 1: Calculus I
 
 ### V1.1 Functions and Graphs
-- [ ] **V1.1.1** Review of Functions · 58 exercises, 29 with book answers
-- [ ] **V1.1.2** Basic Classes of Functions · 54 exercises, 27 with book answers
-- [ ] **V1.1.3** Trigonometric Functions · 70 exercises, 31 with book answers
-- [ ] **V1.1.4** Inverse Functions · 46 exercises, 23 with book answers
-- [ ] **V1.1.5** Exponential and Logarithmic Functions · 108 exercises, 54 with book answers
+Exercises done for all five sections (answers checkable, solutions for every exercise, hints and steps, new-number variants where they make sense; validator and SymPy pass). Still to do: rewrite the readings (`status.reading` is still `"imported"`), so the boxes stay unticked.
+
+- [ ] **V1.1.1** Review of Functions · 58 exercises, 29 with book answers · exercises ✓
+- [ ] **V1.1.2** Basic Classes of Functions · 54 exercises, 27 with book answers · exercises ✓
+- [ ] **V1.1.3** Trigonometric Functions · 70 exercises, 31 with book answers · exercises ✓
+- [ ] **V1.1.4** Inverse Functions · 46 exercises, 23 with book answers · exercises ✓
+- [ ] **V1.1.5** Exponential and Logarithmic Functions · 108 exercises, 54 with book answers · exercises ✓
 
 ### V1.2 Limits
 - [ ] **V1.2.1** A Preview of Calculus · 29 exercises, 15 with book answers

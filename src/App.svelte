@@ -1,6 +1,7 @@
 <script lang="ts">
   import UnitPlayer from './cards/UnitPlayer.svelte';
   import Contents from './lib/Contents.svelte';
+  import Home from './lib/Home.svelte';
   import Settings from './lib/Settings.svelte';
   import Practice from './practice/Practice.svelte';
   import Pair from './sync/Pair.svelte';
@@ -11,7 +12,8 @@
 
   /**
    * Hash routes (no server rewrites needed):
-   *   #/              contents
+   *   #/              home
+   *   #/calc/1        a calculus unit's sections (1–3)
    *   #/continue      next card in strict book order (B11)
    *   #/unit/V1.2.3   a unit
    *   #/practice      Practice mistakes (B13)
@@ -27,7 +29,9 @@
     if (hash === '#/settings') return { name: 'settings' as const };
     if (hash === '#/practice') return { name: 'practice' as const };
     if (hash === '#/continue') return { name: 'continue' as const };
-    return { name: 'contents' as const };
+    const c = /^#\/calc\/([123])$/.exec(hash);
+    if (c) return { name: 'calc' as const, volume: Number(c[1]) };
+    return { name: 'home' as const };
   });
 
   let continueError = $state('');
@@ -56,6 +60,8 @@
     <p class="muted">Loading…</p>
   {:else if route.name === 'unit'}
     {#key route.id}<UnitPlayer unitId={route.id} />{/key}
+  {:else if route.name === 'calc'}
+    <Contents volume={route.volume} />
   {:else if route.name === 'settings'}
     <Settings />
   {:else if route.name === 'practice'}
@@ -65,7 +71,7 @@
   {:else if route.name === 'continue'}
     {#if continueError}<p class="feedback bad">{continueError}</p>{:else}<p class="muted">Loading…</p>{/if}
   {:else}
-    <Contents />
+    <Home />
   {/if}
 </main>
 

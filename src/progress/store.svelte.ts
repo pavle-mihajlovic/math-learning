@@ -73,9 +73,9 @@ class Progress {
     return fresh.length;
   }
 
-  markRead(unit: string, item: string): void {
+  markRead(unit: string, item: string, pages?: number): void {
     if (this.d.read.get(unit)?.has(item)) return;
-    void this.record({ type: 'read', unit, item });
+    void this.record(pages ? { type: 'read', unit, item, pages: Math.round(pages * 1000) / 1000 } : { type: 'read', unit, item });
   }
 
   recordExercise(unit: string, item: string, r: ExerciseResult): void {

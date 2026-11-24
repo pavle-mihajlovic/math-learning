@@ -7,6 +7,7 @@
   import { trackActiveTime } from '../progress/activity';
   import { firstUndoneStep } from '../progress/derive';
   import { progress } from '../progress/store.svelte';
+  import { cardPages } from '../lib/pages';
   import ExerciseCard from './ExerciseCard.svelte';
   import ProofCard from './ProofCard.svelte';
   import TextCard from './TextCard.svelte';
@@ -57,7 +58,7 @@
   function go(i: number, markRead = true) {
     // Moving forward past a reading card marks it read (not when skipping ahead).
     const cur = steps[at];
-    if (markRead && i > at && cur?.kind === 'reading' && unit) progress.markRead(unit.id, cur.card.id);
+    if (markRead && i > at && cur?.kind === 'reading' && unit) progress.markRead(unit.id, cur.card.id, cardPages(cur.card));
     at = Math.max(0, Math.min(steps.length - 1, i));
     setPosition(unitId, at);
     topEl?.scrollIntoView({ block: 'start' });
@@ -174,13 +175,13 @@
 <div class="player" role="region" aria-label="Unit" bind:this={topEl} ontouchstart={touchstart} ontouchend={touchend}>
   {#if error}
     <p class="feedback bad">{error}</p>
-    <a href="#/">Back to contents</a>
+    <a href="#/">Back home</a>
   {:else if !unit || !step}
     <p class="muted">Loading…</p>
   {:else}
     <header class="unit-head">
       <div class="crumbs">
-        <a href="#/" aria-label="Contents">←</a>
+        <a href="#/calc/{unit.volume}" aria-label="Sections">←</a>
         <span class="unit-title">§{unit.chapter}.{unit.section} {unit.title}</span>
       </div>
       <div class="where">
