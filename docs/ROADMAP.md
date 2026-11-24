@@ -35,6 +35,8 @@ The chat reads `docs/`, does the work, ticks the box, and opens a pull request. 
 
 ## Stage C: Progress views (serious and minimal)
 
+> **Done early (home + progress pass):** the home screen now shows Calculus I, II and III as separate unit cards (a % and per-chapter bar on each), then the next units (Linear Algebra, Proofs, Spivak, and optional Differential Equations / PDE) and Rudin as the goal. A localStorage log (`src/lib/progress.svelte.ts`) records time in units, estimated pages read (reading-card words ÷ 350) and problems solved per day, which feeds a "This week" summary and a GitHub-style daily map. `#/calc/1` – `#/calc/3` list sections with progress. B11 still moves this log to IndexedDB, and B12 syncs it.
+
 - [ ] **B14 Home screen.** "Continue" button, % of Calc I–III complete, all-time problems solved, total time spent. *Needs:* B11.
 - [ ] **B15 Course map.** Volumes → chapters → sections in table-of-contents layout, a % bar on each, ✓ on finished sections, tap a section for its stats or to redo it. *Needs:* B11.
 - [ ] **B16 Stats screen.** Problems solved and time spent per day and week, first-try accuracy per chapter, pending mistakes count. *Needs:* B11.
@@ -58,6 +60,8 @@ Not scheduled yet. These are ideas we'll revisit once calculus is up and running
 - Linear algebra (Hefferon? Axler?)
 - Proofs (Hammack?)
 - Spivak, every chapter
+- Differential equations (optional for Rudin)
+- Partial differential equations (optional for Rudin; usually after analysis)
 - Abbott (you own it)
 - Rudin *Principles of Mathematical Analysis* (PMA)
 - Rudin *Real and Complex Analysis* (RCA)

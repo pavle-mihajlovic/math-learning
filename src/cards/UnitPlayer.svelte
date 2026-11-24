@@ -3,6 +3,8 @@
   import { loadUnit, unitOrder } from '../content/load';
   import { inlineHtml } from '../content/render';
   import { getPosition, setPosition } from '../lib/settings.svelte';
+  import { markCompleted, markRead, markSolved } from '../lib/progress.svelte';
+  import type { ReadingCard } from '../content/types';
   import ExerciseCard from './ExerciseCard.svelte';
   import ProofCard from './ProofCard.svelte';
   import TextCard from './TextCard.svelte';
@@ -54,8 +56,18 @@
 
   function record(id: string, o: Outcome) {
     outcomes[id] = o;
+    if (o.correct) markSolved(unitId, id);
     next();
   }
+
+  function readDone(card: ReadingCard) {
+    markRead(unitId, card);
+    next();
+  }
+
+  $effect(() => {
+    if (step?.kind === 'complete') markCompleted(unitId);
+  });
 
   function skipProofs() {
     const i = steps.findIndex((s) => s.kind === 'complete');
@@ -152,13 +164,13 @@
 <div class="player" role="region" aria-label="Unit" bind:this={topEl} ontouchstart={touchstart} ontouchend={touchend}>
   {#if error}
     <p class="feedback bad">{error}</p>
-    <a href="#/">Back to contents</a>
+    <a href="#/">Back home</a>
   {:else if !unit || !step}
     <p class="muted">Loading…</p>
   {:else}
     <header class="unit-head">
       <div class="crumbs">
-        <a href="#/" aria-label="Contents">←</a>
+        <a href="#/calc/{unit.volume}" aria-label="Sections">←</a>
         <span class="unit-title">§{unit.chapter}.{unit.section} {unit.title}</span>
       </div>
       <div class="where">
@@ -181,9 +193,9 @@
               </ul>
             </section>
           {/if}
-          <TextCard card={step.card} ondone={next} />
+          <TextCard card={step.card} ondone={() => readDone(step.card)} />
         {:else}
-          <TryCard bind:this={cardRef} card={step.card} ondone={next} />
+          <TryCard bind:this={cardRef} card={step.card} ondone={() => readDone(step.card)} />
         {/if}
         {#if at > 0 && steps[at - 1]?.kind === 'reading'}
           <button class="link back" onclick={prev}>← Previous card</button>
