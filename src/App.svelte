@@ -8,8 +8,9 @@
   import Practice from './practice/Practice.svelte';
   import Pair from './sync/Pair.svelte';
   import { loadIndex } from './content/load';
-  import { nextUnitId } from './progress/derive';
+  import { continueTarget, nextUnitId } from './progress/derive';
   import { progress } from './progress/store.svelte';
+  import { getStop } from './progress/stops.svelte';
   import { applyUpdate, pwa } from './pwa/offline.svelte';
 
   /**
@@ -17,7 +18,10 @@
    *   #/              home
    *   #/calc/1        a calculus unit's sections (1–3)
    *   #/continue      next card in strict book order (B11)
-   *   #/unit/V1.2.3   a unit (…/start or …/exercises redoes it from there)
+   *   #/continue/reading    where you stopped reading
+   *   #/continue/exercises  where you stopped doing exercises
+   *   #/unit/V1.2.3   a unit (…/start or …/exercises redoes it from there;
+   *                   …/read[/CARD] and …/do[/EXERCISE] are the continue-reading / -exercises modes)
    *   #/map           course map: volumes → chapters → sections (B15)
    *   #/section/V1.2.3  a section's stats, with open / redo (B15)
    *   #/stats         stats screen (B16)
@@ -27,8 +31,8 @@
    */
   let hash = $state(location.hash);
   const route = $derived.by(() => {
-    const m = /^#\/unit\/(V\d\.\d+\.\d+)(?:\/(start|exercises))?$/.exec(hash);
-    if (m) return { name: 'unit' as const, id: m[1], from: m[2] as 'start' | 'exercises' | undefined };
+    const m = /^#\/unit\/(V\d\.\d+\.\d+)(?:\/(start|exercises)|\/(read|do)(?:\/([A-Za-z0-9_-]+))?)?$/.exec(hash);
+    if (m) return { name: 'unit' as const, id: m[1], from: (m[2] ?? m[3]) as 'start' | 'exercises' | 'read' | 'do' | undefined, item: m[4] };
     const sec = /^#\/section\/(V\d\.\d+\.\d+)$/.exec(hash);
     if (sec) return { name: 'section' as const, id: sec[1] };
     if (hash === '#/map') return { name: 'map' as const };
@@ -37,7 +41,9 @@
     if (p) return { name: 'pair' as const, code: p[1] };
     if (hash === '#/settings') return { name: 'settings' as const };
     if (hash === '#/practice') return { name: 'practice' as const };
-    if (hash === '#/continue') return { name: 'continue' as const };
+    if (hash === '#/continue') return { name: 'continue' as const, kind: undefined };
+    const ck = /^#\/continue\/(reading|exercises)$/.exec(hash);
+    if (ck) return { name: 'continue' as const, kind: ck[1] as 'reading' | 'exercises' };
     const c = /^#\/calc\/([123])$/.exec(hash);
     if (c) return { name: 'calc' as const, volume: Number(c[1]) };
     return { name: 'home' as const };
@@ -48,6 +54,12 @@
     if (route.name !== 'continue' || !progress.ready) return;
     loadIndex()
       .then((idx) => {
+        if (route.kind) {
+          const t = continueTarget(route.kind, progress.d, idx, getStop(route.kind));
+          const mode = route.kind === 'reading' ? 'read' : 'do';
+          location.replace(t ? `#/unit/${t.unit}/${mode}${t.item ? `/${t.item}` : ''}` : '#/');
+          return;
+        }
         const id = nextUnitId(progress.d, idx);
         location.replace(id ? `#/unit/${id}` : '#/');
       })
@@ -68,7 +80,7 @@
   {#if !progress.ready}
     <p class="muted">Loading…</p>
   {:else if route.name === 'unit'}
-    {#key route.id + (route.from ?? '')}<UnitPlayer unitId={route.id} from={route.from} />{/key}
+    {#key route.id + (route.from ?? '') + (route.item ?? '')}<UnitPlayer unitId={route.id} from={route.from} item={route.item} />{/key}
   {:else if route.name === 'calc'}
     <Contents volume={route.volume} />
   {:else if route.name === 'map'}

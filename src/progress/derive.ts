@@ -184,3 +184,42 @@ export function firstUndoneStep(steps: Step[], read: Set<string> | undefined, do
   );
   return i >= 0 ? i : steps.findIndex((s) => s.kind === 'complete');
 }
+
+/** Where "Continue reading" / "Continue exercises" left off: a unit and, optionally, a card in it. */
+export type StopKind = 'reading' | 'exercises';
+
+export interface Stop {
+  /** Unit id, or '' once the last unit of the course is past. */
+  unit: string;
+  /** Reading card or exercise id; null means "wherever that unit's first undone one is". */
+  item: string | null;
+  /** When it was set (the later of two copies wins). */
+  t: number;
+}
+
+/** The later of two saved stops (local cache vs. the one synced from another device). */
+export function latestStop(a: Stop | null, b: Stop | null): Stop | null {
+  if (!a) return b;
+  if (!b) return a;
+  return b.t > a.t ? b : a;
+}
+
+export function isStop(x: unknown): x is Stop {
+  if (!x || typeof x !== 'object') return false;
+  const s = x as Record<string, unknown>;
+  return typeof s.unit === 'string' && (s.item === null || typeof s.item === 'string') && typeof s.t === 'number';
+}
+
+/**
+ * Where to continue reading or doing exercises: the saved stop point when there is one, otherwise
+ * the first unit in book order with unread reading cards (or unfinished exercises).
+ * Returns null when there is nothing left of that kind.
+ */
+export function continueTarget(kind: StopKind, d: Derived, index: BookIndex, stop: Stop | null): { unit: string; item: string | null } | null {
+  const units = index.volumes.flatMap((v) => v.chapters.flatMap((c) => c.units));
+  if (stop?.unit && units.some((u) => u.id === stop.unit)) return { unit: stop.unit, item: stop.item };
+  const u = units.find((u) =>
+    kind === 'reading' ? (d.read.get(u.id)?.size ?? 0) < u.reading : (d.done.get(u.id)?.size ?? 0) < u.exercises,
+  );
+  return u ? { unit: u.id, item: null } : null;
+}

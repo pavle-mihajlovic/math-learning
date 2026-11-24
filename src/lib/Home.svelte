@@ -4,8 +4,9 @@
   import { CALC, NEXT } from './subjects';
   import Heatmap from './Heatmap.svelte';
   import { dayStats, fmtPages, fmtTime, solvedIn, streak, sumDays, weekKeys, weekStart } from './progress.svelte';
-  import { chapterFraction, courseFraction, nextUnitId, pct as frac, unitComplete, volumeFraction } from '../progress/derive';
+  import { chapterFraction, continueTarget, courseFraction, pct as frac, unitComplete, volumeFraction } from '../progress/derive';
   import { progress } from '../progress/store.svelte';
+  import { getStop } from '../progress/stops.svelte';
   import { mistakes } from '../practice/store.svelte';
 
   let index = $state<BookIndex | null>(null);
@@ -74,8 +75,11 @@
   const coursePct = $derived(index ? frac(courseFraction(progress.d, index)) * 100 : 0);
   const fmtPct = (p: number) => (p > 0 && p < 10 ? p.toFixed(1) : String(Math.floor(p)));
 
-  const nextId = $derived(index ? nextUnitId(progress.d, index) : 'V1.1.1');
-  const started = $derived(progress.d.read.size > 0 || progress.d.done.size > 0);
+  // "Continue reading" and "Continue exercises" each resume at their own stop point.
+  const readAt = $derived(index ? continueTarget('reading', progress.d, index, getStop('reading')) : { unit: 'V1.1.1', item: null });
+  const exAt = $derived(index ? continueTarget('exercises', progress.d, index, getStop('exercises')) : { unit: 'V1.1.1', item: null });
+  const readStarted = $derived(progress.d.read.size > 0 || !!getStop('reading'));
+  const exStarted = $derived(progress.d.done.size > 0 || !!getStop('exercises'));
   const due = $derived(mistakes.due().length);
 
   const dayNames = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
@@ -108,8 +112,21 @@
 </div>
 <div class="course-bar" aria-hidden="true"><div style="width: {coursePct}%"></div></div>
 
-{#if nextId}
-  <a class="btn primary continue" href="#/continue">{started ? 'Continue' : 'Start'} · §{nextId.slice(3)}</a>
+{#if readAt || exAt}
+  <div class="continue">
+    {#if readAt}
+      <a class="btn primary" href="#/continue/reading" aria-label="{readStarted ? 'Continue' : 'Start'} reading at §{readAt.unit.slice(3)}">
+        <span>Reading</span>
+        <small>{readStarted ? 'Continue' : 'Start'} · §{readAt.unit.slice(3)}</small>
+      </a>
+    {/if}
+    {#if exAt}
+      <a class="btn primary" href="#/continue/exercises" aria-label="{exStarted ? 'Continue' : 'Start'} exercises at §{exAt.unit.slice(3)}">
+        <span>Exercises</span>
+        <small>{exStarted ? 'Continue' : 'Start'} · §{exAt.unit.slice(3)}</small>
+      </a>
+    {/if}
+  </div>
 {:else}
   <p class="feedback good">You’ve finished Calculus I–III.</p>
 {/if}
@@ -227,7 +244,9 @@
   .slabel { font-size: 0.75rem; color: var(--muted); }
   .course-bar { height: 4px; background: var(--surface-2); border-radius: 2px; overflow: hidden; margin: 6px 0 16px; }
   .course-bar div { height: 100%; background: var(--accent); border-radius: 2px; }
-  .continue { width: 100%; margin-bottom: 10px; }
+  .continue { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
+  .continue .btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; min-width: 0; line-height: 1.25; text-align: center; }
+  .continue small { font-weight: 500; opacity: 0.75; font-size: 0.78rem; font-variant-numeric: tabular-nums; }
   .practice { width: 100%; margin-bottom: 22px; }
   .badge { background: var(--text); color: var(--bg); border-radius: 999px; padding: 0 0.55em; font-size: 0.8rem; margin-left: 0.4em; font-variant-numeric: tabular-nums; }
   .caps, .sec-head h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; margin: 0; }

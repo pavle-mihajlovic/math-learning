@@ -8,6 +8,7 @@
   import { trackActiveTime } from '../progress/activity';
   import { firstUndoneStep } from '../progress/derive';
   import { progress } from '../progress/store.svelte';
+  import { flushStops, setStop } from '../progress/stops.svelte';
   import { cardPages } from '../lib/pages';
   import ExerciseCard from './ExerciseCard.svelte';
   import ProofCard from './ProofCard.svelte';
@@ -15,8 +16,17 @@
   import TryCard from './TryCard.svelte';
   import { buildSteps, type Outcome, type Step } from './types';
 
-  /** `from` restarts a unit (B15 "Redo"): at its first card, or at its first exercise. */
-  let { unitId, from }: { unitId: string; from?: 'start' | 'exercises' } = $props();
+  /**
+   * `from` restarts a unit (B15 "Redo"): at its first card, or at its first exercise.
+   * `read` / `do` are the "Continue reading" / "Continue exercises" modes: they open at `item`
+   * (or the first unread card / unfinished exercise) and, at the end, lead on to the next unit's
+   * reading or exercises instead of the rest of this unit.
+   */
+  type From = 'start' | 'exercises' | 'read' | 'do';
+  let { unitId, from, item }: { unitId: string; from?: From; item?: string } = $props();
+  const mode = untrack(() => (from === 'read' || from === 'do' ? from : undefined));
+  /** Reading mode, past this unit's last reading card. */
+  let readingDone = $state(false);
 
   let unit = $state<Unit | null>(null);
   let error = $state('');
@@ -40,12 +50,29 @@
         const first = firstUndoneStep(steps, progress.d.read.get(id), progress.d.done.get(id));
         const complete = steps[first]?.kind === 'complete';
         const restart = untrack(() => from);
+        const target = untrack(() => item);
         let start = complete ? getPosition(id) : first;
+        const firstEx = steps.findIndex((s) => s.kind === 'exercise');
+        const at_ = (want: string) =>
+          steps.findIndex((s) => (s.kind === 'reading' && s.card.id === want) || (s.kind === 'exercise' && s.ex.id === want));
         if (restart === 'start') start = 0;
-        else if (restart === 'exercises') start = Math.max(0, steps.findIndex((s) => s.kind === 'exercise'));
+        else if (restart === 'exercises') start = Math.max(0, firstEx);
+        else if (restart === 'read') {
+          const unread = steps.findIndex((s) => s.kind === 'reading' && !progress.d.read.get(id)?.has(s.card.id));
+          start = target && at_(target) >= 0 ? at_(target) : unread;
+          if (steps[start]?.kind !== 'reading') {
+            // Nothing left to read here: offer the next unit's reading.
+            readingDone = true;
+            start = Math.max(0, firstEx);
+            stopAtNext('reading');
+          }
+        } else if (restart === 'do') {
+          const undone = steps.findIndex((s) => s.kind === 'exercise' && !progress.d.done.get(id)?.has(s.ex.id));
+          start = target && at_(target) >= 0 ? at_(target) : undone >= 0 ? undone : firstEx >= 0 ? firstEx : steps.length - 1;
+        }
         at = Math.max(0, Math.min(start, steps.length - 1));
-        // Drop the redo suffix so a reload resumes instead of restarting again.
-        if (restart) history.replaceState(null, '', `#/unit/${id}`);
+        // Drop the redo suffix (and the card id) so a reload resumes instead of restarting again.
+        if (restart) history.replaceState(null, '', mode ? `#/unit/${id}/${mode}` : `#/unit/${id}`);
         setPosition(id, at);
         prefetchAround(id).catch(() => {});
       })
@@ -60,6 +87,29 @@
 
   const step = $derived(steps[at]);
 
+  // Stop points for "Continue reading" / "Continue exercises": wherever you are, per kind.
+  const lastIndex = (kind: Step['kind']) => steps.reduce((a, s, i) => (s.kind === kind ? i : a), -1);
+  const lastReading = $derived(lastIndex('reading'));
+  const lastExercise = $derived(lastIndex('exercise'));
+  $effect(() => {
+    const s = steps[at];
+    if (!unit || !s) return;
+    if (s.kind === 'reading' && !readingDone) setStop('reading', unit.id, s.card.id);
+    else if (s.kind === 'exercise') setStop('exercises', unit.id, s.ex.id);
+  });
+  $effect(() => () => flushStops());
+
+  /** Point a stop at the start of the next unit ('' after the last unit of the course). */
+  function stopAtNext(kind: 'reading' | 'exercises') {
+    const id = unitId;
+    unitOrder()
+      .then((order) => {
+        const i = order.findIndex((u) => u.id === id);
+        setStop(kind, order[i + 1]?.id ?? '', null);
+      })
+      .catch(() => {});
+  }
+
   // Active study time (B11).
   $effect(() => {
     const id = unitId;
@@ -70,6 +120,15 @@
     // Moving forward past a reading card marks it read (not when skipping ahead).
     const cur = steps[at];
     if (markRead && i > at && cur?.kind === 'reading' && unit) progress.markRead(unit.id, cur.card.id, cardPages(cur.card));
+    // Leaving the last reading card (or the last exercise) forward: the stop moves on to the next unit.
+    if (i > at && at <= lastReading && i > lastReading) stopAtNext('reading');
+    if (i > at && at <= lastExercise && i > lastExercise) stopAtNext('exercises');
+    if (mode === 'read' && i > at && i > lastReading) {
+      readingDone = true;
+      topEl?.scrollIntoView({ block: 'start' });
+      window.scrollTo({ top: 0 });
+      return;
+    }
     at = Math.max(0, Math.min(steps.length - 1, i));
     setPosition(unitId, at);
     topEl?.scrollIntoView({ block: 'start' });
@@ -107,12 +166,19 @@
 
   function jumpToExercises() {
     const i = steps.findIndex((s) => s.kind === 'exercise');
+    readingDone = false;
     if (i >= 0) go(i, false);
+  }
+
+  /** Reading mode: on to the next unit's reading. */
+  function keepReading() {
+    location.hash = nextUnit ? `#/unit/${nextUnit.id}/read` : '#/';
   }
 
   // Header text for where you are in the unit.
   const where = $derived.by(() => {
     if (!step) return '';
+    if (readingDone) return 'Reading done';
     switch (step.kind) {
       case 'reading': return `Reading ${step.n} of ${step.of}`;
       case 'exercise': return `Exercises · chunk ${step.chunk} of ${step.chunks} · ${step.pos}/${step.size}`;
@@ -151,8 +217,15 @@
       if (e.key === 'Escape') (e.target as HTMLElement).blur();
       return;
     }
-    if (e.target instanceof HTMLButtonElement && (e.key === ' ' || e.key === 'Enter')) {
+    if ((e.target instanceof HTMLButtonElement || e.target instanceof HTMLAnchorElement) && (e.key === ' ' || e.key === 'Enter')) {
       // Let the focused button handle its own activation.
+      return;
+    }
+    if (readingDone) {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        keepReading();
+      }
       return;
     }
     const k = e.key.toLowerCase();
@@ -178,7 +251,7 @@
     touch = { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
   }
   function touchend(e: TouchEvent) {
-    if (!touch || !step) return;
+    if (!touch || !step || readingDone) return;
     const dx = e.changedTouches[0].clientX - touch.x;
     const dy = e.changedTouches[0].clientY - touch.y;
     const quick = Date.now() - touch.t < 600;
@@ -206,7 +279,7 @@
       </div>
       <div class="where">
         <span>{where}</span>
-        {#if step.kind === 'reading' && steps.some((s) => s.kind === 'exercise')}
+        {#if step.kind === 'reading' && !readingDone && steps.some((s) => s.kind === 'exercise')}
           <button class="link" onclick={jumpToExercises}>Skip to exercises</button>
         {/if}
       </div>
@@ -214,7 +287,21 @@
     </header>
 
     {#key at}
-      {#if step.kind === 'reading'}
+      {#if readingDone}
+        <article class="card center">
+          <div class="kicker">§{unit.chapter}.{unit.section}</div>
+          <h2>Reading done</h2>
+          <p class="muted">Your exercises keep their own place: <a href="#/continue/exercises">Continue exercises</a> picks up where you left them.</p>
+          <div class="actions">
+            {#if nextUnit}
+              <button class="btn primary" onclick={keepReading}>Keep reading: {nextUnit.title} <kbd>Space</kbd></button>
+            {:else}
+              <a class="btn primary" href="#/">You’ve read the whole course · Home</a>
+            {/if}
+            {#if lastExercise >= 0}<button class="btn" onclick={jumpToExercises}>This section’s exercises</button>{/if}
+          </div>
+        </article>
+      {:else if step.kind === 'reading'}
         {#if step.card.kind === 'text'}
           {#if step.n === 1 && unit.objectives.length}
             <section class="objectives">
@@ -264,7 +351,7 @@
             <p class="muted">exercises correct this session · {unitStats.firstTry} auto-checked on the first try</p>
           {/if}
           <div class="actions">
-            {#if nextUnit}<a class="btn primary" href="#/unit/{nextUnit.id}">Next: {nextUnit.title} →</a>{/if}
+            {#if nextUnit}<a class="btn primary" href="#/unit/{nextUnit.id}{mode === 'do' ? '/do' : ''}">Next{mode === 'do' ? ' exercises' : ''}: {nextUnit.title} →</a>{/if}
             <button class="btn" onclick={() => go(0)}>Start this unit again</button>
           </div>
         </article>

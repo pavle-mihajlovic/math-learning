@@ -45,7 +45,7 @@
 
 ## 4. The flow
 ```
-Home → "Continue" (next card in strict book order)
+Home → "Continue reading" / "Continue exercises" (each resumes at its own stop point)
   1. Required reading  (swipeable cards covering close to the full section; each of the book's
                         worked examples is a "try it first" card: attempt it → see the book's solution)
   2. Chunks            (about 2 min each: 4–6 exercises from the section, in book order)
@@ -65,7 +65,7 @@ These are the same as v1: number, expression (with `+C`), equation, interval/set
 - **graph**: the app draws a function, and you answer a question about it.
 
 ## 5. Progress (D20): serious and minimal
-- **Home screen:** a "Continue" button, plus three numbers:
+- **Home screen:** "Continue reading" and "Continue exercises" buttons, plus three numbers:
   - **% of Calculus I–III complete**
   - **total problems solved, all-time**
   - **total time spent**
@@ -95,7 +95,7 @@ Cloudflare Worker + D1: email login (one-time code by email, through a free emai
 
 ### Attempt log and sync (B11–B13)
 - Every finished card is an **event** (`src/progress/events.ts`): `read`, `ex` (main flow), `review` (Practice mistakes), `time` (active time), `set` (a synced setting). Events are append-only and have random ids.
-- Everything shown is **derived** from the log (`src/progress/derive.ts`): a unit's % = (reading cards read + exercises finished, right or wrong) ÷ (reading cards + exercises); proof cards don't count. "Continue" opens the first unfinished unit in book order, at its first unread card or unfinished exercise. **Problems solved** counts every exercise finished correctly, in the main flow or in practice, redos included.
+- Everything shown is **derived** from the log (`src/progress/derive.ts`): a unit's % = (reading cards read + exercises finished, right or wrong) ÷ (reading cards + exercises); proof cards don't count. "Continue reading" and "Continue exercises" each keep their own stop point (the last reading card / exercise you were on), cached in localStorage on every move and synced as `set` events (`stop.reading`, `stop.exercises`; latest wins) when you leave a unit or the app goes to the background. With no stop point yet, they open the first unit in book order with unread cards / unfinished exercises. In reading mode, finishing a unit's reading leads on to the next unit's reading; in exercise mode, finishing its exercises leads on to the next unit's exercises. (`#/continue` still opens the first unfinished unit in book order.) **Problems solved** counts every exercise finished correctly, in the main flow or in practice, redos included.
 - **Practice mistakes** (`src/practice/queue.ts`): an exercise enters the queue when you miss it in the main flow (wrong, or you needed the solution of an auto-checked exercise). Practice results feed FSRS (ts-fsrs, no fuzz, so every device computes the same schedule): first-try right = Good, right after retries = Hard, wrong or needed the solution = Again. A miss in a redo also counts as Again. Each review draws new numbers from the exercise's `variant` with a seed from the exercise and review count; without a variant the original exercise comes back.
 - **Sync**: the device pushes events the server hasn't acknowledged and pulls everything after its cursor. The server stores events with `INSERT OR IGNORE` by id, so there are no conflicts. The newest `set` event per key wins.
 - **Login**: one account (the `OWNER_EMAIL` secret). A 6-digit code is emailed through Resend (10 minutes, 5 tries). A signed-in device can show a QR pairing code (single use, 10 minutes) for another device. Sessions are random tokens in an HttpOnly, SameSite=Strict cookie; the database stores only their SHA-256.
