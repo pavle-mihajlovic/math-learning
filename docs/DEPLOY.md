@@ -44,7 +44,7 @@ Sync needs a D1 database, a free Resend account for the login emails, and two se
 
 > Do step 1 before merging the B12 pull request: `wrangler.jsonc` needs the database id, and a deploy without it fails (the previous version keeps running).
 
-1. **Create the database.** In **dash.cloudflare.com** → **Storage & databases → D1 SQL database** → **Create database**. Name it `road-to-rudin` and click **Create**. Copy its **Database ID** and put it in `wrangler.jsonc` in place of `REPLACE_WITH_D1_DATABASE_ID` (or paste it into a Claude chat and ask it to do that).
+1. **Create the database** (done: `road-to-rudin`, its id is in `wrangler.jsonc`). To recreate it: **dash.cloudflare.com** → **Storage & databases → D1 SQL database** → **Create database**, name it `road-to-rudin`, and put its **Database ID** into `wrangler.jsonc`.
 2. **Create the tables.** Open the database → **Console**. Paste the whole of [`worker/migrations/0001_init.sql`](../worker/migrations/0001_init.sql) and click **Execute**. (Running it again is harmless.) Later schema changes come as new numbered files in `worker/migrations/`, applied the same way.
 3. **Resend.** Sign up at **resend.com** with the email address you'll sign in with. Free accounts without their own domain can only send to that address, which is all this needs. Go to **API Keys → Create API key** (permission: Sending access) and copy the key.
 4. **Secrets.** In Cloudflare, open **Workers & Pages → road-to-rudin → Settings → Variables and Secrets** and add two entries, both of type **Secret**:
