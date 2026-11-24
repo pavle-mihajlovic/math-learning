@@ -3,6 +3,10 @@
   import { loadUnit, unitOrder } from '../content/load';
   import { inlineHtml } from '../content/render';
   import { getPosition, setPosition } from '../lib/settings.svelte';
+  import { prefetchAround } from '../pwa/offline.svelte';
+  import { trackActiveTime } from '../progress/activity';
+  import { firstUndoneStep } from '../progress/derive';
+  import { progress } from '../progress/store.svelte';
   import ExerciseCard from './ExerciseCard.svelte';
   import ProofCard from './ProofCard.svelte';
   import TextCard from './TextCard.svelte';
@@ -29,7 +33,12 @@
       .then((u) => {
         unit = u;
         steps = buildSteps(u.reading, u.exercises, u.proofs);
-        at = Math.min(getPosition(id), steps.length - 1);
+        // Resume at the first card you haven't done; in a finished unit, where you last were.
+        const first = firstUndoneStep(steps, progress.d.read.get(id), progress.d.done.get(id));
+        const complete = steps[first]?.kind === 'complete';
+        at = Math.max(0, Math.min(complete ? getPosition(id) : first, steps.length - 1));
+        setPosition(id, at);
+        prefetchAround(id).catch(() => {});
       })
       .catch((e: Error) => (error = e.message));
     unitOrder()
@@ -42,7 +51,13 @@
 
   const step = $derived(steps[at]);
 
-  function go(i: number) {
+  // Active study time (B11).
+  $effect(() => trackActiveTime((ms) => progress.recordTime(ms)));
+
+  function go(i: number, markRead = true) {
+    // Moving forward past a reading card marks it read (not when skipping ahead).
+    const cur = steps[at];
+    if (markRead && i > at && cur?.kind === 'reading' && unit) progress.markRead(unit.id, cur.card.id);
     at = Math.max(0, Math.min(steps.length - 1, i));
     setPosition(unitId, at);
     topEl?.scrollIntoView({ block: 'start' });
@@ -54,17 +69,24 @@
 
   function record(id: string, o: Outcome) {
     outcomes[id] = o;
+    progress.recordExercise(unitId, id, {
+      correct: o.correct,
+      firstTry: o.firstTry,
+      tries: o.attempts,
+      sawSolution: o.sawSolution,
+      self: o.selfChecked,
+    });
     next();
   }
 
   function skipProofs() {
     const i = steps.findIndex((s) => s.kind === 'complete');
-    go(i);
+    go(i, false);
   }
 
   function jumpToExercises() {
     const i = steps.findIndex((s) => s.kind === 'exercise');
-    if (i >= 0) go(i);
+    if (i >= 0) go(i, false);
   }
 
   // Header text for where you are in the unit.

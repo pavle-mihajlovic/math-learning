@@ -150,6 +150,8 @@ Every answer may also have `accept` (forms that must be accepted), `reject` (wro
 
 `{{…}}` is replaced by the value of a parameter or of an arithmetic expression in the parameters. Inside LaTeX, put a space between braces: `x^{ {{b}} }`. Negative values are wrapped in parentheses inside answers automatically.
 
+Practice mistakes (B13) shows the variant's prompt, the exercise's `instructions` and `hints`, and on a miss the answer computed for the drawn numbers. It doesn't show `steps` or the book's `solution`, which belong to the original numbers, so keep hints free of specific numbers. A variant must be auto-checkable; exercises without one come back unchanged.
+
 ## 9. Checks before a pull request
 
 ```bash

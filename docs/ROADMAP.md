@@ -26,12 +26,14 @@ The chat reads `docs/`, does the work, ticks the box, and opens a pull request. 
 
 ## Stage B: Daily driver
 
-- [ ] **B10 PWA + offline.** Manifest, icons, service worker, iOS "Add to Home Screen" install. Content downloads chapter by chapter. *Needs:* B09.
-- [ ] **B11 Progress engine.** IndexedDB attempt log, strict-order "next card" logic, unit and chapter completion %, all-time problems-solved counter, active-time tracking (pauses when idle or in the background). *Needs:* B08.
-- [ ] **B12 Account + sync.** Cloudflare Worker + D1, email one-time-code login, QR pairing for new devices, attempt-log sync, export/backup button. *Needs:* B11, B09.
-- [ ] **B13 Practice mistakes.** Separate "Practice mistakes" button. Missed exercises come back on a spaced-repetition schedule (ts-fsrs) as variants with random parameters, and the answer is computed per variant. *Needs:* B04, B11.
+- [x] **B10 PWA + offline.** Manifest, icons, service worker, iOS "Add to Home Screen" install. Content downloads chapter by chapter. *Needs:* B09.
+- [x] **B11 Progress engine.** IndexedDB attempt log, strict-order "next card" logic, unit and chapter completion %, all-time problems-solved counter, active-time tracking (pauses when idle or in the background). *Needs:* B08.
+- [x] **B12 Account + sync.** Cloudflare Worker + D1, email one-time-code login, QR pairing for new devices, attempt-log sync, export/backup button. *Needs:* B11, B09.
+- [x] **B13 Practice mistakes.** Separate "Practice mistakes" button. Missed exercises come back on a spaced-repetition schedule (ts-fsrs) as variants with random parameters, and the answer is computed per variant. *Needs:* B04, B11.
 
 **🎯 Milestone B: phone and computer in sync, works offline, separate mistakes practice.**
+
+> Status after B10–B13: the app installs to the iPhone Home Screen and works offline (the chapter you're in and the next one download automatically; Settings can download all 27 MB). Every card you finish goes into an append-only attempt log in IndexedDB, which drives "Continue", the % complete, problems solved and active time. Sign in by emailed code or a QR pairing code and the log syncs through a Worker + D1. Missed exercises come back under **Practice mistakes** on an FSRS schedule, with new numbers once a K-task adds a `variant` (none exist yet, so for now the original exercise comes back). Sync needs the one-time D1 + Resend setup in [DEPLOY.md](DEPLOY.md#b12-sync-setup-one-time).
 
 ## Stage C: Progress views (serious and minimal)
 

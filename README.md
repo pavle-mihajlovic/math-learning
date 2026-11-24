@@ -2,7 +2,7 @@
 
 A private, minimal web app for working through every section and exercise of OpenStax Calculus I–III on phone or computer, on the way to Rudin. Other subjects come later.
 
-**Status:** Stage A build tasks B01–B09 are done. All 110 sections are imported (6,316 exercises, 1,307 of them auto-checked so far). The content chats (K-tasks) come next.
+**Status:** Stages A and B (B01–B13) are done: the app works offline as a Home Screen app, tracks progress in an attempt log, syncs between devices, and has Practice mistakes. All 110 sections are imported (6,316 exercises, 1,307 of them auto-checked so far). Next: the progress screens (B14–B16) and the content chats (K-tasks).
 
 - [docs/ROADMAP.md](docs/ROADMAP.md): math route and build milestones
 - [docs/SPEC.md](docs/SPEC.md): product spec, architecture, data model, ingestion pipeline
@@ -28,7 +28,7 @@ npm run dev
 | Command | What it does |
 |---|---|
 | `npm run dev` | dev server at http://localhost:5173 |
-| `npm test` | unit tests (answer checker, inline format, variants, chunking) |
+| `npm test` | unit tests (answer checker, inline format, variants, chunking, progress, mistakes queue, sync API) |
 | `npm run check` | TypeScript + Svelte type check |
 | `npm run validate` | content validator: schema, KaTeX, answers, figures (`-- --unit V1.2.3` for one unit) |
 | `python3 scripts/verify_sympy.py` | SymPy check of ✅ solutions (needs `pip install sympy`) |
@@ -42,6 +42,11 @@ src/check/      answer checker: parser, evaluator, equivalence, sets/vectors/mat
 src/content/    content types, inline-text renderer, loaders, variant templates
 src/input/      input mode 1 (plain text + preview + key row) and mode 2 (MathLive)
 src/cards/      reading, try-it-first, exercise, self-check and proof cards; unit player
+src/progress/   attempt log (IndexedDB), derived progress, active-time tracking
+src/practice/   Practice mistakes: FSRS queue, variants
+src/pwa/        service worker, offline downloads
+src/sync/       account, QR pairing, sync client
+worker/         Cloudflare Worker: /api (login, pairing, sync) + D1 migrations
 schema/         JSON Schema for unit files
 scripts/        importer, validator, SymPy verifier
 public/content/ imported units (os-calc/V1.2.3.json)
