@@ -34,6 +34,15 @@ self.addEventListener('message', (event) => {
   if (event.data === 'skip-waiting') self.skipWaiting();
 });
 
+/**
+ * Navigations can't be answered with a redirected response (Chrome shows ERR_FAILED), so copy one
+ * into a plain response. Older caches stored /index.html after Cloudflare's redirect to /.
+ */
+function unredirect(res) {
+  if (!res || !res.redirected) return res;
+  return new Response(res.body, { status: res.status, statusText: res.statusText, headers: res.headers });
+}
+
 async function fromShell(req) {
   const cache = await caches.open(SHELL);
   return cache.match(req, { ignoreSearch: true });
@@ -81,7 +90,9 @@ self.addEventListener('fetch', (event) => {
     // Single-page app with hash routes: every navigation is index.html. Cache first for a fast start;
     // a new deploy arrives as a new service worker and the app offers a reload.
     event.respondWith(
-      fromShell('/index.html').then((hit) => hit || fetch(req)).catch(() => fetch(req)),
+      fromShell('/')
+        .then((hit) => unredirect(hit) || fetch(req))
+        .catch(() => fetch(req)),
     );
     return;
   }

@@ -66,7 +66,9 @@ function serviceWorker(): Plugin {
         const version = hash.digest('hex').slice(0, 12);
         const sw = readFileSync(resolve('src/pwa/sw.js'), 'utf8')
           .replace("'__VERSION__'", JSON.stringify(version))
-          .replace('__PRECACHE__', JSON.stringify(shell));
+          // Cache the page as "/": Cloudflare redirects /index.html to /, and a cached redirect can't
+          // answer a navigation (Chrome shows ERR_FAILED).
+          .replace('__PRECACHE__', JSON.stringify(shell.map((u) => (u === '/index.html' ? '/' : u))));
         writeFileSync(resolve(dist, 'sw.js'), sw);
       },
     },
