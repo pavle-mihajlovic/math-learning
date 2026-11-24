@@ -48,6 +48,24 @@ describe('derive', () => {
     expect(firstTry(d, [u2])).toEqual({ done: 0, total: 0 });
   });
 
+  it('counts checkpoints as problems but not toward accuracy', () => {
+    const d = derive([
+      ev({ type: 'read', unit: 'V1.1.1', item: 'c1', pages: 0.5, solved: true }),
+      ev({ type: 'read', unit: 'V1.1.1', item: 'c2', solved: false }),
+      ev({ type: 'read', unit: 'V1.1.1', item: 'c1', solved: true }), // redo counts again, pages don't
+      ev({ type: 'read', unit: 'V1.1.1', item: 'r1' }), // plain reading card: not a problem
+      ev({ type: 'ex', unit: 'V1.1.1', item: 'e1', ...ok }),
+    ]);
+    expect(d.solved).toBe(3);
+    const [day] = [...d.days.values()];
+    expect(day.attempted).toBe(4);
+    expect(day.solved).toBe(3);
+    expect(day.pages).toBe(0.5);
+    expect(firstTry(d, [u1])).toEqual({ done: 1, total: 1 });
+    expect(d.done.get('V1.1.1')?.has('c1')).toBeFalsy();
+    expect(d.read.get('V1.1.1')?.has('c2')).toBe(true);
+  });
+
   it('tracks time and last activity per unit', () => {
     const d = derive([
       ev({ type: 'time', ms: 5000 }, 1000),

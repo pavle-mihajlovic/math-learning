@@ -78,6 +78,12 @@ class Progress {
     void this.record(pages ? { type: 'read', unit, item, pages: Math.round(pages * 1000) / 1000 } : { type: 'read', unit, item });
   }
 
+  /** A checkpoint problem finished with "Got it". Recorded every time, like an exercise redo. */
+  recordCheckpoint(unit: string, item: string, solved: boolean, pages?: number): void {
+    const firstRead = !this.d.read.get(unit)?.has(item);
+    void this.record(firstRead && pages ? { type: 'read', unit, item, pages: Math.round(pages * 1000) / 1000, solved } : { type: 'read', unit, item, solved });
+  }
+
   recordExercise(unit: string, item: string, r: ExerciseResult): void {
     void this.record({ type: 'ex', unit, item, ...r });
   }
