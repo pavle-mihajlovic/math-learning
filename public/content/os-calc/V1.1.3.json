@@ -18,7 +18,7 @@
  "status": {
   "imported": "2026-11-24",
   "reading": "imported",
-  "answers": "imported"
+  "answers": "reviewed"
  },
  "objectives": [
   "Convert angle measures between degrees and radians.",
@@ -173,6 +173,25 @@
         "text": "$\\pi$ radians is equal to $180\\text{°}.$"
        }
       ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$210^\\circ$ in radians",
+      "answer": {
+       "kind": "number",
+       "value": "7pi/6"
+      }
+     },
+     {
+      "label": "$11\\pi/6$ in degrees",
+      "answer": {
+       "kind": "number",
+       "value": "330"
+      }
      }
     ]
    }
@@ -410,6 +429,25 @@
         "text": "Look at angles on the unit circle."
        }
       ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$\\cos(3\\pi/4)$",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(2)/2"
+      }
+     },
+     {
+      "label": "$\\sin(-\\pi/6)$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/2"
+      }
      }
     ]
    }
@@ -784,8 +822,8 @@
     "label": "book",
     "body": [
      {
-      "type": "p",
-      "text": "$\\begin{array}{rcl}1+\\theta & = & 1+\\frac{\\theta}{\\theta} \\\\ & = & \\frac{\\theta}{\\theta}+\\frac{\\theta}{\\theta} \\\\ & = & \\frac{\\theta +\\theta}{\\theta} \\\\ & = & \\frac{1}{\\theta} \\\\ & = & \\theta\\end{array}$"
+      "type": "math",
+      "tex": "\\begin{aligned}1+\\cot^2\\theta&=1+\\frac{\\cos^2\\theta}{\\sin^2\\theta}\\\\&=\\frac{\\sin^2\\theta}{\\sin^2\\theta}+\\frac{\\cos^2\\theta}{\\sin^2\\theta}\\\\&=\\frac{\\sin^2\\theta+\\cos^2\\theta}{\\sin^2\\theta}\\\\&=\\frac{1}{\\sin^2\\theta}\\\\&=\\csc^2\\theta\\end{aligned}"
      },
      {
       "type": "box",
@@ -987,7 +1025,7 @@
      "text": "$240\\text{°}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572135605",
    "instructions": [
     {
@@ -1004,7 +1042,17 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "number",
+    "value": "4pi/3",
+    "prompt": "as a multiple of pi"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{\\pi}{180^\\circ}$ and simplify the fraction."
+   ],
+   "steps": [
+    "$240\\cdot\\frac{\\pi}{180}=\\frac{240\\pi}{180}=\\frac{4\\pi}3$"
+   ]
   },
   {
    "id": "e114",
@@ -1015,7 +1063,7 @@
      "text": "$15\\text{°}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572455513",
    "instructions": [
     {
@@ -1023,7 +1071,64 @@
      "text": "For the following exercises, convert each angle in degrees to radians. Write the answer as a multiple of $\\pi .$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$15^\\circ\\cdot\\dfrac{\\pi}{180^\\circ}=\\dfrac{\\pi}{12}$ rad"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "pi/12",
+    "prompt": "as a multiple of pi"
+   },
+   "verify": {
+    "sympy": "15*pi/180"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{\\pi}{180^\\circ}$ and simplify the fraction."
+   ],
+   "steps": [
+    "$\\frac{15\\pi}{180}=\\frac{\\pi}{12}$"
+   ],
+   "variant": {
+    "params": {
+     "d": {
+      "choices": [
+       15,
+       20,
+       30,
+       45,
+       60,
+       75,
+       105,
+       120,
+       135,
+       150,
+       210,
+       225,
+       240,
+       300,
+       315,
+       330
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Convert $-{{d}}^\\circ$ to radians."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "-{{d}} pi/180",
+     "prompt": "as a multiple of pi"
+    }
+   }
   },
   {
    "id": "e115",
@@ -1054,7 +1159,13 @@
    "answer": {
     "kind": "number",
     "value": "((- pi)/3)"
-   }
+   },
+   "hints": [
+    "Multiply by $\\dfrac{\\pi}{180^\\circ}$ and simplify the fraction."
+   ],
+   "steps": [
+    "$-60\\cdot\\frac{\\pi}{180}=-\\frac{\\pi}3$"
+   ]
   },
   {
    "id": "e116",
@@ -1065,7 +1176,7 @@
      "text": "$-225\\text{°}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572451206",
    "instructions": [
     {
@@ -1073,7 +1184,64 @@
      "text": "For the following exercises, convert each angle in degrees to radians. Write the answer as a multiple of $\\pi .$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-225^\\circ\\cdot\\dfrac{\\pi}{180^\\circ}=-\\dfrac{5\\pi}{4}$ rad"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-5pi/4",
+    "prompt": "as a multiple of pi"
+   },
+   "verify": {
+    "sympy": "-225*pi/180"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{\\pi}{180^\\circ}$ and simplify the fraction."
+   ],
+   "steps": [
+    "$-\\frac{225\\pi}{180}=-\\frac{5\\pi}{4}$"
+   ],
+   "variant": {
+    "params": {
+     "d": {
+      "choices": [
+       15,
+       20,
+       30,
+       45,
+       60,
+       75,
+       105,
+       120,
+       135,
+       150,
+       210,
+       225,
+       240,
+       300,
+       315,
+       330
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Convert $-{{d}}^\\circ$ to radians."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "-{{d}} pi/180",
+     "prompt": "as a multiple of pi"
+    }
+   }
   },
   {
    "id": "e117",
@@ -1084,7 +1252,7 @@
      "text": "$330\\text{°}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572479016",
    "instructions": [
     {
@@ -1101,7 +1269,17 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "number",
+    "value": "11pi/6",
+    "prompt": "as a multiple of pi"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{\\pi}{180^\\circ}$ and simplify the fraction."
+   ],
+   "steps": [
+    "$\\frac{330\\pi}{180}=\\frac{11\\pi}6$"
+   ]
   },
   {
    "id": "e118",
@@ -1112,7 +1290,7 @@
      "text": "$\\frac{\\pi}{2}\\,\\text{rad}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572549226",
    "instructions": [
     {
@@ -1120,7 +1298,57 @@
      "text": "For the following exercises, convert each angle in radians to degrees."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{\\pi}{2}\\cdot\\dfrac{180^\\circ}{\\pi}=90^\\circ$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "90",
+    "prompt": "in degrees: type the number only"
+   },
+   "verify": {
+    "sympy": "(pi/2)*180/pi"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{180^\\circ}{\\pi}$."
+   ],
+   "steps": [
+    "$\\frac{180}{2}=90$"
+   ],
+   "variant": {
+    "params": {
+     "k": {
+      "min": 1,
+      "max": 11
+     },
+     "n": {
+      "choices": [
+       2,
+       3,
+       4,
+       6,
+       12
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Convert $\\frac{ {{k}}\\pi}{ {{n}} }$ rad to degrees."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{180*k/n}}",
+     "prompt": "degrees (number only)"
+    }
+   }
   },
   {
    "id": "e119",
@@ -1131,7 +1359,7 @@
      "text": "$\\frac{7\\pi}{6}\\,\\text{rad}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572483752",
    "instructions": [
     {
@@ -1148,7 +1376,17 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "number",
+    "value": "210",
+    "prompt": "in degrees: type the number only"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{180^\\circ}{\\pi}$."
+   ],
+   "steps": [
+    "$\\frac{7\\pi}6\\cdot\\frac{180}{\\pi}=7\\cdot30=210$"
+   ]
   },
   {
    "id": "e120",
@@ -1159,7 +1397,7 @@
      "text": "$\\frac{11\\pi}{2}\\,\\text{rad}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572242141",
    "instructions": [
     {
@@ -1167,7 +1405,57 @@
      "text": "For the following exercises, convert each angle in radians to degrees."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{11\\pi}{2}\\cdot\\dfrac{180^\\circ}{\\pi}=990^\\circ$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "990",
+    "prompt": "in degrees: type the number only"
+   },
+   "verify": {
+    "sympy": "(11*pi/2)*180/pi"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{180^\\circ}{\\pi}$."
+   ],
+   "steps": [
+    "$11\\cdot90=990$"
+   ],
+   "variant": {
+    "params": {
+     "k": {
+      "min": 1,
+      "max": 11
+     },
+     "n": {
+      "choices": [
+       2,
+       3,
+       4,
+       6,
+       12
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Convert $\\frac{ {{k}}\\pi}{ {{n}} }$ rad to degrees."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{180*k/n}}",
+     "prompt": "degrees (number only)"
+    }
+   }
   },
   {
    "id": "e121",
@@ -1178,7 +1466,7 @@
      "text": "$-3\\pi \\,\\text{rad}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572242837",
    "instructions": [
     {
@@ -1195,7 +1483,17 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "number",
+    "value": "-540",
+    "prompt": "in degrees: type the number only"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{180^\\circ}{\\pi}$."
+   ],
+   "steps": [
+    "$-3\\cdot180=-540$"
+   ]
   },
   {
    "id": "e122",
@@ -1206,7 +1504,7 @@
      "text": "$\\frac{5\\pi}{12}\\,\\text{rad}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572447586",
    "instructions": [
     {
@@ -1214,7 +1512,29 @@
      "text": "For the following exercises, convert each angle in radians to degrees."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{5\\pi}{12}\\cdot\\dfrac{180^\\circ}{\\pi}=5\\cdot15^\\circ=75^\\circ$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "75",
+    "prompt": "in degrees: type the number only"
+   },
+   "verify": {
+    "sympy": "(5*pi/12)*180/pi"
+   },
+   "hints": [
+    "Multiply by $\\dfrac{180^\\circ}{\\pi}$."
+   ],
+   "steps": [
+    "$\\frac{180}{12}=15$, $5\\cdot15=75$"
+   ]
   },
   {
    "id": "e123",
@@ -1244,8 +1564,15 @@
    },
    "answer": {
     "kind": "number",
-    "value": "-0.5"
-   }
+    "value": "-1/2"
+   },
+   "hints": [
+    "Use the unit circle: reduce the angle by multiples of $2\\pi$ (or $\\pi$ for tangent) and find the reference angle."
+   ],
+   "steps": [
+    "$\\frac{4\\pi}3$ is in quadrant III with reference angle $\\frac\\pi3$",
+    "$\\cos\\frac\\pi3=\\frac12$, negative in QIII: $-\\frac12$"
+   ]
   },
   {
    "id": "e124",
@@ -1256,7 +1583,7 @@
      "text": "$\\tan \\left(\\frac{19\\pi}{4}\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572363417",
    "instructions": [
     {
@@ -1264,7 +1591,33 @@
      "text": "Evaluate the following functional values."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{19\\pi}{4}=4\\pi+\\frac{3\\pi}{4}$, and tangent has period $\\pi$."
+     },
+     {
+      "type": "p",
+      "text": "$\\tan\\frac{19\\pi}4=\\tan\\frac{3\\pi}4=-1$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   },
+   "verify": {
+    "sympy": "tan(19*pi/4)"
+   },
+   "hints": [
+    "Use the unit circle: reduce the angle by multiples of $2\\pi$ (or $\\pi$ for tangent) and find the reference angle."
+   ],
+   "steps": [
+    "$\\frac{19\\pi}4-4\\pi=\\frac{3\\pi}4$",
+    "$\\tan\\frac{3\\pi}4=\\frac{\\sqrt2/2}{-\\sqrt2/2}=-1$"
+   ]
   },
   {
    "id": "e125",
@@ -1295,7 +1648,14 @@
    "answer": {
     "kind": "number",
     "value": "-((sqrt(2))/2)"
-   }
+   },
+   "hints": [
+    "Use the unit circle: reduce the angle by multiples of $2\\pi$ (or $\\pi$ for tangent) and find the reference angle."
+   ],
+   "steps": [
+    "$-\\frac{3\\pi}4$ is in quadrant III, reference angle $\\frac\\pi4$",
+    "Sine is negative there: $-\\frac{\\sqrt2}2$"
+   ]
   },
   {
    "id": "e126",
@@ -1306,7 +1666,7 @@
      "text": "$\\sec \\left(\\frac{\\pi}{6}\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572225097",
    "instructions": [
     {
@@ -1314,7 +1674,29 @@
      "text": "Evaluate the following functional values."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sec\\frac\\pi6=\\dfrac{1}{\\cos(\\pi/6)}=\\dfrac{1}{\\sqrt3/2}=\\dfrac{2}{\\sqrt3}=\\dfrac{2\\sqrt3}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2sqrt(3)/3"
+   },
+   "verify": {
+    "sympy": "sec(pi/6)"
+   },
+   "hints": [
+    "$\\sec\\theta=\\frac1{\\cos\\theta}$."
+   ],
+   "steps": [
+    "$\\cos\\frac\\pi6=\\frac{\\sqrt3}2$",
+    "$\\sec\\frac\\pi6=\\frac2{\\sqrt3}=\\frac{2\\sqrt3}3$"
+   ]
   },
   {
    "id": "e127",
@@ -1345,7 +1727,14 @@
    "answer": {
     "kind": "number",
     "value": "((sqrt(3)-1)/(2 sqrt(2)))"
-   }
+   },
+   "hints": [
+    "$\\frac\\pi{12}=\\frac\\pi3-\\frac\\pi4$: use $\\sin(\\alpha-\\beta)=\\sin\\alpha\\cos\\beta-\\cos\\alpha\\sin\\beta$."
+   ],
+   "steps": [
+    "$\\sin\\frac\\pi3\\cos\\frac\\pi4-\\cos\\frac\\pi3\\sin\\frac\\pi4=\\frac{\\sqrt3}2\\frac{\\sqrt2}2-\\frac12\\frac{\\sqrt2}2$",
+    "$=\\frac{\\sqrt2(\\sqrt3-1)}4=\\frac{\\sqrt3-1}{2\\sqrt2}$"
+   ]
   },
   {
    "id": "e128",
@@ -1356,7 +1745,7 @@
      "text": "$\\cos \\left(\\frac{5\\pi}{12}\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572481176",
    "instructions": [
     {
@@ -1364,7 +1753,34 @@
      "text": "Evaluate the following functional values."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{5\\pi}{12}=\\frac\\pi4+\\frac\\pi6$, so"
+     },
+     {
+      "type": "p",
+      "text": "$\\cos\\frac{5\\pi}{12}=\\cos\\frac\\pi4\\cos\\frac\\pi6-\\sin\\frac\\pi4\\sin\\frac\\pi6=\\frac{\\sqrt2}2\\cdot\\frac{\\sqrt3}2-\\frac{\\sqrt2}2\\cdot\\frac12=\\dfrac{\\sqrt6-\\sqrt2}{4}$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(sqrt(6)-sqrt(2))/4"
+   },
+   "verify": {
+    "sympy": "cos(5*pi/12)"
+   },
+   "hints": [
+    "$\\frac{5\\pi}{12}=\\frac\\pi4+\\frac\\pi6$: use $\\cos(\\alpha+\\beta)=\\cos\\alpha\\cos\\beta-\\sin\\alpha\\sin\\beta$."
+   ],
+   "steps": [
+    "$\\cos\\frac\\pi4\\cos\\frac\\pi6=\\frac{\\sqrt6}4$",
+    "$\\sin\\frac\\pi4\\sin\\frac\\pi6=\\frac{\\sqrt2}4$",
+    "Subtract: $\\frac{\\sqrt6-\\sqrt2}4$"
+   ]
   },
   {
    "id": "e129",
@@ -1375,7 +1791,7 @@
      "text": "$a=4,c=7$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572546980",
    "instructions": [
     {
@@ -1399,7 +1815,89 @@
      }
     ]
    },
-   "notes": "self-check: part b has an unclear kind"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $b$",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(33)",
+       "tolerance": {
+        "abs": 0.015
+       }
+      }
+     },
+     {
+      "label": "$\\sin$ A",
+      "answer": {
+       "kind": "number",
+       "value": "4/7",
+       "tolerance": {
+        "abs": 0.015
+       }
+      }
+     },
+     {
+      "label": "$\\cos$ A",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(33)/7",
+       "tolerance": {
+        "abs": 0.015
+       }
+      }
+     },
+     {
+      "label": "$\\tan$ A",
+      "answer": {
+       "kind": "number",
+       "value": "4/sqrt(33)",
+       "tolerance": {
+        "abs": 0.015
+       }
+      }
+     },
+     {
+      "label": "$\\csc$ A",
+      "answer": {
+       "kind": "number",
+       "value": "7/4",
+       "tolerance": {
+        "abs": 0.015
+       }
+      }
+     },
+     {
+      "label": "$\\sec$ A",
+      "answer": {
+       "kind": "number",
+       "value": "7/sqrt(33)",
+       "tolerance": {
+        "abs": 0.015
+       }
+      }
+     },
+     {
+      "label": "$\\cot$ A",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(33)/4",
+       "tolerance": {
+        "abs": 0.015
+       }
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Pythagoras: $a^2+b^2=c^2$ ($c$ is the hypotenuse).",
+    "$\\sin A=\\frac ac$, $\\cos A=\\frac bc$, $\\tan A=\\frac ab$; the other three are reciprocals."
+   ],
+   "steps": [
+    "$b=\\sqrt{49-16}=\\sqrt{33}\\approx5.7$",
+    "$\\sin A=\\frac47$, $\\cos A=\\frac{\\sqrt{33}}7$, $\\tan A=\\frac4{\\sqrt{33}}$"
+   ]
   },
   {
    "id": "e130",
@@ -1410,7 +1908,7 @@
      "text": "$a=21,c=29$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572479699",
    "instructions": [
     {
@@ -1425,7 +1923,84 @@
      "height": 188
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $b=\\sqrt{29^2-21^2}=\\sqrt{841-441}=\\sqrt{400}=20$."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\sin A=\\frac{21}{29}$, $\\cos A=\\frac{20}{29}$, $\\tan A=\\frac{21}{20}$, $\\csc A=\\frac{29}{21}$, $\\sec A=\\frac{29}{20}$, $\\cot A=\\frac{20}{21}$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $b$",
+      "answer": {
+       "kind": "number",
+       "value": "20"
+      }
+     },
+     {
+      "label": "$\\sin$ A",
+      "answer": {
+       "kind": "number",
+       "value": "21/29"
+      }
+     },
+     {
+      "label": "$\\cos$ A",
+      "answer": {
+       "kind": "number",
+       "value": "20/29"
+      }
+     },
+     {
+      "label": "$\\tan$ A",
+      "answer": {
+       "kind": "number",
+       "value": "21/20"
+      }
+     },
+     {
+      "label": "$\\csc$ A",
+      "answer": {
+       "kind": "number",
+       "value": "29/21"
+      }
+     },
+     {
+      "label": "$\\sec$ A",
+      "answer": {
+       "kind": "number",
+       "value": "29/20"
+      }
+     },
+     {
+      "label": "$\\cot$ A",
+      "answer": {
+       "kind": "number",
+       "value": "20/21"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(sqrt(29**2-21**2), Rational(21,29), Rational(20,29), (Rational(21,29))/(Rational(20,29)), 1/(Rational(21,29)), 1/(Rational(20,29)), (Rational(20,29))/(Rational(21,29)))"
+   },
+   "hints": [
+    "Pythagoras: $a^2+b^2=c^2$ ($c$ is the hypotenuse).",
+    "$\\sin A=\\frac ac$, $\\cos A=\\frac bc$, $\\tan A=\\frac ab$; the other three are reciprocals."
+   ],
+   "steps": [
+    "$b^2=29^2-21^2=400$",
+    "$\\sin A=\\frac ac=\\frac{21}{29}$, $\\cos A=\\frac bc=\\frac{20}{29}$"
+   ]
   },
   {
    "id": "e131",
@@ -1436,7 +2011,7 @@
      "text": "$a=85.3,b=125.5$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572242177",
    "instructions": [
     {
@@ -1460,7 +2035,89 @@
      }
     ]
    },
-   "notes": "self-check: part b has an unclear kind"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $c$",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(85.3^2+125.5^2)",
+       "tolerance": {
+        "abs": 0.06
+       }
+      }
+     },
+     {
+      "label": "$\\sin$ A",
+      "answer": {
+       "kind": "number",
+       "value": "85.3/sqrt(85.3^2+125.5^2)",
+       "tolerance": {
+        "abs": 0.06
+       }
+      }
+     },
+     {
+      "label": "$\\cos$ A",
+      "answer": {
+       "kind": "number",
+       "value": "125.5/sqrt(85.3^2+125.5^2)",
+       "tolerance": {
+        "abs": 0.06
+       }
+      }
+     },
+     {
+      "label": "$\\tan$ A",
+      "answer": {
+       "kind": "number",
+       "value": "85.3/125.5",
+       "tolerance": {
+        "abs": 0.06
+       }
+      }
+     },
+     {
+      "label": "$\\csc$ A",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(85.3^2+125.5^2)/85.3",
+       "tolerance": {
+        "abs": 0.06
+       }
+      }
+     },
+     {
+      "label": "$\\sec$ A",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(85.3^2+125.5^2)/125.5",
+       "tolerance": {
+        "abs": 0.06
+       }
+      }
+     },
+     {
+      "label": "$\\cot$ A",
+      "answer": {
+       "kind": "number",
+       "value": "125.5/85.3",
+       "tolerance": {
+        "abs": 0.06
+       }
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Pythagoras: $a^2+b^2=c^2$ ($c$ is the hypotenuse).",
+    "$\\sin A=\\frac ac$, $\\cos A=\\frac bc$, $\\tan A=\\frac ab$; the other three are reciprocals."
+   ],
+   "steps": [
+    "$c=\\sqrt{85.3^2+125.5^2}\\approx151.7$",
+    "$\\sin A=\\frac{85.3}{151.7}\\approx0.5623$"
+   ]
   },
   {
    "id": "e132",
@@ -1471,7 +2128,7 @@
      "text": "$b=40,c=41$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572482489",
    "instructions": [
     {
@@ -1486,7 +2143,84 @@
      "height": 188
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $a=\\sqrt{41^2-40^2}=\\sqrt{81}=9$."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\sin A=\\frac{9}{41}$, $\\cos A=\\frac{40}{41}$, $\\tan A=\\frac{9}{40}$, $\\csc A=\\frac{41}{9}$, $\\sec A=\\frac{41}{40}$, $\\cot A=\\frac{40}{9}$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $a$",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     },
+     {
+      "label": "$\\sin$ A",
+      "answer": {
+       "kind": "number",
+       "value": "9/41"
+      }
+     },
+     {
+      "label": "$\\cos$ A",
+      "answer": {
+       "kind": "number",
+       "value": "40/41"
+      }
+     },
+     {
+      "label": "$\\tan$ A",
+      "answer": {
+       "kind": "number",
+       "value": "9/40"
+      }
+     },
+     {
+      "label": "$\\csc$ A",
+      "answer": {
+       "kind": "number",
+       "value": "41/9"
+      }
+     },
+     {
+      "label": "$\\sec$ A",
+      "answer": {
+       "kind": "number",
+       "value": "41/40"
+      }
+     },
+     {
+      "label": "$\\cot$ A",
+      "answer": {
+       "kind": "number",
+       "value": "40/9"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(sqrt(41**2-40**2), Rational(9,41), Rational(40,41), (Rational(9,41))/(Rational(40,41)), 1/(Rational(9,41)), 1/(Rational(40,41)), (Rational(40,41))/(Rational(9,41)))"
+   },
+   "hints": [
+    "Pythagoras: $a^2+b^2=c^2$ ($c$ is the hypotenuse).",
+    "$\\sin A=\\frac ac$, $\\cos A=\\frac bc$, $\\tan A=\\frac ab$; the other three are reciprocals."
+   ],
+   "steps": [
+    "$a^2=41^2-40^2=81$",
+    "$\\sin A=\\frac9{41}$, $\\cos A=\\frac{40}{41}$"
+   ]
   },
   {
    "id": "e133",
@@ -1497,7 +2231,7 @@
      "text": "$a=84,b=13$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572134816",
    "instructions": [
     {
@@ -1521,7 +2255,68 @@
      }
     ]
    },
-   "notes": "self-check: part b has an unclear kind"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $c$",
+      "answer": {
+       "kind": "number",
+       "value": "85"
+      }
+     },
+     {
+      "label": "$\\sin$ A",
+      "answer": {
+       "kind": "number",
+       "value": "84/85"
+      }
+     },
+     {
+      "label": "$\\cos$ A",
+      "answer": {
+       "kind": "number",
+       "value": "13/85"
+      }
+     },
+     {
+      "label": "$\\tan$ A",
+      "answer": {
+       "kind": "number",
+       "value": "84/13"
+      }
+     },
+     {
+      "label": "$\\csc$ A",
+      "answer": {
+       "kind": "number",
+       "value": "85/84"
+      }
+     },
+     {
+      "label": "$\\sec$ A",
+      "answer": {
+       "kind": "number",
+       "value": "85/13"
+      }
+     },
+     {
+      "label": "$\\cot$ A",
+      "answer": {
+       "kind": "number",
+       "value": "13/84"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Pythagoras: $a^2+b^2=c^2$ ($c$ is the hypotenuse).",
+    "$\\sin A=\\frac ac$, $\\cos A=\\frac bc$, $\\tan A=\\frac ab$; the other three are reciprocals."
+   ],
+   "steps": [
+    "$c=\\sqrt{84^2+13^2}=\\sqrt{7225}=85$",
+    "$\\sin A=\\frac{84}{85}$, $\\cos A=\\frac{13}{85}$"
+   ]
   },
   {
    "id": "e134",
@@ -1532,7 +2327,7 @@
      "text": "$b=28,c=35$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572296851",
    "instructions": [
     {
@@ -1547,7 +2342,84 @@
      "height": 188
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $a=\\sqrt{35^2-28^2}=\\sqrt{441}=21$."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\sin A=\\frac{21}{35}=\\frac35$, $\\cos A=\\frac{28}{35}=\\frac45$, $\\tan A=\\frac34$, $\\csc A=\\frac53$, $\\sec A=\\frac54$, $\\cot A=\\frac43$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $a$",
+      "answer": {
+       "kind": "number",
+       "value": "21"
+      }
+     },
+     {
+      "label": "$\\sin$ A",
+      "answer": {
+       "kind": "number",
+       "value": "3/5"
+      }
+     },
+     {
+      "label": "$\\cos$ A",
+      "answer": {
+       "kind": "number",
+       "value": "4/5"
+      }
+     },
+     {
+      "label": "$\\tan$ A",
+      "answer": {
+       "kind": "number",
+       "value": "3/4"
+      }
+     },
+     {
+      "label": "$\\csc$ A",
+      "answer": {
+       "kind": "number",
+       "value": "5/3"
+      }
+     },
+     {
+      "label": "$\\sec$ A",
+      "answer": {
+       "kind": "number",
+       "value": "5/4"
+      }
+     },
+     {
+      "label": "$\\cot$ A",
+      "answer": {
+       "kind": "number",
+       "value": "4/3"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(sqrt(35**2-28**2), Rational(21,35), Rational(28,35), (Rational(21,35))/(Rational(28,35)), 1/(Rational(21,35)), 1/(Rational(28,35)), (Rational(28,35))/(Rational(21,35)))"
+   },
+   "hints": [
+    "Pythagoras: $a^2+b^2=c^2$ ($c$ is the hypotenuse).",
+    "$\\sin A=\\frac ac$, $\\cos A=\\frac bc$, $\\tan A=\\frac ab$; the other three are reciprocals."
+   ],
+   "steps": [
+    "$a^2=35^2-28^2=441$",
+    "A $3$-$4$-$5$ triangle scaled by $7$"
+   ]
   },
   {
    "id": "e135",
@@ -1558,7 +2430,7 @@
      "text": "$P\\left(\\frac{7}{25},y\\right),y>0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572452051",
    "instructions": [
     {
@@ -1575,7 +2447,68 @@
      }
     ]
    },
-   "notes": "self-check: part b has an unclear kind"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $y$",
+      "answer": {
+       "kind": "number",
+       "value": "24/25"
+      }
+     },
+     {
+      "label": "$\\sin$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "24/25"
+      }
+     },
+     {
+      "label": "$\\cos$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "7/25"
+      }
+     },
+     {
+      "label": "$\\tan$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "24/7"
+      }
+     },
+     {
+      "label": "$\\csc$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "25/24"
+      }
+     },
+     {
+      "label": "$\\sec$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "25/7"
+      }
+     },
+     {
+      "label": "$\\cot$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "7/24"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "On the unit circle $x^2+y^2=1$; use the sign condition to pick the root.",
+    "$\\cos\\theta=x$, $\\sin\\theta=y$, $\\tan\\theta=\\frac yx$; the rest are reciprocals."
+   ],
+   "steps": [
+    "$y=\\sqrt{1-\\frac{49}{625}}=\\frac{24}{25}$",
+    "$\\sin\\theta=y$, $\\cos\\theta=x$"
+   ]
   },
   {
    "id": "e136",
@@ -1586,7 +2519,7 @@
      "text": "$P\\left(\\frac{-15}{17},y\\right),y<0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572450965",
    "instructions": [
     {
@@ -1594,7 +2527,85 @@
      "text": "For the following exercises, $P$ is a point on the unit circle. a. Find the (exact) missing coordinate value of each point and b. find the values of the six trigonometric functions for the angle $\\theta$ with a terminal side that passes through point $P.$ Rationalize denominators."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $y=-\\sqrt{1-\\frac{225}{289}}=-\\sqrt{\\frac{64}{289}}=-\\frac{8}{17}$ (negative since $y<0$)."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\sin\\theta=-\\frac8{17}$, $\\cos\\theta=-\\frac{15}{17}$, $\\tan\\theta=\\frac8{15}$, $\\csc\\theta=-\\frac{17}8$, $\\sec\\theta=-\\frac{17}{15}$, $\\cot\\theta=\\frac{15}8$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $y$",
+      "answer": {
+       "kind": "number",
+       "value": "-8/17"
+      }
+     },
+     {
+      "label": "$\\sin$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-8/17"
+      }
+     },
+     {
+      "label": "$\\cos$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-15/17"
+      }
+     },
+     {
+      "label": "$\\tan$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "8/15"
+      }
+     },
+     {
+      "label": "$\\csc$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-17/8"
+      }
+     },
+     {
+      "label": "$\\sec$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-17/15"
+      }
+     },
+     {
+      "label": "$\\cot$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "15/8"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(-sqrt(1-Rational(15,17)**2), -sqrt(1-Rational(15,17)**2), Rational(-15,17), (-sqrt(1-Rational(15,17)**2))/(Rational(-15,17)), 1/(-sqrt(1-Rational(15,17)**2)), 1/(Rational(-15,17)), (Rational(-15,17))/(-sqrt(1-Rational(15,17)**2)))"
+   },
+   "hints": [
+    "On the unit circle $x^2+y^2=1$; use the sign condition to pick the root.",
+    "$\\cos\\theta=x$, $\\sin\\theta=y$, $\\tan\\theta=\\frac yx$; the rest are reciprocals."
+   ],
+   "steps": [
+    "$y^2=1-\\frac{225}{289}=\\frac{64}{289}$",
+    "$y<0$: $y=-\\frac8{17}$",
+    "$\\tan\\theta=\\frac{-8/17}{-15/17}=\\frac8{15}$"
+   ]
   },
   {
    "id": "e137",
@@ -1605,7 +2616,7 @@
      "text": "$P\\left(x,\\frac{\\sqrt{7}}{3}\\right),x<0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572552413",
    "instructions": [
     {
@@ -1622,7 +2633,68 @@
      }
     ]
    },
-   "notes": "self-check: part b has an unclear kind"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $x$",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(2)/3"
+      }
+     },
+     {
+      "label": "$\\sin$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(7)/3"
+      }
+     },
+     {
+      "label": "$\\cos$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(2)/3"
+      }
+     },
+     {
+      "label": "$\\tan$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(14)/2"
+      }
+     },
+     {
+      "label": "$\\csc$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "3sqrt(7)/7"
+      }
+     },
+     {
+      "label": "$\\sec$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-3sqrt(2)/2"
+      }
+     },
+     {
+      "label": "$\\cot$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(14)/7"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "On the unit circle $x^2+y^2=1$; use the sign condition to pick the root.",
+    "$\\cos\\theta=x$, $\\sin\\theta=y$, $\\tan\\theta=\\frac yx$; the rest are reciprocals."
+   ],
+   "steps": [
+    "$x^2=1-\\frac79=\\frac29$; $x<0$: $x=-\\frac{\\sqrt2}3$",
+    "$\\tan\\theta=\\frac{\\sqrt7/3}{-\\sqrt2/3}=-\\frac{\\sqrt{14}}2$"
+   ]
   },
   {
    "id": "e138",
@@ -1633,7 +2705,7 @@
      "text": "$P\\left(x,\\frac{-\\sqrt{15}}{4}\\right),x>0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572480647",
    "instructions": [
     {
@@ -1641,7 +2713,85 @@
      "text": "For the following exercises, $P$ is a point on the unit circle. a. Find the (exact) missing coordinate value of each point and b. find the values of the six trigonometric functions for the angle $\\theta$ with a terminal side that passes through point $P.$ Rationalize denominators."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x=\\sqrt{1-\\frac{15}{16}}=\\frac14$ (positive since $x>0$)."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\sin\\theta=-\\frac{\\sqrt{15}}4$, $\\cos\\theta=\\frac14$, $\\tan\\theta=-\\sqrt{15}$, $\\csc\\theta=-\\frac{4}{\\sqrt{15}}=-\\frac{4\\sqrt{15}}{15}$, $\\sec\\theta=4$, $\\cot\\theta=-\\frac1{\\sqrt{15}}=-\\frac{\\sqrt{15}}{15}$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $x$",
+      "answer": {
+       "kind": "number",
+       "value": "1/4"
+      }
+     },
+     {
+      "label": "$\\sin$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(15)/4"
+      }
+     },
+     {
+      "label": "$\\cos$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "1/4"
+      }
+     },
+     {
+      "label": "$\\tan$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(15)"
+      }
+     },
+     {
+      "label": "$\\csc$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-4sqrt(15)/15"
+      }
+     },
+     {
+      "label": "$\\sec$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "4"
+      }
+     },
+     {
+      "label": "$\\cot$ \\theta",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(15)/15"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(sqrt(1-Rational(15,16)), -sqrt(15)/4, sqrt(1-Rational(15,16)), (-sqrt(15)/4)/(sqrt(1-Rational(15,16))), 1/(-sqrt(15)/4), 1/(sqrt(1-Rational(15,16))), (sqrt(1-Rational(15,16)))/(-sqrt(15)/4))"
+   },
+   "hints": [
+    "On the unit circle $x^2+y^2=1$; use the sign condition to pick the root.",
+    "$\\cos\\theta=x$, $\\sin\\theta=y$, $\\tan\\theta=\\frac yx$; the rest are reciprocals."
+   ],
+   "steps": [
+    "$x^2=1-\\frac{15}{16}=\\frac1{16}$",
+    "$\\tan\\theta=\\frac{-\\sqrt{15}/4}{1/4}=-\\sqrt{15}$",
+    "Rationalize: $-\\frac4{\\sqrt{15}}=-\\frac{4\\sqrt{15}}{15}$"
+   ]
   },
   {
    "id": "e139",
@@ -1671,8 +2821,22 @@
    },
    "answer": {
     "kind": "expression",
-    "value": "sec^2 x"
-   }
+    "value": "sec(x)^2",
+    "domain": {
+     "x": [
+      0.1,
+      1.4
+     ]
+    }
+   },
+   "hints": [
+    "Rewrite everything with $\\sin$ and $\\cos$: $\\tan=\\frac{\\sin}{\\cos}$, $\\sec=\\frac1{\\cos}$, $\\csc=\\frac1{\\sin}$, $\\cot=\\frac{\\cos}{\\sin}$.",
+    "Then use $\\sin^2+\\cos^2=1$."
+   ],
+   "steps": [
+    "$\\sin x\\csc x=1$",
+    "$\\tan^2x+1=\\sec^2x$"
+   ]
   },
   {
    "id": "e140",
@@ -1683,7 +2847,7 @@
      "text": "$\\sec \\,x\\,\\sin \\,x\\,\\cot \\,x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572479497",
    "instructions": [
     {
@@ -1691,7 +2855,35 @@
      "text": "For the following exercises, simplify each expression by writing it in terms of sines and cosines, then simplify. The final answer does not have to be in terms of sine and cosine only."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sec x\\,\\sin x\\,\\cot x=\\dfrac1{\\cos x}\\cdot\\sin x\\cdot\\dfrac{\\cos x}{\\sin x}=1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "1",
+    "domain": {
+     "x": [
+      0.1,
+      1.4
+     ]
+    }
+   },
+   "verify": {
+    "sympy": "sec(x)*sin(x)*cot(x)"
+   },
+   "hints": [
+    "Rewrite everything with $\\sin$ and $\\cos$: $\\tan=\\frac{\\sin}{\\cos}$, $\\sec=\\frac1{\\cos}$, $\\csc=\\frac1{\\sin}$, $\\cot=\\frac{\\cos}{\\sin}$."
+   ],
+   "steps": [
+    "$\\frac{1}{\\cos x}\\cdot\\sin x\\cdot\\frac{\\cos x}{\\sin x}$",
+    "Everything cancels: $1$"
+   ]
   },
   {
    "id": "e141",
@@ -1721,8 +2913,21 @@
    },
    "answer": {
     "kind": "expression",
-    "value": "sin^2 x"
-   }
+    "value": "sin(x)^2",
+    "domain": {
+     "x": [
+      0.1,
+      1.4
+     ]
+    }
+   },
+   "hints": [
+    "Rewrite everything with $\\sin$ and $\\cos$: $\\tan=\\frac{\\sin}{\\cos}$, $\\sec=\\frac1{\\cos}$, $\\csc=\\frac1{\\sin}$, $\\cot=\\frac{\\cos}{\\sin}$.",
+    "Then use $\\sin^2+\\cos^2=1$."
+   ],
+   "steps": [
+    "$\\frac{\\sin^2x/\\cos^2x}{1/\\cos^2x}=\\sin^2x$"
+   ]
   },
   {
    "id": "e142",
@@ -1733,7 +2938,7 @@
      "text": "$\\sec \\,x-\\cos \\,x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572482372",
    "instructions": [
     {
@@ -1741,7 +2946,37 @@
      "text": "For the following exercises, simplify each expression by writing it in terms of sines and cosines, then simplify. The final answer does not have to be in terms of sine and cosine only."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sec x-\\cos x=\\dfrac1{\\cos x}-\\cos x=\\dfrac{1-\\cos^2x}{\\cos x}=\\dfrac{\\sin^2x}{\\cos x}=\\sin x\\tan x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sin(x) tan(x)",
+    "domain": {
+     "x": [
+      0.1,
+      1.4
+     ]
+    }
+   },
+   "verify": {
+    "sympy": "sec(x)-cos(x)"
+   },
+   "hints": [
+    "Rewrite everything with $\\sin$ and $\\cos$: $\\tan=\\frac{\\sin}{\\cos}$, $\\sec=\\frac1{\\cos}$, $\\csc=\\frac1{\\sin}$, $\\cot=\\frac{\\cos}{\\sin}$.",
+    "Then use $\\sin^2+\\cos^2=1$."
+   ],
+   "steps": [
+    "Common denominator: $\\frac{1-\\cos^2x}{\\cos x}$",
+    "$1-\\cos^2x=\\sin^2x$",
+    "$\\frac{\\sin^2x}{\\cos x}=\\sin x\\tan x$"
+   ]
   },
   {
    "id": "e143",
@@ -1771,8 +3006,22 @@
    },
    "answer": {
     "kind": "expression",
-    "value": "sec^2 theta"
-   }
+    "value": "sec(theta)^2",
+    "domain": {
+     "theta": [
+      0.1,
+      1.4
+     ]
+    }
+   },
+   "hints": [
+    "Rewrite everything with $\\sin$ and $\\cos$: $\\tan=\\frac{\\sin}{\\cos}$, $\\sec=\\frac1{\\cos}$, $\\csc=\\frac1{\\sin}$, $\\cot=\\frac{\\cos}{\\sin}$.",
+    "Expand the square first."
+   ],
+   "steps": [
+    "$(1+\\tan\\theta)^2=1+2\\tan\\theta+\\tan^2\\theta$",
+    "$1+\\tan^2\\theta=\\sec^2\\theta$"
+   ]
   },
   {
    "id": "e144",
@@ -1783,7 +3032,7 @@
      "text": "$\\sin \\,x(\\csc \\,x-\\sin \\,x)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572552249",
    "instructions": [
     {
@@ -1791,7 +3040,36 @@
      "text": "For the following exercises, simplify each expression by writing it in terms of sines and cosines, then simplify. The final answer does not have to be in terms of sine and cosine only."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin x(\\csc x-\\sin x)=\\sin x\\cdot\\dfrac1{\\sin x}-\\sin^2x=1-\\sin^2x=\\cos^2x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "cos(x)^2",
+    "domain": {
+     "x": [
+      0.1,
+      1.4
+     ]
+    }
+   },
+   "verify": {
+    "sympy": "sin(x)*(csc(x)-sin(x))"
+   },
+   "hints": [
+    "Rewrite everything with $\\sin$ and $\\cos$: $\\tan=\\frac{\\sin}{\\cos}$, $\\sec=\\frac1{\\cos}$, $\\csc=\\frac1{\\sin}$, $\\cot=\\frac{\\cos}{\\sin}$.",
+    "Then use $\\sin^2+\\cos^2=1$."
+   ],
+   "steps": [
+    "Distribute: $\\sin x\\csc x-\\sin^2x$",
+    "$=1-\\sin^2x=\\cos^2x$"
+   ]
   },
   {
    "id": "e145",
@@ -1802,7 +3080,7 @@
      "text": "$\\frac{\\cos \\,t}{\\sin \\,t}+\\frac{\\sin \\,t}{1+\\cos \\,t}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572244458",
    "instructions": [
     {
@@ -1819,7 +3097,25 @@
      }
     ]
    },
-   "notes": "self-check: imported answer {\"kind\":\"expression\",\"value\":\"(1/(sin t))(= csc t)\"} failed (checker cannot read the answer: Unexpected \"=\")"
+   "answer": {
+    "kind": "expression",
+    "value": "csc(t)",
+    "domain": {
+     "t": [
+      0.1,
+      1.4
+     ]
+    }
+   },
+   "hints": [
+    "Rewrite everything with $\\sin$ and $\\cos$: $\\tan=\\frac{\\sin}{\\cos}$, $\\sec=\\frac1{\\cos}$, $\\csc=\\frac1{\\sin}$, $\\cot=\\frac{\\cos}{\\sin}$.",
+    "Use the common denominator $\\sin t(1+\\cos t)$."
+   ],
+   "steps": [
+    "$\\frac{\\cos t(1+\\cos t)+\\sin^2t}{\\sin t(1+\\cos t)}$",
+    "Numerator: $\\cos t+\\cos^2t+\\sin^2t=1+\\cos t$",
+    "Cancel: $\\frac1{\\sin t}=\\csc t$"
+   ]
   },
   {
    "id": "e146",
@@ -1830,7 +3126,7 @@
      "text": "$\\frac{1+\\tan^{2}\\alpha}{1+\\cot^{2}\\alpha}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572169763",
    "instructions": [
     {
@@ -1838,7 +3134,35 @@
      "text": "For the following exercises, simplify each expression by writing it in terms of sines and cosines, then simplify. The final answer does not have to be in terms of sine and cosine only."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{1+\\tan^2\\alpha}{1+\\cot^2\\alpha}=\\dfrac{\\sec^2\\alpha}{\\csc^2\\alpha}=\\dfrac{1/\\cos^2\\alpha}{1/\\sin^2\\alpha}=\\dfrac{\\sin^2\\alpha}{\\cos^2\\alpha}=\\tan^2\\alpha$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "tan(alpha)^2",
+    "domain": {
+     "alpha": [
+      0.1,
+      1.4
+     ]
+    }
+   },
+   "verify": {
+    "sympy": "(1+tan(alpha)**2)/(1+cot(alpha)**2)"
+   },
+   "hints": [
+    "$1+\\tan^2\\alpha=\\sec^2\\alpha$ and $1+\\cot^2\\alpha=\\csc^2\\alpha$."
+   ],
+   "steps": [
+    "$\\frac{\\sec^2\\alpha}{\\csc^2\\alpha}=\\frac{\\sin^2\\alpha}{\\cos^2\\alpha}$",
+    "$=\\tan^2\\alpha$"
+   ]
   },
   {
    "id": "e147",
@@ -1857,7 +3181,20 @@
      "text": "For the following exercises, verify that each equation is an identity."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since $\\tan\\theta\\cot\\theta=\\frac{\\sin\\theta}{\\cos\\theta}\\cdot\\frac{\\cos\\theta}{\\sin\\theta}=1$,"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{\\tan\\theta\\cot\\theta}{\\csc\\theta}=\\frac{1}{\\csc\\theta}=\\sin\\theta."
+     }
+    ]
+   }
   },
   {
    "id": "e148",
@@ -1876,7 +3213,16 @@
      "text": "For the following exercises, verify that each equation is an identity."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\frac{\\sec^2\\theta}{\\tan\\theta}=\\frac{1/\\cos^2\\theta}{\\sin\\theta/\\cos\\theta}=\\frac{1}{\\cos^2\\theta}\\cdot\\frac{\\cos\\theta}{\\sin\\theta}=\\frac{1}{\\cos\\theta}\\cdot\\frac{1}{\\sin\\theta}=\\sec\\theta\\csc\\theta."
+     }
+    ]
+   }
   },
   {
    "id": "e149",
@@ -1895,7 +3241,16 @@
      "text": "For the following exercises, verify that each equation is an identity."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\frac{\\sin t}{\\csc t}+\\frac{\\cos t}{\\sec t}=\\sin t\\cdot\\sin t+\\cos t\\cdot\\cos t=\\sin^2t+\\cos^2t=1."
+     }
+    ]
+   }
   },
   {
    "id": "e150",
@@ -1914,7 +3269,20 @@
      "text": "For the following exercises, verify that each equation is an identity."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use the common denominator $\\sin x(\\cos x+1)$:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{\\sin x}{\\cos x+1}+\\frac{\\cos x-1}{\\sin x}=\\frac{\\sin^2x+(\\cos x-1)(\\cos x+1)}{\\sin x(\\cos x+1)}=\\frac{\\sin^2x+\\cos^2x-1}{\\sin x(\\cos x+1)}=\\frac{1-1}{\\sin x(\\cos x+1)}=0."
+     }
+    ]
+   }
   },
   {
    "id": "e151",
@@ -1933,7 +3301,16 @@
      "text": "For the following exercises, verify that each equation is an identity."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\cot\\gamma+\\tan\\gamma=\\frac{\\cos\\gamma}{\\sin\\gamma}+\\frac{\\sin\\gamma}{\\cos\\gamma}=\\frac{\\cos^2\\gamma+\\sin^2\\gamma}{\\sin\\gamma\\cos\\gamma}=\\frac{1}{\\sin\\gamma\\cos\\gamma}=\\sec\\gamma\\csc\\gamma."
+     }
+    ]
+   }
   },
   {
    "id": "e152",
@@ -1952,7 +3329,20 @@
      "text": "For the following exercises, verify that each equation is an identity."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Group the first and last terms:"
+     },
+     {
+      "type": "math",
+      "tex": "\\sin^2\\beta+\\tan^2\\beta+\\cos^2\\beta=(\\sin^2\\beta+\\cos^2\\beta)+\\tan^2\\beta=1+\\tan^2\\beta=\\sec^2\\beta."
+     }
+    ]
+   }
   },
   {
    "id": "e153",
@@ -1971,7 +3361,16 @@
      "text": "For the following exercises, verify that each equation is an identity."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\frac{1}{1-\\sin\\alpha}+\\frac{1}{1+\\sin\\alpha}=\\frac{(1+\\sin\\alpha)+(1-\\sin\\alpha)}{(1-\\sin\\alpha)(1+\\sin\\alpha)}=\\frac{2}{1-\\sin^2\\alpha}=\\frac{2}{\\cos^2\\alpha}=2\\sec^2\\alpha."
+     }
+    ]
+   }
   },
   {
    "id": "e154",
@@ -1990,7 +3389,20 @@
      "text": "For the following exercises, verify that each equation is an identity."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Split the fraction:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{\\tan\\theta-\\cot\\theta}{\\sin\\theta\\cos\\theta}=\\frac{\\sin\\theta/\\cos\\theta}{\\sin\\theta\\cos\\theta}-\\frac{\\cos\\theta/\\sin\\theta}{\\sin\\theta\\cos\\theta}=\\frac{1}{\\cos^2\\theta}-\\frac{1}{\\sin^2\\theta}=\\sec^2\\theta-\\csc^2\\theta."
+     }
+    ]
+   }
   },
   {
    "id": "e155",
@@ -2020,8 +3432,17 @@
    },
    "answer": {
     "kind": "set",
-    "value": "{(pi/6), ((5 pi)/6)}"
-   }
+    "value": "{pi/6, 5pi/6}",
+    "prompt": "list all solutions in [0, 2pi), e.g. pi/6, 5pi/6"
+   },
+   "hints": [
+    "Isolate the trig function, then find every angle in $[0,2\\pi)$ with that value.",
+    "Check each quadrant where the value has the right sign."
+   ],
+   "steps": [
+    "$\\sin\\theta=\\frac12$",
+    "Quadrants I and II: $\\frac\\pi6$ and $\\pi-\\frac\\pi6=\\frac{5\\pi}6$"
+   ]
   },
   {
    "id": "e156",
@@ -2032,7 +3453,7 @@
      "text": "$1+\\cos \\,\\theta =\\frac{1}{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572480794",
    "instructions": [
     {
@@ -2040,7 +3461,40 @@
      "text": "For the following exercises, solve the trigonometric equations on the interval $0\\le \\theta <2\\pi .$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cos\\theta=-\\frac12$."
+     },
+     {
+      "type": "p",
+      "text": "Cosine is negative in quadrants II and III; the reference angle is $\\frac\\pi3$."
+     },
+     {
+      "type": "p",
+      "text": "$\\theta=\\pi-\\frac\\pi3=\\frac{2\\pi}3$ and $\\theta=\\pi+\\frac\\pi3=\\frac{4\\pi}3$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "set",
+    "value": "{2pi/3, 4pi/3}",
+    "prompt": "list all solutions in [0, 2pi), e.g. pi/6, 5pi/6"
+   },
+   "verify": {
+    "sympy": "solveset(1+cos(theta)-Rational(1,2), theta, Interval.Ropen(0, 2*pi))"
+   },
+   "hints": [
+    "Isolate the trig function, then find every angle in $[0,2\\pi)$ with that value.",
+    "Check each quadrant where the value has the right sign."
+   ],
+   "steps": [
+    "$\\cos\\theta=-\\frac12$",
+    "Reference angle $\\frac\\pi3$, quadrants II and III",
+    "$\\frac{2\\pi}3,\\frac{4\\pi}3$"
+   ]
   },
   {
    "id": "e157",
@@ -2070,8 +3524,17 @@
    },
    "answer": {
     "kind": "set",
-    "value": "{(pi/4), ((3 pi)/4), ((5 pi)/4), ((7 pi)/4)}"
-   }
+    "value": "{pi/4, 3pi/4, 5pi/4, 7pi/4}",
+    "prompt": "list all solutions in [0, 2pi), e.g. pi/6, 5pi/6"
+   },
+   "hints": [
+    "Isolate the trig function, then find every angle in $[0,2\\pi)$ with that value.",
+    "Check each quadrant where the value has the right sign."
+   ],
+   "steps": [
+    "$\\tan^2\\theta=1$, so $\\tan\\theta=\\pm1$",
+    "Reference angle $\\frac\\pi4$ in all four quadrants"
+   ]
   },
   {
    "id": "e158",
@@ -2082,7 +3545,7 @@
      "text": "$4\\sin^{2}\\theta -2=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572453596",
    "instructions": [
     {
@@ -2090,7 +3553,36 @@
      "text": "For the following exercises, solve the trigonometric equations on the interval $0\\le \\theta <2\\pi .$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin^2\\theta=\\frac12$, so $\\sin\\theta=\\pm\\frac{\\sqrt2}2$."
+     },
+     {
+      "type": "p",
+      "text": "Reference angle $\\frac\\pi4$ in every quadrant: $\\theta=\\frac\\pi4,\\frac{3\\pi}4,\\frac{5\\pi}4,\\frac{7\\pi}4$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "set",
+    "value": "{pi/4, 3pi/4, 5pi/4, 7pi/4}",
+    "prompt": "list all solutions in [0, 2pi), e.g. pi/6, 5pi/6"
+   },
+   "verify": {
+    "sympy": "solveset(4*sin(theta)**2-2, theta, Interval.Ropen(0, 2*pi))"
+   },
+   "hints": [
+    "Isolate the trig function, then find every angle in $[0,2\\pi)$ with that value.",
+    "Check each quadrant where the value has the right sign."
+   ],
+   "steps": [
+    "$\\sin^2\\theta=\\frac12$",
+    "$\\sin\\theta=\\pm\\frac{\\sqrt2}2$",
+    "All four quadrants with reference angle $\\frac\\pi4$"
+   ]
   },
   {
    "id": "e159",
@@ -2120,8 +3612,17 @@
    },
    "answer": {
     "kind": "set",
-    "value": "{((2 pi)/3), ((5 pi)/3)}"
-   }
+    "value": "{2pi/3, 5pi/3}",
+    "prompt": "list all solutions in [0, 2pi), e.g. pi/6, 5pi/6"
+   },
+   "hints": [
+    "Isolate the trig function, then find every angle in $[0,2\\pi)$ with that value.",
+    "Check each quadrant where the value has the right sign."
+   ],
+   "steps": [
+    "$\\cot\\theta=-\\frac1{\\sqrt3}$, so $\\tan\\theta=-\\sqrt3$",
+    "Reference angle $\\frac\\pi3$ in quadrants II and IV"
+   ]
   },
   {
    "id": "e160",
@@ -2132,7 +3633,7 @@
      "text": "$3\\,\\sec \\,\\theta -2\\sqrt{3}=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572296782",
    "instructions": [
     {
@@ -2140,7 +3641,37 @@
      "text": "For the following exercises, solve the trigonometric equations on the interval $0\\le \\theta <2\\pi .$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sec\\theta=\\frac{2\\sqrt3}3=\\frac2{\\sqrt3}$, so $\\cos\\theta=\\frac{\\sqrt3}2$."
+     },
+     {
+      "type": "p",
+      "text": "Cosine is positive in quadrants I and IV: $\\theta=\\frac\\pi6$ and $\\theta=\\frac{11\\pi}6$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "set",
+    "value": "{pi/6, 11pi/6}",
+    "prompt": "list all solutions in [0, 2pi), e.g. pi/6, 5pi/6"
+   },
+   "verify": {
+    "sympy": "solveset(3*sec(theta)-2*sqrt(3), theta, Interval.Ropen(0, 2*pi))"
+   },
+   "hints": [
+    "Isolate the trig function, then find every angle in $[0,2\\pi)$ with that value.",
+    "Check each quadrant where the value has the right sign.",
+    "$\\sec\\theta=\\frac1{\\cos\\theta}$."
+   ],
+   "steps": [
+    "$\\sec\\theta=\\frac{2\\sqrt3}3$",
+    "$\\cos\\theta=\\frac3{2\\sqrt3}=\\frac{\\sqrt3}2$",
+    "$\\frac\\pi6$ and $2\\pi-\\frac\\pi6=\\frac{11\\pi}6$"
+   ]
   },
   {
    "id": "e161",
@@ -2170,8 +3701,17 @@
    },
    "answer": {
     "kind": "set",
-    "value": "{0, pi, (pi/3), ((5 pi)/3)}"
-   }
+    "value": "{0, pi, pi/3, 5pi/3}",
+    "prompt": "list all solutions in [0, 2pi), e.g. pi/6, 5pi/6"
+   },
+   "hints": [
+    "Move everything to one side and factor out $\\sin\\theta$. Do not divide by $\\sin\\theta$: you would lose solutions."
+   ],
+   "steps": [
+    "$\\sin\\theta(2\\cos\\theta-1)=0$",
+    "$\\sin\\theta=0$: $0,\\pi$",
+    "$\\cos\\theta=\\frac12$: $\\frac\\pi3,\\frac{5\\pi}3$"
+   ]
   },
   {
    "id": "e162",
@@ -2182,7 +3722,7 @@
      "text": "$\\csc^{2}\\theta +2\\,\\csc \\,\\theta +1=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572210607",
    "instructions": [
     {
@@ -2190,7 +3730,35 @@
      "text": "For the following exercises, solve the trigonometric equations on the interval $0\\le \\theta <2\\pi .$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\csc^2\\theta+2\\csc\\theta+1=(\\csc\\theta+1)^2=0$, so $\\csc\\theta=-1$."
+     },
+     {
+      "type": "p",
+      "text": "Then $\\sin\\theta=-1$, which happens only at $\\theta=\\frac{3\\pi}2$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "set",
+    "value": "{3pi/2}",
+    "prompt": "list all solutions in [0, 2pi), e.g. pi/6, 5pi/6"
+   },
+   "verify": {
+    "sympy": "solveset(csc(theta)**2+2*csc(theta)+1, theta, Interval.Ropen(0, 2*pi))"
+   },
+   "hints": [
+    "The left side is a perfect square."
+   ],
+   "steps": [
+    "$(\\csc\\theta+1)^2=0$",
+    "$\\csc\\theta=-1$, so $\\sin\\theta=-1$",
+    "$\\theta=\\frac{3\\pi}2$"
+   ]
   },
   {
    "id": "e163",
@@ -2224,7 +3792,15 @@
    "answer": {
     "kind": "equation",
     "value": "y=4 sin ((pi/4)x)"
-   }
+   },
+   "hints": [
+    "The amplitude is the height of a peak; $B=\\frac{2\\pi}{\\text{period}}$.",
+    "It passes through the origin, so it is a sine curve."
+   ],
+   "steps": [
+    "Peak height $4$, so $A=4$",
+    "Period $8$: $B=\\frac{2\\pi}8=\\frac\\pi4$"
+   ]
   },
   {
    "id": "e164",
@@ -2238,7 +3814,7 @@
      "height": 371
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572550761",
    "instructions": [
     {
@@ -2246,7 +3822,35 @@
      "text": "For the following exercises, each graph is of the form $y=A\\,\\sin \\,Bx$ or $y=A\\,\\cos \\,Bx,$ where $B>0.$ Write the equation of the graph."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph has its lowest point $(0,-2)$ on the $y$-axis, so it is a cosine curve flipped upside down: $A=-2$."
+     },
+     {
+      "type": "p",
+      "text": "Consecutive peaks are at $x=-1$ and $x=1$, so the period is $2$ and $B=\\frac{2\\pi}2=\\pi$."
+     },
+     {
+      "type": "p",
+      "text": "$y=-2\\cos(\\pi x)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-2cos(pi x)"
+   },
+   "hints": [
+    "The amplitude is the height of a peak; $B=\\frac{2\\pi}{\\text{period}}$.",
+    "At $x=0$ the graph is at its minimum: a cosine with $A<0$."
+   ],
+   "steps": [
+    "Minimum at $x=0$: $y=A\\cos Bx$ with $A=-2$",
+    "Period $2$: $B=\\pi$"
+   ]
   },
   {
    "id": "e165",
@@ -2280,7 +3884,15 @@
    "answer": {
     "kind": "equation",
     "value": "y= cos (2 pi x)"
-   }
+   },
+   "hints": [
+    "The amplitude is the height of a peak; $B=\\frac{2\\pi}{\\text{period}}$.",
+    "At $x=0$ the graph is at a maximum: a cosine."
+   ],
+   "steps": [
+    "Maximum $1$ at $x=0$: $A=1$",
+    "Period $1$: $B=2\\pi$"
+   ]
   },
   {
    "id": "e166",
@@ -2294,7 +3906,7 @@
      "height": 371
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572173804",
    "instructions": [
     {
@@ -2302,7 +3914,35 @@
      "text": "For the following exercises, each graph is of the form $y=A\\,\\sin \\,Bx$ or $y=A\\,\\cos \\,Bx,$ where $B>0.$ Write the equation of the graph."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph passes through the origin, heading down, so it is a sine curve with $A<0$."
+     },
+     {
+      "type": "p",
+      "text": "The peaks are at height $0.75$, so $A=-\\frac34$; the peaks are $1$ unit apart, so the period is $1$ and $B=2\\pi$."
+     },
+     {
+      "type": "p",
+      "text": "$y=-\\frac34\\sin(2\\pi x)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-(3/4)sin(2pi x)"
+   },
+   "hints": [
+    "The amplitude is the height of a peak; $B=\\frac{2\\pi}{\\text{period}}$.",
+    "At $x=0$ the graph is at $0$ and going down: a sine with $A<0$."
+   ],
+   "steps": [
+    "Through the origin, decreasing: $y=A\\sin Bx$ with $A<0$",
+    "Height $0.75$: $A=-\\frac34$; period $1$: $B=2\\pi$"
+   ]
   },
   {
    "id": "e167",
@@ -2313,7 +3953,7 @@
      "text": "$y=\\sin \\left(x-\\frac{\\pi}{4}\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572242235",
    "instructions": [
     {
@@ -2330,7 +3970,41 @@
      }
     ]
    },
-   "notes": "self-check: part c is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude",
+      "answer": {
+       "kind": "number",
+       "value": "1"
+      }
+     },
+     {
+      "label": "b. period",
+      "answer": {
+       "kind": "number",
+       "value": "2pi"
+      }
+     },
+     {
+      "label": "c. phase shift",
+      "answer": {
+       "kind": "number",
+       "value": "pi/4",
+       "prompt": "positive = right, negative = left, 0 if none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "For $y=A\\sin(Bx-C)$ or $A\\cos(Bx-C)$: amplitude $|A|$, period $\\frac{2\\pi}{B}$.",
+    "Write $Bx-C=B\\left(x-\\frac CB\\right)$: the shift is $\\frac CB$ (right if positive)."
+   ],
+   "steps": [
+    "$A=1$, $B=1$: period $2\\pi$",
+    "$x-\\frac\\pi4$: shift $\\frac\\pi4$ to the right"
+   ]
   },
   {
    "id": "e168",
@@ -2341,7 +4015,7 @@
      "text": "$y=3\\,\\cos (2x+3)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572481083",
    "instructions": [
     {
@@ -2349,7 +4023,57 @@
      "text": "For the following exercises, find a. the amplitude, b. the period, and c. the phase shift with direction for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=3\\cos(2x+3)=3\\cos\\left(2\\left(x+\\frac32\\right)\\right)$."
+     },
+     {
+      "type": "p",
+      "text": "a. Amplitude $3$. b. Period $\\frac{2\\pi}2=\\pi$. c. Phase shift $\\frac32$ units to the left."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "b. period",
+      "answer": {
+       "kind": "number",
+       "value": "pi"
+      }
+     },
+     {
+      "label": "c. phase shift",
+      "answer": {
+       "kind": "number",
+       "value": "-3/2",
+       "prompt": "positive = right, negative = left, 0 if none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(3, 2*pi/2, Rational(-3,2))"
+   },
+   "hints": [
+    "For $y=A\\sin(Bx-C)$ or $A\\cos(Bx-C)$: amplitude $|A|$, period $\\frac{2\\pi}{B}$.",
+    "Write $Bx-C=B\\left(x-\\frac CB\\right)$: the shift is $\\frac CB$ (right if positive)."
+   ],
+   "steps": [
+    "Factor out $B=2$: $2\\left(x+\\frac32\\right)$",
+    "Period $\\frac{2\\pi}2=\\pi$; shift $\\frac32$ left"
+   ]
   },
   {
    "id": "e169",
@@ -2360,7 +4084,7 @@
      "text": "$y=\\frac{-1}{2}\\sin \\left(\\frac{1}{4}x\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572141216",
    "instructions": [
     {
@@ -2377,7 +4101,41 @@
      }
     ]
    },
-   "notes": "self-check: part c is prose"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude",
+      "answer": {
+       "kind": "number",
+       "value": "1/2"
+      }
+     },
+     {
+      "label": "b. period",
+      "answer": {
+       "kind": "number",
+       "value": "8pi"
+      }
+     },
+     {
+      "label": "c. phase shift",
+      "answer": {
+       "kind": "number",
+       "value": "0",
+       "prompt": "positive = right, negative = left, 0 if none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "For $y=A\\sin(Bx-C)$ or $A\\cos(Bx-C)$: amplitude $|A|$, period $\\frac{2\\pi}{B}$.",
+    "Write $Bx-C=B\\left(x-\\frac CB\\right)$: the shift is $\\frac CB$ (right if positive)."
+   ],
+   "steps": [
+    "Amplitude $\\left|-\\frac12\\right|=\\frac12$",
+    "Period $\\frac{2\\pi}{1/4}=8\\pi$; no shift"
+   ]
   },
   {
    "id": "e170",
@@ -2388,7 +4146,7 @@
      "text": "$y=2\\,\\cos \\left(x-\\frac{\\pi}{3}\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572242035",
    "instructions": [
     {
@@ -2396,7 +4154,105 @@
      "text": "For the following exercises, find a. the amplitude, b. the period, and c. the phase shift with direction for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Amplitude $2$. b. Period $\\frac{2\\pi}1=2\\pi$. c. Phase shift $\\frac\\pi3$ units to the right."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "b. period",
+      "answer": {
+       "kind": "number",
+       "value": "2pi"
+      }
+     },
+     {
+      "label": "c. phase shift",
+      "answer": {
+       "kind": "number",
+       "value": "pi/3",
+       "prompt": "positive = right, negative = left, 0 if none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(2, 2*pi, pi/3)"
+   },
+   "hints": [
+    "For $y=A\\sin(Bx-C)$ or $A\\cos(Bx-C)$: amplitude $|A|$, period $\\frac{2\\pi}{B}$.",
+    "Write $Bx-C=B\\left(x-\\frac CB\\right)$: the shift is $\\frac CB$ (right if positive)."
+   ],
+   "steps": [
+    "$A=2$, $B=1$",
+    "$x-\\frac\\pi3$: shift right $\\frac\\pi3$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 6
+     },
+     "b": {
+      "min": 2,
+      "max": 4
+     },
+     "n": {
+      "choices": [
+       3,
+       4,
+       6
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the amplitude, period and phase shift of $y={{a}}\\cos\\left({{b}}x-\\frac{\\pi}{ {{n}} }\\right)$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. amplitude",
+       "answer": {
+        "kind": "number",
+        "value": "{{a}}"
+       }
+      },
+      {
+       "label": "b. period",
+       "answer": {
+        "kind": "number",
+        "value": "2pi/{{b}}"
+       }
+      },
+      {
+       "label": "c. phase shift",
+       "answer": {
+        "kind": "number",
+        "value": "pi/({{b*n}})",
+        "prompt": "positive = right, negative = left, 0 if none"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e171",
@@ -2407,7 +4263,7 @@
      "text": "$y=-3\\,\\sin (\\pi x+2)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572552175",
    "instructions": [
     {
@@ -2424,7 +4280,41 @@
      }
     ]
    },
-   "notes": "self-check: part c is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "b. period",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "c. phase shift",
+      "answer": {
+       "kind": "number",
+       "value": "-2/pi",
+       "prompt": "positive = right, negative = left, 0 if none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "For $y=A\\sin(Bx-C)$ or $A\\cos(Bx-C)$: amplitude $|A|$, period $\\frac{2\\pi}{B}$.",
+    "Write $Bx-C=B\\left(x-\\frac CB\\right)$: the shift is $\\frac CB$ (right if positive)."
+   ],
+   "steps": [
+    "Amplitude $|-3|=3$; period $\\frac{2\\pi}\\pi=2$",
+    "$\\pi x+2=\\pi\\left(x+\\frac2\\pi\\right)$: $\\frac2\\pi$ to the left"
+   ]
   },
   {
    "id": "e172",
@@ -2435,7 +4325,7 @@
      "text": "$y=4\\,\\cos \\left(2x-\\frac{\\pi}{2}\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572479852",
    "instructions": [
     {
@@ -2443,7 +4333,57 @@
      "text": "For the following exercises, find a. the amplitude, b. the period, and c. the phase shift with direction for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=4\\cos\\left(2x-\\frac\\pi2\\right)=4\\cos\\left(2\\left(x-\\frac\\pi4\\right)\\right)$."
+     },
+     {
+      "type": "p",
+      "text": "a. Amplitude $4$. b. Period $\\pi$. c. Phase shift $\\frac\\pi4$ units to the right."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude",
+      "answer": {
+       "kind": "number",
+       "value": "4"
+      }
+     },
+     {
+      "label": "b. period",
+      "answer": {
+       "kind": "number",
+       "value": "pi"
+      }
+     },
+     {
+      "label": "c. phase shift",
+      "answer": {
+       "kind": "number",
+       "value": "pi/4",
+       "prompt": "positive = right, negative = left, 0 if none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(4, 2*pi/2, (pi/2)/2)"
+   },
+   "hints": [
+    "For $y=A\\sin(Bx-C)$ or $A\\cos(Bx-C)$: amplitude $|A|$, period $\\frac{2\\pi}{B}$.",
+    "Write $Bx-C=B\\left(x-\\frac CB\\right)$: the shift is $\\frac CB$ (right if positive)."
+   ],
+   "steps": [
+    "Factor: $2\\left(x-\\frac\\pi4\\right)$",
+    "Period $\\pi$, shift $\\frac\\pi4$ right"
+   ]
   },
   {
    "id": "e173",
@@ -2454,7 +4394,7 @@
      "text": "**[T]** The diameter of a wheel rolling on the ground is 40 in. If the wheel rotates through an angle of $120\\text{°},$ how many inches does it move? Approximate to the nearest whole inch."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572481411",
    "instructions": [
     {
@@ -2471,7 +4411,58 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "answer": {
+    "kind": "number",
+    "value": "40pi/3",
+    "tolerance": {
+     "abs": 0.5
+    },
+    "prompt": "inches"
+   },
+   "hints": [
+    "Arc length $s=r\\theta$ with $\\theta$ in radians.",
+    "The radius is half the diameter."
+   ],
+   "steps": [
+    "$r=20$, $\\theta=120^\\circ=\\frac{2\\pi}3$",
+    "$s=20\\cdot\\frac{2\\pi}3\\approx41.9\\approx42$ in"
+   ],
+   "variant": {
+    "params": {
+     "d": {
+      "choices": [
+       24,
+       30,
+       36,
+       40,
+       48
+      ]
+     },
+     "t": {
+      "choices": [
+       60,
+       90,
+       120,
+       135,
+       150
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "A wheel of diameter {{d}} in rotates through ${{t}}^\\circ$. How far does it move?"
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{d/2}}*{{t}} pi/180",
+     "tolerance": {
+      "abs": 0.5
+     },
+     "prompt": "inches"
+    }
+   }
   },
   {
    "id": "e174",
@@ -2486,7 +4477,7 @@
      "text": "a. $r=12.8$ cm, $\\theta =\\frac{5\\pi}{6}$ rad b. $r=4.378$ cm, $\\theta =\\frac{7\\pi}{6}$ rad c. $r=0.964$ cm, $\\theta =50\\text{°}$ d. $r=8.55$ cm, $\\theta =325\\text{°}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572481443",
    "instructions": [
     {
@@ -2494,7 +4485,88 @@
      "text": "For the following exercises, find a. the amplitude, b. the period, and c. the phase shift with direction for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$s=r\\theta$ with $\\theta$ in radians:"
+     },
+     {
+      "type": "p",
+      "text": "a. $12.8\\cdot\\frac{5\\pi}6\\approx33.51$ cm"
+     },
+     {
+      "type": "p",
+      "text": "b. $4.378\\cdot\\frac{7\\pi}6\\approx16.05$ cm"
+     },
+     {
+      "type": "p",
+      "text": "c. $50^\\circ=\\frac{5\\pi}{18}$: $0.964\\cdot\\frac{5\\pi}{18}\\approx0.84$ cm"
+     },
+     {
+      "type": "p",
+      "text": "d. $325^\\circ=\\frac{65\\pi}{36}$: $8.55\\cdot\\frac{65\\pi}{36}\\approx48.50$ cm"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. (cm)",
+      "answer": {
+       "kind": "number",
+       "value": "12.8*5pi/6",
+       "tolerance": {
+        "abs": 0.006
+       }
+      }
+     },
+     {
+      "label": "b. (cm)",
+      "answer": {
+       "kind": "number",
+       "value": "4.378*7pi/6",
+       "tolerance": {
+        "abs": 0.006
+       }
+      }
+     },
+     {
+      "label": "c. (cm)",
+      "answer": {
+       "kind": "number",
+       "value": "0.964*50pi/180",
+       "tolerance": {
+        "abs": 0.006
+       }
+      }
+     },
+     {
+      "label": "d. (cm)",
+      "answer": {
+       "kind": "number",
+       "value": "8.55*325pi/180",
+       "tolerance": {
+        "abs": 0.006
+       }
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(128,10)*5*pi/6, Rational(4378,1000)*7*pi/6, Rational(964,1000)*50*pi/180, Rational(855,100)*325*pi/180)"
+   },
+   "hints": [
+    "Arc length $s=r\\theta$, with $\\theta$ in radians. Convert degrees first."
+   ],
+   "steps": [
+    "a. $33.51$",
+    "b. $16.05$",
+    "c. $0.84$",
+    "d. $48.50$"
+   ]
   },
   {
    "id": "e175",
@@ -2509,7 +4581,7 @@
      "text": "a. $\\theta =\\frac{7\\pi}{4}\\text{rad},t=10$ sec b. $\\theta =\\frac{3\\pi}{5}\\text{rad},t=8$ sec c. $\\theta =\\frac{2\\pi}{9}\\text{rad},t=1$ min d. $\\theta =23.76\\,\\text{rad,}t=14$ min"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572433987",
    "instructions": [
     {
@@ -2526,7 +4598,60 @@
      }
     ]
    },
-   "notes": "self-check: part a is prose"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. (rad/sec)",
+      "answer": {
+       "kind": "number",
+       "value": "7pi/40",
+       "tolerance": {
+        "abs": 0.0006
+       }
+      }
+     },
+     {
+      "label": "b. (rad/sec)",
+      "answer": {
+       "kind": "number",
+       "value": "3pi/40",
+       "tolerance": {
+        "abs": 0.0006
+       }
+      }
+     },
+     {
+      "label": "c. (rad/min)",
+      "answer": {
+       "kind": "number",
+       "value": "2pi/9",
+       "tolerance": {
+        "abs": 0.0006
+       }
+      }
+     },
+     {
+      "label": "d. (rad/min)",
+      "answer": {
+       "kind": "number",
+       "value": "23.76/14",
+       "tolerance": {
+        "abs": 0.0006
+       }
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$\\omega=\\theta/t$; keep the time unit given."
+   ],
+   "steps": [
+    "a. $\\frac{7\\pi}{40}\\approx0.550$",
+    "b. $\\frac{3\\pi}{40}\\approx0.236$",
+    "c. $\\frac{2\\pi}9\\approx0.698$",
+    "d. $\\frac{23.76}{14}\\approx1.697$"
+   ]
   },
   {
    "id": "e176",
@@ -2546,7 +4671,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572553992",
    "instructions": [
     {
@@ -2554,7 +4679,59 @@
      "text": "For the following exercises, find a. the amplitude, b. the period, and c. the phase shift with direction for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\pi r^2=250{,}000$, so $r=\\sqrt{250000/\\pi}\\approx282.09$ m."
+     },
+     {
+      "type": "p",
+      "text": "b. A sector with angle $\\theta=45^\\circ=\\frac\\pi4$ has area $\\frac12r^2\\theta$. Setting $\\frac12r^2\\cdot\\frac\\pi4=250{,}000$ gives $r=\\sqrt{2{,}000{,}000/\\pi}\\approx797.88$ m."
+     },
+     {
+      "type": "p",
+      "text": "The curved side is the arc $s=r\\theta\\approx797.88\\cdot\\frac\\pi4\\approx626.66$ m."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. radius (m)",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(250000/pi)",
+       "tolerance": {
+        "abs": 0.05
+       }
+      }
+     },
+     {
+      "label": "b. curved side (m)",
+      "answer": {
+       "kind": "number",
+       "value": "pi/4*sqrt(2000000/pi)",
+       "tolerance": {
+        "abs": 0.05
+       }
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(sqrt(250000/pi), pi/4*sqrt(2*250000/(pi/4)))"
+   },
+   "hints": [
+    "Circle area $\\pi r^2$; sector area $\\frac12r^2\\theta$ ($\\theta$ in radians); arc length $r\\theta$."
+   ],
+   "steps": [
+    "$r=\\sqrt{250000/\\pi}\\approx282.09$",
+    "Sector: $\\frac\\pi8r^2=250000$, $r\\approx797.88$",
+    "Arc: $\\frac\\pi4r\\approx626.66$"
+   ]
   },
   {
    "id": "e177",
@@ -2573,7 +4750,7 @@
      "text": "where $\\theta$ is the angle formed by the two sides. Find the area of an isosceles triangle with equal sides of length 8 in. and angle $\\theta =5\\pi /12$ rad."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572482018",
    "instructions": [
     {
@@ -2590,7 +4767,20 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "number",
+    "value": "32 sin(5pi/12)",
+    "tolerance": {
+     "abs": 0.06
+    },
+    "prompt": "square inches"
+   },
+   "hints": [
+    "Substitute $x=8$ and $\\theta=\\frac{5\\pi}{12}$."
+   ],
+   "steps": [
+    "$\\frac12\\cdot64\\cdot\\sin\\frac{5\\pi}{12}=32\\cdot0.9659\\approx30.9$"
+   ]
   },
   {
    "id": "e178",
@@ -2601,7 +4791,7 @@
      "text": "**[T]** A particle travels in a circular path at a constant angular speed $\\omega .$ The angular speed is modeled by the function $\\omega =9|\\cos (\\pi t-\\pi /12)|.$ Determine the angular speed at $t=9$ sec."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572173743",
    "instructions": [
     {
@@ -2609,7 +4799,38 @@
      "text": "For the following exercises, find a. the amplitude, b. the period, and c. the phase shift with direction for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\omega(9)=9\\left|\\cos\\left(9\\pi-\\frac\\pi{12}\\right)\\right|$."
+     },
+     {
+      "type": "p",
+      "text": "$\\cos\\left(9\\pi-\\frac{\\pi}{12}\\right)=\\cos\\left(\\pi-\\frac\\pi{12}\\right)=-\\cos\\frac\\pi{12}$, so $\\omega(9)=9\\cos\\frac\\pi{12}\\approx8.693$ rad/sec."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "9cos(pi/12)",
+    "tolerance": {
+     "abs": 0.005
+    },
+    "prompt": "rad/sec"
+   },
+   "verify": {
+    "sympy": "9*Abs(cos(9*pi-pi/12))"
+   },
+   "hints": [
+    "Cosine has period $2\\pi$, so subtract $8\\pi$ from the angle."
+   ],
+   "steps": [
+    "$9\\pi-\\frac\\pi{12}-8\\pi=\\frac{11\\pi}{12}$",
+    "$|\\cos\\frac{11\\pi}{12}|=\\cos\\frac\\pi{12}\\approx0.9659$",
+    "$9\\cdot0.9659\\approx8.693$"
+   ]
   },
   {
    "id": "e179",
@@ -2637,7 +4858,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572546454",
    "instructions": [
     {
@@ -2654,7 +4875,36 @@
      }
     ]
    },
-   "notes": "self-check: part a is prose"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. period (sec)",
+      "answer": {
+       "kind": "number",
+       "value": "pi/184"
+      }
+     },
+     {
+      "label": "b. periods in 1 sec",
+      "answer": {
+       "kind": "number",
+       "value": "184/pi",
+       "tolerance": {
+        "abs": 0.5
+       },
+       "prompt": "approximately"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Period $=\\frac{2\\pi}B$."
+   ],
+   "steps": [
+    "$\\frac{2\\pi}{368}=\\frac{\\pi}{184}\\approx0.0171$ sec",
+    "$\\frac{1}{\\pi/184}=\\frac{184}\\pi\\approx58.6\\approx59$"
+   ]
   },
   {
    "id": "e180",
@@ -2685,7 +4935,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572454376",
    "instructions": [
     {
@@ -2693,7 +4943,82 @@
      "text": "For the following exercises, find a. the amplitude, b. the period, and c. the phase shift with direction for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Amplitude $3$ hours; period $\\frac{2\\pi}{2\\pi/365}=365$ days."
+     },
+     {
+      "type": "p",
+      "text": "b. The longest day has $12+3=15$ hours of daylight. c. The shortest has $12-3=9$ hours."
+     },
+     {
+      "type": "p",
+      "text": "d. $N(90)=12+3\\sin\\left(\\frac{2\\pi\\cdot11}{365}\\right)\\approx12.56$ hours."
+     },
+     {
+      "type": "p",
+      "text": "e. The graph is a sine wave around $N=12$, between $9$ and $15$, crossing $12$ going up at $t=79$ (about March 20), peaking at $t\\approx170$ and bottoming out at $t\\approx353$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude (hours)",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "a. period (days)",
+      "answer": {
+       "kind": "number",
+       "value": "365"
+      }
+     },
+     {
+      "label": "b. longest day (hours)",
+      "answer": {
+       "kind": "number",
+       "value": "15"
+      }
+     },
+     {
+      "label": "c. shortest day (hours)",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     },
+     {
+      "label": "d. hours at $t=90$",
+      "answer": {
+       "kind": "number",
+       "value": "12+3sin(22pi/365)",
+       "tolerance": {
+        "abs": 0.01
+       }
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(3, 2*pi/(2*pi/365), 12+3, 12-3, 12+3*sin(2*pi/365*(90-79)))"
+   },
+   "hints": [
+    "$N$ oscillates between $12-3$ and $12+3$.",
+    "Period $=\\frac{2\\pi}{B}$ with $B=\\frac{2\\pi}{365}$."
+   ],
+   "steps": [
+    "Amplitude $3$, period $365$",
+    "Max $15$, min $9$",
+    "$N(90)=12+3\\sin(0.1894)\\approx12.56$"
+   ]
   },
   {
    "id": "e181",
@@ -2715,7 +5040,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572480235",
    "instructions": [
     {
@@ -2739,7 +5064,50 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude (°F)",
+      "answer": {
+       "kind": "number",
+       "value": "10"
+      }
+     },
+     {
+      "label": "a. period (hours)",
+      "answer": {
+       "kind": "number",
+       "value": "24"
+      }
+     },
+     {
+      "label": "b. $T(7)$ (°F)",
+      "answer": {
+       "kind": "number",
+       "value": "50-10sin(pi/12)",
+       "tolerance": {
+        "abs": 0.06
+       }
+      }
+     },
+     {
+      "label": "c. hours after midnight when $T=60$",
+      "answer": {
+       "kind": "number",
+       "value": "14"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$T=60$ when the sine equals $1$."
+   ],
+   "steps": [
+    "Period $\\frac{2\\pi}{\\pi/12}=24$",
+    "$T(7)=50+10\\sin(-\\frac\\pi{12})\\approx47.4$",
+    "$\\frac\\pi{12}(t-8)=\\frac\\pi2$ gives $t=14$ (2 p.m.)"
+   ]
   },
   {
    "id": "e182",
@@ -2760,7 +5128,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572449519",
    "instructions": [
     {
@@ -2768,7 +5136,63 @@
      "text": "For the following exercises, find a. the amplitude, b. the period, and c. the phase shift with direction for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Amplitude $8$ ft; period $\\frac{2\\pi}{\\pi/6}=12$ hours."
+     },
+     {
+      "type": "p",
+      "text": "b. Over one period: $H(0)=0$, peak $8$ at $t=3$, back to $0$ at $t=6$, low point $-8$ at $t=9$, and $0$ at $t=12$."
+     },
+     {
+      "type": "p",
+      "text": "c. 4:30 a.m. is $t=4.5$: $H(4.5)=8\\sin\\frac{3\\pi}{4}=4\\sqrt2\\approx5.66$ ft."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. amplitude (ft)",
+      "answer": {
+       "kind": "number",
+       "value": "8"
+      }
+     },
+     {
+      "label": "a. period (hours)",
+      "answer": {
+       "kind": "number",
+       "value": "12"
+      }
+     },
+     {
+      "label": "c. height at 4:30 a.m. (ft)",
+      "answer": {
+       "kind": "number",
+       "value": "4sqrt(2)",
+       "tolerance": {
+        "abs": 0.01
+       }
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(8, 2*pi/(pi/6), 8*sin(pi/6*Rational(9,2)))"
+   },
+   "hints": [
+    "Period $=\\frac{2\\pi}{B}$.",
+    "4:30 a.m. is $t=4.5$."
+   ],
+   "steps": [
+    "Amplitude $8$, period $12$",
+    "$H(4.5)=8\\sin(0.75\\pi)=8\\cdot\\frac{\\sqrt2}2\\approx5.66$"
+   ]
   }
  ],
  "proofs": [],

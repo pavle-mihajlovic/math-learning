@@ -18,7 +18,7 @@
  "status": {
   "imported": "2026-11-24",
   "reading": "imported",
-  "answers": "imported"
+  "answers": "reviewed"
  },
  "objectives": [
   "Use functional notation to evaluate a function.",
@@ -220,7 +220,7 @@
     },
     {
      "type": "math",
-     "tex": "f(x)=\\{\\begin{array}{l}3x+1\\quad x\\ge 2 \\\\ x^{2}\\qquad x<2\\end{array}."
+     "tex": "f(x)=\\begin{cases}3x+1, & \\text{if } x\\ge 2 \\\\ x^{2}, & \\text{if } x<2\\end{cases}"
     },
     {
      "type": "p",
@@ -297,6 +297,25 @@
         "text": "Substitute $1$ and $a+h$ for $x$ in the formula for $f(x).$"
        }
       ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "$f(a+h)$",
+      "answer": {
+       "kind": "expression",
+       "value": "a^2+2a h+h^2-3a-3h+5"
+      }
      }
     ]
    }
@@ -494,6 +513,25 @@
         "text": "Use $4-2x\\ge 0.$"
        }
       ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,2]"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[5,inf)"
+      }
      }
     ]
    }
@@ -873,6 +911,11 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "set",
+    "value": "{0,2,3}",
+    "prompt": "list the zeros, e.g. 1, 4"
    }
   },
   {
@@ -1127,6 +1170,25 @@
         "text": "The new function $(f/g)(x)$ is a quotient of two functions. For what values of $x$ is the denominator zero?"
        }
       ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$(f/g)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "(x^2+3)/(2x-5)"
+      }
+     },
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,5/2) U (5/2,inf)"
+      }
      }
     ]
    }
@@ -1609,6 +1671,15 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "even",
+     "odd",
+     "neither"
+    ],
+    "correct": 1
    }
   },
   {
@@ -1621,7 +1692,7 @@
     },
     {
      "type": "math",
-     "tex": "f(x)=\\{\\begin{array}{c}-x,x<0 \\\\ x,x\\ge 0\\end{array}."
+     "tex": "f(x)=\\begin{cases}-x, & \\text{if } x<0 \\\\ x, & \\text{if } x\\ge 0\\end{cases}"
     },
     {
      "type": "p",
@@ -1673,7 +1744,7 @@
      },
      {
       "type": "math",
-      "tex": "|x-3|=\\{\\begin{array}{c}-(x-3)\\quad \\text{if}\\,x<3 \\\\ x-3\\qquad \\text{if}\\,x\\ge 3\\end{array}."
+      "tex": "|x-3|=\\begin{cases}-(x-3), & \\text{if } x<3 \\\\ x-3, & \\text{if } x\\ge 3\\end{cases}"
      },
      {
       "type": "p",
@@ -1720,6 +1791,25 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[-4,inf)"
+      }
+     }
+    ]
    }
   },
   {
@@ -1754,7 +1844,7 @@
       ],
       [
        "**Absolute value function**",
-       "$f(x)=\\{\\begin{array}{c}-x,x<0 \\\\ x,x\\ge 0\\end{array}$"
+       "$f(x)=\\begin{cases}-x, & \\text{if } x<0 \\\\ x, & \\text{if } x\\ge 0\\end{cases}$"
       ]
      ]
     }
@@ -1802,7 +1892,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572554559",
    "instructions": [
     {
@@ -1819,7 +1909,46 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "{-3,-2,-1,0,1,2,3}",
+       "prompt": "a finite set, e.g. {1, 2, 3}"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "{0,1,4,9}"
+      }
+     },
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The domain is the set of all inputs ($x$-values); the range is the set of all outputs ($y$-values).",
+    "A relation is a function when no $x$-value is paired with two different $y$-values."
+   ],
+   "steps": [
+    "Domain: the $x$-values, $\\{-3,-2,-1,0,1,2,3\\}$",
+    "Range: the $y$-values, $\\{0,1,4,9\\}$",
+    "No $x$-value repeats with a different $y$: a function"
+   ]
   },
   {
    "id": "e2",
@@ -1861,7 +1990,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572550816",
    "instructions": [
     {
@@ -1869,7 +1998,59 @@
      "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Domain $=\\{-3,-2,-1,0,1,2,3\\}$, range $=\\{-8,-2,-1,0,1,8\\}$."
+     },
+     {
+      "type": "p",
+      "text": "b. Yes, a function: each $x$-value appears exactly once, so each input has exactly one output."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "{-3,-2,-1,0,1,2,3}",
+       "prompt": "a finite set, e.g. {1, 2, 3}"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "{-8,-2,-1,0,1,8}"
+      }
+     },
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The domain is the set of all inputs ($x$-values); the range is the set of all outputs ($y$-values).",
+    "A relation is a function when no $x$-value is paired with two different $y$-values."
+   ],
+   "steps": [
+    "Domain: the $x$-values, $\\{-3,-2,-1,0,1,2,3\\}$",
+    "Range: the $y$-values, $\\{-8,-2,-1,0,1,8\\}$",
+    "No $x$-value repeats with a different $y$: a function"
+   ]
   },
   {
    "id": "e3",
@@ -1911,7 +2092,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572549262",
    "instructions": [
     {
@@ -1928,7 +2109,46 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "{0,1,2,3}",
+       "prompt": "a finite set, e.g. {1, 2, 3}"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "{-3,-2,-1,0,1,2,3}"
+      }
+     },
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The domain is the set of all inputs ($x$-values); the range is the set of all outputs ($y$-values).",
+    "A relation is a function when no $x$-value is paired with two different $y$-values."
+   ],
+   "steps": [
+    "Domain: the $x$-values, $\\{0,1,2,3\\}$",
+    "Range: the $y$-values, $\\{-3,-2,-1,0,1,2,3\\}$",
+    "Some $x$-value has two different $y$-values: not a function"
+   ]
   },
   {
    "id": "e4",
@@ -1970,7 +2190,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572547676",
    "instructions": [
     {
@@ -1978,7 +2198,59 @@
      "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Domain $=\\{1,2,3,4,5,6,7\\}$, range $=\\{1\\}$."
+     },
+     {
+      "type": "p",
+      "text": "b. Yes, a function (a constant one): every input has the single output $1$. Different inputs may share an output."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "{1,2,3,4,5,6,7}",
+       "prompt": "a finite set, e.g. {1, 2, 3}"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "{1}"
+      }
+     },
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The domain is the set of all inputs ($x$-values); the range is the set of all outputs ($y$-values).",
+    "A relation is a function when no $x$-value is paired with two different $y$-values."
+   ],
+   "steps": [
+    "Domain: the $x$-values, $\\{1,2,3,4,5,6,7\\}$",
+    "Range: the $y$-values, $\\{1\\}$",
+    "No $x$-value repeats with a different $y$: a function"
+   ]
   },
   {
    "id": "e5",
@@ -2020,7 +2292,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572203528",
    "instructions": [
     {
@@ -2037,7 +2309,46 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "{3,5,8,10,15,21,33}",
+       "prompt": "a finite set, e.g. {1, 2, 3}"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "{0,1,2,3}"
+      }
+     },
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The domain is the set of all inputs ($x$-values); the range is the set of all outputs ($y$-values).",
+    "A relation is a function when no $x$-value is paired with two different $y$-values."
+   ],
+   "steps": [
+    "Domain: the $x$-values, $\\{3,5,8,10,15,21,33\\}$",
+    "Range: the $y$-values, $\\{0,1,2,3\\}$",
+    "No $x$-value repeats with a different $y$: a function"
+   ]
   },
   {
    "id": "e6",
@@ -2079,7 +2390,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572481235",
    "instructions": [
     {
@@ -2087,7 +2398,59 @@
      "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Domain $=\\{-7,-2,0,1,3,6\\}$, range $=\\{-2,-1,1,4,5,11\\}$."
+     },
+     {
+      "type": "p",
+      "text": "b. No, not a function: the input $x=-2$ is paired with two outputs, $5$ and $1$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "{-7,-2,0,1,3,6}",
+       "prompt": "a finite set, e.g. {1, 2, 3}"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "{-2,-1,1,4,5,11}"
+      }
+     },
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The domain is the set of all inputs ($x$-values); the range is the set of all outputs ($y$-values).",
+    "A relation is a function when no $x$-value is paired with two different $y$-values."
+   ],
+   "steps": [
+    "Domain: the $x$-values, $\\{-7,-2,0,1,3,6\\}$",
+    "Range: the $y$-values, $\\{-2,-1,1,4,5,11\\}$",
+    "Some $x$-value has two different $y$-values: not a function"
+   ]
   },
   {
    "id": "e7",
@@ -2165,6 +2528,80 @@
       }
      }
     ]
+   },
+   "hints": [
+    "Replace every $x$ in the formula by the input, in parentheses.",
+    "For $f(a+h)$, expand and collect like terms."
+   ],
+   "steps": [
+    "$f(0)=5(0)-2=-2$, $f(1)=3$, $f(3)=13$",
+    "$f(-x)=5(-x)-2=-5x-2$",
+    "$f(a+h)=5(a+h)-2=5a+5h-2$"
+   ],
+   "variant": {
+    "params": {
+     "m": {
+      "min": 2,
+      "max": 9
+     },
+     "k": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$ for $f(x)={{m}}x-{{k}}$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a",
+       "answer": {
+        "kind": "number",
+        "value": "{{-k}}"
+       }
+      },
+      {
+       "label": "b",
+       "answer": {
+        "kind": "number",
+        "value": "{{m-k}}"
+       }
+      },
+      {
+       "label": "c",
+       "answer": {
+        "kind": "number",
+        "value": "{{3*m-k}}"
+       }
+      },
+      {
+       "label": "d",
+       "answer": {
+        "kind": "expression",
+        "value": "-{{m}}x-{{k}}"
+       }
+      },
+      {
+       "label": "e",
+       "answer": {
+        "kind": "expression",
+        "value": "{{m}}a-{{k}}"
+       }
+      },
+      {
+       "label": "f",
+       "answer": {
+        "kind": "expression",
+        "value": "{{m}}a+{{m}}h-{{k}}"
+       }
+      }
+     ]
+    }
    }
   },
   {
@@ -2176,7 +2613,7 @@
      "text": "$f(x)=4x^{2}-3x+1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572547970",
    "instructions": [
     {
@@ -2188,7 +2625,151 @@
      "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(0)=1$ b. $f(1)=4-3+1=2$ c. $f(3)=36-9+1=28$"
+     },
+     {
+      "type": "p",
+      "text": "d. $f(-x)=4(-x)^2-3(-x)+1=4x^2+3x+1$"
+     },
+     {
+      "type": "p",
+      "text": "e. $f(a)=4a^2-3a+1$"
+     },
+     {
+      "type": "p",
+      "text": "f. $f(a+h)=4(a+h)^2-3(a+h)+1=4a^2+8ah+4h^2-3a-3h+1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "1"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "28"
+      }
+     },
+     {
+      "label": "d",
+      "answer": {
+       "kind": "expression",
+       "value": "4x^2+3x+1"
+      }
+     },
+     {
+      "label": "e",
+      "answer": {
+       "kind": "expression",
+       "value": "4a^2-3a+1"
+      }
+     },
+     {
+      "label": "f",
+      "answer": {
+       "kind": "expression",
+       "value": "4a^2+8a h+4h^2-3a-3h+1"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((4*x**2-3*x+1).subs(x, 0), (4*x**2-3*x+1).subs(x, 1), (4*x**2-3*x+1).subs(x, 3), (4*x**2-3*x+1).subs(x, -x), (4*x**2-3*x+1).subs(x, a), (4*x**2-3*x+1).subs(x, a+h))"
+   },
+   "hints": [
+    "Replace every $x$ in the formula by the input, in parentheses.",
+    "For $f(a+h)$, expand and collect like terms."
+   ],
+   "steps": [
+    "$f(3)=4\\cdot 9-3\\cdot 3+1=28$",
+    "$f(-x)=4x^2+3x+1$ (the square removes the sign)",
+    "$4(a+h)^2=4a^2+8ah+4h^2$, so $f(a+h)=4a^2+8ah+4h^2-3a-3h+1$"
+   ],
+   "variant": {
+    "params": {
+     "p": {
+      "min": 2,
+      "max": 6
+     },
+     "q": {
+      "min": 2,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$ for $f(x)={{p}}x^2-{{q}}x+1$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a",
+       "answer": {
+        "kind": "number",
+        "value": "1"
+       }
+      },
+      {
+       "label": "b",
+       "answer": {
+        "kind": "number",
+        "value": "{{p-q+1}}"
+       }
+      },
+      {
+       "label": "c",
+       "answer": {
+        "kind": "number",
+        "value": "{{9*p-3*q+1}}"
+       }
+      },
+      {
+       "label": "d",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p}}x^2+{{q}}x+1"
+       }
+      },
+      {
+       "label": "e",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p}}a^2-{{q}}a+1"
+       }
+      },
+      {
+       "label": "f",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p}}(a+h)^2-{{q}}(a+h)+1"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e9",
@@ -2199,7 +2780,7 @@
      "text": "$f(x)=\\frac{2}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572549684",
    "instructions": [
     {
@@ -2220,7 +2801,63 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "DNE",
+       "prompt": "type DNE if undefined"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "2/3"
+      }
+     },
+     {
+      "label": "d",
+      "answer": {
+       "kind": "expression",
+       "value": "-2/x"
+      }
+     },
+     {
+      "label": "e",
+      "answer": {
+       "kind": "expression",
+       "value": "2/a"
+      }
+     },
+     {
+      "label": "f",
+      "answer": {
+       "kind": "expression",
+       "value": "2/(a+h)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$f(0)=2/0$: can you divide by zero?",
+    "Replace every $x$ in the formula by the input, in parentheses."
+   ],
+   "steps": [
+    "$f(0)=\\frac{2}{0}$ is undefined (DNE)",
+    "$f(1)=2$, $f(3)=\\frac{2}{3}$",
+    "$f(-x)=\\frac{2}{-x}=-\\frac{2}{x}$, $f(a+h)=\\frac{2}{a+h}$"
+   ]
   },
   {
    "id": "e10",
@@ -2231,7 +2868,7 @@
      "text": "$f(x)=|x-7|+8$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572549759",
    "instructions": [
     {
@@ -2243,7 +2880,154 @@
      "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(0)=|-7|+8=15$ b. $f(1)=|-6|+8=14$ c. $f(3)=|-4|+8=12$"
+     },
+     {
+      "type": "p",
+      "text": "d. $f(-x)=|-x-7|+8=|x+7|+8$"
+     },
+     {
+      "type": "p",
+      "text": "e. $f(a)=|a-7|+8$"
+     },
+     {
+      "type": "p",
+      "text": "f. $f(a+h)=|a+h-7|+8$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "15"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "14"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "12"
+      }
+     },
+     {
+      "label": "d",
+      "answer": {
+       "kind": "expression",
+       "value": "|x+7|+8",
+       "accept": [
+        "|-x-7|+8"
+       ]
+      }
+     },
+     {
+      "label": "e",
+      "answer": {
+       "kind": "expression",
+       "value": "|a-7|+8"
+      }
+     },
+     {
+      "label": "f",
+      "answer": {
+       "kind": "expression",
+       "value": "|a+h-7|+8"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((Abs(x-7)+8).subs(x, 0), (Abs(x-7)+8).subs(x, 1), (Abs(x-7)+8).subs(x, 3), (Abs(x-7)+8).subs(x, -x), (Abs(x-7)+8).subs(x, a), (Abs(x-7)+8).subs(x, a+h))"
+   },
+   "hints": [
+    "Replace every $x$ in the formula by the input, in parentheses.",
+    "$|-u|=|u|$, so $|-x-7|=|x+7|$."
+   ],
+   "steps": [
+    "$f(0)=|0-7|+8=7+8=15$",
+    "$f(3)=|3-7|+8=4+8=12$",
+    "$f(-x)=|-x-7|+8=|x+7|+8$"
+   ],
+   "variant": {
+    "params": {
+     "k": {
+      "min": 4,
+      "max": 9
+     },
+     "c": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$ for $f(x)=|x-{{k}}|+{{c}}$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a",
+       "answer": {
+        "kind": "number",
+        "value": "{{k+c}}"
+       }
+      },
+      {
+       "label": "b",
+       "answer": {
+        "kind": "number",
+        "value": "{{k-1+c}}"
+       }
+      },
+      {
+       "label": "c",
+       "answer": {
+        "kind": "number",
+        "value": "{{k-3+c}}"
+       }
+      },
+      {
+       "label": "d",
+       "answer": {
+        "kind": "expression",
+        "value": "|x+{{k}}|+{{c}}"
+       }
+      },
+      {
+       "label": "e",
+       "answer": {
+        "kind": "expression",
+        "value": "|a-{{k}}|+{{c}}"
+       }
+      },
+      {
+       "label": "f",
+       "answer": {
+        "kind": "expression",
+        "value": "|a+h-{{k}}|+{{c}}"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e11",
@@ -2321,6 +3105,80 @@
       }
      }
     ]
+   },
+   "hints": [
+    "Replace every $x$ in the formula by the input, in parentheses.",
+    "Leave square roots that don't simplify as they are."
+   ],
+   "steps": [
+    "$f(0)=\\sqrt{5}$, $f(1)=\\sqrt{11}$, $f(3)=\\sqrt{23}$",
+    "$f(-x)=\\sqrt{-6x+5}$",
+    "$f(a+h)=\\sqrt{6(a+h)+5}=\\sqrt{6a+6h+5}$"
+   ],
+   "variant": {
+    "params": {
+     "m": {
+      "min": 2,
+      "max": 9
+     },
+     "k": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$ for $f(x)=\\sqrt{ {{m}}x+{{k}} }$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a",
+       "answer": {
+        "kind": "number",
+        "value": "sqrt({{k}})"
+       }
+      },
+      {
+       "label": "b",
+       "answer": {
+        "kind": "number",
+        "value": "sqrt({{m+k}})"
+       }
+      },
+      {
+       "label": "c",
+       "answer": {
+        "kind": "number",
+        "value": "sqrt({{3*m+k}})"
+       }
+      },
+      {
+       "label": "d",
+       "answer": {
+        "kind": "expression",
+        "value": "sqrt(-{{m}}x+{{k}})"
+       }
+      },
+      {
+       "label": "e",
+       "answer": {
+        "kind": "expression",
+        "value": "sqrt({{m}}a+{{k}})"
+       }
+      },
+      {
+       "label": "f",
+       "answer": {
+        "kind": "expression",
+        "value": "sqrt({{m}}a+{{m}}h+{{k}})"
+       }
+      }
+     ]
+    }
    }
   },
   {
@@ -2332,7 +3190,7 @@
      "text": "$f(x)=\\frac{x-2}{3x+7}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572451584",
    "instructions": [
     {
@@ -2344,7 +3202,88 @@
      "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(0)=\\frac{-2}{7}=-\\frac{2}{7}$ b. $f(1)=\\frac{-1}{10}$ c. $f(3)=\\frac{1}{16}$"
+     },
+     {
+      "type": "p",
+      "text": "d. $f(-x)=\\frac{-x-2}{-3x+7}=\\frac{x+2}{3x-7}$"
+     },
+     {
+      "type": "p",
+      "text": "e. $f(a)=\\frac{a-2}{3a+7}$"
+     },
+     {
+      "type": "p",
+      "text": "f. $f(a+h)=\\frac{a+h-2}{3a+3h+7}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "-2/7"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "-1/10"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "1/16"
+      }
+     },
+     {
+      "label": "d",
+      "answer": {
+       "kind": "expression",
+       "value": "(x+2)/(3x-7)",
+       "accept": [
+        "(-x-2)/(-3x+7)"
+       ]
+      }
+     },
+     {
+      "label": "e",
+      "answer": {
+       "kind": "expression",
+       "value": "(a-2)/(3a+7)"
+      }
+     },
+     {
+      "label": "f",
+      "answer": {
+       "kind": "expression",
+       "value": "(a+h-2)/(3a+3h+7)"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(((x-2)/(3*x+7)).subs(x, 0), ((x-2)/(3*x+7)).subs(x, 1), ((x-2)/(3*x+7)).subs(x, 3), ((x-2)/(3*x+7)).subs(x, -x), ((x-2)/(3*x+7)).subs(x, a), ((x-2)/(3*x+7)).subs(x, a+h))"
+   },
+   "hints": [
+    "Replace every $x$ in the formula by the input, in parentheses."
+   ],
+   "steps": [
+    "$f(1)=\\frac{1-2}{3+7}=-\\frac{1}{10}$",
+    "$f(3)=\\frac{3-2}{9+7}=\\frac{1}{16}$",
+    "$f(-x)=\\frac{-x-2}{-3x+7}$; multiply top and bottom by $-1$: $\\frac{x+2}{3x-7}$"
+   ]
   },
   {
    "id": "e13",
@@ -2422,6 +3361,76 @@
       }
      }
     ]
+   },
+   "hints": [
+    "A constant function gives the same output for every input."
+   ],
+   "steps": [
+    "$f(x)=9$ has no $x$ in it, so every input gives $9$."
+   ],
+   "variant": {
+    "params": {
+     "k": {
+      "min": -9,
+      "max": 9,
+      "exclude": [
+       0
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$ for $f(x)={{k}}$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a",
+       "answer": {
+        "kind": "number",
+        "value": "{{k}}"
+       }
+      },
+      {
+       "label": "b",
+       "answer": {
+        "kind": "number",
+        "value": "{{k}}"
+       }
+      },
+      {
+       "label": "c",
+       "answer": {
+        "kind": "number",
+        "value": "{{k}}"
+       }
+      },
+      {
+       "label": "d",
+       "answer": {
+        "kind": "number",
+        "value": "{{k}}"
+       }
+      },
+      {
+       "label": "e",
+       "answer": {
+        "kind": "number",
+        "value": "{{k}}"
+       }
+      },
+      {
+       "label": "f",
+       "answer": {
+        "kind": "number",
+        "value": "{{k}}"
+       }
+      }
+     ]
+    }
    }
   },
   {
@@ -2433,7 +3442,7 @@
      "text": "$f(x)=\\frac{x}{x^{2}-16}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572449158",
    "instructions": [
     {
@@ -2441,7 +3450,70 @@
      "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Domain: $x^2-16\\ne 0$, so $x\\ne \\pm 4$: $(-\\infty,-4)\\cup(-4,4)\\cup(4,\\infty)$."
+     },
+     {
+      "type": "p",
+      "text": "Range: all real numbers. On $(-4,4)$ the function goes from $+\\infty$ (near $x=-4$) down to $-\\infty$ (near $x=4$), so it takes every value."
+     },
+     {
+      "type": "p",
+      "text": "Zero: $x=0$. $y$-intercept: $f(0)=0$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,-4) U (-4,4) U (4,inf)"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "zeros ($x$-intercepts)",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "type none if there are none"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "the value $f(0)$, or none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(continuous_domain(x/(x**2-16), x, S.Reals), function_range(x/(x**2-16), x, continuous_domain(x/(x**2-16), x, S.Reals)), solveset(x, x, S.Reals), FiniteSet(0))"
+   },
+   "hints": [
+    "Domain: exclude inputs that make a denominator zero or a square root negative.",
+    "Zeros: solve $f(x)=0$. The $y$-intercept is $f(0)$, if $0$ is in the domain."
+   ],
+   "steps": [
+    "$x^2-16=0$ at $x=\\pm4$: remove them from the domain",
+    "$f(x)=0$ only when the numerator $x=0$",
+    "$f(0)=0$, so the $y$-intercept is $0$"
+   ]
   },
   {
    "id": "e15",
@@ -2452,7 +3524,7 @@
      "text": "$g(x)=\\sqrt{8x-1}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572449228",
    "instructions": [
     {
@@ -2469,7 +3541,50 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "[1/8,inf)"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[0,inf)"
+      }
+     },
+     {
+      "label": "zeros ($x$-intercepts)",
+      "answer": {
+       "kind": "set",
+       "value": "{1/8}",
+       "prompt": "type none if there are none"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "the value $f(0)$, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Domain: exclude inputs that make a denominator zero or a square root negative.",
+    "Zeros: solve $f(x)=0$. The $y$-intercept is $f(0)$, if $0$ is in the domain."
+   ],
+   "steps": [
+    "$8x-1\\ge 0$ gives $x\\ge\\frac18$",
+    "A square root is never negative and starts at $0$: range $y\\ge 0$",
+    "$\\sqrt{8x-1}=0$ at $x=\\frac18$; $0$ is not in the domain, so no $y$-intercept"
+   ]
   },
   {
    "id": "e16",
@@ -2480,7 +3595,7 @@
      "text": "$h(x)=\\frac{3}{x^{2}+4}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572449306",
    "instructions": [
     {
@@ -2488,7 +3603,126 @@
      "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Domain: $x^2+4>0$ always, so all real numbers."
+     },
+     {
+      "type": "p",
+      "text": "Range: $x^2+4\\ge 4$, so $0<\\frac{3}{x^2+4}\\le\\frac34$: $(0,\\tfrac34]$."
+     },
+     {
+      "type": "p",
+      "text": "No zeros (the numerator is never $0$). $y$-intercept: $h(0)=\\frac34$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "(0,3/4]"
+      }
+     },
+     {
+      "label": "zeros ($x$-intercepts)",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "type none if there are none"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{3/4}",
+       "prompt": "the value $f(0)$, or none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(S.Reals, function_range(3/(x**2+4), x, S.Reals), solveset(3/(x**2+4), x, S.Reals), FiniteSet(Rational(3,4)))"
+   },
+   "hints": [
+    "Domain: exclude inputs that make a denominator zero or a square root negative.",
+    "Zeros: solve $f(x)=0$. The $y$-intercept is $f(0)$, if $0$ is in the domain."
+   ],
+   "steps": [
+    "$x^2+4\\ge4>0$, so the domain is $\\mathbb{R}$",
+    "$\\frac{3}{x^2+4}$ is largest ($\\frac34$) at $x=0$ and approaches $0$ as $|x|$ grows",
+    "$3\\ne0$, so no zeros; $h(0)=\\frac34$"
+   ],
+   "variant": {
+    "params": {
+     "c": {
+      "min": 2,
+      "max": 9
+     },
+     "k": {
+      "choices": [
+       1,
+       4,
+       9
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the domain, range, and all zeros/intercepts of $h(x)=\\frac{ {{c}} }{x^2+{{k}}}$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "domain",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      },
+      {
+       "label": "range",
+       "answer": {
+        "kind": "set",
+        "value": "(0,{{c}}/{{k}}]"
+       }
+      },
+      {
+       "label": "zeros ($x$-intercepts)",
+       "answer": {
+        "kind": "set",
+        "value": "{}",
+        "prompt": "type none if there are none"
+       }
+      },
+      {
+       "label": "$y$-intercept",
+       "answer": {
+        "kind": "set",
+        "value": "{ {{c}}/{{k}} }",
+        "prompt": "the value $f(0)$, or none"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e17",
@@ -2499,7 +3733,7 @@
      "text": "$f(x)=-1+\\sqrt{x+2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572548401",
    "instructions": [
     {
@@ -2516,7 +3750,50 @@
      }
     ]
    },
-   "notes": "self-check: could not classify \"x>=-2;y>=-1;x=-1;y=-1+sqrt(2)\""
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "[-2,inf)"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[-1,inf)"
+      }
+     },
+     {
+      "label": "zeros ($x$-intercepts)",
+      "answer": {
+       "kind": "set",
+       "value": "{-1}",
+       "prompt": "type none if there are none"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{-1+sqrt(2)}",
+       "prompt": "the value $f(0)$, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Domain: exclude inputs that make a denominator zero or a square root negative.",
+    "Zeros: solve $f(x)=0$. The $y$-intercept is $f(0)$, if $0$ is in the domain."
+   ],
+   "steps": [
+    "$x+2\\ge0$ gives $x\\ge-2$",
+    "$\\sqrt{x+2}\\ge0$, so $f(x)\\ge-1$",
+    "$\\sqrt{x+2}=1$ gives $x=-1$; $f(0)=-1+\\sqrt2$"
+   ]
   },
   {
    "id": "e18",
@@ -2527,7 +3804,7 @@
      "text": "$f(x)=\\frac{1}{\\sqrt{x-9}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572548485",
    "instructions": [
     {
@@ -2535,7 +3812,119 @@
      "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Domain: $x-9>0$ (the root is in a denominator, so it cannot be $0$): $(9,\\infty)$."
+     },
+     {
+      "type": "p",
+      "text": "Range: $\\sqrt{x-9}$ takes every positive value, so $\\frac{1}{\\sqrt{x-9}}$ does too: $(0,\\infty)$."
+     },
+     {
+      "type": "p",
+      "text": "No zeros, and $0$ is not in the domain, so no $y$-intercept."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "(9,inf)"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "(0,inf)"
+      }
+     },
+     {
+      "label": "zeros ($x$-intercepts)",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "type none if there are none"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "the value $f(0)$, or none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(continuous_domain(1/sqrt(x-9), x, S.Reals), function_range(1/sqrt(x-9), x, Interval.open(9, oo)), EmptySet, EmptySet)"
+   },
+   "hints": [
+    "Domain: exclude inputs that make a denominator zero or a square root negative.",
+    "Zeros: solve $f(x)=0$. The $y$-intercept is $f(0)$, if $0$ is in the domain."
+   ],
+   "steps": [
+    "Need $x-9>0$: $x>9$",
+    "$\\frac{1}{\\sqrt{x-9}}>0$ and takes every positive value",
+    "A fraction with numerator $1$ is never $0$; $f(0)$ is undefined"
+   ],
+   "variant": {
+    "params": {
+     "k": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the domain, range, and all zeros/intercepts of $f(x)=\\frac{1}{\\sqrt{x-{{k}}}}$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "domain",
+       "answer": {
+        "kind": "set",
+        "value": "({{k}},inf)"
+       }
+      },
+      {
+       "label": "range",
+       "answer": {
+        "kind": "set",
+        "value": "(0,inf)"
+       }
+      },
+      {
+       "label": "zeros ($x$-intercepts)",
+       "answer": {
+        "kind": "set",
+        "value": "{}",
+        "prompt": "type none if there are none"
+       }
+      },
+      {
+       "label": "$y$-intercept",
+       "answer": {
+        "kind": "set",
+        "value": "{}",
+        "prompt": "the value $f(0)$, or none"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e19",
@@ -2546,7 +3935,7 @@
      "text": "$g(x)=\\frac{3}{x-4}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572229270",
    "instructions": [
     {
@@ -2563,7 +3952,50 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,4) U (4,inf)"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,0) U (0,inf)"
+      }
+     },
+     {
+      "label": "zeros ($x$-intercepts)",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "type none if there are none"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{-3/4}",
+       "prompt": "the value $f(0)$, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Domain: exclude inputs that make a denominator zero or a square root negative.",
+    "Zeros: solve $f(x)=0$. The $y$-intercept is $f(0)$, if $0$ is in the domain."
+   ],
+   "steps": [
+    "$x-4\\ne0$: $x\\ne4$",
+    "$\\frac{3}{x-4}$ can be any number except $0$",
+    "$g(0)=\\frac{3}{-4}=-\\frac34$"
+   ]
   },
   {
    "id": "e20",
@@ -2574,7 +4006,7 @@
      "text": "$f(x)=4|x+5|$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572229347",
    "instructions": [
     {
@@ -2582,7 +4014,119 @@
      "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Domain: all real numbers. Range: $|x+5|\\ge0$, so $[0,\\infty)$."
+     },
+     {
+      "type": "p",
+      "text": "Zero: $x=-5$. $y$-intercept: $f(0)=4\\cdot5=20$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[0,inf)"
+      }
+     },
+     {
+      "label": "zeros ($x$-intercepts)",
+      "answer": {
+       "kind": "set",
+       "value": "{-5}",
+       "prompt": "type none if there are none"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{20}",
+       "prompt": "the value $f(0)$, or none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(S.Reals, function_range(4*(x+5), x, Interval(-5, oo)), solveset(4*Abs(x+5), x, S.Reals), FiniteSet(20))"
+   },
+   "hints": [
+    "Domain: exclude inputs that make a denominator zero or a square root negative.",
+    "Zeros: solve $f(x)=0$. The $y$-intercept is $f(0)$, if $0$ is in the domain."
+   ],
+   "steps": [
+    "Absolute value is defined everywhere and is $\\ge0$",
+    "$4|x+5|=0$ only at $x=-5$",
+    "$f(0)=4|5|=20$"
+   ],
+   "variant": {
+    "params": {
+     "c": {
+      "min": 2,
+      "max": 9
+     },
+     "k": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the domain, range, and all zeros/intercepts of $f(x)={{c}}|x+{{k}}|$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "domain",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      },
+      {
+       "label": "range",
+       "answer": {
+        "kind": "set",
+        "value": "[0,inf)"
+       }
+      },
+      {
+       "label": "zeros ($x$-intercepts)",
+       "answer": {
+        "kind": "set",
+        "value": "{-{{k}}}",
+        "prompt": "type none if there are none"
+       }
+      },
+      {
+       "label": "$y$-intercept",
+       "answer": {
+        "kind": "set",
+        "value": "{ {{c*k}} }",
+        "prompt": "the value $f(0)$, or none"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e21",
@@ -2593,7 +4137,7 @@
      "text": "$g(x)=\\sqrt{\\frac{7}{x-5}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572451278",
    "instructions": [
     {
@@ -2610,7 +4154,50 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "(5,inf)"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "(0,inf)"
+      }
+     },
+     {
+      "label": "zeros ($x$-intercepts)",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "type none if there are none"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "the value $f(0)$, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Domain: exclude inputs that make a denominator zero or a square root negative.",
+    "Zeros: solve $f(x)=0$. The $y$-intercept is $f(0)$, if $0$ is in the domain."
+   ],
+   "steps": [
+    "Need $\\frac{7}{x-5}\\ge0$ and $x\\ne5$: $x>5$",
+    "The output is positive and takes every positive value",
+    "Never $0$; $x=0$ is outside the domain"
+   ]
   },
   {
    "id": "e22",
@@ -2664,7 +4251,20 @@
      "text": "For the following exercises, sketch the graph with the aid of the tables given:"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Plot the seven points from the table, $(-3,10),(-2,5),(-1,2),(0,1),(1,2),(2,5),(3,10)$, and join them with a smooth curve."
+     },
+     {
+      "type": "p",
+      "text": "The graph is a parabola opening upward with vertex $(0,1)$, symmetric about the $y$-axis."
+     }
+    ]
+   }
   },
   {
    "id": "e23",
@@ -2784,7 +4384,20 @@
      "text": "For the following exercises, sketch the graph with the aid of the tables given:"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Plot the points $(-3,-\\tfrac12),(-2,0),(-1,\\tfrac12),(0,1),(1,\\tfrac32),(2,2),(3,\\tfrac52)$ and draw the line through them."
+     },
+     {
+      "type": "p",
+      "text": "It is a straight line with slope $\\tfrac12$, $y$-intercept $1$ and $x$-intercept $-2$."
+     }
+    ]
+   }
   },
   {
    "id": "e25",
@@ -2904,7 +4517,20 @@
      "text": "For the following exercises, sketch the graph with the aid of the tables given:"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Plot the points $(-3,-9),(-2,-4),(-1,-1),(0,0),(1,-1),(2,-4),(3,-9)$ and join them with a smooth curve."
+     },
+     {
+      "type": "p",
+      "text": "The graph is a parabola opening downward with vertex at the origin, symmetric about the $y$-axis (the graph of $y=x^2$ flipped over the $x$-axis)."
+     }
+    ]
+   }
   },
   {
    "id": "e27",
@@ -2984,7 +4610,7 @@
      "height": 423
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572169120",
    "instructions": [
     {
@@ -3007,7 +4633,30 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Not a function. The graph is a circle, and a vertical line such as $x=0$ meets it twice, at $(0,1)$ and $(0,-1)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "correct": 1,
+    "prompt": "Is this graph a function?"
+   },
+   "hints": [
+    "Vertical line test: if some vertical line meets the graph twice, it is not a function."
+   ],
+   "steps": [
+    "Find a vertical line that meets the graph at two points."
+   ]
   },
   {
    "id": "e29",
@@ -3021,7 +4670,7 @@
      "height": 423
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572169146",
    "instructions": [
     {
@@ -3053,7 +4702,109 @@
      }
     ]
    },
-   "notes": "self-check: multi-part answer could not be split"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[0,inf)"
+      }
+     },
+     {
+      "label": "$x$-intercepts",
+      "answer": {
+       "kind": "set",
+       "value": "{-1,1}"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{1}",
+       "prompt": "a number, or none"
+      }
+     },
+     {
+      "label": "increasing on",
+      "answer": {
+       "kind": "set",
+       "value": "(-1,0) U (1,inf)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "decreasing on",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,-1) U (0,1)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "constant on",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "symmetry",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y$-axis",
+        "origin",
+        "none"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "even / odd",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Vertical line test: if some vertical line meets the graph twice, it is not a function.",
+    "Read the domain from left to right and the range from bottom to top. Even = symmetric about the $y$-axis, odd = symmetric about the origin."
+   ],
+   "steps": [
+    "Every vertical line meets the graph once: a function",
+    "Lowest points $(\\pm1,0)$: range $y\\ge0$",
+    "Up on $(-1,0)$ and $(1,\\infty)$, down on $(-\\infty,-1)$ and $(0,1)$",
+    "Mirror image across the $y$-axis: even"
+   ]
   },
   {
    "id": "e30",
@@ -3067,7 +4818,7 @@
      "height": 422
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572243741",
    "instructions": [
     {
@@ -3090,7 +4841,148 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "A function (it passes the vertical line test)."
+     },
+     {
+      "type": "p",
+      "text": "a. Domain: all real numbers; range: $(-\\infty,3]$ (the top of the parabola is $(2,3)$)."
+     },
+     {
+      "type": "p",
+      "text": "b. $x$-intercepts: about $x\\approx0.3$ and $x\\approx3.7$. c. $y$-intercept: $y=-1$."
+     },
+     {
+      "type": "p",
+      "text": "d. Increasing on $(-\\infty,2)$. e. Decreasing on $(2,\\infty)$. f. Never constant."
+     },
+     {
+      "type": "p",
+      "text": "g. No symmetry about an axis or the origin (it is symmetric about the line $x=2$, which is not an axis). h. Neither even nor odd."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,3]"
+      }
+     },
+     {
+      "label": "smaller $x$-intercept",
+      "answer": {
+       "kind": "number",
+       "value": "2-sqrt(3)",
+       "tolerance": {
+        "abs": 0.15
+       },
+       "prompt": "estimate from the graph"
+      }
+     },
+     {
+      "label": "larger $x$-intercept",
+      "answer": {
+       "kind": "number",
+       "value": "2+sqrt(3)",
+       "tolerance": {
+        "abs": 0.15
+       },
+       "prompt": "estimate"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{-1}",
+       "prompt": "a number, or none"
+      }
+     },
+     {
+      "label": "increasing on",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,2)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "decreasing on",
+      "answer": {
+       "kind": "set",
+       "value": "(2,inf)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "constant on",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "symmetry",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y$-axis",
+        "origin",
+        "none"
+       ],
+       "correct": 2
+      }
+     },
+     {
+      "label": "even / odd",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Vertical line test: if some vertical line meets the graph twice, it is not a function.",
+    "Read the domain from left to right and the range from bottom to top. Even = symmetric about the $y$-axis, odd = symmetric about the origin."
+   ],
+   "steps": [
+    "Vertex $(2,3)$: the highest point, so range $y\\le3$",
+    "The graph rises up to $x=2$, then falls",
+    "The mirror line is $x=2$, not the $y$-axis: neither even nor odd"
+   ]
   },
   {
    "id": "e31",
@@ -3104,7 +4996,7 @@
      "height": 360
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572243837",
    "instructions": [
     {
@@ -3136,7 +5028,109 @@
      }
     ]
    },
-   "notes": "self-check: multi-part answer could not be split"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[-1.5,1.5]"
+      }
+     },
+     {
+      "label": "$x$-intercepts",
+      "answer": {
+       "kind": "set",
+       "value": "{0}"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "a number, or none"
+      }
+     },
+     {
+      "label": "increasing on",
+      "answer": {
+       "kind": "set",
+       "value": "R",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "decreasing on",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "constant on",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "symmetry",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y$-axis",
+        "origin",
+        "none"
+       ],
+       "correct": 1
+      }
+     },
+     {
+      "label": "even / odd",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Vertical line test: if some vertical line meets the graph twice, it is not a function.",
+    "Read the domain from left to right and the range from bottom to top. Even = symmetric about the $y$-axis, odd = symmetric about the origin."
+   ],
+   "steps": [
+    "A function, defined for all $x$",
+    "It stays between $-1.5$ and $1.5$",
+    "It rises everywhere and passes through the origin",
+    "Rotating it $180^\\circ$ about the origin gives the same graph: odd"
+   ]
   },
   {
    "id": "e32",
@@ -3150,7 +5144,7 @@
      "height": 423
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572482578",
    "instructions": [
     {
@@ -3173,7 +5167,30 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Not a function. The graph is a parabola opening to the right, and the vertical line $x=1$ meets it twice, at $(1,1)$ and $(1,-1)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "correct": 1,
+    "prompt": "Is this graph a function?"
+   },
+   "hints": [
+    "Vertical line test: if some vertical line meets the graph twice, it is not a function."
+   ],
+   "steps": [
+    "Find a vertical line that meets the graph at two points."
+   ]
   },
   {
    "id": "e33",
@@ -3187,7 +5204,7 @@
      "height": 423
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572482605",
    "instructions": [
     {
@@ -3219,7 +5236,108 @@
      }
     ]
    },
-   "notes": "self-check: multi-part answer could not be split"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[-2,2]"
+      }
+     },
+     {
+      "label": "$x$-intercepts",
+      "answer": {
+       "kind": "set",
+       "value": "{0}"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "a number, or none"
+      }
+     },
+     {
+      "label": "increasing on",
+      "answer": {
+       "kind": "set",
+       "value": "(-2,2)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "decreasing on",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "constant on",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,-2) U (2,inf)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "symmetry",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y$-axis",
+        "origin",
+        "none"
+       ],
+       "correct": 1
+      }
+     },
+     {
+      "label": "even / odd",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Vertical line test: if some vertical line meets the graph twice, it is not a function.",
+    "Read the domain from left to right and the range from bottom to top. Even = symmetric about the $y$-axis, odd = symmetric about the origin."
+   ],
+   "steps": [
+    "A function defined for all $x$, with outputs between $-2$ and $2$",
+    "Flat at $y=-2$ for $x<-2$ and at $y=2$ for $x>2$; rising in between",
+    "Symmetric about the origin: odd"
+   ]
   },
   {
    "id": "e34",
@@ -3233,7 +5351,7 @@
      "height": 423
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572482729",
    "instructions": [
     {
@@ -3256,7 +5374,133 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "A function (every vertical line meets the graph once)."
+     },
+     {
+      "type": "p",
+      "text": "a. Domain: all real numbers; range: $[0,\\infty)$."
+     },
+     {
+      "type": "p",
+      "text": "b. $x$-intercepts: every $x\\le 0$ (the graph lies on the $x$-axis there). c. $y$-intercept: $0$."
+     },
+     {
+      "type": "p",
+      "text": "d. Increasing on $(0,\\infty)$. e. Never decreasing. f. Constant on $(-\\infty,0)$."
+     },
+     {
+      "type": "p",
+      "text": "g. No symmetry. h. Neither even nor odd."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[0,inf)"
+      }
+     },
+     {
+      "label": "$x$-intercepts",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,0]"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "a number, or none"
+      }
+     },
+     {
+      "label": "increasing on",
+      "answer": {
+       "kind": "set",
+       "value": "(0,inf)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "decreasing on",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "constant on",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,0)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "symmetry",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y$-axis",
+        "origin",
+        "none"
+       ],
+       "correct": 2
+      }
+     },
+     {
+      "label": "even / odd",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Vertical line test: if some vertical line meets the graph twice, it is not a function.",
+    "Read the domain from left to right and the range from bottom to top. Even = symmetric about the $y$-axis, odd = symmetric about the origin."
+   ],
+   "steps": [
+    "For $x<0$ the graph is the $x$-axis itself, so every $x\\le0$ is an $x$-intercept",
+    "For $x>0$ it is the line $y=x$, rising",
+    "Flipping across the $y$-axis or the origin does not give the same graph: neither"
+   ]
   },
   {
    "id": "e35",
@@ -3270,7 +5514,7 @@
      "height": 422
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572229080",
    "instructions": [
     {
@@ -3302,7 +5546,113 @@
      }
     ]
    },
-   "notes": "self-check: multi-part answer could not be split"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "[-4,4]"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "[-4,4]"
+      }
+     },
+     {
+      "label": "$x$-intercept",
+      "answer": {
+       "kind": "number",
+       "value": "1.2",
+       "tolerance": {
+        "abs": 0.15
+       },
+       "prompt": "estimate from the graph"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{4}",
+       "prompt": "a number, or none"
+      }
+     },
+     {
+      "label": "increasing on",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "decreasing on",
+      "answer": {
+       "kind": "set",
+       "value": "(0,4)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "constant on",
+      "answer": {
+       "kind": "set",
+       "value": "(-4,0)",
+       "prompt": "open intervals; none if none"
+      }
+     },
+     {
+      "label": "symmetry",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y$-axis",
+        "origin",
+        "none"
+       ],
+       "correct": 2
+      }
+     },
+     {
+      "label": "even / odd",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Vertical line test: if some vertical line meets the graph twice, it is not a function.",
+    "Read the domain from left to right and the range from bottom to top. Even = symmetric about the $y$-axis, odd = symmetric about the origin."
+   ],
+   "steps": [
+    "The graph starts at $x=-4$ and ends at $x=4$",
+    "Flat at $y=4$ on $(-4,0)$, then falling to $-4$ at $x=4$",
+    "It crosses the $x$-axis near $x=1.2$",
+    "No symmetry: neither"
+   ]
   },
   {
    "id": "e36",
@@ -3313,7 +5663,7 @@
      "text": "$f(x)=3x+4,g(x)=x-2$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572551808",
    "instructions": [
     {
@@ -3321,7 +5671,183 @@
      "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(f+g)(x)=4x+2$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "b. $(f-g)(x)=(3x+4)-(x-2)=2x+6$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "c. $(f\\cdot g)(x)=(3x+4)(x-2)=3x^2-2x-8$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "d. $\\left(\\frac fg\\right)(x)=\\frac{3x+4}{x-2}$; $x\\ne2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f+g$",
+      "answer": {
+       "kind": "expression",
+       "value": "4x+2"
+      }
+     },
+     {
+      "label": "domain of $f+g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $f-g$",
+      "answer": {
+       "kind": "expression",
+       "value": "2x+6"
+      }
+     },
+     {
+      "label": "domain of $f-g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "c. $f\\cdot g$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x^2-2x-8"
+      }
+     },
+     {
+      "label": "domain of $f\\cdot g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "d. $f/g$",
+      "answer": {
+       "kind": "expression",
+       "value": "(3x+4)/(x-2)"
+      }
+     },
+     {
+      "label": "domain of $f/g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,2) U (2,inf)"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((3*x+4)+(x-2), continuous_domain((3*x+4)+(x-2), x, S.Reals), (3*x+4)-(x-2), continuous_domain((3*x+4)-(x-2), x, S.Reals), (3*x+4)*(x-2), continuous_domain((3*x+4)*(x-2), x, S.Reals), (3*x+4)/(x-2), continuous_domain((3*x+4)/(x-2), x, S.Reals))"
+   },
+   "hints": [
+    "Add, subtract, multiply or divide the formulas, then simplify.",
+    "Each new domain is the overlap of the domains of $f$ and $g$; for $f/g$ also remove the zeros of $g$."
+   ],
+   "steps": [
+    "$(3x+4)-(x-2)=3x+4-x+2=2x+6$ (distribute the minus sign)",
+    "$(3x+4)(x-2)=3x^2-6x+4x-8$",
+    "$g(x)=0$ at $x=2$, so remove $2$ from the domain of $f/g$"
+   ],
+   "variant": {
+    "params": {
+     "p": {
+      "min": 2,
+      "max": 6
+     },
+     "q": {
+      "min": 1,
+      "max": 9
+     },
+     "r": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "For $f(x)={{p}}x+{{q}}$ and $g(x)=x-{{r}}$, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g$ and the domain of each."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. $f+g$",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p+1}}x+{{q-r}}"
+       }
+      },
+      {
+       "label": "domain of $f+g$",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      },
+      {
+       "label": "b. $f-g$",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p-1}}x+{{q+r}}"
+       }
+      },
+      {
+       "label": "domain of $f-g$",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      },
+      {
+       "label": "c. $f\\cdot g$",
+       "answer": {
+        "kind": "expression",
+        "value": "({{p}}x+{{q}})(x-{{r}})"
+       }
+      },
+      {
+       "label": "domain of $f\\cdot g$",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      },
+      {
+       "label": "d. $f/g$",
+       "answer": {
+        "kind": "expression",
+        "value": "({{p}}x+{{q}})/(x-{{r}})"
+       }
+      },
+      {
+       "label": "domain of $f/g$",
+       "answer": {
+        "kind": "set",
+        "value": "(-inf,{{r}}) U ({{r}},inf)"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e37",
@@ -3332,7 +5858,7 @@
      "text": "$f(x)=x-8,g(x)=5x^{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572551945",
    "instructions": [
     {
@@ -3349,7 +5875,76 @@
      }
     ]
    },
-   "notes": "self-check: part a is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f+g$",
+      "answer": {
+       "kind": "expression",
+       "value": "5x^2+x-8"
+      }
+     },
+     {
+      "label": "domain of $f+g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $f-g$",
+      "answer": {
+       "kind": "expression",
+       "value": "-5x^2+x-8"
+      }
+     },
+     {
+      "label": "domain of $f-g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "c. $f\\cdot g$",
+      "answer": {
+       "kind": "expression",
+       "value": "5x^3-40x^2"
+      }
+     },
+     {
+      "label": "domain of $f\\cdot g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "d. $f/g$",
+      "answer": {
+       "kind": "expression",
+       "value": "(x-8)/(5x^2)"
+      }
+     },
+     {
+      "label": "domain of $f/g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,0) U (0,inf)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Add, subtract, multiply or divide the formulas, then simplify.",
+    "Each new domain is the overlap of the domains of $f$ and $g$; for $f/g$ also remove the zeros of $g$."
+   ],
+   "steps": [
+    "$(f-g)(x)=x-8-5x^2$",
+    "$(f\\cdot g)(x)=(x-8)\\cdot5x^2=5x^3-40x^2$",
+    "$g(x)=5x^2=0$ at $x=0$"
+   ]
   },
   {
    "id": "e38",
@@ -3360,7 +5955,7 @@
      "text": "$f(x)=3x^{2}+4x+1,g(x)=x+1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572550610",
    "instructions": [
     {
@@ -3368,7 +5963,100 @@
      "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(f+g)(x)=3x^2+5x+2$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "b. $(f-g)(x)=3x^2+3x$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "c. $(f\\cdot g)(x)=(3x^2+4x+1)(x+1)=3x^3+7x^2+5x+1$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "d. $\\left(\\frac fg\\right)(x)=\\frac{(3x+1)(x+1)}{x+1}=3x+1$, but $x\\ne-1$ because $g(-1)=0$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f+g$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x^2+5x+2"
+      }
+     },
+     {
+      "label": "domain of $f+g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $f-g$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x^2+3x"
+      }
+     },
+     {
+      "label": "domain of $f-g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "c. $f\\cdot g$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x^3+7x^2+5x+1"
+      }
+     },
+     {
+      "label": "domain of $f\\cdot g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "d. $f/g$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x+1"
+      }
+     },
+     {
+      "label": "domain of $f/g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,-1) U (-1,inf)"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((3*x**2+4*x+1)+(x+1), continuous_domain((3*x**2+4*x+1)+(x+1), x, S.Reals), (3*x**2+4*x+1)-(x+1), continuous_domain((3*x**2+4*x+1)-(x+1), x, S.Reals), (3*x**2+4*x+1)*(x+1), continuous_domain((3*x**2+4*x+1)*(x+1), x, S.Reals), (3*x**2+4*x+1)/(x+1), continuous_domain((3*x**2+4*x+1)/(x+1), x, S.Reals))"
+   },
+   "hints": [
+    "Add, subtract, multiply or divide the formulas, then simplify.",
+    "Each new domain is the overlap of the domains of $f$ and $g$; for $f/g$ also remove the zeros of $g$."
+   ],
+   "steps": [
+    "Factor $3x^2+4x+1=(3x+1)(x+1)$",
+    "So $\\frac{f}{g}=3x+1$ after cancelling",
+    "The domain still excludes $x=-1$, where $g(x)=0$"
+   ]
   },
   {
    "id": "e39",
@@ -3379,7 +6067,7 @@
      "text": "$f(x)=9-x^{2},g(x)=x^{2}-2x-3$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572231974",
    "instructions": [
     {
@@ -3396,7 +6084,76 @@
      }
     ]
    },
-   "notes": "self-check: part a is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f+g$",
+      "answer": {
+       "kind": "expression",
+       "value": "-2x+6"
+      }
+     },
+     {
+      "label": "domain of $f+g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $f-g$",
+      "answer": {
+       "kind": "expression",
+       "value": "-2x^2+2x+12"
+      }
+     },
+     {
+      "label": "domain of $f-g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "c. $f\\cdot g$",
+      "answer": {
+       "kind": "expression",
+       "value": "-x^4+2x^3+12x^2-18x-27"
+      }
+     },
+     {
+      "label": "domain of $f\\cdot g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "d. $f/g$",
+      "answer": {
+       "kind": "expression",
+       "value": "-(x+3)/(x+1)"
+      }
+     },
+     {
+      "label": "domain of $f/g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,-1) U (-1,3) U (3,inf)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Add, subtract, multiply or divide the formulas, then simplify.",
+    "Each new domain is the overlap of the domains of $f$ and $g$; for $f/g$ also remove the zeros of $g$."
+   ],
+   "steps": [
+    "$g(x)=x^2-2x-3=(x-3)(x+1)$ and $f(x)=9-x^2=-(x-3)(x+3)$",
+    "$\\frac fg=-\\frac{x+3}{x+1}$ after cancelling $x-3$",
+    "$g(x)=0$ at $x=3$ and $x=-1$: both are excluded"
+   ]
   },
   {
    "id": "e40",
@@ -3407,7 +6164,7 @@
      "text": "$f(x)=\\sqrt{x},g(x)=x-2$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572480431",
    "instructions": [
     {
@@ -3415,7 +6172,124 @@
      "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(f+g)(x)=\\sqrt x+x-2$; $x\\ge0$"
+     },
+     {
+      "type": "p",
+      "text": "b. $(f-g)(x)=\\sqrt x-x+2$; $x\\ge0$"
+     },
+     {
+      "type": "p",
+      "text": "c. $(f\\cdot g)(x)=x\\sqrt x-2\\sqrt x$; $x\\ge0$"
+     },
+     {
+      "type": "p",
+      "text": "d. $\\left(\\frac fg\\right)(x)=\\frac{\\sqrt x}{x-2}$; $x\\ge0$ and $x\\ne2$, i.e. $[0,2)\\cup(2,\\infty)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f+g$",
+      "answer": {
+       "kind": "expression",
+       "value": "sqrt(x)+x-2",
+       "domain": {
+        "x": [
+         0.1,
+         6
+        ]
+       }
+      }
+     },
+     {
+      "label": "domain of $f+g$",
+      "answer": {
+       "kind": "set",
+       "value": "[0,inf)"
+      }
+     },
+     {
+      "label": "b. $f-g$",
+      "answer": {
+       "kind": "expression",
+       "value": "sqrt(x)-x+2",
+       "domain": {
+        "x": [
+         0.1,
+         6
+        ]
+       }
+      }
+     },
+     {
+      "label": "domain of $f-g$",
+      "answer": {
+       "kind": "set",
+       "value": "[0,inf)"
+      }
+     },
+     {
+      "label": "c. $f\\cdot g$",
+      "answer": {
+       "kind": "expression",
+       "value": "x sqrt(x)-2sqrt(x)",
+       "domain": {
+        "x": [
+         0.1,
+         6
+        ]
+       }
+      }
+     },
+     {
+      "label": "domain of $f\\cdot g$",
+      "answer": {
+       "kind": "set",
+       "value": "[0,inf)"
+      }
+     },
+     {
+      "label": "d. $f/g$",
+      "answer": {
+       "kind": "expression",
+       "value": "sqrt(x)/(x-2)",
+       "domain": {
+        "x": [
+         0.1,
+         6
+        ]
+       }
+      }
+     },
+     {
+      "label": "domain of $f/g$",
+      "answer": {
+       "kind": "set",
+       "value": "[0,2) U (2,inf)"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((sqrt(x))+(x-2), continuous_domain((sqrt(x))+(x-2), x, S.Reals), (sqrt(x))-(x-2), continuous_domain((sqrt(x))-(x-2), x, S.Reals), (sqrt(x))*(x-2), continuous_domain((sqrt(x))*(x-2), x, S.Reals), (sqrt(x))/(x-2), continuous_domain((sqrt(x))/(x-2), x, S.Reals))"
+   },
+   "hints": [
+    "Add, subtract, multiply or divide the formulas, then simplify.",
+    "Each new domain is the overlap of the domains of $f$ and $g$; for $f/g$ also remove the zeros of $g$."
+   ],
+   "steps": [
+    "The domain of $\\sqrt x$ is $[0,\\infty)$; $g$ is defined everywhere",
+    "So $f+g$, $f-g$, $f\\cdot g$ all have domain $[0,\\infty)$",
+    "For $f/g$ also remove $x=2$"
+   ]
   },
   {
    "id": "e41",
@@ -3426,7 +6300,7 @@
      "text": "$f(x)=6+\\frac{1}{x},g(x)=\\frac{1}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572174661",
    "instructions": [
     {
@@ -3443,7 +6317,76 @@
      }
     ]
    },
-   "notes": "self-check: part b is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f+g$",
+      "answer": {
+       "kind": "expression",
+       "value": "6+2/x"
+      }
+     },
+     {
+      "label": "domain of $f+g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,0) U (0,inf)"
+      }
+     },
+     {
+      "label": "b. $f-g$",
+      "answer": {
+       "kind": "expression",
+       "value": "6"
+      }
+     },
+     {
+      "label": "domain of $f-g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,0) U (0,inf)"
+      }
+     },
+     {
+      "label": "c. $f\\cdot g$",
+      "answer": {
+       "kind": "expression",
+       "value": "6/x+1/x^2"
+      }
+     },
+     {
+      "label": "domain of $f\\cdot g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,0) U (0,inf)"
+      }
+     },
+     {
+      "label": "d. $f/g$",
+      "answer": {
+       "kind": "expression",
+       "value": "6x+1"
+      }
+     },
+     {
+      "label": "domain of $f/g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,0) U (0,inf)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Add, subtract, multiply or divide the formulas, then simplify.",
+    "Each new domain is the overlap of the domains of $f$ and $g$; for $f/g$ also remove the zeros of $g$."
+   ],
+   "steps": [
+    "$(f-g)(x)=6+\\frac1x-\\frac1x=6$, but still $x\\ne0$",
+    "$\\frac{6+1/x}{1/x}=6x+1$ (multiply top and bottom by $x$)",
+    "Every result keeps $x\\ne0$ from $f$ and $g$"
+   ]
   },
   {
    "id": "e42",
@@ -3454,7 +6397,7 @@
      "text": "$f(x)=3x,g(x)=x+5$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572267927",
    "instructions": [
     {
@@ -3462,7 +6405,114 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(f\\circ g)(x)=3(x+5)=3x+15$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "b. $(g\\circ f)(x)=3x+5$; all real numbers"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $(f\\circ g)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x+15"
+      }
+     },
+     {
+      "label": "domain of $f\\circ g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $(g\\circ f)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x+5"
+      }
+     },
+     {
+      "label": "domain of $g\\circ f$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((3*x).subs(x, x+5), continuous_domain((3*x).subs(x, x+5), x, S.Reals), (x+5).subs(x, 3*x), continuous_domain((x+5).subs(x, 3*x), x, S.Reals))"
+   },
+   "hints": [
+    "$(f\\circ g)(x)=f(g(x))$: put the whole formula for $g(x)$ into $f$.",
+    "The domain of $f\\circ g$: $x$ must be in the domain of $g$, and $g(x)$ in the domain of $f$."
+   ],
+   "steps": [
+    "$f(g(x))=3\\cdot g(x)=3(x+5)$",
+    "$g(f(x))=f(x)+5=3x+5$"
+   ],
+   "variant": {
+    "params": {
+     "p": {
+      "min": 2,
+      "max": 9
+     },
+     "q": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "For $f(x)={{p}}x$ and $g(x)=x+{{q}}$, find a. $(f\\circ g)(x)$ b. $(g\\circ f)(x)$ and the domain of each."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. $(f\\circ g)(x)$",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p}}x+{{p*q}}"
+       }
+      },
+      {
+       "label": "domain of $f\\circ g$",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      },
+      {
+       "label": "b. $(g\\circ f)(x)$",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p}}x+{{q}}"
+       }
+      },
+      {
+       "label": "domain of $g\\circ f$",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e43",
@@ -3473,7 +6523,7 @@
      "text": "$f(x)=x+4,g(x)=4x-1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572268008",
    "instructions": [
     {
@@ -3490,7 +6540,102 @@
      }
     ]
    },
-   "notes": "self-check: part a is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $(f\\circ g)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "4x+3"
+      }
+     },
+     {
+      "label": "domain of $f\\circ g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $(g\\circ f)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "4x+15"
+      }
+     },
+     {
+      "label": "domain of $g\\circ f$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$(f\\circ g)(x)=f(g(x))$: put the whole formula for $g(x)$ into $f$.",
+    "The domain of $f\\circ g$: $x$ must be in the domain of $g$, and $g(x)$ in the domain of $f$."
+   ],
+   "steps": [
+    "$f(g(x))=(4x-1)+4=4x+3$",
+    "$g(f(x))=4(x+4)-1=4x+15$"
+   ],
+   "variant": {
+    "params": {
+     "p": {
+      "min": 2,
+      "max": 9
+     },
+     "q": {
+      "min": 1,
+      "max": 9
+     },
+     "r": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "For $f(x)=x+{{q}}$ and $g(x)={{p}}x-{{r}}$, find a. $(f\\circ g)(x)$ b. $(g\\circ f)(x)$ and the domain of each."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. $(f\\circ g)(x)$",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p}}x+{{q-r}}"
+       }
+      },
+      {
+       "label": "domain of $f\\circ g$",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      },
+      {
+       "label": "b. $(g\\circ f)(x)$",
+       "answer": {
+        "kind": "expression",
+        "value": "{{p}}x+{{p*q-r}}"
+       }
+      },
+      {
+       "label": "domain of $g\\circ f$",
+       "answer": {
+        "kind": "set",
+        "value": "R"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e44",
@@ -3501,7 +6646,7 @@
      "text": "$f(x)=2x+4,g(x)=x^{2}-2$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572268093",
    "instructions": [
     {
@@ -3509,7 +6654,63 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(f\\circ g)(x)=2(x^2-2)+4=2x^2$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "b. $(g\\circ f)(x)=(2x+4)^2-2=4x^2+16x+14$; all real numbers"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $(f\\circ g)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "2x^2"
+      }
+     },
+     {
+      "label": "domain of $f\\circ g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $(g\\circ f)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "4x^2+16x+14"
+      }
+     },
+     {
+      "label": "domain of $g\\circ f$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((2*x+4).subs(x, x**2-2), continuous_domain((2*x+4).subs(x, x**2-2), x, S.Reals), (x**2-2).subs(x, 2*x+4), continuous_domain((x**2-2).subs(x, 2*x+4), x, S.Reals))"
+   },
+   "hints": [
+    "$(f\\circ g)(x)=f(g(x))$: put the whole formula for $g(x)$ into $f$.",
+    "The domain of $f\\circ g$: $x$ must be in the domain of $g$, and $g(x)$ in the domain of $f$."
+   ],
+   "steps": [
+    "$f(g(x))=2(x^2-2)+4=2x^2-4+4$",
+    "$g(f(x))=(2x+4)^2-2=4x^2+16x+16-2$"
+   ]
   },
   {
    "id": "e45",
@@ -3520,7 +6721,7 @@
      "text": "$f(x)=x^{2}+7,g(x)=x^{2}-3$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572219452",
    "instructions": [
     {
@@ -3537,7 +6738,47 @@
      }
     ]
    },
-   "notes": "self-check: part a is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $(f\\circ g)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "x^4-6x^2+16"
+      }
+     },
+     {
+      "label": "domain of $f\\circ g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $(g\\circ f)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "x^4+14x^2+46"
+      }
+     },
+     {
+      "label": "domain of $g\\circ f$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$(f\\circ g)(x)=f(g(x))$: put the whole formula for $g(x)$ into $f$.",
+    "The domain of $f\\circ g$: $x$ must be in the domain of $g$, and $g(x)$ in the domain of $f$."
+   ],
+   "steps": [
+    "$f(g(x))=(x^2-3)^2+7=x^4-6x^2+9+7$",
+    "$g(f(x))=(x^2+7)^2-3=x^4+14x^2+49-3$"
+   ]
   },
   {
    "id": "e46",
@@ -3548,7 +6789,7 @@
      "text": "$f(x)=\\sqrt{x},g(x)=x+9$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572219563",
    "instructions": [
     {
@@ -3556,7 +6797,134 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(f\\circ g)(x)=\\sqrt{x+9}$; $x\\ge-9$"
+     },
+     {
+      "type": "p",
+      "text": "b. $(g\\circ f)(x)=\\sqrt x+9$; $x\\ge0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $(f\\circ g)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "sqrt(x+9)",
+       "domain": {
+        "x": [
+         -8,
+         6
+        ]
+       }
+      }
+     },
+     {
+      "label": "domain of $f\\circ g$",
+      "answer": {
+       "kind": "set",
+       "value": "[-9,inf)"
+      }
+     },
+     {
+      "label": "b. $(g\\circ f)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "sqrt(x)+9",
+       "domain": {
+        "x": [
+         0.1,
+         6
+        ]
+       }
+      }
+     },
+     {
+      "label": "domain of $g\\circ f$",
+      "answer": {
+       "kind": "set",
+       "value": "[0,inf)"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((sqrt(x)).subs(x, x+9), continuous_domain((sqrt(x)).subs(x, x+9), x, S.Reals), (x+9).subs(x, sqrt(x)), continuous_domain((x+9).subs(x, sqrt(x)), x, S.Reals))"
+   },
+   "hints": [
+    "$(f\\circ g)(x)=f(g(x))$: put the whole formula for $g(x)$ into $f$.",
+    "The domain of $f\\circ g$: $x$ must be in the domain of $g$, and $g(x)$ in the domain of $f$."
+   ],
+   "steps": [
+    "$f(g(x))=\\sqrt{x+9}$ needs $x+9\\ge0$",
+    "$g(f(x))=\\sqrt x+9$ needs $x\\ge0$"
+   ],
+   "variant": {
+    "params": {
+     "k": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "For $f(x)=\\sqrt x$ and $g(x)=x+{{k}}$, find a. $(f\\circ g)(x)$ b. $(g\\circ f)(x)$ and the domain of each."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. $(f\\circ g)(x)$",
+       "answer": {
+        "kind": "expression",
+        "value": "sqrt(x+{{k}})",
+        "domain": {
+         "x": [
+          0,
+          6
+         ]
+        }
+       }
+      },
+      {
+       "label": "domain of $f\\circ g$",
+       "answer": {
+        "kind": "set",
+        "value": "[-{{k}},inf)"
+       }
+      },
+      {
+       "label": "b. $(g\\circ f)(x)$",
+       "answer": {
+        "kind": "expression",
+        "value": "sqrt(x)+{{k}}",
+        "domain": {
+         "x": [
+          0.1,
+          6
+         ]
+        }
+       }
+      },
+      {
+       "label": "domain of $g\\circ f$",
+       "answer": {
+        "kind": "set",
+        "value": "[0,inf)"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e47",
@@ -3567,7 +6935,7 @@
      "text": "$f(x)=\\frac{3}{2x+1},g(x)=\\frac{2}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572309929",
    "instructions": [
     {
@@ -3584,7 +6952,49 @@
      }
     ]
    },
-   "notes": "self-check: imported answer {\"kind\":\"multi\",\"parts\":[{\"label\":\"a\",\"answer\":{\"kind\":\"list\",\"value\":\"((3 x)/(4+x));x!=0, -4\"}},{\"label\":\"b\",\"answer\":{\"kind\":\"expression\",\"value\":\"((4 x+2)/3); x!=-(1/2)\"}}]} failed (checker cannot read the answer: Unexpected \";\")"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $(f\\circ g)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x/(4+x)"
+      }
+     },
+     {
+      "label": "domain of $f\\circ g$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,-4) U (-4,0) U (0,inf)"
+      }
+     },
+     {
+      "label": "b. $(g\\circ f)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "(4x+2)/3"
+      }
+     },
+     {
+      "label": "domain of $g\\circ f$",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,-1/2) U (-1/2,inf)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$(f\\circ g)(x)=f(g(x))$: put the whole formula for $g(x)$ into $f$.",
+    "The domain of $f\\circ g$: $x$ must be in the domain of $g$, and $g(x)$ in the domain of $f$.",
+    "Simplify a complex fraction by multiplying top and bottom by $x$."
+   ],
+   "steps": [
+    "$f(g(x))=\\frac{3}{2\\cdot\\frac2x+1}=\\frac{3}{\\frac4x+1}=\\frac{3x}{4+x}$",
+    "$x\\ne0$ (for $g$) and $x\\ne-4$ (denominator of $f(g(x))$)",
+    "$g(f(x))=\\frac{2}{3/(2x+1)}=\\frac{2(2x+1)}{3}=\\frac{4x+2}{3}$, with $x\\ne-\\frac12$ (for $f$)"
+   ]
   },
   {
    "id": "e48",
@@ -3595,7 +7005,7 @@
      "text": "$f(x)=|x+1|,g(x)=x^{2}+x-4$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572310054",
    "instructions": [
     {
@@ -3603,7 +7013,65 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(f\\circ g)(x)=|x^2+x-4+1|=|x^2+x-3|$; all real numbers"
+     },
+     {
+      "type": "p",
+      "text": "b. $(g\\circ f)(x)=|x+1|^2+|x+1|-4=x^2+2x-3+|x+1|$; all real numbers (using $|x+1|^2=(x+1)^2$)"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $(f\\circ g)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "|x^2+x-3|"
+      }
+     },
+     {
+      "label": "domain of $f\\circ g$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "b. $(g\\circ f)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "x^2+2x-3+|x+1|"
+      }
+     },
+     {
+      "label": "domain of $g\\circ f$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((Abs(x+1)).subs(x, x**2+x-4), continuous_domain((Abs(x+1)).subs(x, x**2+x-4), x, S.Reals), (x**2+x-4).subs(x, Abs(x+1)), continuous_domain((x**2+x-4).subs(x, Abs(x+1)), x, S.Reals))"
+   },
+   "hints": [
+    "$(f\\circ g)(x)=f(g(x))$: put the whole formula for $g(x)$ into $f$.",
+    "The domain of $f\\circ g$: $x$ must be in the domain of $g$, and $g(x)$ in the domain of $f$.",
+    "$|u|^2=u^2$."
+   ],
+   "steps": [
+    "$f(g(x))=|g(x)+1|=|x^2+x-3|$",
+    "$g(f(x))=(x+1)^2+|x+1|-4$",
+    "$(x+1)^2-4=x^2+2x-3$"
+   ]
   },
   {
    "id": "e49",
@@ -3680,7 +7148,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572128767",
    "instructions": [
     {
@@ -3697,7 +7165,41 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "b. function?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "Yes",
+        "No"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "hints": [
+    "A function gives exactly one output for each input.",
+    "In (b), the inputs are teams. Did any team win in more than one year?"
+   ],
+   "steps": [
+    "(a) Each year has exactly one winner: a function",
+    "(b) The Lakers are paired with 2001, 2002, 2009 and 2010: not a function"
+   ]
   },
   {
    "id": "e50",
@@ -3718,7 +7220,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572233919",
    "instructions": [
     {
@@ -3726,7 +7228,127 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $A(s)=s^2$"
+     },
+     {
+      "type": "p",
+      "text": "b. $A(6.5)=6.5^2=42.25$: a square with side $6.5$ units has area $42.25$ square units."
+     },
+     {
+      "type": "p",
+      "text": "c. $s^2=56$, so $s=\\sqrt{56}=2\\sqrt{14}\\approx7.5$ units."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $A(s)$",
+      "answer": {
+       "kind": "expression",
+       "value": "s^2"
+      }
+     },
+     {
+      "label": "b. $A(6.5)$",
+      "answer": {
+       "kind": "number",
+       "value": "42.25"
+      }
+     },
+     {
+      "label": "c. exact side",
+      "answer": {
+       "kind": "number",
+       "value": "2sqrt(14)"
+      }
+     },
+     {
+      "label": "c. side, 2 significant digits",
+      "answer": {
+       "kind": "number",
+       "value": "7.5",
+       "tolerance": {
+        "abs": 0.05
+       }
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(s**2, Rational(4225,100), sqrt(56), Rational(75,10))"
+   },
+   "hints": [
+    "Area of a square = side × side.",
+    "For (c), solve $s^2=56$ with $s>0$."
+   ],
+   "steps": [
+    "$A(6.5)=6.5\\cdot6.5=42.25$",
+    "$s=\\sqrt{56}=\\sqrt{4\\cdot14}=2\\sqrt{14}\\approx7.48$"
+   ],
+   "variant": {
+    "params": {
+     "k": {
+      "choices": [
+       20,
+       28,
+       40,
+       45,
+       52,
+       60,
+       72
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "The area $A$ of a square depends on its side $s$. Find a. $A(s)$ b. $A(6.5)$ c. the exact side length of a square with area {{k}} square units, and d. the same rounded to 2 significant digits."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. $A(s)$",
+       "answer": {
+        "kind": "expression",
+        "value": "s^2"
+       }
+      },
+      {
+       "label": "b. $A(6.5)$",
+       "answer": {
+        "kind": "number",
+        "value": "42.25"
+       }
+      },
+      {
+       "label": "c. exact side",
+       "answer": {
+        "kind": "number",
+        "value": "sqrt({{k}})"
+       }
+      },
+      {
+       "label": "d. 2 significant digits",
+       "answer": {
+        "kind": "number",
+        "value": "sqrt({{k}})",
+        "tolerance": {
+         "abs": 0.06
+        }
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e51",
@@ -3746,7 +7368,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572478068",
    "instructions": [
     {
@@ -3763,7 +7385,35 @@
      }
     ]
    },
-   "notes": "self-check: part b is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $V(s)$",
+      "answer": {
+       "kind": "expression",
+       "value": "s^3"
+      }
+     },
+     {
+      "label": "b. $V(11.8)$",
+      "answer": {
+       "kind": "number",
+       "value": "1643.032",
+       "tolerance": {
+        "abs": 0.5
+       },
+       "prompt": "to the nearest whole number is fine"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Volume of a cube = side³."
+   ],
+   "steps": [
+    "$V(11.8)=11.8^3\\approx1643$ cubic units"
+   ]
   },
   {
    "id": "e52",
@@ -3784,7 +7434,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572431446",
    "instructions": [
     {
@@ -3792,7 +7442,117 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $C(t)=10.25t+20$, with $t$ in hours."
+     },
+     {
+      "type": "p",
+      "text": "b. 2 days 7 hours $=55$ hours, so $C(55)=10.25(55)+20=\\$583.75$."
+     },
+     {
+      "type": "p",
+      "text": "c. $10.25t+20=430$ gives $10.25t=410$, so $t=40$ hours."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $C(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "10.25t+20"
+      }
+     },
+     {
+      "label": "b. cost for 2 days 7 hours (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "583.75"
+      }
+     },
+     {
+      "label": "c. hours rented",
+      "answer": {
+       "kind": "number",
+       "value": "40"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(10.25*t+20, Rational(58375,100), 40)"
+   },
+   "hints": [
+    "Cost = flat fee + hourly rate × hours.",
+    "Convert days to hours: 1 day = 24 hours."
+   ],
+   "steps": [
+    "$t=2\\cdot24+7=55$",
+    "$C(55)=563.75+20=583.75$",
+    "$10.25t=430-20=410$, $t=40$"
+   ],
+   "variant": {
+    "params": {
+     "f": {
+      "choices": [
+       15,
+       20,
+       25,
+       30
+      ]
+     },
+     "h": {
+      "choices": [
+       8,
+       9,
+       11,
+       12
+      ]
+     },
+     "d": {
+      "min": 1,
+      "max": 4
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "A rental car costs a flat fee of \\${{f}} plus \\${{h}} per hour. a. Write $C(t)$. b. Find the cost for {{d}} days and 5 hours. c. Find the cost for 10 hours."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. $C(t)$",
+       "answer": {
+        "kind": "expression",
+        "value": "{{h}}t+{{f}}"
+       }
+      },
+      {
+       "label": "b. cost (\\$)",
+       "answer": {
+        "kind": "number",
+        "value": "{{h*(24*d+5)+f}}"
+       }
+      },
+      {
+       "label": "c. cost for 10 hours (\\$)",
+       "answer": {
+        "kind": "number",
+        "value": "{{10*h+f}}"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e53",
@@ -3814,7 +7574,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572431519",
    "instructions": [
     {
@@ -3831,7 +7591,55 @@
      }
     ]
    },
-   "notes": "self-check: part b is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $N(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "15x"
+      }
+     },
+     {
+      "label": "b(i). full tank (mi)",
+      "answer": {
+       "kind": "number",
+       "value": "300"
+      }
+     },
+     {
+      "label": "b(ii). 3/4 tank (mi)",
+      "answer": {
+       "kind": "number",
+       "value": "225"
+      }
+     },
+     {
+      "label": "c. domain",
+      "answer": {
+       "kind": "set",
+       "value": "[0,20]"
+      }
+     },
+     {
+      "label": "c. range",
+      "answer": {
+       "kind": "set",
+       "value": "[0,300]"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Miles = miles per gallon × gallons.",
+    "3/4 of a 20-gallon tank is 15 gallons."
+   ],
+   "steps": [
+    "$N(20)=300$, $N(15)=225$",
+    "Gas is between $0$ and $20$ gal, so $0\\le x\\le20$ and $0\\le N\\le300$",
+    "$578>300$, so at least one stop (about $39$ gal in total)"
+   ]
   },
   {
    "id": "e54",
@@ -3842,7 +7650,7 @@
      "text": "**[T]** The volume *V* of a sphere depends on the length of its radius as $V=(4/3)\\pi r^{3}.$ Because Earth is not a perfect sphere, we can use the *mean radius* when measuring from the center to its surface. The mean radius is the average distance from the physical center to the surface, based on a large number of samples. Find the volume of Earth with mean radius $6.371\\,\\times \\,10^{6}$ m."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572171648",
    "instructions": [
     {
@@ -3850,7 +7658,34 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$V=\\frac43\\pi(6.371\\times10^6)^3\\approx\\frac43\\pi(2.586\\times10^{20})\\approx1.083\\times10^{21}\\ \\text{m}^3$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "4/3 pi (6.371*10^6)^3",
+    "tolerance": {
+     "rel": 0.005
+    },
+    "prompt": "in m³; write e.g. 1.08 × 10^21"
+   },
+   "verify": {
+    "sympy": "Rational(4,3)*pi*(Rational(6371,1000)*10**6)**3"
+   },
+   "hints": [
+    "Plug $r=6.371\\times10^6$ into $V=\\frac43\\pi r^3$.",
+    "$(6.371\\times10^6)^3=6.371^3\\times10^{18}$."
+   ],
+   "steps": [
+    "$6.371^3\\approx258.6$, so $r^3\\approx2.586\\times10^{20}$",
+    "$V\\approx4.18879\\times2.586\\times10^{20}\\approx1.083\\times10^{21}$ m³"
+   ]
   },
   {
    "id": "e55",
@@ -3872,7 +7707,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572171742",
    "instructions": [
     {
@@ -3889,7 +7724,47 @@
      }
     ]
    },
-   "notes": "self-check: part a has an unclear kind"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $A(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "pi(6-5/(t^2+1))^2"
+      }
+     },
+     {
+      "label": "b. area at $t=3$ (cm²)",
+      "answer": {
+       "kind": "number",
+       "value": "121pi/4"
+      }
+     },
+     {
+      "label": "c. $C(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "2pi(6-5/(t^2+1))"
+      }
+     },
+     {
+      "label": "d. circumference at $t=3$ (cm)",
+      "answer": {
+       "kind": "number",
+       "value": "11pi"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Area of a circle $=\\pi r^2$ and circumference $=2\\pi r$; substitute $r(t)$."
+   ],
+   "steps": [
+    "$r(3)=6-\\frac{5}{10}=\\frac{11}{2}$",
+    "$A(3)=\\pi\\left(\\frac{11}2\\right)^2=\\frac{121\\pi}4\\approx95$ cm²",
+    "$C(3)=2\\pi\\cdot\\frac{11}2=11\\pi\\approx35$ cm"
+   ]
   },
   {
    "id": "e56",
@@ -3909,7 +7784,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572234464",
    "instructions": [
     {
@@ -3917,7 +7792,48 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(D\\circ E)(x)=D(0.79x)=1.245(0.79x)=0.98355x$. Since $0.98355<1$, the tourist loses value: about 1.6 cents per dollar."
+     },
+     {
+      "type": "p",
+      "text": "b. $(D\\circ E)(200)=0.98355(200)=\\$196.71$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $(D\\circ E)(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0.98355x"
+      }
+     },
+     {
+      "label": "b. dollars back from \\$200",
+      "answer": {
+       "kind": "number",
+       "value": "196.71"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(79,100)*Rational(1245,1000)*x, Rational(79,100)*Rational(1245,1000)*200)"
+   },
+   "hints": [
+    "Convert dollars to euros with $E$, then euros back to dollars with $D$: that is $D(E(x))$."
+   ],
+   "steps": [
+    "$D(E(x))=1.245\\cdot0.79x=0.98355x$; since $0.98355<1$ the tourist loses value",
+    "$0.98355\\cdot200=196.71$"
+   ]
   },
   {
    "id": "e57",
@@ -3945,7 +7861,7 @@
      "height": 390
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572425343",
    "instructions": [
     {
@@ -3962,7 +7878,55 @@
      }
     ]
    },
-   "notes": "self-check: part b is prose"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $S(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "8.5x+750"
+      }
+     },
+     {
+      "label": "b. 25 boards (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "962.5"
+      }
+     },
+     {
+      "label": "b. 40 boards (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "1090"
+      }
+     },
+     {
+      "label": "b. 55 boards (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "1217.5"
+      }
+     },
+     {
+      "label": "c. boards for \\$1400",
+      "answer": {
+       "kind": "number",
+       "value": "77",
+       "prompt": "a whole number of skateboards"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Salary = base pay + commission × boards sold.",
+    "For (c), solve $8.5x+750=1400$ and round up to a whole skateboard."
+   ],
+   "steps": [
+    "$S(25)=962.50$, $S(40)=1090$, $S(55)=1217.50$",
+    "$8.5x=650$ gives $x\\approx76.5$, so 77 skateboards"
+   ]
   },
   {
    "id": "e58",
@@ -3980,7 +7944,7 @@
      "height": 497
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572443386",
    "instructions": [
     {
@@ -3988,14 +7952,93 @@
      "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x$-intercepts: $\\sqrt{25-(x-4)^2}=0$ gives $(x-4)^2=25$, so $x=-1$ and $x=9$."
+     },
+     {
+      "type": "p",
+      "text": "$y$-intercept: $y=\\sqrt{25-16}=3$."
+     },
+     {
+      "type": "p",
+      "text": "The graph is the upper half of the circle with center $(4,0)$ and radius $5$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$x$-intercepts",
+      "answer": {
+       "kind": "set",
+       "value": "{-1,9}"
+      }
+     },
+     {
+      "label": "$y$-intercept",
+      "answer": {
+       "kind": "set",
+       "value": "{3}"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(solveset(sqrt(25-(x-4)**2), x, S.Reals), FiniteSet(sqrt(25-16)))"
+   },
+   "hints": [
+    "Set $y=0$ for the $x$-intercepts, and $x=0$ for the $y$-intercept."
+   ],
+   "steps": [
+    "$(x-4)^2=25$: $x-4=\\pm5$",
+    "$x=9$ or $x=-1$",
+    "$y(0)=\\sqrt{25-16}=3$"
+   ],
+   "variant": {
+    "params": {
+     "c": {
+      "min": 1,
+      "max": 4
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the $x$- and $y$-intercepts of the half-circle $y=\\sqrt{25-(x-{{c}})^2}$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "$x$-intercepts",
+       "answer": {
+        "kind": "set",
+        "value": "{ {{c-5}}, {{c+5}} }"
+       }
+      },
+      {
+       "label": "$y$-intercept",
+       "answer": {
+        "kind": "set",
+        "value": "{ sqrt({{25-c*c}}) }"
+       }
+      }
+     ]
+    }
+   }
   }
  ],
  "proofs": [],
  "glossary": [
   {
    "term": "absolute value function",
-   "meaning": "$f(x)=\\{\\begin{array}{c}-x,x<0 \\\\ x,x\\ge 0\\end{array}$"
+   "meaning": "$f(x)=\\begin{cases}-x, & \\text{if } x<0 \\\\ x, & \\text{if } x\\ge 0\\end{cases}$"
   },
   {
    "term": "composite function",

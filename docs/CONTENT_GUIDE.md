@@ -102,6 +102,8 @@ Figures are shown on a light rounded panel, so the book's white-background diagr
 
 **Solution labels:** `book` 📗 (written by the book's authors), `verified` ✅ (AI, checked with SymPy via `verify`), `ai` 🤖 (AI, unverified). Prefer book answers whenever one exists.
 
+**`verify.sympy`** is one SymPy expression, or a tuple with one entry per answer value (for a `multi` answer, one per part, in order). `set` parts are compared as SymPy sets, so a domain can be checked with `continuous_domain(f, x, S.Reals)`, a range with `function_range(f, x, domain)` and zeros with `solveset(f, x, S.Reals)`. `choice` and `text` parts (yes/no, even/odd, "increasing") are words, not values, and are skipped.
+
 **Answer flow in the app (D13):** check → ✗ → one retry → ✗ → first hint and one more try → ✗ → steps + solution. Without hints, the solution comes after the second wrong try.
 
 ## 7. Answer syntax and kinds
