@@ -8,7 +8,7 @@ A private, minimal web app for working through every section and exercise of Ope
 - [docs/SPEC.md](docs/SPEC.md): product spec, architecture, data model, ingestion pipeline
 - [docs/CURRICULUM.md](docs/CURRICULUM.md): all 110 OpenStax Calculus sections (later stages to be planned)
 - [docs/CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md): content format and the rules every K-task chat follows
-- [docs/DEPLOY.md](docs/DEPLOY.md): Cloudflare Pages setup
+- [docs/DEPLOY.md](docs/DEPLOY.md): Cloudflare Workers setup
 - [docs/QUESTIONS.md](docs/QUESTIONS.md): open decisions
 
 To work on the project, open a Claude Code session on this repo and say: *"Do task B10 from docs/ROADMAP.md."* or *"Do task K-V1.1.1."*
