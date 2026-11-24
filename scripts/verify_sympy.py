@@ -25,6 +25,7 @@ try:
     import sympy as sp
     from sympy.parsing.sympy_parser import (convert_xor, implicit_multiplication_application,
                                             parse_expr, standard_transformations)
+    from sympy.calculus.util import continuous_domain, function_range
 except ImportError:  # pragma: no cover
     sys.exit('verify_sympy.py needs SymPy: pip install sympy')
 
@@ -44,6 +45,10 @@ LOCALS = {
 }
 
 
+# Extra names for `verify.sympy` beyond SymPy's top-level namespace (domains and ranges).
+TARGET_LOCALS = {'continuous_domain': continuous_domain, 'function_range': function_range}
+
+
 def to_sympy(s: str):
     """Parse the app's plain-text answer syntax with SymPy."""
     t = s.replace('−', '-').replace('π', 'pi').replace('∞', 'inf').replace('^', '**')
@@ -55,7 +60,7 @@ def to_sympy(s: str):
 
 def target_sympy(s: str):
     """Parse `verify.sympy`, which is ordinary SymPy syntax (log is the natural log)."""
-    return parse_expr(s, transformations=standard_transformations)
+    return parse_expr(s, local_dict=dict(TARGET_LOCALS), transformations=standard_transformations)
 
 
 def equal(a, b, constant: bool = False) -> bool:
@@ -78,9 +83,33 @@ def equal(a, b, constant: bool = False) -> bool:
     return True
 
 
+SET_PREFIX = 'set:'
+
+
+def to_sympy_set(s: str):
+    """Parse a `set` answer value: interval notation, unions, finite sets, "R", "{}"."""
+    t = s.replace('−', '-').replace('∞', 'inf').replace('∪', 'U').strip()
+    out = sp.S.EmptySet
+    for piece in re.split(r'\s+U\s+', t):
+        piece = piece.strip()
+        if piece in ('R', 'ℝ'):
+            out = out.union(sp.S.Reals)
+        elif piece.startswith('{'):
+            inner = piece[1:-1].strip()
+            out = out.union(sp.FiniteSet(*[to_sympy(v) for v in inner.split(',')]) if inner else sp.S.EmptySet)
+        else:
+            m = re.fullmatch(r'([(\[])(.+),(.+)([)\]])', piece)
+            if not m:
+                raise ValueError(f'cannot read set piece {piece!r}')
+            lo, hi = to_sympy(m.group(2)), to_sympy(m.group(3))
+            out = out.union(sp.Interval(lo, hi, left_open=m.group(1) == '(', right_open=m.group(4) == ')'))
+    return out
+
+
 def answer_values(ans: dict) -> list[str]:
     if ans['kind'] == 'multi':
-        return [v for p in ans['parts'] for v in answer_values(p['answer'])]
+        # Choice and text parts (yes/no, even/odd, "increasing") are words, not values: not SymPy-checked.
+        return [v for p in ans['parts'] if p['answer']['kind'] not in ('choice', 'text') for v in answer_values(p['answer'])]
     if ans['kind'] in ('number', 'expression'):
         return [ans['value']]
     if ans['kind'] == 'equation':
@@ -88,6 +117,8 @@ def answer_values(ans: dict) -> list[str]:
         return [f'({rhs}) - ({lhs})']
     if ans['kind'] == 'list':
         return [v.strip() for v in ans['value'].split(',')]
+    if ans['kind'] == 'set':
+        return [SET_PREFIX + ans['value']]
     raise ValueError(f'cannot verify answer kind {ans["kind"]}')
 
 
@@ -99,6 +130,11 @@ def verify_exercise(ex: dict) -> str | None:
     if len(targets) != len(values):
         return f'{len(values)} answer values but SymPy gives {len(targets)}'
     for v, t in zip(values, targets):
+        if v.startswith(SET_PREFIX):
+            got = to_sympy_set(v[len(SET_PREFIX):])
+            if not isinstance(t, sp.Set) or got.symmetric_difference(t).simplify() != sp.S.EmptySet:
+                return f'set {v[len(SET_PREFIX):]!r} ≠ SymPy {t}'
+            continue
         got = to_sympy(v.replace('+ C', '').replace('+C', '') if constant else v)
         if not equal(got, t, constant):
             return f'answer {v!r} ≠ SymPy {t}'
@@ -118,6 +154,13 @@ def selftest() -> None:
     assert verify_exercise(ex) is None
     ex = {'answer': {'kind': 'expression', 'value': '2x'}, 'verify': {'sympy': 'diff(x**3, x)'}}
     assert verify_exercise(ex) is not None
+    ex = {'answer': {'kind': 'set', 'value': '(-inf, 2) U (2, inf)'}, 'verify': {'sympy': 'continuous_domain(1/(x - 2), x, S.Reals)'}}
+    assert verify_exercise(ex) is None
+    ex = {'answer': {'kind': 'set', 'value': '[1/8, inf)'}, 'verify': {'sympy': 'Interval(0, oo)'}}
+    assert verify_exercise(ex) is not None
+    ex = {'answer': {'kind': 'multi', 'parts': [{'label': 'a', 'answer': {'kind': 'number', 'value': '2'}},
+          {'label': 'b', 'answer': {'kind': 'set', 'value': '{-1, 1}'}}]}, 'verify': {'sympy': '(2, solveset(x**2 - 1, x, S.Reals))'}}
+    assert verify_exercise(ex) is None
     ex = {'answer': {'kind': 'expression', 'value': 'ln|x| + arctan x'}, 'verify': {'sympy': 'log(x) + atan(x)'}}
     assert verify_exercise(ex) is None
     print('selftest passed')

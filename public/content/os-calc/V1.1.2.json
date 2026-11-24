@@ -18,7 +18,7 @@
  "status": {
   "imported": "2026-11-24",
   "reading": "imported",
-  "answers": "imported"
+  "answers": "reviewed"
  },
  "objectives": [
   "Calculate the slope of a linear function and interpret its meaning.",
@@ -325,6 +325,25 @@
         "text": "The slope $m=\\text{Δ}y/\\text{Δ}x.$"
        }
       ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope",
+      "answer": {
+       "kind": "number",
+       "value": "1/2"
+      }
+     },
+     {
+      "label": "equation of the line",
+      "answer": {
+       "kind": "equation",
+       "value": "y=(1/2)x+7/2"
+      }
      }
     ]
    }
@@ -682,6 +701,29 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "zeros",
+      "answer": {
+       "kind": "set",
+       "value": "{1+sqrt(3)/3, 1-sqrt(3)/3}"
+      }
+     },
+     {
+      "label": "the parabola opens",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "upward",
+        "downward"
+       ],
+       "correct": 0
+      }
+     }
+    ]
    }
   },
   {
@@ -992,6 +1034,25 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,1/2) U (1/2,inf)"
+      }
+     },
+     {
+      "label": "range",
+      "answer": {
+       "kind": "set",
+       "value": "(-inf,5/2) U (5/2,inf)"
+      }
+     }
+    ]
    }
   },
   {
@@ -1088,6 +1149,25 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "domain of $f$",
+      "answer": {
+       "kind": "set",
+       "value": "R"
+      }
+     },
+     {
+      "label": "domain of $g$",
+      "answer": {
+       "kind": "set",
+       "value": "[1/5,inf)"
+      }
+     }
+    ]
    }
   },
   {
@@ -1156,6 +1236,14 @@
       "text": "Algebraic"
      }
     ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "algebraic",
+     "transcendental"
+    ],
+    "correct": 0
    }
   },
   {
@@ -1168,7 +1256,7 @@
     },
     {
      "type": "math",
-     "tex": "f(x)=\\{\\begin{array}{c}-x,x<0 \\\\ x,x\\ge 0\\end{array}."
+     "tex": "f(x)=\\begin{cases}-x, & \\text{if } x<0 \\\\ x, & \\text{if } x\\ge 0\\end{cases}"
     },
     {
      "type": "p",
@@ -1188,7 +1276,7 @@
     },
     {
      "type": "math",
-     "tex": "f(x)=\\{\\begin{array}{l}x+3,\\qquad x<1 \\\\ (x-2)^{2},\\quad x\\ge 1\\end{array}."
+     "tex": "f(x)=\\begin{cases}x+3, & \\text{if } x<1 \\\\ (x-2)^{2}, & \\text{if } x\\ge 1\\end{cases}"
     }
    ],
    "solution": {
@@ -1221,7 +1309,7 @@
     },
     {
      "type": "math",
-     "tex": "f(x)=\\{\\begin{array}{c}2-x,x\\le 2 \\\\ x+2,x>2\\end{array}."
+     "tex": "f(x)=\\begin{cases}2-x, & \\text{if } x\\le 2 \\\\ x+2, & \\text{if } x>2\\end{cases}"
     }
    ],
    "solution": {
@@ -1280,7 +1368,7 @@
         },
         {
          "type": "math",
-         "tex": "C(x)=\\{\\begin{array}{c}10,0<x\\le 1 \\\\ 12,1<x\\le 2 \\\\ 14,2<x\\le 3 \\\\ 16,3<x\\le 4 \\\\ \\vdots \\\\ 30,10<x\\le 18\\end{array}."
+         "tex": "C(x)=\\begin{cases}10, & \\text{if } 0<x\\le 1 \\\\ 12, & \\text{if } 1<x\\le 2 \\\\ 14, & \\text{if } 2<x\\le 3 \\\\ 16, & \\text{if } 3<x\\le 4 \\\\ \\vdots \\\\ 30, & \\text{if } 10<x\\le 18\\end{cases}"
         }
        ],
        [
@@ -1319,7 +1407,7 @@
     "body": [
      {
       "type": "p",
-      "text": "$C(x)=\\{\\begin{array}{c}49,0<x\\le 1 \\\\ 70,1<x\\le 2 \\\\ 91,2<x\\le 3\\end{array}$"
+      "text": "$C(x)=\\begin{cases}49, & \\text{if } 0<x\\le 1 \\\\ 70, & \\text{if } 1<x\\le 2 \\\\ 91, & \\text{if } 2<x\\le 3\\end{cases}$"
      },
      {
       "type": "box",
@@ -1711,20 +1799,65 @@
     "kind": "multi",
     "parts": [
      {
-      "label": "a",
+      "label": "a. slope",
       "answer": {
        "kind": "number",
-       "value": "-1"
+       "value": "-1",
+       "prompt": "DNE if undefined"
       }
      },
      {
-      "label": "b",
+      "label": "b. the line is",
       "answer": {
-       "kind": "text",
-       "value": "decreasing"
+       "kind": "choice",
+       "options": [
+        "increasing",
+        "decreasing",
+        "horizontal",
+        "vertical"
+       ],
+       "correct": 1
       }
      }
     ]
+   },
+   "hints": [
+    "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+    "Positive slope: increasing; negative: decreasing; $0$: horizontal; undefined (same $x$): vertical."
+   ],
+   "steps": [
+    "$m=\\frac{1-4}{1-(-2)}=\\frac{-3}{3}=-1$",
+    "$m<0$: decreasing"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -6,
+      "max": 6
+     },
+     "b": {
+      "min": -6,
+      "max": 6
+     },
+     "k": {
+      "min": 1,
+      "max": 6
+     },
+     "d": {
+      "min": -6,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the slope of the line through $({{a}},{{b}})$ and $({{a+k}},{{d}})$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "({{d-b}})/{{k}}"
+    }
    }
   },
   {
@@ -1736,7 +1869,7 @@
      "text": "$(-1,4)$ and $(3,-1)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573587749",
    "instructions": [
     {
@@ -1744,7 +1877,86 @@
      "text": "For the following exercises, for each pair of points, a. find the slope of the line passing through the points and b. indicate whether the line is increasing, decreasing, horizontal, or vertical."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $m=\\dfrac{-1-4}{3-(-1)}=-\\dfrac54$"
+     },
+     {
+      "type": "p",
+      "text": "b. Decreasing, since the slope is negative."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. slope",
+      "answer": {
+       "kind": "number",
+       "value": "-5/4",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "b. the line is",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "increasing",
+        "decreasing",
+        "horizontal",
+        "vertical"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(-1-4, 3-(-1))"
+   },
+   "hints": [
+    "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+    "Positive slope: increasing; negative: decreasing; $0$: horizontal; undefined (same $x$): vertical."
+   ],
+   "steps": [
+    "$m=\\frac{-5}{4}$",
+    "$m<0$: decreasing"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -6,
+      "max": 6
+     },
+     "b": {
+      "min": -6,
+      "max": 6
+     },
+     "k": {
+      "min": 1,
+      "max": 6
+     },
+     "d": {
+      "min": -6,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the slope of the line through $({{a}},{{b}})$ and $({{a+k}},{{d}})$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "({{d-b}})/{{k}}"
+    }
+   }
   },
   {
    "id": "e61",
@@ -1776,21 +1988,36 @@
     "kind": "multi",
     "parts": [
      {
-      "label": "a",
+      "label": "a. slope",
       "answer": {
        "kind": "number",
-       "value": "3/4"
+       "value": "3/4",
+       "prompt": "DNE if undefined"
       }
      },
      {
-      "label": "b",
+      "label": "b. the line is",
       "answer": {
-       "kind": "text",
-       "value": "increasing"
+       "kind": "choice",
+       "options": [
+        "increasing",
+        "decreasing",
+        "horizontal",
+        "vertical"
+       ],
+       "correct": 0
       }
      }
     ]
-   }
+   },
+   "hints": [
+    "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+    "Positive slope: increasing; negative: decreasing; $0$: horizontal; undefined (same $x$): vertical."
+   ],
+   "steps": [
+    "$m=\\frac{2-5}{-1-3}=\\frac{-3}{-4}=\\frac34$",
+    "$m>0$: increasing"
+   ]
   },
   {
    "id": "e62",
@@ -1801,7 +2028,7 @@
      "text": "$(6,4)$ and $(4,-3)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573587850",
    "instructions": [
     {
@@ -1809,7 +2036,56 @@
      "text": "For the following exercises, for each pair of points, a. find the slope of the line passing through the points and b. indicate whether the line is increasing, decreasing, horizontal, or vertical."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $m=\\dfrac{-3-4}{4-6}=\\dfrac{-7}{-2}=\\dfrac72$"
+     },
+     {
+      "type": "p",
+      "text": "b. Increasing, since the slope is positive."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. slope",
+      "answer": {
+       "kind": "number",
+       "value": "7/2",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "b. the line is",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "increasing",
+        "decreasing",
+        "horizontal",
+        "vertical"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(-3-4, 4-6)"
+   },
+   "hints": [
+    "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+    "Positive slope: increasing; negative: decreasing; $0$: horizontal; undefined (same $x$): vertical."
+   ],
+   "steps": [
+    "$m=\\frac{-7}{-2}=\\frac72$",
+    "$m>0$: increasing"
+   ]
   },
   {
    "id": "e63",
@@ -1841,21 +2117,36 @@
     "kind": "multi",
     "parts": [
      {
-      "label": "a",
+      "label": "a. slope",
       "answer": {
        "kind": "number",
-       "value": "4/3"
+       "value": "4/3",
+       "prompt": "DNE if undefined"
       }
      },
      {
-      "label": "b",
+      "label": "b. the line is",
       "answer": {
-       "kind": "text",
-       "value": "increasing"
+       "kind": "choice",
+       "options": [
+        "increasing",
+        "decreasing",
+        "horizontal",
+        "vertical"
+       ],
+       "correct": 0
       }
      }
     ]
-   }
+   },
+   "hints": [
+    "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+    "Positive slope: increasing; negative: decreasing; $0$: horizontal; undefined (same $x$): vertical."
+   ],
+   "steps": [
+    "$m=\\frac{7-3}{5-2}=\\frac43$",
+    "$m>0$: increasing"
+   ]
   },
   {
    "id": "e64",
@@ -1866,7 +2157,7 @@
      "text": "$(1,9)$ and $(-8,5)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573587950",
    "instructions": [
     {
@@ -1874,7 +2165,56 @@
      "text": "For the following exercises, for each pair of points, a. find the slope of the line passing through the points and b. indicate whether the line is increasing, decreasing, horizontal, or vertical."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $m=\\dfrac{5-9}{-8-1}=\\dfrac{-4}{-9}=\\dfrac49$"
+     },
+     {
+      "type": "p",
+      "text": "b. Increasing, since the slope is positive."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. slope",
+      "answer": {
+       "kind": "number",
+       "value": "4/9",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "b. the line is",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "increasing",
+        "decreasing",
+        "horizontal",
+        "vertical"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(5-9, -8-1)"
+   },
+   "hints": [
+    "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+    "Positive slope: increasing; negative: decreasing; $0$: horizontal; undefined (same $x$): vertical."
+   ],
+   "steps": [
+    "$m=\\frac{-4}{-9}=\\frac49$",
+    "$m>0$: increasing"
+   ]
   },
   {
    "id": "e65",
@@ -1906,21 +2246,36 @@
     "kind": "multi",
     "parts": [
      {
-      "label": "a",
+      "label": "a. slope",
       "answer": {
        "kind": "number",
-       "value": "0"
+       "value": "0",
+       "prompt": "DNE if undefined"
       }
      },
      {
-      "label": "b",
+      "label": "b. the line is",
       "answer": {
-       "kind": "text",
-       "value": "horizontal"
+       "kind": "choice",
+       "options": [
+        "increasing",
+        "decreasing",
+        "horizontal",
+        "vertical"
+       ],
+       "correct": 2
       }
      }
     ]
-   }
+   },
+   "hints": [
+    "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+    "Positive slope: increasing; negative: decreasing; $0$: horizontal; undefined (same $x$): vertical."
+   ],
+   "steps": [
+    "$m=\\frac{4-4}{1-2}=0$",
+    "Slope $0$: horizontal"
+   ]
   },
   {
    "id": "e66",
@@ -1931,7 +2286,7 @@
      "text": "$(1,4)$ and $(1,0)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588050",
    "instructions": [
     {
@@ -1939,7 +2294,53 @@
      "text": "For the following exercises, for each pair of points, a. find the slope of the line passing through the points and b. indicate whether the line is increasing, decreasing, horizontal, or vertical."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $m=\\dfrac{0-4}{1-1}=\\dfrac{-4}{0}$, which is undefined."
+     },
+     {
+      "type": "p",
+      "text": "b. Vertical: both points have $x=1$, so the line is $x=1$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. slope",
+      "answer": {
+       "kind": "number",
+       "value": "DNE",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "b. the line is",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "increasing",
+        "decreasing",
+        "horizontal",
+        "vertical"
+       ],
+       "correct": 3
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+    "Positive slope: increasing; negative: decreasing; $0$: horizontal; undefined (same $x$): vertical."
+   ],
+   "steps": [
+    "$x_2-x_1=1-1=0$: division by zero",
+    "Same $x$-coordinate: vertical line $x=1$"
+   ]
   },
   {
    "id": "e67",
@@ -1970,6 +2371,42 @@
    "answer": {
     "kind": "equation",
     "value": "y=-6 x+9"
+   },
+   "hints": [
+    "Point-slope form: $y-y_1=m(x-x_1)$. Then solve for $y$."
+   ],
+   "steps": [
+    "$y-3=-6(x-1)$",
+    "$y=-6x+6+3=-6x+9$"
+   ],
+   "variant": {
+    "params": {
+     "m": {
+      "min": -6,
+      "max": 6,
+      "exclude": [
+       0
+      ]
+     },
+     "p": {
+      "min": -5,
+      "max": 5
+     },
+     "q": {
+      "min": -5,
+      "max": 5
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Write the equation of the line with slope ${{m}}$ through $({{p}},{{q}})$ in slope-intercept form."
+     }
+    ],
+    "answer": {
+     "kind": "equation",
+     "value": "y={{m}}x+{{q-m*p}}"
+    }
    }
   },
   {
@@ -1981,7 +2418,7 @@
      "text": "Slope $=3,$ passes through $(-3,2)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588160",
    "instructions": [
     {
@@ -1989,7 +2426,58 @@
      "text": "For the following exercises, write the equation of the line satisfying the given conditions in slope-intercept form."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y-2=3(x+3)$, so $y=3x+9+2=3x+11$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=3x+11"
+   },
+   "verify": {
+    "sympy": "(3*(x+3)+2) - y"
+   },
+   "hints": [
+    "Point-slope form: $y-y_1=m(x-x_1)$. Then solve for $y$."
+   ],
+   "steps": [
+    "$y-2=3(x-(-3))=3(x+3)$",
+    "$y=3x+11$"
+   ],
+   "variant": {
+    "params": {
+     "m": {
+      "min": -6,
+      "max": 6,
+      "exclude": [
+       0
+      ]
+     },
+     "p": {
+      "min": -5,
+      "max": 5
+     },
+     "q": {
+      "min": -5,
+      "max": 5
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Write the equation of the line with slope ${{m}}$ through $({{p}},{{q}})$ in slope-intercept form."
+     }
+    ],
+    "answer": {
+     "kind": "equation",
+     "value": "y={{m}}x+{{q-m*p}}"
+    }
+   }
   },
   {
    "id": "e69",
@@ -2020,7 +2508,13 @@
    "answer": {
     "kind": "equation",
     "value": "y=(1/3)x+4"
-   }
+   },
+   "hints": [
+    "The point $(0,4)$ is on the $y$-axis, so $b=4$."
+   ],
+   "steps": [
+    "$y=mx+b$ with $m=\\frac13$, $b=4$"
+   ]
   },
   {
    "id": "e70",
@@ -2031,7 +2525,7 @@
      "text": "Slope $=\\frac{2}{5},\\,x$-intercept $=8$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588278",
    "instructions": [
     {
@@ -2039,7 +2533,34 @@
      "text": "For the following exercises, write the equation of the line satisfying the given conditions in slope-intercept form."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "The $x$-intercept $8$ means the point $(8,0)$."
+     },
+     {
+      "type": "p",
+      "text": "$y-0=\\frac25(x-8)$, so $y=\\frac25x-\\frac{16}5$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=(2/5)x-16/5"
+   },
+   "verify": {
+    "sympy": "(Rational(2,5)*(x-8)) - y"
+   },
+   "hints": [
+    "An $x$-intercept of $8$ is the point $(8,0)$.",
+    "Point-slope form: $y-y_1=m(x-x_1)$. Then solve for $y$."
+   ],
+   "steps": [
+    "$y=\\frac25(x-8)$",
+    "$y=\\frac25x-\\frac{16}{5}$"
+   ]
   },
   {
    "id": "e71",
@@ -2070,7 +2591,15 @@
    "answer": {
     "kind": "equation",
     "value": "y=(1/2)x"
-   }
+   },
+   "hints": [
+    "First find the slope from the two points.",
+    "Point-slope form: $y-y_1=m(x-x_1)$. Then solve for $y$."
+   ],
+   "steps": [
+    "$m=\\frac{-1-1}{-2-2}=\\frac12$",
+    "$y-1=\\frac12(x-2)$, so $y=\\frac12x$"
+   ]
   },
   {
    "id": "e72",
@@ -2081,7 +2610,7 @@
      "text": "Passing through $(-3,7)$ and $(1,2)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588400",
    "instructions": [
     {
@@ -2089,7 +2618,65 @@
      "text": "For the following exercises, write the equation of the line satisfying the given conditions in slope-intercept form."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$m=\\dfrac{2-7}{1-(-3)}=-\\dfrac54$."
+     },
+     {
+      "type": "p",
+      "text": "$y-2=-\\frac54(x-1)$, so $y=-\\frac54x+\\frac54+2=-\\frac54x+\\frac{13}4$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-(5/4)x+13/4"
+   },
+   "verify": {
+    "sympy": "(Rational(-5,4)*(x-1)+2) - y"
+   },
+   "hints": [
+    "First find the slope from the two points.",
+    "Point-slope form: $y-y_1=m(x-x_1)$. Then solve for $y$."
+   ],
+   "steps": [
+    "$m=\\frac{-5}{4}$",
+    "$y-2=-\\frac54(x-1)$",
+    "$y=-\\frac54x+\\frac{13}{4}$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -5,
+      "max": 0
+     },
+     "b": {
+      "min": -5,
+      "max": 5
+     },
+     "k": {
+      "min": 1,
+      "max": 5
+     },
+     "d": {
+      "min": -5,
+      "max": 5
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Write the equation of the line through $({{a}},{{b}})$ and $({{a+k}},{{d}})$ in slope-intercept form."
+     }
+    ],
+    "answer": {
+     "kind": "equation",
+     "value": "y=({{d-b}})/{{k}}(x-({{a}}))+{{b}}"
+    }
+   }
   },
   {
    "id": "e73",
@@ -2120,7 +2707,14 @@
    "answer": {
     "kind": "equation",
     "value": "y=(3/5)x-3"
-   }
+   },
+   "hints": [
+    "The intercepts are the points $(5,0)$ and $(0,-3)$."
+   ],
+   "steps": [
+    "$m=\\frac{-3-0}{0-5}=\\frac35$",
+    "$b=-3$: $y=\\frac35x-3$"
+   ]
   },
   {
    "id": "e74",
@@ -2131,7 +2725,7 @@
      "text": "$x$-intercept $=-6$ and $y$-intercept $=9$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588527",
    "instructions": [
     {
@@ -2139,7 +2733,55 @@
      "text": "For the following exercises, write the equation of the line satisfying the given conditions in slope-intercept form."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "The intercepts are $(-6,0)$ and $(0,9)$."
+     },
+     {
+      "type": "p",
+      "text": "$m=\\dfrac{9-0}{0-(-6)}=\\dfrac32$ and $b=9$, so $y=\\frac32x+9$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=(3/2)x+9"
+   },
+   "verify": {
+    "sympy": "(Rational(9-0, 0-(-6))*x+9) - y"
+   },
+   "hints": [
+    "The intercepts are the points $(-6,0)$ and $(0,9)$."
+   ],
+   "steps": [
+    "$m=\\frac{9}{6}=\\frac32$",
+    "$y=\\frac32x+9$"
+   ],
+   "variant": {
+    "params": {
+     "p": {
+      "min": 1,
+      "max": 6
+     },
+     "q": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Write the equation of the line with $x$-intercept $-{{p}}$ and $y$-intercept ${{q}}$ in slope-intercept form."
+     }
+    ],
+    "answer": {
+     "kind": "equation",
+     "value": "y=({{q}}/{{p}})x+{{q}}"
+    }
+   }
   },
   {
    "id": "e75",
@@ -2150,7 +2792,7 @@
      "text": "$y=2x-3$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588600",
    "instructions": [
     {
@@ -2174,7 +2816,34 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope $m$",
+      "answer": {
+       "kind": "number",
+       "value": "2",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "$y$-intercept $b$",
+      "answer": {
+       "kind": "set",
+       "value": "{-3}",
+       "prompt": "a number, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Solve the equation for $y$ to get $y=mx+b$.",
+    "If there is no $y$ at all, the line is vertical."
+   ],
+   "steps": [
+    "Already in the form $y=mx+b$: $m=2$, $b=-3$"
+   ]
   },
   {
    "id": "e76",
@@ -2185,7 +2854,7 @@
      "text": "$y=-\\frac{1}{7}x+1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588667",
    "instructions": [
     {
@@ -2193,7 +2862,93 @@
      "text": "For the following exercises, for each linear equation, a. give the slope $m$ and $y$-intercept *b*, if any, and b. graph the line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $m=-\\frac17$, $b=1$."
+     },
+     {
+      "type": "p",
+      "text": "b. The line crosses the $y$-axis at $(0,1)$ and falls $1$ unit for every $7$ units to the right, e.g. through $(7,0)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope $m$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/7",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "$y$-intercept $b$",
+      "answer": {
+       "kind": "set",
+       "value": "{1}",
+       "prompt": "a number, or none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(-1,7), FiniteSet(1))"
+   },
+   "hints": [
+    "Solve the equation for $y$ to get $y=mx+b$.",
+    "If there is no $y$ at all, the line is vertical."
+   ],
+   "steps": [
+    "Read $m$ and $b$ from $y=mx+b$",
+    "Plot $(0,1)$ and $(7,0)$, draw the line"
+   ],
+   "variant": {
+    "params": {
+     "m": {
+      "min": -9,
+      "max": 9,
+      "exclude": [
+       0
+      ]
+     },
+     "b": {
+      "min": -9,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Give the slope $m$ and $y$-intercept $b$ of $y={{m}}x+{{b}}$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "slope $m$",
+       "answer": {
+        "kind": "number",
+        "value": "{{m}}",
+        "prompt": "DNE if undefined"
+       }
+      },
+      {
+       "label": "$y$-intercept $b$",
+       "answer": {
+        "kind": "set",
+        "value": "{ {{b}} }",
+        "prompt": "a number, or none"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e77",
@@ -2204,7 +2959,7 @@
      "text": "$f(x)=-6x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588745",
    "instructions": [
     {
@@ -2228,7 +2983,34 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope $m$",
+      "answer": {
+       "kind": "number",
+       "value": "-6",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "$y$-intercept $b$",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "a number, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Solve the equation for $y$ to get $y=mx+b$.",
+    "If there is no $y$ at all, the line is vertical."
+   ],
+   "steps": [
+    "$f(x)=-6x+0$: $m=-6$, $b=0$"
+   ]
   },
   {
    "id": "e78",
@@ -2239,7 +3021,7 @@
      "text": "$f(x)=-5x+4$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588816",
    "instructions": [
     {
@@ -2247,7 +3029,51 @@
      "text": "For the following exercises, for each linear equation, a. give the slope $m$ and $y$-intercept *b*, if any, and b. graph the line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $m=-5$, $b=4$."
+     },
+     {
+      "type": "p",
+      "text": "b. The line passes through $(0,4)$ and falls $5$ units for each unit to the right, e.g. through $(1,-1)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope $m$",
+      "answer": {
+       "kind": "number",
+       "value": "-5",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "$y$-intercept $b$",
+      "answer": {
+       "kind": "set",
+       "value": "{4}",
+       "prompt": "a number, or none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(-5, FiniteSet(4))"
+   },
+   "hints": [
+    "Solve the equation for $y$ to get $y=mx+b$.",
+    "If there is no $y$ at all, the line is vertical."
+   ],
+   "steps": [
+    "$m=-5$, $b=4$",
+    "Plot $(0,4)$ and $(1,-1)$"
+   ]
   },
   {
    "id": "e79",
@@ -2258,7 +3084,7 @@
      "text": "$4y+24=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588891",
    "instructions": [
     {
@@ -2282,7 +3108,35 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope $m$",
+      "answer": {
+       "kind": "number",
+       "value": "0",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "$y$-intercept $b$",
+      "answer": {
+       "kind": "set",
+       "value": "{-6}",
+       "prompt": "a number, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Solve the equation for $y$ to get $y=mx+b$.",
+    "If there is no $y$ at all, the line is vertical."
+   ],
+   "steps": [
+    "$4y=-24$, so $y=-6$",
+    "Horizontal line: $m=0$, $b=-6$"
+   ]
   },
   {
    "id": "e80",
@@ -2293,7 +3147,7 @@
      "text": "$8x-4=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573588958",
    "instructions": [
     {
@@ -2301,7 +3155,52 @@
      "text": "For the following exercises, for each linear equation, a. give the slope $m$ and $y$-intercept *b*, if any, and b. graph the line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$8x-4=0$ means $x=\\frac12$: a vertical line."
+     },
+     {
+      "type": "p",
+      "text": "a. The slope is undefined, and there is no $y$-intercept (the line never meets the $y$-axis)."
+     },
+     {
+      "type": "p",
+      "text": "b. Draw the vertical line through $(\\tfrac12,0)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope $m$",
+      "answer": {
+       "kind": "number",
+       "value": "DNE",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "$y$-intercept $b$",
+      "answer": {
+       "kind": "set",
+       "value": "{}",
+       "prompt": "a number, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Solve the equation for $y$ to get $y=mx+b$.",
+    "If there is no $y$ at all, the line is vertical."
+   ],
+   "steps": [
+    "$8x=4$, so $x=\\frac12$",
+    "A vertical line: no slope, no $y$-intercept"
+   ]
   },
   {
    "id": "e81",
@@ -2312,7 +3211,7 @@
      "text": "$2x+3y=6$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589005",
    "instructions": [
     {
@@ -2336,7 +3235,35 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope $m$",
+      "answer": {
+       "kind": "number",
+       "value": "-2/3",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "$y$-intercept $b$",
+      "answer": {
+       "kind": "set",
+       "value": "{2}",
+       "prompt": "a number, or none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Solve the equation for $y$ to get $y=mx+b$.",
+    "If there is no $y$ at all, the line is vertical."
+   ],
+   "steps": [
+    "$3y=-2x+6$",
+    "$y=-\\frac23x+2$"
+   ]
   },
   {
    "id": "e82",
@@ -2347,7 +3274,7 @@
      "text": "$6x-5y+15=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589079",
    "instructions": [
     {
@@ -2355,7 +3282,103 @@
      "text": "For the following exercises, for each linear equation, a. give the slope $m$ and $y$-intercept *b*, if any, and b. graph the line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-5y=-6x-15$, so $y=\\frac65x+3$."
+     },
+     {
+      "type": "p",
+      "text": "a. $m=\\frac65$, $b=3$."
+     },
+     {
+      "type": "p",
+      "text": "b. The line passes through $(0,3)$ and $(5,9)$ (and has $x$-intercept $-\\frac52$)."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "slope $m$",
+      "answer": {
+       "kind": "number",
+       "value": "6/5",
+       "prompt": "DNE if undefined"
+      }
+     },
+     {
+      "label": "$y$-intercept $b$",
+      "answer": {
+       "kind": "set",
+       "value": "{3}",
+       "prompt": "a number, or none"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(6,5), FiniteSet(3))"
+   },
+   "hints": [
+    "Solve the equation for $y$ to get $y=mx+b$.",
+    "If there is no $y$ at all, the line is vertical."
+   ],
+   "steps": [
+    "$5y=6x+15$",
+    "$y=\\frac65x+3$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 1,
+      "max": 9
+     },
+     "b": {
+      "choices": [
+       2,
+       3,
+       4,
+       5,
+       6
+      ]
+     },
+     "c": {
+      "min": 1,
+      "max": 20
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Give the slope $m$ and $y$-intercept $b$ of ${{a}}x-{{b}}y+{{c}}=0$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "slope $m$",
+       "answer": {
+        "kind": "number",
+        "value": "{{a}}/{{b}}",
+        "prompt": "DNE if undefined"
+       }
+      },
+      {
+       "label": "$y$-intercept $b$",
+       "answer": {
+        "kind": "set",
+        "value": "{ {{c}}/{{b}} }",
+        "prompt": "a number, or none"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e83",
@@ -2366,7 +3389,7 @@
      "text": "$f(x)=2x^{2}-3x-5$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589168",
    "instructions": [
     {
@@ -2383,7 +3406,68 @@
      }
     ]
    },
-   "notes": "self-check: part d is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. degree",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "b. zeros",
+      "answer": {
+       "kind": "set",
+       "value": "{5/2,-1}",
+       "prompt": "e.g. -1, 5/2; none if none"
+      }
+     },
+     {
+      "label": "c. $y$-intercept",
+      "answer": {
+       "kind": "number",
+       "value": "-5"
+      }
+     },
+     {
+      "label": "d. end behavior",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y\\to\\infty$ at both ends",
+        "$y\\to-\\infty$ at both ends",
+        "$y\\to-\\infty$ as $x\\to-\\infty$; $y\\to\\infty$ as $x\\to\\infty$",
+        "$y\\to\\infty$ as $x\\to-\\infty$; $y\\to-\\infty$ as $x\\to\\infty$"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "e.",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Degree = highest power. Leading term $a_nx^n$: $n$ even means both ends go the same way; the sign of $a_n$ says which.",
+    "Even: $f(-x)=f(x)$. Odd: $f(-x)=-f(x)$."
+   ],
+   "steps": [
+    "$2x^2-3x-5=(2x-5)(x+1)$: zeros $\\frac52,-1$",
+    "$f(0)=-5$",
+    "Degree 2, leading coefficient $2>0$: up at both ends",
+    "$f(-x)=2x^2+3x-5$, neither $f(x)$ nor $-f(x)$"
+   ]
   },
   {
    "id": "e84",
@@ -2394,7 +3478,7 @@
      "text": "$f(x)=-3x^{2}+6x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589231",
    "instructions": [
     {
@@ -2402,7 +3486,166 @@
      "text": "For the following exercises, for each polynomial, a. find the degree; b. find the zeros, if any; c. find the $y$-intercept(s), if any; d. use the leading coefficient to determine the graph’s end behavior; and e. determine algebraically whether the polynomial is even, odd, or neither."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Degree 2."
+     },
+     {
+      "type": "p",
+      "text": "b. $-3x(x-2)=0$: zeros $x=0$ and $x=2$."
+     },
+     {
+      "type": "p",
+      "text": "c. $y$-intercept $f(0)=0$."
+     },
+     {
+      "type": "p",
+      "text": "d. Degree even and leading coefficient $-3<0$: $y\\to-\\infty$ as $x\\to\\pm\\infty$."
+     },
+     {
+      "type": "p",
+      "text": "e. $f(-x)=-3x^2-6x$, which is neither $f(x)$ nor $-f(x)$: neither."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. degree",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "b. zeros",
+      "answer": {
+       "kind": "set",
+       "value": "{0,2}",
+       "prompt": "e.g. -1, 5/2; none if none"
+      }
+     },
+     {
+      "label": "c. $y$-intercept",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "d. end behavior",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y\\to\\infty$ at both ends",
+        "$y\\to-\\infty$ at both ends",
+        "$y\\to-\\infty$ as $x\\to-\\infty$; $y\\to\\infty$ as $x\\to\\infty$",
+        "$y\\to\\infty$ as $x\\to-\\infty$; $y\\to-\\infty$ as $x\\to\\infty$"
+       ],
+       "correct": 1
+      }
+     },
+     {
+      "label": "e.",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(degree(-3*x**2+6*x, x), solveset(-3*x**2+6*x, x, S.Reals), (-3*x**2+6*x).subs(x, 0))"
+   },
+   "hints": [
+    "Degree = highest power. Leading term $a_nx^n$: $n$ even means both ends go the same way; the sign of $a_n$ says which.",
+    "Even: $f(-x)=f(x)$. Odd: $f(-x)=-f(x)$."
+   ],
+   "steps": [
+    "Factor: $-3x(x-2)$",
+    "$f(0)=0$",
+    "Even degree, negative leading coefficient: down at both ends",
+    "$f(-x)=-3x^2-6x$: neither"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 6
+     },
+     "r": {
+      "min": 1,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "For $f(x)=-{{a}}x^2+{{a*r}}x$ find a. the degree b. the zeros c. the $y$-intercept d. the end behavior e. whether $f$ is even, odd, or neither."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. degree",
+       "answer": {
+        "kind": "number",
+        "value": "2"
+       }
+      },
+      {
+       "label": "b. zeros",
+       "answer": {
+        "kind": "set",
+        "value": "{0,{{r}}}",
+        "prompt": "e.g. -1, 5/2; none if none"
+       }
+      },
+      {
+       "label": "c. $y$-intercept",
+       "answer": {
+        "kind": "number",
+        "value": "0"
+       }
+      },
+      {
+       "label": "d. end behavior",
+       "answer": {
+        "kind": "choice",
+        "options": [
+         "$y\\to\\infty$ at both ends",
+         "$y\\to-\\infty$ at both ends",
+         "$y\\to-\\infty$ as $x\\to-\\infty$; $y\\to\\infty$ as $x\\to\\infty$",
+         "$y\\to\\infty$ as $x\\to-\\infty$; $y\\to-\\infty$ as $x\\to\\infty$"
+        ],
+        "correct": 1
+       }
+      },
+      {
+       "label": "e.",
+       "answer": {
+        "kind": "choice",
+        "options": [
+         "even",
+         "odd",
+         "neither"
+        ],
+        "correct": 2
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e85",
@@ -2413,7 +3656,7 @@
      "text": "$f(x)=\\frac{1}{2}x^{2}-1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589284",
    "instructions": [
     {
@@ -2430,7 +3673,67 @@
      }
     ]
    },
-   "notes": "self-check: part d is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. degree",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "b. zeros",
+      "answer": {
+       "kind": "set",
+       "value": "{sqrt(2),-sqrt(2)}",
+       "prompt": "e.g. -1, 5/2; none if none"
+      }
+     },
+     {
+      "label": "c. $y$-intercept",
+      "answer": {
+       "kind": "number",
+       "value": "-1"
+      }
+     },
+     {
+      "label": "d. end behavior",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y\\to\\infty$ at both ends",
+        "$y\\to-\\infty$ at both ends",
+        "$y\\to-\\infty$ as $x\\to-\\infty$; $y\\to\\infty$ as $x\\to\\infty$",
+        "$y\\to\\infty$ as $x\\to-\\infty$; $y\\to-\\infty$ as $x\\to\\infty$"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "e.",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Degree = highest power. Leading term $a_nx^n$: $n$ even means both ends go the same way; the sign of $a_n$ says which.",
+    "Even: $f(-x)=f(x)$. Odd: $f(-x)=-f(x)$."
+   ],
+   "steps": [
+    "$\\frac12x^2=1$, $x^2=2$, $x=\\pm\\sqrt2$",
+    "$f(0)=-1$",
+    "$f(-x)=\\frac12x^2-1=f(x)$: even"
+   ]
   },
   {
    "id": "e86",
@@ -2441,7 +3744,7 @@
      "text": "$f(x)=x^{3}+3x^{2}-x-3$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589337",
    "instructions": [
     {
@@ -2449,7 +3752,96 @@
      "text": "For the following exercises, for each polynomial, a. find the degree; b. find the zeros, if any; c. find the $y$-intercept(s), if any; d. use the leading coefficient to determine the graph’s end behavior; and e. determine algebraically whether the polynomial is even, odd, or neither."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Degree 3."
+     },
+     {
+      "type": "p",
+      "text": "b. Group: $x^2(x+3)-(x+3)=(x+3)(x-1)(x+1)$, so the zeros are $-3,-1,1$."
+     },
+     {
+      "type": "p",
+      "text": "c. $f(0)=-3$."
+     },
+     {
+      "type": "p",
+      "text": "d. Odd degree, positive leading coefficient: $y\\to-\\infty$ as $x\\to-\\infty$ and $y\\to\\infty$ as $x\\to\\infty$."
+     },
+     {
+      "type": "p",
+      "text": "e. $f(-x)=-x^3+3x^2+x-3$: neither."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. degree",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "b. zeros",
+      "answer": {
+       "kind": "set",
+       "value": "{-3,-1,1}",
+       "prompt": "e.g. -1, 5/2; none if none"
+      }
+     },
+     {
+      "label": "c. $y$-intercept",
+      "answer": {
+       "kind": "number",
+       "value": "-3"
+      }
+     },
+     {
+      "label": "d. end behavior",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y\\to\\infty$ at both ends",
+        "$y\\to-\\infty$ at both ends",
+        "$y\\to-\\infty$ as $x\\to-\\infty$; $y\\to\\infty$ as $x\\to\\infty$",
+        "$y\\to\\infty$ as $x\\to-\\infty$; $y\\to-\\infty$ as $x\\to\\infty$"
+       ],
+       "correct": 2
+      }
+     },
+     {
+      "label": "e.",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(degree(x**3+3*x**2-x-3, x), solveset(x**3+3*x**2-x-3, x, S.Reals), (x**3+3*x**2-x-3).subs(x, 0))"
+   },
+   "hints": [
+    "Degree = highest power. Leading term $a_nx^n$: $n$ even means both ends go the same way; the sign of $a_n$ says which.",
+    "Even: $f(-x)=f(x)$. Odd: $f(-x)=-f(x)$.",
+    "Factor by grouping."
+   ],
+   "steps": [
+    "$x^2(x+3)-1(x+3)=(x+3)(x^2-1)$",
+    "Zeros $-3,-1,1$; $f(0)=-3$",
+    "Odd degree, positive leading coefficient: down on the left, up on the right"
+   ]
   },
   {
    "id": "e87",
@@ -2460,7 +3852,7 @@
      "text": "$f(x)=3x-x^{3}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589403",
    "instructions": [
     {
@@ -2477,7 +3869,67 @@
      }
     ]
    },
-   "notes": "self-check: part b is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. degree",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "b. zeros",
+      "answer": {
+       "kind": "set",
+       "value": "{0,sqrt(3),-sqrt(3)}",
+       "prompt": "e.g. -1, 5/2; none if none"
+      }
+     },
+     {
+      "label": "c. $y$-intercept",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "d. end behavior",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "$y\\to\\infty$ at both ends",
+        "$y\\to-\\infty$ at both ends",
+        "$y\\to-\\infty$ as $x\\to-\\infty$; $y\\to\\infty$ as $x\\to\\infty$",
+        "$y\\to\\infty$ as $x\\to-\\infty$; $y\\to-\\infty$ as $x\\to\\infty$"
+       ],
+       "correct": 3
+      }
+     },
+     {
+      "label": "e.",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "even",
+        "odd",
+        "neither"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Degree = highest power. Leading term $a_nx^n$: $n$ even means both ends go the same way; the sign of $a_n$ says which.",
+    "Even: $f(-x)=f(x)$. Odd: $f(-x)=-f(x)$."
+   ],
+   "steps": [
+    "$x(3-x^2)=0$: $x=0,\\pm\\sqrt3$",
+    "Leading term $-x^3$: up on the left, down on the right",
+    "$f(-x)=-3x+x^3=-f(x)$: odd"
+   ]
   },
   {
    "id": "e88",
@@ -2496,7 +3948,16 @@
      "text": "For the following exercises, use the graph of $f(x)=x^{2}$ to graph each transformed function $g.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Shift the graph of $y=x^2$ down $1$ unit. The vertex moves to $(0,-1)$, and the graph crosses the $x$-axis at $x=\\pm1$."
+     }
+    ]
+   }
   },
   {
    "id": "e89",
@@ -2546,7 +4007,16 @@
      "text": "For the following exercises, use the graph of $f(x)=\\sqrt{x}$ to graph each transformed function $g.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Shift the graph of $y=\\sqrt x$ left $2$ units. It now starts at $(-2,0)$ and passes through $(-1,1)$ and $(2,2)$."
+     }
+    ]
+   }
   },
   {
    "id": "e91",
@@ -2603,7 +4073,16 @@
      "height": 423
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Shift the graph of $f$ up $1$ unit. It now starts at $(-3,1)$, rises to $(-1,3)$, stays at height $3$ until $(1,3)$, then falls to $(3,1)$."
+     }
+    ]
+   }
   },
   {
    "id": "e93",
@@ -2649,10 +4128,10 @@
    "prompt": [
     {
      "type": "p",
-     "text": "$f(x)=\\{\\begin{array}{c}4x+3,x\\le 0 \\\\ -x+1,x>0\\end{array};\\,f(-3);f(0);f(2)$"
+     "text": "$f(x)=\\begin{cases}4x+3, & \\text{if } x\\le 0 \\\\ -x+1, & \\text{if } x>0\\end{cases};\\,f(-3);f(0);f(2)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589890",
    "instructions": [
     {
@@ -2660,7 +4139,104 @@
      "text": "For the following exercises, for each of the piecewise-defined functions, a. evaluate at the given values of the independent variable and b. sketch the graph."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(-3)=4(-3)+3=-9$; $f(0)=4(0)+3=3$ (since $0\\le0$); $f(2)=-2+1=-1$."
+     },
+     {
+      "type": "p",
+      "text": "b. For $x\\le0$ the graph is the line $y=4x+3$, ending at the closed point $(0,3)$. For $x>0$ it is the line $y=-x+1$, starting at the open point $(0,1)$ and falling."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(-3)$",
+      "answer": {
+       "kind": "number",
+       "value": "-9"
+      }
+     },
+     {
+      "label": "$f(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "$f(2)$",
+      "answer": {
+       "kind": "number",
+       "value": "-1"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(4*(-3)+3, 4*0+3, -2+1)"
+   },
+   "hints": [
+    "Decide which piece applies by checking the condition on $x$ first."
+   ],
+   "steps": [
+    "$-3\\le0$: use $4x+3$",
+    "$0\\le0$: use $4x+3$",
+    "$2>0$: use $-x+1$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 6
+     },
+     "b": {
+      "min": 1,
+      "max": 6
+     },
+     "c": {
+      "min": 1,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $f(-3)$, $f(0)$ and $f(2)$ for $f(x)=\\begin{cases}{{a}}x+{{b}}, & x\\le 0 \\\\ -x+{{c}}, & x>0\\end{cases}$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "$f(-3)$",
+       "answer": {
+        "kind": "number",
+        "value": "{{b-3*a}}"
+       }
+      },
+      {
+       "label": "$f(0)$",
+       "answer": {
+        "kind": "number",
+        "value": "{{b}}"
+       }
+      },
+      {
+       "label": "$f(2)$",
+       "answer": {
+        "kind": "number",
+        "value": "{{c-2}}"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e95",
@@ -2668,10 +4244,10 @@
    "prompt": [
     {
      "type": "p",
-     "text": "$f(x)=\\{\\begin{array}{c}x^{2}-3,x<0 \\\\ 4x-3,x\\ge 0\\end{array};\\,f(-4);f(0);f(2)$"
+     "text": "$f(x)=\\begin{cases}x^{2}-3, & \\text{if } x<0 \\\\ 4x-3, & \\text{if } x\\ge 0\\end{cases};\\,f(-4);f(0);f(2)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573590037",
    "instructions": [
     {
@@ -2695,7 +4271,40 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(-4)$",
+      "answer": {
+       "kind": "number",
+       "value": "13"
+      }
+     },
+     {
+      "label": "$f(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "-3"
+      }
+     },
+     {
+      "label": "$f(2)$",
+      "answer": {
+       "kind": "number",
+       "value": "5"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Decide which piece applies by checking the condition on $x$ first."
+   ],
+   "steps": [
+    "$-4<0$: $(-4)^2-3=13$",
+    "$0\\ge0$: $4(0)-3=-3$",
+    "$4(2)-3=5$"
+   ]
   },
   {
    "id": "e96",
@@ -2703,10 +4312,10 @@
    "prompt": [
     {
      "type": "p",
-     "text": "$h(x)=\\{\\begin{array}{c}x+1,x\\le 5 \\\\ 4,x>5\\end{array};\\,h(0);h(\\pi );h(5)$"
+     "text": "$h(x)=\\begin{cases}x+1, & \\text{if } x\\le 5 \\\\ 4, & \\text{if } x>5\\end{cases};\\,h(0);h(\\pi );h(5)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573590186",
    "instructions": [
     {
@@ -2714,7 +4323,55 @@
      "text": "For the following exercises, for each of the piecewise-defined functions, a. evaluate at the given values of the independent variable and b. sketch the graph."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $h(0)=0+1=1$; $h(\\pi)=\\pi+1$ (since $\\pi\\le5$); $h(5)=5+1=6$."
+     },
+     {
+      "type": "p",
+      "text": "b. For $x\\le5$ the graph is the line $y=x+1$, ending at the closed point $(5,6)$. For $x>5$ it is the horizontal line $y=4$, starting at the open point $(5,4)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$h(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "1"
+      }
+     },
+     {
+      "label": "$h(\\pi)$",
+      "answer": {
+       "kind": "number",
+       "value": "pi+1"
+      }
+     },
+     {
+      "label": "$h(5)$",
+      "answer": {
+       "kind": "number",
+       "value": "6"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(1, pi+1, 6)"
+   },
+   "hints": [
+    "Decide which piece applies by checking the condition on $x$ first."
+   ],
+   "steps": [
+    "$0\\le5$ and $\\pi\\le5$: use $x+1$",
+    "$5\\le5$: $h(5)=6$"
+   ]
   },
   {
    "id": "e97",
@@ -2722,10 +4379,10 @@
    "prompt": [
     {
      "type": "p",
-     "text": "$g(x)=\\{\\begin{array}{l}\\frac{3}{x-2},x\\ne 2 \\\\ 4,x=2\\end{array};g(0);g(-4);g(2)$"
+     "text": "$g(x)=\\begin{cases}\\frac{3}{x-2}, & \\text{if } x\\ne 2 \\\\ 4, & \\text{if } x=2\\end{cases};g(0);g(-4);g(2)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573590319",
    "instructions": [
     {
@@ -2749,7 +4406,40 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$g(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "-3/2"
+      }
+     },
+     {
+      "label": "$g(-4)$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/2"
+      }
+     },
+     {
+      "label": "$g(2)$",
+      "answer": {
+       "kind": "number",
+       "value": "4"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "At $x=2$ the first formula is not allowed; use the second piece."
+   ],
+   "steps": [
+    "$g(0)=\\frac{3}{-2}$",
+    "$g(-4)=\\frac{3}{-6}=-\\frac12$",
+    "$g(2)=4$ by the second piece"
+   ]
   },
   {
    "id": "e98",
@@ -2760,7 +4450,7 @@
      "text": "$f(x)=(4x+1)/(7x-2)$ is a transcendental function."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595288",
    "instructions": [
     {
@@ -2768,7 +4458,30 @@
      "text": "For the following exercises, determine whether the statement is *true or false*. Explain why."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. $f(x)=\\frac{4x+1}{7x-2}$ is a quotient of polynomials: a rational function, which is algebraic, not transcendental."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "True",
+     "False"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Transcendental functions are trig, exponential and logarithmic functions. Which class is a quotient of polynomials?"
+   ],
+   "steps": [
+    "A ratio of polynomials is a rational function",
+    "Rational functions are algebraic"
+   ]
   },
   {
    "id": "e99",
@@ -2779,7 +4492,7 @@
      "text": "$g(x)=\\sqrt[3]{x}$ is an odd root function"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595354",
    "instructions": [
     {
@@ -2796,7 +4509,20 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "True",
+     "False"
+    ],
+    "correct": 0
+   },
+   "hints": [
+    "$\\sqrt[n]{x}$ with $n$ odd is an odd root function."
+   ],
+   "steps": [
+    "$\\sqrt[3]x$ has $n=3$, which is odd"
+   ]
   },
   {
    "id": "e100",
@@ -2807,7 +4533,7 @@
      "text": "A logarithmic function is an algebraic function."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595398",
    "instructions": [
     {
@@ -2815,7 +4541,30 @@
      "text": "For the following exercises, determine whether the statement is *true or false*. Explain why."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. Logarithmic functions are transcendental: they cannot be built from polynomials with $+,-,\\times,\\div$ and roots."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "True",
+     "False"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Algebraic functions come from polynomials using arithmetic and roots."
+   ],
+   "steps": [
+    "$\\log$ is not built from polynomials by arithmetic and roots",
+    "So it is transcendental"
+   ]
   },
   {
    "id": "e101",
@@ -2826,7 +4575,7 @@
      "text": "A function of the form $f(x)=x^{b},$ where $b$ is a real valued constant, is an exponential function."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595415",
    "instructions": [
     {
@@ -2843,7 +4592,20 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "True",
+     "False"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "In an exponential function the variable is in the exponent."
+   ],
+   "steps": [
+    "$x^b$ has the variable in the base: a power function"
+   ]
   },
   {
    "id": "e102",
@@ -2854,7 +4616,7 @@
      "text": "The domain of an even root function is all real numbers."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595484",
    "instructions": [
     {
@@ -2862,7 +4624,30 @@
      "text": "For the following exercises, determine whether the statement is *true or false*. Explain why."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. An even root such as $\\sqrt x$ or $\\sqrt[4]{x}$ is only defined for $x\\ge0$, so its domain is $[0,\\infty)$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "True",
+     "False"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Try $\\sqrt{-4}$."
+   ],
+   "steps": [
+    "There is no real number whose square is negative",
+    "So $\\sqrt[n]{x}$ with $n$ even needs $x\\ge0$"
+   ]
   },
   {
    "id": "e103",
@@ -2884,7 +4669,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595500",
    "instructions": [
     {
@@ -2901,7 +4686,68 @@
      }
     ]
    },
-   "notes": "self-check: part b is not plain math"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $V(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-8200/3 t+20500",
+       "accept": [
+        "-2733.33t+20500"
+       ]
+      }
+     },
+     {
+      "label": "b. $t$-intercept (years)",
+      "answer": {
+       "kind": "number",
+       "value": "7.5",
+       "tolerance": {
+        "abs": 0.05
+       }
+      }
+     },
+     {
+      "label": "b. $V$-intercept (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "20500"
+      }
+     },
+     {
+      "label": "c. value after 5 years (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "20500-5*8200/3",
+       "tolerance": {
+        "abs": 2
+       }
+      }
+     },
+     {
+      "label": "d. years until \\$3000",
+      "answer": {
+       "kind": "number",
+       "value": "17500*3/8200",
+       "tolerance": {
+        "abs": 0.05
+       }
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The slope is the change in value divided by the change in time.",
+    "The $V$-intercept is the value at $t=0$."
+   ],
+   "steps": [
+    "$m=\\frac{12300-20500}{3}\\approx-2733.33$",
+    "$V=0$ at $t=\\frac{20500}{2733.33}=7.5$",
+    "$V(5)\\approx6833$",
+    "$V=3000$ at $t=\\frac{17500}{2733.33}\\approx6.4$"
+   ]
   },
   {
    "id": "e104",
@@ -2922,7 +4768,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595644",
    "instructions": [
     {
@@ -2930,7 +4776,63 @@
      "text": "For the following exercises, determine whether the statement is *true or false*. Explain why."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The slope is $48.1-42.3=5.8$ per year, so $S(t)=5.8t+42.3$ (billions of dollars)."
+     },
+     {
+      "type": "p",
+      "text": "b. The slope says online holiday sales grow by about \\$5.8 billion each year."
+     },
+     {
+      "type": "p",
+      "text": "c. $5.8t+42.3=60$ gives $t=\\frac{17.7}{5.8}\\approx3.05$, so in $2012+3=2015$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $S(t)$ (billions)",
+      "answer": {
+       "kind": "expression",
+       "value": "5.8t+42.3"
+      }
+     },
+     {
+      "label": "c. $t$ when $S=60$",
+      "answer": {
+       "kind": "number",
+       "value": "17.7/5.8",
+       "tolerance": {
+        "abs": 0.05
+       }
+      }
+     },
+     {
+      "label": "c. year",
+      "answer": {
+       "kind": "number",
+       "value": "2015"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(481,10)-Rational(423,10))*t+Rational(423,10), Rational(177,10)/Rational(58,10), 2015"
+   },
+   "hints": [
+    "Use the two data points $(0,42.3)$ and $(1,48.1)$."
+   ],
+   "steps": [
+    "$m=5.8$, $b=42.3$",
+    "$5.8t=17.7$, $t\\approx3.05$",
+    "$t=3$ is 2015"
+   ]
   },
   {
    "id": "e105",
@@ -2951,7 +4853,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595739",
    "instructions": [
     {
@@ -2968,7 +4870,39 @@
      }
     ]
    },
-   "notes": "self-check: part c is prose"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $C(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0.75x+125"
+      }
+     },
+     {
+      "label": "b. cost of 160 (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "245"
+      }
+     },
+     {
+      "label": "c. cupcakes to start making profit",
+      "answer": {
+       "kind": "number",
+       "value": "167"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Profit starts when revenue $1.50x$ exceeds cost $0.75x+125$."
+   ],
+   "steps": [
+    "$C(160)=120+125=245$",
+    "$1.5x=0.75x+125$ gives $x\\approx166.7$, so 167"
+   ]
   },
   {
    "id": "e106",
@@ -2989,7 +4923,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595812",
    "instructions": [
     {
@@ -2997,7 +4931,58 @@
      "text": "For the following exercises, determine whether the statement is *true or false*. Explain why."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The house goes from \\$250,000 to \\$500,000 in 18 years, so the slope is $\\frac{250000}{18}\\approx13{,}888.89$ and $P(t)=13{,}888.89t+250{,}000$."
+     },
+     {
+      "type": "p",
+      "text": "b. The slope means the house gains about \\$13,889 in value each year."
+     },
+     {
+      "type": "p",
+      "text": "c. $P(15)\\approx\\$458{,}333$."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $P(t)$ (\\$)",
+      "answer": {
+       "kind": "expression",
+       "value": "250000/18 t+250000",
+       "accept": [
+        "13888.89t+250000"
+       ]
+      }
+     },
+     {
+      "label": "c. price after 15 years (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "250000+15*250000/18",
+       "tolerance": {
+        "abs": 1
+       }
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(250000,18)*t+250000, 250000+15*Rational(250000,18))"
+   },
+   "hints": [
+    "Twice the purchase price is \\$500,000, reached at $t=18$."
+   ],
+   "steps": [
+    "$m=\\frac{500000-250000}{18}$",
+    "$P(15)=250000+15\\cdot13888.89\\approx458333$"
+   ]
   },
   {
    "id": "e107",
@@ -3017,7 +5002,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595902",
    "instructions": [
     {
@@ -3034,7 +5019,83 @@
      }
     ]
    },
-   "notes": "self-check: part b is prose"
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $V(t)$ (\\$)",
+      "answer": {
+       "kind": "expression",
+       "value": "-1500t+26000"
+      }
+     },
+     {
+      "label": "b. $V(4)$ (\\$)",
+      "answer": {
+       "kind": "number",
+       "value": "20000"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Value = purchase price $-$ depreciation per year × years."
+   ],
+   "steps": [
+    "$V(t)=26000-1500t$",
+    "$V(4)=26000-6000=20000$"
+   ],
+   "variant": {
+    "params": {
+     "p": {
+      "choices": [
+       18000,
+       22000,
+       26000,
+       30000,
+       34000
+      ]
+     },
+     "d": {
+      "choices": [
+       1200,
+       1500,
+       1800,
+       2000,
+       2500
+      ]
+     },
+     "t": {
+      "min": 2,
+      "max": 8
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "A car was purchased for \\${{p}} and loses \\${{d}} in value each year. a. Find $V(t)$. b. Find $V({{t}})$."
+     }
+    ],
+    "answer": {
+     "kind": "multi",
+     "parts": [
+      {
+       "label": "a. $V(t)$",
+       "answer": {
+        "kind": "expression",
+        "value": "-{{d}}t+{{p}}"
+       }
+      },
+      {
+       "label": "b. value (\\$)",
+       "answer": {
+        "kind": "number",
+        "value": "{{p-d*t}}"
+       }
+      }
+     ]
+    }
+   }
   },
   {
    "id": "e108",
@@ -3045,7 +5106,7 @@
      "text": "**[T]** A condominium in an upscale part of the city was purchased for \\$432,000. In 35 years it is worth \\$60,500. Find the rate of depreciation."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573595992",
    "instructions": [
     {
@@ -3053,7 +5114,37 @@
      "text": "For the following exercises, determine whether the statement is *true or false*. Explain why."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "The value drops by $432{,}000-60{,}500=371{,}500$ dollars in 35 years."
+     },
+     {
+      "type": "p",
+      "text": "Rate of depreciation $=\\frac{371500}{35}\\approx\\$10{,}614.29$ per year."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "371500/35",
+    "tolerance": {
+     "abs": 1
+    },
+    "prompt": "dollars per year"
+   },
+   "verify": {
+    "sympy": "Rational(432000-60500, 35)"
+   },
+   "hints": [
+    "Linear depreciation: (total loss in value) ÷ (number of years)."
+   ],
+   "steps": [
+    "$432000-60500=371500$",
+    "$371500/35\\approx10614.29$"
+   ]
   },
   {
    "id": "e109",
@@ -3084,6 +5175,47 @@
    "answer": {
     "kind": "number",
     "value": "30337.50"
+   },
+   "hints": [
+    "Substitute $x=175$."
+   ],
+   "steps": [
+    "$C(175)=10.50(175)+28500=1837.50+28500=30337.50$"
+   ],
+   "variant": {
+    "params": {
+     "c": {
+      "choices": [
+       8,
+       9,
+       11,
+       12,
+       15
+      ]
+     },
+     "f": {
+      "choices": [
+       20000,
+       25000,
+       30000
+      ]
+     },
+     "n": {
+      "min": 100,
+      "max": 300,
+      "step": 25
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "The cost to produce $x$ items is $C(x)={{c}}x+{{f}}$. Find the cost to produce {{n}} items."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{c*n+f}}"
+    }
    }
   },
   {
@@ -3105,7 +5237,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573596077",
    "instructions": [
     {
@@ -3113,7 +5245,63 @@
      "text": "For the following exercises, determine whether the statement is *true or false*. Explain why."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Use the points $(45,4)$ and $(90,9)$ (minutes, pages). Slope $=\\frac{9-4}{90-45}=\\frac19$, so $N(t)=\\frac19(t-45)+4=\\frac{t}{9}-1$."
+     },
+     {
+      "type": "p",
+      "text": "b. $N(120)=\\frac{120}{9}-1\\approx12.3$ pages."
+     },
+     {
+      "type": "p",
+      "text": "c. $\\frac t9-1=20$ gives $t=189$ minutes (3 h 9 min)."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $N(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "t/9-1"
+      }
+     },
+     {
+      "label": "b. pages in 2 hours",
+      "answer": {
+       "kind": "number",
+       "value": "37/3",
+       "tolerance": {
+        "abs": 0.05
+       }
+      }
+     },
+     {
+      "label": "c. minutes for 20 pages",
+      "answer": {
+       "kind": "number",
+       "value": "189"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(9-4, 90-45)*(t-45)+4, Rational(120,9)-1, 21*9)"
+   },
+   "hints": [
+    "Use minutes: 1.5 hours = 90 minutes. Points $(45,4)$ and $(90,9)$."
+   ],
+   "steps": [
+    "$m=\\frac{5}{45}=\\frac19$",
+    "$N(t)=\\frac t9-1$",
+    "$N(120)\\approx12.3$; $t=9\\cdot21=189$"
+   ]
   },
   {
    "id": "e111",
@@ -3124,7 +5312,7 @@
      "text": "**[T]** The output (as a percent of total capacity) of nuclear power plants in the United States can be modeled by the function $P(t)=1.8576t+68.052,$ where *t* is time in years and $t=0$ corresponds to the beginning of 2000. Use the model to predict the approximate percentage output at the beginning of 2015."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573596195",
    "instructions": [
     {
@@ -3141,7 +5329,20 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "answer": {
+    "kind": "number",
+    "value": "1.8576*15+68.052",
+    "tolerance": {
+     "abs": 0.6
+    },
+    "prompt": "percent"
+   },
+   "hints": [
+    "The beginning of 2015 is $t=15$."
+   ],
+   "steps": [
+    "$P(15)=1.8576(15)+68.052\\approx95.9$, about 96%"
+   ]
   },
   {
    "id": "e112",
@@ -3161,7 +5362,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573596258",
    "instructions": [
     {
@@ -3169,7 +5370,49 @@
      "text": "For the following exercises, determine whether the statement is *true or false*. Explain why."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $N(x)=0.65x$."
+     },
+     {
+      "type": "p",
+      "text": "b. $0.65x=1350$ gives $x\\approx2076.9$, so offer admission to about 2077 students."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $N(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0.65x"
+      }
+     },
+     {
+      "label": "b. students to admit",
+      "answer": {
+       "kind": "number",
+       "value": "2077",
+       "prompt": "a whole number of students"
+      }
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(65,100)*x, ceiling(Rational(1350*100,65)))"
+   },
+   "hints": [
+    "65% of $x$ is $0.65x$."
+   ],
+   "steps": [
+    "$x=1350/0.65\\approx2076.9$",
+    "Round up: 2077"
+   ]
   }
  ],
  "proofs": [],
