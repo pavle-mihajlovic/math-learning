@@ -1,0 +1,3006 @@
+{
+ "schema": 1,
+ "id": "V1.6.9",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 6,
+ "section": 9,
+ "title": "Calculus of the Hyperbolic Functions",
+ "chapterTitle": "Applications of Integration",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53653",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/6-9-calculus-of-the-hyperbolic-functions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §6.9 “Calculus of the Hyperbolic Functions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Apply the formulas for derivatives and integrals of the hyperbolic functions.",
+  "Apply the formulas for the derivatives of the inverse hyperbolic functions and their associated integrals.",
+  "Describe the common applied conditions of a catenary curve."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We were introduced to hyperbolic functions in Introduction to Functions and Graphs, along with some of their basic properties. In this section, we look at differentiation and integration formulas for the hyperbolic functions and their inverses."
+    }
+   ],
+   "title": "Calculus of the Hyperbolic Functions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall that the hyperbolic sine and hyperbolic cosine are defined as"
+    },
+    {
+     "type": "math",
+     "tex": "\\sinh \\,x=\\frac{e^{x}-e^{-x}}{2}\\,\\text{and}\\,\\cosh \\,x=\\frac{e^{x}+e^{-x}}{2}."
+    },
+    {
+     "type": "p",
+     "text": "The other hyperbolic functions are then defined in terms of $\\sinh \\,x$ and $\\cosh \\,x.$ The graphs of the hyperbolic functions are shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_09_001.webp",
+     "alt": "This figure has six graphs. The first graph labeled “a” is of the function y=sinh(x). It is an increasing function from the 3rd quadrant, through the origin to the first quadrant. The second graph is labeled “b” and is of the function y=cosh(x). It decreases in the second quadrant to the intercept y=1, then becomes an increasing function. The third graph labeled “c” is of the function y=tanh(x). It is an increasing function from the third quadrant, through the origin, to the first quadrant. The fourth graph is labeled “d” and is of the function y=coth(x). It has two pieces, one in the third quadrant and one in the first quadrant with a vertical asymptote at the y-axis. The fifth graph is labeled “e” and is of the function y=sech(x). It is a curve above the x-axis, increasing in the second quadrant, to the y-axis at y=1 and then decreases. The sixth graph is labeled “f” and is of the function y=csch(x). It has two pieces, one in the third quadrant and one in the first quadrant with a vertical asymptote at the y-axis.",
+     "caption": "**Figure 6.80** Graphs of the hyperbolic functions.",
+     "width": 900,
+     "height": 704
+    },
+    {
+     "type": "p",
+     "text": "It is easy to develop differentiation formulas for the hyperbolic functions. For example, looking at $\\sinh \\,x$ we have"
+    }
+   ],
+   "title": "Derivatives and Integrals of the Hyperbolic Functions"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{d}{dx}(\\sinh \\,x) & =\\frac{d}{dx}\\left(\\frac{e^{x}-e^{-x}}{2}\\right) \\\\ & =\\frac{1}{2}\\left[\\frac{d}{dx}(e^{x})-\\frac{d}{dx}(e^{-x})\\right] \\\\ & =\\frac{1}{2}[e^{x}+e^{-x}]=\\cosh \\,x.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Similarly, $(d/dx)\\cosh \\,x=\\sinh \\,x.$ We summarize the differentiation formulas for the hyperbolic functions in the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$\\sinh \\,x$",
+       "$\\cosh \\,x$"
+      ],
+      [
+       "$\\cosh \\,x$",
+       "$\\sinh \\,x$"
+      ],
+      [
+       "$\\tanh \\,x$",
+       "${\\text{sech}}^{2}\\,x$"
+      ],
+      [
+       "$\\coth \\,x$",
+       "$-{\\text{csch}}^{2}\\,x$"
+      ],
+      [
+       "$\\text{sech}\\,x$",
+       "$-\\text{sech}\\,x\\,\\tanh \\,x$"
+      ],
+      [
+       "$\\text{csch}\\,x$",
+       "$-\\text{csch}\\,x\\,\\coth \\,x$"
+      ]
+     ],
+     "header": [
+      "$f(x)$",
+      "$\\frac{d}{dx}f(x)$"
+     ],
+     "caption": "**Table 6.2** Derivatives of the Hyperbolic Functions"
+    },
+    {
+     "type": "p",
+     "text": "Let’s take a moment to compare the derivatives of the hyperbolic functions with the derivatives of the standard trigonometric functions. There are a lot of similarities, but differences as well. For example, the derivatives of the sine functions match: $(d/dx)\\sin \\,x=\\cos \\,x$ and $(d/dx)\\sinh \\,x=\\cosh \\,x.$ The derivatives of the cosine functions, however, differ in sign: $(d/dx)\\cos \\,x=-\\sin \\,x,$ but $(d/dx)\\cosh \\,x=\\sinh \\,x.$ As we continue our examination of the hyperbolic functions, we must be mindful of their similarities and differences to the standard trigonometric functions."
+    },
+    {
+     "type": "p",
+     "text": "These differentiation formulas for the hyperbolic functions lead directly to the following integral formulas."
+    }
+   ],
+   "title": "Derivatives and Integrals of the Hyperbolic Functions (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cccccccc}{\\displaystyle \\int \\sinh \\,u\\,d}u & = & \\cosh \\,u+C & & & {\\displaystyle \\int {\\text{csch}}^{2}\\,u\\,d}u & = & -\\coth \\,u+C \\\\ {\\displaystyle \\int \\cosh \\,u\\,d}u & = & \\sinh \\,u+C & & & {\\displaystyle \\int \\text{sech}\\,u\\,\\tanh \\,u\\,d}u & = & -\\text{sech}\\,u+C \\\\ {\\displaystyle \\int {\\text{sech}}^{2}u\\,d}u & = & \\tanh \\,u+C & & & {\\displaystyle \\int \\text{csch}\\,u\\,\\coth \\,u\\,d}u & = & -\\text{csch}\\,u+C\\end{array}"
+    }
+   ],
+   "title": "Derivatives and Integrals of the Hyperbolic Functions (continued)"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 6.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dx}(\\sinh (x^{2}))$",
+      "$\\frac{d}{dx}(\\cosh \\,x)^{2}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using the formulas in Table 6.2 and the chain rule, we get"
+     },
+     {
+      "type": "list",
+      "items": [
+       "$\\frac{d}{dx}(\\sinh (x^{2}))=\\cosh (x^{2})\\cdot 2x$",
+       "$\\frac{d}{dx}(\\cosh \\,x)^{2}=2\\,\\cosh \\,x\\,\\sinh \\,x$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Differentiating Hyperbolic Functions"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dx}(\\tanh (x^{2}+3x))$",
+      "$\\frac{d}{dx}\\left(\\frac{1}{(\\sinh \\,x)^{2}}\\right)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$\\frac{d}{dx}(\\tanh (x^{2}+3x))=({\\text{sech}}^{2}(x^{2}+3x))(2x+3)$",
+       "$\\frac{d}{dx}\\left(\\frac{1}{(\\sinh \\,x)^{2}}\\right)=\\frac{d}{dx}(\\sinh \\,x)^{-2}=-2(\\sinh \\,x)^{-3}\\cosh \\,x$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the formulas in Table 6.2 and apply the chain rule as necessary."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 6.48",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "${\\displaystyle \\int x\\,\\cosh (x^{2})d}x$",
+      "${\\displaystyle \\int \\tanh \\,x\\,d}x$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We can use *u*-substitution in both cases."
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Let $u=x^{2}.$ Then, $du=2x\\,dx$ and"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int x\\,\\cosh (x^{2})d}x={\\displaystyle \\int \\frac{1}{2}}\\cosh \\,u\\,du=\\frac{1}{2}\\sinh \\,u+C=\\frac{1}{2}\\sinh (x^{2})+C."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Let $u=\\cosh \\,x.$ Then, $du=\\sinh \\,x\\,dx$ and"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int \\tanh \\,x\\,d}x={\\displaystyle \\int \\frac{\\sinh \\,x}{\\cosh \\,x}d}x={\\displaystyle \\int \\frac{1}{u}d}u=\\ln |u|+C=\\ln |\\cosh \\,x|+C."
+        },
+        {
+         "type": "p",
+         "text": "Note that $\\cosh \\,x>0$ for all $x,$ so we can eliminate the absolute value signs and obtain"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int \\tanh \\,x\\,d}x=\\ln (\\cosh \\,x)+C."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Integrals Involving Hyperbolic Functions"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.48",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "${\\displaystyle \\int \\sinh^{3}x\\,\\cosh \\,x\\,d}x$",
+      "${\\displaystyle \\int {\\text{sech}}^{2}(3x)d}x$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "${\\displaystyle \\int \\sinh^{3}x\\,\\cosh \\,x\\,d}x=\\frac{\\sinh^{4}x}{4}+C$",
+       "${\\displaystyle \\int {\\text{sech}}^{2}(3x)d}x=\\frac{\\tanh (3x)}{3}+C$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the formulas above and apply *u*-substitution as necessary."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Looking at the graphs of the hyperbolic functions, we see that with appropriate range restrictions, they all have inverses. Most of the necessary range restrictions can be discerned by close examination of the graphs. The domains and ranges of the inverse hyperbolic functions are summarized in the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$\\sinh^{-1}x$",
+       "$(-\\infty ,\\infty )$",
+       "$(-\\infty ,\\infty )$"
+      ],
+      [
+       "$\\cosh^{-1}x$",
+       "$[1,\\infty )$",
+       "$[0,\\infty )$"
+      ],
+      [
+       "$\\tanh^{-1}x$",
+       "$(-1,1)$",
+       "$(-\\infty ,\\infty )$"
+      ],
+      [
+       "$\\coth^{-1}x$",
+       "$(-\\infty ,-1)\\cup (1,\\infty )$",
+       "$(-\\infty ,0)\\cup (0,\\infty )$"
+      ],
+      [
+       "${\\text{sech}}^{-1}x$",
+       "$(0, 1]$",
+       "$[0,\\infty )$"
+      ],
+      [
+       "${\\text{csch}}^{-1}x$",
+       "$(-\\infty ,0)\\cup (0,\\infty )$",
+       "$(-\\infty ,0)\\cup (0,\\infty )$"
+      ]
+     ],
+     "header": [
+      "Function",
+      "Domain",
+      "Range"
+     ],
+     "caption": "**Table 6.3** Domains and Ranges of the Inverse Hyperbolic Functions"
+    },
+    {
+     "type": "p",
+     "text": "The graphs of the inverse hyperbolic functions are shown in the following figure."
+    }
+   ],
+   "title": "Calculus of Inverse Hyperbolic Functions"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_09_002.webp",
+     "alt": "This figure has six graphs. The first graph labeled “a” is of the function y=sinh^-1(x). It is an increasing function from the 3rd quadrant, through the origin to the first quadrant. The second graph is labeled “b” and is of the function y=cosh^-1(x). It is in the first quadrant, beginning on the x-axis at 2 and increasing. The third graph labeled “c” is of the function y=tanh^-1(x). It is an increasing function from the third quadrant, through the origin, to the first quadrant. The fourth graph is labeled “d” and is of the function y=coth^-1(x). It has two pieces, one in the third quadrant and one in the first quadrant with a vertical asymptote at the y-axis. The fifth graph is labeled “e” and is of the function y=sech^-1(x). It is a curve decreasing in the first quadrant and stopping on the x-axis at x=1. The sixth graph is labeled “f” and is of the function y=csch^-1(x). It has two pieces, one in the third quadrant and one in the first quadrant with a vertical asymptote at the y-axis.",
+     "caption": "**Figure 6.81** Graphs of the inverse hyperbolic functions.",
+     "width": 900,
+     "height": 704
+    },
+    {
+     "type": "p",
+     "text": "To find the derivatives of the inverse functions, we use implicit differentiation. We have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}y & = & \\sinh^{-1}\\,x \\\\ \\sinh \\,y & = & x \\\\ \\frac{d}{dx}\\sinh \\,y & = & \\frac{d}{dx}x \\\\ \\cosh \\,y\\frac{dy}{dx} & = & 1.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Recall that $\\cosh^{2}y-\\sinh^{2}y=1,$ so $\\cosh \\,y=\\sqrt{1+\\sinh^{2}y}.$ Then,"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=\\frac{1}{\\cosh \\,y}=\\frac{1}{\\sqrt{1+\\sinh^{2}y}}=\\frac{1}{\\sqrt{1+x^{2}}}."
+    }
+   ],
+   "title": "Calculus of Inverse Hyperbolic Functions (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We can derive differentiation formulas for the other inverse hyperbolic functions in a similar fashion. These differentiation formulas are summarized in the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$\\sinh^{-1}x$",
+       "$\\frac{1}{\\sqrt{1+x^{2}}}$"
+      ],
+      [
+       "$\\cosh^{-1}x$",
+       "$\\frac{1}{\\sqrt{x^{2}-1}}$"
+      ],
+      [
+       "$\\tanh^{-1}x$",
+       "$\\frac{1}{1-x^{2}}$"
+      ],
+      [
+       "$\\coth^{-1}x$",
+       "$\\frac{1}{1-x^{2}}$"
+      ],
+      [
+       "${\\text{sech}}^{-1}x$",
+       "$\\frac{-1}{x\\sqrt{1-x^{2}}}$"
+      ],
+      [
+       "${\\text{csch}}^{-1}x$",
+       "$\\frac{-1}{|x|\\sqrt{1+x^{2}}}$"
+      ]
+     ],
+     "header": [
+      "$f(x)$",
+      "$\\frac{d}{dx}f(x)$"
+     ],
+     "caption": "**Table 6.4** Derivatives of the Inverse Hyperbolic Functions"
+    },
+    {
+     "type": "p",
+     "text": "Note that the derivatives of $\\tanh^{-1}\\,x$ and $\\coth^{-1}\\,x$ are the same. Thus, when we integrate $1/(1-x^{2}),$ we need to select the proper antiderivative based on the domain of the functions and the values of $x.$ Integration formulas involving the inverse hyperbolic functions are summarized as follows."
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cccccccc}{\\displaystyle \\int \\frac{1}{\\sqrt{1+u^{2}}}d}u & = & \\sinh^{-1}u+C & & & {\\displaystyle \\int \\frac{1}{u\\sqrt{1-u^{2}}}}du & = & -{\\text{sech}}^{-1}|u|+C \\\\ {\\displaystyle \\int \\frac{1}{\\sqrt{u^{2}-1}}}du & = & \\cosh^{-1}u+C & & & {\\displaystyle \\int \\frac{1}{u\\sqrt{1+u^{2}}}}du & = & -{\\text{csch}}^{-1}|u|+C \\\\ {\\displaystyle \\int \\frac{1}{1-u^{2}}}du & = & \\{\\begin{array}{c}\\tanh^{-1}u+C\\,\\text{if}\\,|u|<1 \\\\ \\coth^{-1}u+C\\,\\text{if}\\,|u|>1\\end{array} & & & & & \\end{array}"
+    }
+   ],
+   "title": "Calculus of Inverse Hyperbolic Functions (continued)"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 6.49",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dx}\\left(\\sinh^{-1}\\left(\\frac{x}{3}\\right)\\right)$",
+      "$\\frac{d}{dx}(\\tanh^{-1}x)^{2}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using the formulas in Table 6.4 and the chain rule, we obtain the following results:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "$\\frac{d}{dx}\\left(\\sinh^{-1}\\left(\\frac{x}{3}\\right)\\right)=\\frac{1}{3\\sqrt{1+\\frac{x^{2}}{9}}}=\\frac{1}{\\sqrt{9+x^{2}}}$",
+       "$\\frac{d}{dx}(\\tanh^{-1}x)^{2}=\\frac{2(\\tanh^{-1}x)}{1-x^{2}}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Differentiating Inverse Hyperbolic Functions"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.49",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dx}(\\cosh^{-1}(3x))$",
+      "$\\frac{d}{dx}(\\coth^{-1}x)^{3}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$\\frac{d}{dx}(\\cosh^{-1}(3x))=\\frac{3}{\\sqrt{9x^{2}-1}}$",
+       "$\\frac{d}{dx}(\\coth^{-1}x)^{3}=\\frac{3(\\coth^{-1}x)^{2}}{1-x^{2}}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the formulas in Table 6.4 and apply the chain rule as necessary."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 6.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "${\\displaystyle \\int \\frac{1}{\\sqrt{4x^{2}-1}}d}x$",
+      "${\\displaystyle \\int \\frac{1}{2x\\sqrt{1-9x^{2}}}d}x$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We can use $u\\text{-substitution}$ in both cases."
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Let $u=2x.$ Then, $du=2dx$ and we have"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int \\frac{1}{\\sqrt{4x^{2}-1}}d}x={\\displaystyle \\int \\frac{1}{2\\sqrt{u^{2}-1}}}du=\\frac{1}{2}\\cosh^{-1}u+C=\\frac{1}{2}\\cosh^{-1}(2x)+C."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Let $u=3x.$ Then, $du=3dx$ and we obtain"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int \\frac{1}{2x\\sqrt{1-9x^{2}}}dx=\\frac{1}{2}{\\displaystyle \\int \\frac{1}{u\\sqrt{1-u^{2}}}du=-\\frac{1}{2}{\\text{sech}}^{-1}|u|+C=-\\frac{1}{2}{\\text{sech}}^{-1}|3x|+C}}."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Integrals Involving Inverse Hyperbolic Functions"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "${\\displaystyle \\int \\frac{1}{\\sqrt{x^{2}-4}}d}x,\\,\\,x>2$",
+      "${\\displaystyle \\int \\frac{1}{\\sqrt{1-e^{2x}}}d}x$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "${\\displaystyle \\int \\frac{1}{\\sqrt{x^{2}-4}}d}x=\\cosh^{-1}\\left(\\frac{x}{2}\\right)+C$",
+       "${\\displaystyle \\int \\frac{1}{\\sqrt{1-e^{2x}}}d}x=-{\\text{sech}}^{-1}(e^{x})+C$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the formulas above and apply $u\\text{-substitution}$ as necessary."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "One physical application of hyperbolic functions involves **hanging cables**. If a cable of uniform density is suspended between two supports without any load other than its own weight, the cable forms a curve called a **catenary**. High-voltage power lines, chains hanging between two posts, and strands of a spider’s web all form catenaries. The following figure shows chains hanging from a row of posts."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_09_003.webp",
+     "alt": "An image of chains hanging between posts that all take the shape of a catenary.",
+     "caption": "**Figure 6.82** Chains between these posts take the shape of a catenary. (credit: modification of work by OKFoundryCompany, Flickr)",
+     "width": 900,
+     "height": 675
+    },
+    {
+     "type": "p",
+     "text": "Hyperbolic functions can be used to model catenaries. Specifically, functions of the form $y=a\\,\\cosh (x/a)$ are catenaries. Figure 6.83 shows the graph of $y=2\\,\\cosh (x/2).$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_09_004.webp",
+     "alt": "This figure is a graph. It is of the function f(x)=2cosh(x/2). The curve decreases in the second quadrant to the y-axis. It intersects the y-axis at y=2. Then the curve becomes increasing.",
+     "caption": "**Figure 6.83** A hyperbolic cosine function forms the shape of a catenary.",
+     "width": 342,
+     "height": 347
+    }
+   ],
+   "title": "Applications"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 6.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Assume a hanging cable has the shape $10\\,\\cosh (x/10)$ for $-15\\le x\\le 15,$ where $x$ is measured in feet. Determine the length of the cable (in feet)."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Recall from Section $2.4$ that the formula for arc length is"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{Arc Length}={\\displaystyle \\int_{a}^{b}\\sqrt{1+[f'(x)]^{2}}}\\,dx."
+     },
+     {
+      "type": "p",
+      "text": "We have $f(x)=10\\,\\cosh (x/10),$ so $f'(x)=\\sinh (x/10).$ Then"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\text{Arc Length} & ={\\displaystyle \\int_{a}^{b}\\sqrt{1+[f'(x)]^{2}}}\\,dx \\\\ & ={\\displaystyle \\int_{-15}^{15}\\sqrt{1+\\sinh^{2}\\left(\\frac{x}{10}\\right)}}\\,dx.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Now recall that $1+\\sinh^{2}x=\\cosh^{2}x,$ so we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\text{Arc Length} & ={\\displaystyle \\int_{-15}^{15}\\sqrt{1+\\sinh^{2}\\left(\\frac{x}{10}\\right)}}\\,dx \\\\ & ={\\displaystyle \\int}_{-15}^{15}\\cosh \\left(\\frac{x}{10}\\right)dx \\\\ & =10\\,\\sinh \\left(\\frac{x}{10}\\right)|_{-15}^{15}=10\\left[\\sinh \\left(\\frac{3}{2}\\right)-\\sinh \\left(-\\frac{3}{2}\\right)\\right]=20\\,\\sinh \\left(\\frac{3}{2}\\right) \\\\ & \\approx 42.586\\,\\text{ft}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Using a Catenary to Find the Length of a Cable"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Assume a hanging cable has the shape $15\\,\\cosh (x/15)$ for $-20\\le x\\le 20.$ Determine the length of the cable (in feet)."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$52.95\\,\\text{ft}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the procedure from the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Hyperbolic functions are defined in terms of exponential functions.",
+      "Term-by-term differentiation yields differentiation formulas for the hyperbolic functions. These differentiation formulas give rise, in turn, to integration formulas.",
+      "With appropriate range restrictions, the hyperbolic functions all have inverses.",
+      "Implicit differentiation yields differentiation formulas for the inverse hyperbolic functions, which in turn give rise to integration formulas.",
+      "The most common physical applications of hyperbolic functions are calculations involving catenaries."
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e377",
+   "number": 377,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find expressions for $\\cosh \\,x+\\sinh \\,x$ and $\\cosh \\,x-\\sinh \\,x.$ Use a calculator to graph these functions and ensure your expression is correct."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794126434",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{x}\\,\\text{and}\\,e^{-x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "list",
+    "value": "e^x, e^(-x)"
+   }
+  },
+  {
+   "id": "e378",
+   "number": 378,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "From the definitions of $\\cosh (x)$ and $\\sinh (x),$ find their antiderivatives."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794051638",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e379",
+   "number": 379,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that $\\cosh (x)$ and $\\sinh (x)$ satisfy $y''=y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793956239",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e380",
+   "number": 380,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the quotient rule to verify that $\\tanh (x)'={\\text{sech}}^{2}(x).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793269055",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e381",
+   "number": 381,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Derive $\\cosh^{2}(x)+\\sinh^{2}(x)=\\cosh (2x)$ from the definition."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793514512",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e382",
+   "number": 382,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Take the derivative of the previous expression to find an expression for $\\sinh (2x).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794037737",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e383",
+   "number": 383,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Prove $\\sinh (x+y)=\\sinh (x)\\cosh (y)+\\cosh (x)\\sinh (y)$ by changing the expression to exponentials."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794141049",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e384",
+   "number": 384,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Take the derivative of the previous expression to find an expression for $\\cosh (x+y).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794336126",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e385",
+   "number": 385,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\cosh (3x+1)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793630189",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3\\,\\sinh (3x+1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "3 sinh (3 x+1)"
+   }
+  },
+  {
+   "id": "e386",
+   "number": 386,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\sinh (x^{2})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793382588",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e387",
+   "number": 387,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\frac{1}{\\cosh (x)}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793416764",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\tanh (x)\\text{sech}(x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- tanh (x) sech (x)"
+   }
+  },
+  {
+   "id": "e388",
+   "number": 388,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\sinh (\\ln (x))$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793985952",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e389",
+   "number": 389,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\cosh^{2}(x)+\\sinh^{2}(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793384557",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4\\,\\cosh (x)\\sinh (x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "4 cosh (x) sinh (x)"
+   }
+  },
+  {
+   "id": "e390",
+   "number": 390,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\cosh^{2}(x)-\\sinh^{2}(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793301148",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e391",
+   "number": 391,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\tanh (\\sqrt{x^{2}+1})$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794284874",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{x\\,{\\text{sech}}^{2}(\\sqrt{x^{2}+1})}{\\sqrt{x^{2}+1}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((x sech^2 (sqrt(x^2+1)))/(sqrt(x^2+1)))"
+   }
+  },
+  {
+   "id": "e392",
+   "number": 392,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\frac{1+\\tanh (x)}{1-\\tanh (x)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794199184",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e393",
+   "number": 393,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\sinh^{6}(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794043454",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$6\\,\\sinh^{5}(x)\\cosh (x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "6 sinh^5 (x) cosh (x)"
+   }
+  },
+  {
+   "id": "e394",
+   "number": 394,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\ln (\\text{sech}(x)+\\tanh (x))$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793637691",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives of the given functions and graph along with the function to ensure your answer is correct."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e395",
+   "number": 395,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cosh (2x+1)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793281082",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\sinh (2x+1)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2) sinh (2 x+1)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e396",
+   "number": 396,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\tanh (3x+2)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794178053",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e397",
+   "number": 397,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x\\,\\cosh (x^{2})$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794336738",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\sinh (x^{2})+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2) sinh (x^2)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e398",
+   "number": 398,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$3x^{3}\\tanh (x^{4})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793956996",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e399",
+   "number": 399,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cosh^{2}(x)\\sinh (x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793372582",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}\\cosh^{3}(x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3) cosh^3 (x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e400",
+   "number": 400,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\tanh^{2}(x){\\text{sech}}^{2}(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793265440",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e401",
+   "number": 401,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{\\sinh (x)}{1+\\cosh (x)}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793450621",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (1+\\cosh (x))+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln (1+ cosh (x))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e402",
+   "number": 402,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\coth (x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793275006",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e403",
+   "number": 403,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cosh (x)+\\sinh (x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794181011",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cosh (x)+\\sinh (x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "cosh (x)+ sinh (x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e404",
+   "number": 404,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(\\cosh (x)+\\sinh (x))^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793564127",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e405",
+   "number": 405,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\tanh^{-1}(4x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793372386",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives for the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{4}{1-16x^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(4/(1-16 x^2))"
+   }
+  },
+  {
+   "id": "e406",
+   "number": 406,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sinh^{-1}(x^{2})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794206992",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives for the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e407",
+   "number": 407,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sinh^{-1}(\\cosh (x))$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793936665",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives for the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\sinh (x)}{\\sqrt{\\cosh^{2}(x)+1}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((sinh (x))/(sqrt(cosh^2 (x)+1)))"
+   }
+  },
+  {
+   "id": "e408",
+   "number": 408,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cosh^{-1}(x^{3})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793358453",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives for the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e409",
+   "number": 409,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\tanh^{-1}(\\cos (x))$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793940311",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives for the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\csc (x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- csc (x)"
+   }
+  },
+  {
+   "id": "e410",
+   "number": 410,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$e^{\\sinh^{-1}(x)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793928572",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives for the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e411",
+   "number": 411,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\ln (\\tanh^{-1}(x))$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793290963",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivatives for the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{(x^{2}-1)\\tanh^{-1}(x)}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/((x^2-1) tanh^(-1) (x)))"
+   }
+  },
+  {
+   "id": "e412",
+   "number": 412,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{4-x^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793579578",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e413",
+   "number": 413,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{a^{2}-x^{2}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794058014",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{a}\\tanh^{-1}\\left(\\frac{x}{a}\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/a) tanh^(-1) ((x/a))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e414",
+   "number": 414,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}+1}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793420648",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e415",
+   "number": 415,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x\\,dx}{\\sqrt{x^{2}+1}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793950155",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{x^{2}+1}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sqrt(x^2+1)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e416",
+   "number": 416,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int -\\frac{dx}{x\\sqrt{1-x^{2}}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793569521",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e417",
+   "number": 417,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{e^{x}}{\\sqrt{e^{2x}-1}}}dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793510599",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cosh^{-1}(e^{x})+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "cosh^(-1) (e^x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e418",
+   "number": 418,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int -\\frac{2x}{x^{4}-1}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794058783",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivatives for the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e419",
+   "number": 419,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that $v(t)=\\sqrt{g}\\,\\tanh ((\\sqrt{g})t)$ satisfies this equation."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793276964",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the fact that a falling body with friction equal to velocity squared obeys the equation $dv/dt=g-v^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e420",
+   "number": 420,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Derive the previous expression for $v(t)$ by integrating $\\frac{dv}{g-v^{2}}=dt.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793255888",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the fact that a falling body with friction equal to velocity squared obeys the equation $dv/dt=g-v^{2}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e421",
+   "number": 421,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Estimate how far a body has fallen in $12$ seconds by finding the area underneath the curve of $v(t).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793316091",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the fact that a falling body with friction equal to velocity squared obeys the equation $dv/dt=g-v^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$37.30$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "37.30"
+   }
+  },
+  {
+   "id": "e422",
+   "number": 422,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that $S=\\sinh (cx)$ satisfies this equation."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793518527",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this scenario: A cable hanging under its own weight has a slope $S=dy/dx$ that satisfies $dS/dx=c\\sqrt{1+S^{2}}.$ The constant $c$ is the ratio of cable density to tension."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e423",
+   "number": 423,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Integrate $dy/dx=\\sinh (cx)$ to find the cable height $y(x)$ if $y(0)=1/c.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793619929",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this scenario: A cable hanging under its own weight has a slope $S=dy/dx$ that satisfies $dS/dx=c\\sqrt{1+S^{2}}.$ The constant $c$ is the ratio of cable density to tension."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{1}{c}\\cosh (cx)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=(1/c) cosh (c x)"
+   }
+  },
+  {
+   "id": "e424",
+   "number": 424,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Sketch the cable and determine how far down it sags at $x=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793932271",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this scenario: A cable hanging under its own weight has a slope $S=dy/dx$ that satisfies $dS/dx=c\\sqrt{1+S^{2}}.$ The constant $c$ is the ratio of cable density to tension."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e425",
+   "number": 425,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A chain hangs from two posts $2$ m apart to form a catenary described by the equation $y=2\\,\\cosh (x/2)-1.$ Find the slope of the catenary at the left fence post."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793510621",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-0.521095$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-0.521095"
+   }
+  },
+  {
+   "id": "e426",
+   "number": 426,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A chain hangs from two posts four meters apart to form a catenary described by the equation $y=4\\,\\cosh (x/4)-3.$ Find the total length of the catenary (arc length)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793463073",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e427",
+   "number": 427,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A high-voltage power line is a catenary described by $y=10\\,\\cosh (x/10).$ Find the ratio of the area under the catenary to its arc length. What do you notice?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793641978",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$10$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "10"
+   }
+  },
+  {
+   "id": "e428",
+   "number": 428,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A telephone line is a catenary described by $y=a\\,\\cosh (x/a).$ Find the ratio of the area under the catenary to its arc length. Does this confirm your answer for the previous question?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793499132",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e429",
+   "number": 429,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Prove the formula for the derivative of $y=\\sinh^{-1}(x)$ by differentiating $x=\\sinh (y).$ (*Hint:* Use hyperbolic trigonometric identities.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929410",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e430",
+   "number": 430,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Prove the formula for the derivative of $y=\\cosh^{-1}(x)$ by differentiating $x=\\cosh (y).$"
+    },
+    {
+     "type": "p",
+     "text": "(*Hint:* Use hyperbolic trigonometric identities.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793950965",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e431",
+   "number": 431,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Prove the formula for the derivative of $y={\\text{sech}}^{-1}(x)$ by differentiating $x=\\text{sech}(y).$ (*Hint:* Use hyperbolic trigonometric identities.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793395488",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e432",
+   "number": 432,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Prove that $(\\cosh (x)+\\sinh (x))^{n}=\\cosh (nx)+\\sinh (nx).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794210494",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e433",
+   "number": 433,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Prove the expression for $\\sinh^{-1}(x).$ Multiply $x=\\sinh (y)=(1/2)(e^{y}-e^{-y})$ by $2e^{y}$ and solve for $y.$ Does your expression match the textbook?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793379933",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e434",
+   "number": 434,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Prove the expression for $\\cosh^{-1}(x).$ Multiply $x=\\cosh (y)=(1/2)(e^{y}+e^{-y})$ by $2e^{y}$ and solve for $y.$ Does your expression match the textbook?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793372775",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve each problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e435",
+   "number": 435,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The amount of work to pump the water out of a half-full cylinder is half the amount of work to pump the water out of the full cylinder."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793582473",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e436",
+   "number": 436,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If the force is constant, the amount of work to move an object from $x=a$ to $x=b$ is $F(b-a).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794011749",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e437",
+   "number": 437,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The disk method can be used in any situation in which the washer method is successful at finding the volume of a solid of revolution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299941",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e438",
+   "number": 438,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If the half-life of $\\text{seaborgium-}266$ is $360$ ms, then $k=(\\ln (2))/360.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793544360",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e439",
+   "number": 439,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The volume that has a base of the ellipse $x^{2}/4+y^{2}/9=1$ and cross-sections of an equilateral triangle perpendicular to the $y\\text{-axis}.$ Use the method of slicing."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793959462",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the requested method to determine the volume of the solid."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$16\\sqrt{3}{\\mathrm{units}}^{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e440",
+   "number": 440,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The region bounded by the curve $y=x^{2}-x$ and the *x*-axis from $x=1\\,\\text{to}\\,x=4,$ rotated around the *y*-axis using the washer method"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793975626",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the requested method to determine the volume of the solid."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e441",
+   "number": 441,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=y^{2}$ and $x=3y$ rotated around the *y*-axis using the washer method"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793957410",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the requested method to determine the volume of the solid."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{162\\pi}{5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((162 pi)/5)"
+   }
+  },
+  {
+   "id": "e442",
+   "number": 442,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=2y^{2}-y^{3},x=0,\\,\\text{and}\\,y=0$ rotated around the *x*-axis using cylindrical shells"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793551980",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the requested method to determine the volume of the solid."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e443",
+   "number": 443,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{3},x=0,y=0,\\,\\text{and}\\,x=2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794095112",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $4,$ b. $\\frac{128\\pi}{7},$ c. $\\frac{64\\pi}{5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "4"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "((128 pi)/7)"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "((64 pi)/5)"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e444",
+   "number": 444,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{2}-x\\,\\text{and}\\,x=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793499100",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e445",
+   "number": 445,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\ln (x)+2\\,\\text{and}\\,y=x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793500031",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $1.949,$ b. $21.952,$ c. $17.099$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "1.949"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "21.952"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "17.099"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e446",
+   "number": 446,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{2}$ and $y=\\sqrt{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793629443",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e447",
+   "number": 447,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=5+x,$ $y=x^{2},$ $x=0,$ and $x=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793628294",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\frac{31}{6},$ b. $\\frac{452\\pi}{15},$ c. $\\frac{31\\pi}{6}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "(31/6)"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "((452 pi)/15)"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "((31 pi)/6)"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e448",
+   "number": 448,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Below $x^{2}+y^{2}=1$ and above $y=1-x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793924533",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e449",
+   "number": 449,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the mass of $\\rho =\\frac{1}{x^{2}+1}$ on a disk centered at the origin with radius $4.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794097582",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\pi \\ln 17$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "pi ln 17"
+   }
+  },
+  {
+   "id": "e450",
+   "number": 450,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the center of mass for $\\rho =\\tan^{2}x$ on $x\\in \\left(-\\frac{\\pi}{4},\\frac{\\pi}{4}\\right).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793470638",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e451",
+   "number": 451,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the mass and the center of mass of $\\rho =1$ on the region bounded by $y=x^{5}$ and $y=\\sqrt{x}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794324586",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the area of the region,",
+      "the volume of the solid when rotated around the *x*-axis, and",
+      "the volume of the solid when rotated around the *y*-axis. Use whichever method seems most appropriate to you."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Mass: $\\frac{1}{2},$ center of mass: $\\left(\\frac{18}{35},\\frac{9}{22}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e452",
+   "number": 452,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The length of $x$ for $y=\\cosh (x)$ from $x=0\\,\\text{to}\\,x=2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793294678",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the requested arc lengths."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e453",
+   "number": 453,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The length of $y$ for $x=3-\\sqrt{y}$ from $y=0$ to $y=4$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793829847",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the requested arc lengths."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{17}+\\frac{1}{8}\\ln (33+8\\sqrt{17})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(17)+(1/8) ln (33+8 sqrt(17))"
+   }
+  },
+  {
+   "id": "e454",
+   "number": 454,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The shape created by revolving the region between $y=4+x,$ $y=3-x,$ $x=0,$ and $x=2$ rotated around the *y*-axis."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793956403",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the surface area and volume when the given curves are revolved around the specified axis."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e455",
+   "number": 455,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The loudspeaker created by revolving $y=1/x$ from $x=1$ to $x=4$ around the *x*-axis."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793393656",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the surface area and volume when the given curves are revolved around the specified axis."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Volume: $\\frac{3\\pi}{4},$ surface area: $\\pi \\left(\\sqrt{2}-\\sinh^{-1}(1)+\\sinh^{-1}(16)-\\frac{\\sqrt{257}}{16}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e456",
+   "number": 456,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For this exercise, consider the Karun-3 dam in Iran. Its shape can be approximated as an inverted isosceles triangle spanning across the river, with height 205 m and width (across the top of the dam) 388 m. Assume the current depth of the water is 180 m. The density of water is 1000 kg/m$^{\\text{3}}$. Find the total force on the wall of the dam."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793383058",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the surface area and volume when the given curves are revolved around the specified axis."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e457",
+   "number": 457,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You are a crime scene investigator attempting to determine the time of death of a victim. It is noon and $45\\text{°}\\text{F}$ outside and the temperature of the body is $78\\text{°}\\text{F}.$ You know the cooling constant is $k=0.00824\\text{°}\\text{F/min}.$ When did the victim die, assuming that a human’s temperature is $98\\text{°}\\text{F}$\n?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794210529",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the surface area and volume when the given curves are revolved around the specified axis."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "11:02 a.m."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e458",
+   "number": 458,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The best-fit exponential curve to these data is given by $y=40.71+1.224^{x}.$ Why do you think the gains of the market were unsustainable? Use first and second derivatives to help justify your answer. What would this model predict the Dow Jones industrial average to be in $2014$\n?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793930318",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercise, consider the stock market crash in $1929$ in the United States. The table lists the Dow Jones industrial average per year leading up to the crash."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$1$",
+       "$63.90$"
+      ],
+      [
+       "$3$",
+       "$100$"
+      ],
+      [
+       "$5$",
+       "$110$"
+      ],
+      [
+       "$7$",
+       "$160$"
+      ],
+      [
+       "$9$",
+       "$381.17$"
+      ]
+     ],
+     "header": [
+      "Years after 1920",
+      "Value (\\$)"
+     ],
+     "caption": "*Source*: http://stockcharts.com/freecharts/historical/djia19201940.html"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e459",
+   "number": 459,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume of the catenoid $y=\\cosh (x)$ from $x=-1\\,\\text{to}\\,x=1$ that is created by rotating this curve around the $x\\text{-axis},$ as shown here."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_09_202.webp",
+     "alt": "This figure is an image of a catenoid. It has been formed by rotating a catenary curve about a vertical axis.",
+     "width": 465,
+     "height": 349
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794247619",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the catenoid, the only solid of revolution that has a minimal surface, or zero mean curvature. A catenoid in nature can be found when stretching soap between two rings."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\pi (1+\\sinh (1)\\cosh (1))$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "pi (1+ sinh (1) cosh (1))"
+   }
+  },
+  {
+   "id": "e460",
+   "number": 460,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find surface area of the catenoid $y=\\cosh (x)$ from $x=-1$ to $x=1$ that is created by rotating this curve around the $x\\,\\text{-axis.}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589798",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the catenoid, the only solid of revolution that has a minimal surface, or zero mean curvature. A catenoid in nature can be found when stretching soap between two rings."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "catenary",
+   "meaning": "a curve in the shape of the function $y=a\\,\\cosh (x/a)$ is a catenary; a cable of uniform density suspended between two supports assumes the shape of a catenary"
+  }
+ ]
+}

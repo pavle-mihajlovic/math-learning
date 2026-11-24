@@ -1,0 +1,2270 @@
+{
+ "schema": 1,
+ "id": "V1.5.3",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 5,
+ "section": 3,
+ "title": "The Fundamental Theorem of Calculus",
+ "chapterTitle": "Integration",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53632",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §5.3 “The Fundamental Theorem of Calculus”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Describe the meaning of the Mean Value Theorem for Integrals.",
+  "State the meaning of the Fundamental Theorem of Calculus, Part 1.",
+  "Use the Fundamental Theorem of Calculus, Part 1, to evaluate derivatives of integrals.",
+  "State the meaning of the Fundamental Theorem of Calculus, Part 2.",
+  "Use the Fundamental Theorem of Calculus, Part 2, to evaluate definite integrals.",
+  "Explain the relationship between differentiation and integration."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the previous two sections, we looked at the definite integral and its relationship to the area under the curve of a function. Unfortunately, so far, the only tools we have available to calculate the value of a definite integral are geometric area formulas and limits of Riemann sums, and both approaches are extremely cumbersome. In this section we look at some more powerful and useful techniques for evaluating definite integrals."
+    },
+    {
+     "type": "p",
+     "text": "These new techniques rely on the relationship between differentiation and integration. This relationship was discovered and explored by both Sir Isaac Newton and Gottfried Wilhelm Leibniz (among others) during the late 1600s and early 1700s, and it is codified in what we now call the **Fundamental Theorem of Calculus**, which has two parts that we examine in this section. Its very name indicates how central this theorem is to the entire development of calculus."
+    },
+    {
+     "type": "p",
+     "text": "Before we get to this crucial theorem, however, let’s examine another important theorem, the Mean Value Theorem for Integrals, which is needed to prove the Fundamental Theorem of Calculus."
+    }
+   ],
+   "title": "The Fundamental Theorem of Calculus"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The **Mean Value Theorem for Integrals** states that a continuous function on a closed interval takes on its average value at some point in that interval. The theorem guarantees that if $f(x)$ is continuous, a point *c* exists in an interval $[a,b]$ such that the value of the function at *c* is equal to the average value of $f(x)$ over $[a,b].$ We state this theorem mathematically with the help of the formula for the average value of a function that we presented at the end of the preceding section."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $f(x)$ is continuous over an interval $[a,b],$ then there is at least one point $c\\in [a,b]$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "f(c)=\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(x)dx}."
+      },
+      {
+       "type": "p",
+       "text": "This formula can also be stated as"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{a}^{b}f(x)dx}=f(c)(b-a)."
+      }
+     ],
+     "title": "The Mean Value Theorem for Integrals"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of The Mean Value Theorem for Integrals is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "The Mean Value Theorem for Integrals"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As mentioned earlier, the Fundamental Theorem of Calculus is an extremely powerful theorem that establishes the relationship between differentiation and integration, and gives us a way to evaluate definite integrals without using Riemann sums or calculating areas. The theorem is comprised of two parts, the first of which, the **Fundamental Theorem of Calculus, Part 1**, is stated here. Part 1 establishes the relationship between differentiation and integration."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $f(x)$ is continuous over an interval $[a,b],$ and the function $F(x)$ is defined by"
+      },
+      {
+       "type": "math",
+       "tex": "F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},"
+      },
+      {
+       "type": "p",
+       "text": "then $F'(x)=f(x)$ over $(a,b).$"
+      }
+     ],
+     "title": "Fundamental Theorem of Calculus, Part 1"
+    },
+    {
+     "type": "p",
+     "text": "Before we delve into the proof, a couple of subtleties are worth mentioning here. First, a comment on the notation. Note that we have defined a function, $F(x),$ as the definite integral of another function, $f(t),$ from the point *a* to the point *x*. At first glance, this is confusing, because we have said several times that a definite integral is a number, and here it looks like it’s a function. The key here is to notice that for any particular value of *x*, the definite integral is a number. So the function $F(x)$ returns a number (the value of the definite integral) for each value of *x*."
+    },
+    {
+     "type": "p",
+     "text": "Second, it is worth commenting on some of the key implications of this theorem. There is a reason it is called the *Fundamental* Theorem of Calculus. Not only does it establish a relationship between integration and differentiation, but also it guarantees that any integrable function has an antiderivative."
+    }
+   ],
+   "title": "Fundamental Theorem of Calculus Part 1: Integrals and Antiderivatives"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "*A proof of Fundamental Theorem of Calculus, Part 1 is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Fundamental Theorem of Calculus Part 1: Integrals and Antiderivatives (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The Fundamental Theorem of Calculus, Part 2, is perhaps the most important theorem in calculus. After tireless efforts by mathematicians for approximately 500 years, new techniques emerged that provided scientists with the necessary tools to explain many phenomena. Using calculus, astronomers could finally determine distances in space and map planetary orbits. Everyday financial problems such as calculating marginal costs or predicting total profit could now be handled with simplicity and accuracy. Engineers could calculate the bending strength of materials or the three-dimensional motion of objects. Our view of the world was forever changed with calculus."
+    },
+    {
+     "type": "p",
+     "text": "After finding approximate areas by adding the areas of *n* rectangles, the application of this theorem is straightforward by comparison. It almost seems too simple that the area of an entire curved region can be calculated by just evaluating an antiderivative at the first and last endpoints of an interval."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If *f* is continuous over the interval $[a,b]$ and $F(x)$ is any antiderivative of $f(x),$ then"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{a}^{b}f(x)dx}=F(b)-F(a)."
+      }
+     ],
+     "title": "The Fundamental Theorem of Calculus, Part 2"
+    },
+    {
+     "type": "p",
+     "text": "We often see the notation $F(x)|_{a}^{b}$ to denote the expression $F(b)-F(a).$ We use this vertical bar and associated limits *a* and *b* to indicate that we should evaluate the function $F(x)$ at the upper limit (in this case, *b*), and subtract the value of the function $F(x)$ evaluated at the lower limit (in this case, *a*)."
+    }
+   ],
+   "title": "Fundamental Theorem of Calculus, Part 2: The Evaluation Theorem"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The **Fundamental Theorem of Calculus, Part 2** (also known as the **evaluation theorem**) states that if we can find an antiderivative for the integrand, then we can evaluate the definite integral by evaluating the antiderivative at the endpoints of the interval and subtracting."
+    },
+    {
+     "type": "p",
+     "text": "*A proof of The Fundamental Theorem of Calculus, Part 2 is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Fundamental Theorem of Calculus, Part 2: The Evaluation Theorem (continued)"
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The Mean Value Theorem for Integrals states that for a continuous function over a closed interval, there is a value *c* such that $f(c)$ equals the average value of the function. See (see above).",
+      "The Fundamental Theorem of Calculus, Part 1 shows the relationship between the derivative and the integral. See (see above).",
+      "The Fundamental Theorem of Calculus, Part 2 is a formula for evaluating a definite integral in terms of an antiderivative of its integrand. The total area under a curve can be found using this formula. See (see above)."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Mean Value Theorem for Integrals**",
+       "If $f(x)$ is continuous over an interval $[a,b],$ then there is at least one point $c\\in [a,b]$ such that $f(c)=\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(x)dx}.$"
+      ],
+      [
+       "**Fundamental Theorem of Calculus Part 1**",
+       "If $f(x)$ is continuous over an interval $[a,b],$ and the function $F(x)$ is defined by $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ then $F'(x)=f(x).$"
+      ],
+      [
+       "**Fundamental Theorem of Calculus Part 2**",
+       "If *f* is continuous over the interval $[a,b]$ and $F(x)$ is any antiderivative of $f(x),$ then ${\\displaystyle \\int_{a}^{b}f(x)dx=F(b)-F(a)}.$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e144",
+   "number": 144,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider two athletes running at variable speeds $v_{1}(t)$ and $v_{2}(t).$ The runners start and finish a race at exactly the same time. Explain why the two runners must be going the same speed at some point."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572338456",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e145",
+   "number": 145,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Two mountain climbers start their climb at base camp, taking two different routes, one steeper than the other, and arrive at the peak at exactly the same time. Is it necessarily true that, at some point, both climbers increased in altitude at the same rate?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572420068",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Yes. It is implied by the Mean Value Theorem for Integrals."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e146",
+   "number": 146,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "To get on a certain toll road a driver has to take a card that lists the mile entrance point. The card also has a timestamp. When going to pay the toll at the exit, the driver is surprised to receive a speeding ticket along with the toll. Explain how this can happen."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572420086",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e147",
+   "number": 147,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Set $F(x)={\\displaystyle \\int_{1}^{x}(1-t)dt}.$ Find $F'(2)$ and the average value of $F'$ over $[1,2].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572420106",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F'(2)=-1;$ average value of $F'$ over $[1,2]$ is $-1/2.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e148",
+   "number": 148,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{1}^{x}e^{-t^{2}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572379507",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e149",
+   "number": 149,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{1}^{x}e^{\\cos \\,t}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572368653",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{\\cos \\,x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^(cos x)"
+   }
+  },
+  {
+   "id": "e150",
+   "number": 150,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{3}^{x}\\sqrt{9-y^{2}}dy}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571599636",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e151",
+   "number": 151,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{3}^{x}\\frac{ds}{\\sqrt{16-s^{2}}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572551781",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{\\sqrt{16-x^{2}}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/(sqrt(16-x^2)))"
+   }
+  },
+  {
+   "id": "e152",
+   "number": 152,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{x}^{2x}tdt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572376458",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e153",
+   "number": 153,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{0}^{\\sqrt{x}}tdt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572376509",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{x}\\frac{d}{dx}\\sqrt{x}=\\frac{1}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "sqrt(x)(d/(d x))sqrt(x)=(1/2)"
+   }
+  },
+  {
+   "id": "e154",
+   "number": 154,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{0}^{\\sin \\,x}\\sqrt{1-t^{2}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572163891",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e155",
+   "number": 155,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{\\cos \\,x}^{1}\\sqrt{1-t^{2}}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571599727",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\sqrt{1-\\cos^{2}x}\\frac{d}{dx}\\cos \\,x=|\\sin \\,x|\\sin \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "-sqrt(1- cos^2 x)(d/(d x)) cos x=| sin x| sin x"
+   }
+  },
+  {
+   "id": "e156",
+   "number": 156,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{1}^{\\sqrt{x}}\\frac{t^{2}}{1+t^{4}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572217460",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e157",
+   "number": 157,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{1}^{x^{2}}\\frac{\\sqrt{t}}{1+t}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572621645",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2x\\frac{|x|}{1+x^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 x((|x|)/(1+x^2))"
+   }
+  },
+  {
+   "id": "e158",
+   "number": 158,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{0}^{\\ln \\,x}e^{t}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571812234",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e159",
+   "number": 159,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{1}^{e^{x}}\\ln u^{2}du}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571547591",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (e^{2x})\\frac{d}{dx}e^{x}=2xe^{x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "ln (e^(2 x))(d/(d x))e^x=2 x e^x"
+   }
+  },
+  {
+   "id": "e160",
+   "number": 160,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The graph of $y={\\displaystyle \\int_{0}^{x}f(t)dt,}$ where *f* is a piecewise constant function, is shown here."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_202.webp",
+     "alt": "A function with linear segments which goes through the points (0, 0), (1, 3), (2, 2), (3, 0), (4, 3), (5, 3), and (6, 2). The area under the function and above the x axis is shaded.",
+     "width": 325,
+     "height": 209
+    },
+    {
+     "type": "list",
+     "items": [
+      "Over which intervals is *f* positive? Over which intervals is it negative? Over which intervals, if any, is it equal to zero?",
+      "What are the maximum and minimum values of *f*?",
+      "What is the average value of *f*?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571711375",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e161",
+   "number": 161,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The graph of $y={\\displaystyle \\int_{0}^{x}f(t)dt,}$ where *f* is a piecewise constant function, is shown here."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_203.webp",
+     "alt": "A graph of a function with linear segments that goes through the points (0, 0), (1, -1), (2, 1), (3, 1), (4, -2), (5, -2), and (6, 0). The area over the function but under the x axis over the interval [0, 1.5] and [3.25, 6] is shaded. The area under the function but over the x axis over the interval [1.5, 3.25] is shaded.",
+     "width": 325,
+     "height": 208
+    },
+    {
+     "type": "list",
+     "items": [
+      "Over which intervals is *f* positive? Over which intervals is it negative? Over which intervals, if any, is it equal to zero?",
+      "What are the maximum and minimum values of *f*?",
+      "What is the average value of *f*?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572622509",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. *f* is positive over $(1,2)$ and $(5,6),$ negative over $(0,1)$ and $(3,4),$ and zero over $(2,3)$ and $(4,5).$ b. The maximum value is 2 and the minimum is −3. c. The average value is 0."
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e162",
+   "number": 162,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The graph of $y={\\displaystyle \\int_{0}^{x}\\ell (t)dt,}$ where *ℓ* is a piecewise linear function, is shown here."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_204.webp",
+     "alt": "A graph of a function which goes through the points (0, 0), (1, -1), (2, 1), (3, 3), (4, 3.5), (5, 4), and (6, 2). The area over the function and under the x axis over [0, 1.8] is shaded, and the area under the function and over the x axis is shaded.",
+     "width": 325,
+     "height": 246
+    },
+    {
+     "type": "list",
+     "items": [
+      "Over which intervals is *ℓ* positive? Over which intervals is it negative? Over which, if any, is it zero?",
+      "Over which intervals is *ℓ* increasing? Over which is it decreasing? Over which, if any, is it constant?",
+      "What is the average value of *ℓ*?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572274790",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e163",
+   "number": 163,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The graph of $y={\\displaystyle \\int_{0}^{x}\\ell (t)dt,}$ where *ℓ* is a piecewise linear function, is shown here."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_205.webp",
+     "alt": "A graph of a function that goes through the points (0, 0), (1, 1), (2, 0), (3, -1), (4.5, 0), (5, 1), and (6, 2). The area under the function and over the x axis over the intervals [0, 2] and [4.5, 6] is shaded. The area over the function and under the x axis over the interval [2, 2.5] is shaded.",
+     "width": 325,
+     "height": 208
+    },
+    {
+     "type": "list",
+     "items": [
+      "Over which intervals is *ℓ* positive? Over which intervals is it negative? Over which, if any, is it zero?",
+      "Over which intervals is *ℓ* increasing? Over which is it decreasing? Over which intervals, if any, is it constant?",
+      "What is the average value of *ℓ*?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572233935",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the Fundamental Theorem of Calculus, Part 1, to find each derivative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. *ℓ* is positive over $(0,1)$ and $(3,6),$ and negative over $(1,3).$ b. It is increasing over $(0,1)$ and $(3,5),$ and it is constant over $(1,3)$ and $(5,6).$ c. Its average value is $\\frac{1}{3}.$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e164",
+   "number": 164,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=x^{2}$ over $[0,4]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572098854",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve by computing *T*$_{\\text{10}}$, the average of the left- and right-endpoint Riemann sums using $N=10$ rectangles. Then, using the Fundamental Theorem of Calculus, Part 2, determine the exact area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e165",
+   "number": 165,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=x^{3}+6x^{2}+x-5$ over $[-4,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572344231",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve by computing *T*$_{\\text{10}}$, the average of the left- and right-endpoint Riemann sums using $N=10$ rectangles. Then, using the Fundamental Theorem of Calculus, Part 2, determine the exact area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T_{10}=49.08,{\\displaystyle \\int_{-4}^{2}(x^{3}+6x^{2}+x-5)dx=48}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e166",
+   "number": 166,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\sqrt{x^{3}}$ over $[0,6]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572626556",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve by computing *T*$_{\\text{10}}$, the average of the left- and right-endpoint Riemann sums using $N=10$ rectangles. Then, using the Fundamental Theorem of Calculus, Part 2, determine the exact area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e167",
+   "number": 167,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\sqrt{x}+x^{2}$ over $[1,9]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571699110",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve by computing *T*$_{\\text{10}}$, the average of the left- and right-endpoint Riemann sums using $N=10$ rectangles. Then, using the Fundamental Theorem of Calculus, Part 2, determine the exact area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T_{10}=260.836,{\\displaystyle \\int_{1}^{9}(\\sqrt{x}+x^{2})dx=260}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e168",
+   "number": 168,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int (\\cos \\,x-\\sin \\,x)dx}$ over $[0,\\pi ]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572444394",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve by computing *T*$_{\\text{10}}$, the average of the left- and right-endpoint Riemann sums using $N=10$ rectangles. Then, using the Fundamental Theorem of Calculus, Part 2, determine the exact area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e169",
+   "number": 169,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{4}{x^{2}}dx}$ over $[1,4]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572293458",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve by computing *T*$_{\\text{10}}$, the average of the left- and right-endpoint Riemann sums using $N=10$ rectangles. Then, using the Fundamental Theorem of Calculus, Part 2, determine the exact area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T_{10}=3.058,{\\displaystyle \\int_{1}^{4}\\frac{4}{x^{2}}dx=3}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e170",
+   "number": 170,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-1}^{2}(x^{2}-3x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571613579",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e171",
+   "number": 171,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-2}^{3}(x^{2}+3x-5)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571769554",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{x^{3}}{3}+\\frac{3x^{2}}{2}-5x,F(3)-F(-2)=-\\frac{35}{6}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)=((x^3)/3)+((3 x^2)/2)-5 x, F(3)-F(-2)=-(35/6)\""
+  },
+  {
+   "id": "e172",
+   "number": 172,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-2}^{3}(t+2)(t-3)dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572628481",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e173",
+   "number": 173,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{2}^{3}(t^{2}-9)(4-t^{2})dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572543704",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=-\\frac{t^{5}}{5}+\\frac{13t^{3}}{3}-36t,F(3)-F(2)=\\frac{62}{15}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)=-((t^5)/5)+((13 t^3)/3)-36 t, F(3)-F(2)=(62/15)\""
+  },
+  {
+   "id": "e174",
+   "number": 174,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{2}x^{9}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572184318",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e175",
+   "number": 175,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}x^{99}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571653421",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{x^{100}}{100},F(1)-F(0)=\\frac{1}{100}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)=((x^100)/100), F(1)-F(0)=(1/100)\""
+  },
+  {
+   "id": "e176",
+   "number": 176,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{4}^{8}(4t^{5/2}-3t^{3/2})dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572480544",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e177",
+   "number": 177,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1/4}^{4}\\left(x^{2}-\\frac{1}{x^{2}}\\right)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571597447",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{x^{3}}{3}+\\frac{1}{x},F(4)-F\\left(\\frac{1}{4}\\right)=\\frac{1125}{64}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)=((x^3)/3)+(1/x), F(4)-F((1/4))=(1125/64)\""
+  },
+  {
+   "id": "e178",
+   "number": 178,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{2}\\frac{2}{x^{3}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572373391",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e179",
+   "number": 179,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{4}\\frac{1}{2\\sqrt{x}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571733976",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\sqrt{x},F(4)-F(1)=1$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)=sqrt(x), F(4)-F(1)=1\""
+  },
+  {
+   "id": "e180",
+   "number": 180,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{4}\\frac{2-\\sqrt{t}}{t^{2}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571649924",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e181",
+   "number": 181,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{16}\\frac{dt}{t^{1/4}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571660199",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{4}{3}t^{3/4},F(16)-F(1)=\\frac{28}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)=(4/3)t^(3/4), F(16)-F(1)=(28/3)\""
+  },
+  {
+   "id": "e182",
+   "number": 182,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2\\pi}\\cos \\,\\theta d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572274959",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e183",
+   "number": 183,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /2}\\sin \\,\\theta d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572510072",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=-\\cos \\,x,F\\left(\\frac{\\pi}{2}\\right)-F(0)=1$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)=- cos x, F((pi/2))-F(0)=1\""
+  },
+  {
+   "id": "e184",
+   "number": 184,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /4}\\sec^{2}\\theta d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571712546",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e185",
+   "number": 185,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\int_{0}^{\\pi /4}\\sec \\,\\theta \\,\\tan \\,\\theta d\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572419248",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\sec \\,x,F\\left(\\frac{\\pi}{4}\\right)-F(0)=\\sqrt{2}-1$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)= sec x, F((pi/4))-F(0)=sqrt(2)-1\""
+  },
+  {
+   "id": "e186",
+   "number": 186,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\pi /3}^{\\pi /4}\\csc \\,\\theta \\,\\cot \\,\\theta d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572443628",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e187",
+   "number": 187,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\pi /4}^{\\pi /2}\\csc^{2}\\theta d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571678801",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=-\\cot (x),F\\left(\\frac{\\pi}{2}\\right)-F\\left(\\frac{\\pi}{4}\\right)=1$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(x)=- cot (x), F((pi/2))-F((pi/4))=1\""
+  },
+  {
+   "id": "e188",
+   "number": 188,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{2}\\left(\\frac{1}{t^{2}}-\\frac{1}{t^{3}}\\right)dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572601259",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e189",
+   "number": 189,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-2}^{-1}\\left(\\frac{1}{t^{2}}-\\frac{1}{t^{3}}\\right)dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571679844",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each definite integral using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(t)=-\\frac{1}{t}+\\frac{1}{2t^{2}},F(-1)-F(-2)=\\frac{7}{8}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"F(t)=-(1/t)+(1/(2 t^2)), F(-1)-F(-2)=(7/8)\""
+  },
+  {
+   "id": "e190",
+   "number": 190,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{a}^{x}t^{2}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572415152",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the evaluation theorem to express the integral as a function $F(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e191",
+   "number": 191,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{x}e^{t}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571638193",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the evaluation theorem to express the integral as a function $F(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=e^{x}-e$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^x-e"
+   }
+  },
+  {
+   "id": "e192",
+   "number": 192,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{x}\\cos \\,tdt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571638254",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the evaluation theorem to express the integral as a function $F(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e193",
+   "number": 193,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-x}^{x}\\sin \\,tdt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571810891",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the evaluation theorem to express the integral as a function $F(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e194",
+   "number": 194,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-2}^{3}|x|dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571697158",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e195",
+   "number": 195,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-2}^{4}|t^{2}-2t-3|dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571539146",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{-2}^{-1}(t^{2}-2t-3)dt}-{\\displaystyle \\int_{-1}^{3}(t^{2}-2t-3)dt}+{\\displaystyle \\int_{3}^{4}(t^{2}-2t-3)dt}=\\frac{46}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e196",
+   "number": 196,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}|\\cos \\,t|dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572456358",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e197",
+   "number": 197,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-\\pi /2}^{\\pi /2}|\\sin \\,t|dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571580976",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-{\\displaystyle \\int_{-\\pi /2}^{0}\\sin \\,tdt+{\\displaystyle \\int_{0}^{\\pi /2}\\sin \\,tdt=2}}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e198",
+   "number": 198,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that the number of hours of daylight on a given day in Seattle is modeled by the function $-3.75\\,\\cos \\left(\\frac{\\pi t}{6}\\right)+12.25,$ with *t* given in months and $t=0$ corresponding to the winter solstice."
+    },
+    {
+     "type": "list",
+     "items": [
+      "What is the average number of daylight hours in a year?",
+      "At which times *t*$_{\\text{1}}$ and *t*$_{\\text{2}}$, where $0\\le t_{1}<t_{2}<12,$ do the number of daylight hours equal the average number?",
+      "Write an integral that expresses the total number of daylight hours in Seattle between $t_{1}$ and $t_{2}.$",
+      "Compute the mean hours of daylight in Seattle between $t_{1}$ and $t_{2},$ where $0\\le t_{1}<t_{2}<12,$ and then between $t_{2}$ and $t_{1},$ and show that the average of the two is equal to the average day length."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572396566",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e199",
+   "number": 199,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose the rate of gasoline consumption over the course of a year in the United States can be modeled by a sinusoidal function of the form $\\left(11.21-\\cos \\left(\\frac{\\pi t}{6}\\right)\\right)\\,\\times \\,10^{9}$ gal/mo."
+    },
+    {
+     "type": "list",
+     "items": [
+      "What is the average monthly consumption, and for which values of *t* is the rate at time *t* equal to the average rate?",
+      "What is the number of gallons of gasoline consumed in the United States in a year?",
+      "Write an integral that expresses the average monthly U.S. gas consumption during the part of the year between the beginning of April $(t=3)$ and the end of September $(t=9).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572373685",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The average is $11.21\\,\\times \\,10^{9}$ since $\\cos \\left(\\frac{\\pi t}{6}\\right)$ has period 12 and integral 0 over any period. Consumption is equal to the average when $\\cos \\left(\\frac{\\pi t}{6}\\right)=0,$ when $t=3,$ and when $t=9.$ b. Total consumption is the average rate times duration: $11.21\\,\\times \\,12\\,\\times \\,10^{9}=1.35\\,\\times \\,10^{11}$ c. $10^{9}\\left(11.21-\\frac{1}{6}{\\displaystyle \\int_{3}^{9}\\cos \\left(\\frac{\\pi t}{6}\\right)dt}\\right)=10^{9}\\left(11.21+\\frac{2}{\\pi}\\right)=11.84x10^{9}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e200",
+   "number": 200,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain why, if *f* is continuous over $[a,b],$ there is at least one point $c\\in [a,b]$ such that $f(c)=\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(t)dt}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572168742",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e201",
+   "number": 201,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain why, if *f* is continuous over $[a,b]$ and is not equal to a constant, there is at least one point $M\\in [a,b]$ such that $f(M)>\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(t)dt}$ and at least one point $m\\in [a,b]$ such that $f(m)<\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(t)dt}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572629224",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "If *f* is not constant, then its average is strictly smaller than the maximum and larger than the minimum, which are attained over $[a,b]$ by the extreme value theorem."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e202",
+   "number": 202,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Kepler’s first law states that the planets move in elliptical orbits with the Sun at one focus. The closest point of a planetary orbit to the Sun is called the **perihelion** (for Earth, it currently occurs around January 3) and the farthest point is called the **aphelion** (for Earth, it currently occurs around July 4). Kepler’s second law states that planets sweep out equal areas of their elliptical orbits in equal times. Thus, the two arcs indicated in the following figure are swept out in equal times. At what time of year is Earth moving fastest in its orbit? When is it moving slowest?"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_201.webp",
+     "alt": "A horizontal ellipse with one focus marked. Two equal arcs are marked to the direct left of the focus and on the other side of the ellipse. The wedges formed by the focus and the endpoints of both arcs are shaded in blue.",
+     "width": 325,
+     "height": 237
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572379048",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e203",
+   "number": 203,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A point on an ellipse with major axis length 2*a* and minor axis length 2*b* has the coordinates $(a\\,\\cos \\,\\theta ,b\\,\\sin \\,\\theta ),0\\le \\theta \\le 2\\pi .$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Show that the distance from this point to the focus at $(-c,0)$ is $d(\\theta )=a+c\\,\\cos \\,\\theta ,$ where $c=\\sqrt{a^{2}-b^{2}}.$",
+      "Use these coordinates to show that the average distance $\\overset{-}{d}$ from a point on the ellipse to the focus at $(-c,0),$ with respect to angle *θ*, is *a*."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571571954",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $d^{2}\\theta =(a\\,\\cos \\,\\theta +c)^{2}+b^{2}\\sin^{2}\\theta =a^{2}+c^{2}\\cos^{2}\\theta +2ac\\,\\cos \\,\\theta =(a+c\\,\\cos \\,\\theta )^{2};$ b. $\\overset{-}{d}=\\frac{1}{2\\pi}{\\displaystyle \\int_{0}^{2\\pi}(a+c\\,\\cos \\,\\theta )d\\theta =a}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e204",
+   "number": 204,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "As implied earlier, according to Kepler’s laws, Earth’s orbit is an ellipse with the Sun at one focus. The perihelion for Earth’s orbit around the Sun is 147,098,290 km and the aphelion is 152,098,232 km."
+    },
+    {
+     "type": "list",
+     "items": [
+      "By placing the major axis along the *x*-axis, find the average distance from Earth to the Sun.",
+      "The classic definition of an astronomical unit (AU) is the distance from Earth to the Sun, and its value was computed as the average of the perihelion and aphelion distances. Is this definition justified?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571613749",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e205",
+   "number": 205,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The force of gravitational attraction between the Sun and a planet is $F(\\theta )=\\frac{GmM}{r^{2}(\\theta )},$ where *m* is the mass of the planet, *M* is the mass of the Sun, *G* is a universal constant, and $r(\\theta )$ is the distance between the Sun and the planet when the planet is at an angle *θ* with the major axis of its orbit. Assuming that *M*, *m*, and the ellipse parameters *a* and *b* (half-lengths of the major and minor axes) are given, set up—but do not evaluate—an integral that expresses in terms of $G,m,M,a,b$ the average gravitational force between the Sun and the planet."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572346991",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Mean gravitational force = $\\frac{GmM}{2\\pi}{\\displaystyle \\int_{0}^{2\\pi}\\frac{1}{(a+\\sqrt{a^{2}-b^{2}}\\cos \\,\\theta )^{2}}d\\theta}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e206",
+   "number": 206,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The displacement from rest of a mass attached to a spring satisfies the simple harmonic motion equation $x(t)=A\\,\\cos (\\omega t-\\phi ),$ where $\\phi$ is a phase constant, *ω* is the angular frequency, and *A* is the amplitude. Find the average velocity, the average speed (magnitude of velocity), the average displacement, and the average distance from rest (magnitude of displacement) of the mass."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572329950",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, identify the roots of the integrand to remove absolute values, then evaluate using the Fundamental Theorem of Calculus, Part 2."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "The Mean Value Theorem for Integrals",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If $f(x)$ is continuous over an interval $[a,b],$ then there is at least one point $c\\in [a,b]$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "f(c)=\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(x)dx}."
+    },
+    {
+     "type": "p",
+     "text": "This formula can also be stated as"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{a}^{b}f(x)dx}=f(c)(b-a)."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Since $f(x)$ is continuous on $[a,b],$ by the extreme value theorem (see Maxima and Minima), it assumes minimum and maximum values—*m* and *M*, respectively—on $[a,b].$ Then, for all *x* in $[a,b],$ we have $m\\le f(x)\\le M.$ Therefore, by the comparison theorem (see The Definite Integral), we have"
+    },
+    {
+     "type": "math",
+     "tex": "m(b-a)\\le {\\displaystyle \\int_{a}^{b}f(x)dx}\\le M(b-a)."
+    },
+    {
+     "type": "p",
+     "text": "Dividing by $b-a$ gives us"
+    },
+    {
+     "type": "math",
+     "tex": "m\\le \\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(x)dx}\\le M."
+    },
+    {
+     "type": "p",
+     "text": "Since $\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f}(x)dx$ is a number between *m* and *M*, and since $f(x)$ is continuous and assumes the values *m* and *M* over $[a,b],$ by the Intermediate Value Theorem (see Continuity), there is a number *c* over $[a,b]$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "f(c)=\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(x)dx},"
+    },
+    {
+     "type": "p",
+     "text": "and the proof is complete."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Find the average value of the function $f(x)=8-2x$ over the interval $[0,4]$ and find *c* such that $f(c)$ equals the average value of the function over $[0,4].$"
+    },
+    {
+     "type": "p",
+     "text": "The formula states the mean value of $f(x)$ is given by"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1}{4-0}{\\displaystyle \\int_{0}^{4}(8-2x)dx}."
+    },
+    {
+     "type": "p",
+     "text": "We can see in Figure 5.25 that the function represents a straight line and forms a right triangle bounded by the *x*- and *y*-axes. The area of the triangle is $A=\\frac{1}{2}(\\text{base})(\\text{height}).$ We have"
+    },
+    {
+     "type": "math",
+     "tex": "A=\\frac{1}{2}(4)(8)=16."
+    },
+    {
+     "type": "p",
+     "text": "The average value is found by multiplying the area by $1/(4-0).$ Thus, the average value of the function is"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1}{4}(16)=4."
+    },
+    {
+     "type": "p",
+     "text": "Set the average value equal to $f(c)$ and solve for *c*."
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}8-2c & = & 4 \\\\ c & = & 2\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "At $c=2,f(2)=4.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_002.webp",
+     "alt": "The graph of a decreasing line f(x) = 8 – 2x over [-1,4.5]. The line y=4 is drawn over [0,4], which intersects with the line at (2,4). A line is drawn down from (2,4) to the x axis and from (4,4) to the y axis. The area under y=4 is shaded.",
+     "caption": "**Figure 5.25** By the Mean Value Theorem, the continuous function $f(x)$ takes on its average value at *c* at least once over a closed interval.",
+     "width": 325,
+     "height": 433
+    },
+    {
+     "type": "p",
+     "text": "Given ${\\displaystyle \\int_{0}^{3}x^{2}dx}=9,$ find *c* such that $f(c)$ equals the average value of $f(x)=x^{2}$ over $[0,3].$"
+    },
+    {
+     "type": "p",
+     "text": "We are looking for the value of *c* such that"
+    },
+    {
+     "type": "math",
+     "tex": "f(c)=\\frac{1}{3-0}{\\displaystyle \\int_{0}^{3}x^{2}dx}=\\frac{1}{3}(9)=3."
+    },
+    {
+     "type": "p",
+     "text": "Replacing $f(c)$ with *c*$^{\\text{2}}$, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}c^{2} & = & 3 \\\\ c & = & \\text{±}\\sqrt{3}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Since $-\\sqrt{3}$ is outside the interval, take only the positive value. Thus, $c=\\sqrt{3}$ (Figure 5.26)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_003.webp",
+     "alt": "A graph of the parabola f(x) = x^2 over [-2, 3]. The area under the curve and above the x axis is shaded, and the point (sqrt(3), 3) is marked.",
+     "caption": "**Figure 5.26** Over the interval $[0,3],$ the function $f(x)=x^{2}$ takes on its average value at $c=\\sqrt{3}.$",
+     "width": 325,
+     "height": 471
+    }
+   ],
+   "label": "book"
+  },
+  {
+   "id": "p2",
+   "title": "Fundamental Theorem of Calculus, Part 1",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If $f(x)$ is continuous over an interval $[a,b],$ and the function $F(x)$ is defined by"
+    },
+    {
+     "type": "math",
+     "tex": "F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},"
+    },
+    {
+     "type": "p",
+     "text": "then $F'(x)=f(x)$ over $(a,b).$"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Applying the definition of the derivative, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ \\\\ \\\\ F'(x) & =\\lim_{h\\to 0}\\,\\frac{F(x+h)-F(x)}{h} \\\\ \\\\ & =\\lim_{h\\to 0}\\,\\frac{1}{h}\\left[{\\displaystyle \\int_{a}^{x+h}f(t)dt}-{\\displaystyle \\int_{a}^{x}f(t)dt}\\right] \\\\ & =\\lim_{h\\to 0}\\,\\frac{1}{h}\\left[{\\displaystyle \\int_{a}^{x+h}f(t)dt}+{\\displaystyle \\int_{x}^{a}f(t)dt}\\right] \\\\ & =\\lim_{h\\to 0}\\,\\frac{1}{h}{\\displaystyle \\int_{x}^{x+h}f(t)dt}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Looking carefully at this last expression, we see $\\frac{1}{h}{\\displaystyle \\int_{x}^{x+h}f(t)dt}$ is just the average value of the function $f(x)$ over the interval $[x,x+h].$ Therefore, by (see above), there is some number *c* in $[x,x+h]$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1}{h}{\\displaystyle \\int_{x}^{x+h}f(x)dx}=f(c)."
+    },
+    {
+     "type": "p",
+     "text": "In addition, since *c* is between *x* and *x* + *h*, *c* approaches *x* as *h* approaches zero. Also, since $f(x)$ is continuous, we have $\\lim_{h\\to 0}f(c)=\\lim_{c\\to x}f(c)=f(x).$ Putting all these pieces together, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ F'(x) & =\\lim_{h\\to 0}\\,\\frac{1}{h}{\\displaystyle \\int_{x}^{x+h}f(x)dx} \\\\ & =\\lim_{h\\to 0}f(c) \\\\ & =f(x),\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "and the proof is complete."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Use the (see above) to find the derivative of"
+    },
+    {
+     "type": "math",
+     "tex": "g(x)={\\displaystyle \\int_{1}^{x}\\frac{1}{t^{3}+1}dt.}"
+    },
+    {
+     "type": "p",
+     "text": "According to the Fundamental Theorem of Calculus, the derivative is given by"
+    },
+    {
+     "type": "math",
+     "tex": "g'(x)=\\frac{1}{x^{3}+1}."
+    },
+    {
+     "type": "p",
+     "text": "Let $F(x)={\\displaystyle \\int_{1}^{\\sqrt{x}}\\sin \\,tdt}.$ Find $F'(x).$"
+    },
+    {
+     "type": "p",
+     "text": "Letting $u(x)=\\sqrt{x},$ we have $F(x)={\\displaystyle \\int_{1}^{u(x)}\\sin \\,tdt}.$ Thus, by the Fundamental Theorem of Calculus and the chain rule,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ F'(x) & =\\sin (u(x))\\frac{du}{dx} \\\\ & =\\sin (u(x))\\cdot \\left(\\frac{1}{2}x^{-1/2}\\right) \\\\ & =\\frac{\\sin \\sqrt{x}}{2\\sqrt{x}}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Let $F(x)={\\displaystyle \\int_{x}^{2x}t^{3}dt}.$ Find $F'(x).$"
+    },
+    {
+     "type": "p",
+     "text": "We have $F(x)={\\displaystyle \\int_{x}^{2x}t^{3}dt}.$ Both limits of integration are variable, so we need to split this into two integrals. We get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ F(x) & ={\\displaystyle \\int_{x}^{2x}t^{3}dt} \\\\ & ={\\displaystyle \\int_{x}^{0}t^{3}dt}+{\\displaystyle \\int_{0}^{2x}t^{3}dt} \\\\ & =-{\\displaystyle \\int_{0}^{x}t^{3}dt}+{\\displaystyle \\int_{0}^{2x}t^{3}dt}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Differentiating the first term, we obtain"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}\\left[-{\\displaystyle \\int_{0}^{x}t^{3}dt}\\right]=-x^{3}."
+    },
+    {
+     "type": "p",
+     "text": "Differentiating the second term, we first let $u(x)=2x.$ Then,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ \\frac{d}{dx}\\left[{\\displaystyle \\int_{0}^{2x}t^{3}dt}\\right] & =\\frac{d}{dx}\\left[{\\displaystyle \\int_{0}^{u(x)}t^{3}dt}\\right] \\\\ & =(u(x))^{3}\\frac{du}{dx} \\\\ & =(2x)^{3}\\cdot 2 \\\\ & =16x^{3}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ \\\\ F'(x) & =\\frac{d}{dx}\\left[-{\\displaystyle \\int_{0}^{x}t^{3}dt}\\right]+\\frac{d}{dx}\\left[{\\displaystyle \\int_{0}^{2x}t^{3}dt}\\right] \\\\ & =-x^{3}+16x^{3} \\\\ & =15x^{3}.\\end{array}"
+    }
+   ],
+   "label": "book"
+  },
+  {
+   "id": "p3",
+   "title": "The Fundamental Theorem of Calculus, Part 2",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If *f* is continuous over the interval $[a,b]$ and $F(x)$ is any antiderivative of $f(x),$ then"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{a}^{b}f(x)dx}=F(b)-F(a)."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Let $P=\\{x_{i}\\},i=0,1,\\dots ,\\,n$ be a regular partition of $[a,b].$ Then, we can write"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}F(b)-F(a) & =F(x_{n})-F(x_{0}) \\\\ & =[F(x_{n})-F(x_{n-1})]+[F(x_{n-1})-F(x_{n-2})]+\\dots +[F(x_{1})-F(x_{0})] \\\\ \\\\ & =\\sum_{i=1}^{n}[F(x_{i})-F(x_{i-1})].\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Now, we know *F* is an antiderivative of *f* over $[a,b],$ so by the Mean Value Theorem (see The Mean Value Theorem) for $i=0,1,\\dots ,\\,n$ we can find $c_{i}$ in $[x_{i-1},x_{i}]$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "F(x_{i})-F(x_{i-1})=F'(c_{i})(x_{i}-x_{i-1})=f(c_{i})\\text{Δ}x."
+    },
+    {
+     "type": "p",
+     "text": "Then, substituting into the previous equation, we have"
+    },
+    {
+     "type": "math",
+     "tex": "F(b)-F(a)={\\displaystyle \\sum_{i=1}^{n}f(c_{i})\\text{Δ}x}."
+    },
+    {
+     "type": "p",
+     "text": "Taking the limit of both sides as $n\\to \\infty ,$ we obtain"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ \\\\ F(b)-F(a) & =\\lim_{n\\to \\infty}{\\displaystyle \\sum_{i=1}^{n}f(c_{i})\\text{Δ}x} \\\\ & ={\\displaystyle \\int_{a}^{b}f(x)dx}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Use (see above) to evaluate"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{-2}^{2}(t^{2}-4)dt}."
+    },
+    {
+     "type": "p",
+     "text": "Recall the power rule for Antiderivatives:"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{If}\\,y=x^{n},{\\displaystyle \\int x^{n}dx}=\\frac{x^{n+1}}{n+1}+C."
+    },
+    {
+     "type": "p",
+     "text": "Use this rule to find the antiderivative of the function and then apply the theorem. We have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{-2}^{2}(t^{2}-4)dt} & =\\frac{t^{3}}{3}-4t|_{-2}^{2} \\\\ \\\\ \\\\ & =\\left[\\frac{(2)^{3}}{3}-4(2)\\right]-\\left[\\frac{(-2)^{3}}{3}-4(-2)\\right] \\\\ & =\\left(\\frac{8}{3}-8\\right)-\\left(-\\frac{8}{3}+8\\right) \\\\ & =\\frac{8}{3}-8+\\frac{8}{3}-8 \\\\ & =\\frac{16}{3}-16 \\\\ & =-\\frac{32}{3}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Notice that we did not include the “+ *C*” term when we wrote the antiderivative. The reason is that, according to the Fundamental Theorem of Calculus, Part 2, *any* antiderivative works. So, for convenience, we chose the antiderivative with $C=0.$ If we had chosen another antiderivative, the constant term would have canceled out. This always happens when evaluating a definite integral."
+    },
+    {
+     "type": "p",
+     "text": "The region of the area we just calculated is depicted in Figure 5.27. Note that the region between the curve and the *x*-axis is all below the *x*-axis. Area is always positive, but a definite integral can still produce a negative number (a net signed area). For example, if this were a profit function, a negative number indicates the company is operating at a loss over the given interval."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_004.webp",
+     "alt": "The graph of the parabola f(t) = t^2 – 4 over [-4, 4]. The area above the curve and below the x axis over [-2, 2] is shaded.",
+     "caption": "**Figure 5.27** The evaluation of a definite integral can produce a negative value, even though area is always positive.",
+     "width": 325,
+     "height": 283
+    },
+    {
+     "type": "p",
+     "text": "Evaluate the following integral using the Fundamental Theorem of Calculus, Part 2:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{1}^{9}\\frac{x-1}{\\sqrt{x}}}dx."
+    },
+    {
+     "type": "p",
+     "text": "First, eliminate the radical by rewriting the integral using rational exponents. Then, separate the numerator terms by writing each one over the denominator:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{1}^{9}\\frac{x-1}{x^{1/2}}dx}={\\displaystyle \\int_{1}^{9}\\left(\\frac{x}{x^{1/2}}-\\frac{1}{x^{1/2}}\\right)dx}."
+    },
+    {
+     "type": "p",
+     "text": "Use the properties of exponents to simplify:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{1}^{9}\\left(\\frac{x}{x^{1/2}}-\\frac{1}{x^{1/2}}\\right)dx}={\\displaystyle \\int_{1}^{9}(x^{1/2}-x^{-1/2})dx}."
+    },
+    {
+     "type": "p",
+     "text": "Now, integrate using the power rule:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ \\\\ {\\displaystyle \\int_{1}^{9}(x^{1/2}-x^{-1/2})dx} & =\\left(\\frac{x^{3/2}}{\\frac{3}{2}}-\\frac{x^{1/2}}{\\frac{1}{2}}\\right)|_{1}^{9} \\\\ \\\\ & =\\left[\\frac{(9)^{3/2}}{\\frac{3}{2}}-\\frac{(9)^{1/2}}{\\frac{1}{2}}\\right]-\\left[\\frac{(1)^{3/2}}{\\frac{3}{2}}-\\frac{(1)^{1/2}}{\\frac{1}{2}}\\right] \\\\ & =\\left[\\frac{2}{3}(27)-2(3)\\right]-\\left[\\frac{2}{3}(1)-2(1)\\right] \\\\ & =18-6-\\frac{2}{3}+2 \\\\ & =\\frac{40}{3}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "See Figure 5.28."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_03_005.webp",
+     "alt": "The graph of the function f(x) = (x-1) / sqrt(x) over [0,9]. The area under the graph over [1,9] is shaded.",
+     "caption": "**Figure 5.28** The area under the curve from $x=1$ to $x=9$ can be calculated by evaluating a definite integral.",
+     "width": 325,
+     "height": 246
+    },
+    {
+     "type": "p",
+     "text": "James and Kathy are racing on roller skates. They race along a long, straight track, and whoever has gone the farthest after 5 sec wins a prize. If James can skate at a velocity of $f(t)=5+2t$ ft/sec and Kathy can skate at a velocity of $g(t)=10+\\cos \\left(\\frac{\\pi}{2}t\\right)$ ft/sec, who is going to win the race?"
+    },
+    {
+     "type": "p",
+     "text": "We need to integrate both functions over the interval $[0,5]$ and see which value is bigger. For James, we want to calculate"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{0}^{5}(5+2t)dt}."
+    },
+    {
+     "type": "p",
+     "text": "Using the power rule, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{0}^{5}(5+2t)dt} & =(5t+t^{2})|_{0}^{5} \\\\ & =(25+25)=50.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus, James has skated 50 ft after 5 sec. Turning now to Kathy, we want to calculate"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{0}^{5}10}+\\cos \\left(\\frac{\\pi}{2}t\\right)dt."
+    },
+    {
+     "type": "p",
+     "text": "We know $\\sin \\,t$ is an antiderivative of $\\cos \\,t,$ so it is reasonable to expect that an antiderivative of $\\cos \\left(\\frac{\\pi}{2}t\\right)$ would involve $\\sin \\left(\\frac{\\pi}{2}t\\right).$ However, when we differentiate $\\sin \\left(\\frac{\\pi}{2}t\\right),$ we get $\\frac{\\pi}{2}\\cos \\left(\\frac{\\pi}{2}t\\right)$ as a result of the chain rule, so we have to account for this additional coefficient when we integrate. We obtain"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{0}^{5}10}+\\cos \\left(\\frac{\\pi}{2}t\\right)dt & =\\left(10t+\\frac{2}{\\pi}\\sin \\left(\\frac{\\pi}{2}t\\right)\\right)|_{0}^{5} \\\\ & =\\left(50+\\frac{2}{\\pi}\\right)-\\left(0-\\frac{2}{\\pi}\\sin \\,0\\right) \\\\ & \\approx 50.6.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Kathy has skated approximately 50.6 ft after 5 sec. Kathy wins, but not by much!"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "fundamental theorem of calculus",
+   "meaning": "the theorem, central to the entire development of calculus, that establishes the relationship between differentiation and integration"
+  },
+  {
+   "term": "fundamental theorem of calculus, part 1",
+   "meaning": "uses a definite integral to define an antiderivative of a function"
+  },
+  {
+   "term": "fundamental theorem of calculus, part 2",
+   "meaning": "(also, **evaluation theorem**) we can evaluate a definite integral by evaluating the antiderivative of the integrand at the endpoints of the interval and subtracting"
+  },
+  {
+   "term": "mean value theorem for integrals",
+   "meaning": "guarantees that a point *c* exists such that $f(c)$ is equal to the average value of the function"
+  }
+ ]
+}

@@ -1,0 +1,2456 @@
+{
+ "schema": 1,
+ "id": "V3.4.2",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 4,
+ "section": 2,
+ "title": "Limits and Continuity",
+ "chapterTitle": "Differentiation of Functions of Several Variables",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53933",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/4-2-limits-and-continuity",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §4.2 “Limits and Continuity”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Calculate the limit of a function of two variables.",
+  "Learn how a function of two variables can approach different values at a boundary point, depending on the path of approach.",
+  "State the conditions for continuity of a function of two variables.",
+  "Verify the continuity of a function of two variables at a point.",
+  "Calculate the limit of a function of three or more variables and verify the continuity of the function at a point."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have now examined functions of more than one variable and seen how to graph them. In this section, we see how to take the limit of a function of more than one variable, and what it means for a function of more than one variable to be continuous at a point in its domain. It turns out these concepts have aspects that just don’t occur with functions of one variable."
+    }
+   ],
+   "title": "Limits and Continuity"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall from The Limit of a Function the definition of a limit of a function of one variable:"
+    },
+    {
+     "type": "p",
+     "text": "Let $f(x)$ be defined for all $x\\ne a$ in an open interval containing $a.$ Let $L$ be a real number. Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{x\\to a}f(x)=L"
+    },
+    {
+     "type": "p",
+     "text": "if for every $\\varepsilon >0,$ there exists a $\\delta >0,$ such that if $0<|x-a|<\\delta$ for all $x$ in the domain of $f,$ then"
+    },
+    {
+     "type": "math",
+     "tex": "|f(x)-L|<\\varepsilon ."
+    },
+    {
+     "type": "p",
+     "text": "Before we can adapt this definition to define a limit of a function of two variables, we first need to see how to extend the idea of an open interval in one variable to an open interval in two variables."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider a point $(a,b)\\in {\\mathbb{R}}^{2}.$ A **$\\delta$ disk** centered at point $(a,b)$ is defined to be an open disk of radius $\\delta$ centered at point $(a,b)$—that is,"
+      },
+      {
+       "type": "math",
+       "tex": "\\{(x,y)\\in {\\mathbb{R}}^{2}|(x-a)^{2}+(y-b)^{2}<\\delta^{2}\\}"
+      },
+      {
+       "type": "p",
+       "text": "as shown in the following graph."
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_02_001.webp",
+     "alt": "On the xy plane, the point (2, 1) is shown, which is the center of a circle of radius δ.",
+     "caption": "**Figure 4.13** A $\\delta$ disk centered around the point $(2,1).$",
+     "width": 423,
+     "height": 197
+    },
+    {
+     "type": "p",
+     "text": "The idea of a $\\delta$ disk appears in the definition of the limit of a function of two variables. If $\\delta$ is small, then all the points $(x,y)$ in the $\\delta$ disk are close to $(a,b).$ This is completely analogous to $x$ being close to $a$ in the definition of a limit of a function of one variable. In one dimension, we express this restriction as"
+    }
+   ],
+   "title": "Limit of a Function of Two Variables"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "a-\\delta <x<a+\\delta ."
+    },
+    {
+     "type": "p",
+     "text": "In more than one dimension, we use a $\\delta$ disk."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ be a function of two variables, $x$ and $y.$ The limit of $f(x,y)$ as $(x,y)$ approaches $(a,b)$ is $L,$ written"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}f(x,y)=L"
+      },
+      {
+       "type": "p",
+       "text": "if for each $\\varepsilon >0$ there exists a small enough $\\delta >0$ such that for all points $(x,y)$ in a $\\delta$ disk around $(a,b),$ except possibly for $(a,b)$ itself, the value of $f(x,y)$ is no more than $\\varepsilon$ away from $L$ (Figure 4.14). Using symbols, we write the following: For any $\\varepsilon >0,$ there exists a number $\\delta >0$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "|f(x,y)-L|<\\varepsilon \\,\\text{whenever}\\,0<\\sqrt{(x-a)^{2}+(y-b)^{2}}<\\delta ."
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_02_002.webp",
+     "alt": "In xyz space, a function is drawn with point L. This point L is the center of a circle of radius ॉ, with points L ± ॉ marked. On the xy plane, there is a point (a, b) drawn with a circle of radius δ around it. This is denoted the δ-disk. There are dashed lines up from the δ-disk to make a disk on the function, which is called the image of delta disk. Then there are dashed lines from this disk to the circle around the point L, which is called the ॉ-neighborhood of L.",
+     "caption": "**Figure 4.14** The limit of a function involving two variables requires that $f(x,y)$ be within $\\varepsilon$ of $L$ whenever $(x,y)$ is within $\\delta$ of $(a,b).$ The smaller the value of $\\varepsilon ,$ the smaller the value of $\\delta .$",
+     "width": 646,
+     "height": 581
+    }
+   ],
+   "title": "Limit of a Function of Two Variables (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Proving that a limit exists using the definition of a **limit of a function of two variables** can be challenging. Instead, we use the following theorem, which gives us shortcuts to finding limits. The formulas in this theorem are an extension of the formulas in the limit laws theorem in The Limit Laws."
+    }
+   ],
+   "title": "Limit of a Function of Two Variables (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f(x,y)$ and $g(x,y)$ be defined for all $(x,y)\\ne (a,b)$ in a neighborhood around $(a,b),$ and assume the neighborhood is contained completely inside the domain of $f.$ Assume that $L$ and $M$ are real numbers such that $\\lim_{(x,y)\\to (a,b)}f(x,y)=L$ and $\\lim_{(x,y)\\to (a,b)}g(x,y)=M,$ and let $c$ be a constant. Then each of the following statements holds:"
+      },
+      {
+       "type": "p",
+       "text": "**Constant Law:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}c=c"
+      },
+      {
+       "type": "p",
+       "text": "**Identity Laws:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}x=a"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}y=b"
+      },
+      {
+       "type": "p",
+       "text": "**Sum Law:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}(f(x,y)+g(x,y))=L+M"
+      },
+      {
+       "type": "p",
+       "text": "**Difference Law:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}(f(x,y)-g(x,y))=L-M"
+      },
+      {
+       "type": "p",
+       "text": "**Constant Multiple Law:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}(cf(x,y))=cL"
+      },
+      {
+       "type": "p",
+       "text": "**Product Law:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}(f(x,y)g(x,y))=LM"
+      },
+      {
+       "type": "p",
+       "text": "**Quotient Law:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}\\frac{f(x,y)}{g(x,y)}=\\frac{L}{M}\\,\\text{for}\\,M\\ne 0"
+      },
+      {
+       "type": "p",
+       "text": "**Power Law:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}(f(x,y))^{n}=L^{n}"
+      },
+      {
+       "type": "p",
+       "text": "for any positive integer $n.$"
+      },
+      {
+       "type": "p",
+       "text": "**Root Law:**"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}\\sqrt[n]{f(x,y)}=\\sqrt[n]{L}"
+      },
+      {
+       "type": "p",
+       "text": "for all $L$ if $n$ is odd and positive, and for $L\\ge 0$ if $n$ is even and positive provided that $f(x,y)\\ge 0$ for all $(x,y)\\ne (a,b)$ in neighborhood of $(a,b)$."
+      }
+     ],
+     "title": "Limit laws for functions of two variables"
+    }
+   ],
+   "title": "Limit of a Function of Two Variables (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The proofs of these properties are similar to those for the limits of functions of one variable. We can apply these laws to finding limits of various functions."
+    }
+   ],
+   "title": "Limit of a Function of Two Variables (continued)"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 4.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find each of the following limits:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{(x,y)\\to (2,-1)}(x^{2}-2xy+3y^{2}-4x+3y-6)$",
+      "$\\lim_{(x,y)\\to (2,-1)}\\frac{2x+3y}{4x-3y}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "First use the sum and difference laws to separate the terms:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c} \\\\ \\lim_{(x,y)\\to (2,-1)}(x^{2}-2xy+3y^{2}-4x+3y-6) \\\\ =(\\lim_{(x,y)\\to (2,-1)}x^{2})-(\\lim_{(x,y)\\to (2,-1)}2xy)+(\\lim_{(x,y)\\to (2,-1)}3y^{2})-(\\lim_{(x,y)\\to (2,-1)}4x) \\\\ \\;+(\\lim_{(x,y)\\to (2,-1)}3y)-(\\lim_{(x,y)\\to (2,-1)}6).\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Next, use the constant multiple law on the second, third, fourth, and fifth limits:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c} \\\\ \\\\ =(\\lim_{(x,y)\\to (2,-1)}x^{2})-2(\\lim_{(x,y)\\to (2,-1)}xy)+3(\\lim_{(x,y)\\to (2,-1)}y^{2})-4(\\lim_{(x,y)\\to (2,-1)}x) \\\\ \\;+3(\\lim_{(x,y)\\to (2,-1)}y)-\\lim_{(x,y)\\to (2,-1)}6.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Now, use the power law on the first and third limits, and the product law on the second limit:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ =(\\lim_{(x,y)\\to (2,-1)}x)^{2}-2(\\lim_{(x,y)\\to (2,-1)}x)(\\lim_{(x,y)\\to (2,-1)}y)+3(\\lim_{(x,y)\\to (2,-1)}y)^{2} \\\\ \\;-4(\\lim_{(x,y)\\to (2,-1)}x)+3(\\lim_{(x,y)\\to (2,-1)}y)-\\lim_{(x,y)\\to (2,-1)}6.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Last, use the identity laws on the first six limits and the constant law on the last limit:\n\n$\\begin{array}{cc}\\lim_{(x,y)\\to (2,-1)}(x^{2}-2xy+3y^{2}-4x+3y-6) & =(2)^{2}-2(2)(-1)+3(-1)^{2}-4(2)+3(-1)-6 \\\\ & =-6.\\end{array}$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Before applying the quotient law, we need to verify that the limit of the denominator is nonzero. Using the difference law, constant multiple law, and identity law,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\lim_{(x,y)\\to (2,-1)}(4x-3y) & =\\lim_{(x,y)\\to (2,-1)}4x-\\lim_{(x,y)\\to (2,-1)}3y \\\\ & =4(\\lim_{(x,y)\\to (2,-1)}x)-3(\\lim_{(x,y)\\to (2,-1)}y) \\\\ & =4(2)-3(-1)=11.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Since the limit of the denominator is nonzero, the quotient law applies. We now calculate the limit of the numerator using the difference law, constant multiple law, and identity law:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\lim_{(x,y)\\to (2,-1)}(2x+3y) & =\\lim_{(x,y)\\to (2,-1)}2x+\\lim_{(x,y)\\to (2,-1)}3y \\\\ & =2(\\lim_{(x,y)\\to (2,-1)}x)+3(\\lim_{(x,y)\\to (2,-1)}y) \\\\ & =2(2)+3(-1) \\\\ & =1.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, according to the quotient law we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{(x,y)\\to (2,-1)}\\frac{2x+3y}{4x-3y}=\\frac{\\lim_{(x,y)\\to (2,-1)}(2x+3y)}{\\lim_{(x,y)\\to (2,-1)}(4x-3y)}=\\frac{1}{11}."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding the Limit of a Function of Two Variables"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following limit:"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{(x,y)\\to (5,-2)}\\sqrt[3]{\\frac{x^{2}-y}{y^{2}+x-1}}."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{(x,y)\\to (5,-2)}\\sqrt[3]{\\frac{x^{2}-y}{y^{2}+x-1}}=\\frac{3}{2}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the limit laws."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(3/2)"
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Since we are taking the limit of a function of two variables, the point $(a,b)$ is in ${\\mathbb{R}}^{2},$ and it is possible to approach this point from an infinite number of directions. Sometimes when calculating a limit, the answer varies depending on the path taken toward $(a,b).$ If this is the case, then the limit fails to exist. In other words, the limit must be unique, regardless of path taken."
+    }
+   ],
+   "title": "Limit of a Function of Two Variables (continued)"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 4.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that neither of the following limits exist:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{(x,y)\\to (0,0)}\\frac{2xy}{3x^{2}+y^{2}}$",
+      "$\\lim_{(x,y)\\to (0,0)}\\frac{4xy^{2}}{x^{2}+3y^{4}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "The domain of the function $f(x,y)=\\frac{2xy}{3x^{2}+y^{2}}$ consists of all points in the $xy\\text{-plane}$ except for the point $(0,0)$ (Figure 4.15). To show that the limit does not exist as $(x,y)$ approaches $(0,0),$ we note that it is impossible to satisfy the definition of a limit of a function of two variables because of the fact that the function takes different values along different lines passing through point $(0,0).$ First, consider the line $y=0$ in the $xy\\text{-plane.}$ Substituting $y=0$ into $f(x,y)$ gives"
+        },
+        {
+         "type": "math",
+         "tex": "f(x,0)=\\frac{2x(0)}{3x^{2}+0^{2}}=0"
+        },
+        {
+         "type": "p",
+         "text": "for any value of $x.$ Therefore the value of $f$ remains constant for any point on the $x\\text{-axis,}$ and as $y$ approaches zero, the function remains fixed at zero.\n\nNext, consider the line $y=x.$ Substituting $y=x$ into $f(x,y)$ gives"
+        },
+        {
+         "type": "math",
+         "tex": "f(x,x)=\\frac{2x(x)}{3x^{2}+x^{2}}=\\frac{2x^{2}}{4x^{2}}=\\frac{1}{2}."
+        },
+        {
+         "type": "p",
+         "text": "This is true for any point on the line $y=x.$ If we let $x$ approach zero while staying on this line, the value of the function remains fixed at $\\frac{1}{2},$ regardless of how small $x$ is.\n\nChoose a value for $\\varepsilon$ that is less than $1/2$—say, $1/4.$ Then, no matter how small a $\\delta$ disk we draw around $(0,0),$ the values of $f(x,y)$ for points inside that $\\delta$ disk will include both $0$ and $\\frac{1}{2}.$ Therefore, the definition of limit at a point is never satisfied and the limit fails to exist."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_02_003.webp",
+         "alt": "In xyz space, the function f(x, y) = 2xy/(3x2 + y2) is shown, which is a slightly twisted plane, with values of 0 along the line y = 0 and values of ½ along the line y = x.",
+         "caption": "**Figure 4.15** Graph of the function $f(x,y)=(2xy)/(3x^{2}+y^{2}).$ Along the line $y=0,$ the function is equal to zero; along the line $y=x,$ the function is equal to $\\frac{1}{2}.$",
+         "width": 451,
+         "height": 288
+        },
+        {
+         "type": "p",
+         "text": "In a similar fashion to a., we can approach the origin along any straight line passing through the origin. If we try the $x\\text{-axis}$ (i.e., $y=0),$ then the function remains fixed at zero. The same is true for the $y\\text{-axis.}$ Suppose we approach the origin along a straight line of slope $k.$ The equation of this line is $y=kx.$ Then the limit becomes"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\lim_{(x,y)\\to (0,0)}\\frac{4xy^{2}}{x^{2}+3y^{4}} & =\\lim_{(x,y)\\to (0,0)}\\frac{4x(kx)^{2}}{x^{2}+3(kx)^{4}} \\\\ & =\\lim_{(x,y)\\to (0,0)}\\frac{4k^{2}x^{3}}{x^{2}+3k^{4}x^{4}} \\\\ & =\\lim_{(x,y)\\to (0,0)}\\frac{4k^{2}x}{1+3k^{4}x^{2}} \\\\ & =\\frac{\\lim_{(x,y)\\to (0,0)}(4k^{2}x)}{\\lim_{(x,y)\\to (0,0)}(1+3k^{4}x^{2})} \\\\ & =0\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "regardless of the value of $k.$ It would seem that the limit is equal to zero. What if we chose a curve passing through the origin instead? For example, we can consider the parabola given by the equation $x=y^{2}.$ Substituting $y^{2}$ in place of $x$ in $f(x,y)$ gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\lim_{(x,y)\\to (0,0)}\\frac{4xy^{2}}{x^{2}+3y^{4}} & =\\lim_{(x,y)\\to (0,0)}\\frac{4(y^{2})y^{2}}{(y^{2})^{2}+3y^{4}} \\\\ & =\\lim_{(x,y)\\to (0,0)}\\frac{4y^{4}}{y^{4}+3y^{4}} \\\\ & =\\lim_{(x,y)\\to (0,0)}1 \\\\ & =1.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "By the same logic in a., it is impossible to find a $\\delta$ disk around the origin that satisfies the definition of the limit for any value of $\\varepsilon <1.$ Therefore, $\\lim_{(x,y)\\to (0,0)}\\frac{4xy^{2}}{x^{2}+3y^{4}}$ does not exist."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Limits That Fail to Exist"
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{(x,y)\\to (2,1)}\\frac{(x-2)(y-1)}{(x-2)^{2}+(y-1)^{2}}"
+    },
+    {
+     "type": "p",
+     "text": "does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "If $y=k(x-2)+1,$ then $\\lim_{(x,y)\\to (2,1)}\\frac{(x-2)(y-1)}{(x-2)^{2}+(y-1)^{2}}=\\frac{k}{1+k^{2}}.$ Since the answer depends on $k,$ the limit fails to exist."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Pick a line with slope $k$ passing through point $(2,1).$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "To study continuity and differentiability of a function of two or more variables, we first need to learn some new terminology."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *S* be a subset of ${\\mathbb{R}}^{2}$ (Figure 4.16)."
+      },
+      {
+       "type": "list",
+       "items": [
+        "A point $P_{0}$ is called an **interior point** of $S$ if there is a $\\delta$ disk centered around $P_{0}$ contained completely in $S.$",
+        "A point $P_{0}$ is called a **boundary point** of $S$ if every $\\delta$ disk centered around $P_{0}$ contains points both inside and outside $S.$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_02_004.webp",
+     "alt": "On the xy plane, a closed shape is drawn. There is a point (–1, 1) drawn on the inside of the shape, and there is a point (2, 3) drawn on the boundary. Both of these points are the centers of small circles.",
+     "caption": "**Figure 4.16** In the set $S$ shown, $(-1,1)$ is an interior point and $(2,3)$ is a boundary point.",
+     "width": 417,
+     "height": 422
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *S* be a subset of ${\\mathbb{R}}^{2}$ (Figure 4.16)."
+      },
+      {
+       "type": "list",
+       "items": [
+        "$S$ is called an **open set** if every point of $S$ is an interior point.",
+        "$S$ is called a **closed set** if it contains all its boundary points."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "An example of an open set is a $\\delta$ disk. If we include the boundary of the disk, then it becomes a closed set. A set that contains some, but not all, of its boundary points is neither open nor closed. For example if we include half the boundary of a $\\delta$ disk but not the other half, then the set is neither open nor closed."
+    }
+   ],
+   "title": "Interior Points and Boundary Points"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *S* be a subset of ${\\mathbb{R}}^{2}$ (Figure 4.16)."
+      },
+      {
+       "type": "list",
+       "items": [
+        "An open set $S$ is a **connected set** if it cannot be represented as the union of two or more disjoint, nonempty open subsets.",
+        "A set $S$ is a **region** if it is open, connected, and nonempty."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The definition of a limit of a function of two variables requires the $\\delta$ disk to be contained inside the domain of the function. However, if we wish to find the limit of a function at a boundary point of the domain, the $\\delta \\,\\text{disk}$ is not contained inside the domain. By definition, some of the points of the $\\delta \\,\\text{disk}$ are inside the domain and some are outside. Therefore, we need only consider points that are inside both the $\\delta$ disk and the domain of the function. This leads to the definition of the limit of a function at a boundary point."
+    }
+   ],
+   "title": "Interior Points and Boundary Points (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ be a function of two variables, $x$ and $y,$ and suppose $(a,b)$ is on the boundary of the domain of $f.$ Then, the limit of $f(x,y)$ as $(x,y)$ approaches $(a,b)$ is $L,$ written"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{(x,y)\\to (a,b)}f(x,y)=L,"
+      },
+      {
+       "type": "p",
+       "text": "if for any $\\varepsilon >0,$ there exists a number $\\delta >0$ such that for any point $(x,y)$ inside the domain of $f$ and within a suitably small distance positive $\\delta$ of $(a,b),$ the value of $f(x,y)$ is no more than $\\varepsilon$ away from $L$ (Figure 4.14). Using symbols, we can write: For any $\\varepsilon >0,$ there exists a number $\\delta >0$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "|f(x,y)-L|<\\varepsilon \\,\\text{whenever}\\,0<\\sqrt{(x-a)^{2}+(y-b)^{2}}<\\delta ."
+      }
+     ]
+    }
+   ],
+   "title": "Interior Points and Boundary Points (continued)"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 4.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Prove $\\lim_{(x,y)\\to (4,3)}\\sqrt{25-x^{2}-y^{2}}=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The domain of the function $f(x,y)=\\sqrt{25-x^{2}-y^{2}}$ is $\\{(x,y)\\in {\\mathbb{R}}^{2}|x^{2}+y^{2}\\le 25\\},$ which is a circle of radius $5$ centered at the origin, along with its interior as shown in the following graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_02_005.webp",
+      "alt": "A circle with radius 5 centered at the origin with its interior filled in.",
+      "caption": "**Figure 4.17** Domain of the function $f(x,y)=\\sqrt{25-x^{2}-y^{2}}.$",
+      "width": 417,
+      "height": 422
+     },
+     {
+      "type": "p",
+      "text": "We can use the limit laws, which apply to limits at the boundary of domains as well as interior points:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\lim_{(x,y)\\to (4,3)}\\sqrt{25-x^{2}-y^{2}} & =\\sqrt{\\lim_{(x,y)\\to (4,3)}(25-x^{2}-y^{2})} \\\\ & =\\sqrt{\\lim_{(x,y)\\to (4,3)}25-\\lim_{(x,y)\\to (4,3)}x^{2}-\\lim_{(x,y)\\to (4,3)}y^{2}} \\\\ & =\\sqrt{25-4^{2}-3^{2}} \\\\ & =0.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "See the following graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_02_006.webp",
+      "alt": "The upper hemisphere in xyz space with radius 5 and center the origin.",
+      "caption": "**Figure 4.18** Graph of the function $f(x,y)=\\sqrt{25-x^{2}-y^{2}}.$",
+      "width": 353,
+      "height": 378
+     }
+    ]
+   },
+   "title": "Limit of a Function at a Boundary Point"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following limit:"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{(x,y)\\to (5,-2)}\\sqrt{29-x^{2}-y^{2}}."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{(x,y)\\to (5,-2)}\\sqrt{29-x^{2}-y^{2}}=0$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Determine the domain of $f(x,y)=\\sqrt{29-x^{2}-y^{2}}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Continuity, we defined the continuity of a function of one variable and saw how it relied on the limit of a function of one variable. In particular, three conditions are necessary for $f(x)$ to be continuous at point $x=a:$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(a)$ exists.",
+      "$\\lim_{x\\to a}f(x)$ exists.",
+      "$\\lim_{x\\to a}f(x)=f(a).$"
+     ],
+     "ordered": true,
+     "style": "1"
+    },
+    {
+     "type": "p",
+     "text": "These three conditions are necessary for continuity of a function of two variables as well."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A function $f(x,y)$ is continuous at a point $(a,b)$ in its domain if the following conditions are satisfied:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$f(a,b)$ exists.",
+        "$\\lim_{(x,y)\\to (a,b)}f(x,y)$ exists.",
+        "$\\lim_{(x,y)\\to (a,b)}f(x,y)=f(a,b).$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ]
+    }
+   ],
+   "title": "Continuity of Functions of Two Variables"
+  },
+  {
+   "id": "x18",
+   "kind": "example",
+   "label": "Example 4.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that the function $f(x,y)=\\frac{3x+2y}{x+y+1}$ is continuous at point $(5,-3).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "There are three conditions to be satisfied, per the definition of continuity. In this example, $a=5$ and $b=-3.$"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "$f(a,b)$ exists. This is true because the domain of the function $f$ consists of those ordered pairs for which the denominator is nonzero (i.e., $x+y+1\\ne 0).$ Point $(5,-3)$ satisfies this condition. Furthermore,"
+        },
+        {
+         "type": "math",
+         "tex": "f(a,b)=f(5,-3)=\\frac{3(5)+2(-3)}{5+(-3)+1}=\\frac{15-6}{2+1}=3."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "$\\lim_{(x,y)\\to (a,b)}f(x,y)$ exists. This is also true:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\lim_{(x,y)\\to (a,b)}f(x,y) & =\\lim_{(x,y)\\to (5,-3)}\\frac{3x+2y}{x+y+1} \\\\ & =\\frac{\\lim_{(x,y)\\to (5,-3)}(3x+2y)}{\\lim_{(x,y)\\to (5,-3)}(x+y+1)} \\\\ & =\\frac{15-6}{5-3+1} \\\\ & =3.\\end{array}"
+        }
+       ],
+       "$\\lim_{(x,y)\\to (a,b)}f(x,y)=f(a,b).$ This is true because we have just shown that both sides of this equation equal three."
+      ],
+      "ordered": true,
+      "style": "1"
+     }
+    ]
+   },
+   "title": "Demonstrating Continuity for a Function of Two Variables"
+  },
+  {
+   "id": "c19",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that the function $f(x,y)=\\sqrt{26-2x^{2}-y^{2}}$ is continuous at point $(2,-3).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "The domain of $f$ contains the ordered pair $(2,-3)$ because $f(a,b)=f(2,-3)=\\sqrt{16-2(2)^{2}-(-3)^{2}}=3$",
+       "$\\lim_{(x,y)\\to (a,b)}f(x,y)=3$",
+       "$\\lim_{(x,y)\\to (a,b)}f(x,y)=f(a,b)=3$"
+      ],
+      "ordered": true,
+      "style": "1"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the three-part definition of continuity."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Continuity of a function of any number of variables can also be defined in terms of delta and epsilon. A function of two variables is continuous at a point $(x_{0},y_{0})$ in its domain if for every $\\varepsilon >0$ there exists a $\\delta >0$ such that, whenever $\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}<\\delta$ it is true, $|f(x,y)-f(a,b)|<\\varepsilon .$ This definition can be combined with the formal definition (that is, the *epsilon–delta definition*) of continuity of a function of one variable to prove the following theorems:"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $f(x,y)$ is continuous at $(x_{0},y_{0}),$ and $g(x,y)$ is continuous at $(x_{0},y_{0}),$ then $f(x,y)+g(x,y)$ is continuous at $(x_{0},y_{0}).$"
+      }
+     ],
+     "title": "The Sum of Continuous Functions Is Continuous"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $g(x)$ is continuous at $x_{0}$ and $h(y)$ is continuous at $y_{0},$ then $f(x,y)=g(x)h(y)$ is continuous at $(x_{0},y_{0}).$"
+      }
+     ],
+     "title": "The Product of Continuous Functions Is Continuous"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $g$ be a function of two variables from a domain $D\\subseteq {\\mathbb{R}}^{2}$ to a range $R\\subseteq \\mathbb{R} .$ Suppose $g$ is continuous at some point $(x_{0},y_{0})\\in D$ and define $z_{0}=g(x_{0},y_{0}).$ Let $f$ be a function that maps $\\mathbb{R}$ to $\\mathbb{R}$ such that $z_{0}$ is in the domain of $f.$ Last, assume $f$ is continuous at $z_{0}.$ Then $f\\circ g$ is continuous at $(x_{0},y_{0})$ as shown in the following figure."
+      }
+     ],
+     "title": "The Composition of Continuous Functions Is Continuous"
+    }
+   ],
+   "title": "Continuity of Functions of Two Variables (continued)"
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_02_007.webp",
+     "alt": "A shape is shown labeled the domain of g with point (x, y) inside of it. From the domain of g there is an arrow marked g pointing to the range of g, which is a straight line with point z on it. The range of g is also marked the domain of f. Then there is another arrow marked f from this shape to a line marked range of f.",
+     "caption": "**Figure 4.19** The composition of two continuous functions is continuous.",
+     "width": 856,
+     "height": 228
+    },
+    {
+     "type": "p",
+     "text": "Let’s now use the previous theorems to show continuity of functions in the following examples."
+    }
+   ],
+   "title": "Continuity of Functions of Two Variables (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 4.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that the functions $f(x,y)=4x^{3}y^{2}$ and $g(x,y)=\\cos (4x^{3}y^{2})$ are continuous everywhere."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The polynomials $g(x)=4x^{3}$ and $h(y)=y^{2}$ are continuous at every real number, and therefore by the product of continuous functions theorem, $f(x,y)=4x^{3}y^{2}$ is continuous at every point $(x,y)$ in the $xy\\text{-plane.}$ Since $f(x,y)=4x^{3}y^{2}$ is continuous at every point $(x,y)$ in the $xy\\text{-plane}$ and $g(x)=\\cos \\,x$ is continuous at every real number $x,$ the continuity of the composition of functions tells us that $g(x,y)=\\cos (4x^{3}y^{2})$ is continuous at every point $(x,y)$ in the $xy\\text{-plane.}$"
+     }
+    ]
+   },
+   "title": "More Examples of Continuity of a Function of Two Variables"
+  },
+  {
+   "id": "c23",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that the functions $f(x,y)=2x^{2}y^{3}+3$ and $g(x,y)=(2x^{2}y^{3}+3)^{4}$ are continuous everywhere."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The polynomials $g(x)=2x^{2}$ and $h(y)=y^{3}$ are continuous at every real number; therefore, by the product of continuous functions theorem, $f(x,y)=2x^{2}y^{3}$ is continuous at every point $(x,y)$ in the $xy\\text{-plane.}$ Furthermore, any constant function is continuous everywhere, so $g(x,y)=3$ is continuous at every point $(x,y)$ in the $xy\\text{-plane.}$ Therefore, $f(x,y)=2x^{2}y^{3}+3$ is continuous at every point $(x,y)$ in the $xy\\text{-plane.}$ Last, $h(x)=x^{4}$ is continuous at every real number $x,$ so by the continuity of composite functions theorem $g(x,y)=(2x^{2}y^{3}+3)^{4}$ is continuous at every point $(x,y)$ in the $xy\\text{-plane.}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the continuity of the sum, product, and composition of two functions."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The limit of a function of three or more variables occurs readily in applications. For example, suppose we have a function $f(x,y,z)$ that gives the temperature at a physical location $(x,y,z)$ in three dimensions. Or perhaps a function $g(x,y,z,t)$ can indicate air pressure at a location $(x,y,z)$ at time $t.$ How can we take a limit at a point in ${\\mathbb{R}}^{3}?$ What does it mean to be continuous at a point in four dimensions?"
+    },
+    {
+     "type": "p",
+     "text": "The answers to these questions rely on extending the concept of a $\\delta$ disk into more than two dimensions. Then, the ideas of the limit of a function of three or more variables and the continuity of a function of three or more variables are very similar to the definitions given earlier for a function of two variables."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $(x_{0},y_{0},z_{0})$ be a point in ${\\mathbb{R}}^{3}.$ Then, a **$\\delta$ ball** in three dimensions consists of all points in ${\\mathbb{R}}^{3}$ lying at a distance of less than $\\delta$ from $(x_{0},y_{0},z_{0})$—that is,"
+      },
+      {
+       "type": "math",
+       "tex": "\\{(x,y,z)\\in {\\mathbb{R}}^{3}|\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}+(z-z_{0})^{2}}<\\delta \\}."
+      },
+      {
+       "type": "p",
+       "text": "To define a $\\delta$ ball in higher dimensions, add additional terms under the radical to correspond to each additional dimension. For example, given a point $P=(w_{0},x_{0},y_{0},z_{0})$ in ${\\mathbb{R}}^{4},$ a $\\delta$ ball around $P$ can be described by"
+      },
+      {
+       "type": "math",
+       "tex": "\\{(w,x,y,z)\\in {\\mathbb{R}}^{4}|\\sqrt{(w-w_{0})^{2}+(x-x_{0})^{2}+(y-y_{0})^{2}+(z-z_{0})^{2}}<\\delta \\}."
+      }
+     ]
+    }
+   ],
+   "title": "Functions of Three or More Variables"
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "To show that a limit of a function of three variables exists at a point $(x_{0},y_{0},z_{0}),$ it suffices to show that for any point in a $\\delta$ ball centered at $(x_{0},y_{0},z_{0}),$ the value of the function at that point is arbitrarily close to a fixed value (the limit value). All the limit laws for functions of two variables hold for functions of more than two variables as well."
+    }
+   ],
+   "title": "Functions of Three or More Variables (continued)"
+  },
+  {
+   "id": "x26",
+   "kind": "example",
+   "label": "Example 4.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find $\\lim_{(x,y,z)\\to (4,1,-3)}\\frac{x^{2}y-3z}{2x+5y-z}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Before we can apply the quotient law, we need to verify that the limit of the denominator is nonzero. Using the difference law, the identity law, and the constant law,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\lim_{(x,y,z)\\to (4,1,-3)}(2x+5y-z) & =2(\\lim_{(x,y,z)\\to (4,1,-3)}x)+5(\\lim_{(x,y,z)\\to (4,1,-3)}y)-(\\lim_{(x,y,z)\\to (4,1,-3)}z) \\\\ & =2(4)+5(1)-(-3) \\\\ & =16.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Since this is nonzero, we next find the limit of the numerator. Using the product law, difference law, constant multiple law, and identity law,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\lim_{(x,y,z)\\to (4,1,-3)}(x^{2}y-3z) & =(\\lim_{(x,y,z)\\to (4,1,-3)}x)^{2}(\\lim_{(x,y,z)\\to (4,1,-3)}y)-3\\lim_{(x,y,z)\\to (4,1,-3)}z \\\\ & =(4^{2})(1)-3(-3) \\\\ & =16+9 \\\\ & =25.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Last, applying the quotient law:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\lim_{(x,y,z)\\to (4,1,-3)}\\frac{x^{2}y-3z}{2x+5y-z} & =\\frac{\\lim_{(x,y,z)\\to (4,1,-3)}(x^{2}y-3z)}{\\lim_{(x,y,z)\\to (4,1,-3)}(2x+5y-z)} \\\\ & =\\frac{25}{16}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Limit of a Function of Three Variables"
+  },
+  {
+   "id": "c27",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find $\\lim_{(x,y,z)\\to (4,-1,3)}\\sqrt{13-x^{2}-2y^{2}+z^{2}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{(x,y,z)\\to (4,-1,3)}\\sqrt{13-x^{2}-2y^{2}+z^{2}}=2$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the limit laws and the continuity of the composition of functions."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   }
+  },
+  {
+   "id": "r28",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "To study limits and continuity for functions of two variables, we use a $\\delta$ disk centered around a given point.",
+      "A function of several variables has a limit if for any point in a $\\delta$ ball centered at a point $P,$ the value of the function at that point is arbitrarily close to a fixed value (the limit value).",
+      "The limit laws established for a function of one variable have natural extensions to functions of more than one variable.",
+      "A function of two variables is continuous at a point if the limit exists at that point, the function exists at that point, and the limit and function are equal at that point."
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e60",
+   "number": 60,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (1,2)}x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793928677",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the limit of the function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e61",
+   "number": 61,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (1,2)}\\frac{5x^{2}y}{x^{2}+y^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794051779",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the limit of the function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "2.0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2.0"
+   }
+  },
+  {
+   "id": "e62",
+   "number": 62,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the limit $\\lim_{(x,y)\\to (0,0)}\\frac{5x^{2}y}{x^{2}+y^{2}}$ exists and is the same along the paths: $y\\text{-axis}$ and $x\\text{-axis,}$ and along $y=x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793629272",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the limit of the function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e63",
+   "number": 63,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{4x^{2}+10y^{2}+4}{4x^{2}-10y^{2}+6}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793401408",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e64",
+   "number": 64,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (11,13)}\\sqrt{\\frac{1}{xy}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793510117",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e65",
+   "number": 65,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,1)}\\frac{y^{2}\\sin \\,x}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793420492",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e66",
+   "number": 66,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\sin \\left(\\frac{x^{8}+y^{7}}{x-y+10}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793369356",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e67",
+   "number": 67,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (\\pi /4,1)}\\frac{y\\,\\tan \\,x}{y+1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794173094",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e68",
+   "number": 68,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,\\pi /4)}\\frac{\\sec \\,x+2}{3x-\\tan \\,y}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793951216",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e69",
+   "number": 69,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (2,5)}\\left(\\frac{1}{x}-\\frac{5}{y}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793278147",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e70",
+   "number": 70,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (4,4)}x\\,\\ln \\,y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793514722",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e71",
+   "number": 71,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (4,4)}e^{-x^{2}-y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793465558",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{-32}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e72",
+   "number": 72,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\sqrt{9-x^{2}-y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793640596",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e73",
+   "number": 73,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (1,2)}(x^{2}y^{3}-x^{3}y^{2}+3x+2y)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793442738",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$11.0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e74",
+   "number": 74,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (\\pi ,\\pi )}x\\,\\sin \\left(\\frac{x+y}{4}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222722",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e75",
+   "number": 75,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{xy+1}{x^{2}+y^{2}+1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794284760",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1.0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e76",
+   "number": 76,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{x^{2}+y^{2}}{\\sqrt{x^{2}+y^{2}+1}-1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793639825",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e77",
+   "number": 77,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\ln (x^{2}+y^{2})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793279398",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits at the indicated values of $x\\,\\text{and}\\,y.$ If the limit does not exist, state this and explain why the limit does not exist."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The limit does not exist because when $x$ and $y$ both approach zero, the function approaches $\\ln \\,0,$ which is undefined (approaches negative infinity)."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e78",
+   "number": 78,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A point $(x_{0},y_{0})$ in a plane region $R$ is an interior point of $R$ if _________________."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793932216",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, complete the statement."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e79",
+   "number": 79,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A point $(x_{0},y_{0})$ in a plane region $R$ is called a boundary point of $R$ if ___________."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793586347",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, complete the statement."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "every open disk centered at $(x_{0},y_{0})$ contains points inside $R$ and outside $R$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e80",
+   "number": 80,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (2,1)}\\frac{x-y-1}{\\sqrt{x-y}-1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794327000",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use algebraic techniques to evaluate the limit."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e81",
+   "number": 81,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{x^{4}-4y^{4}}{x^{2}+2y^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794176166",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use algebraic techniques to evaluate the limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0.0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0.0"
+   }
+  },
+  {
+   "id": "e82",
+   "number": 82,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{x^{3}-y^{3}}{x-y}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793373582",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use algebraic techniques to evaluate the limit."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e83",
+   "number": 83,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{x^{2}-xy}{\\sqrt{x}-\\sqrt{y}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793543831",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use algebraic techniques to evaluate the limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0.00$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0.00"
+   }
+  },
+  {
+   "id": "e84",
+   "number": 84,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y,z)\\to (1,2,3)}\\frac{xz^{2}-y^{2}z}{xyz-1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793566057",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits of the functions of three variables."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e85",
+   "number": 85,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y,z)\\to (0,0,0)}\\frac{x^{2}-y^{2}-z^{2}}{x^{2}+y^{2}-z^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793978789",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limits of the functions of three variables."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The limit does not exist."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "DNE"
+   }
+  },
+  {
+   "id": "e86",
+   "number": 86,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{xy+y^{3}}{x^{2}+y^{2}}$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Along the $x\\text{-axis}$ $(y=0)$",
+      "Along the $y\\text{-axis}$ $(x=0)$",
+      "Along the path $y=2x$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793502022",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limit of the function by determining the value the function approaches along the indicated paths. If the limit does not exist, explain why not."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e87",
+   "number": 87,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate $\\lim_{(x,y)\\to (0,0)}\\frac{xy+y^{3}}{x^{2}+y^{2}}$ using the results of previous problem."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793514670",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limit of the function by determining the value the function approaches along the indicated paths. If the limit does not exist, explain why not."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The limit does not exist. The function approaches two different values along different paths."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e88",
+   "number": 88,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{x^{2}y}{x^{4}+y^{2}}$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Along the *x*-axis $(y=0)$",
+      "Along the *y*-axis $(x=0)$",
+      "Along the path $y=x^{2}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793418283",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limit of the function by determining the value the function approaches along the indicated paths. If the limit does not exist, explain why not."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e89",
+   "number": 89,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate $\\lim_{(x,y)\\to (0,0)}\\frac{x^{2}y}{x^{4}+y^{2}}$ using the results of previous problem."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793617969",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the limit of the function by determining the value the function approaches along the indicated paths. If the limit does not exist, explain why not."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The limit does not exist because the function approaches two different values along the paths."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e90",
+   "number": 90,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sin (xy)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589383",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Discuss the continuity of the following functions. Find the largest region in the $xy\\text{-plane}$ in which the following functions are continuous."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e91",
+   "number": 91,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\ln (x+y)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794155244",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Discuss the continuity of the following functions. Find the largest region in the $xy\\text{-plane}$ in which the following functions are continuous."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The function $f$ is continuous in the region $y>-x.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e92",
+   "number": 92,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=e^{3xy}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793631485",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Discuss the continuity of the following functions. Find the largest region in the $xy\\text{-plane}$ in which the following functions are continuous."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e93",
+   "number": 93,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\frac{1}{xy}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793219336",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Discuss the continuity of the following functions. Find the largest region in the $xy\\text{-plane}$ in which the following functions are continuous."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The function $f$ is continuous on the set $R=\\left\\{\\left(x,y\\right)|x\\ne 0,y\\ne 0\\right\\}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e94",
+   "number": 94,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\frac{x^{2}y}{x^{2}+y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793560896",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e95",
+   "number": 95,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\frac{\\sin (x^{2}+y^{2})}{x^{2}+y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793957313",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The function is discontinuous at $(0,0)$ since $(0,0)$ is not in the domain."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e96",
+   "number": 96,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Determine whether $f\\left(x,y\\right)$ is continuous at $\\left(0,0\\right)$. $f(x,y)=\\left\\{\\begin{array}{cc}\\frac{x^{2}y}{x^{2}+y^{2}} & \\text{if}\\,(x,y)\\ne (0,0) \\\\ 0 & \\text{if}\\,(x,y)=(0,0)\\end{array}\\right\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793417293",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e97",
+   "number": 97,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Determine whether $g(x,y)=\\frac{x^{2}-y^{2}}{x^{2}+y^{2}}$ is continuous at $(0,0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793432455",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The function is discontinuous at $(0,0).$ The limit at $(0,0)$ fails to exist and $g(0,0)$ does not exist."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e98",
+   "number": 98,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Create a plot using graphing software to determine where the limit does not exist. Find where in the coordinate plane $f(x,y)=\\frac{1}{x^{2}-y}$ is continuous."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793450534",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e99",
+   "number": 99,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Determine the region of the $xy\\text{-plane}$ in which the function $g(x,y)=\\arctan \\left(\\frac{xy^{2}}{x+y}\\right)$ is continuous. Use technology to support your conclusion."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589645",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since the function $\\arctan \\,x$ is continuous over $(-\\infty ,\\infty ),$ $g(x,y)=\\arctan \\left(\\frac{xy^{2}}{x+y}\\right)$ is continuous where $z=\\frac{xy^{2}}{x+y}$ is continuous. The inner function $z$ is continuous on all points of the $xy\\text{-plane}$ except where $y=-x.$ Thus, $g(x,y)=\\arctan \\left(\\frac{xy^{2}}{x+y}\\right)$ is continuous on all points of the coordinate plane *except* at points at which $y=-x.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e100",
+   "number": 100,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Determine the region of the $xy\\text{-plane}$ in which $f(x,y)=\\ln (x^{2}+y^{2}-1)$ is continuous. Use technology to support your conclusion. (*Hint*: Choose the range of values for $x\\,\\text{and}\\,y$ carefully!)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793504957",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e101",
+   "number": 101,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "At what points in space is $g(x,y,z)=x^{2}+y^{2}-2z^{2}$ continuous?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793605306",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "All points $P(x,y,z)$ in space"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e102",
+   "number": 102,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "At what points in space is $g(x,y,z)=\\frac{1}{x^{2}+z^{2}-1}$ continuous?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793607588",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e103",
+   "number": 103,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that $\\lim_{(x,y)\\to (0,0)}\\frac{1}{x^{2}+y^{2}}$ does not exist at $(0,0)$ by plotting the graph of the function."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793285307",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph increases without bound as $x\\,\\text{and}\\,y$ both approach zero."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_02_201.webp",
+      "alt": "On xyz space, there is a shape drawn that decreases to 0 as x and y increase or decrease but that increases greatly closer to the origin. It increases to such an extent that the graph is cut off above z = 10, which coincides with a circle of radius 0.6 around (0, 0, 10).",
+      "width": 447,
+      "height": 338
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e104",
+   "number": 104,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate $\\lim_{(x,y)\\to (0,0)}\\frac{-xy^{2}}{x^{2}+y^{4}}$ by plotting the function using a CAS. Determine analytically the limit along the path $x=y^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793627415",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e105",
+   "number": 105,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]**"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Use a CAS to draw a contour map of $z=\\sqrt{9-x^{2}-y^{2}}.$",
+      "What is the name of the geometric shape of the level curves?",
+      "Give the general equation of the level curves.",
+      "What is the maximum value of $z?$",
+      "What is the domain of the function?",
+      "What is the range of the function?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794172816",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_02_203.webp",
+      "alt": "A series of five concentric circles, with radii 3, 2.75, 2.5, 2.2, and 1.75. The areas between the circles are colored, with the darkest color between the circles of radii 3 and 2.75.",
+      "width": 342,
+      "height": 347
+     },
+     {
+      "type": "p",
+      "text": "b. The level curves are circles centered at $(0,0)$ with radius $9-c.$ c. $x^{2}+y^{2}=9-c$ d. $z=3$ e. $\\{(x,y)\\in {\\mathbb{R}}^{2}|x^{2}+y^{2}\\le 9\\}$ f. $\\{z|0\\le z\\le 3\\}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e106",
+   "number": 106,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True or False*: If we evaluate $\\lim_{(x,y)\\to (0,0)}f(x)$ along several paths and each time the limit is $1,$ we can conclude that $\\lim_{(x,y)\\to (0,0)}f(x)=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793543617",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e107",
+   "number": 107,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use polar coordinates to find $\\lim_{(x,y)\\to (0,0)}\\frac{\\sin \\sqrt{x^{2}+y^{2}}}{\\sqrt{x^{2}+y^{2}}}.$ You can also find the limit using L’Hôpital’s rule."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793617809",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1.0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1.0"
+   }
+  },
+  {
+   "id": "e108",
+   "number": 108,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use polar coordinates to find $\\lim_{(x,y)\\to (0,0)}\\cos (x^{2}+y^{2}).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794067532",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e109",
+   "number": 109,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Discuss the continuity of $f(g(x,y))$ where $f(t)=1/t$ and $g(x,y)=2x-5y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793927715",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(g(x,y))$ is continuous at all points $(x,y)$ that are not on the line $2x-5y=0.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e110",
+   "number": 110,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $f(x,y)=x^{2}-4y,$ find $\\lim_{h\\to 0}\\frac{f(x+h,y)-f(x,y)}{h}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793387117",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e111",
+   "number": 111,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $f(x,y)=x^{2}-4y,$ find $\\lim_{h\\to 0}\\frac{f(1+h,y)-f(1,y)}{h}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793615277",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, determine the region in which the function is continuous. Explain your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2.0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2.0"
+   }
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "boundary point",
+   "meaning": "a point $P_{0}$ of $R$ is a boundary point if every $\\delta$ disk centered around $P_{0}$ contains points both inside and outside $R$"
+  },
+  {
+   "term": "closed set",
+   "meaning": "a set $S$ that contains all its boundary points"
+  },
+  {
+   "term": "connected set",
+   "meaning": "an open set $S$ that cannot be represented as the union of two or more disjoint, nonempty open subsets"
+  },
+  {
+   "term": "δ disk",
+   "meaning": "an open disk of radius $\\delta$ centered at point $(a,b)$"
+  },
+  {
+   "term": "δ ball",
+   "meaning": "all points in ${\\mathbb{R}}^{3}$ lying at a distance of less than $\\delta$ from $(x_{0},y_{0},z_{0})$"
+  },
+  {
+   "term": "interior point",
+   "meaning": "a point $P_{0}$ of $R$ is a boundary point if there is a $\\delta$ disk centered around $P_{0}$ contained completely in $R$"
+  },
+  {
+   "term": "open set",
+   "meaning": "a set $S$ that contains none of its boundary points"
+  },
+  {
+   "term": "region",
+   "meaning": "an open, connected, nonempty subset of ${\\mathbb{R}}^{2}$"
+  }
+ ]
+}

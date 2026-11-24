@@ -1,0 +1,2056 @@
+{
+ "schema": 1,
+ "id": "V3.7.2",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 7,
+ "section": 2,
+ "title": "Nonhomogeneous Linear Equations",
+ "chapterTitle": "Second-Order Differential Equations",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m54047",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/7-2-nonhomogeneous-linear-equations",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §7.2 “Nonhomogeneous Linear Equations”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Write the general solution to a nonhomogeneous differential equation.",
+  "Solve a nonhomogeneous differential equation by the method of undetermined coefficients.",
+  "Solve a nonhomogeneous differential equation by the method of variation of parameters."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section, we examine how to solve nonhomogeneous differential equations. The terminology and methods are different from those we used for homogeneous equations, so let’s start by defining some new terms."
+    }
+   ],
+   "title": "Nonhomogeneous Linear Equations"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider the nonhomogeneous linear differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x)."
+    },
+    {
+     "type": "p",
+     "text": "The associated homogeneous equation"
+    },
+    {
+     "type": "math",
+     "tex": "a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=0"
+    },
+    {
+     "type": "p",
+     "text": "is called the **complementary equation**. We will see that solving the complementary equation is an important step in solving a nonhomogeneous differential equation."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A solution $y_{p}(x)$ of a differential equation that contains no arbitrary constants is called a **particular solution** to the equation."
+      }
+     ]
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $y_{p}(x)$ be any particular solution to the nonhomogeneous linear differential equation"
+      },
+      {
+       "type": "math",
+       "tex": "a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x)."
+      },
+      {
+       "type": "p",
+       "text": "Also, let $c_{1}y_{1}(x)+c_{2}y_{2}(x)$ denote the general solution to the complementary equation. Then, the general solution to the nonhomogeneous equation is given by"
+      },
+      {
+       "type": "math",
+       "tex": "y(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x)+y_{p}(x)."
+      }
+     ],
+     "title": "General Solution to a Nonhomogeneous Equation"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of General Solution to a Nonhomogeneous Equation is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "General Solution to a Nonhomogeneous Linear Equation"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The **method of undetermined coefficients** involves making educated guesses about the form of the particular solution based on the form of $r(x).$ When we take derivatives of polynomials, exponential functions, sines, and cosines, we get polynomials, exponential functions, sines, and cosines. So when $r(x)$ has one of these forms, it is possible that the solution to the nonhomogeneous differential equation might take that same form. Let’s look at some examples to see how this works."
+    }
+   ],
+   "title": "Undetermined Coefficients"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 7.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to $y''+4y'+3y=3x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The complementary equation is $y''+4y'+3y=0,$ with general solution $c_{1}e^{-x}+c_{2}e^{-3x}.$ Since $r(x)=3x,$ the particular solution might have the form $y_{p}(x)=Ax+B.$ If this is the case, then we have $y_{p}{}'(x)=A$ and $y_{p}\\text{″}(x)=0.$ For $y_{p}$ to be a solution to the differential equation, we must find values for $A$ and $B$ such that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}y''+4y'+3y & = & 3x \\\\ 0+4(A)+3(Ax+B) & = & 3x \\\\ 3Ax+(4A+3B) & = & 3x.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Setting coefficients of like terms equal, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}3A & = & 3 \\\\ 4A+3B & = & 0.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Then, $A=1$ and $B=-\\frac{4}{3},$ so $y_{p}(x)=x-\\frac{4}{3}$ and the general solution is"
+     },
+     {
+      "type": "math",
+      "tex": "y(x)=c_{1}e^{-x}+c_{2}e^{-3x}+x-\\frac{4}{3}."
+     }
+    ]
+   },
+   "title": "Undetermined Coefficients When $r(x)$ Is a Polynomial"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Example 7.12, notice that even though $r(x)$ did not include a constant term, it was necessary for us to include the constant term in our guess. If we had assumed a solution of the form $y_{p}=Ax$ (with no constant term), we would not have been able to find a solution. (Verify this!) If the function $r(x)$ is a polynomial, our guess for the particular solution should be a polynomial of the same degree, and it must include all lower-order terms, regardless of whether they are present in $r(x).$"
+    }
+   ],
+   "title": "Undetermined Coefficients (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 7.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to $y''-y'-2y=2e^{3x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The complementary equation is $y''-y'-2y=0,$ with the general solution $c_{1}e^{-x}+c_{2}e^{2x}.$ Since $r(x)=2e^{3x},$ the particular solution might have the form $y_{p}(x)=Ae^{3x}.$ Then, we have $y_{p}{}'(x)=3Ae^{3x}$ and $y_{p}\\text{″}(x)=9Ae^{3x}.$ For $y_{p}$ to be a solution to the differential equation, we must find a value for $A$ such that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}y''-y'-2y & = & 2e^{3x} \\\\ 9Ae^{3x}-3Ae^{3x}-2Ae^{3x} & = & 2e^{3x} \\\\ 4Ae^{3x} & = & 2e^{3x}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "So, $4A=2$ and $A=1/2.$ Then, $y_{p}(x)=\\left(\\frac{1}{2}\\right)e^{3x},$ and the general solution is"
+     },
+     {
+      "type": "math",
+      "tex": "y(x)=c_{1}e^{-x}+c_{2}e^{2x}+\\frac{1}{2}e^{3x}."
+     }
+    ]
+   },
+   "title": "Undetermined Coefficients When $r(x)$ Is an Exponential"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to $y''-4y'+4y=7\\,\\sin \\,t-\\cos \\,t.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(t)=c_{1}e^{2t}+c_{2}te^{2t}+\\sin \\,t+\\cos \\,t$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use $y_{p}(t)=A\\,\\sin \\,t+B\\,\\cos \\,t$ as a guess for the particular solution."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "c_1 e^(2 t)+c_2 t e^(2 t)+ sin t+ cos t"
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the previous checkpoint, $r(x)$ included both sine and cosine terms. However, even if $r(x)$ included a sine term only or a cosine term only, both terms must be present in the guess. The method of undetermined coefficients also works with products of polynomials, exponentials, sines, and cosines. Some of the key forms of $r(x)$ and the associated guesses for $y_{p}(x)$ are summarized in Table 7.2."
+    }
+   ],
+   "title": "Undetermined Coefficients (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$k$ (a constant)",
+       "$A$ (a constant)"
+      ],
+      [
+       "$ax+b$",
+       "$Ax+B$ (*Note*: The guess must include both terms even if $b=0.$)"
+      ],
+      [
+       "$ax^{2}+bx+c$",
+       "$Ax^{2}+Bx+C$ (*Note*: The guess must include all three terms even if $b$ or $c$ are zero.)"
+      ],
+      [
+       "Higher-order polynomials",
+       "Polynomial of the same order as $r(x)$"
+      ],
+      [
+       "$ae^{\\lambda x}$",
+       "$Ae^{\\lambda x}$"
+      ],
+      [
+       "$a\\,\\cos \\,\\beta x+b\\,\\sin \\,\\beta x$",
+       "$A\\,\\cos \\,\\beta x+B\\,\\sin \\,\\beta x$ (*Note*: The guess must include both terms even if either $a=0$ or $b=0.$)"
+      ],
+      [
+       "$ae^{\\alpha x}\\cos \\,\\beta x+be^{\\alpha x}\\sin \\,\\beta x$",
+       "$Ae^{\\alpha x}\\cos \\,\\beta x+Be^{\\alpha x}\\sin \\,\\beta x$"
+      ],
+      [
+       "$(ax^{2}+bx+c)e^{\\lambda x}$",
+       "$(Ax^{2}+Bx+C)e^{\\lambda x}$"
+      ],
+      [
+       "$\\begin{array}{l}(a_{2}x^{2}+a_{1}x+a_{0})\\,\\cos \\,\\beta x \\\\ +(b_{2}x^{2}+b_{1}x+b_{0})\\,\\sin \\,\\beta x\\end{array}$",
+       "$\\begin{array}{l}(A_{2}x^{2}+A_{1}x+A_{0})\\,\\cos \\,\\beta x \\\\ +(B_{2}x^{2}+B_{1}x+B_{0})\\,\\sin \\,\\beta x\\end{array}$"
+      ],
+      [
+       "$\\begin{array}{l}(a_{2}x^{2}+a_{1}x+a_{0})e^{\\alpha x}\\cos \\,\\beta x \\\\ +(b_{2}x^{2}+b_{1}x+b_{0})e^{\\alpha x}\\sin \\,\\beta x\\end{array}$",
+       "$\\begin{array}{l}(A_{2}x^{2}+A_{1}x+A_{0})e^{\\alpha x}\\cos \\,\\beta x \\\\ +(B_{2}x^{2}+B_{1}x+B_{0})e^{\\alpha x}\\sin \\,\\beta x\\end{array}$"
+      ]
+     ],
+     "header": [
+      "$r(x)$",
+      "Initial guess for $y_{p}(x)$"
+     ],
+     "caption": "**Table 7.2** Key Forms for the Method of Undetermined Coefficients"
+    }
+   ],
+   "title": "Undetermined Coefficients (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Keep in mind that there is a key pitfall to this method. Consider the differential equation $y''+5y'+6y=3e^{-2x}.$ Based on the form of $r(x),$ we guess a particular solution of the form $y_{p}(x)=Ae^{-2x}.$ But when we substitute this expression into the differential equation to find a value for $A,$ we run into a problem. We have"
+    },
+    {
+     "type": "math",
+     "tex": "y_{p}{}'(x)=-2Ae^{-2x}"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "y_{p}\\text{″}=4Ae^{-2x},"
+    },
+    {
+     "type": "p",
+     "text": "so we want"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}y''+5y'+6y & = & 3e^{-2x} \\\\ 4Ae^{-2x}+5(-2Ae^{-2x})+6Ae^{-2x} & = & 3e^{-2x} \\\\ 4Ae^{-2x}-10Ae^{-2x}+6Ae^{-2x} & = & 3e^{-2x} \\\\ 0 & = & 3e^{-2x},\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "which is not possible."
+    },
+    {
+     "type": "p",
+     "text": "Looking closely, we see that, in this case, the general solution to the complementary equation is $c_{1}e^{-2x}+c_{2}e^{-3x}.$ The exponential function in $r(x)$ is actually a solution to the complementary equation, so, as we just saw, all the terms on the left side of the equation cancel out. We can still use the method of undetermined coefficients in this case, but we have to alter our guess by multiplying it by$x.$ Using the new guess, $y_{p}(x)=Axe^{-2x},$ we have"
+    },
+    {
+     "type": "math",
+     "tex": "y_{p}{}'(x)=A(e^{-2x}-2xe^{-2x})"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "y_{p}\\text{″}(x)=-4Ae^{-2x}+4Axe^{-2x}."
+    },
+    {
+     "type": "p",
+     "text": "Substitution gives"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}y''+5y'+6y & = & 3e^{-2x} \\\\ (-4Ae^{-2x}+4Axe^{-2x})+5(Ae^{-2x}-2Axe^{-2x})+6Axe^{-2x} & = & 3e^{-2x} \\\\ -4Ae^{-2x}+4Axe^{-2x}+5Ae^{-2x}-10Axe^{-2x}+6Axe^{-2x} & = & 3e^{-2x} \\\\ Ae^{-2x} & = & 3e^{-2x}.\\end{array}"
+    }
+   ],
+   "title": "Undetermined Coefficients (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "So, $A=3$ and $y_{p}(x)=3xe^{-2x}.$ This gives us the following general solution"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=c_{1}e^{-2x}+c_{2}e^{-3x}+3xe^{-2x}."
+    },
+    {
+     "type": "p",
+     "text": "Note that if $xe^{-2x}$ were also a solution to the complementary equation, we would have to multiply by $x$ again, and we would try $y_{p}(x)=Ax^{2}e^{-2x}.$"
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Solve the complementary equation and write down the general solution.",
+        "Based on the form of $r(x),$ make an initial guess for $y_{p}(x).$",
+        "Check whether any term in the guess for $y_{p}(x)$ is a solution to the complementary equation. If so, multiply the guess by$x.$ Repeat this step until there are no terms in $y_{p}(x)$ that solve the complementary equation.",
+        "Substitute $y_{p}(x)$ into the differential equation and equate like terms to find values for the unknown coefficients in $y_{p}(x).$",
+        "Add the general solution to the complementary equation and the particular solution you just found to obtain the general solution to the nonhomogeneous equation."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Method of Undetermined Coefficients"
+    }
+   ],
+   "title": "Undetermined Coefficients (continued)"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 7.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solutions to the following differential equations."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y''-9y=-6\\,\\cos \\,3x$",
+      "$x''+2x'+x=4e^{-t}$",
+      "$y''-2y'+5y=10x^{2}-3x-3$",
+      "$y''-3y'=-12t$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "The complementary equation is $y''-9y=0,$ which has the general solution $c_{1}e^{3x}+c_{2}e^{-3x}$ (step 1). Based on the form of $r(x)=-6\\,\\cos \\,3x,$ our initial guess for the particular solution is $y_{p}(x)=A\\,\\cos \\,3x+B\\,\\sin \\,3x$ (step 2). None of the terms in $y_{p}(x)$ solve the complementary equation, so this is a valid guess (step 3).\n\nNow we want to find values for $A$ and $B,$ so substitute $y_{p}$ into the differential equation. We have"
+        },
+        {
+         "type": "math",
+         "tex": "y_{p}{}'(x)=-3A\\,\\sin \\,3x+3B\\,\\cos \\,3x\\,\\text{and}\\,y_{p}\\text{″}(x)=-9A\\,\\cos \\,3x-9B\\,\\sin \\,3x,"
+        },
+        {
+         "type": "p",
+         "text": "so we want to find values of $A$ and $B$ such that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}y''-9y & = & -6\\,\\cos \\,3x \\\\ -9A\\,\\cos \\,3x-9B\\,\\sin \\,3x-9(A\\,\\cos \\,3x+B\\,\\sin \\,3x) & = & -6\\,\\cos \\,3x \\\\ -18A\\,\\cos \\,3x-18B\\,\\sin \\,3x & = & -6\\,\\cos \\,3x.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}-18A & = & -6 \\\\ -18B & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "This gives $A=\\frac{1}{3}$ and $B=0,$ so $y_{p}(x)=\\left(\\frac{1}{3}\\right)\\,\\cos \\,3x$ (step 4).\n\nPutting everything together, we have the general solution"
+        },
+        {
+         "type": "math",
+         "tex": "y(x)=c_{1}e^{3x}+c_{2}e^{-3x}+\\frac{1}{3}\\,\\cos \\,3x."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The complementary equation is $x''+2x'+x=0,$ which has the general solution $c_{1}e^{-t}+c_{2}te^{-t}$ (step 1). Based on the form $r(t)=4e^{-t},$ our initial guess for the particular solution is $x_{p}(t)=Ae^{-t}$ (step 2). However, we see that this guess solves the complementary equation, so we must multiply by$t,$ which gives a new guess: $x_{p}(t)=Ate^{-t}$ (step 3). Checking this new guess, we see that it, too, solves the complementary equation, so we must multiply by *t* again, which gives $x_{p}(t)=At^{2}e^{-t}$ (step 3 again). Now, checking this guess, we see that $x_{p}(t)$ does not solve the complementary equation, so this is a valid guess (step 3 yet again).\n\nWe now want to find a value for $A,$ so we substitute $x_{p}$ into the differential equation. We have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}x_{p}(t) & = & At^{2}e^{-t},\\,\\text{so} \\\\ x_{p}{}'(t) & = & 2Ate^{-t}-At^{2}e^{-t}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "and $x_{p}\\text{″}(t)=2Ae^{-t}-2Ate^{-t}-(2Ate^{-t}-At^{2}e^{-t})=2Ae^{-t}-4Ate^{-t}+At^{2}e^{-t}.$\n\nSubstituting into the differential equation, we want to find a value of $A$ so that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}x''+2x'+x & = & 4e^{-t} \\\\ 2Ae^{-t}-4Ate^{-t}+At^{2}e^{-t}+2(2Ate^{-t}-At^{2}e^{-t})+At^{2}e^{-t} & = & 4e^{-t} \\\\ 2Ae^{-t} & = & 4e^{-t}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "This gives $A=2,$ so $x_{p}(t)=2t^{2}e^{-t}$ (step 4). Putting everything together, we have the general solution"
+        },
+        {
+         "type": "math",
+         "tex": "x(t)=c_{1}e^{-t}+c_{2}te^{-t}+2t^{2}e^{-t}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The complementary equation is $y''-2y'+5y=0,$ which has the general solution $c_{1}e^{x}\\cos \\,2x+c_{2}e^{x}\\sin \\,2x$ (step 1). Based on the form $r(x)=10x^{2}-3x-3,$ our initial guess for the particular solution is $y_{p}(x)=Ax^{2}+Bx+C$ (step 2). None of the terms in $y_{p}(x)$ solve the complementary equation, so this is a valid guess (step 3). We now want to find values for $A,$ $B,$ and $C,$ so we substitute $y_{p}$ into the differential equation. We have $y_{p}{}'(x)=2Ax+B$ and $y_{p}\\text{″}(x)=2A,$ so we want to find values of $A,$ $B,$ and $C$ such that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}y''-2y'+5y & = & 10x^{2}-3x-3 \\\\ 2A-2(2Ax+B)+5(Ax^{2}+Bx+C) & = & 10x^{2}-3x-3 \\\\ 5Ax^{2}+(5B-4A)x+(5C-2B+2A) & = & 10x^{2}-3x-3.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}5A & = & 10 \\\\ 5B-4A & = & -3 \\\\ 5C-2B+2A & = & -3.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "This gives $A=2,$ $B=1,$ and $C=-1,$ so $y_{p}(x)=2x^{2}+x-1$ (step 4). Putting everything together, we have the general solution"
+        },
+        {
+         "type": "math",
+         "tex": "y(x)=c_{1}e^{x}\\cos \\,2x+c_{2}e^{x}\\sin \\,2x+2x^{2}+x-1."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The complementary equation is $y''-3y'=0,$ which has the general solution $c_{1}e^{3t}+c_{2}$ (step 1). Based on the form $r(t)=-12t,$ our initial guess for the particular solution is $y_{p}(t)=At+B$ (step 2). However, we see that the constant term in this guess solves the complementary equation, so we must multiply by $t,$ which gives a new guess: $y_{p}(t)=At^{2}+Bt$ (step 3). Checking this new guess, we see that none of the terms in $y_{p}(t)$ solve the complementary equation, so this is a valid guess (step 3 again). We now want to find values for $A$ and $B,$ so we substitute $y_{p}$ into the differential equation. We have $y_{p}{}'(t)=2At+B$ and $y_{p}\\text{″}(t)=2A,$ so we want to find values of $A$ and $B$ such that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}y''-3y' & = & -12t \\\\ 2A-3(2At+B) & = & -12t \\\\ -6At+(2A-3B) & = & -12t.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}-6A & = & -12 \\\\ 2A-3B & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "This gives $A=2$ and $B=4/3,$ so $y_{p}(t)=2t^{2}+(4/3)t$ (step 4). Putting everything together, we have the general solution"
+        },
+        {
+         "type": "math",
+         "tex": "y(t)=c_{1}e^{3t}+c_{2}+2t^{2}+\\frac{4}{3}t."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Solving Nonhomogeneous Equations"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to the following differential equations."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y''-5y'+4y=3e^{x}$",
+      "$y''+y'-6y=52\\,\\cos \\,2t$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$y(x)=c_{1}e^{4x}+c_{2}e^{x}-xe^{x}$",
+       "$y(t)=c_{1}e^{-3t}+c_{2}e^{2t}-5\\,\\cos \\,2t+\\sin \\,2t$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the problem-solving strategy."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Sometimes, $r(x)$ is not a combination of polynomials, exponentials, or sines and cosines. When this is the case, the method of undetermined coefficients does not work, and we have to use another approach to find a particular solution to the differential equation. We use an approach called the **method of variation of parameters**."
+    },
+    {
+     "type": "p",
+     "text": "To simplify our calculations a little, we are going to divide the differential equation through by $a,$ so we have a leading coefficient of 1. Then the differential equation has the form"
+    },
+    {
+     "type": "math",
+     "tex": "y''+py'+qy=r(x),"
+    },
+    {
+     "type": "p",
+     "text": "where $p$ and $q$ are constants."
+    },
+    {
+     "type": "p",
+     "text": "If the general solution to the complementary equation is given by $c_{1}y_{1}(x)+c_{2}y_{2}(x),$ we are going to look for a particular solution of the form $y_{p}(x)=u(x)y_{1}(x)+v(x)y_{2}(x).$ In this case, we use the two linearly independent solutions to the complementary equation to form our particular solution. However, we are assuming the coefficients are functions of *x*, rather than constants. We want to find functions $u(x)$ and $v(x)$ such that $y_{p}(x)$ satisfies the differential equation. We have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}y_{p} & = & uy_{1}+vy_{2} \\\\ y_{p}{}' & = & u'y_{1}+uy_{1}{}'+v'y_{2}+vy_{2}{}' \\\\ y_{p}\\text{″} & = & (u'y_{1}+v'y_{2})'+u'y_{1}{}'+uy_{1}\\text{″}+v'y_{2}{}'+vy_{2}\\text{″}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Substituting into the differential equation, we obtain"
+    }
+   ],
+   "title": "Variation of Parameters"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}y_{p}\\text{″}+py_{p}{}'+qy_{p} & =[(u'y_{1}+v'y_{2})'+u'y_{1}{}'+uy_{1}\\text{″}+v'y_{2}{}'+vy_{2}\\text{″}] \\\\ & \\qquad +p[u'y_{1}+uy_{1}{}'+v'y_{2}+vy_{2}{}']+q[uy_{1}+vy_{2}] \\\\ & =u[y_{1}\\text{″}+py_{1}{}'+qy_{1}]+v[y_{2}\\text{″}+py_{2}{}'+qy_{2}] \\\\ & \\qquad +(u'y_{1}+v'y_{2})'+p(u'y_{1}+v'y_{2})+(u'y_{1}{}'+v'y_{2}{}').\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Note that $y_{1}$ and $y_{2}$ are solutions to the complementary equation, so the first two terms are zero. Thus, we have"
+    },
+    {
+     "type": "math",
+     "tex": "(u'y_{1}+v'y_{2})'+p(u'y_{1}+v'y_{2})+(u'y_{1}{}'+v'y_{2}{}')=r(x)."
+    },
+    {
+     "type": "p",
+     "text": "If we simplify this equation by imposing the additional condition $u'y_{1}+v'y_{2}=0,$ the first two terms are zero, and this reduces to $u'y_{1}{}'+v'y_{2}{}'=r(x).$ So, with this additional condition, we have a system of two equations in two unknowns:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}u'y_{1}+v'y_{2} & = & 0 \\\\ u'y_{1}{}'+v'y_{2}{}' & = & r(x).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Solving this system gives us $u'$ and $v',$ which we can integrate to find *u* and *v*."
+    },
+    {
+     "type": "p",
+     "text": "Then, $y_{p}(x)=u(x)y_{1}(x)+v(x)y_{2}(x)$ is a particular solution to the differential equation. Solving this system of equations is sometimes challenging, so let’s take this opportunity to review Cramer’s rule, which allows us to solve the system of equations using determinants."
+    }
+   ],
+   "title": "Variation of Parameters (continued)"
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "rule",
+     "body": [
+      {
+       "type": "p",
+       "text": "The system of equations"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{ccc}a_{1}z_{1}+b_{1}z_{2} & = & r_{1} \\\\ a_{2}z_{1}+b_{2}z_{2} & = & r_{2}\\end{array}"
+      },
+      {
+       "type": "p",
+       "text": "has a unique solution if and only if the determinant of the coefficients is not zero. In this case, the solution is given by"
+      },
+      {
+       "type": "math",
+       "tex": "z_{1}=\\frac{\\left|\\begin{array}{cc}r_{1} & b_{1} \\\\ r_{2} & b_{2}\\end{array}\\right|}{\\left|\\begin{array}{cc}a_{1} & b_{1} \\\\ a_{2} & b_{2}\\end{array}\\right|}\\qquad \\text{and}\\qquad z_{2}=\\frac{\\left|\\begin{array}{cc}a_{1} & r_{1} \\\\ a_{2} & r_{2}\\end{array}\\right|}{\\left|\\begin{array}{cc}a_{1} & b_{1} \\\\ a_{2} & b_{2}\\end{array}\\right|}."
+      }
+     ],
+     "title": "Cramer’s Rule"
+    }
+   ],
+   "title": "Variation of Parameters (continued)"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 7.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use Cramer’s rule to solve the following system of equations."
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}x^{2}z_{1}+2xz_{2} & = & 0 \\\\ z_{1}-3x^{2}z_{2} & = & 2x\\end{array}"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc} \\\\ \\\\ a_{1}(x) & = & x^{2} \\\\ a_{2}(x) & = & 1 \\\\ b_{1}(x) & = & 2x \\\\ b_{2}(x) & = & -3x^{2} \\\\ r_{1}(x) & = & 0 \\\\ r_{2}(x) & = & 2x.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Then,"
+     },
+     {
+      "type": "math",
+      "tex": "\\left|\\begin{array}{cc}a_{1} & b_{1} \\\\ a_{2} & b_{2}\\end{array}\\right|=\\left|\\begin{array}{cc}x^{2} & \\;2x \\\\ 1 & -3x^{2}\\end{array}\\right|=-3x^{4}-2x"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "\\left|\\begin{array}{cc}r_{1} & b_{1} \\\\ r_{2} & b_{2}\\end{array}\\right|=\\left|\\begin{array}{cc}0 & \\;2x \\\\ 2x & -3x^{2}\\end{array}\\right|=0-4x^{2}=-4x^{2}."
+     },
+     {
+      "type": "p",
+      "text": "Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "z_{1}=\\frac{\\left|\\begin{array}{cc}r_{1} & b_{1} \\\\ r_{2} & b_{2}\\end{array}\\right|}{\\left|\\begin{array}{cc}a_{1} & b_{1} \\\\ a_{2} & b_{2}\\end{array}\\right|}=\\frac{-4x^{2}}{-3x^{4}-2x}=\\frac{4x}{3x^{3}+2}."
+     },
+     {
+      "type": "p",
+      "text": "In addition,"
+     },
+     {
+      "type": "math",
+      "tex": "\\left|\\begin{array}{cc}a_{1} & r_{1} \\\\ a_{2} & r_{2}\\end{array}\\right|=\\left|\\begin{array}{cc}x^{2} & 0 \\\\ 1 & 2x\\end{array}\\right|=2x^{3}-0=2x^{3}."
+     },
+     {
+      "type": "p",
+      "text": "Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "z_{2}=\\frac{\\left|\\begin{array}{cc}a_{1} & r_{1} \\\\ a_{2} & r_{2}\\end{array}\\right|}{\\left|\\begin{array}{cc}a_{1} & b_{1} \\\\ a_{2} & b_{2}\\end{array}\\right|}=\\frac{2x^{3}}{-3x^{4}-2x}=\\frac{-2x^{2}}{3x^{3}+2}."
+     }
+    ]
+   },
+   "title": "Using Cramer’s Rule"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use Cramer’s rule to solve the following system of equations."
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}2xz_{1}-3z_{2} & = & 0 \\\\ x^{2}z_{1}+4xz_{2} & = & x+1\\end{array}"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$z_{1}=\\frac{3x+3}{11x^{2}},$ $z_{2}=\\frac{2x+2}{11x}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the process from the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "p",
+          "text": "Solve the complementary equation and write down the general solution"
+         },
+         {
+          "type": "math",
+          "tex": "c_{1}y_{1}(x)+c_{2}y_{2}(x)."
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "Use Cramer’s rule or another suitable technique to find functions $u'(x)$ and $v'(x)$ satisfying"
+         },
+         {
+          "type": "math",
+          "tex": "\\begin{array}{ccc}u'y_{1}+v'y_{2} & = & 0 \\\\ u'y_{1}{}'+v'y_{2}{}' & = & r(x).\\end{array}"
+         }
+        ],
+        "Integrate $u'$ and $v'$ to find $u(x)$ and $v(x).$ Then, $y_{p}(x)=u(x)y_{1}(x)+v(x)y_{2}(x)$ is a particular solution to the equation.",
+        "Add the general solution to the complementary equation and the particular solution found in step 3 to obtain the general solution to the nonhomogeneous equation."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Method of Variation of Parameters"
+    }
+   ],
+   "title": "Variation of Parameters (continued)"
+  },
+  {
+   "id": "x20",
+   "kind": "example",
+   "label": "Example 7.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to the following differential equations."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y''-2y'+y=\\frac{e^{t}}{t^{2}}$",
+      "$y''+y=3\\,\\sin^{2}x$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "The complementary equation is $y''-2y'+y=0$ with associated general solution $c_{1}e^{t}+c_{2}te^{t}.$ Therefore, $y_{1}(t)=e^{t}$ and $y_{2}(t)=te^{t}.$ Calculating the derivatives, we get $y_{1}{}'(t)=e^{t}$ and $y_{2}{}'(t)=e^{t}+te^{t}$ (step 1). Then, we want to find functions $u'(t)$ and $v'(t)$ so that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}u'e^{t}+v'te^{t} & = & 0 \\\\ u'e^{t}+v'(e^{t}+te^{t}) & = & \\frac{e^{t}}{t^{2}}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Applying Cramer’s rule, we have"
+        },
+        {
+         "type": "math",
+         "tex": "u'=\\frac{\\left|\\begin{array}{cc}0 & te^{t} \\\\ \\frac{e^{t}}{t^{2}} & e^{t}+te^{t}\\end{array}\\right|}{\\left|\\begin{array}{cc}e^{t} & te^{t} \\\\ e^{t} & e^{t}+te^{t}\\end{array}\\right|}=\\frac{0-te^{t}\\left(\\frac{e^{t}}{t^{2}}\\right)}{e^{t}(e^{t}+te^{t})-e^{t}te^{t}}=\\frac{-\\frac{e^{2t}}{t}}{e^{2t}}=-\\frac{1}{t}"
+        },
+        {
+         "type": "p",
+         "text": "and"
+        },
+        {
+         "type": "math",
+         "tex": "v'=\\frac{\\left|\\begin{array}{cc}e^{t} & 0 \\\\ e^{t} & \\frac{e^{t}}{t^{2}}\\end{array}\\right|}{\\left|\\begin{array}{cc}e^{t} & te^{t} \\\\ e^{t} & e^{t}+te^{t}\\end{array}\\right|}=\\frac{e^{t}\\left(\\frac{e^{t}}{t^{2}}\\right)}{e^{2t}}=\\frac{1}{t^{2}}\\,\\text{(step 2).}"
+        },
+        {
+         "type": "p",
+         "text": "Integrating, we get"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c} \\\\ \\\\ u=-{\\displaystyle \\int \\frac{1}{t}dt}=-\\ln |t| \\\\ v={\\displaystyle \\int \\frac{1}{t^{2}}}dt=-\\frac{1}{t}\\,\\text{(step 3).}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Then we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}y_{p} & =-e^{t}\\ln |t|-\\frac{1}{t}te^{t} \\\\ & =-e^{t}\\ln |t|-e^{t}\\,\\text{(step 4).}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The $e^{t}$ term is a solution to the complementary equation, so we don’t need to carry that term into our general solution explicitly. The general solution is"
+        },
+        {
+         "type": "math",
+         "tex": "y(t)=c_{1}e^{t}+c_{2}te^{t}-e^{t}\\ln |t|\\,\\text{(step 5).}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The complementary equation is $y''+y=0$ with associated general solution $c_{1}\\cos \\,x+c_{2}\\sin \\,x.$ So, $y_{1}(x)=\\cos \\,x$ and $y_{2}(x)=\\sin \\,x$ (step 1). Then, we want to find functions $u'(x)$ and $v'(x)$ such that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}u'\\cos \\,x+v'\\sin \\,x & = & 0 \\\\ -u'\\sin \\,x+v'\\cos \\,x & = & 3\\,\\sin^{2}x.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Applying Cramer’s rule, we have"
+        },
+        {
+         "type": "math",
+         "tex": "u'=\\frac{\\left|\\begin{array}{cc}0 & \\sin \\,x \\\\ 3\\,\\sin^{2}x & \\cos \\,x\\end{array}\\right|}{\\left|\\begin{array}{cc}\\cos \\,x & \\sin \\,x \\\\ -\\sin \\,x & \\cos \\,x\\end{array}\\right|}=\\frac{0-3\\,\\sin^{3}x}{\\cos^{2}x+\\sin^{2}x}=-3\\,\\sin^{3}x"
+        },
+        {
+         "type": "p",
+         "text": "and"
+        },
+        {
+         "type": "math",
+         "tex": "v'=\\frac{\\left|\\begin{array}{cc}\\cos \\,x & 0 \\\\ -\\sin \\,x & 3\\,\\sin^{2}x\\end{array}\\right|}{\\left|\\begin{array}{cc}\\cos \\,x & \\sin \\,x \\\\ -\\sin \\,x & \\cos \\,x\\end{array}\\right|}=\\frac{3\\,\\sin^{2}x\\,\\cos \\,x}{1}=3\\,\\sin^{2}x\\,\\cos \\,x\\,\\text{(step 2).}"
+        },
+        {
+         "type": "p",
+         "text": "Integrating first to find *u*, we get"
+        },
+        {
+         "type": "math",
+         "tex": "u={\\displaystyle \\int -3\\,\\sin^{3}x}dx=-3\\left[-\\frac{1}{3}\\sin^{2}x\\,\\cos \\,x+\\frac{2}{3}{\\displaystyle \\int \\sin \\,x}dx\\right]=\\sin^{2}x\\,\\cos \\,x+2\\,\\cos \\,x."
+        },
+        {
+         "type": "p",
+         "text": "Now, we integrate to find *v*. Using substitution (with $w=\\sin \\,x$), we get"
+        },
+        {
+         "type": "math",
+         "tex": "v={\\displaystyle \\int 3\\,\\sin^{2}x\\,\\cos \\,xdx}={\\displaystyle \\int 3}w^{2}dw=w^{3}=\\sin^{3}x."
+        },
+        {
+         "type": "p",
+         "text": "Then,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}y_{p} & =(\\sin^{2}x\\,\\cos \\,x+2\\,\\cos \\,x)\\,\\cos \\,x+(\\sin^{3}x)\\,\\sin \\,x \\\\ & =\\sin^{2}x\\,\\cos^{2}x+2\\,\\cos^{2}x+\\sin^{4}x \\\\ & =2\\,\\cos^{2}x+\\sin^{2}x(\\cos^{2}x+\\sin^{2}x)\\qquad \\text{(step 3).} \\\\ & =2\\,\\cos^{2}x+\\sin^{2}x \\\\ & =\\cos^{2}x+1\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The general solution is"
+        },
+        {
+         "type": "math",
+         "tex": "y(x)=c_{1}\\cos \\,x+c_{2}\\sin \\,x+1+\\cos^{2}x\\,\\text{(step 4).}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Using the Method of Variation of Parameters"
+  },
+  {
+   "id": "c21",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to the following differential equations."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y''+y=\\sec \\,x$",
+      "$x''-2x'+x=\\frac{e^{t}}{t}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$y(x)=c_{1}\\cos \\,x+c_{2}\\sin \\,x+\\cos \\,x\\,\\ln |\\cos \\,x|+x\\,\\sin \\,x$",
+       "$x(t)=c_{1}e^{t}+c_{2}te^{t}+te^{t}\\ln |t|$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the problem-solving strategy."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "To solve a nonhomogeneous linear second-order differential equation, first find the general solution to the complementary equation, then find a particular solution to the nonhomogeneous equation.",
+      [
+       {
+        "type": "p",
+        "text": "Let $y_{p}(x)$ be any particular solution to the nonhomogeneous linear differential equation"
+       },
+       {
+        "type": "math",
+        "tex": "a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x),"
+       },
+       {
+        "type": "p",
+        "text": "and let $c_{1}y_{1}(x)+c_{2}y_{2}(x)$ denote the general solution to the complementary equation. Then, the general solution to the nonhomogeneous equation is given by"
+       },
+       {
+        "type": "math",
+        "tex": "y(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x)+y_{p}(x)."
+       }
+      ],
+      "When $r(x)$ is a combination of polynomials, exponential functions, sines, and cosines, use the method of undetermined coefficients to find the particular solution. To use this method, assume a solution in the same form as $r(x),$ multiplying by *x* as necessary until the assumed solution is linearly independent of the general solution to the complementary equation. Then, substitute the assumed solution into the differential equation to find values for the coefficients.",
+      [
+       {
+        "type": "p",
+        "text": "When $r(x)$ is *not* a combination of polynomials, exponential functions, or sines and cosines, use the method of variation of parameters to find the particular solution. This method involves using Cramer’s rule or another suitable technique to find functions $u'(x)$ and $v'(x)$ satisfying"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}u'y_{1}+v'y_{2} & = & 0 \\\\ u'y_{1}{}'+v'y_{2}{}' & = & r(x).\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Then, $y_{p}(x)=u(x)y_{1}(x)+v(x)y_{2}(x)$ is a particular solution to the differential equation."
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Complementary equation**",
+       "$a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=0$"
+      ],
+      [
+       "**General solution to a nonhomogeneous linear differential equation**",
+       "$y(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x)+y_{p}(x)$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e54",
+   "number": 54,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$2y''-5y'-12y=6$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572516777",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e55",
+   "number": 55,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$3y''+y'-4y=8$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572516869",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{-4x/3}+c_{2}e^{x}-2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^(-4 x/3)+c_2 e^x-2"
+   }
+  },
+  {
+   "id": "e56",
+   "number": 56,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-6y'+5y=e^{-x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572290271",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e57",
+   "number": 57,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+16y=e^{-2x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572373530",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}\\cos \\,4x+c_{2}\\sin \\,4x+\\frac{1}{20}e^{-2x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 cos 4 x+c_2 sin 4 x+(1/20)e^(-2 x)"
+   }
+  },
+  {
+   "id": "e58",
+   "number": 58,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-4y=x^{2}+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572292352",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e59",
+   "number": 59,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-4y'+4y=8x^{2}+4x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572332661",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{2x}+c_{2}xe^{2x}+2x^{2}+5x+4$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^(2 x)+c_2 x e^(2 x)+2 x^2+5 x+4"
+   }
+  },
+  {
+   "id": "e60",
+   "number": 60,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-2y'-3y=\\sin \\,2x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572332769",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e61",
+   "number": 61,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+2y'+y=\\sin \\,x+\\cos \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572416737",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{-x}+c_{2}xe^{-x}+\\frac{1}{2}\\,\\sin \\,x-\\frac{1}{2}\\,\\cos \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^(-x)+c_2 x e^(-x)+(1/2) sin x-(1/2) cos x"
+   }
+  },
+  {
+   "id": "e62",
+   "number": 62,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+9y=e^{x}\\cos \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571652284",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e63",
+   "number": 63,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+y=3\\,\\sin \\,2x+x\\,\\cos \\,2x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572443463",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}\\cos \\,x+c_{2}\\sin \\,x-\\frac{1}{3}x\\,\\cos \\,2x-\\frac{5}{9}\\,\\sin \\,2x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 cos x+c_2 sin x-(1/3)x cos 2 x-(5/9) sin 2 x"
+   }
+  },
+  {
+   "id": "e64",
+   "number": 64,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+3y'-28y=10e^{4x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571673530",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e65",
+   "number": 65,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+10y'+25y=xe^{-5x}+4$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571673637",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following equations using the method of undetermined coefficients."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{-5x}+c_{2}xe^{-5x}+\\frac{1}{6}x^{3}e^{-5x}+\\frac{4}{25}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^(-5 x)+c_2 x e^(-5 x)+(1/6)x^3 e^(-5 x)+(4/25)"
+   }
+  },
+  {
+   "id": "e66",
+   "number": 66,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-y'-y=x+e^{-x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572604476",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems,"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the form for the particular solution $y_{p}(x)$ for the method of undetermined coefficients.",
+      "**[T]** Use a computer algebra system to find a particular solution to the given equation."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e67",
+   "number": 67,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-3y=x^{2}-4x+11$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571548589",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems,"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the form for the particular solution $y_{p}(x)$ for the method of undetermined coefficients.",
+      "**[T]** Use a computer algebra system to find a particular solution to the given equation."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $y_{p}(x)=Ax^{2}+Bx+C$\nb. $y_{p}(x)=-\\frac{1}{3}x^{2}+\\frac{4}{3}x-\\frac{35}{9}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e68",
+   "number": 68,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-y'-4y=e^{x}\\cos \\,3x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572425145",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems,"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the form for the particular solution $y_{p}(x)$ for the method of undetermined coefficients.",
+      "**[T]** Use a computer algebra system to find a particular solution to the given equation."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e69",
+   "number": 69,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$2y''-y'+y=(x^{2}-5x)e^{-x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572290176",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems,"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the form for the particular solution $y_{p}(x)$ for the method of undetermined coefficients.",
+      "**[T]** Use a computer algebra system to find a particular solution to the given equation."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $y_{p}(x)=(Ax^{2}+Bx+C)e^{-x}$\nb. $y_{p}(x)=\\left(\\frac{1}{4}x^{2}-\\frac{5}{8}x-\\frac{33}{32}\\right)e^{-x}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e70",
+   "number": 70,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4y''+5y'-2y=e^{2x}+x\\,\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572372023",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems,"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the form for the particular solution $y_{p}(x)$ for the method of undetermined coefficients.",
+      "**[T]** Use a computer algebra system to find a particular solution to the given equation."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e71",
+   "number": 71,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-y'-2y=x^{2}e^{x}\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572309595",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems,"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the form for the particular solution $y_{p}(x)$ for the method of undetermined coefficients.",
+      "**[T]** Use a computer algebra system to find a particular solution to the given equation."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $y_{p}(x)=(Ax^{2}+Bx+C)e^{x}\\cos \\,x$ $+(Dx^{2}+Ex+F)e^{x}\\sin \\,x$\nb. $y_{p}(x)=\\left(-\\frac{1}{10}x^{2}-\\frac{11}{25}x-\\frac{27}{250}\\right)e^{x}\\cos \\,x$ $+\\left(-\\frac{3}{10}x^{2}+\\frac{2}{25}x+\\frac{39}{250}\\right)e^{x}\\sin \\,x$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e72",
+   "number": 72,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+3y'-4y=2e^{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572368535",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the differential equation using either the method of undetermined coefficients or the variation of parameters."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e73",
+   "number": 73,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+2y'=e^{3x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572560214",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the differential equation using either the method of undetermined coefficients or the variation of parameters."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}+c_{2}e^{-2x}+\\frac{1}{15}e^{3x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1+c_2 e^(-2 x)+(1/15)e^(3 x)"
+   }
+  },
+  {
+   "id": "e74",
+   "number": 74,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+6y'+9y=e^{-x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572306886",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the differential equation using either the method of undetermined coefficients or the variation of parameters."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e75",
+   "number": 75,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+2y'-8y=6e^{2x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572306989",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the differential equation using either the method of undetermined coefficients or the variation of parameters."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{2x}+c_{2}e^{-4x}+xe^{2x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^(2 x)+c_2 e^(-4 x)+x e^(2 x)"
+   }
+  },
+  {
+   "id": "e76",
+   "number": 76,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4y''+y=2\\,\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571547443",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the differential equation using the method of variation of parameters."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e77",
+   "number": 77,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-9y=8x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572088761",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the differential equation using the method of variation of parameters."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{3x}+c_{2}e^{-3x}-\\frac{8x}{9}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^(3 x)+c_2 e^(-3 x)-((8 x)/9)"
+   }
+  },
+  {
+   "id": "e78",
+   "number": 78,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+y=\\sec \\,x,\\qquad 0<x<\\pi /2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572383719",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the differential equation using the method of variation of parameters."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e79",
+   "number": 79,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+4y=3\\,\\csc \\,2x,\\quad 0<x<\\pi /2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571600159",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the differential equation using the method of variation of parameters."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}\\cos \\,2x+c_{2}\\sin \\,2x-\\frac{3}{2}x\\,\\cos \\,2x+\\frac{3}{4}\\,\\sin \\,2x\\,\\ln \\,(\\sin \\,2x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 cos 2 x+c_2 sin 2 x-(3/2)x cos 2 x+(3/4) sin 2 x ln (sin 2 x)"
+   }
+  },
+  {
+   "id": "e80",
+   "number": 80,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-2y'+y=12e^{x},$ ${\\text{y}}_{p}(x)=6x^{2}e^{x},$ $y(0)=6,\\,\\,y'(0)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571781104",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the unique solution satisfying the differential equation and the initial conditions given, where $y_{p}(x)$ is the particular solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e81",
+   "number": 81,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-7y'=4xe^{7x},$ $y_{p}(x)=\\frac{2}{7}x^{2}e^{7x}-\\frac{4}{49}xe^{7x},$ $y(0)=-1,\\,\\,y'(0)=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572605368",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the unique solution satisfying the differential equation and the initial conditions given, where $y_{p}(x)$ is the particular solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-\\frac{347}{343}+\\frac{4}{343}e^{7x}+\\frac{2}{7}x^{2}e^{7x}-\\frac{4}{49}xe^{7x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-(347/343)+(4/343)e^(7 x)+(2/7)x^2 e^(7 x)-(4/49)x e^(7 x)"
+   }
+  },
+  {
+   "id": "e82",
+   "number": 82,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+y=\\cos \\,x-4\\,\\sin \\,x,$ $y_{p}(x)=2x\\,\\cos \\,x+\\frac{1}{2}x\\,\\sin \\,x,$ $y(0)=8,\\,\\,y'(0)=-4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571557112",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the unique solution satisfying the differential equation and the initial conditions given, where $y_{p}(x)$ is the particular solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e83",
+   "number": 83,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-5y'=e^{5x}+8e^{-5x},$ $y_{p}(x)=\\frac{1}{5}xe^{5x}+\\frac{4}{25}e^{-5x},$ $y(0)=-2,\\,\\,y'(0)=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572512708",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the unique solution satisfying the differential equation and the initial conditions given, where $y_{p}(x)$ is the particular solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-\\frac{57}{25}+\\frac{3}{25}e^{5x}+\\frac{1}{5}xe^{5x}+\\frac{4}{25}e^{-5x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-(57/25)+(3/25)e^(5 x)+(1/5)x e^(5 x)+(4/25)e^(-5 x)"
+   }
+  },
+  {
+   "id": "e84",
+   "number": 84,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}y''+2xy'-2y=3x,$ $y_{1}(x)=x,\\quad y_{2}(x)=x^{-2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572388390",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems, two linearly independent solutions—$y_{1}$ and $y_{2}$—are given that satisfy the corresponding homogeneous equation. Use the method of variation of parameters to find a particular solution to the given nonhomogeneous equation. Assume *x* > 0 in each exercise."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e85",
+   "number": 85,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}y''-2y=10x^{2}-1,$ $y_{1}(x)=x^{2},\\quad y_{2}(x)=x^{-1}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571640571",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems, two linearly independent solutions—$y_{1}$ and $y_{2}$—are given that satisfy the corresponding homogeneous equation. Use the method of variation of parameters to find a particular solution to the given nonhomogeneous equation. Assume *x* > 0 in each exercise."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y_{p}=\\frac{1}{2}+\\frac{10}{3}x^{2}\\ln \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)+(10/3)x^2 ln x"
+   }
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "General Solution to a Nonhomogeneous Equation",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Let $y_{p}(x)$ be any particular solution to the nonhomogeneous linear differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x)."
+    },
+    {
+     "type": "p",
+     "text": "Also, let $c_{1}y_{1}(x)+c_{2}y_{2}(x)$ denote the general solution to the complementary equation. Then, the general solution to the nonhomogeneous equation is given by"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x)+y_{p}(x)."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "To prove $y(x)$ is the general solution, we must first show that it solves the differential equation and, second, that any solution to the differential equation can be written in that form. Substituting $y(x)$ into the differential equation, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y & =a_{2}(x)(c_{1}y_{1}+c_{2}y_{2}+y_{p})\\text{″}+a_{1}(x)(c_{1}y_{1}+c_{2}y_{2}+y_{p})' \\\\ & \\qquad +a_{0}(x)(c_{1}y_{1}+c_{2}y_{2}+y_{p}) \\\\ & =[a_{2}(x)(c_{1}y_{1}+c_{2}y_{2})\\text{″}+a_{1}(x)(c_{1}y_{1}+c_{2}y_{2})'+a_{0}(x)(c_{1}y_{1}+c_{2}y_{2})] \\\\ & \\qquad +a_{2}(x)y_{p}\\text{″}+a_{1}(x)y_{p}{}'+a_{0}(x)y_{p} \\\\ & =0+r(x) \\\\ & =r(x).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "So $y(x)$ is a solution."
+    },
+    {
+     "type": "p",
+     "text": "Now, let $z(x)$ be any solution to $a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x).$ Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}a_{2}(x)(z-y_{p})\\text{″}+a_{1}(x)(z-y_{p})'+a_{0}(x)(z-y_{p}) & =(a_{2}(x)z''+a_{1}(x)z'+a_{0}(x)z) \\\\ & \\qquad -(a_{2}(x)y_{p}\\text{″}+a_{1}(x)y_{p}{}'+a_{0}(x)y_{p}) \\\\ & =r(x)-r(x) \\\\ & =0,\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "so $z(x)-y_{p}(x)$ is a solution to the complementary equation. But, $c_{1}y_{1}(x)+c_{2}y_{2}(x)$ is the general solution to the complementary equation, so there are constants $c_{1}$ and $c_{2}$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "z(x)-y_{p}(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x)."
+    },
+    {
+     "type": "p",
+     "text": "Hence, we see that $z(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x)+y_{p}(x).$"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Given that $y_{p}(x)=x$ is a particular solution to the differential equation $y''+y=x,$ write the general solution and check by verifying that the solution satisfies the equation."
+    },
+    {
+     "type": "p",
+     "text": "The complementary equation is $y''+y=0,$ which has the general solution $c_{1}\\cos \\,x+c_{2}\\sin \\,x.$ So, the general solution to the nonhomogeneous equation is"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=c_{1}\\cos \\,x+c_{2}\\sin \\,x+x."
+    },
+    {
+     "type": "p",
+     "text": "To verify that this is a solution, substitute it into the differential equation. We have"
+    },
+    {
+     "type": "math",
+     "tex": "y'(x)=-c_{1}\\sin \\,x+c_{2}\\cos \\,x+1\\,\\text{and}\\,y''(x)=-c_{1}\\cos \\,x-c_{2}\\sin \\,x."
+    },
+    {
+     "type": "p",
+     "text": "Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}y''(x)+y(x) & =-c_{1}\\cos \\,x-c_{2}\\sin \\,x+c_{1}\\cos \\,x+c_{2}\\sin \\,x+x \\\\ & =x.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "So, $y(x)$ is a solution to $y''+y=x.$"
+    },
+    {
+     "type": "p",
+     "text": "In the preceding section, we learned how to solve homogeneous equations with constant coefficients. Therefore, for nonhomogeneous equations of the form $ay''+by'+cy=r(x),$ we already know how to solve the complementary equation, and the problem boils down to finding a particular solution for the nonhomogeneous equation. We now examine two techniques for this: the method of undetermined coefficients and the method of variation of parameters."
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "complementary equation",
+   "meaning": "for the nonhomogeneous linear differential equation\n\n$a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x),$\n\nthe associated homogeneous equation, called the *complementary equation*, is\n\n$a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=0$"
+  },
+  {
+   "term": "method of undetermined coefficients",
+   "meaning": "a method that involves making a guess about the form of the particular solution, then solving for the coefficients in the guess"
+  },
+  {
+   "term": "method of variation of parameters",
+   "meaning": "a method that involves looking for particular solutions in the form $y_{p}(x)=u(x)y_{1}(x)+v(x)y_{2}(x),$ where $y_{1}$ and $y_{2}$ are linearly independent solutions to the complementary equations, and then solving a system of equations to find $u(x)$ and $v(x)$"
+  },
+  {
+   "term": "particular solution",
+   "meaning": "a solution $y_{p}(x)$ of a differential equation that contains no arbitrary constants"
+  }
+ ]
+}

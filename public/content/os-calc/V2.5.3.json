@@ -1,0 +1,2294 @@
+{
+ "schema": 1,
+ "id": "V2.5.3",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 5,
+ "section": 3,
+ "title": "The Divergence and Integral Tests",
+ "chapterTitle": "Sequences and Series",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53754",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/5-3-the-divergence-and-integral-tests",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §5.3 “The Divergence and Integral Tests”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use the divergence test to demonstrate that a series diverges.",
+  "Use the integral test to determine the convergence of a series.",
+  "Estimate the value of a series by finding bounds on its remainder term."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the previous section, we determined the convergence or divergence of several series by explicitly calculating the limit of the sequence of partial sums $\\{S_{k}\\}.$ In practice, explicitly calculating this limit can be difficult or impossible. Luckily, several tests exist that allow us to determine convergence or divergence for many types of series. In this section, we discuss two of these tests: the divergence test and the integral test. We will examine several other tests in the rest of this chapter and then summarize how and when to use them."
+    }
+   ],
+   "title": "The Divergence and Integral Tests"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A series $\\sum_{n=1}^{\\infty}a_{n}$ being convergent is equivalent to the convergence of the sequence of partial sums ($S_{k}$) as $k\\to \\infty .$"
+    },
+    {
+     "type": "p",
+     "text": "To verify this, notice that from the algebraic properties,"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{k\\to \\infty}a_{k}=\\lim_{k\\to \\infty}(S_{k}-S_{k-1})=\\lim_{k\\to \\infty}S_{k}-\\lim_{k\\to \\infty}S_{k-1}=S-S=0."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, if ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges, the $n\\text{th}$ term $a_{n}\\to 0$ as $n\\to \\infty .$ An important consequence of this fact is the following statement:"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{If}\\,a_{n}↛0\\,\\text{as}\\,n\\to \\infty ,{\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}\\,\\text{diverges}."
+    },
+    {
+     "type": "p",
+     "text": "This test is known as the **divergence test** because it provides a way of proving that a series diverges."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $\\lim_{n\\to \\infty}a_{n}=c\\ne 0$ or $\\lim_{n\\to \\infty}a_{n}$ does not exist, then the series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ diverges."
+      }
+     ],
+     "title": "Divergence Test"
+    }
+   ],
+   "title": "Divergence Test"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "It is important to note that the converse of this theorem is not true. That is, if $\\lim_{n\\to \\infty}a_{n}=0,$ we cannot make any conclusion about the convergence of ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}.$ For example, $\\lim_{n\\to \\infty}(1/n)=0,$ but the harmonic series $\\sum_{n=1}^{\\infty}1/n$ diverges. In this section and the remaining sections of this chapter, we show many more examples of such series. Consequently, although we can use the divergence test to show that a series diverges, we cannot use it to prove that a series converges. Specifically, if $a_{n}\\to 0,$ the divergence test is inconclusive."
+    }
+   ],
+   "title": "Divergence Test (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 5.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following series, apply the divergence test. If the divergence test proves that the series diverges, state so. Otherwise, indicate that the divergence test is inconclusive."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}\\frac{n}{3n-1}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{1}{n^{3}}$",
+      "$\\sum_{n=1}^{\\infty}e^{1/n^{2}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Since $n/(3n-1)\\to 1/3\\ne 0,$ by the divergence test, we can conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "\\sum_{n=1}^{\\infty}\\frac{n}{3n-1}"
+        },
+        {
+         "type": "p",
+         "text": "diverges."
+        }
+       ],
+       "Since $1/n^{3}\\to 0,$ the divergence test is inconclusive.",
+       [
+        {
+         "type": "p",
+         "text": "Since $e^{1/n^{2}}\\to 1\\ne 0,$ by the divergence test, the series"
+        },
+        {
+         "type": "math",
+         "tex": "\\sum_{n=1}^{\\infty}e^{1/n^{2}}"
+        },
+        {
+         "type": "p",
+         "text": "diverges."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Using the divergence test"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "What does the divergence test tell us about the series ${\\displaystyle \\sum_{n=1}^{\\infty}\\cos}(1/n^{2})\\text{?}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The series diverges."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Look at $\\lim_{n\\to \\infty}\\cos (1/n^{2}).$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the previous section, we proved that the harmonic series diverges by looking at the sequence of partial sums $\\{S_{k}\\}$ and showing that $S_{2^{k}}>1+k/2$ for all positive integers $k.$ In this section we use a different technique to prove the divergence of the harmonic series. This technique is important because it is used to prove the divergence or convergence of many other series. This test, called the **integral test**, compares an infinite sum to an improper integral. It is important to note that this test can only be applied when we are considering a series whose terms are all positive."
+    },
+    {
+     "type": "p",
+     "text": "To illustrate how the integral test works, use the harmonic series as an example. In Figure 5.11, we depict the harmonic series by sketching a sequence of rectangles with areas $1,1/2,1/3,1/4,\\dots$ along with the function $f(x)=1/x.$ From the graph, we see that"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{k}\\frac{1}{n}}=1+\\frac{1}{2}+\\frac{1}{3}+\\cdots +\\frac{1}{k}>{\\displaystyle \\int_{1}^{k+1}\\frac{1}{x}dx.}"
+    },
+    {
+     "type": "p",
+     "text": "Therefore, for each $k,$ the $k\\text{th}$ partial sum $S_{k}$ satisfies"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}={\\displaystyle \\sum_{n=1}^{k}\\frac{1}{n}}>{\\displaystyle \\int_{1}^{k+1}\\frac{1}{x}dx}=\\ln \\,x\\,|_{1}^{k+1}=\\ln (k+1)-\\ln (1)=\\ln (k+1)."
+    },
+    {
+     "type": "p",
+     "text": "Since $\\lim_{k\\to \\infty}\\ln (k+1)=\\infty ,$ we see that the sequence of partial sums $\\{S_{k}\\}$ is unbounded. Therefore, $\\{S_{k}\\}$ diverges, and, consequently, the series ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n}}$ also diverges."
+    }
+   ],
+   "title": "Integral Test"
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_03_001.webp",
+     "alt": "This is a graph in quadrant 1 of a decreasing concave up curve approaching the x axis – f(x) = 1/x. Five rectangles are drawn with base 1 over the interval [1, 6]. The height of each rectangle is determined by the value of the function at the left endpoint of the rectangle’s base. The areas for each are marked: 1, 1/2, 1/3, 1/4, and 1/5.",
+     "caption": "**Figure 5.11** The sum of the areas of the rectangles is greater than the area between the curve $f(x)=1/x$ and the $x$-axis for $x\\ge 1.$ Since the area bounded by the curve is infinite (as calculated by an improper integral), the sum of the areas of the rectangles is also infinite.",
+     "width": 325,
+     "height": 201
+    },
+    {
+     "type": "p",
+     "text": "Now consider the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{2}.$ We show how an integral can be used to prove that this series converges. In Figure 5.12, we sketch a sequence of rectangles with areas $1,1/2^{2},1/3^{2},\\dots$ along with the function $f(x)=1/x^{2}.$ From the graph we see that"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{k}\\frac{1}{n^{2}}}=1+\\frac{1}{2^{2}}+\\frac{1}{3^{2}}+\\cdots +\\frac{1}{k^{2}}<1+{\\displaystyle \\int_{1}^{k}\\frac{1}{x^{2}}dx}."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, for each $k,$ the $k\\text{th}$ partial sum $S_{k}$ satisfies"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}={\\displaystyle \\sum_{n=1}^{k}\\frac{1}{n^{2}}}<1+{\\displaystyle \\int_{1}^{k}\\frac{1}{x^{2}}dx}=1-\\frac{1}{x}|_{1}^{k}=1-\\frac{1}{k}+1=2-\\frac{1}{k}<2."
+    },
+    {
+     "type": "p",
+     "text": "We conclude that the sequence of partial sums $\\{S_{k}\\}$ is bounded. We also see that $\\{S_{k}\\}$ is an increasing sequence:"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}=S_{k-1}+\\frac{1}{k^{2}}\\,\\text{for}\\,k\\ge 2."
+    }
+   ],
+   "title": "Integral Test (continued)"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Since $\\{S_{k}\\}$ is increasing and bounded, by the Monotone Convergence Theorem, it converges. Therefore, the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{2}$ converges."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_03_004.webp",
+     "alt": "This is a graph in quadrant 1 of the decreasing concave up curve f(x) = 1/(x^2), which approaches the x axis. Rectangles of base 1 are drawn over the interval [0, 5]. The height of each rectangle is determined by the value of the function at the right endpoint of its base. The areas of each are marked: 1, 1/(2^2), 1/(3^2), 1/(4^2) and 1/(5^2).",
+     "caption": "**Figure 5.12** The sum of the areas of the rectangles is less than the sum of the area of the first rectangle and the area between the curve $f(x)=1/x^{2}$ and the $x$-axis for $x\\ge 1.$ Since the area bounded by the curve is finite, the sum of the areas of the rectangles is also finite.",
+     "width": 263,
+     "height": 278
+    },
+    {
+     "type": "p",
+     "text": "We can extend this idea to prove convergence or divergence for many different series. Suppose $\\sum_{n=1}^{\\infty}a_{n}$ is a series with positive terms $a_{n}$ such that there exists a continuous, positive, decreasing function $f$ where $f(n)=a_{n}$ for all positive integers. Then, as in Figure 5.13(a), for any integer $k,$ the $k\\text{th}$ partial sum $S_{k}$ satisfies"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}=a_{1}+a_{2}+a_{3}+\\cdots +a_{k}<a_{1}+{\\displaystyle \\int_{1}^{k}f}(x)dx<a_{1}+{\\displaystyle \\int_{1}^{\\infty}f}(x)dx."
+    }
+   ],
+   "title": "Integral Test (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Therefore, if ${\\displaystyle \\int_{1}^{\\infty}f(x)dx}$ converges, then the sequence of partial sums $\\{S_{k}\\}$ is bounded. Since $\\{S_{k}\\}$ is an increasing sequence, if it is also a bounded sequence, then by the Monotone Convergence Theorem, it converges. We conclude that if ${\\displaystyle \\int_{1}^{\\infty}f(x)dx}$ converges, then the series $\\sum_{n=1}^{\\infty}a_{n}$ also converges. On the other hand, from Figure 5.13(b), for any integer $k,$ the $k\\text{th}$ partial sum $S_{k}$ satisfies"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}=a_{1}+a_{2}+a_{3}+\\cdots +a_{k}>{\\displaystyle \\int_{1}^{k+1}f}(x)dx."
+    },
+    {
+     "type": "p",
+     "text": "If $\\lim_{k\\to \\infty}{\\displaystyle \\int_{1}^{k+1}f}(x)dx=\\infty ,$ then $\\{S_{k}\\}$ is an unbounded sequence and therefore diverges. As a result, the series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ also diverges. We conclude that if ${\\displaystyle \\int_{1}^{\\infty}f}(x)dx$ diverges, then ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ diverges."
+    }
+   ],
+   "title": "Integral Test (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_03_002.webp",
+     "alt": "This shows two graphs side by side of the same function y = f(x), a decreasing concave up curve approaching the x axis. Rectangles are drawn with base 1 over the intervals [0, 6] and [1, 6]. For the graph on the left, the height of each rectangle is determined by the value of the function at the right endpoint of its base. For the graph on the right, the height of each rectangle is determined by the value of the function at the left endpoint of its base. Areas a_1 through a_6 are marked in the graph on the left, and the same for a_1 to a_5 on the right.",
+     "caption": "**Figure 5.13** (a) If we can inscribe rectangles inside a region bounded by a curve $y=f(x)$ and the $x$-axis, and the area bounded by those curves for $x\\ge 1$ is finite, then the sum of the areas of the rectangles is also finite. (b) If a set of rectangles circumscribes the region bounded by $y=f(x)$ and the $x$ axis for $x\\ge 1$ and the region has infinite area, then the sum of the areas of the rectangles is also infinite.",
+     "width": 731,
+     "height": 313
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ is a series with positive terms $a_{n}.$ Suppose there exists a function $f$ and a positive integer $N$ such that the following three conditions are satisfied:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$f$ is continuous,",
+        "$f$ is decreasing, and",
+        [
+         {
+          "type": "p",
+          "text": "$f(n)=a_{n}$ for all integers $n\\ge N.$\n\nThen"
+         },
+         {
+          "type": "math",
+          "tex": "\\sum_{n=1}^{\\infty}a_{n}\\text{and}{\\displaystyle \\int_{N}^{\\infty}f(x)dx}"
+         },
+         {
+          "type": "p",
+          "text": "both converge or both diverge (see Figure 5.13)."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Integral Test"
+    }
+   ],
+   "title": "Integral Test (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Although convergence of ${\\displaystyle \\int_{N}^{\\infty}f(x)dx}$ implies convergence of the related series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}},$ it does not imply that the value of the integral and the series are the same. They may be different, and often are. For example,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}\\left(\\frac{1}{e}\\right)^{n}}=\\frac{1}{e}+\\left(\\frac{1}{e}\\right)^{2}+\\left(\\frac{1}{e}\\right)^{3}+\\cdots"
+    },
+    {
+     "type": "p",
+     "text": "is a geometric series with initial term $a=1/e$ and ratio $r=1/e,$ which converges to"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1/e}{1-(1/e)}=\\frac{1/e}{(e-1)/e}=\\frac{1}{e-1}."
+    },
+    {
+     "type": "p",
+     "text": "However, the related integral ${\\displaystyle \\int_{1}^{\\infty}(1/e)^{x}}dx$ satisfies"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{1}^{\\infty}\\left(\\frac{1}{e}\\right)^{x}}dx={\\displaystyle \\int_{1}^{\\infty}e^{-x}}dx=\\lim_{b\\to \\infty}{\\displaystyle \\int_{1}^{b}e^{-x}}dx=\\lim_{b\\to \\infty}-e^{-x}|_{1}^{b}=\\lim_{b\\to \\infty}[-e^{-b}+e^{-1}]=\\frac{1}{e}."
+    }
+   ],
+   "title": "Integral Test (continued)"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 5.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following series, use the integral test to determine whether the series converges or diverges. Assume that all conditions for the integral test are met."
+    },
+    {
+     "type": "list",
+     "items": [
+      "${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{3}$",
+      "$\\sum_{n=1}^{\\infty}1/\\sqrt{2n-1}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Compare"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{3}}}\\;\\text{and}\\,{\\displaystyle \\int_{1}^{\\infty}\\frac{1}{x^{3}}}dx."
+        },
+        {
+         "type": "p",
+         "text": "We have"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int_{1}^{\\infty}\\frac{1}{x^{3}}}dx=\\lim_{b\\to \\infty}{\\displaystyle \\int_{1}^{b}\\frac{1}{x^{3}}dx}=\\lim_{b\\to \\infty}\\left[-\\frac{1}{2x^{2}}|_{1}^{b}\\right]=\\lim_{b\\to \\infty}\\left[-\\frac{1}{2b^{2}}+\\frac{1}{2}\\right]=\\frac{1}{2}."
+        },
+        {
+         "type": "p",
+         "text": "Thus the integral ${\\displaystyle \\int_{1}^{\\infty}1}/x^{3}dx$ converges, and therefore so does the series"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{3}}}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Compare"
+        },
+        {
+         "type": "math",
+         "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{2n-1}}\\;\\text{and}\\,{\\displaystyle \\int_{1}^{\\infty}\\frac{1}{\\sqrt{2x-1}}dx}."
+        },
+        {
+         "type": "p",
+         "text": "Since"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}{\\displaystyle \\int_{1}^{\\infty}\\frac{1}{\\sqrt{2x-1}}dx} & =\\lim_{b\\to \\infty}{\\displaystyle \\int_{1}^{b}\\frac{1}{\\sqrt{2x-1}}dx=\\lim_{b\\to \\infty}\\sqrt{2x-1}|_{1}^{b}} \\\\ & =\\lim_{b\\to \\infty}[\\sqrt{2b-1}-1]=\\infty ,\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "the integral ${\\displaystyle \\int_{1}^{\\infty}1/\\sqrt{2x-1}\\,dx}$ diverges, and therefore"
+        },
+        {
+         "type": "math",
+         "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{2n-1}}"
+        },
+        {
+         "type": "p",
+         "text": "diverges."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Using the Integral Test"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the integral test to determine whether the series $\\sum_{n=1}^{\\infty}\\frac{n}{3n^{2}+1}$ converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The series diverges."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Compare to the integral ${\\displaystyle \\int_{1}^{\\infty}\\frac{x}{3x^{2}+1}dx}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The harmonic series $\\sum_{n=1}^{\\infty}1/n$ and the series $\\sum_{n=1}^{\\infty}1/n^{2}$ are both examples of a type of series called a *p*-series."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "For any real number $p,$ the series"
+      },
+      {
+       "type": "math",
+       "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}"
+      },
+      {
+       "type": "p",
+       "text": "is called a **p-series**."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "We know the *p*-series converges if $p=2$ and diverges if $p=1.$ What about other values of $p\\text{?}$ In general, it is difficult, if not impossible, to compute the exact value of most $p$-series. However, we can use the tests presented thus far to prove whether a $p$-series converges or diverges."
+    },
+    {
+     "type": "p",
+     "text": "If $p<0,$ then $1/n^{p}\\to \\infty ,$ and if $p=0,$ then $1/n^{p}\\to 1.$ Therefore, by the divergence test,"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}1/n^{p}\\,\\text{diverges if}\\,p\\le 0."
+    },
+    {
+     "type": "p",
+     "text": "If $p>0,$ then $f(x)=1/x^{p}$ is a positive, continuous, decreasing function. Therefore, for $p>0,$ we use the integral test, comparing"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}\\,\\text{and}\\,{\\displaystyle \\int_{1}^{\\infty}\\frac{1}{x^{p}}dx}."
+    },
+    {
+     "type": "p",
+     "text": "We have already considered the case when $p=1.$ Here we consider the case when $p>0,p\\ne 1.$ For this case,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{1}^{\\infty}\\frac{1}{x^{p}}dx=\\lim_{b\\to \\infty}{\\displaystyle \\int_{1}^{b}\\frac{1}{x^{p}}dx=\\lim_{b\\to \\infty}\\frac{1}{1-p}x^{1-p}|_{1}^{b}=\\lim_{b\\to \\infty}\\frac{1}{1-p}[b^{1-p}-1].}}"
+    },
+    {
+     "type": "p",
+     "text": "Because"
+    }
+   ],
+   "title": "The *p*-Series"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "b^{1-p}\\to 0\\,\\text{if}\\,p>1\\,\\text{and}\\,b^{1-p}\\to \\infty \\,\\text{if}\\,p<1,"
+    },
+    {
+     "type": "p",
+     "text": "we conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{1}^{\\infty}\\frac{1}{x^{p}}dx}=\\{\\begin{array}{c}\\frac{1}{p-1}\\,\\text{if}\\,p>1 \\\\ \\infty \\,\\text{if}\\,p\\le 1\\end{array}."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, $\\sum_{n=1}^{\\infty}1/n^{p}$ converges if $p>1$ and diverges if $0<p<1.$"
+    },
+    {
+     "type": "p",
+     "text": "In summary,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}}\\,\\{\\begin{array}{l}\\text{converges if}\\,p>1 \\\\ \\text{diverges if}\\,p\\le 1\\end{array}."
+    }
+   ],
+   "title": "The *p*-Series (continued)"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 5.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following series, determine whether it converges or diverges."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}\\frac{1}{n^{4}}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{1}{n^{2/3}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "This is a *p*-series with $p=4>1,$ so the series converges.",
+       "Since $p=2/3<1,$ the series diverges."
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Testing for Convergence of *p*-series"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Does the series $\\sum_{n=1}^{\\infty}\\frac{1}{n^{5/4}}$ converge or diverge?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The series converges."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "$p=5/4$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Suppose we know that a series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges and we want to estimate the sum of that series. Certainly we can approximate that sum using any finite sum ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ where $N$ is any positive integer. The question we address here is, for a convergent series $\\sum_{n=1}^{\\infty}a_{n},$ how good is the approximation $\\sum_{n=1}^{N}a_{n}\\text{?}$ More specifically, if we let"
+    },
+    {
+     "type": "math",
+     "tex": "R_{N}={\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}-{\\displaystyle \\sum_{n=1}^{N}a_{n}}"
+    },
+    {
+     "type": "p",
+     "text": "be the remainder when the sum of an infinite series is approximated by the $N\\text{th}$ partial sum, how large is $R_{N}\\text{?}$ For some types of series, we are able to use the ideas from the integral test to estimate $R_{N}.$"
+    }
+   ],
+   "title": "Estimating the Value of a Series"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose $\\sum_{n=1}^{\\infty}a_{n}$ is a convergent series with positive terms. Suppose there exists a function $f$ satisfying the following three conditions:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$f$ is continuous,",
+        "$f$ is decreasing, and",
+        "$f(n)=a_{n}$ for all integers $n\\ge 1.$"
+       ],
+       "ordered": true,
+       "style": "i"
+      },
+      {
+       "type": "p",
+       "text": "Let $S_{N}$ be the *N*th partial sum of $\\sum_{n=1}^{\\infty}a_{n}.$ For all positive integers $N,$"
+      },
+      {
+       "type": "math",
+       "tex": "S_{N}+{\\displaystyle \\int_{N+1}^{\\infty}f(x)dx<\\sum_{n=1}^{\\infty}a_{n}<S_{N}+{\\displaystyle \\int_{N}^{\\infty}f(x)dx}}."
+      },
+      {
+       "type": "p",
+       "text": "In other words, the remainder $R_{N}=\\sum_{n=1}^{\\infty}a_{n}-S_{N}=\\sum_{n=N+1}^{\\infty}a_{n}$ satisfies the following estimate:"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{N+1}^{\\infty}f(x)dx}<R_{N}<{\\displaystyle \\int_{N}^{\\infty}f(x)dx.}"
+      },
+      {
+       "type": "p",
+       "text": "This is known as the **remainder estimate**."
+      }
+     ],
+     "title": "Remainder Estimate from the Integral Test"
+    },
+    {
+     "type": "p",
+     "text": "We illustrate (see above) in Figure 5.14. In particular, by representing the remainder $R_{N}=a_{N+1}+a_{N+2}+a_{N+3}+\\cdots$ as the sum of areas of rectangles, we see that the area of those rectangles is bounded above by ${\\displaystyle \\int_{N}^{\\infty}f(x)dx}$ and bounded below by ${\\displaystyle \\int_{N+1}^{\\infty}f(x)dx}.$ In other words,"
+    },
+    {
+     "type": "math",
+     "tex": "R_{N}=a_{N+1}+a_{N+2}+a_{N+3}+\\cdots >{\\displaystyle \\int_{N+1}^{\\infty}f(x)dx}"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "R_{N}=a_{N+1}+a_{N+2}+a_{N+3}+\\cdots <{\\displaystyle \\int_{N}^{\\infty}f(x)dx}."
+    },
+    {
+     "type": "p",
+     "text": "We conclude that"
+    }
+   ],
+   "title": "Estimating the Value of a Series (continued)"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{N+1}^{\\infty}f(x)dx<R_{N}<{\\displaystyle \\int_{N}^{\\infty}f(x)dx}}."
+    },
+    {
+     "type": "p",
+     "text": "Since"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}a_{n}=S_{N}+R_{N},"
+    },
+    {
+     "type": "p",
+     "text": "where $S_{N}$ is the $N\\text{th}$ partial sum, we conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "S_{N}+{\\displaystyle \\int_{N+1}^{\\infty}f(x)dx<\\sum_{n=1}^{\\infty}a_{n}<S_{N}+{\\displaystyle \\int_{N}^{\\infty}f(x)dx}}."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_03_003_5_15.webp",
+     "alt": "This shows two graphs side by side of the same decreasing concave up function y = f(x) that approaches the x axis in quadrant 1. Rectangles are drawn with a base of 1 over the intervals N through N + 4. The heights of the rectangles in the first graph are determined by the value of the function at the right endpoints of the bases, and those in the second graph are determined by the value at the left endpoints of the bases. The areas of the rectangles are marked: a_(N + 1),  a_(N + 2), through a_(N + 4).",
+     "caption": "**Figure 5.14** Given a continuous, positive, decreasing function $f$ and a sequence of positive terms $a_{n}$ such that $a_{n}=f(n)$ for all positive integers $n,$ (a) the areas $a_{N+1}+a_{N+2}+a_{N+3}+\\cdots <{\\displaystyle \\int_{N}^{\\infty}f(x)dx},$ or (b) the areas $a_{N+1}+a_{N+2}+a_{N+3}+\\cdots >{\\displaystyle \\int_{N+1}^{\\infty}f(x)dx}.$ Therefore, the integral is either an overestimate or an underestimate of the error.",
+     "width": 731,
+     "height": 313
+    }
+   ],
+   "title": "Estimating the Value of a Series (continued)"
+  },
+  {
+   "id": "x21",
+   "kind": "example",
+   "label": "Example 5.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the series $\\sum_{n=1}^{\\infty}1/n^{3}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Calculate $S_{10}=\\sum_{n=1}^{10}1/n^{3}$ and estimate the error.",
+      "Determine the least value of $N$ necessary such that $S_{N}$ will estimate $\\sum_{n=1}^{\\infty}1/n^{3}$ to within $0.001.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Using a calculating utility, we have"
+        },
+        {
+         "type": "math",
+         "tex": "S_{10}=1+\\frac{1}{2^{3}}+\\frac{1}{3^{3}}+\\frac{1}{4^{3}}+\\cdots +\\frac{1}{10^{3}}\\approx 1.19753."
+        },
+        {
+         "type": "p",
+         "text": "By the remainder estimate, we know"
+        },
+        {
+         "type": "math",
+         "tex": "R_{N}<{\\displaystyle \\int_{N}^{\\infty}\\frac{1}{x^{3}}dx}."
+        },
+        {
+         "type": "p",
+         "text": "We have"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int_{10}^{\\infty}\\frac{1}{x^{3}}dx=\\lim_{b\\to \\infty}{\\displaystyle \\int_{10}^{b}\\frac{1}{x^{3}}dx=\\lim_{b\\to \\infty}[-\\frac{1}{2x^{2}}]_{N}^{b}=\\lim_{b\\to \\infty}\\left[-\\frac{1}{2b^{2}}+\\frac{1}{2N^{2}}\\right]=\\frac{1}{2N^{2}}.}}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, the error is $R_{10}<1/2(10)^{2}=0.005.$"
+        }
+       ],
+       "Find $N$ such that $R_{N}<0.001.$ In part a. we showed that $R_{N}<1/\\left(2N^{2}\\right).$ Therefore, the remainder $R_{N}<0.001$ as long as $1/\\left(2N^{2}\\right)<0.001.$ That is, we need $2N^{2}>1000.$ Solving this inequality for $N,$ we see that we need $N>22.36.$ To ensure that the remainder is within the desired amount, we need to round up to the nearest integer. Therefore, the minimum necessary value is $N=23.$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Estimating the Value of a Series"
+  },
+  {
+   "id": "c22",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For $\\sum_{n=1}^{\\infty}\\frac{1}{n^{4}},$ calculate $S_{5}$ and estimate the error $R_{5}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$S_{5}\\approx 1.09035,$ $R_{5}<0.00267$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the remainder estimate $R_{N}<{\\displaystyle \\int_{N}^{\\infty}1/x^{4}dx}.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "If $\\lim_{n\\to \\infty}a_{n}\\ne 0,$ then the series $\\sum_{n=1}^{\\infty}a_{n}$ diverges.",
+      "If $\\lim_{n\\to \\infty}a_{n}=0,$ the series $\\sum_{n=1}^{\\infty}a_{n}$ may converge or diverge.",
+      [
+       {
+        "type": "p",
+        "text": "If $\\sum_{n=1}^{\\infty}a_{n}$ is a series with positive terms $a_{n}$ and $f$ is a continuous, decreasing function such that $f(n)=a_{n}$ for all positive integers $n,$ then"
+       },
+       {
+        "type": "math",
+        "tex": "\\sum_{n=1}^{\\infty}a_{n}\\text{and}{\\displaystyle \\int_{1}^{\\infty}f(x)dx}"
+       },
+       {
+        "type": "p",
+        "text": "either both converge or both diverge. Furthermore, if $\\sum_{n=1}^{\\infty}a_{n}$ converges, then the $N\\text{th}$ partial sum approximation $S_{N}$ is accurate up to an error $R_{N}$ where ${\\displaystyle \\int_{N+1}^{\\infty}f(x)dx<R_{N}<{\\displaystyle \\int_{N}^{\\infty}f(x)dx}}.$"
+       }
+      ],
+      "The *p*-series $\\sum_{n=1}^{\\infty}1/n^{p}$ converges if $p>1$ and diverges if $p\\le 1.$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Divergence test**",
+       "$\\text{If}\\,a_{n}↛0\\,\\text{as}\\,n\\to \\infty ,{\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}\\,\\text{diverges}.$"
+      ],
+      [
+       "**p-series**",
+       "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}}\\{\\begin{array}{l}\\text{converges if}\\,p>1 \\\\ \\text{diverges if}\\,p\\le 1\\end{array}$"
+      ],
+      [
+       "**Remainder estimate from the integral test**",
+       "${\\displaystyle \\int_{N+1}^{\\infty}f(x)dx}<R_{N}<{\\displaystyle \\int_{N}^{\\infty}f(x)dx}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e138",
+   "number": 138,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{n}{n+2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738080412",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e139",
+   "number": 139,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{n}{5n^{2}-3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737168536",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}a_{n}=0.$ Divergence test does not apply."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e140",
+   "number": 140,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{n}{\\sqrt{3n^{2}+2n+1}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737233880",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e141",
+   "number": 141,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{(2n+1)(n-1)}{(n+1)^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737254368",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}a_{n}=2.$ Series diverges."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e142",
+   "number": 142,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{(2n+1)^{2n}}{(3n^{2}+1)^{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737299451",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e143",
+   "number": 143,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{2^{n}}{3^{n/2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737429525",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}a_{n}=\\infty$ (does not exist). Series diverges."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e144",
+   "number": 144,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{2^{n}+3^{n}}{10^{n/2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737297438",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e145",
+   "number": 145,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=e^{-2/n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738082449",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}a_{n}=1.$ Series diverges."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e146",
+   "number": 146,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\cos \\,n$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737360108",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e147",
+   "number": 147,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\tan \\,n$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737160756",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}a_{n}$ does not exist. Series diverges."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e148",
+   "number": 148,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{1-\\cos^{2}(1/n)}{\\sin^{2}(2/n)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737392447",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e149",
+   "number": 149,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\left(1-\\frac{1}{n}\\right)^{2n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737162782",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}a_{n}=1/e^{2}.$ Series diverges."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e150",
+   "number": 150,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{\\ln \\,n}{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737927659",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e151",
+   "number": 151,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{(\\ln \\,n)^{2}}{\\sqrt{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738166405",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following series, if the divergence test applies, either state that $\\lim_{n\\to \\infty}a_{n}$ does not exist or find $\\lim_{n\\to \\infty}a_{n}.$ If the divergence test does not apply, state why."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}a_{n}=0.$ Divergence test does not apply."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e152",
+   "number": 152,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738170083",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether the given $p$-series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e153",
+   "number": 153,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n\\sqrt{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738228514",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether the given $p$-series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Series converges, $p>1.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e154",
+   "number": 154,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt[3]{n^{2}}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737429972",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether the given $p$-series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e155",
+   "number": 155,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt[3]{n^{4}}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737930830",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether the given $p$-series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Series converges, $p=4/3>1.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e156",
+   "number": 156,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{n^{e}}{n^{\\pi}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738187717",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether the given $p$-series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e157",
+   "number": 157,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{n^{\\pi}}{n^{2e}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737433513",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether the given $p$-series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Series converges, $p=2e-\\pi >1.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e158",
+   "number": 158,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{n+5}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737162468",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the integral test to determine whether the following sums converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e159",
+   "number": 159,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt[3]{n+5}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737436180",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the integral test to determine whether the following sums converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Series diverges by comparison with ${\\displaystyle \\int_{1}^{\\infty}\\frac{dx}{(x+5)^{1/3}}}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e160",
+   "number": 160,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=2}^{\\infty}\\frac{1}{n\\,\\ln \\,n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738143698",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the integral test to determine whether the following sums converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e161",
+   "number": 161,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{n}{1+n^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737261994",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the integral test to determine whether the following sums converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Series diverges by comparison with ${\\displaystyle \\int_{1}^{\\infty}\\frac{x}{1+x^{2}}}dx.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e162",
+   "number": 162,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{e^{n}}{1+e^{2n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738165360",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the integral test to determine whether the following sums converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e163",
+   "number": 163,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{2n}{1+n^{4}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738080307",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the integral test to determine whether the following sums converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Series converges by comparison with ${\\displaystyle \\int_{1}^{\\infty}\\frac{2x}{1+x^{4}}}dx.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e164",
+   "number": 164,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=2}^{\\infty}\\frac{1}{n\\,\\ln^{2}n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737438535",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the integral test to determine whether the following sums converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e165",
+   "number": 165,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}2^{-\\ln \\,n}}$ (*Hint:* $2^{-\\ln \\,n}=1/n^{\\ln \\,2}$.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737144959",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Express the following sums as $p$-series and determine whether each converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2^{-\\ln \\,n}=1/n^{\\ln \\,2}.$ Since $\\ln \\,2<1,$ diverges by $p$-series."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e166",
+   "number": 166,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}3^{-\\ln \\,n}}$ (*Hint:* $3^{-\\ln \\,n}=1/n^{\\ln \\,3}$.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738234498",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Express the following sums as $p$-series and determine whether each converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e167",
+   "number": 167,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}n2^{-2\\,\\ln \\,n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738168162",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Express the following sums as $p$-series and determine whether each converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2^{-2\\,\\ln \\,n}=1/n^{2\\,\\ln \\,2}.$ Since $2\\,\\ln \\,2-1<1,$ diverges by $p$-series."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e168",
+   "number": 168,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}n3^{-2\\,\\ln \\,n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737438402",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Express the following sums as $p$-series and determine whether each converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e169",
+   "number": 169,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{1000}\\frac{1}{n^{2}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737438131",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the estimate $R_{N}\\le {\\displaystyle \\int_{N}^{\\infty}f}(t)dt$ to find a bound for the remainder $R_{N}={\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}-{\\displaystyle \\sum_{n=1}^{N}a_{n}}$ where $a_{n}=f(n).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{1000}\\le {\\displaystyle \\int_{1000}^{\\infty}\\frac{dt}{t^{2}}}=-\\frac{1}{t}|_{1000}^{\\infty}=0.001$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0.001"
+   }
+  },
+  {
+   "id": "e170",
+   "number": 170,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{1000}\\frac{1}{n^{3}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737269840",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the estimate $R_{N}\\le {\\displaystyle \\int_{N}^{\\infty}f}(t)dt$ to find a bound for the remainder $R_{N}={\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}-{\\displaystyle \\sum_{n=1}^{N}a_{n}}$ where $a_{n}=f(n).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e171",
+   "number": 171,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{1000}\\frac{1}{1+n^{2}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737432841",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the estimate $R_{N}\\le {\\displaystyle \\int_{N}^{\\infty}f}(t)dt$ to find a bound for the remainder $R_{N}={\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}-{\\displaystyle \\sum_{n=1}^{N}a_{n}}$ where $a_{n}=f(n).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{1000}\\le {\\displaystyle \\int_{1000}^{\\infty}\\frac{dt}{1+t^{2}}}=\\tan^{-1}\\infty -\\tan^{-1}(1000)=\\pi /2-\\tan^{-1}(1000)\\approx 0.000999$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0.000999"
+   }
+  },
+  {
+   "id": "e172",
+   "number": 172,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{100}n}/2^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737162209",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the estimate $R_{N}\\le {\\displaystyle \\int_{N}^{\\infty}f}(t)dt$ to find a bound for the remainder $R_{N}={\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}-{\\displaystyle \\sum_{n=1}^{N}a_{n}}$ where $a_{n}=f(n).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e173",
+   "number": 173,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{1}{n^{2}},$ error $<10^{-4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737201441",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the minimum value of $N$ such that the remainder estimate ${\\displaystyle \\int_{N+1}^{\\infty}f<R_{N}<}{\\displaystyle \\int_{N}^{\\infty}f}$ guarantees that ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ estimates ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}},$ accurate to within the given error."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{N}<{\\displaystyle \\int_{N}^{\\infty}\\frac{dx}{x^{2}}}=1/N,N>10^{4}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e174",
+   "number": 174,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{1}{n^{1.1}},$ error $<10^{-4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737201486",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the minimum value of $N$ such that the remainder estimate ${\\displaystyle \\int_{N+1}^{\\infty}f<R_{N}<}{\\displaystyle \\int_{N}^{\\infty}f}$ guarantees that ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ estimates ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}},$ accurate to within the given error."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e175",
+   "number": 175,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{1}{n^{1.01}},$ error $<10^{-4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738168100",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the minimum value of $N$ such that the remainder estimate ${\\displaystyle \\int_{N+1}^{\\infty}f<R_{N}<}{\\displaystyle \\int_{N}^{\\infty}f}$ guarantees that ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ estimates ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}},$ accurate to within the given error."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{N}<{\\displaystyle \\int_{N}^{\\infty}\\frac{dx}{x^{1.01}}}=100N^{-0.01},N>10^{600}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e176",
+   "number": 176,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{1}{n\\,\\ln^{2}n},$ error $<10^{-3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737269788",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the minimum value of $N$ such that the remainder estimate ${\\displaystyle \\int_{N+1}^{\\infty}f<R_{N}<}{\\displaystyle \\int_{N}^{\\infty}f}$ guarantees that ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ estimates ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}},$ accurate to within the given error."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e177",
+   "number": 177,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{1}{1+n^{2}},$ error $<10^{-3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738244386",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the minimum value of $N$ such that the remainder estimate ${\\displaystyle \\int_{N+1}^{\\infty}f<R_{N}<}{\\displaystyle \\int_{N}^{\\infty}f}$ guarantees that ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ estimates ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}},$ accurate to within the given error."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{N}<{\\displaystyle \\int_{N}^{\\infty}\\frac{dx}{1+x^{2}}}=\\pi /2-\\tan^{-1}(N),N>\\tan (\\pi /2-10^{-3})\\approx 1000$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e178",
+   "number": 178,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{1}{n^{11}},$ error $<10^{-4},$ ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{11}}}=1.000494\\dots$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738077695",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find a value of $N$ such that $R_{N}$ is smaller than the desired error. Compute the corresponding sum ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ and compare it to the given estimate of the infinite series."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e179",
+   "number": 179,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{1}{e^{n}},$ error $<10^{-5},$ ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{e^{n}}}=\\frac{1}{e-1}=0.581976\\dots$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737430087",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find a value of $N$ such that $R_{N}$ is smaller than the desired error. Compute the corresponding sum ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ and compare it to the given estimate of the infinite series."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{N}<{\\displaystyle \\int_{N}^{\\infty}\\frac{dx}{e^{x}}}=e^{-N},N>5\\,\\ln \\,(10),$ okay if $N=12;{\\displaystyle \\sum_{n=1}^{12}e^{-n}}=0.581973....$ Estimate agrees with $1/(e-1)$ to five decimal places."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e180",
+   "number": 180,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{n}{e^{n^{2}}},$ error $<10^{-5},$ ${\\displaystyle \\sum_{n=1}^{\\infty}n/e^{n^{2}}}=0.40488139857\\dots$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737394677",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find a value of $N$ such that $R_{N}$ is smaller than the desired error. Compute the corresponding sum ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ and compare it to the given estimate of the infinite series."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e181",
+   "number": 181,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=1/n^{4},$ error $<10^{-4},$ ${\\displaystyle \\sum_{n=1}^{\\infty}1/n^{4}}=\\pi^{4}/90=1.08232...$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738180622",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find a value of $N$ such that $R_{N}$ is smaller than the desired error. Compute the corresponding sum ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ and compare it to the given estimate of the infinite series."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{N}<\\int_{N}^{\\infty}dx/x^{4}=1/3N^{3},N>(10^{4}/3)^{1/3},$ okay if $N=15;$"
+     },
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\sum_{n=1}^{15}1/n^{4}}=1.08226\\dots .$ Estimate agrees with the sum to three decimal places."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e182",
+   "number": 182,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=1/n^{6},$ error $<10^{-6},$ ${\\displaystyle \\sum_{n=1}^{\\infty}1/n^{6}}=\\pi^{6}/945=1.01734306...,$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737428330",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find a value of $N$ such that $R_{N}$ is smaller than the desired error. Compute the corresponding sum ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ and compare it to the given estimate of the infinite series."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e183",
+   "number": 183,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the limit as $n\\to \\infty$ of $\\frac{1}{n}+\\frac{1}{n+1}+\\cdots +\\frac{1}{2n}.$ (*Hint:* Compare to ${\\displaystyle \\int_{n}^{2n}\\frac{1}{t}}dt.)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738078924",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find a value of $N$ such that $R_{N}$ is smaller than the desired error. Compute the corresponding sum ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ and compare it to the given estimate of the infinite series."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (2)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "ln (2)"
+   }
+  },
+  {
+   "id": "e184",
+   "number": 184,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the limit as $n\\to \\infty$ of $\\frac{1}{n}+\\frac{1}{n+1}+\\cdots +\\frac{1}{3n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737910260",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find a value of $N$ such that $R_{N}$ is smaller than the desired error. Compute the corresponding sum ${\\displaystyle \\sum_{n=1}^{N}a_{n}}$ and compare it to the given estimate of the infinite series."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e185",
+   "number": 185,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "In certain applications of probability, such as the so-called Watterson estimator for predicting mutation rates in population genetics, it is important to have an accurate estimate of the number $H_{k}=\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\cdots +\\frac{1}{k}\\right).$ Recall that $T_{k}=H_{k}-\\ln \\,k$ is decreasing. Compute $T=\\lim_{k\\to \\infty}T_{k}$ to four decimal places. (*Hint:* $\\frac{1}{k+1}<{\\displaystyle \\int_{k}^{k+1}\\frac{1}{x}}dx$.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737168073",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T=0.5772...$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e186",
+   "number": 186,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Complete sampling with replacement, sometimes called the **coupon collector’s problem**, is phrased as follows: Suppose you have $N$ unique items in a bin. At each step, an item is chosen at random, identified, and put back in the bin. The problem asks what is the expected number of steps $E(N)$ that it takes to draw each unique item at least once. It turns out that $E(N)=N$. $H_{N}=N\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\cdots +\\frac{1}{N}\\right)$. Find $E(N)$ for $N=10,20,\\text{and}\\,50$."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738139644",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e187",
+   "number": 187,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The simplest way to shuffle cards is to take the top card and insert it at a random place in the deck, called top random insertion, and then repeat. We will consider a deck to be randomly shuffled once enough top random insertions have been made that the card originally at the bottom has reached the top and then been randomly inserted. If the deck has $n$ cards, then the probability that the insertion will be below the card initially at the bottom (call this card $B)$ is $1/n.$ Thus the expected number of top random insertions before $B$ is no longer at the bottom is *n*. Once one card is below $B,$ there are two places below $B$ and the probability that a randomly inserted card will fall below $B$ is $2/n.$ The expected number of top random insertions before this happens is $n/2.$ The two cards below $B$ are now in random order. Continuing this way, find a formula for the expected number of top random insertions needed to consider the deck to be randomly shuffled."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738185026",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The expected number of random insertions to get $B$ to the top is $n+n/2+n/3+\\cdots +n/(n-1).$ Then one more insertion puts $B$ back in at random. Thus, the expected number of shuffles to randomize the deck is $n(1+1/2+\\cdots +1/n).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e188",
+   "number": 188,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose a scooter can travel $100$ km on a full tank of fuel. Assuming that fuel can be transferred from one scooter to another but can only be carried in the tank, present a procedure that will enable one of the scooters to travel $100H_{N}$ km, where $H_{N}=1+1/2+\\cdots +1/N.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737160562",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e189",
+   "number": 189,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that for the remainder estimate to apply on $[N,\\infty )$ it is sufficient that $f(x)$ be decreasing on $[N,\\infty ),$ but $f$ need not be decreasing on $[1,\\infty ).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737430223",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Set $b_{n}=a_{n+N}$ and $g(t)=f(t+N)$ such that $f$ is decreasing on $[t,\\infty ).$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e190",
+   "number": 190,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use the remainder estimate and integration by parts to approximate ${\\displaystyle \\sum_{n=1}^{\\infty}n/e^{n}}$ within an error smaller than $0.0001.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738233530",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e191",
+   "number": 191,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Does ${\\displaystyle \\sum_{n=2}^{\\infty}\\frac{1}{n(\\ln \\,n)^{p}}}$ converge if $p$ is large enough? If so, for which $p\\text{?}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738056360",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The series converges for $p>1$ by integral test using change of variable."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e192",
+   "number": 192,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Suppose a computer can sum one million terms per second of the divergent series ${\\displaystyle \\sum_{n=1}^{N}\\frac{1}{n}}.$ Use the integral test to approximate how many seconds it will take to add up enough terms for the partial sum to exceed $100.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737392267",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e193",
+   "number": 193,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A fast computer can sum one million terms per second of the divergent series ${\\displaystyle \\sum_{n=2}^{N}\\frac{1}{n\\,\\ln \\,n}}.$ Use the integral test to approximate how many seconds it will take to add up enough terms for the partial sum to exceed $100.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737214923",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The next few exercises are intended to give a sense of applications in which partial sums of the harmonic series arise."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$N=e^{e^{100}}\\approx e^{10^{43}}$ terms are needed."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "divergence test",
+   "meaning": "if $\\lim_{n\\to \\infty}a_{n}\\ne 0,$ then the series $\\sum_{n=1}^{\\infty}a_{n}$ diverges"
+  },
+  {
+   "term": "integral test",
+   "meaning": "for a series $\\sum_{n=1}^{\\infty}a_{n}$ with positive terms $a_{n},$ if there exists a continuous, decreasing function $f$ such that $f(n)=a_{n}$ for all positive integers $n,$ then\n\n$\\sum_{n=1}^{\\infty}a_{n}\\text{and}{\\displaystyle \\int_{1}^{\\infty}f(x)dx}$\n\neither both converge or both diverge"
+  },
+  {
+   "term": "p-series",
+   "meaning": "a series of the form $\\sum_{n=1}^{\\infty}1/n^{p}$"
+  },
+  {
+   "term": "remainder estimate",
+   "meaning": "for a series $\\sum_{n=1}^{\\infty}a_{n}$ with positive terms $a_{n}$ and a continuous, decreasing function $f$ such that $f(n)=a_{n}$ for all positive integers $n,$ the remainder $R_{N}=\\sum_{n=1}^{\\infty}a_{n}-\\sum_{n=1}^{N}a_{n}$ satisfies the following estimate:\n\n${\\displaystyle \\int_{N+1}^{\\infty}f(x)dx<R_{N}<}{\\displaystyle \\int_{N}^{\\infty}f(x)dx}$"
+  }
+ ]
+}

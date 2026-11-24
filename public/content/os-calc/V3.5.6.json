@@ -1,0 +1,3051 @@
+{
+ "schema": 1,
+ "id": "V3.5.6",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 5,
+ "section": 6,
+ "title": "Calculating Centers of Mass and Moments of Inertia",
+ "chapterTitle": "Multiple Integration",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53971",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/5-6-calculating-centers-of-mass-and-moments-of-inertia",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §5.6 “Calculating Centers of Mass and Moments of Inertia”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use double integrals to locate the center of mass of a two-dimensional object.",
+  "Use double integrals to find the moment of inertia of a two-dimensional object.",
+  "Use triple integrals to locate the center of mass of a three-dimensional object."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have already discussed a few applications of multiple integrals, such as finding areas, volumes, and the average value of a function over a bounded region. In this section we develop computational techniques for finding the center of mass and moments of inertia of several types of physical objects, using double integrals for a lamina (flat plate) and triple integrals for a three-dimensional object with variable density. The density is usually considered to be a constant number when the lamina or the object is homogeneous; that is, the object has uniform density."
+    }
+   ],
+   "title": "Calculating Centers of Mass and Moments of Inertia"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The center of mass is also known as the center of gravity if the object is in a uniform gravitational field. If the object has uniform density, the center of mass is the geometric center of the object, which is called the centroid. Figure 5.63 shows a point $P$ as the center of mass of a lamina. The lamina is perfectly balanced about its center of mass."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_001.webp",
+     "alt": "A surface is delicately balanced on a fine point.",
+     "caption": "**Figure 5.63** A lamina is perfectly balanced on a spindle if the lamina’s center of mass sits on the spindle.",
+     "width": 452,
+     "height": 233
+    },
+    {
+     "type": "p",
+     "text": "To find the coordinates of the center of mass $P(\\overline{x},\\overline{y})$ of a lamina, we need to find the moment $M_{x}$ of the lamina about the $x\\text{-axis}$ and the moment $M_{y}$ about the $y\\text{-axis}.$ We also need to find the mass $m$ of the lamina. Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\overline{x}=\\frac{M_{y}}{m}\\,\\text{and}\\,\\overline{y}=\\frac{M_{x}}{m}."
+    },
+    {
+     "type": "p",
+     "text": "Refer to Moments and Centers of Mass for the definitions and the methods of single integration to find the center of mass of a one-dimensional object (for example, a thin rod). We are going to use a similar idea here except that the object is a two-dimensional lamina and we use a double integral."
+    },
+    {
+     "type": "p",
+     "text": "If we allow a constant density function, then $\\overline{x}=\\frac{M_{y}}{m}\\,\\text{and}\\,\\overline{y}=\\frac{M_{x}}{m}$ give the *centroid* of the lamina."
+    }
+   ],
+   "title": "Center of Mass in Two Dimensions"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Suppose that the lamina occupies a region $R$ in the $xy\\text{-plane},$ and let $\\rho (x,y)$ be its density (in units of mass per unit area) at any point $(x,y).$ Hence, $\\rho (x,y)=\\lim_{\\text{Δ}A\\to 0}\\frac{\\text{Δ}m}{\\text{Δ}A},$ where $\\text{Δ}m$ and $\\text{Δ}A$ are the mass and area of a small rectangle containing the point $(x,y)$ and the limit is taken as the dimensions of the rectangle go to $0$ (see the following figure)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_002.webp",
+     "alt": "A lamina R is shown on the x y plane with a point (x, y) surrounded by a small rectangle marked Mass = Delta m and Area = Delta A.",
+     "caption": "**Figure 5.64** The density of a lamina at a point is the limit of its mass per area in a small rectangle about the point as the area goes to zero.",
+     "width": 454,
+     "height": 384
+    },
+    {
+     "type": "p",
+     "text": "Just as before, we divide the region $R$ into tiny rectangles $R_{ij}$ with area $\\text{Δ}A$ and choose $\\left(x_{ij}^{*},y_{ij}^{*}\\right)$ as sample points. Then the mass $m_{ij}$ of each $R_{ij}$ is equal to $\\rho \\left(x_{ij}^{*},y_{ij}^{*}\\right)\\text{Δ}A$ (Figure 5.65). Let $k$ and $l$ be the number of subintervals in $x$ and $y,$ respectively. Also, note that the shape might not always be rectangular but the limit works anyway, as seen in previous sections."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_003.webp",
+     "alt": "A lamina is shown on the x y plane with a point (x* sub ij, y* sub ij) surrounded by a small rectangle marked R sub ij.",
+     "caption": "**Figure 5.65** Subdividing the lamina into tiny rectangles $R_{ij},$ each containing a sample point $(x_{ij}^{*},y_{ij}^{*}).$",
+     "width": 454,
+     "height": 384
+    },
+    {
+     "type": "p",
+     "text": "Hence, the mass of the lamina is"
+    }
+   ],
+   "title": "Center of Mass in Two Dimensions (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "m=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}m_{ij}}}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\rho (x_{ij}^{*},y_{ij}^{*})\\text{Δ}A={\\displaystyle \\iint_{R}\\rho (x,y)dA}}}."
+    },
+    {
+     "type": "p",
+     "text": "Let’s see an example now of finding the total mass of a triangular lamina."
+    }
+   ],
+   "title": "Center of Mass in Two Dimensions (continued)"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 5.55",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider a triangular lamina $R$ with vertices $(0,0),(0,3),$ $(3,0)$ and with density $\\rho (x,y)=xy{\\,\\text{kg/m}}^{2}.$ Find the total mass."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "A sketch of the region $R$ is always helpful, as shown in the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_004.webp",
+      "alt": "A triangular lamina is shown on the x y plane bounded by the x and y axes and the line x + y = 3. The point (1, 1) is marked and is surrounded by a small squared marked d m = p(x, y) dA.",
+      "caption": "**Figure 5.66** A lamina in the $xy\\text{-plane}$ with density $\\rho (x,y)=xy.$",
+      "width": 417,
+      "height": 347
+     },
+     {
+      "type": "p",
+      "text": "Using the expression developed for mass, we see that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}m & ={\\displaystyle \\iint_{R}dm={\\displaystyle \\iint_{R}\\rho (x,y)}}dA={\\displaystyle \\int_{x=0}^{x=3}\\,{\\displaystyle \\int_{y=0}^{y=3-x}xy\\,dy\\,dx={\\displaystyle \\int_{x=0}^{x=3}\\left[x\\frac{y^{2}}{2}|_{y=0}^{y=3-x}\\right]}}}dx \\\\ & ={\\displaystyle \\int_{x=0}^{x=3}\\frac{1}{2}}x(3-x)^{2}dx=\\left[\\frac{9x^{2}}{4}-x^{3}+\\frac{x^{4}}{8}\\right]|_{x=0}^{x=3} \\\\ & =\\frac{27}{8}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The computation is straightforward, giving the answer $m=\\frac{27}{8}\\,\\text{kg}.$"
+     }
+    ]
+   },
+   "title": "Finding the Total Mass of a Lamina"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.33",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the same region $R$ as in the previous example, and use the density function $\\rho (x,y)=\\sqrt{xy}.$ Find the total mass. *Hint:* Use trigonometric substitution $\\sqrt{x}=\\sqrt{3}\\sin \\theta$ and then use the power reducing formulas for trigonometric functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{9\\pi}{8}\\,\\text{kg}$"
+     }
+    ]
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we have established the expression for mass, we have the tools we need for calculating moments and centers of mass. The moment $M_{x}$ about the $x\\text{-axis}$ for $R$ is the limit of the sums of moments of the regions $R_{ij}$ about the $x\\text{-axis}.$ Hence"
+    },
+    {
+     "type": "math",
+     "tex": "M_{x}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(y_{{}_{ij}}^{*}\\right)}}m_{ij}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(y_{{}_{ij}}^{*}\\right)}}\\rho \\left(x_{{}_{ij}}^{*},y_{{}_{ij}}^{*}\\right)\\text{Δ}A={\\displaystyle \\iint_{R}y\\rho (x,y)dA}."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, the moment $M_{y}$ about the $y\\text{-axis}$ for $R$ is the limit of the sums of moments of the regions $R_{ij}$ about the $y\\text{-axis}.$ Hence"
+    },
+    {
+     "type": "math",
+     "tex": "M_{y}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(x_{{}_{ij}}^{*}\\right)}}m_{ij}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(y_{{}_{ij}}^{*}\\right)}}\\rho \\left(x_{{}_{ij}}^{*},y_{{}_{ij}}^{*}\\right)\\text{Δ}A={\\displaystyle \\iint_{R}x\\rho (x,y)dA}."
+    }
+   ],
+   "title": "Center of Mass in Two Dimensions (continued)"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 5.56",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the same triangular lamina $R$ with vertices $(0,0),(0,3),\\,(3,0)$ and with density $\\rho (x,y)=xy.$ Find the moments $M_{x}$ and $M_{y}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use double integrals for each moment and compute their values:"
+     },
+     {
+      "type": "math",
+      "tex": "M_{x}={\\displaystyle \\iint_{R}y\\rho (x,y)dA={\\displaystyle \\int_{x=0}^{x=3}\\,{\\displaystyle \\int_{y=0}^{y=3-x}xy^{2}\\,dy\\,dx}}}=\\frac{81}{20},"
+     },
+     {
+      "type": "math",
+      "tex": "M_{y}={\\displaystyle \\iint_{R}x\\rho (x,y)dA={\\displaystyle \\int_{x=0}^{x=3}\\,{\\displaystyle \\int_{y=0}^{y=3-x}x^{2}\\,yd\\,y\\,dx}}}=\\frac{81}{20}."
+     },
+     {
+      "type": "p",
+      "text": "The computation is quite straightforward."
+     }
+    ]
+   },
+   "title": "Finding Moments"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.34",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the same lamina $R$ as above, and use the density function $\\rho (x,y)=\\sqrt{xy}.$ Find the moments $M_{x}$ and $M_{y}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$M_{x}=\\frac{81\\pi}{64}$ and $M_{y}=\\frac{81\\pi}{64}$"
+     }
+    ]
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Finally we are ready to restate the expressions for the center of mass in terms of integrals. We denote the *x*-coordinate of the center of mass by $\\overline{x}$ and the *y*-coordinate by $\\overline{y}.$ Specifically,"
+    },
+    {
+     "type": "math",
+     "tex": "\\overline{x}=\\frac{M_{y}}{m}=\\frac{{\\displaystyle \\iint_{R}x\\rho (x,y)dA}}{{\\displaystyle \\iint_{R}\\rho (x,y)dA}}\\;\\text{and}\\;\\overline{y}=\\frac{M_{x}}{m}\\,=\\frac{{\\displaystyle \\iint_{R}y\\rho (x,y)dA}}{{\\displaystyle \\iint_{R}\\rho (x,y)dA}}."
+    }
+   ],
+   "title": "Center of Mass in Two Dimensions (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 5.57",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Again consider the same triangular region $R$ with vertices $(0,0),(0,3),$ $(3,0)$ and with density function $\\rho (x,y)=xy.$ Find the center of mass."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using the formulas we developed, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\overline{x}=\\frac{M_{y}}{m}=\\frac{{\\displaystyle \\iint_{R}x\\rho (x,y)dA}}{{\\displaystyle \\iint_{R}\\rho (x,y)dA}}=\\frac{81/20}{27/8}=\\frac{6}{5},"
+     },
+     {
+      "type": "math",
+      "tex": "\\overline{y}=\\frac{M_{x}}{m}=\\frac{{\\displaystyle \\iint_{R}y\\rho (x,y)dA}}{{\\displaystyle \\iint_{R}\\rho (x,y)dA}}=\\frac{81/20}{27/8}=\\frac{6}{5}."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the center of mass is the point $\\left(\\frac{6}{5},\\frac{6}{5}\\right).$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "If we choose the density $\\rho (x,y)$ instead to be uniform throughout the region (i.e., constant), such as the value 1 (any constant will do), then we can compute the centroid,"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ \\\\ x_{c}=\\frac{M_{y}}{m}=\\frac{{\\displaystyle \\iint_{R}x\\,dA}}{{\\displaystyle \\iint_{R}dA}}=\\frac{9/2}{9/2}=1, \\\\ y_{c}=\\frac{M_{x}}{m}\\,=\\frac{{\\displaystyle \\iint_{R}y\\,dA}}{{\\displaystyle \\iint_{R}dA}}=\\frac{9/2}{9/2}=1.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Notice that the center of mass $\\left(\\frac{6}{5},\\frac{6}{5}\\right)$ is not exactly the same as the centroid $(1,1)$ of the triangular region. This is due to the variable density of $R.$ If the density is constant, then we just use $\\rho (x,y)=c$ (constant). This value cancels out from the formulas, so for a constant density, the center of mass coincides with the centroid of the lamina."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Finding the Center of Mass"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.35",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Again use the same region $R$ as above and the density function $\\rho (x,y)=\\sqrt{xy}.$ Find the center of mass."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\overline{x}=\\frac{M_{y}}{m}=\\frac{81\\pi /64}{9\\pi /8}=\\frac{9}{8}$ and $\\overline{y}=\\frac{M_{x}}{m}=\\frac{81\\pi /64}{9\\pi /8}=\\frac{9}{8}.$"
+     }
+    ]
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Once again, based on the comments at the end of Example 5.57, we have expressions for the centroid of a region on the plane:"
+    },
+    {
+     "type": "math",
+     "tex": "x_{c}=\\frac{M_{y}}{m}=\\frac{{\\displaystyle \\iint_{R}x\\,dA}}{{\\displaystyle \\iint_{R}dA}}\\,\\text{and}\\,y_{c}=\\frac{M_{x}}{m}\\,\\frac{{\\displaystyle \\iint_{R}y\\,dA}}{{\\displaystyle \\iint_{R}dA}}."
+    },
+    {
+     "type": "p",
+     "text": "We should use these formulas and verify the centroid of the triangular region $R$ referred to in the last three examples."
+    }
+   ],
+   "title": "Center of Mass in Two Dimensions (continued)"
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 5.58",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the mass, moments, and the center of mass of the lamina of density $\\rho (x,y)=x+y$ occupying the region $R$ under the curve $y=x^{2}$ in the interval $0\\le x\\le 2$ (see the following figure)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_005.webp",
+     "alt": "A lamina R is shown on the x y plane bounded by the x axis, the line x = 2, and the line y = x squared. The corners of the shape are (0, 0), (2, 0), and (2, 4).",
+     "caption": "**Figure 5.67** Locating the center of mass of a lamina $R$ with density $\\rho (x,y)=x+y.$",
+     "width": 342,
+     "height": 459
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First we compute the mass $m.$ We need to describe the region between the graph of $y=x^{2}$ and the vertical lines $x=0$ and $x=2:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}m & ={\\displaystyle \\iint_{R}dm}={\\displaystyle \\iint_{R}\\rho (x,y)dA={\\displaystyle \\int_{x=0}^{x=2}\\,{\\displaystyle \\int_{y=0}^{y=x^{2}}(x+y)dy\\,dx={\\displaystyle \\int_{x=0}^{x=2}\\left[xy+\\frac{y^{2}}{2}|_{y=0}^{y=x^{2}}\\right]}}}}dx \\\\ & ={\\displaystyle \\int_{x=0}^{x=2}\\left[x^{3}+\\frac{x^{4}}{2}\\right]}dx=\\left[\\frac{x^{4}}{4}+\\frac{x^{5}}{10}\\right]|_{x=0}^{x=2}=\\frac{36}{5}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Now compute the moments $M_{x}$ and $M_{y}:$"
+     },
+     {
+      "type": "math",
+      "tex": "M_{x}={\\displaystyle \\iint_{R}y\\rho (x,y)}dA={\\displaystyle \\int_{x=0}^{x=2}\\,{\\displaystyle \\int_{y=0}^{y=x^{2}}y(x+y)dy\\,dx=\\frac{80}{7}}},"
+     },
+     {
+      "type": "math",
+      "tex": "M_{y}={\\displaystyle \\iint_{R}x\\rho (x,y)}dA={\\displaystyle \\int_{x=0}^{x=2}\\,{\\displaystyle \\int_{y=0}^{y=x^{2}}x(x+y)dy\\,dx=\\frac{176}{15}}}."
+     },
+     {
+      "type": "p",
+      "text": "Finally, evaluate the center of mass,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ \\overline{x}=\\frac{M_{y}}{m}=\\frac{{\\displaystyle \\iint_{R}x\\rho (x,y)dA}}{{\\displaystyle \\iint_{R}\\rho (x,y)dA}}=\\frac{176/15}{36/5}=\\frac{44}{27}, \\\\ \\overline{y}=\\frac{M_{x}}{m}=\\frac{{\\displaystyle \\iint_{R}y\\rho (x,y)dA}}{{\\displaystyle \\iint_{R}\\rho (x,y)dA}}=\\frac{80/7}{36/5}=\\frac{100}{63}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Hence the center of mass is $(\\overline{x},\\overline{y})=\\left(\\frac{44}{27},\\frac{100}{63}\\right).$"
+     }
+    ]
+   },
+   "title": "Finding Mass, Moments, and Center of Mass"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the mass, moments, and the center of mass of the region between the curves $y=x$ and $y=x^{2}$ with the density function $\\rho (x,y)=x$ in the interval $0\\le x\\le 1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\overline{x}=\\frac{M_{y}}{m}=\\frac{1/20}{1/12}=\\frac{3}{5}$ and $\\overline{y}=\\frac{M_{x}}{m}=\\frac{1/24}{1/12}=\\frac{1}{2}$"
+     }
+    ]
+   }
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 5.59",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the centroid of the region under the curve $y=e^{x}$ over the interval $1\\le x\\le 3$ (see the following figure)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_006.webp",
+     "alt": "On the x y plane the curve y = e to the x is shown from x = 0 to x = 3 (3, e cubed). The points (1, 0) and (3, 0) are marked on the x axes. A dashed line rises from (1, 0) marked x = 1; similarly, a solid line rises from (3, 0) marked x = 3.",
+     "caption": "**Figure 5.68** Finding a centroid of a region below the curve $y=e^{x}.$",
+     "width": 379,
+     "height": 384
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To compute the centroid, we assume that the density function is constant and hence it cancels out:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ \\\\ x_{c}=\\frac{M_{y}}{m}=\\frac{{\\displaystyle \\iint_{R}x\\,dA}}{{\\displaystyle \\iint_{R}dA}}\\,\\text{and}\\,y_{c}=\\frac{M_{x}}{m}=\\frac{{\\displaystyle \\iint_{R}y\\,dA}}{{\\displaystyle \\iint_{R}dA}}, \\\\ x_{c}=\\frac{M_{y}}{m}=\\frac{{\\displaystyle \\iint_{R}x\\,dA}}{{\\displaystyle \\iint_{R}dA}}=\\frac{{\\displaystyle \\int_{x=1}^{x=3}\\,{\\displaystyle \\int_{y=0}^{y=e^{x}}x\\,dy\\,dx}}}{{\\displaystyle \\int_{x=1}^{x=3}\\,{\\displaystyle \\int_{y=0}^{y=e^{x}}dy\\,dx}}}=\\frac{{\\displaystyle \\int_{x=1}^{x=3}xe^{x}dx}}{{\\displaystyle \\int_{x=1}^{x=3}e^{x}dx}}=\\frac{2e^{3}}{e^{3}-e}=\\frac{2e^{2}}{e^{2}-1}, \\\\ y_{c}=\\frac{M_{x}}{m}=\\frac{{\\displaystyle \\iint_{R}y\\,dA}}{{\\displaystyle \\iint_{R}dA}}=\\frac{{\\displaystyle \\int_{x=1}^{x=3}\\,{\\displaystyle \\int_{y=0}^{y=e^{x}}y\\,dy\\,dx}}}{{\\displaystyle \\int_{x=1}^{x=3}\\,{\\displaystyle \\int_{y=0}^{y=e^{x}}dy\\,dx}}}=\\frac{{\\displaystyle \\int_{x=1}^{x=3}\\frac{e^{2x}}{2}dx}}{{\\displaystyle \\int_{x=1}^{x=3}e^{x}dx}}=\\frac{\\frac{1}{4}e^{2}(e^{4}-1)}{e(e^{2}-1)}=\\frac{1}{4}e(e^{2}+1).\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus the centroid of the region is"
+     },
+     {
+      "type": "math",
+      "tex": "(x_{c},y_{c})=\\left(\\frac{2e^{2}}{e^{2}-1},\\frac{1}{4}e(e^{2}+1)\\right)."
+     }
+    ]
+   },
+   "title": "Finding a Centroid"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.37",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the centroid of the region between the curves $y=x$ and $y=\\sqrt{x}$ with uniform density in the interval $0\\le x\\le 1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x_{c}=\\frac{M_{y}}{m}=\\frac{1/15}{1/6}=\\frac{2}{5}\\,\\text{and}\\,y_{c}=\\frac{M_{x}}{m}=\\frac{1/12}{1/6}=\\frac{1}{2}$"
+     }
+    ]
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For a clear understanding of how to calculate moments of inertia using double integrals, we need to go back to the general definition of moments and centers of mass in Section 6.6 of Volume 1. The moment of inertia of a particle of mass $m$ about an axis is $mr^{2},$ where $r$ is the distance of the particle from the axis. We can see from Figure 5.65 that the moment of inertia of the subrectangle $R_{ij}$ about the $x\\text{-axis}$ is $\\left(y_{ij}^{*}\\right)^{2}\\rho (x_{ij}^{*},y_{ij}^{*})\\text{Δ}A.$ Similarly, the moment of inertia of the subrectangle $R_{ij}$ about the $y\\text{-axis}$ is $\\left(x_{ij}^{*}\\right)^{2}\\rho (x_{ij}^{*},y_{ij}^{*})\\text{Δ}A.$ The moment of inertia is related to the rotation of the mass; specifically, it measures the tendency of the mass to resist a change in rotational motion about an axis."
+    },
+    {
+     "type": "p",
+     "text": "The moment of inertia $I_{x}$ about the $x\\text{-axis}$ for the region $R$ is the limit of the sum of moments of inertia of the regions $R_{ij}$ about the $x\\text{-axis}.$ Hence"
+    },
+    {
+     "type": "math",
+     "tex": "I_{x}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(y_{ij}^{*}\\right)}}^{2}m_{ij}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(y_{ij}^{*}\\right)}}^{2}\\rho \\left(x_{ij}^{*},y_{ij}^{*}\\right)\\text{Δ}A={\\displaystyle \\iint_{R}y^{2}\\rho (x,y)}dA."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, the moment of inertia $I_{y}$ about the $y\\text{-axis}$ for $R$ is the limit of the sum of moments of inertia of the regions $R_{ij}$ about the $y\\text{-axis}.$ Hence"
+    }
+   ],
+   "title": "Moments of Inertia"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "I_{y}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(x_{ij}^{*}\\right)}}^{2}m_{ij}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(x_{ij}^{*}\\right)}}^{2}\\rho \\left(x_{ij}^{*},y_{ij}^{*}\\right)\\text{Δ}A={\\displaystyle \\iint_{R}x^{2}\\rho (x,y)}dA."
+    },
+    {
+     "type": "p",
+     "text": "Sometimes, we need to find the moment of inertia of an object about the origin, which is known as the polar moment of inertia. We denote this by $I_{0}$ and obtain it by adding the moments of inertia $I_{x}$ and $I_{y}.$ Hence"
+    },
+    {
+     "type": "math",
+     "tex": "I_{0}=I_{x}+I_{y}={\\displaystyle \\iint_{R}(x^{2}+y^{2})}\\rho (x,y)dA."
+    },
+    {
+     "type": "p",
+     "text": "All these expressions can be written in polar coordinates by substituting $x=r\\,\\cos \\,\\theta ,$ $y=r\\,\\sin \\,\\theta ,$ and $dA=r\\,dr\\,d\\theta .$ For example, $I_{0}={\\displaystyle \\iint_{R}r^{2}\\rho (r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta )}dA.$"
+    }
+   ],
+   "title": "Moments of Inertia (continued)"
+  },
+  {
+   "id": "x20",
+   "kind": "example",
+   "label": "Example 5.60",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the triangular region $R$ with vertices $(0,0),(2,2),$ and $(2,0)$ and with density $\\rho (x,y)=xy$ as in previous examples. Find the moments of inertia."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using the expressions established above for the moments of inertia, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}I_{x} & = & {\\displaystyle \\iint_{R}y^{2}\\rho (x,y)}dA={\\displaystyle \\int_{x=0}^{x=2}\\,{\\displaystyle \\int_{y=0}^{y=x}xy^{3}dy\\,dx}}=\\frac{8}{3}, \\\\ I_{y} & = & {\\displaystyle \\iint_{R}x^{2}\\rho (x,y)}dA={\\displaystyle \\int_{x=0}^{x=2}\\,{\\displaystyle \\int_{y=0}^{y=x}x^{3}y\\,dy\\,dx}}=\\frac{16}{3}, \\\\ I_{0} & = & {\\displaystyle \\iint_{R}(x^{2}+y^{2})}\\rho (x,y)dA={\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{x}(x^{2}+y^{2})xy\\,dy\\,dx}} \\\\ & = & I_{x}+I_{y}=8.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding Moments of Inertia for a Triangular Lamina"
+  },
+  {
+   "id": "c21",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.38",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Again use the same region $R$ as above and the density function $\\rho (x,y)=\\sqrt{xy}.$ Find the moments of inertia."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$I_{x}={\\displaystyle \\int_{x=0}^{x=2}\\,{\\displaystyle \\int_{y=0}^{y=x}y^{2}\\sqrt{xy}\\,dy\\,dx}}=\\frac{64}{35}$ and $I_{y}={\\displaystyle \\int_{x=0}^{x=2}\\,{\\displaystyle \\int_{y=0}^{y=x}x^{2}\\sqrt{xy}\\,dy\\,dx}}=\\frac{64}{35}.$ Also, $I_{0}={\\displaystyle \\int_{x=0}^{x=2}\\,{\\displaystyle \\int_{y=0}^{y=x}(x^{2}+y^{2})\\sqrt{xy}\\,dy\\,dx}}=\\frac{128}{35}.$"
+     }
+    ]
+   }
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As mentioned earlier, the moment of inertia of a particle of mass $m$ about an axis is $mr^{2}$ where $r$ is the distance of the particle from the axis, also known as the **radius of gyration**."
+    },
+    {
+     "type": "p",
+     "text": "Hence the radii of gyration with respect to the $x\\text{-axis,}$ the $y\\text{-axis,}$ and the origin are"
+    },
+    {
+     "type": "math",
+     "tex": "R_{x}=\\sqrt{\\frac{I_{x}}{m}},R_{y}=\\sqrt{\\frac{I_{y}}{m}},\\text{and}\\,R_{0}=\\sqrt{\\frac{I_{0}}{m}},"
+    },
+    {
+     "type": "p",
+     "text": "respectively. In each case, the radius of gyration tells us how far (perpendicular distance) from the axis of rotation the entire mass of an object might be concentrated. The moments of an object are useful for finding information on the balance and torque of the object about an axis, but radii of gyration are used to describe the distribution of mass around its centroidal axis. There are many applications in engineering and physics. Sometimes it is necessary to find the radius of gyration, as in the next example."
+    }
+   ],
+   "title": "Moments of Inertia (continued)"
+  },
+  {
+   "id": "x23",
+   "kind": "example",
+   "label": "Example 5.61",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the same triangular lamina $R$ with vertices $(0,0),(2,2),$ and $(2,0)$ and with density $\\rho (x,y)=xy$ as in previous examples. Find the radii of gyration with respect to the $x\\text{-axis,}$ the $y\\text{-axis,}$ and the origin."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "If we compute the mass of this region we find that $m=2.$ We found the moments of inertia of this lamina in Example 5.58. From these data, the radii of gyration with respect to the $x\\text{-axis,}$ $y\\text{-axis,}$ and the origin are, respectively,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}R_{x} & = & \\sqrt{\\frac{I_{x}}{m}}=\\sqrt{\\frac{8/3}{2}}=\\sqrt{\\frac{8}{6}}=\\frac{2\\sqrt{3}}{3}, \\\\ R_{y} & = & \\sqrt{\\frac{I_{y}}{m}}=\\sqrt{\\frac{16/3}{2}}=\\sqrt{\\frac{8}{3}}=\\frac{2\\sqrt{6}}{3}, \\\\ R_{0} & = & \\sqrt{\\frac{I_{0}}{m}}=\\sqrt{\\frac{8}{2}}=\\sqrt{4}=2.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Radius of Gyration for a Triangular Lamina"
+  },
+  {
+   "id": "c24",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.39",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the same region $R$ from Example 5.61 and the density function $\\rho (x,y)=\\sqrt{xy}.$ Find the radii of gyration with respect to the $x\\text{-axis,}$ the $y\\text{-axis,}$ and the origin."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{x}=\\frac{6\\sqrt{35}}{35},$ $R_{y}=\\frac{6\\sqrt{35}}{35},$ and $R_{0}=\\frac{6\\sqrt{70}}{35}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps shown in the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "All the expressions of double integrals discussed so far can be modified to become triple integrals."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "If we have a solid object $Q$ with a density function $\\rho (x,y,z)$ at any point $(x,y,z)$ in space, then its mass is"
+      },
+      {
+       "type": "math",
+       "tex": "m={\\displaystyle \\iiint_{Q}\\rho (x,y,z)}dV."
+      },
+      {
+       "type": "p",
+       "text": "Its moments about the $xy\\text{-plane,}$ the $xz\\text{-plane,}$ and the $yz\\text{-plane}$ are"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{c}M_{xy}={\\displaystyle \\iiint_{Q}z\\rho (x,y,z)}dV,\\,M_{xz}={\\displaystyle \\iiint_{Q}y\\rho (x,y,z)}dV, \\\\ M_{yz}={\\displaystyle \\iiint_{Q}x\\rho (x,y,z)}dV.\\end{array}"
+      },
+      {
+       "type": "p",
+       "text": "If the center of mass of the object is the point $(\\overline{x},\\overline{y},\\overline{z}),$ then"
+      },
+      {
+       "type": "math",
+       "tex": "\\overline{x}=\\frac{M_{yz}}{m},\\,\\overline{y}=\\frac{M_{xz}}{m},\\overline{z}=\\frac{M_{xy}}{m}."
+      },
+      {
+       "type": "p",
+       "text": "Also, if the solid object is homogeneous (with constant density), then the center of mass becomes the centroid of the solid. Finally, the moments of inertia about the $yz\\text{-plane,}$ the $xz\\text{-plane,}$ and the $xy\\text{-plane}$ are"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{c} \\\\ I_{x}={\\displaystyle \\iiint_{Q}(y^{2}+z^{2})}\\rho (x,y,z)dV, \\\\ I_{y}={\\displaystyle \\iiint_{Q}(x^{2}+z^{2})}\\rho (x,y,z)dV, \\\\ I_{z}={\\displaystyle \\iiint_{Q}(x^{2}+y^{2})}\\rho (x,y,z)dV.\\end{array}"
+      }
+     ]
+    }
+   ],
+   "title": "Center of Mass and Moments of Inertia in Three Dimensions"
+  },
+  {
+   "id": "x26",
+   "kind": "example",
+   "label": "Example 5.62",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose that $Q$ is a solid region bounded by $x+2y+3z=6$ and the coordinate planes and has density $\\rho (x,y,z)=x^{2}yz.$ Find the total mass."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The region $Q$ is a tetrahedron (Figure 5.69) meeting the axes at the points $(6,0,0),(0,3,0),$ and $(0,0,2).$ To find the limits of integration, let $z=0$ in the slanted plane $z=\\frac{1}{3}(6-x-2y).$ Then for $x$ and $y$ find the projection of $Q$ onto the $xy\\text{-plane,}$ which is bounded by the axes and the line $x+2y=6.$ Hence the mass is"
+     },
+     {
+      "type": "math",
+      "tex": "m={\\displaystyle \\iiint_{Q}\\rho (x,y,z)dV={\\displaystyle \\int_{x=0}^{x=6}\\,{\\displaystyle \\int_{y=0}^{y=1/2(6-x)}\\,{\\displaystyle \\int_{z=0}^{z=1/3(6-x-2y)}x^{2}yz\\,dz\\,dy\\,dx=\\frac{108}{35}\\approx 3.086}}}}."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_007.webp",
+      "alt": "In x y z space, the solid Q is shown with corners (0, 0, 0), (0, 0, 2), (0, 3, 0), and (6, 0, 0). Alternatively, you could consider the solid as being bounded by the x y, x z, and y z planes and the plane x + 2y + 3z = 6, forming an irregular tetrahedron.",
+      "caption": "**Figure 5.69** Finding the mass of a three-dimensional solid $Q.$",
+      "width": 268,
+      "height": 309
+     }
+    ]
+   },
+   "title": "Finding the Mass of a Solid"
+  },
+  {
+   "id": "c27",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.40",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the same region $Q$ (Figure 5.69), and use the density function $\\rho (x,y,z)=xy^{2}z.$ Find the mass."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{54}{35}=1.543$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps in the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x28",
+   "kind": "example",
+   "label": "Example 5.63",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose $Q$ is a solid region bounded by the plane $x+2y+3z=6$ and the coordinate planes with density $\\rho (x,y,z)=x^{2}yz$ (see Figure 5.69). Find the center of mass using decimal approximation. Use the mass found in Example 5.62"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have used this tetrahedron before and know the limits of integration, so we can proceed to the computations right away. First, we need to find the moments about the $xy\\text{-plane,}$ the $xz\\text{-plane,}$ and the $yz\\text{-plane:}$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ M_{xy}={\\displaystyle \\iiint_{Q}z\\rho (x,y,z)}dV={\\displaystyle \\int_{x=0}^{x=6}\\,{\\displaystyle \\int_{y=0}^{y=1/2(6-x)}\\,{\\displaystyle \\int_{z=0}^{z=1/3(6-x-2y)}x^{2}yz^{2}dz\\,dy\\,dx=\\frac{54}{35}}}}\\approx 1.543, \\\\ M_{xz}={\\displaystyle \\iiint_{Q}y\\rho (x,y,z)}dV={\\displaystyle \\int_{x=0}^{x=6}\\,{\\displaystyle \\int_{y=0}^{y=1/2(6-x)}\\,{\\displaystyle \\int_{z=0}^{z=1/3(6-x-2y)}x^{2}y^{2}z\\,dz\\,dy\\,dx=\\frac{81}{35}}}}\\approx 2.314, \\\\ M_{yz}={\\displaystyle \\iiint_{Q}x\\rho (x,y,z)}dV={\\displaystyle \\int_{x=0}^{x=6}\\,{\\displaystyle \\int_{y=0}^{y=1/2(6-x)}\\,{\\displaystyle \\int_{z=0}^{z=1/3(6-x-2y)}x^{3}yz\\,dz\\,dy\\,dx=\\frac{243}{35}}}}\\approx 6.943.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Hence the center of mass is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ \\overline{x}=\\frac{M_{yz}}{m},\\overline{y}=\\frac{M_{xz}}{m},\\overline{z}=\\frac{M_{xy}}{m}, \\\\ \\overline{x}=\\frac{M_{yz}}{m}=\\frac{243/35}{108/35}=\\frac{243}{108}=2.25, \\\\ \\overline{y}=\\frac{M_{xz}}{m}=\\frac{81/35}{108/35}=\\frac{81}{108}=0.75, \\\\ \\overline{z}=\\frac{M_{xy}}{m}=\\frac{54/35}{108/35}=\\frac{54}{108}=0.5.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The center of mass for the tetrahedron $Q$ is the point $(2.25,0.75,0.5).$"
+     }
+    ]
+   },
+   "title": "Finding the Center of Mass of a Solid"
+  },
+  {
+   "id": "c29",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.41",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the same region $Q$ (Figure 5.69) and use the density function $\\rho (x,y,z)=xy^{2}z.$ Find the center of mass."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{3}{2},\\frac{9}{8},\\frac{1}{2}\\right)$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Check that $M_{xy}=\\frac{27}{35},$ $M_{xz}=\\frac{243}{140},$ and $M_{yz}=\\frac{81}{35}.$ Then use $m$ from a previous checkpoint question."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "((3/2), (9/8), (1/2))"
+   }
+  },
+  {
+   "id": "r30",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We conclude this section with an example of finding moments of inertia $I_{x},I_{y},$ and $I_{z}.$"
+    }
+   ],
+   "title": "Center of Mass and Moments of Inertia in Three Dimensions (continued)"
+  },
+  {
+   "id": "x31",
+   "kind": "example",
+   "label": "Example 5.64",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose that $Q$ is a solid region and is bounded by $x+2y+3z=6$ and the coordinate planes with density $\\rho (x,y,z)=x^{2}yz$ (see Figure 5.69). Find the moments of inertia of the tetrahedron $Q$ about the $yz\\text{-plane,}$ the $xz\\text{-plane,}$ and the $xy\\text{-plane}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Once again, we can almost immediately write the limits of integration and hence we can quickly proceed to evaluating the moments of inertia. Using the formula stated before, the moments of inertia of the tetrahedron $Q$ about the $xy\\text{-plane,}$ the $xz\\text{-plane,}$ and the $yz\\text{-plane}$ are"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ I_{x}={\\displaystyle \\iiint_{Q}(y^{2}+z^{2})\\rho (x,y,z)dV}, \\\\ I_{y}={\\displaystyle \\iiint_{Q}(x^{2}+z^{2})\\rho (x,y,z)dV},\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "I_{z}={\\displaystyle \\iiint_{Q}(x^{2}+y^{2})\\rho (x,y,z)dV}\\,\\text{with}\\,\\rho (x,y,z)=x^{2}yz."
+     },
+     {
+      "type": "p",
+      "text": "Proceeding with the computations, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ I_{x}={\\displaystyle \\iiint_{Q}(y^{2}+z^{2})x^{2}yz\\,dV}={\\displaystyle \\int_{x=0}^{x=6}\\,{\\displaystyle \\int_{y=0}^{y=\\frac{1}{2}(6-x)}\\,{\\displaystyle \\int_{z=0}^{z=\\frac{1}{3}(6-x-2y)}(y^{2}+z^{2})}}}x^{2}yz\\,dz\\,dy\\,dx=\\frac{117}{35}\\approx 3.343, \\\\ I_{y}={\\displaystyle \\iiint_{Q}(x^{2}+z^{2})x^{2}yz\\,dV}={\\displaystyle \\int_{x=0}^{x=6}\\,{\\displaystyle \\int_{y=0}^{y=\\frac{1}{2}(6-x)}\\,{\\displaystyle \\int_{z=0}^{z=\\frac{1}{3}(6-x-2y)}(x^{2}+z^{2})}}}x^{2}yz\\,dz\\,dy\\,dx=\\frac{684}{35}\\approx 19.543, \\\\ I_{z}={\\displaystyle \\iiint_{Q}(x^{2}+y^{2})x^{2}yz\\,dV}={\\displaystyle \\int_{x=0}^{x=6}\\,{\\displaystyle \\int_{y=0}^{y=\\frac{1}{2}(6-x)}\\,{\\displaystyle \\int_{z=0}^{z=\\frac{1}{3}(6-x-2y)}(x^{2}+y^{2})}}}x^{2}yz\\,dz\\,dy\\,dx=\\frac{729}{35}\\approx 20.829.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus, the moments of inertia of the tetrahedron $Q$ about the $yz\\text{-plane,}$ the $xz\\text{-plane,}$ and the $xy\\text{-plane}$ are $117/35,684/35,\\text{and}\\,729/35,$ respectively."
+     }
+    ]
+   },
+   "title": "Finding the Moments of Inertia of a Solid"
+  },
+  {
+   "id": "c32",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.42",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the same region $Q$ (Figure 5.69), and use the density function $\\rho (x,y,z)=xy^{2}z.$ Find the moments of inertia about the three coordinate planes."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The moments of inertia of the tetrahedron $Q$ about the $yz\\text{-plane,}$ the $xz\\text{-plane,}$ and the $xy\\text{-plane}$ are $99/35,36/7,\\text{and}\\,243/35,$ respectively."
+     }
+    ]
+   }
+  },
+  {
+   "id": "r33",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "p",
+     "text": "Finding the mass, center of mass, moments, and moments of inertia in double integrals:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "For a lamina $R$ with a density function $\\rho (x,y)$ at any point $(x,y)$ in the plane, the mass is $m={\\displaystyle \\iint_{R}\\rho (x,y)dA}.$",
+      [
+       {
+        "type": "p",
+        "text": "The moments about the $x\\text{-axis}$ and $y\\text{-axis}$ are"
+       },
+       {
+        "type": "math",
+        "tex": "M_{x}={\\displaystyle \\iint_{R}y\\rho (x,y)}dA\\,\\text{and}\\,M_{y}={\\displaystyle \\iint_{R}x\\rho (x,y)}dA."
+       }
+      ],
+      "The center of mass is given by $\\overline{x}=\\frac{M_{y}}{m},\\overline{y}=\\frac{M_{x}}{m}.$",
+      "The center of mass becomes the centroid of the plane when the density is constant.",
+      [
+       {
+        "type": "p",
+        "text": "The moments of inertia about the $x-\\text{axis,}$ $y-\\text{axis,}$ and the origin are"
+       },
+       {
+        "type": "math",
+        "tex": "I_{x}={\\displaystyle \\iint_{R}y^{2}\\rho (x,y)dA,}\\,\\,I_{y}={\\displaystyle \\iint_{R}x^{2}\\rho (x,y)dA,}\\,\\text{and}\\,I_{0}=I_{x}+I_{y}={\\displaystyle \\iint_{R}(x^{2}+y^{2})\\rho (x,y)dA.}"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Finding the mass, center of mass, moments, and moments of inertia in triple integrals:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "For a solid object $Q$ with a density function $\\rho (x,y,z)$ at any point $(x,y,z)$ in space, the mass is $m={\\displaystyle \\iiint_{Q}\\rho (x,y,z)dV}.$",
+      [
+       {
+        "type": "p",
+        "text": "The moments about the $xy\\text{-plane,}$ the $xz\\text{-plane,}$ and the $yz\\text{-plane}$ are"
+       },
+       {
+        "type": "math",
+        "tex": "M_{xy}={\\displaystyle \\iiint_{Q}z\\rho (x,y,z)dV},\\,M_{xz}={\\displaystyle \\iiint_{Q}y\\rho (x,y,z)dV},\\,M_{yz}={\\displaystyle \\iiint_{Q}x\\rho (x,y,z)dV}."
+       }
+      ],
+      "The center of mass is given by $\\overline{x}=\\frac{M_{yz}}{m},\\overline{y}=\\frac{M_{xz}}{m},\\overline{z}=\\frac{M_{xy}}{m}.$",
+      "The center of mass becomes the centroid of the solid when the density is constant.",
+      [
+       {
+        "type": "p",
+        "text": "The moments of inertia about the $yz\\text{-plane,}$ the $xz\\text{-plane,}$ and the $xy\\text{-plane}$ are"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{c} \\\\ I_{x}={\\displaystyle \\iiint_{Q}(y^{2}+z^{2})\\rho (x,y,z)dV,}I_{y}={\\displaystyle \\iiint_{Q}(x^{2}+z^{2})\\rho (x,y,z)dV,} \\\\ I_{z}={\\displaystyle \\iiint_{Q}(x^{2}+y^{2})\\rho (x,y,z)dV.}\\end{array}"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r34",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Mass of a lamina**",
+       "$m=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}m_{ij}}}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\rho (x_{ij}^{*},y_{ij}^{*})\\text{Δ}A={\\displaystyle \\iint_{R}\\rho (x,y)dA}}}$"
+      ],
+      [
+       "**Moment about the x-axis**",
+       "$M_{x}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(y_{ij}^{*}\\right)m_{ij}}}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(y_{ij}^{*}\\right)\\rho (x_{ij}^{*},y_{ij}^{*})\\text{Δ}A={\\displaystyle \\iint_{R}y\\rho (x,y)dA}}}$"
+      ],
+      [
+       "**Moment about the y-axis**",
+       "$M_{y}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(x_{ij}^{*}\\right)m_{ij}}}=\\lim_{k,l\\to \\infty}{\\displaystyle \\sum_{i=1}^{k}{\\displaystyle \\sum_{j=1}^{l}\\left(x_{ij}^{*}\\right)\\rho (x_{ij}^{*},y_{ij}^{*})\\text{Δ}A={\\displaystyle \\iint_{R}x\\rho (x,y)dA}}}$"
+      ],
+      [
+       "**Center of mass of a lamina**",
+       "$\\overline{x}=\\frac{M_{y}}{m}=\\frac{{\\displaystyle \\iint_{R}x\\rho (x,y)dA}}{{\\displaystyle \\iint_{R}\\rho (x,y)dA}}$ and $\\overline{y}=\\frac{M_{x}}{m}=\\frac{{\\displaystyle \\iint_{R}y\\rho (x,y)dA}}{{\\displaystyle \\iint_{R}\\rho (x,y)dA}}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the triangular region with vertices $(0,0),(0,3),$ and $(6,0);\\rho (x,y)=xy.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_201.webp",
+     "alt": "A right triangle bounded by the x and y axes and the line y = negative x/2 + 3.",
+     "width": 267,
+     "height": 165
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793632714",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{27}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(27/2)"
+   }
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the triangular region with vertices $(0,0),(1,1),$ $(0,5);\\rho (x,y)=x+y.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_202.webp",
+     "alt": "A triangle bounded by the y axis, the line x = y, and the line y = negative 4x + 5.",
+     "width": 229,
+     "height": 240
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793275045",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e299",
+   "number": 299,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the rectangular region with vertices $(0,0),(0,3),(6,3),$ and $(6,0);$ $\\rho (x,y)=\\sqrt{xy}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_203.webp",
+     "alt": "A rectangle bounded by the x and y axes and the lines x = 6 and y = 3.",
+     "width": 267,
+     "height": 165
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794058767",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$24\\sqrt{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "24 sqrt(2)"
+   }
+  },
+  {
+   "id": "e300",
+   "number": 300,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the rectangular region with vertices $(0,1),(0,3),(3,3),$ and $(3,1);$ $\\rho (x,y)=x^{2}y.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_204.webp",
+     "alt": "A rectangle bounded by the y axis, the lines y = 1 and 3, and the line x = 3.",
+     "width": 267,
+     "height": 353
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793941284",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e301",
+   "number": 301,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the trapezoidal region determined by the lines $y=-\\frac{1}{4}x+\\frac{5}{2},y=0,y=2,$ and $x=0;$ $\\rho (x,y)=3xy.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_205.webp",
+     "alt": "A trapezoid bounded by the x and y axes, the line y = 2, and the line y = negative x/4 + 2.5.",
+     "width": 417,
+     "height": 165
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793927637",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$76$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "76"
+   }
+  },
+  {
+   "id": "e302",
+   "number": 302,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the trapezoidal region determined by the lines $y=0,y=1,y=x,$ and $y=-x+3;\\rho (x,y)=2x+y.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_206.webp",
+     "alt": "A trapezoid bounded by the x axis, the line y = 1, the line y = x, and the line y = negative x + 3.",
+     "width": 276,
+     "height": 165
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793941341",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e303",
+   "number": 303,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the disk of radius $2$ centered at $(1,2);$ $\\rho (x,y)=x^{2}+y^{2}-2x-4y+5.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_207.webp",
+     "alt": "A circle with radius 2 centered at (1, 2), which is tangent to the x axis at (1, 0).",
+     "width": 342,
+     "height": 353
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793374994",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$8\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "8 pi"
+   }
+  },
+  {
+   "id": "e304",
+   "number": 304,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the unit disk; $\\rho (x,y)=3x^{4}+6x^{2}y^{2}+3y^{4}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_208.webp",
+     "alt": "A circle with radius 1 and center the origin.",
+     "width": 421,
+     "height": 422
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793618891",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e305",
+   "number": 305,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the region enclosed by the ellipse $x^{2}+4y^{2}=1;\\rho (x,y)=1.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_209.webp",
+     "alt": "An ellipse with center the origin, major axis 2, and minor axis 0.5.",
+     "width": 421,
+     "height": 272
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793422020",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/2)"
+   }
+  },
+  {
+   "id": "e306",
+   "number": 306,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R=\\{(x,y)|9x^{2}+y^{2}\\le 1,x\\ge 0,y\\ge 0\\};$ $\\rho (x,y)=\\sqrt{9x^{2}+y^{2}}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_210.webp",
+     "alt": "The quarter section of an ellipse in the first quadrant with center the origin, major axis 2, and minor axis roughly 0.64.",
+     "width": 314,
+     "height": 428
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793581658",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e307",
+   "number": 307,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the region bounded by $y=x,y=-x,y=x+2,y=-x+2;$ $\\rho (x,y)=1.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_211.webp",
+     "alt": "A square with side length square root of 2 rotated 45 degrees, with corners at the origin, (2, 0), (1, 1), and (negative 1, 1).",
+     "width": 342,
+     "height": 353
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793376192",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   }
+  },
+  {
+   "id": "e308",
+   "number": 308,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the region bounded by $y=\\frac{1}{x},y=\\frac{2}{x},y=1,$ and $y=2;\\rho (x,y)=4(x+y).$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_06_212.webp",
+     "alt": "A complex region between 2 and 1 that sweeps down and to the right with boundaries y = 1/x and y = 2/x.",
+     "width": 389,
+     "height": 278
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793927450",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the region $R$ occupied by a lamina is shown in a graph. Find the mass of $R$ with the density function $\\rho .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e309",
+   "number": 309,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the triangular region with vertices $(0,0),(0,3),$ and $(6,0);\\rho (x,y)=xy.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794076787",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $M_{x}=\\frac{81}{5},M_{y}=\\frac{162}{5};$ b. $\\overline{x}=\\frac{12}{5},\\overline{y}=\\frac{6}{5};$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_213.webp",
+      "alt": "A triangular region R bounded by the x and y axes and the line y = negative x/2 + 3, with a point marked at (12/5, 6/5).",
+      "width": 267,
+      "height": 165
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e310",
+   "number": 310,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the triangular region with vertices $(0,0),(1,1),\\text{and}\\,(0,5);\\rho (x,y)=x+y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793641939",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e311",
+   "number": 311,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the rectangular region with vertices $(0,0),(0,3),(6,3),\\text{and}\\,(6,0);$ $\\rho (x,y)=\\sqrt{xy}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793925024",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $M_{x}=\\frac{216\\sqrt{2}}{5},M_{y}=\\frac{432\\sqrt{2}}{5};$ b. $\\overline{x}=\\frac{18}{5},\\overline{y}=\\frac{9}{5};$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_215.webp",
+      "alt": "A rectangle R bounded by the x and y axes and the lines x = 6 and y = 3 with point marked (18/5, 9/5).",
+      "width": 267,
+      "height": 165
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e312",
+   "number": 312,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the rectangular region with vertices $(0,1),(0,3),(3,3),\\text{and}\\,(3,1);$ $\\rho (x,y)=x^{2}y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793618162",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e313",
+   "number": 313,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the trapezoidal region determined by the lines $y=-\\frac{1}{4}x+\\frac{5}{2},y=0,$ $y=2,\\text{and}\\,x=0;$ $\\rho (x,y)=3xy.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793640056",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $M_{x}=\\frac{368}{5},M_{y}=\\frac{1552}{5};$ b. $\\overline{x}=\\frac{388}{95},\\overline{y}=\\frac{92}{95};$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_217.webp",
+      "alt": "A trapezoid R bounded by the x and y axes, the line y = 2, and the line y = negative x/4 + 2.5 with the point marked (92/95, 388/95).",
+      "width": 417,
+      "height": 203
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e314",
+   "number": 314,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the trapezoidal region determined by the lines $y=0,y=1,y=x,$ and $y=-x+3;\\rho (x,y)=2x+y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793421230",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e315",
+   "number": 315,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the disk of radius $2$ centered at $(1,2);$ $\\rho (x,y)=x^{2}+y^{2}-2x-4y+5.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793499066",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $M_{x}=16\\pi ,M_{y}=8\\pi ;$ b. $\\overline{x}=1,\\overline{y}=2;$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_219.webp",
+      "alt": "A circle with radius 2 centered at (1, 2), which is tangent to the x axis at (1, 0) and has pointed marked at the center (1, 2).",
+      "width": 342,
+      "height": 353
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e316",
+   "number": 316,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the unit disk; $\\rho (x,y)=3x^{4}+6x^{2}y^{2}+3y^{4}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794076398",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e317",
+   "number": 317,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the region enclosed by the ellipse $x^{2}+4y^{2}=1;\\rho (x,y)=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794050677",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $M_{x}=0,M_{y}=0;$ b. $\\overline{x}=0,\\overline{y}=0;$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_221.webp",
+      "alt": "An ellipse R with center the origin, major axis 2, and minor axis 0.5, with point marked at the origin.",
+      "width": 421,
+      "height": 272
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e318",
+   "number": 318,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R=\\{(x,y)|9x^{2}+y^{2}\\le 1,x\\ge 0,y\\ge 0\\};$ $\\rho (x,y)=\\sqrt{9x^{2}+y^{2}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793580080",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e319",
+   "number": 319,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the region bounded by $y=x,y=-x,y=x+2,$ and $y=-x+2;$ $\\rho (x,y)=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793372519",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $M_{x}=2,M_{y}=0;$ b. $\\overline{x}=0,\\overline{y}=1;$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_223.webp",
+      "alt": "A square R with side length square root of 2 rotated 45 degrees, with corners at the origin, (2, 0), (1, 1), and (negative 1, 1). A point is marked at (0, 1).",
+      "width": 342,
+      "height": 353
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e320",
+   "number": 320,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $R$ is the region bounded by $y=\\frac{1}{x},$ $y=\\frac{2}{x},y=1,\\text{and}\\,y=2;$ $\\rho (x,y)=4(x+y).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793368848",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments $M_{x}$ and $M_{y}$ about the $x\\text{-axis}$ and $y\\text{-axis,}$ respectively.",
+      "Calculate and plot the center of mass of the lamina.",
+      "**[T]** Use a CAS to locate the center of mass on the graph of $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e321",
+   "number": 321,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the triangular region with vertices $(0,0),(0,3),$ and $(6,0);\\rho (x,y)=xy.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793275130",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $I_{x}=\\frac{243}{10},I_{y}=\\frac{486}{5},\\text{and}\\,I_{0}=\\frac{243}{2};$ b. $R_{x}=\\frac{3\\sqrt{5}}{5},R_{y}=\\frac{6\\sqrt{5}}{5},\\text{and}\\,R_{0}=3$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e322",
+   "number": 322,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the triangular region with vertices $(0,0),(1,1),$ and $(0,5);\\rho (x,y)=x+y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793454820",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e323",
+   "number": 323,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the rectangular region with vertices $(0,0),(0,3),(6,3),$ and $(6,0);\\rho (x,y)=\\sqrt{xy}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793960038",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $I_{x}=\\frac{648\\sqrt{2}}{7},I_{y}=\\frac{2592\\sqrt{2}}{7},\\text{and}\\,I_{0}=\\frac{3240\\sqrt{2}}{7};$ b. $R_{y}=\\frac{3\\sqrt{21}}{7},R_{x}=\\frac{6\\sqrt{21}}{7},\\text{and}\\,R_{0}=\\frac{3\\sqrt{105}}{7}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e324",
+   "number": 324,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the rectangular region with vertices $(0,1),(0,3),(3,3),$ and $(3,1);\\rho (x,y)=x^{2}y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929159",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e325",
+   "number": 325,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the trapezoidal region determined by the lines $y=-\\frac{1}{4}x+\\frac{5}{2},y=0,y=2,$ and $x=0;\\rho (x,y)=3xy.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793570742",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $I_{x}=88,I_{y}=1560,\\text{and}\\,I_{0}=1648;$ b. $R_{x}=\\frac{\\sqrt{418}}{19},R_{y}=\\frac{\\sqrt{7410}}{19},$ and $R_{0}=\\frac{2\\sqrt{1957}}{19}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e326",
+   "number": 326,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the trapezoidal region determined by the lines $y=0,y=1,y=x,$ and $y=-x+3;\\rho (x,y)=2x+y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793952148",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e327",
+   "number": 327,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the disk of radius $2$ centered at $(1,2);$ $\\rho (x,y)=x^{2}+y^{2}-2x-4y+5.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793911901",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $I_{x}=\\frac{128\\pi}{3},I_{y}=\\frac{56\\pi}{3},\\text{and}\\,I_{0}=\\frac{184\\pi}{3};$ b. $R_{x}=\\frac{4\\sqrt{3}}{3},R_{y}=\\frac{\\sqrt{21}}{3},$ and $R_{0}=\\frac{\\sqrt{69}}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e328",
+   "number": 328,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the unit disk; $\\rho (x,y)=3x^{4}+6x^{2}y^{2}+3y^{4}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793221722",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e329",
+   "number": 329,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the region enclosed by the ellipse $x^{2}+4y^{2}=1;\\rho (x,y)=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793547361",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $I_{x}=\\frac{\\pi}{32},I_{y}=\\frac{\\pi}{8},\\text{and}\\,I_{0}=\\frac{5\\pi}{32};$ b. $R_{x}=\\frac{1}{4},R_{y}=\\frac{1}{2},\\text{and}\\,R_{0}=\\frac{\\sqrt{5}}{4}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e330",
+   "number": 330,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R=\\{(x,y)|9x^{2}+y^{2}\\le 1,x\\ge 0,y\\ge 0\\};\\rho (x,y)=\\sqrt{9x^{2}+y^{2}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793421281",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e331",
+   "number": 331,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the region bounded by $y=x,y=-x,y=x+2,\\text{and}\\,y=-x+2;$ $\\rho (x,y)=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222520",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $I_{x}=\\frac{7}{3},I_{y}=\\frac{1}{3},\\text{and}\\,I_{0}=\\frac{8}{3};$ b. $R_{x}=\\frac{\\sqrt{42}}{6},R_{y}=\\frac{\\sqrt{6}}{6},\\text{and}\\,R_{0}=\\frac{2\\sqrt{3}}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e332",
+   "number": 332,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$R$ is the region bounded by $y=\\frac{1}{x},y=\\frac{2}{x},y=1,\\text{and}\\,y=2;\\rho (x,y)=4(x+y).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793637866",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e333",
+   "number": 333,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $Q$ be the solid unit cube. Find the mass of the solid if its density $\\rho$ is equal to the square of the distance of an arbitrary point of $Q$ to the $xy\\text{-plane}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794147243",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$m=\\frac{1}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "m=(1/3)"
+   }
+  },
+  {
+   "id": "e334",
+   "number": 334,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $Q$ be the solid unit hemisphere. Find the mass of the solid if its density $\\rho$ is equal to the distance of an arbitrary point of $Q$ to the origin."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793375453",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e335",
+   "number": 335,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $Q$ of constant density $1$ is situated inside the sphere $x^{2}+y^{2}+z^{2}=16$ and outside the sphere $x^{2}+y^{2}+z^{2}=1.$ Show that the center of mass of the solid is not located within the solid."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793375490",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e336",
+   "number": 336,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the mass of the solid $Q=\\{(x,y,z)|1\\le x^{2}+z^{2}\\le 25,y\\le 1-x^{2}-z^{2}\\}$ whose density is $\\rho (x,y,z)=k,$ where $k>0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793581977",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e337",
+   "number": 337,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The solid $Q=\\{(x,y,z)|x^{2}+y^{2}\\le 9,0\\le z\\le 1,x\\ge 0,y\\ge 0\\}$ has density equal to the distance to the $xy\\text{-plane}.$ Use a CAS to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the mass of $Q.$",
+      "Find the moments $M_{xy},M_{xz},\\text{and}\\,M_{yz}$ about the $xy\\text{-plane,}$ $xz\\text{-plane,}$ and $yz\\text{-plane,}$ respectively.",
+      "Find the center of mass of $Q.$",
+      "Graph $Q$ and locate its center of mass."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794204819",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $m=\\frac{9\\pi}{8};$ b. $M_{xy}=\\frac{3\\pi}{4},M_{xz}=\\frac{9}{2},M_{yz}=\\frac{9}{2};$ c. $\\overline{x}=\\frac{4}{\\pi},\\overline{y}=\\frac{4}{\\pi},\\overline{z}=\\frac{2}{3};$ d. the solid $Q$ and its center of mass are shown in the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_225.webp",
+      "alt": "A quarter cylinder in the first quadrant with height 1 and radius 3. A point is marked at (9/(2 pi), 9/(2 pi), 2/3).",
+      "width": 426,
+      "height": 382
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e338",
+   "number": 338,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider the solid $Q=\\{(x,y,z)|0\\le x\\le 1,0\\le y\\le 2,0\\le z\\le 3\\}$ with the density function $\\rho (x,y,z)=x+y+1.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the mass of $Q.$",
+      "Find the moments $M_{xy},M_{xz},\\text{and}\\,M_{yz}$ about the $xy\\text{-plane,}$ $xz\\text{-plane,}$ and $yz\\text{-plane,}$ respectively.",
+      "Find the center of mass of $Q.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793395464",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e339",
+   "number": 339,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The solid $Q$ has the mass given by the triple integral ${\\displaystyle \\int_{-1}^{1}\\,{\\displaystyle \\int_{0}^{\\frac{\\pi}{4}}\\,{\\displaystyle \\int_{0}^{1}r^{2}dr\\,d\\theta \\,dz}}}.$ Use a CAS to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Show that the center of mass of $Q$ is located in the $xy\\text{-plane.}$",
+      "Graph $Q$ and locate its center of mass."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793372919",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\overline{x}=\\frac{3\\sqrt{2}}{2\\pi},\\overline{y}=\\frac{3(2-\\sqrt{2})}{2\\pi},\\overline{z}=0;$ b. the solid $Q$ and its center of mass are shown in the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_06_226.webp",
+      "alt": "A wedge from a cylinder in the first quadrant with height 2, radius 1, and angle roughly 45 degrees. A point is marked at (3 times the square root of 2/(2 pi), 3 times (2 minus the square root of 2)/(2 pi), 0).",
+      "width": 446,
+      "height": 405
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e340",
+   "number": 340,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $Q$ is bounded by the planes $x+4y+z=8,x=0,y=0,\\text{and}\\,z=0.$ Its density at any point is equal to the distance to the $xz\\text{-plane}.$ Find the moment of inertia $I_{y}$ of the solid about the $xz\\text{-plane}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794210533",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e341",
+   "number": 341,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $Q$ is bounded by the planes $x+y+z=3,$ $x=0,y=0,$ and $z=0.$ Its density is $\\rho (x,y,z)=x+ay,$ where $a>0.$ Show that the center of mass of the solid is located in the plane $z=\\frac{3}{5}$ for any value of $a.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793571543",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e342",
+   "number": 342,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $Q$ be the solid situated outside the sphere $x^{2}+y^{2}+z^{2}=z$ and inside the upper hemisphere $x^{2}+y^{2}+z^{2}=R^{2},$ where $R>1.$ If the density of the solid is $\\rho (x,y,z)=\\frac{1}{\\sqrt{x^{2}+y^{2}+z^{2}}},$ find $R$ such that the mass of the solid is $\\frac{7\\pi}{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793925221",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e343",
+   "number": 343,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The mass of a solid $Q$ is given by ${\\displaystyle \\int_{0}^{2\\sqrt{2}}\\,{\\displaystyle \\int_{0}^{\\sqrt{8-x^{2}}}\\,{\\displaystyle \\int_{\\sqrt{x^{2}+y^{2}}}^{\\sqrt{16-x^{2}-y^{2}}}(x^{2}+y^{2}+z^{2})^{n}}}}dz\\,dy\\,dx,$ where $n$ is an integer. Determine $n$ such that the mass of the solid is $(2-\\sqrt{2})\\pi .$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793638386",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$n=-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "list",
+    "value": "-1"
+   }
+  },
+  {
+   "id": "e344",
+   "number": 344,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $Q$ be the solid above the cone $x^{2}+y^{2}=z^{2}$ and below the sphere $x^{2}+y^{2}+z^{2}-4kz=0.$ Its density is a constant $k>0.$ Find $k$ such that the center of mass of the solid is situated $7$ units from the origin."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793428903",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e345",
+   "number": 345,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $Q=\\{(x,y,z)|0\\le x^{2}+y^{2}\\le 16,x\\ge 0,y\\ge 0,0\\le z\\le x\\}$ has the density $\\rho (x,y,z)=k.$ Show that the moment $M_{xy}$ about the $xy\\text{-plane}$ is half of the moment $M_{yz}$ about the $yz\\text{-plane}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793502346",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e346",
+   "number": 346,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $Q$ is bounded by the cylinder $x^{2}+y^{2}=a^{2},$ the paraboloid $b^{2}-z=x^{2}+y^{2},$ and the $xy\\text{-plane,}$ where $0<a<b.$ Find the mass of the solid if its density is given by $\\rho (x,y,z)=\\sqrt{x^{2}+y^{2}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793393629",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e347",
+   "number": 347,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $Q$ be a solid of constant density $k,$ where $k>0,$ that is located in the first octant, inside the circular cone $x^{2}+y^{2}=9(z-1)^{2},$ and above the plane $z=0.$ Show that the moment $M_{xy}$ about the $xy\\text{-plane}$ is the same as the moment $M_{yz}$ about the $yz\\text{-plane}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793553734",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e348",
+   "number": 348,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $Q$ has the mass given by the triple integral ${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{r^{2}}(r^{4}+r)}}}dz\\,d\\theta \\,dr.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the density of the solid in rectangular coordinates.",
+      "Find the moment $M_{xy}$ about the $xy\\text{-plane}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793938007",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e349",
+   "number": 349,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $Q$ has the moment of inertia $I_{x}$ about the $yz\\text{-plane}$ given by the triple integral ${\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{-\\sqrt{4-y^{2}}}^{\\sqrt{4-y^{2}}}\\,{\\displaystyle \\int_{\\frac{1}{2}(x^{2}+y^{2})}^{\\sqrt{x^{2}+y^{2}}}(y^{2}+z^{2})}}}(x^{2}+y^{2})dz\\,dx\\,dy.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the density of $Q.$",
+      "Find the moment of inertia $I_{z}$ about the $xy\\text{-plane.}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793379980",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\rho (x,y,z)=x^{2}+y^{2};$ b. $\\frac{16\\pi}{7}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e350",
+   "number": 350,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $Q$ has the mass given by the triple integral ${\\displaystyle \\int_{0}^{\\pi /4}\\,{\\displaystyle \\int_{0}^{2\\,\\sec \\,\\theta}\\,{\\displaystyle \\int_{0}^{1}(r^{3}\\cos \\,\\theta \\,\\sin \\,\\theta +2r)}}}dz\\,dr\\,d\\theta .$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the density of the solid in rectangular coordinates.",
+      "Find the moment $M_{xz}$ about the $xz\\text{-plane.}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793571458",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e351",
+   "number": 351,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $Q$ be the solid bounded by the $xy\\text{-plane},$ the cylinder $x^{2}+y^{2}=a^{2},$ and the plane $z=1,$ where $a>1$ is a real number. Find the moment $M_{xy}$ of the solid about the $xy\\text{-plane}$ if its density given in cylindrical coordinates is $\\rho (r,\\theta ,z)=\\frac{d^{2}f}{dr^{2}}(r),$ where $f$ is a differentiable function with the first and second derivatives continuous and differentiable on $(0,a).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167791544431",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$M_{xy}=\\pi (f(0)-f(a)+af'(a))$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "pi (f(0)-f(a)+a f'(a))"
+   }
+  },
+  {
+   "id": "e352",
+   "number": 352,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A solid $Q$ has a volume given by ${\\displaystyle \\iint_{D}{\\displaystyle \\int_{a}^{b}dz\\,dA,}}$ where $D$ is the projection of the solid onto the $xy\\text{-plane}$ and $a<b$ are real numbers, and its density does not depend on the variable $z.$ Show that its center of mass lies in the plane $z=\\frac{a+b}{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793432368",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e353",
+   "number": 353,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider the solid enclosed by the cylinder $x^{2}+z^{2}=a^{2}$ and the planes $y=b$ and $y=c,$ where $a>0$ and $b<c$ are real numbers. The density of $Q$ is given by $\\rho (x,y,z)=f'(y),$ where $f$ is a differential function whose derivative is continuous on $(b,c).$ Show that if $f(b)=f(c),$ then the moment of inertia about the $xz\\text{-plane}$ of $Q$ is null."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794336028",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e354",
+   "number": 354,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The average density of a solid $Q$ is defined as $\\rho_{ave}=\\frac{1}{V(Q)}{\\displaystyle \\iiint_{Q}\\rho (x,y,z)}dV=\\frac{m}{V(Q)},$ where $V(Q)$ and $m$ are the volume and the mass of $Q,$ respectively. If the density of the unit ball centered at the origin is $\\rho (x,y,z)=e^{-x^{2}-y^{2}-z^{2}},$ use a CAS to find its average density. Round your answer to three decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794246458",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e355",
+   "number": 355,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the moments of inertia $I_{x},I_{y},\\text{and}\\,I_{z}$ about the $yz\\text{-plane,}$ $xz\\text{-plane,}$ and $xy\\text{-plane,}$ respectively, of the unit ball centered at the origin whose density is $\\rho (x,y,z)=e^{-x^{2}-y^{2}-z^{2}}$ are the same. Round your answer to two decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794067739",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider a lamina occupying the region $R$ and having the density function $\\rho$ given in the first two groups of Exercises."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the moments of inertia $I_{x},I_{y},$ and $I_{0}$ about the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively.",
+      "Find the radii of gyration with respect to the $x\\text{-axis},$ $y\\text{-axis},$ and origin, respectively."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$I_{x}=I_{y}=I_{z}≃0.84$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "radius of gyration",
+   "meaning": "the distance between the rotational axis of the object and the point where the entire mass of the object can be concentrated and have the same moment of inertia"
+  }
+ ]
+}

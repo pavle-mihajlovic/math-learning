@@ -1,0 +1,2209 @@
+{
+ "schema": 1,
+ "id": "V1.5.5",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 5,
+ "section": 5,
+ "title": "Substitution",
+ "chapterTitle": "Integration",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53634",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/5-5-substitution",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §5.5 “Substitution”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use substitution to evaluate indefinite integrals.",
+  "Use substitution to evaluate definite integrals."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The Fundamental Theorem of Calculus gave us a method to evaluate integrals without using Riemann sums. The drawback of this method, though, is that we must be able to find an antiderivative, and this is not always easy. In this section we examine a technique, called **integration by substitution**, to help us find antiderivatives. Specifically, this method helps us find antiderivatives when the integrand is the result of a chain-rule derivative."
+    },
+    {
+     "type": "p",
+     "text": "At first, the approach to the substitution procedure may not appear very obvious. However, it is primarily a visual task—that is, the integrand shows you what to do; it is a matter of recognizing the form of the function. So, what are we supposed to see? We are looking for an integrand of the form $f[g(x)]g'(x)dx.$ For example, in the integral ${\\displaystyle \\int (x^{2}-3)^{3}2xdx},$ we have $f(x)=x^{3},g(x)=x^{2}-3,$ and $g'(x)=2x.$ Then,"
+    },
+    {
+     "type": "math",
+     "tex": "f[g(x)]g'(x)=(x^{2}-3)^{3}(2x),"
+    },
+    {
+     "type": "p",
+     "text": "and we see that our integrand is in the correct form."
+    },
+    {
+     "type": "p",
+     "text": "The method is called *substitution* because we substitute part of the integrand with the variable *u* and part of the integrand with *du*. It is also referred to as **change of variables** because we are changing variables to obtain an expression that is easier to work with for applying the integration rules."
+    }
+   ],
+   "title": "Substitution"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $u=g(x),$ where $g'(x)$ is continuous over an interval, let $f(x)$ be continuous over the corresponding range of *g*, and let $F(x)$ be an antiderivative of $f(x).$ Then,"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{cc}{\\displaystyle \\int f[g(x)]g'(x)dx} & ={\\displaystyle \\int f}(u)du \\\\ & =F(u)+C \\\\ & =F(g(x))+C.\\end{array}"
+      }
+     ],
+     "title": "Substitution with Indefinite Integrals"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Substitution with Indefinite Integrals is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Substitution (continued)"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Substitution can be used with definite integrals, too. However, using substitution to evaluate a definite integral requires a change to the limits of integration. If we change variables in the integrand, the limits of integration change as well."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $u=g(x)$ and let $g'$ be continuous over an interval $[a,b],$ and let *f* be continuous over the range of $u=g(x).$ Then,"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{a}^{b}f(g(x))g'(x)dx={\\displaystyle \\int_{g(a)}^{g(b)}f(u)du}}."
+      }
+     ],
+     "title": "Substitution with Definite Integrals"
+    },
+    {
+     "type": "p",
+     "text": "Although we will not formally prove this theorem, we justify it with some calculations here. From the substitution rule for indefinite integrals, if $F(x)$ is an antiderivative of $f(x),$ we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int f(g(x))g'(x)dx=F(g(x))+C.}"
+    },
+    {
+     "type": "p",
+     "text": "Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{a}^{b}f[g(x)]g'(x)dx} & =F(g(x))|_{x=a}^{x=b} \\\\ & =F(g(b))-F(g(a)) \\\\ & =F(u)|_{u=g(a)}^{u=g(b)} \\\\ \\\\ \\\\ & ={\\displaystyle \\int_{g(a)}^{g(b)}f}(u)du,\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "and we have the desired result."
+    }
+   ],
+   "title": "Substitution for Definite Integrals"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 5.34",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use substitution to evaluate ${\\displaystyle \\int_{0}^{1}x^{2}(1+2x^{3})^{5}}dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $u=1+2x^{3},$ so $du=6x^{2}dx.$ Since the original function includes one factor of *x*$^{\\text{2}}$ and $du=6x^{2}dx,$ multiply both sides of the *du* equation by $1/6.$ Then,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}du & = & 6x^{2}dx \\\\ \\frac{1}{6}du & = & x^{2}dx.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "To adjust the limits of integration, note that when $x=0,u=1+2(0)=1,$ and when $x=1,u=1+2(1)=3.$ Then"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{0}^{1}x^{2}(1+2x^{3})^{5}dx=\\frac{1}{6}{\\displaystyle \\int_{1}^{3}u^{5}du}}."
+     },
+     {
+      "type": "p",
+      "text": "Evaluating this expression, we get"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ \\\\ \\frac{1}{6}{\\displaystyle \\int_{1}^{3}u^{5}du} & =\\left(\\frac{1}{6}\\right)\\left(\\frac{u^{6}}{6}\\right)|_{1}^{3} \\\\ & =\\frac{1}{36}[(3)^{6}-(1)^{6}] \\\\ & =\\frac{182}{9}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Using Substitution to Evaluate a Definite Integral"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.29",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use substitution to evaluate the definite integral ${\\displaystyle \\int_{-1}^{0}y(2y^{2}-3)^{5}dy}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{91}{3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the steps from Example 5.34 to solve the problem."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(91/3)"
+   }
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 5.35",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use substitution to evaluate ${\\displaystyle \\int_{0}^{1}xe^{4x^{2}+3}dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $u=4x^{2}+3.$ Then, $du=8xdx.$ To adjust the limits of integration, we note that when $x=0,u=3,$ and when $x=1,u=7.$ So our substitution gives"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{0}^{1}xe^{4x^{2}+3}dx} & =\\frac{1}{8}{\\displaystyle \\int_{3}^{7}e^{u}du} \\\\ \\\\ & =\\frac{1}{8}e^{u}|_{3}^{7} \\\\ & =\\frac{e^{7}-e^{3}}{8} \\\\ & \\approx 134.568.\\end{array}"
+     }
+    ]
+   },
+   "title": "Using Substitution with an Exponential Function"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.30",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use substitution to evaluate ${\\displaystyle \\int_{0}^{1}x^{2}\\cos \\left(\\frac{\\pi}{2}x^{3}\\right)dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2}{3\\pi}\\approx 0.2122$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the process from Example 5.35 to solve the problem."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Substitution may be only one of the techniques needed to evaluate a definite integral. All of the properties and rules of integration apply independently, and trigonometric functions may need to be rewritten using a trigonometric identity before we can apply substitution. Also, we have the option of replacing the original expression for *u* after we find the antiderivative, which means that we do not have to change the limits of integration. These two approaches are shown in Example 5.36."
+    }
+   ],
+   "title": "Substitution for Definite Integrals (continued)"
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 5.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use substitution to evaluate ${\\displaystyle \\int_{0}^{\\pi /2}\\cos^{2}\\theta \\,d\\theta}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let us first use a trigonometric identity to rewrite the integral. The trig identity $\\cos^{2}\\theta =\\frac{1+\\cos \\,2\\theta}{2}$ allows us to rewrite the integral as"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{0}^{\\pi /2}\\cos^{2}\\theta d\\theta}={\\displaystyle \\int_{0}^{\\pi /2}\\frac{1+\\cos \\,2\\theta}{2}d\\theta .}"
+     },
+     {
+      "type": "p",
+      "text": "Then,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{0}^{\\pi /2}\\left(\\frac{1+\\cos \\,2\\theta}{2}\\right)}d\\theta & ={\\displaystyle \\int_{0}^{\\pi /2}\\left(\\frac{1}{2}+\\frac{1}{2}\\cos \\,2\\theta \\right)d\\theta} \\\\ \\\\ \\\\ & =\\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi /2}d\\theta}+\\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi /2}\\cos \\,2\\theta d\\theta .}\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "We can evaluate the first integral as it is, but we need to make a substitution to evaluate the second integral. Let $u=2\\theta .$ Then, $du=2d\\theta ,$ or $\\frac{1}{2}du=d\\theta .$ Also, when $\\theta =0,u=0,$ and when $\\theta =\\pi /2,u=\\pi .$ Expressing the second integral in terms of *u*, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ \\\\ \\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi /2}d\\theta +\\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi /2}\\cos \\,2\\theta d\\theta}} & =\\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi /2}d\\theta +\\frac{1}{2}\\left(\\frac{1}{2}\\right){\\displaystyle \\int_{0}^{\\pi}\\cos \\,udu}} \\\\ & =\\frac{\\theta}{2}|_{\\theta =0}^{\\theta =\\pi /2}+\\frac{1}{4}\\sin \\,u|_{u=0}^{u=\\pi} \\\\ & =\\left(\\frac{\\pi}{4}-0\\right)+(0-0)=\\frac{\\pi}{4}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Using Substitution to Evaluate a Trigonometric Integral"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Substitution is a technique that simplifies the integration of functions that are the result of a chain-rule derivative. The term ‘substitution’ refers to changing variables or substituting the variable *u* and *du* for appropriate expressions in the integrand.",
+      "When using substitution for a definite integral, we also have to change the limits of integration."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Substitution with Indefinite Integrals**",
+       "${\\displaystyle \\int f[g(x)]g'(x)dx={\\displaystyle \\int f(u)du}}=F(u)+C=F(g(x))+C$"
+      ],
+      [
+       "**Substitution with Definite Integrals**",
+       "${\\displaystyle \\int_{a}^{b}f(g(x))g'(x)dx={\\displaystyle \\int_{g(a)}^{g(b)}f(u)du}}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e254",
+   "number": 254,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Why is *u*-substitution referred to as *change of variable*?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573549514",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e255",
+   "number": 255,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "2. If $f=g\\circ h,$ when reversing the chain rule, $\\frac{d}{dx}(g\\circ h)(x)=g'(h(x))h'(x),$ should you take $u=g(x)$ or $u=h(x)?$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573575165",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=h(x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "u=h(x)"
+   }
+  },
+  {
+   "id": "e256",
+   "number": 256,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\sqrt{x+1}}dx=\\frac{2}{15}(x+1)^{3/2}(3x-2)+C;u=x+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571033648",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify each identity using differentiation. Then, using the indicated *u*-substitution, identify *f* such that the integral takes the form ${\\displaystyle \\int f(u)du}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e257",
+   "number": 257,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For $x>1:{\\displaystyle \\int \\frac{x^{2}}{\\sqrt{x-1}}dx}=\\frac{2}{15}\\sqrt{x-1}(3x^{2}+4x+8)+C;u=x-1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573718856",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify each identity using differentiation. Then, using the indicated *u*-substitution, identify *f* such that the integral takes the form ${\\displaystyle \\int f(u)du}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(u)=\\frac{(u+1)^{2}}{\\sqrt{u}}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e258",
+   "number": 258,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\sqrt{4x^{2}+9}dx=\\frac{1}{12}(4x^{2}+9)^{3/2}+C};u=4x^{2}+9$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571303033",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify each identity using differentiation. Then, using the indicated *u*-substitution, identify *f* such that the integral takes the form ${\\displaystyle \\int f(u)du}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e259",
+   "number": 259,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x}{\\sqrt{4x^{2}+9}}dx=\\frac{1}{4}\\sqrt{4x^{2}+9}+C};u=4x^{2}+9$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571206963",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify each identity using differentiation. Then, using the indicated *u*-substitution, identify *f* such that the integral takes the form ${\\displaystyle \\int f(u)du}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$du=8xdx;f(u)=\\frac{1}{8\\sqrt{u}}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e260",
+   "number": 260,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x}{(4x^{2}+9)^{2}}dx=-\\frac{1}{8(4x^{2}+9)}};u=4x^{2}+9$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573759850",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify each identity using differentiation. Then, using the indicated *u*-substitution, identify *f* such that the integral takes the form ${\\displaystyle \\int f(u)du}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e261",
+   "number": 261,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (x+1)^{4}dx};u=x+1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571119993",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{5}(x+1)^{5}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/5)(x+1)^5+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e262",
+   "number": 262,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (x-1)^{5}dx};u=x-1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170570996054",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e263",
+   "number": 263,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (2x-3)^{-7}dx};u=2x-3$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571056458",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{12(2x-3)^{6}}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(12(2 x-3)^6))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e264",
+   "number": 264,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (3x-2)^{-11}dx};u=3x-2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573760680",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e265",
+   "number": 265,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x}{\\sqrt{x^{2}+1}}dx};u=x^{2}+1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573417176",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{x^{2}+1}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sqrt(x^2+1)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e266",
+   "number": 266,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x}{\\sqrt{1-x^{2}}}dx};u=1-x^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573542517",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e267",
+   "number": 267,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (x-1)(x^{2}-2x)^{3}dx};u=x^{2}-2x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571123643",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{8}(x^{2}-2x)^{4}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/8)(x^2-2 x)^4+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e268",
+   "number": 268,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (x^{2}-2x)(x^{3}-3x^{2})^{2}dx};u=x^{3}-3x^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571145634",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos^{3}\\theta d\\theta};u=\\sin \\,\\theta$ $(Hint:\\,\\cos^{2}\\theta =1-\\sin^{2}\\theta )$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573623732",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin \\,\\theta -\\frac{\\sin^{3}\\theta}{3}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sin theta -((sin^3 theta)/3)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{3}\\theta d\\theta};u=\\cos \\,\\theta$ $(Hint:\\,\\sin^{2}\\theta =1-\\cos^{2}\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571227343",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the antiderivative using the indicated substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x(1-x)^{99}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571136656",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{(1-x)^{101}}{101}-\\frac{(1-x)^{100}}{100}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(((1-x)^101)/101)-(((1-x)^100)/100)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int t(1-t^{2})^{10}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571304981",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (11x-7)^{-3}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571275277",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\int (11x-7)^{-3}\\mathrm{dx}=-\\frac{1}{22(11x-7)^{2}}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(22(11 x-7)^2))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (7x-11)^{4}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573545918",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos^{3}\\theta \\,\\sin \\,\\theta d\\theta}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573727306",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{\\cos^{4}\\theta}{4}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-((cos^4 theta)/4)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{7}\\theta \\,\\cos \\,\\theta d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571094884",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos^{2}(\\pi t)\\sin (\\pi t)dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571158870",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{\\cos^{3}(\\pi t)}{3\\pi}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-((cos^3 (pi t))/(3 pi))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{2}x\\cos^{3}xdx}$ $(Hint:\\,\\sin^{2}x+\\cos^{2}x=1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573759909",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int t\\,\\sin (t^{2})\\cos (t^{2})dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571340505",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{4}\\,\\cos^{2}(t^{2})+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/4) cos^2 (t^2)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int t^{2}}\\cos^{2}(t^{3})\\sin (t^{3})dt$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571340409",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x^{2}}{(x^{3}-3)^{2}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571232630",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{3(x^{3}-3)}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(3(x^3-3)))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x^{3}}{\\sqrt{1-x^{2}}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170570999552",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{y^{5}}{(1-y^{3})^{3/2}}dy}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571057347",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{2(y^{3}-2)}{3\\sqrt{1-y^{3}}}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-((2(y^3-2))/(3 sqrt(1-y^3)))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos \\,\\theta (1-\\cos \\,\\theta )}^{99}\\sin \\,\\theta d\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571269414",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (1-\\cos^{3}\\theta )}^{10}\\cos^{2}\\theta \\,\\sin \\,\\theta d\\theta$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571160788",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{33}(1-\\cos^{3}\\theta )^{11}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/33)(1- cos^3 theta)^11+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (\\cos \\,\\theta -1)(\\cos^{2}\\theta -2\\,\\cos \\,\\theta )^{3}\\sin \\,\\theta d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571379754",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (\\sin^{2}\\theta -2\\,\\sin \\,\\theta )(\\sin^{3}\\theta -3\\sin^{2}\\theta )^{3}\\cos \\,\\theta d\\theta}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571030683",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a suitable change of variables to determine the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{12}(\\sin^{3}\\theta -3\\sin^{2}\\theta )^{4}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/12)(sin^3 theta -3 sin^2 theta)^4+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=3(1-x)^{2}$ over $[0,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571115002",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve using left Riemann sums with 50 terms, then use substitution to solve for the exact answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=x(1-x^{2})^{3}$ over $[-1,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571158789",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve using left Riemann sums with 50 terms, then use substitution to solve for the exact answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$L_{50}=-8.5779.$ The exact area is $\\frac{-81}{8}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\sin \\,x(1-\\cos \\,x)^{2}$ over $[0,\\pi ]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571337335",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve using left Riemann sums with 50 terms, then use substitution to solve for the exact answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e291",
+   "number": 291,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\frac{x}{(x^{2}+1)^{2}}$ over $[-1,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571159912",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to estimate the area under the curve using left Riemann sums with 50 terms, then use substitution to solve for the exact answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$L_{50}=-0.006399$ … The exact area is 0."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e292",
+   "number": 292,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}x\\sqrt{1-x^{2}}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571057439",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to evaluate the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e293",
+   "number": 293,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\frac{x}{\\sqrt{1+x^{2}}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571026374",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to evaluate the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=1+x^{2},du=2xdx,\\frac{1}{2}{\\displaystyle \\int_{1}^{2}u^{-1/2}du=\\sqrt{2}-1}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e294",
+   "number": 294,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2}\\frac{t}{\\sqrt{5+t^{2}}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571037384",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to evaluate the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\frac{t^{2}}{\\sqrt{1+t^{3}}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571329548",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to evaluate the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=1+t^{3},du=3t^{2}dt,\\frac{1}{3}{\\displaystyle \\int_{1}^{2}u^{-1/2}du=\\frac{2}{3}(\\sqrt{2}-1)}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /4}\\sec^{2}\\theta \\,\\tan \\,\\theta d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571160643",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to evaluate the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /4}\\frac{\\sin \\,\\theta}{\\cos^{4}\\theta}d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571078760",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to evaluate the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=\\cos \\,\\theta ,du=-\\sin \\,\\theta d\\theta ,{\\displaystyle \\int_{1/\\sqrt{2}}^{1}u^{-4}du=\\frac{1}{3}(2\\sqrt{2}-1)}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int (2x+1)e^{x^{2}+x-6}dx}$ over $[-3,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571303693",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the indefinite integral ${\\displaystyle \\int f(x)dx}$ with constant $C=0$ using *u*-substitution. Then, graph the function and the antiderivative over the indicated interval. If possible, estimate a value of *C* that would need to be added to the antiderivative to make it equal to the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ with *a* the left endpoint of the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e299",
+   "number": 299,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{\\cos (\\ln (2x))}{x}dx}$ on $[0,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573762457",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the indefinite integral ${\\displaystyle \\int f(x)dx}$ with constant $C=0$ using *u*-substitution. Then, graph the function and the antiderivative over the indicated interval. If possible, estimate a value of *C* that would need to be added to the antiderivative to make it equal to the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ with *a* the left endpoint of the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_05_204.webp",
+      "alt": "Two graphs. The first shows the function f(x) = cos(ln(2x)) / x, which increases sharply over the approximate interval (0,.25) and then decreases gradually to the x axis. The second shows the function f(x) = sin(ln(2x)), which decreases sharply on the approximate interval (0, .25) and then increases in a gently curve into the first quadrant.",
+      "width": 220,
+      "height": 382
+     },
+     {
+      "type": "p",
+      "text": "The antiderivative is $y=\\sin (\\ln (2x)).$ Since the antiderivative is not continuous at $x=0,$ one cannot find a value of *C* that would make $y=\\sin (\\ln (2x))-C$ work as a definite integral."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e300",
+   "number": 300,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{3x^{2}+2x+1}{\\sqrt{x^{3}+x^{2}+x+4}}dx}$ over $[-1,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571021797",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the indefinite integral ${\\displaystyle \\int f(x)dx}$ with constant $C=0$ using *u*-substitution. Then, graph the function and the antiderivative over the indicated interval. If possible, estimate a value of *C* that would need to be added to the antiderivative to make it equal to the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ with *a* the left endpoint of the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e301",
+   "number": 301,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{\\sin \\,x}{\\cos^{3}x}dx}$ over $\\left[-\\frac{\\pi}{3},\\frac{\\pi}{3}\\right]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573542457",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the indefinite integral ${\\displaystyle \\int f(x)dx}$ with constant $C=0$ using *u*-substitution. Then, graph the function and the antiderivative over the indicated interval. If possible, estimate a value of *C* that would need to be added to the antiderivative to make it equal to the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ with *a* the left endpoint of the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_05_206.webp",
+      "alt": "Two graphs. The first is the function f(x) = sin(x) / cos(x)^3 over [-5pi/16, 5pi/16]. It is an increasing concave down function for values less than zero and an increasing concave up function for values greater than zero. The second is the fuction f(x) = ½ sec(x)^2 over the same interval. It is a wide, concave up curve which decreases for values less than zero and increases for values greater than zero.",
+      "width": 353,
+      "height": 786
+     },
+     {
+      "type": "p",
+      "text": "The antiderivative is $y=\\frac{1}{2}\\,\\sec^{2}x.$ You should take $C=-2$ so that $F\\left(-\\frac{\\pi}{3}\\right)=0.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e302",
+   "number": 302,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int (x+2)e^{-x^{2}-4x+3}dx}$ over $[-5,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571340126",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the indefinite integral ${\\displaystyle \\int f(x)dx}$ with constant $C=0$ using *u*-substitution. Then, graph the function and the antiderivative over the indicated interval. If possible, estimate a value of *C* that would need to be added to the antiderivative to make it equal to the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ with *a* the left endpoint of the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e303",
+   "number": 303,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int 3x^{2}\\sqrt{2x^{3}+1}}dx$ over $[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571098887",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the indefinite integral ${\\displaystyle \\int f(x)dx}$ with constant $C=0$ using *u*-substitution. Then, graph the function and the antiderivative over the indicated interval. If possible, estimate a value of *C* that would need to be added to the antiderivative to make it equal to the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ with *a* the left endpoint of the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_05_208.webp",
+      "alt": "Two graphs. The first shows the function f(x) = 3x^2 * sqrt(2x^3 + 1). It is an increasing concave up curve starting at the origin. The second shows the function f(x) = 1/3 * (2x^3 + 1)^(1/3). It is an increasing concave up curve starting at about 0.3.",
+      "width": 354,
+      "height": 504
+     },
+     {
+      "type": "p",
+      "text": "The antiderivative is $y=\\frac{1}{3}(2x^{3}+1)^{3/2}.$ One should take $C=-\\frac{1}{3}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e304",
+   "number": 304,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $h(a)=h(b)$ in $\\int_{a}^{b}g'(h(x))h'(x)dx,$ what can you say about the value of the integral?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571160883",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the indefinite integral ${\\displaystyle \\int f(x)dx}$ with constant $C=0$ using *u*-substitution. Then, graph the function and the antiderivative over the indicated interval. If possible, estimate a value of *C* that would need to be added to the antiderivative to make it equal to the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ with *a* the left endpoint of the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e305",
+   "number": 305,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Is the substitution $u=1-x^{2}$ in the definite integral ${\\displaystyle \\int_{0}^{2}\\frac{x}{1-x^{2}}dx}$ okay? If not, why not?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571160975",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the indefinite integral ${\\displaystyle \\int f(x)dx}$ with constant $C=0$ using *u*-substitution. Then, graph the function and the antiderivative over the indicated interval. If possible, estimate a value of *C* that would need to be added to the antiderivative to make it equal to the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt},$ with *a* the left endpoint of the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "No, because the integrand is discontinuous at $x=1.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e306",
+   "number": 306,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}\\cos^{2}(2\\theta )\\sin (2\\theta )d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571291144",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e307",
+   "number": 307,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\sqrt{\\pi}}t\\,\\cos (t^{2})\\sin (t^{2})dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571158577",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=\\sin (t^{2});$ the integral becomes $\\frac{1}{2}{\\displaystyle \\int_{0}^{0}udu}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e308",
+   "number": 308,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}(1-2t)dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571046470",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e309",
+   "number": 309,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\frac{1-2t}{\\left(1+\\left(t-\\frac{1}{2}\\right)^{2}\\right)}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571046569",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=\\left(1+\\left(t-\\frac{1}{2}\\right)^{2}\\right);$ the integral becomes $-{\\displaystyle \\int_{5/4}^{5/4}\\frac{1}{u}du}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e310",
+   "number": 310,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}\\sin \\left(\\left(t-\\frac{\\pi}{2}\\right)^{3}\\right)\\cos \\left(t-\\frac{\\pi}{2}\\right)dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571327483",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e311",
+   "number": 311,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2}(1-t)\\cos (\\pi t)dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571371143",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=1-t;$ the integral becomes\n$\\begin{array}{l}{\\displaystyle \\int_{1}^{-1}u\\,\\cos (\\pi (1-u))du} \\\\ ={\\displaystyle \\int_{1}^{-1}u[\\cos \\,\\pi \\,\\cos \\,\\pi u-\\sin \\,\\pi \\,\\sin \\,\\pi u]du} \\\\ =-{\\displaystyle \\int_{1}^{-1}u\\,\\cos \\,\\pi udu} \\\\ ={\\displaystyle \\int_{-1}^{1}u\\,\\cos \\,\\pi udu=0}\\end{array}$\nsince the integrand is odd."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e312",
+   "number": 312,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\pi /4}^{3\\pi /4}\\sin^{2}t\\,\\cos \\,tdt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571134790",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e313",
+   "number": 313,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the average value of $f(x)$ over an interval $[a,b]$ is the same as the average value of $f(cx)$ over the interval $\\left[\\frac{a}{c},\\frac{b}{c}\\right]$ for $c>0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571276371",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Setting $u=cx$ and $du=cdx$ gets you $\\frac{1}{\\frac{b}{c}-\\frac{a}{c}}{\\displaystyle \\int_{a/c}^{b/c}f(cx)dx=\\frac{c}{b-a}}\\,{\\displaystyle \\int_{u=a}^{u=b}f(u)\\frac{du}{c}=\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(u)du}}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e314",
+   "number": 314,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area under the graph of $f(t)=\\frac{t}{(1+t^{2})^{a}}$ between $t=0$ and $t=x$ where $a>0$ and $a\\ne 1$ is fixed, and evaluate the limit as $x\\to \\infty .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571273653",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e315",
+   "number": 315,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area under the graph of $g(t)=\\frac{t}{(1-t^{2})^{a}}$ between $t=0$ and $t=x,$ where $0<x<1$ and $a>0$ is fixed. Evaluate the limit as $x\\to 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571132654",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{x}g(t)dt=\\frac{1}{2}{\\displaystyle \\int_{u=1-x^{2}}^{1}\\frac{du}{u^{a}}}}=\\frac{1}{2(1-a)}u^{1-a}|_{u=1-x^{2}}^{1}=\\frac{1}{2(1-a)}(1-(1-x^{2})^{1-a}).$ As $x\\to 1$ the limit is $\\frac{1}{2(1-a)}$ if $a<1,$ and the limit diverges to +∞ if $a\\ge 1.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e316",
+   "number": 316,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The area of a semicircle of radius 1 can be expressed as ${\\displaystyle \\int_{-1}^{1}\\sqrt{1-x^{2}}dx}.$ Use the substitution $x=\\cos \\,t$ to express the area of a semicircle as the integral of a trigonometric function. You do not need to compute the integral."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573713777",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e317",
+   "number": 317,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The area of the top half of an ellipse with a major axis that is the *x*-axis from $x=-a$ to $x=a$ and with a minor axis that is the *y*-axis from $y=-b$ to $y=b$ can be written as ${\\displaystyle \\int_{-a}^{a}b\\sqrt{1-\\frac{x^{2}}{a^{2}}}dx}.$ Use the substitution $x=a\\,\\cos \\,t$ to express this area in terms of an integral of a trigonometric function. You do not need to compute the integral."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571169773",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{t=\\pi}^{0}b\\sqrt{1-\\cos^{2}t}}\\,\\times \\,(-a\\,\\sin \\,t)dt={\\displaystyle \\int_{t=0}^{\\pi}ab\\sin^{2}tdt}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e318",
+   "number": 318,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The following graph is of a function of the form $f(t)=a\\,\\sin (nt)+b\\,\\sin (mt).$ Estimate the coefficients *a* and *b*, and the frequency parameters *n* and *m*. Use these estimates to approximate ${\\displaystyle \\int_{0}^{\\pi}f(t)dt}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_05_201.webp",
+     "alt": "A graph of a function of the given form over [0, 2pi], which has six turning points. They are located at just before pi/4, just after pi/2, between 3pi/4 and pi, between pi and 5pi/4, just before 3pi/2, and just after 7pi/4 at about 3, -2, 1, -1, 2, and -3. It begins at the origin and ends at (2pi, 0). It crosses the x axis between pi/4 and pi/2, just before 3pi/4, pi, just after 5pi/4, and between 3pi/2 and 4pi/4.",
+     "width": 325,
+     "height": 246
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571068045",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e319",
+   "number": 319,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The following graph is of a function of the form $f(x)=a\\,\\cos (nt)+b\\,\\cos (mt).$ Estimate the coefficients *a* and *b* and the frequency parameters *n* and *m*. Use these estimates to approximate ${\\displaystyle \\int_{0}^{\\frac{\\pi}{2}}f(t)dt}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_05_202.webp",
+     "alt": "The graph of a function of the given form over [0, 2pi]. It begins at (0,1) and ends at (2pi, 1). It has five turning points, located just after pi/4, between pi/2 and 3pi/4, pi, between 5pi/4 and 3pi/2, and just before 7pi/4 at about -1.5, 2.5, -3, 2.5, and -1. It crosses the x axis between 0 and pi/4, just before pi/2, just after 3pi/4, just before 5pi/4, just after 3pi/2, and between 7pi/4 and 2pi.",
+     "width": 325,
+     "height": 246
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571249463",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a change of variables to show that each definite integral is equal to zero."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(t)=2\\,\\cos (3t)-\\cos (2t);\\int_{0}^{\\pi}(2\\,\\cos (3t)-\\cos (2t))dt=0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Substitution with Indefinite Integrals",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Let $u=g(x),$ where $g'(x)$ is continuous over an interval, let $f(x)$ be continuous over the corresponding range of *g*, and let $F(x)$ be an antiderivative of $f(x).$ Then,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int f[g(x)]g'(x)dx} & ={\\displaystyle \\int f}(u)du \\\\ & =F(u)+C \\\\ & =F(g(x))+C.\\end{array}"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Let *f*, *g*, *u*, and *F* be as specified in the theorem. Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{d}{dx}F(g(x)) & =F'(g(x))g'(x) \\\\ & =f[g(x)]g'(x).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Integrating both sides with respect to *x*, we see that"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int f[g(x)]g'(x)dx}=F(g(x))+C."
+    },
+    {
+     "type": "p",
+     "text": "If we now substitute $u=g(x),$ and $du=g'(x)dx,$ we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int f[g(x)]g'(x)dx} & ={\\displaystyle \\int f}(u)du \\\\ & =F(u)+C \\\\ & =F(g(x))+C.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Returning to the problem we looked at originally, we let $u=x^{2}-3$ and then $du=2xdx.$ Rewrite the integral in terms of *u*:"
+    },
+    {
+     "type": "math",
+     "tex": "\\int {\\underset{u}{\\underbrace{(x^{2}-3)}}}^{3}\\underset{du}{\\underbrace{(2xdx)}}=\\int u^{3}du."
+    },
+    {
+     "type": "p",
+     "text": "Using the power rule for integrals, we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int u^{3}du=\\frac{u^{4}}{4}+C}."
+    },
+    {
+     "type": "p",
+     "text": "Substitute the original expression for *x* back into the solution:"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{u^{4}}{4}+C=\\frac{(x^{2}-3)^{4}}{4}+C."
+    },
+    {
+     "type": "p",
+     "text": "We can generalize the procedure in the following Problem-Solving Strategy."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Look carefully at the integrand and select an expression $g(x)$ within the integrand to set equal to *u*. Let’s select $g(x)$ such that $g'(x)$ is also part of the integrand.",
+        "Substitute $u=g(x)$ and $du=g'(x)dx$ into the integral.",
+        "We should now be able to evaluate the integral with respect to *u*. If the integral can’t be evaluated we need to go back and select a different expression to use as *u*.",
+        "Evaluate the integral in terms of *u*.",
+        "Write the result in terms of *x* and the expression $g(x).$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Integration by Substitution"
+    },
+    {
+     "type": "p",
+     "text": "Use substitution to find the antiderivative ${\\displaystyle \\int 6x(3x^{2}+4)^{4}dx}.$"
+    },
+    {
+     "type": "p",
+     "text": "The first step is to choose an expression for *u*. We choose $u=3x^{2}+4$ because then $du=6xdx,$ and we already have *du* in the integrand. Write the integral in terms of *u*:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int 6x(3x^{2}+4)^{4}dx}={\\displaystyle \\int u^{4}du}."
+    },
+    {
+     "type": "p",
+     "text": "Remember that *du* is the derivative of the expression chosen for *u*, regardless of what is inside the integrand. Now we can evaluate the integral with respect to *u*:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ll}{\\displaystyle \\int u^{4}du} & =\\frac{u^{5}}{5}+C \\\\ \\\\ \\\\ & =\\frac{(3x^{2}+4)^{5}}{5}+C.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "We can check our answer by taking the derivative of the result of integration. We should obtain the integrand. Picking a value for *C* of 1, we let $y=\\frac{1}{5}(3x^{2}+4)^{5}+1.$ We have"
+    },
+    {
+     "type": "math",
+     "tex": "y=\\frac{1}{5}(3x^{2}+4)^{5}+1,"
+    },
+    {
+     "type": "p",
+     "text": "so"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ y' & =\\left(\\frac{1}{5}\\right)5(3x^{2}+4)^{4}6x \\\\ & =6x(3x^{2}+4)^{4}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "This is exactly the expression we started with inside the integrand."
+    },
+    {
+     "type": "p",
+     "text": "Sometimes we need to adjust the constants in our integral if they don’t match up exactly with the expressions we are substituting."
+    },
+    {
+     "type": "p",
+     "text": "Use substitution to find ${\\displaystyle \\int z\\sqrt{z^{2}-5}dz}.$"
+    },
+    {
+     "type": "p",
+     "text": "Rewrite the integral as ${\\displaystyle \\int z(z^{2}-5)^{1/2}dz}.$ Let $u=z^{2}-5$ and $du=2z\\,dz.$ Now we have a problem because $du=2z\\,dz$ and the original expression has only $z\\,dz.$ We have to alter our expression for *du* or the integral in *u* will be twice as large as it should be. If we multiply both sides of the *du* equation by $\\frac{1}{2}.$ we can solve this problem. Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ u & =z^{2}-5 \\\\ du & =2z\\,dz \\\\ \\frac{1}{2}du & =\\frac{1}{2}(2z)dz=z\\,dz.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Write the integral in terms of *u*, but pull the $\\frac{1}{2}$ outside the integration symbol:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int z(z^{2}-5)^{1/2}dz=}\\frac{1}{2}{\\displaystyle \\int u^{1/2}du.}"
+    },
+    {
+     "type": "p",
+     "text": "Integrate the expression in *u*:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ \\frac{1}{2}{\\displaystyle \\int u^{1/2}du} & =\\left(\\frac{1}{2}\\right)\\frac{u^{3/2}}{\\frac{3}{2}}+C \\\\ \\\\ & =\\left(\\frac{1}{2}\\right)\\left(\\frac{2}{3}\\right)u^{3/2}+C \\\\ & =\\frac{1}{3}u^{3/2}+C \\\\ & =\\frac{1}{3}(z^{2}-5)^{3/2}+C.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Use substitution to evaluate the integral ${\\displaystyle \\int \\frac{\\sin \\,t}{\\cos^{3}t}dt}.$"
+    },
+    {
+     "type": "p",
+     "text": "We know the derivative of $\\cos \\,t$ is $-\\sin \\,t,$ so we set $u=\\cos \\,t.$ Then $du=-\\sin \\,tdt.$ Substituting into the integral, we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int \\frac{\\sin \\,t}{\\cos^{3}t}dt=-{\\displaystyle \\int \\frac{du}{u^{3}}}}."
+    },
+    {
+     "type": "p",
+     "text": "Evaluating the integral, we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc} \\\\ \\\\ -{\\displaystyle \\int \\frac{du}{u^{3}}} & =-{\\displaystyle \\int u^{-3}du} \\\\ & =-\\left(-\\frac{1}{2}\\right)u^{-2}+C.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Putting the answer back in terms of *t*, we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int \\frac{\\sin \\,t}{\\cos^{3}t}dt} & =\\frac{1}{2u^{2}}+C \\\\ \\\\ & =\\frac{1}{2\\cos^{2}t}+C.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Sometimes we need to manipulate an integral in ways that are more complicated than just multiplying or dividing by a constant. We need to eliminate all the expressions within the integrand that are in terms of the original variable. When we are done, *u* should be the only variable in the integrand. In some cases, this means solving for the original variable in terms of *u*. This technique should become clear in the next example."
+    },
+    {
+     "type": "p",
+     "text": "Use substitution to find the antiderivative ${\\displaystyle \\int \\frac{x}{\\sqrt{x-1}}dx.}$"
+    },
+    {
+     "type": "p",
+     "text": "If we let $u=x-1,$ then $du=dx.$ But this does not account for the *x* in the numerator of the integrand. We need to express *x* in terms of *u*. If $u=x-1,$ then $x=u+1.$ Now we can rewrite the integral in terms of *u*:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ll}{\\displaystyle \\int \\frac{x}{\\sqrt{x-1}}dx} & ={\\displaystyle \\int \\frac{u+1}{\\sqrt{u}}du} \\\\ \\\\ & ={\\displaystyle \\int \\sqrt{u}+\\frac{1}{\\sqrt{u}}du} \\\\ & ={\\displaystyle \\int (u^{1/2}+u^{-1/2})du}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Then we integrate in the usual way, replace *u* with the original expression, and factor and simplify the result. Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int (u^{1/2}+u^{-1/2})du} & =\\frac{2}{3}u^{3/2}+2u^{1/2}+C \\\\ \\\\ & =\\frac{2}{3}(x-1)^{3/2}+2(x-1)^{1/2}+C \\\\ & =(x-1)^{1/2}\\left[\\frac{2}{3}(x-1)+2\\right]+C \\\\ & =(x-1)^{1/2}(\\frac{2}{3}x-\\frac{2}{3}+\\frac{6}{3})+C \\\\ & =(x-1)^{1/2}(\\frac{2}{3}x+\\frac{4}{3})+C \\\\ & =\\frac{2}{3}(x-1)^{1/2}(x+2)+C.\\end{array}"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "change of variables",
+   "meaning": "the substitution of a variable, such as *u*, for an expression in the integrand"
+  },
+  {
+   "term": "integration by substitution",
+   "meaning": "a technique for integration that allows integration of functions that are the result of a chain-rule derivative"
+  }
+ ]
+}

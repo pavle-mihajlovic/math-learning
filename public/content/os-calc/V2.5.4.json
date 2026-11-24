@@ -1,0 +1,2095 @@
+{
+ "schema": 1,
+ "id": "V2.5.4",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 5,
+ "section": 4,
+ "title": "Comparison Tests",
+ "chapterTitle": "Sequences and Series",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53751",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/5-4-comparison-tests",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §5.4 “Comparison Tests”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use the comparison test to test a series for convergence.",
+  "Use the limit comparison test to determine convergence of a series."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have seen that the integral test allows us to determine the convergence or divergence of a series by comparing it to a related improper integral. In this section, we show how to use comparison tests to determine the convergence or divergence of a series by comparing it to a series whose convergence or divergence is known. Typically these tests are used to determine convergence of series that are similar to geometric series or *p*-series."
+    }
+   ],
+   "title": "Comparison Tests"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the preceding two sections, we discussed two large classes of series: geometric series and *p*-series. We know exactly when these series converge and when they diverge. Here we show how to use the convergence or divergence of these series to prove convergence or divergence for other series, using a method called the **comparison test**."
+    },
+    {
+     "type": "p",
+     "text": "For example, consider the series"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}+1}."
+    },
+    {
+     "type": "p",
+     "text": "This series looks similar to the convergent series"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}}."
+    },
+    {
+     "type": "p",
+     "text": "Since the terms in each of the series are positive, the sequence of partial sums for each series is monotone increasing. Furthermore, since"
+    },
+    {
+     "type": "math",
+     "tex": "0<\\frac{1}{n^{2}+1}<\\frac{1}{n^{2}}"
+    },
+    {
+     "type": "p",
+     "text": "for all positive integers $n,$ the $k\\text{th}$ partial sum $S_{k}$ of $\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}+1}$ satisfies"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}=\\sum_{n=1}^{k}\\frac{1}{n^{2}+1}<\\sum_{n=1}^{k}\\frac{1}{n^{2}}<\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}}."
+    },
+    {
+     "type": "p",
+     "text": "(See Figure 5.15(a) and Table 5.1.) Since the series on the right converges, the sequence $\\{S_{k}\\}$ is bounded above. We conclude that $\\{S_{k}\\}$ is a monotone increasing sequence that is bounded above. Therefore, by the Monotone Convergence Theorem, $\\{S_{k}\\}$ converges, and thus"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}+1}"
+    },
+    {
+     "type": "p",
+     "text": "converges."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, consider the series"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{n-1/2}."
+    },
+    {
+     "type": "p",
+     "text": "This series looks similar to the divergent series"
+    }
+   ],
+   "title": "Comparison Test"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{n}."
+    },
+    {
+     "type": "p",
+     "text": "The sequence of partial sums for each series is monotone increasing and"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1}{n-1/2}>\\frac{1}{n}>0"
+    },
+    {
+     "type": "p",
+     "text": "for every positive integer $n.$ Therefore, the $k\\text{th}$ partial sum $S_{k}$ of $\\sum_{n=1}^{\\infty}\\frac{1}{n-1/2}$ satisfies"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}=\\sum_{n=1}^{k}\\frac{1}{n-1/2}>\\sum_{n=1}^{k}\\frac{1}{n}."
+    },
+    {
+     "type": "p",
+     "text": "(See Figure 5.15(b) and Table 5.2.) Since the series $\\sum_{n=1}^{\\infty}1/n\\,$ diverges to infinity, the sequence of partial sums $\\sum_{n=1}^{k}1/n$ is unbounded. Consequently, $\\{S_{k}\\}$ is an unbounded sequence, and therefore diverges. We conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{1}{n-1/2}\\,"
+    },
+    {
+     "type": "p",
+     "text": "diverges."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_04_001.webp",
+     "alt": "This shows two graphs side by side. The first shows plotted points for the partial sums for the sum of 1/n^2 and the sum 1/(n^2 + 1). Each of the partial sums for the latter is less than the corresponding partial sum for the former. The second shows plotted points for the partial sums for the sum of 1/(n - 0.5) and the sum 1/n. Each of the partial sums for the latter is less than the corresponding partial sum for the former.",
+     "caption": "**Figure 5.15** (a) Each of the partial sums for the given series is less than the corresponding partial sum for the converging $p-\\text{series}.$ (b) Each of the partial sums for the given series is greater than the corresponding partial sum for the diverging harmonic series.",
+     "width": 731,
+     "height": 363
+    }
+   ],
+   "title": "Comparison Test (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "${\\displaystyle \\sum_{n=1}^{k}\\frac{1}{n^{2}+1}}$",
+       "$0.5$",
+       "$0.7$",
+       "$0.8$",
+       "$0.8588$",
+       "$0.8973$",
+       "$0.9243$",
+       "$0.9443$",
+       "$0.9597$"
+      ],
+      [
+       "${\\displaystyle \\sum_{n=1}^{k}\\frac{1}{n^{2}}}$",
+       "$1$",
+       "$\\begin{array}{l}1.25\\end{array}$",
+       "$1.3611$",
+       "$1.4236$",
+       "$1.4636$",
+       "$1.4914$",
+       "$1.5118$",
+       "$1.5274$"
+      ]
+     ],
+     "header": [
+      "$k$",
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$",
+      "$5$",
+      "$6$",
+      "$7$",
+      "$8$"
+     ],
+     "caption": "**Table 5.1** Comparing a series with a *p*-series (*p* = 2)"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "${\\displaystyle \\sum_{n=1}^{k}\\frac{1}{n-1/2}}$",
+       "$2$",
+       "$2.6667$",
+       "$3.0667$",
+       "$3.3524$",
+       "$3.5746$",
+       "$3.7564$",
+       "$3.9103$",
+       "$4.0436$"
+      ],
+      [
+       "${\\displaystyle \\sum_{n=1}^{k}\\frac{1}{n}}$",
+       "$1$",
+       "$1.5$",
+       "$\\begin{array}{l}1.8333\\end{array}$",
+       "$2.0933$",
+       "$2.2833$",
+       "$2.45$",
+       "$2.5929$",
+       "$2.7179$"
+      ]
+     ],
+     "header": [
+      "$k$",
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$",
+      "$5$",
+      "$6$",
+      "$7$",
+      "$8$"
+     ],
+     "caption": "**Table 5.2** Comparing a series with the harmonic series"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Suppose there exists an integer $N$ such that $0\\le a_{n}\\le b_{n}$ for all $n\\ge N.$ If $\\sum_{n=1}^{\\infty}b_{n}$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges.",
+        "Suppose there exists an integer $N$ such that $a_{n}\\ge b_{n}\\ge 0$ for all $n\\ge N.$ If $\\sum_{n=1}^{\\infty}b_{n}$ diverges, then $\\sum_{n=1}^{\\infty}a_{n}$ diverges."
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Comparison Test"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Comparison Test is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Comparison Test (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The comparison test works nicely if we can find a comparable series satisfying the hypothesis of the test. However, sometimes finding an appropriate series can be difficult. Consider the series"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=2}^{\\infty}\\frac{1}{n^{2}-1}."
+    },
+    {
+     "type": "p",
+     "text": "It is natural to compare this series with the convergent series"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=2}^{\\infty}\\frac{1}{n^{2}}."
+    },
+    {
+     "type": "p",
+     "text": "However, this series does not satisfy the hypothesis necessary to use the comparison test because"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1}{n^{2}-1}>\\frac{1}{n^{2}}"
+    },
+    {
+     "type": "p",
+     "text": "for all integers $n\\ge 2.$ Although we could look for a different series with which to compare $\\sum_{n=2}^{\\infty}1/(n^{2}-1),$ instead we show how we can use the **limit comparison test** to compare"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=2}^{\\infty}\\frac{1}{n^{2}-1}\\,\\text{and}\\,\\sum_{n=2}^{\\infty}\\frac{1}{n^{2}}."
+    },
+    {
+     "type": "p",
+     "text": "Let us examine the idea behind the limit comparison test. Consider two series $\\sum_{n=1}^{\\infty}a_{n}$ and $\\sum_{n=1}^{\\infty}b_{n}.$ with positive terms $a_{n}\\,\\text{and}\\,b_{n}$ and evaluate"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}\\frac{a_{n}}{b_{n}}."
+    },
+    {
+     "type": "p",
+     "text": "If"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}\\frac{a_{n}}{b_{n}}=L\\ne 0,"
+    },
+    {
+     "type": "p",
+     "text": "then, for $n$ sufficiently large, $a_{n}\\approx Lb_{n}.$ Therefore, either both series converge or both series diverge. For the series $\\sum_{n=2}^{\\infty}1/(n^{2}-1)$ and $\\sum_{n=2}^{\\infty}1/n^{2},$ we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}\\frac{1/(n^{2}-1)}{1/n^{2}}=\\lim_{n\\to \\infty}\\,\\frac{n^{2}}{n^{2}-1}=1."
+    }
+   ],
+   "title": "Limit Comparison Test"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Since $\\sum_{n=2}^{\\infty}1/n^{2}$ converges, we conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=2}^{\\infty}\\frac{1}{n^{2}-1}\\,"
+    },
+    {
+     "type": "p",
+     "text": "converges."
+    },
+    {
+     "type": "p",
+     "text": "The limit comparison test can be used in two other cases. Suppose"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}\\frac{a_{n}}{b_{n}}=0."
+    },
+    {
+     "type": "p",
+     "text": "In this case, $\\{a_{n}/b_{n}\\}$ is a bounded sequence. As a result, there exists a constant $M$ such that $a_{n}\\le Mb_{n}.$ Therefore, if $\\sum_{n=1}^{\\infty}b_{n}$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges. On the other hand, suppose"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}\\frac{a_{n}}{b_{n}}=\\infty ."
+    },
+    {
+     "type": "p",
+     "text": "In this case, $\\{a_{n}/b_{n}\\}$ is an unbounded sequence. Therefore, for every constant $M$ there exists an integer $N$ such that $a_{n}\\ge Mb_{n}$ for all $n\\ge N.$ Therefore, if $\\sum_{n=1}^{\\infty}b_{n}$ diverges, then $\\sum_{n=1}^{\\infty}a_{n}$ diverges as well."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $a_{n},\\,b_{n}\\ge 0$ for all $n\\ge 1.$"
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $\\lim_{n\\to \\infty}a_{n}/b_{n}=L\\ne 0,$ then $\\sum_{n=1}^{\\infty}a_{n}$ and $\\sum_{n=1}^{\\infty}b_{n}$ both converge or both diverge.",
+        "If $\\lim_{n\\to \\infty}a_{n}/b_{n}=0$ and $\\sum_{n=1}^{\\infty}b_{n}$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges.",
+        "If $\\lim_{n\\to \\infty}a_{n}/b_{n}=\\infty$ and $\\sum_{n=1}^{\\infty}b_{n}$ diverges, then $\\sum_{n=1}^{\\infty}a_{n}$ diverges."
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Limit Comparison Test"
+    }
+   ],
+   "title": "Limit Comparison Test (continued)"
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Note that if $a_{n}/b_{n}\\to 0$ and $\\sum_{n=1}^{\\infty}b_{n}$ diverges, the limit comparison test gives no information. Similarly, if $a_{n}/b_{n}\\to \\infty$ and $\\sum_{n=1}^{\\infty}b_{n}$ converges, the test also provides no information. For example, consider the two series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/\\sqrt{n}$ and ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{2}.$ These series are both *p*-series with $p=1/2$ and $p=2,$ respectively. Since $p=1/2<1,$ the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/\\sqrt{n}$ diverges. On the other hand, since $p=2>1,$ the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{2}$ converges. However, suppose we attempted to apply the limit comparison test, using the convergent $p-\\text{series}$ ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{3}$ as our comparison series. First, we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1/\\sqrt{n}}{1/n^{3}}=\\frac{n^{3}}{\\sqrt{n}}=n^{5/2}\\to \\infty \\,\\text{as}\\,n\\to \\infty ."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1/n^{2}}{1/n^{3}}=n\\to \\infty \\,\\text{as}\\,n\\to \\infty ."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, if $a_{n}/b_{n}\\to \\infty$ when ${\\displaystyle \\sum_{n=1}^{\\infty}b_{n}}$ converges, we do not gain any information on the convergence or divergence of ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}.$"
+    }
+   ],
+   "title": "Limit Comparison Test (continued)"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 5.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following series, use the limit comparison test to determine whether the series converges or diverges. If the test does not apply, say so."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{n}+1}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{2^{n}+1}{3^{n}}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{\\ln (n)}{n^{2}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Compare this series to $\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{n}}.$ Calculate"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\,\\frac{1/(\\sqrt{n}+1)}{1/\\sqrt{n}}=\\lim_{n\\to \\infty}\\begin{array}{c}\\frac{\\sqrt{n}}{\\sqrt{n}+1} \\\\ \\,\\end{array}=\\lim_{n\\to \\infty}\\,\\frac{1}{1+1/\\sqrt{n}}=1."
+        },
+        {
+         "type": "p",
+         "text": "By the limit comparison test, since $\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{n}}$ diverges, then $\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{n}+1}$ diverges."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Compare this series to $\\sum_{n=1}^{\\infty}\\left(\\frac{2}{3}\\right)^{n}.$ We see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{(2^{n}+1)/3^{n}}{2^{n}/3^{n}}=\\lim_{n\\to \\infty}\\frac{2^{n}+1}{3^{n}}\\cdot \\frac{3^{n}}{2^{n}}=\\lim_{n\\to \\infty}\\frac{2^{n}+1}{2^{n}}=\\lim_{n\\to \\infty}\\left[1+\\left(\\frac{1}{2}\\right)^{n}\\right]=1."
+        },
+        {
+         "type": "p",
+         "text": "Therefore,"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{(2^{n}+1)/3^{n}}{2^{n}/3^{n}}=1."
+        },
+        {
+         "type": "p",
+         "text": "Since $\\sum_{n=1}^{\\infty}\\left(\\frac{2}{3}\\right)^{n}$ converges, we conclude that $\\sum_{n=1}^{\\infty}\\frac{2^{n}+1}{3^{n}}$ converges."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Since $\\ln \\,n<n,$ compare with $\\sum_{n=1}^{\\infty}\\frac{1}{n}.$ We see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{\\ln \\,n/n^{2}}{1/n}=\\lim_{n\\to \\infty}\\frac{\\ln \\,n}{n^{2}}\\cdot \\frac{n}{1}=\\lim_{n\\to \\infty}\\frac{\\ln \\,n}{n}."
+        },
+        {
+         "type": "p",
+         "text": "In order to evaluate $\\lim_{n\\to \\infty}\\ln \\,n/n,$ evaluate the limit as $x\\to \\infty$ of the real-valued function $\\ln (x)/x.$ These two limits are equal, and making this change allows us to use L’Hôpital’s rule. We obtain"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{x\\to \\infty}\\frac{\\ln \\,x}{x}=\\lim_{x\\to \\infty}\\frac{1}{x}=0."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, $\\lim_{n\\to \\infty}\\ln \\,n/n=0,$ and, consequently,"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{\\ln \\,n/n^{2}}{1/n}=0."
+        },
+        {
+         "type": "p",
+         "text": "Since the limit is $0$ but $\\sum_{n=1}^{\\infty}\\frac{1}{n}$ diverges, the limit comparison test does not provide any information.\n\nCompare with $\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}}$ instead. In this case,"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{\\ln \\,n/n^{2}}{1/n^{2}}=\\lim_{n\\to \\infty}\\frac{\\ln \\,n}{n^{2}}\\cdot \\frac{n^{2}}{1}=\\lim_{n\\to \\infty}\\ln \\,n=\\infty ."
+        },
+        {
+         "type": "p",
+         "text": "Since the limit is $\\infty$ but $\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}}$ converges, the test still does not provide any information.\n\nSo now we try a series between the two we already tried. Choosing the series $\\sum_{n=1}^{\\infty}\\frac{1}{n^{3/2}},$ we see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{\\ln \\,n/n^{2}}{1/n^{3/2}}=\\lim_{n\\to \\infty}\\frac{\\ln \\,n}{n^{2}}\\cdot \\frac{n^{3/2}}{1}=\\lim_{n\\to \\infty}\\frac{\\ln \\,n}{\\sqrt{n}}."
+        },
+        {
+         "type": "p",
+         "text": "As above, in order to evaluate $\\lim_{n\\to \\infty}\\ln \\,n/\\sqrt{n},$ evaluate the limit as $x\\to \\infty$ of the real-valued function $\\ln \\,x/\\sqrt{x}.$ Using L’Hôpital’s rule,"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{x\\to \\infty}\\frac{\\ln \\,x}{\\sqrt{x}}=\\lim_{x\\to \\infty}\\frac{2\\sqrt{x}}{x}=\\lim_{x\\to \\infty}\\frac{2}{\\sqrt{x}}=0."
+        },
+        {
+         "type": "p",
+         "text": "Since the limit is $0$ and $\\sum_{n=1}^{\\infty}\\frac{1}{n^{3/2}}$ converges, we can conclude that $\\sum_{n=1}^{\\infty}\\frac{\\ln \\,n}{n^{2}}$ converges."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Using the Limit Comparison Test"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether the series $\\sum_{n=1}^{\\infty}\\frac{5^{n}}{3^{n}+2}$ converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The series diverges."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Compare with a geometric series."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The comparison tests are used to determine convergence or divergence of series with positive terms.",
+      "When using the comparison tests, a series $\\sum_{n=1}^{\\infty}a_{n}$ is often compared to a geometric or *p*-series."
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e194",
+   "number": 194,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}a_{n}$ where $a_{n}=\\frac{2}{n(n+1)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739080561",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e195",
+   "number": 195,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}a_{n}$ where $a_{n}=\\frac{1}{n(n+1/2)}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739169541",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by comparison with $1/n^{2}.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e196",
+   "number": 196,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{2(n+1)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739370110",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e197",
+   "number": 197,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=2}^{\\infty}\\frac{1}{2\\left(n-1\\right)}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738901956",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The sum is one half times a harmonic series, which diverges."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "e198",
+   "number": 198,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=2}^{\\infty}\\frac{1}{(n\\,\\ln \\,n)^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739029849",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e199",
+   "number": 199,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{n!}{(n+2)!}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736769705",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=1/(n+1)(n+2)<1/n^{2}.$ Converges by comparison with *p*-series, $p=2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e200",
+   "number": 200,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{n!}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739223189",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e201",
+   "number": 201,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{\\sin (1/n)}{n^{2}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739186610",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin (1/n)\\le 1/n,$ so converges by comparison with *p*-series, $p=2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e202",
+   "number": 202,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{\\sin^{2}n}{n^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739300083",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e203",
+   "number": 203,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{\\sin (1/n)}{(\\sqrt{n})^{3}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739179317",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin (1/n)\\le 1,$ so converges by comparison with *p*-series, $p=3/2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e204",
+   "number": 204,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{n^{1.2}-1}{n^{2.3}+1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738924149",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e205",
+   "number": 205,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{\\sqrt{n+1}-\\sqrt{n}}{n}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736603429",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since $\\sqrt{n+1}-\\sqrt{n}=1/(\\sqrt{n+1/2}+\\sqrt{n})\\le 2/\\sqrt{n},$ series converges by comparison with *p*-series for $p=1.5.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e206",
+   "number": 206,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{\\sqrt[4]{n}}{\\sqrt[3]{n^{4}+n^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739223412",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the comparison test to determine whether the following series converge."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e207",
+   "number": 207,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\left(\\frac{\\ln \\,n}{n}\\right)^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738920032",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by limit comparison with *p*-series for $p>1.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e208",
+   "number": 208,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\left(\\frac{\\ln \\,n}{n^{0.6}}\\right)^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739031562",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e209",
+   "number": 209,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{\\ln \\left(1+\\frac{1}{n}\\right)}{n}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739274309",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by limit comparison with *p*-series, $p=2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e210",
+   "number": 210,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\ln \\left(1+\\frac{1}{n^{2}}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739006370",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e211",
+   "number": 211,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{4^{n}-3^{n}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736726602",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by limit comparison with $4^{-n}.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e212",
+   "number": 212,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}-n\\,\\sin \\,n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739027432",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e213",
+   "number": 213,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{e^{(1.1)n}-3^{n}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739097308",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by limit comparison with $1/e^{1.1n}.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e214",
+   "number": 214,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{e^{(1.01)n}-3^{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739187969",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e215",
+   "number": 215,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{n^{1+1/n}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739110958",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Diverges by limit comparison with harmonic series."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "e216",
+   "number": 216,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{2^{1+1/n}n^{1+1/n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739067714",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e217",
+   "number": 217,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\left(\\frac{1}{n}-\\sin \\left(\\frac{1}{n}\\right)\\right)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739204262",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by limit comparison with *p*-series, $p=3.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e218",
+   "number": 218,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\left(1-\\cos \\left(\\frac{1}{n}\\right)\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739304895",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e219",
+   "number": 219,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{n}(\\frac{\\pi}{2}-\\tan^{-1}n)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736779609",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by limit comparison with *p*-series, $p=2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e220",
+   "number": 220,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\left(1-\\frac{1}{n}\\right)^{n}$ (*Hint:*$\\left(1-\\frac{1}{n}\\right)^{n}\\to 1/e.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739169498",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e221",
+   "number": 221,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(1-e^{-1/n})$ (*Hint:*$1/e\\approx (1-1/n)^{n},$ so $1-e^{-1/n}\\approx 1/n.)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739273685",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Diverges by limit comparison with $1/n.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "e222",
+   "number": 222,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Does $\\sum_{n=2}^{\\infty}\\frac{1}{(\\ln \\,n)^{p}}$ converge if $p$ is large enough? If so, for which $p\\text{?}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736725605",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e223",
+   "number": 223,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Does $\\sum_{n=1}^{\\infty}\\left(\\frac{(\\ln \\,n)}{n}\\right)^{p}$ converge if $p$ is large enough? If so, for which $p\\text{?}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738998746",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges for $p>1$ by comparison with a $p$ series for slightly smaller $p.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e224",
+   "number": 224,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For which $p$ does the series $\\sum_{n=1}^{\\infty}2^{pn}/3^{n}$ converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739260612",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e225",
+   "number": 225,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For which $p>0$ does the series $\\sum_{n=1}^{\\infty}\\frac{n^{p}}{2^{n}}$ converge?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736708973",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges for all $p>0.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e226",
+   "number": 226,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For which $r>0$ does the series $\\sum_{n=1}^{\\infty}\\frac{r^{n^{2}}}{2^{n}}$ converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736776411",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e227",
+   "number": 227,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For which $r>0$ does the series $\\sum_{n=1}^{\\infty}\\frac{2^{n}}{r^{n^{2}}}$ converge?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736654488",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges for all $r>1.$ If $r>1$ then $r^{n}>4,$ say, once $n>\\ln (2)/\\ln (r)$ and then the series converges by limit comparison with a geometric series with ratio $1/2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e228",
+   "number": 228,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find all values of $p$ and $q$ such that $\\sum_{n=1}^{\\infty}\\frac{n^{p}}{(n!)^{q}}$ converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739194411",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e229",
+   "number": 229,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Does ${}_{n=1}^{\\infty}\\left(\\frac{n\\pi}{2}\\right)$ converge or diverge? Explain."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739186700",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The numerator is equal to $1$ when $n$ is odd and $0$ when $n$ is even, so the series can be rewritten $\\sum_{n=1}^{\\infty}\\frac{1}{2n+1},$ which diverges by limit comparison with the harmonic series."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e230",
+   "number": 230,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain why, for each $n,$ at least one of $\\{|\\sin \\,n|,|\\sin (n+1)|,...,|\\sin \\,n+6|\\}$ is larger than $1/2.$ Use this relation to test convergence of $\\sum_{n=1}^{\\infty}\\frac{|\\sin \\,n|}{\\sqrt{n}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736727516",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e231",
+   "number": 231,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $a_{n}\\ge 0$ and $b_{n}\\ge 0$ and that ${\\displaystyle \\sum_{n=1}^{\\infty}a^{2}{}_{n}}$ and ${\\displaystyle \\sum_{n=1}^{\\infty}b^{2}{}_{n}}$ converge. Prove that ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}b_{n}}$ converges and ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}\\,b_{n}\\le \\frac{1}{2}\\left({\\displaystyle \\sum_{n=1}^{\\infty}a_{n}^{2}}+{\\displaystyle \\sum_{n=1}^{\\infty}b_{n}^{2}}\\right).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739186520",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(a-b)^{2}=a^{2}-2ab+b^{2}$ or $a^{2}+b^{2}\\ge 2ab,$ so convergence follows from comparison of $2a_{n}b_{n}$ with $a^{2}{}_{n}+b^{2}{}_{n}.$ Since the partial sums on the left are bounded by those on the right, the inequality holds for the infinite series."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e232",
+   "number": 232,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Does ${\\displaystyle \\sum_{n=1}^{\\infty}2^{-\\ln \\,\\ln \\,n}}$ converge? (*Hint:* Write $2^{\\ln \\,\\ln \\,n}$ as a power of $\\ln \\,n.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739100267",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e233",
+   "number": 233,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Does ${\\displaystyle \\sum_{n=1}^{\\infty}(\\ln \\,n)^{-\\ln \\,n}}$ converge? (*Hint:* Use $n=e^{\\ln (n)}$ to compare to a $p-\\text{series}.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739210323",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(\\ln \\,n)^{-\\ln \\,n}=e^{-\\ln (n)\\ln \\,\\ln (n)}.$ If $n$ is sufficiently large, then $\\ln \\,\\ln \\,n>2,$ so $(\\ln \\,n)^{-\\ln \\,n}<1/n^{2},$ and the series converges by comparison to a $p-\\text{series}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e234",
+   "number": 234,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Does ${\\displaystyle \\sum_{n=2}^{\\infty}(\\ln \\,n)^{-\\ln \\,\\ln \\,n}}$ converge? (*Hint:* Compare $a_{n}$ to $1/n.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739210366",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e235",
+   "number": 235,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that if $a_{n}\\ge 0$ and ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges, then ${\\displaystyle \\sum_{n=1}^{\\infty}a^{2}{}_{n}}$ converges. If ${\\displaystyle \\sum_{n=1}^{\\infty}a^{2}{}_{n}}$ converges, does ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ necessarily converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739080340",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}\\to 0,$ so $a^{2}{}_{n}\\le |a_{n}|$ for large $n.$ Convergence follows from limit comparison. ${\\displaystyle \\sum 1/n^{2}}$ converges, but ${\\displaystyle \\sum 1/n}$ does not, so the fact that ${\\displaystyle \\sum_{n=1}^{\\infty}a^{2}{}_{n}}$ converges does not imply that ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e236",
+   "number": 236,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $a_{n}>0$ for all $n$ and that ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges. Suppose that $b_{n}$ is an arbitrary sequence of zeros and ones. Does ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}b_{n}$ necessarily converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736776946",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e237",
+   "number": 237,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $a_{n}>0$ for all $n$ and that ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ diverges. Suppose that $b_{n}$ is an arbitrary sequence of zeros and ones with infinitely many terms equal to one. Does ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}b_{n}$ necessarily diverge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739186586",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "No. ${\\displaystyle \\sum_{n=1}^{\\infty}1/n}$ diverges. Let $b_{k}=0$ unless $k=n^{2}$ for some $n.$ Then ${\\displaystyle \\sum_{k}b_{k}/k}={\\displaystyle \\sum 1/k^{2}}$ converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e238",
+   "number": 238,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Complete the details of the following argument: If ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n}}$ converges to a finite sum $s,$ then $\\frac{1}{2}s=\\frac{1}{2}+\\frac{1}{4}+\\frac{1}{6}+\\cdots$ and $s-\\frac{1}{2}s=1+\\frac{1}{3}+\\frac{1}{5}+\\cdots .$ Why does this lead to a contradiction?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739097544",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e239",
+   "number": 239,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that if $a_{n}\\ge 0$ and ${\\displaystyle \\sum_{n=1}^{\\infty}a^{2}{}_{n}}$ converges, then ${\\displaystyle \\sum_{n=1}^{\\infty}\\sin^{2}(a_{n})}$ converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736777508",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$|\\sin \\,t|\\le |t|,$ so the result follows from the comparison test."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e240",
+   "number": 240,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $a_{n}/b_{n}\\to 0$ in the comparison test, where $a_{n}\\ge 0$ and $b_{n}\\ge 0.$ Prove that if ${\\displaystyle \\sum b_{n}}$ converges, then ${\\displaystyle \\sum a_{n}}$ converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739255935",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e241",
+   "number": 241,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $b_{n}$ be an infinite sequence of zeros and ones. What is the largest possible value of $x={\\displaystyle \\sum_{n=1}^{\\infty}b_{n}/2^{n}}\\text{?}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736777832",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "By the comparison test, $x={\\displaystyle \\sum_{n=1}^{\\infty}b_{n}/2^{n}}\\le {\\displaystyle \\sum_{n=1}^{\\infty}1/2^{n}}=1.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e242",
+   "number": 242,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $d_{n}$ be an infinite sequence of digits, meaning $d_{n}$ takes values in $\\{0,\\,1,\\dots ,9\\}.$ What is the largest possible value of $x={\\displaystyle \\sum_{n=1}^{\\infty}d_{n}/10^{n}}$ that converges?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736727925",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e243",
+   "number": 243,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain why, if $x>1/2,$ then $x$ cannot be written $x={\\displaystyle \\sum_{n=2}^{\\infty}\\frac{b_{n}}{2^{n}}}(b_{n}=0\\,\\text{or}\\,1,\\,b_{1}=0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739255148",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "If $b_{1}=0,$ then, by comparison, $x\\le {\\displaystyle \\sum_{n=2}^{\\infty}1/2^{n}}=1/2.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e244",
+   "number": 244,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evelyn has a perfect balancing scale, an unlimited number of $1\\,\\text{-kg}$ weights, and one each of $1/2\\,\\text{-kg},\\,1/4\\,\\text{-kg},\\,1/8\\,\\text{-kg},$ and so on weights. She wishes to weigh a meteorite of unspecified origin to arbitrary precision. Assuming the scale is big enough, can she do it? What does this have to do with infinite series?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739195846",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e245",
+   "number": 245,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Robert wants to know his body mass to arbitrary precision. He has a big balancing scale that works perfectly, an unlimited collection of $1\\,\\text{-kg}$ weights, and nine each of $0.1\\,\\text{-kg,}$ $0.01\\,\\text{-kg},\\,0.001\\,\\text{-kg,}$ and so on weights. Assuming the scale is big enough, can he do this? What does this have to do with infinite series?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739255813",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Yes. Keep adding $1\\,\\text{-kg}$ weights until the balance tips to the side with the weights. If it balances perfectly, with Robert standing on the other side, stop. Otherwise, remove one of the $1\\,\\text{-kg}$ weights, and add $0.1\\,\\text{-kg}$ weights one at a time. If it balances after adding some of these, stop. Otherwise if it tips to the weights, remove the last $0.1\\,\\text{-kg}$ weight. Start adding $0.01\\,\\text{-kg}$ weights. If it balances, stop. If it tips to the side with the weights, remove the last $0.01\\,\\text{-kg}$ weight that was added. Continue in this way for the $0.001\\,\\text{-kg}$ weights, and so on. After a finite number of steps, one has a finite series of the form $A+{\\displaystyle \\sum_{n=1}^{N}s_{n}}/10^{n}$ where $A$ is the number of full kg weights and $d_{n}$ is the number of $1/10^{n}\\,\\text{-kg}$ weights that were added. If at some state this series is Robert’s exact weight, the process will stop. Otherwise it represents the $N\\text{th}$ partial sum of an infinite series that gives Robert’s exact weight, and the error of this sum is at most $1/10^{N}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e246",
+   "number": 246,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The series ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{2n}}$ is half the harmonic series and hence diverges. It is obtained from the harmonic series by deleting all terms in which $n$ is odd. Let $m>1$ be fixed. Show, more generally, that deleting all terms $1/n$ where $n=mk$ for some integer $k$ also results in a divergent series."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736635743",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e247",
+   "number": 247,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "In view of the previous exercise, it may be surprising that a subseries of the harmonic series in which about one in every five terms is deleted might converge. A *depleted harmonic series* is a series obtained from ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n}}$ by removing any term $1/n$ if a given digit, say $9,$ appears in the decimal expansion of $n.$ Argue that this depleted harmonic series converges by answering the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "How many whole numbers $n$ have $d$ digits?",
+      "How many $d\\text{-digit}$ whole numbers $h(d).$ do not contain $9$ as one or more of their digits?",
+      "What is the smallest $d\\text{-digit}$ number $m(d)\\text{?}$",
+      "Explain why the deleted harmonic series is bounded by ${\\displaystyle \\sum_{d=1}^{\\infty}\\frac{h(d)}{m(d)}}.$",
+      "Show that ${\\displaystyle \\sum_{d=1}^{\\infty}\\frac{h(d)}{m(d)}}$ converges."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736627072",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $10^{d}-10^{d-1}<10^{d}$ b. $h(d)<9^{d}$ c. $m(d)=10^{d-1}+1$ d. Group the terms in the deleted harmonic series together by number of digits. $h(d)$ bounds the number of terms, and each term is at most $1/m(d).$ ${\\displaystyle \\sum_{d=1}^{\\infty}h(d)/m(d)}\\le {\\displaystyle \\sum_{d=1}^{\\infty}9^{d}/(10)^{d-1}}\\le 90.$ One can actually use comparison to estimate the value to smaller than $80.$ The actual value is smaller than $23.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e248",
+   "number": 248,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that a sequence of numbers $a_{n}>0$ has the property that $a_{1}=1$ and $a_{n+1}=\\frac{1}{n+1}S_{n},$ where $S_{n}=a_{1}+\\cdots +a_{n}.$ Can you determine whether ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges? (*Hint:* $S_{n}$ is monotone.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736744022",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e249",
+   "number": 249,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that a sequence of numbers $a_{n}>0$ has the property that $a_{1}=1$ and $a_{n+1}=\\frac{1}{(n+1)^{2}}S_{n},$ where $S_{n}=a_{1}+\\cdots +a_{n}.$ Can you determine whether ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges? (*Hint:* $S_{2}=a_{2}+a_{1}=a_{2}+S_{1}=a_{2}+1=1+1/4=(1+1/4)S_{1},$ $S_{3}=\\frac{1}{3^{2}}S_{2}+S_{2}=(1+1/9)S_{2}=(1+1/9)(1+1/4)S_{1},$ etc. Look at $\\ln (S_{n}),$ and use $\\ln (1+t)\\le t,$ $t>0.)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739186621",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit comparison test to determine whether each of the following series converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Continuing the hint gives $S_{N}=(1+1/N^{2})(1+1/(N-1)^{2}\\dots (1+1/4)).$ Then $\\ln (S_{N})=\\ln (1+1/N^{2})+\\ln (1+1/(N-1)^{2})+\\cdots +\\ln (1+1/4).$ Since $\\ln (1+t)$ is bounded by a constant times $t,$ when $0<t<1$ one has $\\ln (S_{N})\\le C{\\displaystyle \\sum_{n=1}^{N}\\frac{1}{n^{2}}},$ which converges by comparison to the *p*-series for $p=2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Comparison Test",
+   "statement": [
+    {
+     "type": "list",
+     "items": [
+      "Suppose there exists an integer $N$ such that $0\\le a_{n}\\le b_{n}$ for all $n\\ge N.$ If $\\sum_{n=1}^{\\infty}b_{n}$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges.",
+      "Suppose there exists an integer $N$ such that $a_{n}\\ge b_{n}\\ge 0$ for all $n\\ge N.$ If $\\sum_{n=1}^{\\infty}b_{n}$ diverges, then $\\sum_{n=1}^{\\infty}a_{n}$ diverges."
+     ],
+     "ordered": true,
+     "style": "i"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "We prove part i. The proof of part ii. is the contrapositive of part i. Let $\\{S_{k}\\}$ be the sequence of partial sums associated with $\\sum_{n=1}^{\\infty}a_{n},$ and let $L=\\sum_{n=1}^{\\infty}b_{n}.$ Since the terms $a_{n}\\ge 0,$"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}=a_{1}+a_{2}+\\cdots +a_{k}\\le a_{1}+a_{2}+\\cdots +a_{k}+a_{k+1}=S_{k+1}."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, the sequence of partial sums is increasing. Further, since $a_{n}\\le b_{n}$ for all $n\\ge N,$ then"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=N}^{k}a_{n}\\le}{\\displaystyle \\sum_{n=N}^{k}b_{n}\\le}{\\displaystyle \\sum_{n=1}^{\\infty}b_{n}=L.}"
+    },
+    {
+     "type": "p",
+     "text": "Therefore, for all $k\\ge 1,$"
+    },
+    {
+     "type": "math",
+     "tex": "S_{k}=(a_{1}+a_{2}+\\cdots +a_{N-1})+{\\displaystyle \\sum_{n=N}^{k}a_{n}\\le}(a_{1}+a_{2}+\\cdots +a_{N-1})+L."
+    },
+    {
+     "type": "p",
+     "text": "Since $a_{1}+a_{2}+\\cdots +a_{N-1}$ is a finite number, we conclude that the sequence $\\{S_{k}\\}$ is bounded above. Therefore, $\\{S_{k}\\}$ is an increasing sequence that is bounded above. By the Monotone Convergence Theorem, we conclude that $\\{S_{k}\\}$ converges, and therefore the series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "To use the comparison test to determine the convergence or divergence of a series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}},$ it is necessary to find a suitable series with which to compare it. Since we know the convergence properties of geometric series and *p*-series, these series are often used. If there exists an integer $N$ such that for all $n\\ge N,$ each term $a_{n}$ is less than each corresponding term of a known convergent series, then ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges. Similarly, if there exists an integer $N$ such that for all $n\\ge N,$ each term $a_{n}$ is greater than each corresponding term of a known divergent series, then ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ diverges."
+    },
+    {
+     "type": "p",
+     "text": "For each of the following series, use the comparison test to determine whether the series converges or diverges."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}\\frac{1}{n^{3}+3n+1}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{1}{2^{n}+1}$",
+      "$\\sum_{n=2}^{\\infty}\\frac{1}{\\ln (n)}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "Compare to ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{3}}}$ Since ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{3}}}$ is a *p*-series with $p=3,$ it converges. Further,"
+       },
+       {
+        "type": "math",
+        "tex": "\\frac{1}{n^{3}+3n+1}<\\frac{1}{n^{3}}"
+       },
+       {
+        "type": "p",
+        "text": "for every positive integer $n.$ Therefore, we can conclude that $\\sum_{n=1}^{\\infty}\\frac{1}{n^{3}+3n+1}$ converges."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Compare to $\\sum_{n=1}^{\\infty}\\left(\\frac{1}{2}\\right)^{n}.$ Since ${\\displaystyle \\sum_{n=1}^{\\infty}\\left(\\frac{1}{2}\\right)^{n}}$ is a geometric series with $r=1/2$ and $|1/2|<1,$ it converges. Also,"
+       },
+       {
+        "type": "math",
+        "tex": "\\frac{1}{2^{n}+1}<\\frac{1}{2^{n}}"
+       },
+       {
+        "type": "p",
+        "text": "for every positive integer $n.$ Therefore, we see that $\\sum_{n=1}^{\\infty}\\frac{1}{2^{n}+1}$ converges."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Compare to $\\sum_{n=2}^{\\infty}\\frac{1}{n}.$ Since"
+       },
+       {
+        "type": "math",
+        "tex": "\\frac{1}{\\ln (n)}>\\frac{1}{n}"
+       },
+       {
+        "type": "p",
+        "text": "for every integer $n\\ge 2$ and $\\sum_{n=2}^{\\infty}1/n$ diverges, we have that $\\sum_{n=2}^{\\infty}\\frac{1}{\\ln (n)}$ diverges."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "comparison test",
+   "meaning": "if $0\\le a_{n}\\le b_{n}$ for all $n\\ge N$ and $\\sum_{n=1}^{\\infty}b_{n}$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges; if $a_{n}\\ge b_{n}\\ge 0$ for all $n\\ge N$ and $\\sum_{n=1}^{\\infty}b_{n}$ diverges, then $\\sum_{n=1}^{\\infty}a_{n}$ diverges"
+  },
+  {
+   "term": "limit comparison test",
+   "meaning": "suppose $a_{n},\\,b_{n}\\ge 0$ for all $n\\ge 1.$ If $\\lim_{n\\to \\infty}a_{n}/b_{n}\\to L\\ne 0,$ then $\\sum_{n=1}^{\\infty}a_{n}$ and $\\sum_{n=1}^{\\infty}b_{n}$ both converge or both diverge; if $\\lim_{n\\to \\infty}a_{n}/b_{n}\\to 0$ and $\\sum_{n=1}^{\\infty}b_{n}$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges. If $\\lim_{n\\to \\infty}a_{n}/b_{n}\\to \\infty ,$ and $\\sum_{n=1}^{\\infty}b_{n}$ diverges, then $\\sum_{n=1}^{\\infty}a_{n}$ diverges"
+  }
+ ]
+}

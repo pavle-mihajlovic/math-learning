@@ -1,0 +1,2717 @@
+{
+ "schema": 1,
+ "id": "V1.5.6",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 5,
+ "section": 6,
+ "title": "Integrals Involving Exponential and Logarithmic Functions",
+ "chapterTitle": "Integration",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53635",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/5-6-integrals-involving-exponential-and-logarithmic-functions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §5.6 “Integrals Involving Exponential and Logarithmic Functions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Integrate functions involving exponential functions.",
+  "Integrate functions involving logarithmic functions."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Exponential and logarithmic functions are used to model population growth, cell growth, and financial growth, as well as depreciation, radioactive decay, and resource consumption, to name only a few applications. In this section, we explore integration involving exponential and logarithmic functions."
+    }
+   ],
+   "title": "Integrals Involving Exponential and Logarithmic Functions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The exponential function is perhaps the most efficient function in terms of the operations of calculus. The exponential function, $y=e^{x},$ is its own derivative and its own integral."
+    },
+    {
+     "type": "box",
+     "variant": "rule",
+     "body": [
+      {
+       "type": "p",
+       "text": "Exponential functions can be integrated using the following formulas."
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{ccc}{\\displaystyle \\int e^{x}dx} & = & e^{x}+C \\\\ {\\displaystyle \\int a^{x}dx} & = & \\frac{a^{x}}{\\ln \\,a}+C\\end{array}"
+      }
+     ],
+     "title": "Integrals of Exponential Functions"
+    }
+   ],
+   "title": "Integrals of Exponential Functions"
+  },
+  {
+   "id": "x3",
+   "kind": "example",
+   "label": "Example 5.37",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of the exponential function *e*$^{\\text{−x}}$."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use substitution, setting $u=-x,$ and then $du=-1dx.$ Multiply the *du* equation by −1, so you now have $-du=dx.$ Then,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int e^{-x}}dx & =-{\\displaystyle \\int e^{u}du} \\\\ \\\\ & =-e^{u}+C \\\\ & =-e^{-x}+C.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding an Antiderivative of an Exponential Function"
+  },
+  {
+   "id": "c4",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.31",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of the function using substitution: $x^{2}e^{-2x^{3}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int x^{2}e^{-2x^{3}}dx=-\\frac{1}{6}e^{-2x^{3}}+C}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Let *u* equal the exponent on *e*."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A common mistake when dealing with exponential expressions is treating the exponent on *e* the same way we treat exponents in polynomial expressions. We cannot use the power rule for the exponent on *e*. This can be especially confusing when we have both exponentials and polynomials in the same expression, as in the previous checkpoint. In these cases, we should always double-check to make sure we’re using the right rules for the functions we’re integrating."
+    }
+   ],
+   "title": "Integrals of Exponential Functions (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 5.38",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of the exponential function $e^{x}\\sqrt{1+e^{x}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First rewrite the problem using a rational exponent:"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int e^{x}\\sqrt{1+e^{x}}}dx={\\displaystyle \\int e^{x}(1+e^{x})^{1/2}dx}."
+     },
+     {
+      "type": "p",
+      "text": "Using substitution, choose $u=1+e^{x}.$ Then, $du=e^{x}dx.$ We have (Figure 5.36)"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int e^{x}(1+e^{x})^{1/2}dx={\\displaystyle \\int u^{1/2}du}}."
+     },
+     {
+      "type": "p",
+      "text": "Then"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int u^{1/2}du=\\frac{u^{3/2}}{3/2}+C}=\\frac{2}{3}u^{3/2}+C=\\frac{2}{3}(1+e^{x})^{3/2}+C."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_06_001.webp",
+      "alt": "A graph of the function f(x) = e^x * sqrt(1 + e^x), which is an increasing concave up curve, over [-3, 1]. It begins close to the x axis in quadrant two, crosses the y axis at (0, sqrt(2)), and continues to increase rapidly.",
+      "caption": "**Figure 5.36** The graph shows an exponential function times the square root of an exponential function.",
+      "width": 325,
+      "height": 208
+     }
+    ]
+   },
+   "title": "Square Root of an Exponential Function"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.32",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of $e^{x}(3e^{x}-2)^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int e^{x}(3e^{x}-2)^{2}dx=\\frac{1}{9}(3e^{x}-2)^{3}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Let $u=3e^{x}-2\\,u=3e^{x}-2.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 5.39",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use substitution to evaluate the indefinite integral ${\\displaystyle \\int 3x^{2}e^{2x^{3}}dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Here we choose to let *u* equal the expression in the exponent on *e*. Let $u=2x^{3}$ and $du=6x^{2}dx..$ Again, *du* is off by a constant multiplier; the original function contains a factor of 3*x*$^{\\text{2}}$, not 6*x*$^{\\text{2}}$. Multiply both sides of the equation by $\\frac{1}{2}$ so that the integrand in *u* equals the integrand in *x*. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int 3x^{2}e^{2x^{3}}}dx=\\frac{1}{2}{\\displaystyle \\int e^{u}du}."
+     },
+     {
+      "type": "p",
+      "text": "Integrate the expression in *u* and then substitute the original expression in *x* back into the *u* integral:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{1}{2}{\\displaystyle \\int e^{u}}du=\\frac{1}{2}e^{u}+C=\\frac{1}{2}e^{2x^{3}}+C."
+     }
+    ]
+   },
+   "title": "Using Substitution with an Exponential Function"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.33",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the indefinite integral ${\\displaystyle \\int 2}x^{3}e^{x^{4}}dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int 2}x^{3}e^{x^{4}}dx=\\frac{1}{2}e^{x^{4}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Let $u=x^{4}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)e^(x^4)"
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As mentioned at the beginning of this section, exponential functions are used in many real-life applications. The number *e* is often associated with compounded or accelerating growth, as we have seen in earlier sections about the derivative. Although the derivative represents a rate of change or a growth rate, the integral represents the total change or the total growth. Let’s look at an example in which integration of an exponential function solves a common business application."
+    },
+    {
+     "type": "p",
+     "text": "A **price–demand function** tells us the relationship between the quantity of a product demanded and the price of the product. In general, price decreases as quantity demanded increases. The marginal price–demand function is the derivative of the price–demand function and it tells us how fast the price changes at a given level of production. These functions are used in business to determine the price–elasticity of demand, and to help companies determine whether changing production levels would be profitable."
+    }
+   ],
+   "title": "Integrals of Exponential Functions (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 5.40",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the price–demand equation for a particular brand of toothpaste at a supermarket chain when the demand is 50 tubes per week at \\$2.35 per tube, given that the marginal price—demand function, $p'(x),$ for *x* number of tubes per week, is given as"
+    },
+    {
+     "type": "math",
+     "tex": "p'(x)=-0.015e^{-0.01x}."
+    },
+    {
+     "type": "p",
+     "text": "If the supermarket chain sells 100 tubes per week, what price should it set?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To find the price–demand equation, integrate the marginal price–demand function. First find the antiderivative, then look at the particulars. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ \\\\ p(x) & ={\\displaystyle \\int -0.015e^{-0.01x}dx} \\\\ & =-0.015{\\displaystyle \\int e^{-0.01x}}dx.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Using substitution, let $u=-0.01x$ and $du=-0.01dx.$ Then, divide both sides of the *du* equation by −0.01. This gives"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\frac{-0.015}{-0.01}{\\displaystyle \\int e^{u}du} & =1.5{\\displaystyle \\int e^{u}du} \\\\ \\\\ & =1.5e^{u}+C \\\\ & =1.5e^{-0.01x}+C.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The next step is to solve for *C*. We know that when the price is \\$2.35 per tube, the demand is 50 tubes per week. This means"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ \\\\ p(50) & =1.5e^{-0.01(50)}+C \\\\ & =2.35.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Now, just solve for *C*:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ C & =2.35-1.5e^{-0.5} \\\\ & =2.35-0.91 \\\\ & =1.44.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "p(x)=1.5e^{-0.01x}+1.44."
+     },
+     {
+      "type": "p",
+      "text": "If the supermarket sells 100 tubes of toothpaste per week, the price would be"
+     },
+     {
+      "type": "math",
+      "tex": "p(100)=1.5e^{-0.01(100)}+1.44=1.5e^{-1}+1.44\\approx 1.99."
+     },
+     {
+      "type": "p",
+      "text": "The supermarket should charge \\$1.99 per tube if it is selling 100 tubes per week."
+     }
+    ]
+   },
+   "title": "Finding a Price–Demand Equation"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 5.41",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the definite integral ${\\displaystyle \\int_{1}^{2}e^{1-x}dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Again, substitution is the method to use. Let $u=1-x,$ so $du=-1dx$ or $-du=dx.$ Then ${\\displaystyle \\int e^{1-x}dx=-{\\displaystyle \\int e^{u}du}}.$ Next, change the limits of integration. Using the equation $u=1-x,$ we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c}u=1-(1)=0 \\\\ u=1-(2)=-1.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The integral then becomes"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{1}^{2}e^{1-x}dx} & =-{\\displaystyle \\int_{0}^{-1}e^{u}du} \\\\ \\\\ \\\\ & ={\\displaystyle \\int_{-1}^{0}e^{u}du} \\\\ & =e^{u}|_{-1}^{0} \\\\ & =e^{0}-(e^{-1}) \\\\ & =-e^{-1}+1.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "See Figure 5.37."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_06_002.webp",
+      "alt": "A graph of the function f(x) = e^(1-x) over [0, 3]. It crosses the y axis at (0, e) as a decreasing concave up curve and symptotically approaches 0 as x goes to infinity.",
+      "caption": "**Figure 5.37** The indicated area can be calculated by evaluating a definite integral using substitution.",
+      "width": 325,
+      "height": 208
+     }
+    ]
+   },
+   "title": "Evaluating a Definite Integral Involving an Exponential Function"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.34",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{0}^{2}e^{2x}dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}{\\displaystyle \\int_{0}^{4}e^{u}du=\\frac{1}{2}(e^{4}-1)}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Let $u=2x.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 5.42",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose the rate of **growth of bacteria** in a Petri dish is given by $q(t)=3^{t},$ where *t* is given in hours and $q(t)$ is given in thousands of bacteria per hour. If a culture starts with 10,000 bacteria, find a function $Q(t)$ that gives the number of bacteria in the Petri dish at any time *t*. How many bacteria are in the dish after 2 hours?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have"
+     },
+     {
+      "type": "math",
+      "tex": "Q(t)={\\displaystyle \\int 3^{t}dt=\\frac{3^{t}}{\\ln \\,3}+C.}"
+     },
+     {
+      "type": "p",
+      "text": "Then, at $t=0$ we have $Q(0)=10=\\frac{1}{\\ln \\,3}+C,$ so $C\\approx 9.090$ and we get"
+     },
+     {
+      "type": "math",
+      "tex": "Q(t)=\\frac{3^{t}}{\\ln \\,3}+9.090."
+     },
+     {
+      "type": "p",
+      "text": "At time $t=2,$ we have"
+     },
+     {
+      "type": "math",
+      "tex": "Q(2)=\\frac{3^{2}}{\\ln \\,3}+9.090"
+     },
+     {
+      "type": "math",
+      "tex": "=17.282."
+     },
+     {
+      "type": "p",
+      "text": "After 2 hours, there are 17,282 bacteria in the dish."
+     }
+    ]
+   },
+   "title": "Growth of Bacteria in a Culture"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.35",
+   "problem": [
+    {
+     "type": "p",
+     "text": "From Example 5.42, suppose the bacteria grow at a rate of $q(t)=2^{t}.$ Assume the culture still starts with 10,000 bacteria. Find $Q(t).$ How many bacteria are in the dish after 3 hours?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$Q(t)=\\frac{2^{t}}{\\ln \\,2}+8.557.$ There are 20,099 bacteria in the dish after 3 hours."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the procedure from Example 5.42 to solve the problem."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 5.43",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose a population of **fruit flies** increases at a rate of $g(t)=2e^{0.02t},$ in flies per day. If the initial population of fruit flies is 100 flies, how many flies are in the population after 10 days?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $G(t)$ represent the number of flies in the population at time *t*. Applying the net change theorem, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ \\\\ G(10) & =G(0)+{\\displaystyle \\int}_{0}^{10}2e^{0.02t}dt \\\\ & =100+\\left[\\frac{2}{0.02}e^{0.02t}\\right]|_{0}^{10} \\\\ & =100+[100e^{0.02t}]|_{0}^{10} \\\\ & =100+100e^{0.2}-100 \\\\ & \\approx 122.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "There are 122 flies in the population after 10 days."
+     }
+    ]
+   },
+   "title": "Fruit Fly Population Growth"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose the rate of growth of the fly population is given by $g(t)=e^{0.01t},$ and the initial fly population is 100 flies. How many flies are in the population after 15 days?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "There are 116 flies."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the process from Example 5.43 to solve the problem."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x18",
+   "kind": "example",
+   "label": "Example 5.44",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the definite integral using substitution: ${\\displaystyle \\int_{1}^{2}\\frac{e^{1/x}}{x^{2}}dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This problem requires some rewriting to simplify applying the properties. First, rewrite the exponent on *e* as a power of *x*, then bring the *x*$^{\\text{2}}$ in the denominator up to the numerator using a negative exponent. We have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{1}^{2}\\frac{e^{1/x}}{x^{2}}dx}={\\displaystyle \\int_{1}^{2}e^{x^{-1}}x^{-2}dx}."
+     },
+     {
+      "type": "p",
+      "text": "Let $u=x^{-1},$ the exponent on *e*. Then"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}du & =-x^{-2}dx \\\\ -du & =x^{-2}dx.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Bringing the negative sign outside the integral sign, the problem now reads"
+     },
+     {
+      "type": "math",
+      "tex": "-{\\displaystyle \\int e^{u}du}."
+     },
+     {
+      "type": "p",
+      "text": "Next, change the limits of integration:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{l} \\\\ \\\\ u=(1)^{-1}=1 \\\\ u=(2)^{-1}=\\frac{1}{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Notice that now the limits begin with the larger number, meaning we must multiply by −1 and interchange the limits. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ll} \\\\ \\\\ \\\\ -{\\displaystyle \\int_{1}^{1/2}e^{u}du} & ={\\displaystyle \\int_{1/2}^{1}e^{u}du} \\\\ & =e^{u}|_{1/2}^{1} \\\\ & =e-e^{1/2} \\\\ & =e-\\sqrt{e}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating a Definite Integral Using Substitution"
+  },
+  {
+   "id": "c19",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.37",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the definite integral using substitution: ${\\displaystyle \\int_{1}^{2}\\frac{1}{x^{3}}e^{4x^{-2}}}dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{1}^{2}\\frac{1}{x^{3}}e^{4x^{-2}}}dx=\\frac{1}{8}[e^{4}-e]$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Let $u=4x^{-2}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/8)[e^4-e]"
+   }
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Integrating functions of the form $f(x)=x^{-1}$ result in the absolute value of the natural log function, as shown in the following rule. Integral formulas for other logarithmic functions, such as $f(x)=\\ln \\,x$ and $f(x)=\\log_{a}x,$ are also included in the rule."
+    },
+    {
+     "type": "box",
+     "variant": "rule",
+     "body": [
+      {
+       "type": "p",
+       "text": "The following formulas can be used to evaluate integrals involving logarithmic functions."
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{ccc}{\\displaystyle \\int x^{-1}dx} & = & \\ln |x|+C \\\\ {\\displaystyle \\int \\ln}\\,x\\,dx & = & x\\,\\ln \\,x-x+C=x(\\ln \\,x-1)+C \\\\ {\\displaystyle \\int \\log_{a}}x\\,dx & = & \\frac{x}{\\ln \\,a}(\\ln \\,x-1)+C\\end{array}"
+      }
+     ],
+     "title": "Integration Formulas Involving Logarithmic Functions"
+    }
+   ],
+   "title": "Integrals Involving Logarithmic Functions"
+  },
+  {
+   "id": "x21",
+   "kind": "example",
+   "label": "Example 5.45",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of the function $\\frac{3}{x-10}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First factor the 3 outside the integral symbol. Then use the *u*$^{\\text{−1}}$ rule. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ll}{\\displaystyle \\int \\frac{3}{x-10}dx} & =3{\\displaystyle \\int \\frac{1}{x-10}dx} \\\\ \\\\ \\\\ & =3{\\displaystyle \\int \\frac{du}{u}} \\\\ & =3\\,\\ln |u|+C \\\\ & =3\\,\\ln |x-10|+C,x\\ne 10.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "See Figure 5.38."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_06_003.webp",
+      "alt": "A graph of the function f(x) = 3 / (x – 10). There is an asymptote at x=10. The first segment is a decreasing concave down curve that approaches 0 as x goes to negative infinity and approaches negative infinity as x goes to 10. The second segment is a decreasing concave up curve that approaches infinity as x goes to 10 and approaches 0 as x approaches infinity.",
+      "caption": "**Figure 5.38** The domain of this function is $x\\ne 10.$",
+      "width": 325,
+      "height": 246
+     }
+    ]
+   },
+   "title": "Finding an Antiderivative Involving $\\ln \\,x$"
+  },
+  {
+   "id": "c22",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.38",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of $\\frac{1}{x+2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln |x+2|+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the pattern from Example 5.45 to solve the problem."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln |x+2|+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "x23",
+   "kind": "example",
+   "label": "Example 5.46",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of $\\frac{2x^{3}+3x}{x^{4}+3x^{2}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This can be rewritten as ${\\displaystyle \\int (2x^{3}+3x)(x^{4}+3x^{2})^{-1}dx}.$ Use substitution. Let $u=x^{4}+3x^{2},$ then $du=4x^{3}+6x.$ Alter *du* by factoring out the 2. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc} \\\\ du & = & (4x^{3}+6x)dx \\\\ & = & 2(2x^{3}+3x)dx \\\\ \\frac{1}{2}\\,du & = & (2x^{3}+3x)dx.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Rewrite the integrand in *u*:"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int (2x^{3}+3x)(x^{4}+3x^{2})^{-1}dx}=\\frac{1}{2}{\\displaystyle \\int u^{-1}}du."
+     },
+     {
+      "type": "p",
+      "text": "Then we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ll}\\frac{1}{2}{\\displaystyle \\int u^{-1}du} & =\\frac{1}{2}\\ln |u|+C \\\\ \\\\ & =\\frac{1}{2}\\ln |x^{4}+3x^{2}|+C.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding an Antiderivative of a Rational Function"
+  },
+  {
+   "id": "x24",
+   "kind": "example",
+   "label": "Example 5.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of the log function $\\log_{2}x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Follow the format in the formula listed in the rule on integration formulas involving logarithmic functions. Based on this format, we have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\log_{2}xdx=\\frac{x}{\\ln \\,2}(\\ln \\,x-1)+C}."
+     }
+    ]
+   },
+   "title": "Finding an Antiderivative of a Logarithmic Function"
+  },
+  {
+   "id": "c25",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.39",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative of $\\log_{3}x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{x}{\\ln \\,3}(\\ln \\,x-1)+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow Example 5.47 and refer to the rule on integration formulas involving logarithmic functions."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(x/(ln 3))(ln x-1)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Example 5.48 is a definite integral of a trigonometric function. With trigonometric functions, we often have to apply a trigonometric property or an identity before we can move forward. Finding the right form of the integrand is usually the key to a smooth integration."
+    }
+   ],
+   "title": "Integrals Involving Logarithmic Functions (continued)"
+  },
+  {
+   "id": "x27",
+   "kind": "example",
+   "label": "Example 5.48",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the definite integral of ${\\displaystyle \\int_{0}^{\\pi /2}\\frac{\\sin \\,x}{1+\\cos \\,x}dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We need substitution to evaluate this problem. Let $u=1+\\cos \\,x,,$ so $du=-\\sin \\,x\\,dx.$ Rewrite the integral in terms of *u*, changing the limits of integration as well. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c}u=1+\\cos (0)=2 \\\\ u=1+\\cos \\left(\\frac{\\pi}{2}\\right)=1.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Then"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{0}^{\\pi /2}\\frac{\\sin \\,x}{1+\\cos \\,x}} & =-{\\displaystyle \\int_{2}^{1}u^{-1}du} \\\\ \\\\ \\\\ & ={\\displaystyle \\int_{1}^{2}u^{-1}du} \\\\ & =\\ln |u||_{1}^{2} \\\\ & =[\\ln \\,2-\\ln \\,1] \\\\ & =\\ln \\,2.\\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating a Definite Integral"
+  },
+  {
+   "id": "r28",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Exponential and logarithmic functions arise in many real-world applications, especially those involving growth and decay.",
+      "Substitution is often used to evaluate integrals involving exponential functions or logarithms."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r29",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Integrals of Exponential Functions**",
+       "${\\displaystyle \\int e^{x}dx=e^{x}+C}$\n\n${\\displaystyle \\int a^{x}dx=\\frac{a^{x}}{\\ln \\,a}+C}$"
+      ],
+      [
+       "**Integration Formulas Involving Logarithmic Functions**",
+       "${\\displaystyle \\int x^{-1}dx=\\ln |x|+C}$\n\n${\\displaystyle \\int \\ln \\,x\\,dx=x\\,\\ln \\,x-x+C=x(\\ln \\,x-1)+C}$\n\n${\\displaystyle \\int \\log_{a}\\,x\\,dx=\\frac{x}{\\ln \\,a}(\\ln \\,x-1)+C}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e320",
+   "number": 320,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{2x}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571699485",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e321",
+   "number": 321,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{-3x}}dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571678838",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{-1}{3}e^{-3x}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((-1)/3)e^(-3 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e322",
+   "number": 322,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int 2^{x}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572601241",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e323",
+   "number": 323,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int 3^{-x}}dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572601296",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{3^{-x}}{\\ln \\,3}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-((3^(-x))/(ln 3))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e324",
+   "number": 324,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{1}{2x}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571679817",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e325",
+   "number": 325,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{2}{x}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572611839",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\ln \\left|x\\right|+C\\text{or}\\ln \\left(x^{2}\\right)\\text{+C}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e326",
+   "number": 326,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{1}{x^{2}}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572611894",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e327",
+   "number": 327,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{1}{\\sqrt{x}}}dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572333073",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\sqrt{x}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 sqrt(x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e328",
+   "number": 328,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\ln \\,x}{x}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572333125",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e329",
+   "number": 329,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{x(\\ln \\,x)^{2}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571638228",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{\\ln \\,x}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(ln x))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e330",
+   "number": 330,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{x\\,\\ln \\,x}}\\,(x>1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571810876",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e331",
+   "number": 331,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{x\\,\\ln \\,x\\,\\ln (\\ln \\,x)}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571697166",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (\\ln (\\ln \\,x))+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln (ln (ln x))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e332",
+   "number": 332,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan \\,\\theta \\,d\\theta}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571539147",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e333",
+   "number": 333,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\cos \\,x-x\\,\\sin \\,x}{x\\,\\cos \\,x}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571539202",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (x\\,\\cos \\,x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln (x cos x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e334",
+   "number": 334,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\ln (\\sin \\,x)}{\\tan \\,x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571543268",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e335",
+   "number": 335,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\ln (\\cos \\,x)}\\tan \\,xdx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572456410",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}(\\ln (\\cos (x)))^{2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/2)(ln (cos (x)))^2+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e336",
+   "number": 336,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x}e^{-x^{2}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572396562",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e337",
+   "number": 337,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}}e^{-x^{3}}dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571580978",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{-e^{-x^{3}}}{3}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((-e^(-x^3))/3)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e338",
+   "number": 338,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{\\sin \\,x}\\cos \\,xdx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572218606",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e339",
+   "number": 339,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{\\tan \\,x}}\\sec^{2}xdx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572218671",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{\\tan \\,x}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^(tan x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e340",
+   "number": 340,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{\\ln \\,x}\\frac{dx}{x}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572386168",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e341",
+   "number": 341,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{e^{\\ln (1-t)}}{1-t}}dt$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572643203",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral by using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$t+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "t+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e342",
+   "number": 342,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\int x\\ln \\,xdx$ $(Hint:\\,\\int x\\ln \\,xdx=\\frac{1}{2}\\int x\\ln (x^{2})dx)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572373699",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify by differentiation that ${\\displaystyle \\int \\ln}\\,x\\,dx=x(\\ln \\,x-1)+C,$ then use appropriate changes of variables to compute the integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e343",
+   "number": 343,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\int x^{2}\\text{ln(}x^{2})\\,dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571710720",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify by differentiation that ${\\displaystyle \\int \\ln}\\,x\\,dx=x(\\ln \\,x-1)+C,$ then use appropriate changes of variables to compute the integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2}{9}x^{3}(\\ln (x^{3})-1)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(2/9)x^3(ln (x^3)-1)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e344",
+   "number": 344,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\ln \\,x}{x^{2}}}dx$ $(Hint:\\,\\text{Set}\\,u=\\frac{1}{x}.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572399045",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify by differentiation that ${\\displaystyle \\int \\ln}\\,x\\,dx=x(\\ln \\,x-1)+C,$ then use appropriate changes of variables to compute the integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e345",
+   "number": 345,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\ln \\,x}{\\sqrt{x}}dx}$ $(Hint:\\,\\text{Set}\\,u=\\sqrt{x}.)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572415189",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify by differentiation that ${\\displaystyle \\int \\ln}\\,x\\,dx=x(\\ln \\,x-1)+C,$ then use appropriate changes of variables to compute the integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\sqrt{x}(\\ln \\,x-2)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 sqrt(x)(ln x-2)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e346",
+   "number": 346,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Write an integral to express the area under the graph of $y=\\frac{1}{t}$ from $t=1$ to *e$^{\\text{x}}$* and evaluate the integral."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572168746",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify by differentiation that ${\\displaystyle \\int \\ln}\\,x\\,dx=x(\\ln \\,x-1)+C,$ then use appropriate changes of variables to compute the integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e347",
+   "number": 347,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Write an integral to express the area under the graph of $y=e^{t}$ between $t=0$ and $t=\\ln \\,x,$ and evaluate the integral."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572629242",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, verify by differentiation that ${\\displaystyle \\int \\ln}\\,x\\,dx=x(\\ln \\,x-1)+C,$ then use appropriate changes of variables to compute the integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{\\ln \\,x}e^{t}dt=e^{t}|_{0}^{\\ln \\,x}=e^{\\ln \\,x}-e^{0}=x-1}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e348",
+   "number": 348,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan (2x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572569965",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use appropriate substitutions to express the trigonometric integrals in terms of compositions with logarithms."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e349",
+   "number": 349,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\sin (3x)-\\cos (3x)}{\\sin (3x)+\\cos (3x)}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571571932",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use appropriate substitutions to express the trigonometric integrals in terms of compositions with logarithms."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{3}\\ln \\left|\\sin (3x)+\\cos (3x)\\right|\\text{+C}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e350",
+   "number": 350,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x\\,\\sin (x^{2})}{\\cos (x^{2})}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572379018",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use appropriate substitutions to express the trigonometric integrals in terms of compositions with logarithms."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e351",
+   "number": 351,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\csc (x^{2})dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571777887",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use appropriate substitutions to express the trigonometric integrals in terms of compositions with logarithms."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}\\ln |\\csc (x^{2})+\\cot (x^{2})|+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/2) ln | csc (x^2)+ cot (x^2)|+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e352",
+   "number": 352,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\ln (\\cos \\,x)\\tan \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572310019",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use appropriate substitutions to express the trigonometric integrals in terms of compositions with logarithms."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e353",
+   "number": 353,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\ln (\\csc \\,x)\\cot \\,xdx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571613744",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use appropriate substitutions to express the trigonometric integrals in terms of compositions with logarithms."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}(\\ln (\\csc \\,x))^{2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/2)(ln (csc x))^2+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e354",
+   "number": 354,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451363",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use appropriate substitutions to express the trigonometric integrals in terms of compositions with logarithms."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e355",
+   "number": 355,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{2}\\frac{1+2x+x^{2}}{3x+3x^{2}+x^{3}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572347000",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}\\ln \\left(\\frac{26}{7}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/3) ln ((26/7))"
+   }
+  },
+  {
+   "id": "e356",
+   "number": 356,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /4}\\tan \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572329945",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e357",
+   "number": 357,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /3}\\frac{\\sin \\,x-\\cos \\,x}{\\sin \\,x+\\cos \\,x}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572330008",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (\\sqrt{3}-1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "ln (sqrt(3)-1)"
+   }
+  },
+  {
+   "id": "e358",
+   "number": 358,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\pi /6}^{\\pi /2}\\csc \\,xdx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571613677",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e359",
+   "number": 359,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\pi /4}^{\\pi /3}\\cot \\,xdx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572434951",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\ln \\,\\frac{3}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2) ln (3/2)"
+   }
+  },
+  {
+   "id": "e360",
+   "number": 360,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x}{x-100}dx};u=x-100$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572412283",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, integrate using the indicated substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e361",
+   "number": 361,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{y-1}{y+1}dy};u=y+1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572627084",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, integrate using the indicated substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y-2\\,\\ln |y+1|+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "y-2 ln |y+1|+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e362",
+   "number": 362,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{1-x^{2}}{3x-x^{3}}dx};u=3x-x^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572627173",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, integrate using the indicated substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e363",
+   "number": 363,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\sin \\,x+\\cos \\,x}{\\sin \\,x-\\cos \\,x}dx};u=\\sin \\,x-\\cos \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572572338",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, integrate using the indicated substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln |\\sin \\,x-\\cos \\,x|+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln | sin x- cos x|+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e364",
+   "number": 364,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{2x}}\\sqrt{1-e^{2x}}dx;u=e^{2x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572129747",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, integrate using the indicated substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e365",
+   "number": 365,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\ln (x)\\frac{\\sqrt{1-(\\ln \\,x)^{2}}}{x}dx};u=\\ln \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572379189",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, integrate using the indicated substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{3}(1-(\\ln x)^{2})^{3/2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/3)(1-(ln (x))^2)^(3/2)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e366",
+   "number": 366,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=e^{x}$ over $[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572330236",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, does the right-endpoint approximation overestimate or underestimate the exact area? Calculate the right endpoint estimate *R*$_{\\text{50}}$ and solve for the exact area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e367",
+   "number": 367,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=e^{-x}$ over $[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572129062",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, does the right-endpoint approximation overestimate or underestimate the exact area? Calculate the right endpoint estimate *R*$_{\\text{50}}$ and solve for the exact area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Exact solution: $\\frac{e-1}{e},R_{50}=0.6258.$ Since *f* is decreasing, the right endpoint estimate underestimates the area."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e368",
+   "number": 368,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\ln (x)$ over $[1,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572129147",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, does the right-endpoint approximation overestimate or underestimate the exact area? Calculate the right endpoint estimate *R*$_{\\text{50}}$ and solve for the exact area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e369",
+   "number": 369,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\frac{x+1}{x^{2}+2x+6}$ over $[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572223556",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, does the right-endpoint approximation overestimate or underestimate the exact area? Calculate the right endpoint estimate *R*$_{\\text{50}}$ and solve for the exact area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Exact solution: $\\frac{2\\,\\ln (3)-\\ln (6)}{2},R_{50}=0.2033.$ Since *f* is increasing, the right endpoint estimate overestimates the area."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e370",
+   "number": 370,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=2^{x}$ over $[-1,0]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571569011",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, does the right-endpoint approximation overestimate or underestimate the exact area? Calculate the right endpoint estimate *R*$_{\\text{50}}$ and solve for the exact area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e371",
+   "number": 371,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=-2^{-x}$ over $[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572309777",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, does the right-endpoint approximation overestimate or underestimate the exact area? Calculate the right endpoint estimate *R*$_{\\text{50}}$ and solve for the exact area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Exact solution: $-\\frac{1}{\\ln (4)},R_{50}=-0.7164.$ Since *f* is negative and increasing on the interval, the right-endpoint estimate overestimates the value of the integral, but it underestimates the area of the region (absolute value of the integral)."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e372",
+   "number": 372,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{\\log_{10}(x)}{x};a=10,b=100$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572582554",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e373",
+   "number": 373,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{\\log_{2}(x)}{x};a=32,b=64$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572582636",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{11}{2}\\ln \\,2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(11/2) ln 2"
+   }
+  },
+  {
+   "id": "e374",
+   "number": 374,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2^{-x};a=1,b=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572351541",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e375",
+   "number": 375,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2^{-x};a=3,b=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571638055",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{\\ln (65,536)}$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"number\",\"value\":\"(1/(ln (65, 536)))\"} failed (checker cannot read the answer: ln takes 1 argument)"
+  },
+  {
+   "id": "e376",
+   "number": 376,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area under the graph of the function $f(x)=xe^{-x^{2}}$ between $x=0$ and $x=5.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571638130",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e377",
+   "number": 377,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Compute the integral of $f(x)=xe^{-x^{2}}$ and find the smallest value of *N* such that the area under the graph $f(x)=xe^{-x^{2}}$ between $x=N$ and $x=N+1$ is, at most, 0.01."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571610335",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{N}^{N+1}xe^{-x^{2}}dx=\\frac{1}{2}(e^{-N^{2}}-e^{-(N+1)^{2}})}.$ The quantity is less than 0.01 when $N=2.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e378",
+   "number": 378,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the limit, as *N* tends to infinity, of the area under the graph of $f(x)=xe^{-x^{2}}$ between $x=0$ and $x=N.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572368492",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e379",
+   "number": 379,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that ${\\displaystyle \\int_{a}^{b}\\frac{dt}{t}}={\\displaystyle \\int_{1/b}^{1/a}\\frac{dt}{t}}$ when $0<a\\le b.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572448465",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{a}^{b}\\frac{dx}{x}}=\\ln (b)-\\ln (a)=\\ln \\left(\\frac{1}{a}\\right)-\\ln \\left(\\frac{1}{b}\\right)={\\displaystyle \\int_{1/b}^{1/a}\\frac{dx}{x}}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e380",
+   "number": 380,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $f(x)>0$ for all *x* and that *f* and *g* are differentiable. Use the identity $f^{g}=e^{g\\,\\ln \\,f}$ and the chain rule to find the derivative of $f^{g}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572503285",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e381",
+   "number": 381,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the previous exercise to find the antiderivative of $h(x)=x^{x}(1+\\ln \\,x)$ and evaluate ${\\displaystyle \\int_{2}^{3}x^{x}(1+\\ln \\,x)dx}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572558119",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "23"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "23"
+   }
+  },
+  {
+   "id": "e382",
+   "number": 382,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that if $c>0,$ then the integral of $1/x$ from *ac* to *bc* $(0<a<b)$ is the same as the integral of $1/x$ from *a* to *b*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571814009",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, $f(x)\\ge 0$ for $a\\le x\\le b.$ Find the area under the graph of $f(x)$ between the given values *a* and *b* by integrating."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e383",
+   "number": 383,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the identity $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}}$ to derive the identity $\\ln \\left(\\frac{1}{x}\\right)=-\\ln \\,x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572307674",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following exercises are intended to derive the fundamental properties of the natural log starting from the *definition* $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}},$ using properties of the definite integral and making no further assumptions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We may assume that $x>1,\\text{so}\\,\\frac{1}{x}<1.$ Then, ${\\displaystyle \\int_{1}^{1/x}\\frac{dt}{t}}.$ Now make the substitution $u=\\frac{1}{t},$ so $du=-\\frac{dt}{t^{2}}$ and $\\frac{du}{u}=-\\frac{dt}{t},$ and change endpoints: ${\\displaystyle \\int_{1}^{1/x}\\frac{dt}{t}}=-{\\displaystyle \\int_{1}^{x}\\frac{du}{u}}=-\\ln \\,x.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e384",
+   "number": 384,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use a change of variable in the integral ${\\displaystyle \\int_{1}^{xy}\\frac{1}{t}dt}$ to show that $\\ln \\,xy=\\ln \\,x+\\ln \\,y\\,\\text{for}\\,x,y>0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572218470",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following exercises are intended to derive the fundamental properties of the natural log starting from the *definition* $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}},$ using properties of the definite integral and making no further assumptions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e385",
+   "number": 385,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the identity $\\ln \\,x={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}}$ to show that $\\ln (x)$ is an increasing function of *x* on $[0,\\infty ),$ and use the previous exercises to show that the range of $\\ln (x)$ is $(-\\infty ,\\infty ).$ Without any further assumptions, conclude that $\\ln (x)$ has an inverse function defined on $(-\\infty ,\\infty ).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571629695",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following exercises are intended to derive the fundamental properties of the natural log starting from the *definition* $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}},$ using properties of the definite integral and making no further assumptions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers will vary."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e386",
+   "number": 386,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Pretend, for the moment, that we do not know that $e^{x}$ is the inverse function of $\\ln (x),$ but keep in mind that $\\ln (x)$ has an inverse function defined on $(-\\infty ,\\infty ).$ Call it *E*. Use the identity $\\ln \\,xy=\\ln \\,x+\\ln \\,y$ to deduce that $E(a+b)=E(a)E(b)$ for any real numbers *a*, *b*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571624156",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following exercises are intended to derive the fundamental properties of the natural log starting from the *definition* $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}},$ using properties of the definite integral and making no further assumptions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e387",
+   "number": 387,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Pretend, for the moment, that we do not know that $e^{x}$ is the inverse function of $\\ln \\,x,$ but keep in mind that $\\ln \\,x$ has an inverse function defined on $(-\\infty ,\\infty ).$ Call it *E*. Show that $E'(t)=E(t).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572554258",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following exercises are intended to derive the fundamental properties of the natural log starting from the *definition* $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}},$ using properties of the definite integral and making no further assumptions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=E(\\ln (x)).$ Then, $1=\\frac{E'(\\ln \\,x)}{x}\\,\\text{or}\\,x=E'(\\ln \\,x).$ Since any number *t* can be written $t=\\ln \\,x$ for some *x*, and for such *t* we have $x=E(t),$ it follows that for any $t,E'(t)=E(t).$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e388",
+   "number": 388,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The sine integral, defined as $S(x)={\\displaystyle \\int_{0}^{x}\\frac{\\sin \\,t}{t}dt}$ is an important quantity in engineering. Although it does not have a simple closed formula, it is possible to estimate its behavior for large *x*. Show that for $k\\ge 1,|S(2\\pi k)-S(2\\pi (k+1))|\\le \\frac{1}{k(2k+1)\\pi}.$ $(Hint:\\,\\sin (t+\\pi )=-\\sin \\,t)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571612023",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following exercises are intended to derive the fundamental properties of the natural log starting from the *definition* $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}},$ using properties of the definite integral and making no further assumptions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e389",
+   "number": 389,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The normal distribution in probability is given by $p(x)=\\frac{1}{\\sigma \\sqrt{2\\pi}}e^{-(x-\\mu )^{2}/2\\sigma^{2}},$ where *σ* is the standard deviation and *μ* is the average. The *standard normal distribution* in probability, $p_{s},$ corresponds to $\\mu =0\\,\\text{and}\\,\\sigma =1.$ Compute the right endpoint estimates $R_{10}\\,\\text{and}\\,R_{100}$ of $\\int_{-1}^{1}\\frac{1}{\\sqrt{2\\pi}}e^{-\\frac{x^{2}}{2}}dx.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572373482",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following exercises are intended to derive the fundamental properties of the natural log starting from the *definition* $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}},$ using properties of the definite integral and making no further assumptions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R_{10}=0.6811,R_{100}=0.6827$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_06_202.webp",
+      "alt": "A graph of the function f(x) = .5 * ( sqrt(2)*e^(-.5x^2)) / sqrt(pi). It is a downward opening curve that is symmetric across the y axis, crossing at about (0, .4). It approaches 0 as x goes to positive and negative infinity. Between 1 and -1, ten rectangles are drawn for a right endpoint estimate of the area under the curve.",
+      "width": 296,
+      "height": 237
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e390",
+   "number": 390,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Compute the right endpoint estimates $R_{50}\\,\\text{and}\\,R_{100}$ of ${\\displaystyle \\int_{-3}^{5}\\frac{1}{2\\sqrt{2\\pi}}e^{-(x-1)^{2}/8}.}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572380098",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following exercises are intended to derive the fundamental properties of the natural log starting from the *definition* $\\ln (x)={\\displaystyle \\int_{1}^{x}\\frac{dt}{t}},$ using properties of the definite integral and making no further assumptions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": []
+}

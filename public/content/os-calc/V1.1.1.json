@@ -1,0 +1,4065 @@
+{
+ "schema": 1,
+ "id": "V1.1.1",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 1,
+ "section": 1,
+ "title": "Review of Functions",
+ "chapterTitle": "Functions and Graphs",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53477",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §1.1 “Review of Functions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use functional notation to evaluate a function.",
+  "Determine the domain and range of a function.",
+  "Draw the graph of a function.",
+  "Find the zeros of a function.",
+  "Recognize a function from a table of values.",
+  "Make new functions from two or more given functions.",
+  "Describe the symmetry properties of a function."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section, we provide a formal definition of a function and examine several ways in which functions are represented—namely, through tables, formulas, and graphs. We study formal notation and terms related to functions. We also define composition of functions and symmetry properties. Most of this material will be a review for you, but it serves as a handy reference to remind you of some of the algebraic techniques useful for working with functions."
+    }
+   ],
+   "title": "Review of Functions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Given two sets $A$ and $B,$ a set with elements that are ordered pairs $(x,y),$ where $x$ is an element of $A$ and $y$ is an element of $B,$ is a relation from $A$ to $B.$ A relation from $A$ to $B$ defines a relationship between those two sets. A function is a special type of relation in which each element of the first set is related to exactly one element of the second set. The element of the first set is called the **input**; the element of the second set is called the **output**. Functions are used all the time in mathematics to describe relationships between two sets. For any function, when we know the input, the output is determined, so we say that the output is a function of the input. For example, the area of a square is determined by its side length, so we say that the area (the output) is a function of its side length (the input). The velocity of a ball thrown in the air can be described as a function of the amount of time the ball is in the air. The cost of mailing a package is a function of the weight of the package. Since functions have so many uses, it is important to have precise definitions and terminology to study them."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A **function** $f$ consists of a set of inputs, a set of outputs, and a rule for assigning each input to exactly one output. The set of inputs is called the **domain** of the function. The set of outputs is called the **range** of the function."
+      }
+     ]
+    }
+   ],
+   "title": "Functions"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For example, consider the function $f,$ where the domain is the set of all real numbers and the rule is to square the input. Then, the input $x=3$ is assigned to the output $3^{2}=9.$ Since every nonnegative real number has a real-value square root, every nonnegative number is an element of the range of this function. Since there is no real number with a square that is negative, the negative real numbers are not elements of the range. We conclude that the range is the set of nonnegative real numbers."
+    },
+    {
+     "type": "p",
+     "text": "For a general function $f$ with domain $D,$ we often use $x$ to denote the input and $y$ to denote the output associated with $x.$ When doing so, we refer to $x$ as the **independent variable** and $y$ as the **dependent variable**, because it depends on $x.$ Using function notation, we write $y=f(x),$ and we read this equation as $\\text{“}y$ equals $f$ of $x.\\text{”}$ For the squaring function described earlier, we write $f(x)=x^{2}.$"
+    },
+    {
+     "type": "p",
+     "text": "The concept of a function can be visualized using Figure 1.1, Figure 1.2, and Figure 1.3."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_001.webp",
+     "alt": "An image with three items. The first item is text that reads “Input, x”. An arrow points from the first item to the second item, which is a box with the label “function”. An arrow points from the second item to the third item, which is text that reads “Output, f(x)”.",
+     "caption": "**Figure 1.1** A function can be visualized as an input/output device.",
+     "width": 325,
+     "height": 110
+    }
+   ],
+   "title": "Functions (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_002.webp",
+     "alt": "An image with two items. The first item is a bubble labeled domain. Within the bubble are the numbers 1, 2, 3, and 4. An arrow with the label “f” points from the first item to the second item, which is a bubble labeled “range”. Within this bubble are the numbers 2, 4, and 6. An arrow points from the 1 in the domain bubble to the 6 in the range bubble. An arrow points from the 1 in the domain bubble to the 6 in the range bubble. An arrow points from the 2 in the domain bubble to the 4 in the range bubble. An arrow points from the 3 in the domain bubble to the 2 in the range bubble. An arrow points from the 4 in the domain bubble to the 2 in the range bubble.",
+     "caption": "**Figure 1.2** A function maps every element in the domain to exactly one element in the range. Although each input can be sent to only one output, two different inputs can be sent to the same output.",
+     "width": 325,
+     "height": 218
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_003.webp",
+     "alt": "An image of a graph. The y axis runs from 0 to 3 and has the label “dependent variable, y = f(x)”. The x axis runs from 0 to 5 and has the label “independent variable, x”. There are three points on the graph. The first point is at (1, 2) and has the label “(1, f(1)) = (1, 2)”. The second point is at (2, 1) and has the label “(2, f(2))=(2,1)”. The third point is at (3, 2) and has the label “(3, f(3)) = (3,2)”. There is text along the y axis that reads “range = {1, 2}” and text along the x axis that reads “domain = {1,2,3}”.",
+     "caption": "**Figure 1.3** In this case, a graph of a function $f$ has a domain of $\\{1,2,3\\}$ and a range of $\\{1,2\\}.$ The independent variable is $x$ and the dependent variable is $y.$",
+     "width": 322,
+     "height": 252
+    }
+   ],
+   "title": "Functions (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We can also visualize a function by plotting points $(x,y)$ in the coordinate plane where $y=f(x).$ The **graph of a function** is the set of all these points. For example, consider the function $f,$ where the domain is the set $D=\\{1,2,3\\}$ and the rule is $f(x)=3-x.$ In Figure 1.4, we plot a graph of this function."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_004.webp",
+     "alt": "An image of a graph. The y axis runs from 0 to 5. The x axis runs from 0 to 5. There are three points on the graph at (1, 2), (2, 1), and (3, 0). There is text along the y axis that reads “range = {0,1,2}” and text along the x axis that reads “domain = {1,2,3}”.",
+     "caption": "**Figure 1.4** Here we see a graph of the function $f$ with domain $\\{1,2,3\\}$ and rule $f(x)=3-x.$ The graph consists of the points $(x,f(x))$ for all $x$ in the domain.",
+     "width": 265,
+     "height": 265
+    },
+    {
+     "type": "p",
+     "text": "Every function has a domain. However, sometimes a function is described by an equation, as in $f(x)=x^{2},$ with no specific domain given. In this case, the domain is taken to be the set of all real numbers, $x$, for which $f(x)$ is a real number. For example, since any real number can be squared, if no other domain is specified, we consider the domain of $f(x)=x^{2}$ to be the set of all real numbers. On the other hand, the square root function $f(x)=\\sqrt{x}$ gives a real output only if $x$ is nonnegative. Therefore, the domain of the function $f(x)=\\sqrt{x}$ is the set of nonnegative real numbers, sometimes called the *natural domain*."
+    }
+   ],
+   "title": "Functions (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For the functions $f(x)=x^{2}$ and $f(x)=\\sqrt{x},$ the domains are sets with an infinite number of elements. Clearly we cannot list all these elements. When describing a set with an infinite number of elements, it is often helpful to use set-builder or interval notation. When using set-builder notation to describe a subset of all real numbers, denoted $\\mathbb{R} ,$ we write"
+    },
+    {
+     "type": "math",
+     "tex": "\\{x|x\\,\\text{has some property}\\}."
+    },
+    {
+     "type": "p",
+     "text": "We read this as the set of real numbers $x$ such that $x$ has some property. For example, if we were interested in the set of real numbers that are greater than one but less than five, we could denote this set using set-builder notation by writing"
+    },
+    {
+     "type": "math",
+     "tex": "\\{x|1<x<5\\}."
+    },
+    {
+     "type": "p",
+     "text": "A set such as this, which contains all numbers greater than $a$ and less than $b,$ can also be denoted using the **interval notation** $(a,b).$ Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "(1,5)=\\{x|1<x<5\\}."
+    },
+    {
+     "type": "p",
+     "text": "The numbers $1$ and $5$ are called the **endpoints** of this set. If we want to consider the set that includes the endpoints, we would denote this set by writing"
+    },
+    {
+     "type": "math",
+     "tex": "[1,5]=\\{x|1\\le x\\le 5\\}."
+    },
+    {
+     "type": "p",
+     "text": "We can use similar notation if we want to include one of the endpoints, but not the other. To denote the set of nonnegative real numbers, we would use the set-builder notation"
+    },
+    {
+     "type": "math",
+     "tex": "\\{x|0\\le x\\}."
+    },
+    {
+     "type": "p",
+     "text": "The smallest number in this set is zero, but this set does not have a largest number. Using interval notation, we would use the symbol $\\infty ,$ which refers to positive infinity, and we would write the set as"
+    }
+   ],
+   "title": "Functions (continued)"
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "[0,\\infty )=\\{x|0\\le x\\}."
+    },
+    {
+     "type": "p",
+     "text": "It is important to note that $\\infty$ is not a real number. It is used symbolically here to indicate that this set includes all real numbers greater than or equal to zero. Similarly, if we wanted to describe the set of all nonpositive numbers, we could write"
+    },
+    {
+     "type": "math",
+     "tex": "(-\\infty ,0]=\\{x|x\\le 0\\}."
+    },
+    {
+     "type": "p",
+     "text": "Here, the notation $-\\infty$ refers to negative infinity, and it indicates that we are including all numbers less than or equal to zero, no matter how small. The set"
+    },
+    {
+     "type": "math",
+     "tex": "(-\\infty ,\\infty )=\\{x|x\\,\\text{is any real number}\\}"
+    },
+    {
+     "type": "p",
+     "text": "refers to the set of all real numbers."
+    },
+    {
+     "type": "p",
+     "text": "Some functions are defined using different equations for different parts of their domain. These types of functions are known as **piecewise-defined functions**. For example, suppose we want to define a function $f$ with a domain that is the set of all real numbers such that $f(x)=3x+1$ for $x\\ge 2$ and $f(x)=x^{2}$ for $x<2.$ We denote this function by writing"
+    },
+    {
+     "type": "math",
+     "tex": "f(x)=\\{\\begin{array}{l}3x+1\\quad x\\ge 2 \\\\ x^{2}\\qquad x<2\\end{array}."
+    },
+    {
+     "type": "p",
+     "text": "When evaluating this function for an input $x,$ the equation to use depends on whether $x\\ge 2$ or $x<2.$ For example, since $5>2,$ we use the fact that $f(x)=3x+1$ for $x\\ge 2$ and see that $f(5)=3(5)+1=16.$ On the other hand, for $x=-1,$ we use the fact that $f(x)=x^{2}$ for $x<2$ and see that $f(-1)=1.$"
+    }
+   ],
+   "title": "Functions (continued)"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 1.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the function $f(x)=3x^{2}+2x-1,$ evaluate"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(-2)$",
+      "$f(\\sqrt{2})$",
+      "$f(a+h)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Substitute the given value for *x* in the formula for $f(x).$"
+     },
+     {
+      "type": "list",
+      "items": [
+       "$f(-2)=3(-2)^{2}+2(-2)-1=12-4-1=7$",
+       "$f(\\sqrt{2})=3(\\sqrt{2})^{2}+2\\sqrt{2}-1=6+2\\sqrt{2}-1=5+2\\sqrt{2}$",
+       "$\\begin{array}{cc}f(a+h)=3(a+h)^{2}+2(a+h)-1 & =3(a^{2}+2ah+h^{2})+2a+2h-1 \\\\ & =3a^{2}+6ah+3h^{2}+2a+2h-1\\end{array}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Evaluating Functions"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For $f(x)=x^{2}-3x+5,$ evaluate $f(1)$ and $f(a+h).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(1)=3$ and $f(a+h)=a^{2}+2ah+h^{2}-3a-3h+5$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Substitute $1$ and $a+h$ for $x$ in the formula for $f(x).$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 1.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, determine the i. domain and ii. range."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(x)=(x-4)^{2}+5$",
+      "$f(x)=\\sqrt{3x+2}-1$",
+      "$f(x)=\\frac{3}{x-2}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Consider $f(x)=(x-4)^{2}+5.$"
+        },
+        {
+         "type": "list",
+         "items": [
+          "Since $f(x)=(x-4)^{2}+5$ is a real number for any real number $x,$ the domain of $f$ is the interval $(-\\infty ,\\infty ).$",
+          [
+           {
+            "type": "p",
+            "text": "Since $(x-4)^{2}\\ge 0,$ we know $f(x)=(x-4)^{2}+5\\ge 5.$ Therefore, the range must be a subset of $\\{y|y\\ge 5\\}.$ To show that every element in this set is in the range, we need to show that for a given $y$ in that set, there is a real number $x$ such that $f(x)=(x-4)^{2}+5=y.$ Solving this equation for $x,$ we see that we need $x$ such that"
+           },
+           {
+            "type": "math",
+            "tex": "(x-4)^{2}=y-5."
+           },
+           {
+            "type": "p",
+            "text": "This equation is satisfied as long as there exists a real number $x$ such that"
+           },
+           {
+            "type": "math",
+            "tex": "x-4=\\pm \\sqrt{y-5}."
+           },
+           {
+            "type": "p",
+            "text": "Since $y\\ge 5,$ the square root is well-defined. We conclude that for $x=4\\pm \\sqrt{y-5},f(x)=y,$ and therefore the range is $\\{y|y\\ge 5\\}.$"
+           }
+          ]
+         ],
+         "ordered": true,
+         "style": "i"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Consider $f(x)=\\sqrt{3x+2}-1.$"
+        },
+        {
+         "type": "list",
+         "items": [
+          "To find the domain of $f,$ we need the expression $3x+2\\ge 0.$ Solving this inequality, we conclude that the domain is $\\{x|x\\ge -2/3\\}.$",
+          [
+           {
+            "type": "p",
+            "text": "To find the range of $f,$ we note that since $\\sqrt{3x+2}\\ge 0,f(x)=\\sqrt{3x+2}-1\\ge -1.$ Therefore, the range of $f$ must be a subset of the set $\\{y|y\\ge -1\\}.$ To show that every element in this set is in the range of $f,$ we need to show that for all $y$ in this set, there exists a real number $x$ in the domain such that $f(x)=y.$ Let $y\\ge -1.$ Then, $f(x)=y$ if and only if"
+           },
+           {
+            "type": "math",
+            "tex": "\\sqrt{3x+2}-1=y."
+           },
+           {
+            "type": "p",
+            "text": "Solving this equation for $x,$ we see that $x$ must solve the equation"
+           },
+           {
+            "type": "math",
+            "tex": "\\sqrt{3x+2}=y+1."
+           },
+           {
+            "type": "p",
+            "text": "Since $y\\ge -1,$ such an $x$ could exist. Squaring both sides of this equation, we have $3x+2=(y+1)^{2}.$\n\nTherefore, we need"
+           },
+           {
+            "type": "math",
+            "tex": "3x=(y+1)^{2}-2,"
+           },
+           {
+            "type": "p",
+            "text": "which implies"
+           },
+           {
+            "type": "math",
+            "tex": "x=\\frac{1}{3}(y+1)^{2}-\\frac{2}{3}."
+           },
+           {
+            "type": "p",
+            "text": "We just need to verify that $x$ is in the domain of $f.$ Since the domain of $f$ consists of all real numbers greater than or equal to $-2/3,$ and"
+           },
+           {
+            "type": "math",
+            "tex": "\\frac{1}{3}(y+1)^{2}-\\frac{2}{3}\\ge -\\frac{2}{3},"
+           },
+           {
+            "type": "p",
+            "text": "there does exist an $x$ in the domain of $f.$ We conclude that the range of $f$ is $\\{y|y\\ge -1\\}.$"
+           }
+          ]
+         ],
+         "ordered": true,
+         "style": "i"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Consider $f(x)=3/(x-2).$"
+        },
+        {
+         "type": "list",
+         "items": [
+          "Since $3/(x-2)$ is defined when the denominator is nonzero, the domain is $\\{x|x\\ne 2\\}.$",
+          [
+           {
+            "type": "p",
+            "text": "To find the range of $f,$ we need to find the values of $y$ such that there exists a real number $x$ in the domain with the property that"
+           },
+           {
+            "type": "math",
+            "tex": "\\frac{3}{x-2}=y."
+           },
+           {
+            "type": "p",
+            "text": "Solving this equation for $x,$ we find that"
+           },
+           {
+            "type": "math",
+            "tex": "x=\\frac{3}{y}+2."
+           },
+           {
+            "type": "p",
+            "text": "Therefore, as long as $y\\ne 0,$ there exists a real number $x$ in the domain such that $f(x)=y.$ Thus, the range is $\\{y|y\\ne 0\\}.$"
+           }
+          ]
+         ],
+         "ordered": true,
+         "style": "i"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding Domain and Range"
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the domain and range for $f(x)=\\sqrt{4-2x}+5.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Domain = $\\{x|x\\le 2\\},$ range = $\\{y|y\\ge 5\\}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use $4-2x\\ge 0.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Typically, a function is represented using one or more of the following tools:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "A table",
+      "A graph",
+      "A formula"
+     ]
+    },
+    {
+     "type": "p",
+     "text": "We can identify a function in each form, but we can also use them together. For instance, we can plot on a graph the values from a table or create a table from a formula."
+    }
+   ],
+   "title": "Representing Functions"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Functions described using a **table of values** arise frequently in real-world applications. Consider the following simple example. We can describe temperature on a given day as a function of time of day. Suppose we record the temperature every hour for a 24-hour period starting at midnight. We let our input variable $x$ be the time after midnight, measured in hours, and the output variable $y$ be the temperature $x$ hours after midnight, measured in degrees Fahrenheit. We record our data in Table 1.1."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0",
+       "58",
+       "12",
+       "84"
+      ],
+      [
+       "1",
+       "54",
+       "13",
+       "85"
+      ],
+      [
+       "2",
+       "53",
+       "14",
+       "85"
+      ],
+      [
+       "3",
+       "52",
+       "15",
+       "83"
+      ],
+      [
+       "4",
+       "52",
+       "16",
+       "82"
+      ],
+      [
+       "5",
+       "55",
+       "17",
+       "80"
+      ],
+      [
+       "6",
+       "60",
+       "18",
+       "77"
+      ],
+      [
+       "7",
+       "64",
+       "19",
+       "74"
+      ],
+      [
+       "8",
+       "72",
+       "20",
+       "69"
+      ],
+      [
+       "9",
+       "75",
+       "21",
+       "65"
+      ],
+      [
+       "10",
+       "78",
+       "22",
+       "60"
+      ],
+      [
+       "11",
+       "80",
+       "23",
+       "58"
+      ]
+     ],
+     "header": [
+      "Hours after Midnight",
+      "Temperature $(\\text{°}F)$",
+      "Hours after Midnight",
+      "Temperature $(\\text{°}F)$"
+     ],
+     "caption": "**Table 1.1** Temperature as a Function of Time of Day"
+    },
+    {
+     "type": "p",
+     "text": "We can see from the table that temperature is a function of time, and the temperature decreases, then increases, and then decreases again. However, we cannot get a clear picture of the behavior of the function without graphing it."
+    }
+   ],
+   "title": "Tables"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Given a function $f$ described by a table, we can provide a visual picture of the function in the form of a graph. Graphing the temperatures listed in Table 1.1 can give us a better idea of their fluctuation throughout the day. Figure 1.5 shows the plot of the temperature function."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_005.webp",
+     "alt": "An image of a graph. The y axis runs from 0 to 90 and has the label “Temperature in Fahrenheit”. The x axis runs from 0 to 24 and has the label “hours after midnight”. There are 24 points on the graph, one at each increment of 1 on the x-axis. The first point is at (0, 58) and the function decreases until x = 4, where the point is (4, 52) and is the minimum value of the function. After x=4, the function increases until x = 13, where the point is (13, 85) and is the maximum of the function along with the point (14, 85). After x = 14, the function decreases until the last point on the graph, which is (23, 58).",
+     "caption": "**Figure 1.5** The graph of the data from Table 1.1 shows temperature as a function of time.",
+     "width": 325,
+     "height": 420
+    },
+    {
+     "type": "p",
+     "text": "From the points plotted on the graph in Figure 1.5, we can visualize the general shape of the graph. It is often useful to connect the dots in the graph, which represent the data from the table. In this example, although we cannot make any definitive conclusion regarding what the temperature was at any time for which the temperature was not recorded, given the number of data points collected and the pattern in these points, it is reasonable to suspect that the temperatures at other times followed a similar pattern, as we can see in Figure 1.6."
+    }
+   ],
+   "title": "Graphs"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_014.webp",
+     "alt": "An image of a graph. The y axis runs from 0 to 90 and has the label “Temperature in Fahrenheit”. The x axis runs from 0 to 24 and has the label “hours after midnight”. There are 24 points on the graph, one at each increment of 1 on the x-axis. The first point is at (0, 58) and the function decreases until x = 4, where the point is (4, 52) and is the minimum value of the function. After x=4, the function increases until x = 13, where the point is (13, 85) and is the maximum of the function along with the point (14, 85). After x = 14, the function decreases until the last point on the graph, which is (23, 58). A line connects all the points on the graph.",
+     "caption": "**Figure 1.6** Connecting the dots in Figure 1.5 shows the general pattern of the data.",
+     "width": 325,
+     "height": 421
+    }
+   ],
+   "title": "Graphs (continued)"
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Sometimes we are not given the values of a function in table form, rather we are given the values in an explicit formula. Formulas arise in many applications. For example, the area of a circle of radius $r$ is given by the formula $A(r)=\\pi r^{2}.$ When an object is thrown upward from the ground with an initial velocity $v_{0}$ ft/s, its height above the ground from the time it is thrown until it hits the ground is given by the formula $s(t)=-16t^{2}+v_{0}t.$ When $P$ dollars are invested in an account at an annual interest rate $r$ compounded continuously, the amount of money after $t$ years is given by the formula $A(t)=Pe^{rt}.$ Algebraic formulas are important tools to calculate function values. Often we also represent these functions visually in graph form."
+    },
+    {
+     "type": "p",
+     "text": "Given an algebraic formula for a function $f,$ the graph of $f$ is the set of points $(x,f(x)),$ where $x$ is in the domain of $f$ and $f(x)$ is in the range. To graph a function given by a formula, it is helpful to begin by using the formula to create a table of inputs and outputs. If the domain of $f$ consists of an infinite number of values, we cannot list all of them, but because listing some of the inputs and outputs can be very useful, it is often a good way to begin."
+    }
+   ],
+   "title": "Algebraic Formulas"
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When creating a table of inputs and outputs, we typically check to determine whether zero is an output. Those values of $x$ where $f(x)=0$ are called the **zeros of a function**. For example, the zeros of $f(x)=x^{2}-4$ are $x=\\pm 2.$ The zeros determine where the graph of $f$ intersects the $x$-axis, which gives us more information about the shape of the graph of the function. The graph of a function may never intersect the *x*-axis, or it may intersect multiple (or even infinitely many) times."
+    },
+    {
+     "type": "p",
+     "text": "Another point of interest is the $y$-intercept, if it exists. The $y$-intercept is given by $(0,f(0)).$"
+    },
+    {
+     "type": "p",
+     "text": "Since a function has exactly one output for each input, the graph of a function can have, at most, one $y$-intercept. If $x=0$ is in the domain of a function $f,$ then $f$ has exactly one $y$-intercept. If $x=0$ is not in the domain of $f,$ then $f$ has no $y$-intercept. Similarly, for any real number $c,$ if $c$ is in the domain of $f,$ there is exactly one output $f(c),$ and the line $x=c$ intersects the graph of $f$ exactly once. On the other hand, if $c$ is not in the domain of $f,f(c)$ is not defined and the line $x=c$ does not intersect the graph of $f.$ This property is summarized in the **vertical line test**."
+    },
+    {
+     "type": "box",
+     "variant": "rule",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given a function $f,$ every vertical line that may be drawn intersects the graph of $f$ no more than once. If any vertical line intersects a set of points more than once, the set of points does not represent a function."
+      }
+     ],
+     "title": "Vertical Line Test"
+    },
+    {
+     "type": "p",
+     "text": "We can use this test to determine whether a set of plotted points represents the graph of a function (Figure 1.7)."
+    }
+   ],
+   "title": "Algebraic Formulas (continued)"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_006.webp",
+     "alt": "An image of two graphs. The first graph is labeled “a” and is of the function “y = f(x)”. Three vertical lines run through 3 points on the function, each vertical line only passing through the function once. The second graph is labeled “b” and is of the relation “y not equal to f(x)”. Two vertical lines run through the relation, one line intercepting the relation at 3 points and the other line intercepting the relation at 3 different points.",
+     "caption": "**Figure 1.7** (a) The set of plotted points represents the graph of a function because every vertical line intersects the set of points, at most, once. (b) The set of plotted points does not represent the graph of a function because some vertical lines intersect the set of points more than once.",
+     "width": 487,
+     "height": 426
+    }
+   ],
+   "title": "Algebraic Formulas (continued)"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 1.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the function $f(x)=-4x+2.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find all zeros of $f.$",
+      "Find the $y$-intercept (if any).",
+      "Sketch a graph of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "To find the zeros, solve $f(x)=-4x+2=0.$ We discover that $f$ has one zero at $x=1/2.$",
+       "The $y$-intercept is given by $(0,f(0))=(0,2).$",
+       [
+        {
+         "type": "p",
+         "text": "Given that $f$ is a linear function of the form $f(x)=mx+b$ that passes through the points $(1/2,0)$ and $(0,2),$ we can sketch the graph of $f$ (Figure 1.8)."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_01_01_007.webp",
+         "alt": "An image of a graph. The y axis runs from -2 to 5 and the x axis runs from -2 to 5. The graph is of the function “f(x) = -4x + 2”, which is a decreasing straight line. There are two points plotted on the function at (0, 2) and (1/2, 0).",
+         "caption": "**Figure 1.8** The function $f(x)=-4x+2$ is a line with\n$x$-intercept $(1/2,0)$ and $y$-intercept $(0,2).$",
+         "width": 325,
+         "height": 312
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding Zeros and $y$-Intercepts of a Function"
+  },
+  {
+   "id": "x20",
+   "kind": "example",
+   "label": "Example 1.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the function $f(x)=\\sqrt{x+3}+1.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find all zeros of $f.$",
+      "Find the $y$-intercept (if any).",
+      "Sketch a graph of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "To find the zeros, solve $\\sqrt{x+3}+1=0.$ This equation implies $\\sqrt{x+3}=-1.$ Since $\\sqrt{x+3}\\ge 0$ for all $x,$ this equation has no solutions, and therefore $f$ has no zeros.",
+       "The $y$-intercept is given by $(0,f(0))=(0,\\sqrt{3}+1).$",
+       [
+        {
+         "type": "p",
+         "text": "To graph this function, we make a table of values. Since we need $x+3\\ge 0,$ we need to choose values of $x\\ge -3.$ We choose values that make the square-root function easy to evaluate."
+        },
+        {
+         "type": "table",
+         "rows": [
+          [
+           "$\\text{x}$",
+           "$-3$",
+           "$-2$",
+           "$1$"
+          ],
+          [
+           "$\\text{f}(\\text{x})$",
+           "$1$",
+           "$2$",
+           "$3$"
+          ]
+         ],
+         "caption": "**Table 1.2**"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "p",
+      "text": "Making use of the table and knowing that, since the function is a square root, the graph of $f$ should be similar to the graph of $y=\\sqrt{x},$ we sketch the graph (Figure 1.9)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_01_01_008.webp",
+      "alt": "An image of a graph. The y axis runs from -2 to 4 and the x axis runs from -3 to 2. The graph is of the function “f(x) = (square root of x + 3) + 1”, which is an increasing curved function that starts at the point (-3, 1). There are 3 points plotted on the function at (-3, 1), (-2, 2), and (1, 3). The function has a y intercept at (0, 1 + square root of 3).",
+      "caption": "**Figure 1.9** The graph of $f(x)=\\sqrt{x+3}+1$ has a\n$y$-intercept but no $x$-intercepts.",
+      "width": 315,
+      "height": 272
+     }
+    ]
+   },
+   "title": "Using Zeros and $y$-Intercepts to Sketch a Graph"
+  },
+  {
+   "id": "c21",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the zeros of $f(x)=x^{3}-5x^{2}+6x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=0,2,3$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Factor the polynomial."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 1.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "If a ball is dropped from a height of $100$ ft, its height $s$ at time $t$ is given by the function $s(t)=-16t^{2}+100,$ where $s$ is measured in feet and $t$ is measured in seconds. The domain is restricted to the interval $[0,c],$ where $t=0$ is the time when the ball is dropped and $t=c$ is the time when the ball hits the ground."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Create a table showing the height $s(t)$ when $t=0,0.5,1,1.5,2,\\text{and}\\,2.5.$ Using the data from the table, determine the domain for this function. That is, find the time $c$ when the ball hits the ground.",
+      "Sketch a graph of $s.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "table",
+         "rows": [
+          [
+           "$\\text{t}$",
+           "$0$",
+           "$0.5$",
+           "$1$",
+           "$1.5$",
+           "$2$",
+           "$2.5$"
+          ],
+          [
+           "$\\text{s}(\\text{t})$",
+           "$100$",
+           "$96$",
+           "$84$",
+           "$64$",
+           "$36$",
+           "$0$"
+          ]
+         ],
+         "caption": "**Table 1.3** Height $s$ as a Function of Time $t$"
+        },
+        {
+         "type": "p",
+         "text": "Since the ball hits the ground when $t=2.5,$ the domain of this function is the interval $[0,2.5].$"
+        }
+       ],
+       [
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_01_01_009.webp",
+         "alt": "An image of a graph. The y axis runs from 0 to 100 and is labeled “s(t), height in feet”. The x axis runs from 0 to 3 and is labeled “t, time in seconds”. The graph is of the function “s(t) = -16 t squared + 100”, which is a decreasing curved function that starts at the y intercept point (0, 100). There are 6 points plotted on the function at (0, 100), (0.5, 96), (1, 84), (1.5, 64), (2, 36), and (2.5, 0). The function has a x intercept at the last point (2.5, 0).",
+         "width": 305,
+         "height": 458
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding the Height of a Free-Falling Object"
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Note that for this function and the function $f(x)=-4x+2$ graphed in Figure 1.8, the values of $f(x)$ are getting smaller as $x$ is getting larger. A function with this property is said to be decreasing. On the other hand, for the function $f(x)=\\sqrt{x+3}+1$ graphed in Figure 1.9, the values of $f(x)$ are getting larger as the values of $x$ are getting larger. A function with this property is said to be increasing. It is important to note, however, that a function can be increasing on some interval or intervals and decreasing over a different interval or intervals. For example, using our temperature function in Figure 1.5, we can see that the function is decreasing on the interval $(0,4),$ increasing on the interval $(4,14),$ and then decreasing on the interval $(14,23).$ We make the idea of a function increasing or decreasing over a particular interval more precise in the next definition."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "We say that a function $f$ is **increasing on the interval $I$** if for all $x_{1},x_{2}\\in I,$"
+      },
+      {
+       "type": "math",
+       "tex": "f(x_{1})\\le f(x_{2})\\,\\text{when}\\,x_{1}<x_{2}."
+      },
+      {
+       "type": "p",
+       "text": "We say $f$ is strictly increasing on the interval $I$ if for all $x_{1},x_{2}\\in I,$"
+      },
+      {
+       "type": "math",
+       "tex": "f(x_{1})<f(x_{2})\\,\\text{when}\\,x_{1}<x_{2}."
+      },
+      {
+       "type": "p",
+       "text": "We say that a function $f$ is **decreasing on the interval $I$** if for all $x_{1},x_{2}\\in I,$"
+      },
+      {
+       "type": "math",
+       "tex": "f(x_{1})\\ge f(x_{2})\\,\\text{if}\\,x_{1}<x_{2}."
+      },
+      {
+       "type": "p",
+       "text": "We say that a function $f$ is strictly decreasing on the interval $I$ if for all $x_{1},x_{2}\\in I,$"
+      },
+      {
+       "type": "math",
+       "tex": "f(x_{1})>f(x_{2})\\,\\text{if}\\,x_{1}<x_{2}."
+      }
+     ]
+    }
+   ],
+   "title": "Algebraic Formulas (continued)"
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For example, the function $f(x)=3x$ is increasing on the interval $(-\\infty ,\\infty )$ because $3x_{1}<3x_{2}$ whenever $x_{1}<x_{2}.$ On the other hand, the function $f(x)=-x^{3}$ is strictly decreasing on the interval $(-\\infty ,\\infty )$ because $-x_{1}^{3}>-x_{2}^{3}$ whenever $x_{1}<x_{2}$ (Figure 1.10)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_010.webp",
+     "alt": "An image of two graphs. The first graph is labeled “a” and is of the function “f(x) = 3x”, which is an increasing straight line that passes through the origin. The second graph is labeled “b” and is of the function “f(x) = -x cubed”, which is curved function that decreases until the function hits the origin where it becomes level, then decreases again after the origin.",
+     "caption": "**Figure 1.10** (a) The function $f(x)=3x$ is increasing on the interval $(-\\infty ,\\infty ).$ (b) The function $f(x)=-x^{3}$ is decreasing on the interval $(-\\infty ,\\infty ).$",
+     "width": 731,
+     "height": 612
+    }
+   ],
+   "title": "Algebraic Formulas (continued)"
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we have reviewed the basic characteristics of functions, we can see what happens to these properties when we combine functions in different ways, using basic mathematical operations to create new functions. For example, if the cost for a company to manufacture $x$ items is described by the function $C(x)$ and the revenue created by the sale of $x$ items is described by the function $R(x),$ then the profit on the manufacture and sale of $x$ items is defined as $P(x)=R(x)-C(x).$ Using the difference between two functions, we created a new function."
+    },
+    {
+     "type": "p",
+     "text": "Alternatively, we can create a new function by composing two functions. For example, given the functions $f(x)=x^{2}$ and $g(x)=3x+1,$ the composite function $f\\circ g$ is defined such that"
+    },
+    {
+     "type": "math",
+     "tex": "(f\\circ g)(x)=f(g(x))=(g(x))^{2}=(3x+1)^{2}."
+    },
+    {
+     "type": "p",
+     "text": "The composite function $g\\circ f$ is defined such that"
+    },
+    {
+     "type": "math",
+     "tex": "(g\\circ f)(x)=g(f(x))=3f(x)+1=3x^{2}+1."
+    },
+    {
+     "type": "p",
+     "text": "Note that these two new functions are different from each other."
+    }
+   ],
+   "title": "Combining Functions"
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "To combine functions using mathematical operators, we simply write the functions with the operator and simplify. Given two functions $f$ and $g,$ we can define four new functions:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cccc}(f+g)(x)=f(x)+g(x) & & & Sum \\\\ (f-g)(x)=f(x)-g(x) & & & \\text{Difference} \\\\ (f\\cdot g)(x)=f(x)g(x) & & & Product \\\\ \\left(\\frac{f}{g}\\right)(x)=\\frac{f(x)}{g(x)}\\,\\text{for}\\,g(x)\\ne 0 & & & Quotient\\end{array}"
+    }
+   ],
+   "title": "Combining Functions with Mathematical Operators"
+  },
+  {
+   "id": "x27",
+   "kind": "example",
+   "label": "Example 1.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Given the functions $f(x)=2x-3$ and $g(x)=x^{2}-1,$ find each of the following functions and state its domain."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$(f+g)(x)$",
+      "$(f-g)(x)$",
+      "$(f\\cdot g)(x)$",
+      "$\\left(\\frac{f}{g}\\right)(x)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$(f+g)(x)=(2x-3)+(x^{2}-1)=x^{2}+2x-4.$ The domain of this function is the interval $(-\\infty ,\\infty ).$",
+       "$(f-g)(x)=(2x-3)-(x^{2}-1)=-x^{2}+2x-2.$ The domain of this function is the interval $(-\\infty ,\\infty ).$",
+       "$(f\\cdot g)(x)=(2x-3)(x^{2}-1)=2x^{3}-3x^{2}-2x+3.$ The domain of this function is the interval $(-\\infty ,\\infty ).$",
+       "$\\left(\\frac{f}{g}\\right)(x)=\\frac{2x-3}{x^{2}-1}.$ The domain of this function is $\\{x|x\\ne \\text{±}1\\}.$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Combining Functions Using Mathematical Operations"
+  },
+  {
+   "id": "c28",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For $f(x)=x^{2}+3$ and $g(x)=2x-5,$ find $(f/g)(x)$ and state its domain."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{f}{g}\\right)(x)=\\frac{x^{2}+3}{2x-5}.$ The domain is $\\left\\{x|x\\ne \\frac{5}{2}\\right\\}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The new function $(f/g)(x)$ is a quotient of two functions. For what values of $x$ is the denominator zero?"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r29",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When we compose functions, we take a function of a function. For example, suppose the temperature $T$ on a given day is described as a function of time $t$ (measured in hours after midnight) as in Table 1.1. Suppose the cost $C,$ to heat or cool a building for 1 hour, can be described as a function of the temperature $T.$ Combining these two functions, we can describe the cost of heating or cooling a building as a function of time by evaluating $C(T(t)).$ We have defined a new function, denoted $C\\circ T,$ which is defined such that $(C\\circ T)(t)=C(T(t))$ for all $t$ in the domain of $T.$ This new function is called a composite function. We note that since cost is a function of temperature and temperature is a function of time, it makes sense to define this new function $(C\\circ T)(t).$ It does not make sense to consider $(T\\circ C)(t),$ because temperature is not a function of cost."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider the function $f$ with domain $A$ and range $B,$ and the function $g$ with domain $D$ and range $E.$ If $B$ is a subset of $D,$ then the **composite function** $(g\\circ f)(x)$ is the function with domain $A$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "(g\\circ f)(x)=g(f(x))."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "A composite function $g\\circ f$ can be viewed in two steps. First, the function $f$ maps each input $x$ in the domain of $f$ to its output $f(x)$ in the range of $f.$ Second, since the range of $f$ is a subset of the domain of $g,$ the output $f(x)$ is an element in the domain of $g,$ and therefore it is mapped to an output $g(f(x))$ in the range of $g.$ In Figure 1.11, we see a visual image of a composite function."
+    }
+   ],
+   "title": "Function Composition"
+  },
+  {
+   "id": "r30",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_011.webp",
+     "alt": "An image with three items. The first item is a blue bubble that has two labels: “domain of f” and “domain of g of f”. This item contains the numbers 1, 2, and 3. The second item is two bubbles: an orange bubble labeled “domain of g” and a blue bubble that is completely contained within the orange bubble and is labeled “range of f”. The blue bubble contains the numbers 0 and 1, which are thus also contained within the larger orange bubble. The orange bubble contains two numbers not contained within the smaller blue bubble, which are 2 and 3. The third item is two bubbles: an orange bubble labeled “range of g” and a blue bubble that is completely contained within the orange bubble and is labeled “range of g of f”. The blue bubble contains the numbers 4 and 5, which are thus also contained within the larger orange bubble. The orange bubble contains one number not contained within the smaller blue bubble, which is the number 3. The first item points has a blue arrow with the label “f” that points to the blue bubble in the second item. The orange bubble in the second item has an orange arrow labeled “g” that points the orange bubble in the third item. The first item has a blue arrow labeled “g of f” which points to the blue bubble in the third item. There are three blue arrows pointing from numbers in the first item to the numbers contained in the blue bubble of the second item. The first blue arrow points from the 1 to the 0, the second blue arrow points from the 2 to the 1, and the third blue arrow points from the 3 to the 0. There are 4 orange arrows pointing from the numbers contained in the orange bubble in the second item, including those also contained in the blue bubble of the second item, to the numbers contained in the orange bubble of the third item, including the numbers in the blue bubble of the third item. The first orange arrow points from 2 to 3, the second orange arrow points from 3 to 5, the third orange arrow points from 0 to 4, and the fourth orange arrow points from 1 to 5.",
+     "caption": "**Figure 1.11** For the composite function $g\\circ f,$ we have $(g\\circ f)(1)=4,(g\\circ f)(2)=5,$ and $(g\\circ f)(3)=4.$",
+     "width": 437,
+     "height": 252
+    }
+   ],
+   "title": "Function Composition (continued)"
+  },
+  {
+   "id": "x31",
+   "kind": "example",
+   "label": "Example 1.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the functions $f(x)=x^{2}+1$ and $g(x)=1/x.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find $(g\\circ f)(x)$ and state its domain and range.",
+      "Evaluate $(g\\circ f)(4),(g\\circ f)(-1/2).$",
+      "Find $(f\\circ g)(x)$ and state its domain and range.",
+      "Evaluate $(f\\circ g)(4),(f\\circ g)(-1/2).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "We can find the formula for $(g\\circ f)(x)$ in two different ways. We could write"
+        },
+        {
+         "type": "math",
+         "tex": "(g\\circ f)(x)=g(f(x))=g(x^{2}+1)=\\frac{1}{x^{2}+1}."
+        },
+        {
+         "type": "p",
+         "text": "Alternatively, we could write"
+        },
+        {
+         "type": "math",
+         "tex": "(g\\circ f)(x)=g(f(x))=\\frac{1}{f(x)}=\\frac{1}{x^{2}+1}."
+        },
+        {
+         "type": "p",
+         "text": "Since $x^{2}+1\\ne 0$ for all real numbers $x,$ the domain of $(g\\circ f)(x)$ is the set of all real numbers. Since $0<1/(x^{2}+1)\\le 1,$ the range is, at most, the interval $(0,1].$ To show that the range is this entire interval, we let $y=1/(x^{2}+1)$ and solve this equation for $x$ to show that for all $y$ in the interval $(0,1],$ there exists a real number $x$ such that $y=1/(x^{2}+1).$ Solving this equation for $x,$ we see that $x^{2}+1=1/y,$ which implies that"
+        },
+        {
+         "type": "math",
+         "tex": "x=\\pm \\sqrt{\\frac{1}{y}-1}."
+        },
+        {
+         "type": "p",
+         "text": "If $y$ is in the interval $(0,1],$ the expression under the radical is nonnegative, and therefore there exists a real number $x$ such that $1/(x^{2}+1)=y.$ We conclude that the range of $g\\circ f$ is the interval $(0,1].$"
+        }
+       ],
+       "$(g\\circ f)(4)=g(f(4))=g(4^{2}+1)=g(17)=\\frac{1}{17}$\n\n$(g\\circ f)\\left(-\\frac{1}{2}\\right)=g\\left(f\\left(-\\frac{1}{2}\\right)\\right)=g\\left(\\left(-\\frac{1}{2}\\right)^{2}+1\\right)=g\\left(\\frac{5}{4}\\right)=\\frac{4}{5}$",
+       [
+        {
+         "type": "p",
+         "text": "We can find a formula for $(f\\circ g)(x)$ in two ways. First, we could write"
+        },
+        {
+         "type": "math",
+         "tex": "(f\\circ g)(x)=f(g(x))=f\\left(\\frac{1}{x}\\right)=\\left(\\frac{1}{x}\\right)^{2}+1."
+        },
+        {
+         "type": "p",
+         "text": "Alternatively, we could write"
+        },
+        {
+         "type": "math",
+         "tex": "(f\\circ g)(x)=f(g(x))=(g(x))^{2}+1=\\left(\\frac{1}{x}\\right)^{2}+1."
+        },
+        {
+         "type": "p",
+         "text": "The domain of $f\\circ g$ is the set of all real numbers $x$ such that $x\\ne 0.$ To find the range of $f,$ we need to find all values $y$ for which there exists a real number $x\\ne 0$ such that"
+        },
+        {
+         "type": "math",
+         "tex": "\\left(\\frac{1}{x}\\right)^{2}+1=y."
+        },
+        {
+         "type": "p",
+         "text": "Solving this equation for $x,$ we see that we need $x$ to satisfy"
+        },
+        {
+         "type": "math",
+         "tex": "\\left(\\frac{1}{x}\\right)^{2}=y-1,"
+        },
+        {
+         "type": "p",
+         "text": "which simplifies to"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{1}{x}=\\pm \\sqrt{y-1}."
+        },
+        {
+         "type": "p",
+         "text": "Finally, we obtain"
+        },
+        {
+         "type": "math",
+         "tex": "x=\\pm \\frac{1}{\\sqrt{y-1}}."
+        },
+        {
+         "type": "p",
+         "text": "Since $1/\\sqrt{y-1}$ is a real number if and only if $y>1,$ the range of $f◦g$ is the set $\\{y|y>1\\}.$"
+        }
+       ],
+       "$(f\\circ g)(4)=f(g(4))=f\\left(\\frac{1}{4}\\right)=\\left(\\frac{1}{4}\\right)^{2}+1=\\frac{17}{16}$\n\n$(f\\circ g)\\left(-\\frac{1}{2}\\right)=f\\left(g\\left(-\\frac{1}{2}\\right)\\right)=f(-2)=(-2)^{2}+1=5$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Compositions of Functions Defined by Formulas"
+  },
+  {
+   "id": "r32",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Example 1.7, we can see that $(f\\circ g)(x)\\ne (g\\circ f)(x).$ This tells us, in general terms, that the order in which we compose functions matters."
+    }
+   ],
+   "title": "Function Composition (continued)"
+  },
+  {
+   "id": "c33",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $f(x)=2-5x.$ Let $g(x)=\\sqrt{x}.$ Find $(f\\circ g)(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(f\\circ g)(x)=2-5\\sqrt{x}.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2-5 sqrt(x)"
+   }
+  },
+  {
+   "id": "x34",
+   "kind": "example",
+   "label": "Example 1.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the functions $f$ and $g$ described by Table 1.4 and Table 1.5."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$\\text{x}$",
+       "$-3$",
+       "$-2$",
+       "$-1$",
+       "0",
+       "1",
+       "2",
+       "3",
+       "4"
+      ],
+      [
+       "$\\text{f}(\\text{x})$",
+       "0",
+       "4",
+       "2",
+       "4",
+       "$-2$",
+       "0",
+       "$-2$",
+       "4"
+      ]
+     ],
+     "caption": "**Table 1.4**"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$\\text{x}$",
+       "$-4$",
+       "$-2$",
+       "0",
+       "2",
+       "4"
+      ],
+      [
+       "$\\text{g}(\\text{x})$",
+       "1",
+       "0",
+       "3",
+       "0",
+       "5"
+      ]
+     ],
+     "caption": "**Table 1.5**"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Evaluate $(g\\circ f)(3),(g\\circ f)(0).$",
+      "State the domain and range of $(g\\circ f)(x).$",
+      "Evaluate $(f\\circ f)(3),(f\\circ f)(1).$",
+      "State the domain and range of $(f\\circ f)(x).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$(g\\circ f)(3)=g(f(3))=g(-2)=0$\n\n$\\,(g\\circ f)(0)=g(4)=5$",
+       "The domain of $g\\circ f$ is the set $\\{-3,-2,-1,0,1,2,3,4\\}.$ Since the range of $f$ is the set $\\{-2,0,2,4\\},$ the range of $g\\circ f$ is the set $\\{0,3,5\\}.$",
+       "$(f\\circ f)(3)=f(f(3))=f(-2)=4$\n\n$(f\\circ f)(1)=f(f(1))=f(-2)=4$",
+       "The domain of $f\\circ f$ is the set $\\{-3,-2,-1,0,1,2,3,4\\}.$ Since the range of $f$ is the set $\\{-2,0,2,4\\},$ the range of $f\\circ f$ is the set $\\{0,4\\}.$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Composition of Functions Defined by Tables"
+  },
+  {
+   "id": "x35",
+   "kind": "example",
+   "label": "Example 1.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A store is advertising a sale of $20\\%$ off all merchandise. Caroline has a coupon that entitles her to an additional $15\\%$ off any item, including sale merchandise. If Caroline decides to purchase an item with an original price of $x$ dollars, how much will she end up paying if she applies her coupon to the sale price? Solve this problem by using a composite function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since the sale price is $20\\%$ off the original price, if an item is $x$ dollars, its sale price is given by $f(x)=0.80x.$ Since the coupon entitles an individual to $15\\%$ off the price of any item, if an item is $y$ dollars, the price, after applying the coupon, is given by $g(y)=0.85y.$ Therefore, if the price is originally $x$ dollars, its sale price will be $f(x)=0.80x$ and then its final price after the coupon will be $g(f(x))=0.85(0.80x)=0.68x.$"
+     }
+    ]
+   },
+   "title": "Application Involving a Composite Function"
+  },
+  {
+   "id": "c36",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "If items are on sale for $10\\%$ off their original price, and a customer has a coupon for an additional $30\\%$ off, what will be the final price for an item that is originally $x$ dollars, after applying the coupon to the sale price?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(g\\circ f)(x)=0.63x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The sale price of an item with an original price of $x$ dollars is $f(x)=0.90x.$ The coupon price for an item that is $y$ dollars is $g(y)=0.70y.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "0.63 x"
+   }
+  },
+  {
+   "id": "r37",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The graphs of certain functions have symmetry properties that help us understand the function and the shape of its graph. For example, consider the function $f(x)=x^{4}-2x^{2}-3$ shown in Figure 1.12(a). If we take the part of the curve that lies to the right of the *y*-axis and flip it over the *y*-axis, it lays exactly on top of the curve to the left of the *y*-axis. In this case, we say the function has **symmetry about the y-axis**. On the other hand, consider the function $f(x)=x^{3}-4x$ shown in Figure 1.12(b). If we take the graph and rotate it $180\\text{°}$ about the origin, the new graph will look exactly the same. In this case, we say the function has **symmetry about the origin**."
+    }
+   ],
+   "title": "Symmetry of Functions"
+  },
+  {
+   "id": "r38",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_012.webp",
+     "alt": "An image of two graphs. The first graph is labeled “(a), symmetry about the y-axis” and is of the curved function “f(x) = (x to the 4th) - 2(x squared) - 3”. The x axis runs from -3 to 4 and the y axis runs from -4 to 5. This function decreases until it hits the point (-1, -4), which is minimum of the function. Then the graph increases to the point (0,3), which is a local maximum. Then the the graph decreases until it hits the point (1, -4), before it increases again. The second graph is labeled “(b), symmetry about the origin” and is of the curved function “f(x) = x cubed - 4x”. The x axis runs from -3 to 4 and the y axis runs from -4 to 5. The graph of the function starts at the x intercept at (-2, 0) and increases until the approximate point of (-1.2, 3.1). The function then decreases, passing through the origin, until it hits the approximate point of (1.2, -3.1). The function then begins to increase again and has another x intercept at (2, 0).",
+     "caption": "**Figure 1.12** (a) A graph that is symmetric about the $y$-axis. (b) A graph that is symmetric about the origin.",
+     "width": 731,
+     "height": 426
+    },
+    {
+     "type": "p",
+     "text": "If we are given the graph of a function, it is easy to see whether the graph has one of these symmetry properties. But without a graph, how can we determine algebraically whether a function $f$ has symmetry? Looking at Figure 1.12 again, we see that since $f$ is symmetric about the $y$-axis, if the point $(x,y)$ is on the graph, the point $(-x,y)$ is on the graph. In other words, $f(-x)=f(x).$ If a function $f$ has this property, we say $f$ is an even function, which has symmetry about the *y*-axis. For example, $f(x)=x^{2}$ is even because"
+    }
+   ],
+   "title": "Symmetry of Functions (continued)"
+  },
+  {
+   "id": "r39",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "f(-x)=(-x)^{2}=x^{2}=f(x)."
+    },
+    {
+     "type": "p",
+     "text": "In contrast, looking at Figure 1.12 again, if a function $f$ is symmetric about the origin, then whenever the point $(x,y)$ is on the graph, the point $(-x,-y)$ is also on the graph. In other words, $f(-x)=-f(x).$ If $f$ has this property, we say $f$ is an odd function, which has symmetry about the origin. For example, $f(x)=x^{3}$ is odd because"
+    },
+    {
+     "type": "math",
+     "tex": "f(-x)=(-x)^{3}=-x^{3}=-f(x)."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $f(x)=f(-x)$ for all $x$ in the domain of $f,$ then $f$ is an **even function**. An even function is symmetric about the *y*-axis."
+      },
+      {
+       "type": "p",
+       "text": "If $f(-x)=-f(x)$ for all $x$ in the domain of $f,$ then $f$ is an **odd function**. An odd function is symmetric about the origin."
+      }
+     ]
+    }
+   ],
+   "title": "Symmetry of Functions (continued)"
+  },
+  {
+   "id": "x40",
+   "kind": "example",
+   "label": "Example 1.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether each of the following functions is even, odd, or neither."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(x)=-5x^{4}+7x^{2}-2$",
+      "$f(x)=2x^{5}-4x+5$",
+      "$f(x)=\\frac{3x}{x^{2}+1}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To determine whether a function is even or odd, we evaluate $f(-x)$ and compare it to *f*(*x*) and $-f(x).$"
+     },
+     {
+      "type": "list",
+      "items": [
+       "$f(-x)=-5(-x)^{4}+7(-x)^{2}-2=-5x^{4}+7x^{2}-2=f(x).$ Therefore, $f$ is even.",
+       "$f(-x)=2(-x)^{5}-4(-x)+5=-2x^{5}+4x+5.$ Now, $f(-x)\\ne f(x).$ Furthermore, noting that $-f(x)=-2x^{5}+4x-5,$ we see that $f(-x)\\ne -f(x).$ Therefore, $f$ is neither even nor odd.",
+       "$f(-x)=3(-x)/((-x)^{2}+1)=-3x/(x^{2}+1)=-[3x/(x^{2}+1)]=-f(x).$ Therefore, $f$ is odd."
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Even and Odd Functions"
+  },
+  {
+   "id": "c41",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether $f(x)=4x^{3}-5x$ is even, odd, or neither."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x)$ is odd."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Compare $f(-x)$ with $f(x)$ and $-f(x).$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r42",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "One symmetric function that arises frequently is the **absolute value function**, written as $|x|.$ The absolute value function is defined as"
+    },
+    {
+     "type": "math",
+     "tex": "f(x)=\\{\\begin{array}{c}-x,x<0 \\\\ x,x\\ge 0\\end{array}."
+    },
+    {
+     "type": "p",
+     "text": "Some students describe this function by stating that it “makes everything positive.” By the definition of the absolute value function, we see that if $x<0,$ then $|x|=-x>0,$ and if $x>0,$ then $|x|=x>0.$ However, for $x=0,|x|=0.$ Therefore, it is more accurate to say that for all nonzero inputs, the output is positive, but if $x=0,$ the output $|x|=0.$ We conclude that the range of the absolute value function is $\\{y|y\\ge 0\\}.$ In Figure 1.13, we see that the absolute value function is symmetric about the *y*-axis and is therefore an even function."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_013.webp",
+     "alt": "An image of a graph. The x axis runs from -3 to 3 and the y axis runs from -4 to 4. The graph is of the function “f(x) = absolute value of x”. The graph starts at the point (-3, 3) and decreases in a straight line until it hits the origin. Then the graph increases in a straight line until it hits the point (3, 3).",
+     "caption": "**Figure 1.13** The graph of $f(x)=|x|$ is symmetric about the $y$-axis.",
+     "width": 325,
+     "height": 350
+    }
+   ],
+   "title": "Symmetry of Functions (continued)"
+  },
+  {
+   "id": "x43",
+   "kind": "example",
+   "label": "Example 1.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the domain and range of the function $f(x)=2|x-3|+4.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since the absolute value function is defined for all real numbers, the domain of this function is $(-\\infty ,\\infty ).$ Since $|x-3|\\ge 0$ for all $x,$ the function $f(x)=2|x-3|+4\\ge 4.$ Therefore, the range is, at most, the set $\\{y|y\\ge 4\\}.$ To see that the range is, in fact, this whole set, we need to show that for $y\\ge 4$ there exists a real number $x$ such that"
+     },
+     {
+      "type": "math",
+      "tex": "2|x-3|+4=y."
+     },
+     {
+      "type": "p",
+      "text": "A real number $x$ satisfies this equation as long as"
+     },
+     {
+      "type": "math",
+      "tex": "|x-3|=\\frac{1}{2}(y-4)."
+     },
+     {
+      "type": "p",
+      "text": "Since $y\\ge 4,$ we know $y-4\\ge 0,$ and thus the right-hand side of the equation is nonnegative, so it is possible that there is a solution. Furthermore,"
+     },
+     {
+      "type": "math",
+      "tex": "|x-3|=\\{\\begin{array}{c}-(x-3)\\quad \\text{if}\\,x<3 \\\\ x-3\\qquad \\text{if}\\,x\\ge 3\\end{array}."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, we see there are two solutions:"
+     },
+     {
+      "type": "math",
+      "tex": "x=\\pm \\frac{1}{2}(y-4)+3."
+     },
+     {
+      "type": "p",
+      "text": "The range of this function is $\\{y|y\\ge 4\\}.$"
+     }
+    ]
+   },
+   "title": "Working with the Absolute Value Function"
+  },
+  {
+   "id": "c44",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the function $f(x)=|x+2|-4,$ find the domain and range."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Domain = $(-\\infty ,\\infty ),$ range = $\\{y|y\\ge -4\\}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "$|x+2|\\ge 0$ for all real numbers $x.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r45",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "A function is a mapping from a set of inputs to a set of outputs with exactly one output for each input.",
+      "If no domain is stated for a function $y=f(x),$ the domain is considered to be the set of all real numbers $x$ for which the function is defined.",
+      "When sketching the graph of a function $f,$ each vertical line may intersect the graph, at most, once.",
+      "A function may have any number of zeros, but it has, at most, one *y*-intercept.",
+      "To define the composition $g\\circ f,$ the range of $f$ must be contained in the domain of $g.$",
+      "Even functions are symmetric about the $y$-axis whereas odd functions are symmetric about the origin."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r46",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Composition of two functions**",
+       "$(g\\circ f)(x)=g(f(x))$"
+      ],
+      [
+       "**Absolute value function**",
+       "$f(x)=\\{\\begin{array}{c}-x,x<0 \\\\ x,x\\ge 0\\end{array}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e1",
+   "number": 1,
+   "prompt": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−3",
+       "9",
+       "1",
+       "1"
+      ],
+      [
+       "−2",
+       "4",
+       "2",
+       "4"
+      ],
+      [
+       "−1",
+       "1",
+       "3",
+       "9"
+      ],
+      [
+       "0",
+       "0",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572554559",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Domain = $\\{-3,-2,-1,0,1,2,3\\},$ range = $\\{0,1,4,9\\}$ b. Yes, a function"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e2",
+   "number": 2,
+   "prompt": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−3",
+       "−2",
+       "1",
+       "1"
+      ],
+      [
+       "−2",
+       "−8",
+       "2",
+       "8"
+      ],
+      [
+       "−1",
+       "−1",
+       "3",
+       "−2"
+      ],
+      [
+       "0",
+       "0",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572550816",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e3",
+   "number": 3,
+   "prompt": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1",
+       "−3",
+       "1",
+       "1"
+      ],
+      [
+       "2",
+       "−2",
+       "2",
+       "2"
+      ],
+      [
+       "3",
+       "−1",
+       "3",
+       "3"
+      ],
+      [
+       "0",
+       "0",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572549262",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Domain = $\\{0,1,2,3\\},$ range = $\\{-3,-2,-1,0,1,2,3\\}$ b. No, not a function"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e4",
+   "number": 4,
+   "prompt": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1",
+       "1",
+       "5",
+       "1"
+      ],
+      [
+       "2",
+       "1",
+       "6",
+       "1"
+      ],
+      [
+       "3",
+       "1",
+       "7",
+       "1"
+      ],
+      [
+       "4",
+       "1",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572547676",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e5",
+   "number": 5,
+   "prompt": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "3",
+       "3",
+       "15",
+       "1"
+      ],
+      [
+       "5",
+       "2",
+       "21",
+       "2"
+      ],
+      [
+       "8",
+       "1",
+       "33",
+       "3"
+      ],
+      [
+       "10",
+       "0",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572203528",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Domain = $\\{3,5,8,10,15,21,33\\},$ range = $\\{0,1,2,3\\}$ b. Yes, a function"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e6",
+   "number": 6,
+   "prompt": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−7",
+       "11",
+       "1",
+       "−2"
+      ],
+      [
+       "−2",
+       "5",
+       "3",
+       "4"
+      ],
+      [
+       "−2",
+       "1",
+       "6",
+       "11"
+      ],
+      [
+       "0",
+       "−1",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572481235",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, (a) determine the domain and the range of each relation, and (b) state whether the relation is a function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e7",
+   "number": 7,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=5x-2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572452196",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the values for each function, if they exist, then simplify."
+    },
+    {
+     "type": "p",
+     "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $-2$ b. 3 c. 13 d. $-5x-2$ e. $5a-2$ f. $5a+5h-2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "-2"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "13"
+      }
+     },
+     {
+      "label": "d",
+      "answer": {
+       "kind": "expression",
+       "value": "-5 x-2"
+      }
+     },
+     {
+      "label": "e",
+      "answer": {
+       "kind": "expression",
+       "value": "5 a-2"
+      }
+     },
+     {
+      "label": "f",
+      "answer": {
+       "kind": "expression",
+       "value": "5 a+5 h-2"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e8",
+   "number": 8,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=4x^{2}-3x+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572547970",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the values for each function, if they exist, then simplify."
+    },
+    {
+     "type": "p",
+     "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e9",
+   "number": 9,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{2}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572549684",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the values for each function, if they exist, then simplify."
+    },
+    {
+     "type": "p",
+     "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Undefined b. 2 c. $\\frac{2}{3}$ d. $-\\frac{2}{x}$ e $\\frac{2}{a}$ f. $\\frac{2}{a+h}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e10",
+   "number": 10,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=|x-7|+8$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572549759",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the values for each function, if they exist, then simplify."
+    },
+    {
+     "type": "p",
+     "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e11",
+   "number": 11,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{6x+5}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572451476",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the values for each function, if they exist, then simplify."
+    },
+    {
+     "type": "p",
+     "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\sqrt{5}$ b. $\\sqrt{11}$ c. $\\sqrt{23}$ d. $\\sqrt{-6x+5}$ e. $\\sqrt{6a+5}$ f. $\\sqrt{6a+6h+5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(5)"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(11)"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(23)"
+      }
+     },
+     {
+      "label": "d",
+      "answer": {
+       "kind": "expression",
+       "value": "sqrt(-6 x+5)"
+      }
+     },
+     {
+      "label": "e",
+      "answer": {
+       "kind": "expression",
+       "value": "sqrt(6 a+5)"
+      }
+     },
+     {
+      "label": "f",
+      "answer": {
+       "kind": "expression",
+       "value": "sqrt(6 a+6 h+5)"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e12",
+   "number": 12,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{x-2}{3x+7}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451584",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the values for each function, if they exist, then simplify."
+    },
+    {
+     "type": "p",
+     "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e13",
+   "number": 13,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=9$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572452605",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the values for each function, if they exist, then simplify."
+    },
+    {
+     "type": "p",
+     "text": "a. $f(0)$ b. $f(1)$ c. $f(3)$ d. $f(-x)$ e. $f(a)$ f. $f(a+h)$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 9 b. 9 c. 9 d. 9 e. 9 f. 9"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     },
+     {
+      "label": "d",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     },
+     {
+      "label": "e",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     },
+     {
+      "label": "f",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e14",
+   "number": 14,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{x}{x^{2}-16}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572449158",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e15",
+   "number": 15,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x)=\\sqrt{8x-1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572449228",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x\\ge \\frac{1}{8};y\\ge 0;x=\\frac{1}{8};$ no *y*-intercept"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e16",
+   "number": 16,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$h(x)=\\frac{3}{x^{2}+4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572449306",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e17",
+   "number": 17,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=-1+\\sqrt{x+2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572548401",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x\\ge -2;y\\ge -1;x=-1;y=-1+\\sqrt{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"x>=-2;y>=-1;x=-1;y=-1+sqrt(2)\""
+  },
+  {
+   "id": "e18",
+   "number": 18,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{\\sqrt{x-9}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572548485",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e19",
+   "number": 19,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x)=\\frac{3}{x-4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572229270",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x\\ne 4;y\\ne 0;$ no *x*-intercept; $y=-\\frac{3}{4}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e20",
+   "number": 20,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=4|x+5|$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572229347",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e21",
+   "number": 21,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x)=\\sqrt{\\frac{7}{x-5}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451278",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the domain, range, and all zeros/intercepts, if any, of the functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x>5;y>0;$ no intercepts"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e22",
+   "number": 22,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}+1$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−3",
+       "10",
+       "1",
+       "2"
+      ],
+      [
+       "−2",
+       "5",
+       "2",
+       "5"
+      ],
+      [
+       "−1",
+       "2",
+       "3",
+       "10"
+      ],
+      [
+       "0",
+       "1",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451381",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch the graph with the aid of the tables given:"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e23",
+   "number": 23,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=3x-6$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−3",
+       "−15",
+       "1",
+       "−3"
+      ],
+      [
+       "−2",
+       "−12",
+       "2",
+       "0"
+      ],
+      [
+       "−1",
+       "−9",
+       "3",
+       "3"
+      ],
+      [
+       "0",
+       "−6",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572142280",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch the graph with the aid of the tables given:"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_01_01_202.webp",
+      "alt": "An image of a graph. The x axis runs from -3 to 3 and the y axis runs from -3 to 3. The graph is of the function “f(x) = 3x - 6”, which is an increasing straight line. The function has an x intercept at (2, 0) and the y intercept is not shown.",
+      "width": 268,
+      "height": 272
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e24",
+   "number": 24,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{2}x+1$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−3",
+       "$-\\frac{1}{2}$",
+       "1",
+       "$\\frac{3}{2}$"
+      ],
+      [
+       "−2",
+       "0",
+       "2",
+       "2"
+      ],
+      [
+       "−1",
+       "$\\frac{1}{2}$",
+       "3",
+       "$\\frac{5}{2}$"
+      ],
+      [
+       "0",
+       "1",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451702",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch the graph with the aid of the tables given:"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e25",
+   "number": 25,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2|x|$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−3",
+       "6",
+       "1",
+       "2"
+      ],
+      [
+       "−2",
+       "4",
+       "2",
+       "4"
+      ],
+      [
+       "−1",
+       "2",
+       "3",
+       "6"
+      ],
+      [
+       "0",
+       "0",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572547833",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch the graph with the aid of the tables given:"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_01_01_204.webp",
+      "alt": "An image of a graph. The x axis runs from -3 to 3 and the y axis runs from -2 to 6. The graph is of the function “f(x) = 2 times the absolute value of x”. The function decreases in a straight line until it hits the origin, then begins to increase in a straight line. The function x intercept and y intercept are at the origin.",
+      "width": 325,
+      "height": 350
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e26",
+   "number": 26,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=-x^{2}$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−3",
+       "−9",
+       "1",
+       "−1"
+      ],
+      [
+       "−2",
+       "−4",
+       "2",
+       "−4"
+      ],
+      [
+       "−1",
+       "−1",
+       "3",
+       "−9"
+      ],
+      [
+       "0",
+       "0",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572455207",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch the graph with the aid of the tables given:"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e27",
+   "number": 27,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{3}$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−3",
+       "−27",
+       "1",
+       "1"
+      ],
+      [
+       "−2",
+       "−8",
+       "2",
+       "8"
+      ],
+      [
+       "−1",
+       "−1",
+       "3",
+       "27"
+      ],
+      [
+       "0",
+       "0",
+       "",
+       ""
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$y$",
+      "$x$",
+      "$y$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572551561",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch the graph with the aid of the tables given:"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_01_01_206.webp",
+      "alt": "An image of a graph. The x axis runs from -3 to 3 and the y axis runs from -27 to 27. The graph is of the function “f(x) = x cubed”. The curved function increases until it hits the origin, where it levels out and then becomes even. After the origin the graph begins to increase again. The x intercept and y intercept are both at the origin.",
+      "width": 325,
+      "height": 725
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e28",
+   "number": 28,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_207.webp",
+     "alt": "An image of a graph. The x axis runs from -5 to 5 and the y axis runs from -5 to 5. The graph is of a relation that is circle, with x intercepts at (-1, 0) and (1, 0) and y intercepts at (0, 1) and (0, -1).",
+     "width": 423,
+     "height": 423
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572169120",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the vertical line test to determine whether each of the given graphs represents a function. **Assume that a graph continues at both ends if it extends beyond the given grid.** If the graph represents a function, then determine the following for each graph:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Domain and range",
+      "$x$-intercept, if any (estimate where necessary)",
+      "$y$-intercept, if any (estimate where necessary)",
+      "The intervals for which the function is increasing",
+      "The intervals for which the function is decreasing",
+      "The intervals for which the function is constant",
+      "Symmetry about any axis and/or the origin",
+      "Whether the function is even, odd, or neither"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e29",
+   "number": 29,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_208.webp",
+     "alt": "An image of a graph. The x axis runs from -5 to 5 and the y axis runs from -5 to 5. The graph is of a relation that is curved. The relation decreases until it hits the point (-1, 0), then increases until it hits the point (0, 1), then decreases until it hits the point (1, 0), then increases again.",
+     "width": 423,
+     "height": 423
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572169146",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the vertical line test to determine whether each of the given graphs represents a function. **Assume that a graph continues at both ends if it extends beyond the given grid.** If the graph represents a function, then determine the following for each graph:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Domain and range",
+      "$x$-intercept, if any (estimate where necessary)",
+      "$y$-intercept, if any (estimate where necessary)",
+      "The intervals for which the function is increasing",
+      "The intervals for which the function is decreasing",
+      "The intervals for which the function is constant",
+      "Symmetry about any axis and/or the origin",
+      "Whether the function is even, odd, or neither"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Function; a. Domain: all real numbers, range: $y\\ge 0$ b. $x=\\pm 1$ c. $y=1$ d. $-1<x<0$ and $1<x<\\infty$ e. $-\\infty <x<-1$ and $0<x<1$ f. Not constant g. *y*-axis h. Even"
+     }
+    ]
+   },
+   "notes": "self-check: multi-part answer could not be split"
+  },
+  {
+   "id": "e30",
+   "number": 30,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_209.webp",
+     "alt": "An image of a graph. The x axis runs from -5 to 5 and the y axis runs from -5 to 5. The graph is of a relation that is a parabola. The curved relation increases until it hits the point (2, 3), then begins to decrease. The approximate x intercepts are at (0.3, 0) and (3.7, 0) and the y intercept is is (-1, 0).",
+     "width": 417,
+     "height": 422
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572243741",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the vertical line test to determine whether each of the given graphs represents a function. **Assume that a graph continues at both ends if it extends beyond the given grid.** If the graph represents a function, then determine the following for each graph:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Domain and range",
+      "$x$-intercept, if any (estimate where necessary)",
+      "$y$-intercept, if any (estimate where necessary)",
+      "The intervals for which the function is increasing",
+      "The intervals for which the function is decreasing",
+      "The intervals for which the function is constant",
+      "Symmetry about any axis and/or the origin",
+      "Whether the function is even, odd, or neither"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e31",
+   "number": 31,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_217.webp",
+     "alt": "An image of a graph. The x axis runs from -5 to 5 and the y axis runs from -5 to 5. The graph is of a relation that is curved. The curved relation increases the entire time. The x intercept and y intercept are both at the origin.",
+     "width": 354,
+     "height": 360
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572243837",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the vertical line test to determine whether each of the given graphs represents a function. **Assume that a graph continues at both ends if it extends beyond the given grid.** If the graph represents a function, then determine the following for each graph:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Domain and range",
+      "$x$-intercept, if any (estimate where necessary)",
+      "$y$-intercept, if any (estimate where necessary)",
+      "The intervals for which the function is increasing",
+      "The intervals for which the function is decreasing",
+      "The intervals for which the function is constant",
+      "Symmetry about any axis and/or the origin",
+      "Whether the function is even, odd, or neither"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Function; a. Domain: all real numbers, range: $-1.5\\le y\\le 1.5$ b. $x=0$ c. $y=0$ d. $\\text{all real numbers}$ e. None f. Not constant g. Origin h. Odd"
+     }
+    ]
+   },
+   "notes": "self-check: multi-part answer could not be split"
+  },
+  {
+   "id": "e32",
+   "number": 32,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_211.webp",
+     "alt": "An image of a graph. The x axis runs from -5 to 5 and the y axis runs from -5 to 5. The graph is of a relation that is a sideways parabola, opening up to the right. The x intercept and y intercept are both at the origin and the relation has no points to the left of the y axis. The relation includes the points (1, -1) and (1, 1)",
+     "width": 423,
+     "height": 423
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572482578",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the vertical line test to determine whether each of the given graphs represents a function. **Assume that a graph continues at both ends if it extends beyond the given grid.** If the graph represents a function, then determine the following for each graph:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Domain and range",
+      "$x$-intercept, if any (estimate where necessary)",
+      "$y$-intercept, if any (estimate where necessary)",
+      "The intervals for which the function is increasing",
+      "The intervals for which the function is decreasing",
+      "The intervals for which the function is constant",
+      "Symmetry about any axis and/or the origin",
+      "Whether the function is even, odd, or neither"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e33",
+   "number": 33,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_212.webp",
+     "alt": "An image of a graph. The x axis runs from -5 to 5 and the y axis runs from -5 to 5. The graph is of a relation that is a horizontal line until the point (-2, -2), then it begins increasing in a straight line until the point (2, 2). After these points, the relation becomes a horizontal line again. The x intercept and y intercept are both at the origin.",
+     "width": 423,
+     "height": 423
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572482605",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the vertical line test to determine whether each of the given graphs represents a function. **Assume that a graph continues at both ends if it extends beyond the given grid.** If the graph represents a function, then determine the following for each graph:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Domain and range",
+      "$x$-intercept, if any (estimate where necessary)",
+      "$y$-intercept, if any (estimate where necessary)",
+      "The intervals for which the function is increasing",
+      "The intervals for which the function is decreasing",
+      "The intervals for which the function is constant",
+      "Symmetry about any axis and/or the origin",
+      "Whether the function is even, odd, or neither"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Function; a. Domain: $-\\infty <x<\\infty ,$ range: $-2\\le y\\le 2$ b. $x=0$ c. $y=0$ d. $-2<x<2$ e. Not decreasing f. $-\\infty <x<-2$ and $2<x<\\infty$ g. Origin h. Odd"
+     }
+    ]
+   },
+   "notes": "self-check: multi-part answer could not be split"
+  },
+  {
+   "id": "e34",
+   "number": 34,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_213.webp",
+     "alt": "An image of a graph. The x axis runs from -5 to 5 and the y axis runs from -5 to 5. The graph is of a relation that is a horizontal line until the origin, then it begins increasing in a straight line. The x intercept and y intercept are both at the origin and there are no points below the x axis.",
+     "width": 423,
+     "height": 423
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572482729",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the vertical line test to determine whether each of the given graphs represents a function. **Assume that a graph continues at both ends if it extends beyond the given grid.** If the graph represents a function, then determine the following for each graph:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Domain and range",
+      "$x$-intercept, if any (estimate where necessary)",
+      "$y$-intercept, if any (estimate where necessary)",
+      "The intervals for which the function is increasing",
+      "The intervals for which the function is decreasing",
+      "The intervals for which the function is constant",
+      "Symmetry about any axis and/or the origin",
+      "Whether the function is even, odd, or neither"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e35",
+   "number": 35,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_214.webp",
+     "alt": "An image of a graph. The x axis runs from -5 to 5 and the y axis runs from -5 to 5. The graph is of a relation that starts at the point (-4, 4) and is a horizontal line until the point (0, 4), then it begins decreasing in a curved line until it hits the point (4, -4), where the graph ends. The x intercept is approximately at the point (1.2, 0) and y intercept is at the point (0, 4).",
+     "width": 417,
+     "height": 422
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572229080",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the vertical line test to determine whether each of the given graphs represents a function. **Assume that a graph continues at both ends if it extends beyond the given grid.** If the graph represents a function, then determine the following for each graph:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Domain and range",
+      "$x$-intercept, if any (estimate where necessary)",
+      "$y$-intercept, if any (estimate where necessary)",
+      "The intervals for which the function is increasing",
+      "The intervals for which the function is decreasing",
+      "The intervals for which the function is constant",
+      "Symmetry about any axis and/or the origin",
+      "Whether the function is even, odd, or neither"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Function; a. Domain: $-4\\le x\\le 4,$ range: $-4\\le y\\le 4$ b. $x=1.2$ c. $y=4$ d. Not increasing e. $0<x<4$ f. $-4<x<0$ g. No Symmetry h. Neither"
+     }
+    ]
+   },
+   "notes": "self-check: multi-part answer could not be split"
+  },
+  {
+   "id": "e36",
+   "number": 36,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=3x+4,g(x)=x-2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572551808",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e37",
+   "number": 37,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x-8,g(x)=5x^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572551945",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $5x^{2}+x-8;$ all real numbers b. $-5x^{2}+x-8;$ all real numbers c. $5x^{3}-40x^{2};$ all real numbers d. $\\frac{x-8}{5x^{2}};\\,x\\ne 0$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e38",
+   "number": 38,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=3x^{2}+4x+1,g(x)=x+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572550610",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=9-x^{2},g(x)=x^{2}-2x-3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572231974",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $-2x+6;$ all real numbers b. $-2x^{2}+2x+12;$ all real numbers c. $-x^{4}+2x^{3}+12x^{2}-18x-27;$ all real numbers d. $-\\frac{x+3}{x+1};\\,x\\ne -1,3$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{x},g(x)=x-2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572480431",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e41",
+   "number": 41,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=6+\\frac{1}{x},g(x)=\\frac{1}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572174661",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $f+g$ b. $f-g$ c. $f\\cdot g$ d. $f/g.$ Determine the domain of each of these new functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $6+\\frac{2}{x};\\,x\\ne 0$ b. 6; $x\\ne 0$ c. $\\frac{6}{x}+\\frac{1}{x^{2}};\\,x\\ne 0$ d. $6x+1;\\,x\\ne 0$"
+     }
+    ]
+   },
+   "notes": "self-check: part b is not plain math"
+  },
+  {
+   "id": "e42",
+   "number": 42,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=3x,g(x)=x+5$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572267927",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e43",
+   "number": 43,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x+4,g(x)=4x-1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572268008",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $4x+3;$ all real numbers b. $4x+15;$ all real numbers"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e44",
+   "number": 44,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2x+4,g(x)=x^{2}-2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572268093",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e45",
+   "number": 45,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}+7,g(x)=x^{2}-3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572219452",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x^{4}-6x^{2}+16;$ all real numbers b. $x^{4}+14x^{2}+46;$ all real numbers"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e46",
+   "number": 46,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{x},g(x)=x+9$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572219563",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e47",
+   "number": 47,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{3}{2x+1},g(x)=\\frac{2}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572309929",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\frac{3x}{4+x};x\\ne 0,-4$ b. $\\frac{4x+2}{3};\\,x\\ne -\\frac{1}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"multi\",\"parts\":[{\"label\":\"a\",\"answer\":{\"kind\":\"list\",\"value\":\"((3 x)/(4+x));x!=0, -4\"}},{\"label\":\"b\",\"answer\":{\"kind\":\"expression\",\"value\":\"((4 x+2)/3); x!=-(1/2)\"}}]} failed (checker cannot read the answer: Unexpected \";\")"
+  },
+  {
+   "id": "e48",
+   "number": 48,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=|x+1|,g(x)=x^{2}+x-4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572310054",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e49",
+   "number": 49,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The table below lists the NBA championship winners for the years 2001 to 2012."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "2001",
+       "LA Lakers"
+      ],
+      [
+       "2002",
+       "LA Lakers"
+      ],
+      [
+       "2003",
+       "San Antonio Spurs"
+      ],
+      [
+       "2004",
+       "Detroit Pistons"
+      ],
+      [
+       "2005",
+       "San Antonio Spurs"
+      ],
+      [
+       "2006",
+       "Miami Heat"
+      ],
+      [
+       "2007",
+       "San Antonio Spurs"
+      ],
+      [
+       "2008",
+       "Boston Celtics"
+      ],
+      [
+       "2009",
+       "LA Lakers"
+      ],
+      [
+       "2010",
+       "LA Lakers"
+      ],
+      [
+       "2011",
+       "Dallas Mavericks"
+      ],
+      [
+       "2012",
+       "Miami Heat"
+      ]
+     ],
+     "header": [
+      "Year",
+      "Winner"
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "Consider the relation in which the domain values are the years 2001 to 2012 and the range is the corresponding winner. Is this relation a function? Explain why or why not.",
+      "Consider the relation where the domain values are the winners and the range is the corresponding years. Is this relation a function? Explain why or why not."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572128767",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Yes, because there is only one winner for each year. b. No, because there are three teams that won more than once during the years 2001 to 2012."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e50",
+   "number": 50,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The area $A$ of a square depends on the length of the side $s.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write a function $A(s)$ for the area of a square.",
+      "Find and interpret $A(6.5).$",
+      "Find the exact and the two-significant-digit approximation to the length of the sides of a square with area 56 square units."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572233919",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e51",
+   "number": 51,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The volume of a cube depends on the length of the sides $s.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write a function $V(s)$ for the volume of a cube.",
+      "Find and interpret $V(11.8).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572478068",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $V(s)=s^{3}$ b. $V(11.8)\\approx 1643;$ a cube of side length 11.8 each has a volume of approximately 1643 cubic units."
+     }
+    ]
+   },
+   "notes": "self-check: part b is not plain math"
+  },
+  {
+   "id": "e52",
+   "number": 52,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A rental car company rents cars for a flat fee of \\$20 and an hourly charge of \\$10.25. Therefore, the total cost $C$ to rent a car is a function of the hours $t$ the car is rented plus the flat fee."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the formula for the function that models this situation.",
+      "Find the total cost to rent a car for 2 days and 7 hours.",
+      "Determine how long the car was rented if the bill is \\$430."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572431446",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e53",
+   "number": 53,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A vehicle has a 20-gal tank and gets 15 mpg. The number of miles *N* that can be driven depends on the amount of gas *x* in the tank."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write a formula that models this situation.",
+      "Determine the number of miles the vehicle can travel on (i) a full tank of gas and (ii) 3/4 of a tank of gas.",
+      "Determine the domain and range of the function.",
+      "Determine how many times the driver had to stop for gas if she has driven a total of 578 mi."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572431519",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $N(x)=15x$ b. i. $N(20)=15(20)=300;$ therefore, the vehicle can travel 300 mi on a full tank of gas. Ii. $N(15)=225;$ therefore, the vehicle can travel 225 mi on 3/4 of a tank of gas. c. Domain: $0\\le x\\le 20;$ range: $[0,300]$ d. The driver had to stop at least once, given that it takes approximately 39 gal of gas to drive a total of 578 mi."
+     }
+    ]
+   },
+   "notes": "self-check: part b is not plain math"
+  },
+  {
+   "id": "e54",
+   "number": 54,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The volume *V* of a sphere depends on the length of its radius as $V=(4/3)\\pi r^{3}.$ Because Earth is not a perfect sphere, we can use the *mean radius* when measuring from the center to its surface. The mean radius is the average distance from the physical center to the surface, based on a large number of samples. Find the volume of Earth with mean radius $6.371\\,\\times \\,10^{6}$ m."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572171648",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e55",
+   "number": 55,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A certain bacterium grows in culture in a circular region. The radius of the circle, measured in centimeters, is given by $r(t)=6-[5/(t^{2}+1)],$ where *t* is time measured in hours since a circle of a 1-cm radius of the bacterium was put into the culture."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the area of the bacteria as a function of time.",
+      "Find the exact and approximate area of the bacterial culture in 3 hours.",
+      "Express the circumference of the bacteria as a function of time.",
+      "Find the exact and approximate circumference of the bacteria in 3 hours."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572171742",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $A(t)=A(r(t))=\\pi \\cdot \\left(6-\\frac{5}{t^{2}+1}\\right)^{2}$ b. Exact: $\\frac{121\\pi}{4};$ approximately 95 cm$^{\\text{2}}$ c. $C(t)=C(r(t))=2\\pi \\left(6-\\frac{5}{t^{2}+1}\\right)$ d. Exact: $11\\pi ;$ approximately 35 cm"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e56",
+   "number": 56,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** An American tourist visits Paris and must convert U.S. dollars to Euros, which can be done using the function $E(x)=0.79x,$ where *x* is the number of U.S. dollars and $E(x)$ is the equivalent number of Euros. Since conversion rates fluctuate, when the tourist returns to the United States 2 weeks later, the conversion from Euros to U.S. dollars is $D(x)=1.245x,$ where *x* is the number of Euros and $D(x)$ is the equivalent number of U.S. dollars."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the composite function that converts directly from U.S. dollars to U.S. dollars via Euros. Did this tourist lose value in the conversion process?",
+      "Use (a) to determine how many U.S. dollars the tourist would get back at the end of her trip if she converted an extra \\$200 when she arrived in Paris."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572234464",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e57",
+   "number": 57,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The manager at a skateboard shop pays his workers a monthly salary *S* of \\$750 plus a commission of \\$8.50 for each skateboard they sell."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write a function $y=S(x)$ that models a worker’s monthly salary based on the number of skateboards *x* he or she sells.",
+      "Find the monthly salary when a worker sells 25, 40, or 55 skateboards.",
+      "Use the INTERSECT feature on a graphing calculator to determine the number of skateboards that must be sold for a worker to earn a monthly income of \\$1400. (*Hint*: Find the intersection of the function and the line $y=1400.)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_215.webp",
+     "alt": "An image of a graph. The y axis runs from 0 to 1800 and the x axis runs from 0 to 100. The graph is of the function “y = s(x)”, which is a increasing straight line. The function has a y intercept at (0, 750) and the x intercept is not shown.",
+     "width": 489,
+     "height": 390
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572425343",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $S(x)=8.5x+750$ b. \\$962.50, \\$1090, \\$1217.50 c. 77 skateboards"
+     }
+    ]
+   },
+   "notes": "self-check: part b is prose"
+  },
+  {
+   "id": "e58",
+   "number": 58,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a graphing calculator to graph the half-circle $y=\\sqrt{25-(x-4)^{2}}.$ Then, use the INTERCEPT feature to find the value of both the $x$- and $y$-intercepts."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_01_216.webp",
+     "alt": "An image of a graph. The y axis runs from -6 to 6 and the x axis runs from -1 to 10. The graph is of the function that is a semi-circle (the top half of a circle). The function has the begins at the point (-1, 0), runs through the point (0, 3), has maximum at the point (4, 5), and ends at the point (9, 0). None of these points are labeled, they are just for reference.",
+     "width": 454,
+     "height": 497
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572443386",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, for each pair of functions, find a. $(f\\circ g)(x)$ and b. $(g\\circ f)(x)$ Simplify the results. Find the domain of each of the results."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "absolute value function",
+   "meaning": "$f(x)=\\{\\begin{array}{c}-x,x<0 \\\\ x,x\\ge 0\\end{array}$"
+  },
+  {
+   "term": "composite function",
+   "meaning": "given two functions $f$ and $g,$ a new function, denoted $g\\circ f,$ such that $(g\\circ f)(x)=g(f(x))$"
+  },
+  {
+   "term": "decreasing on the interval I",
+   "meaning": "a function decreasing on the interval $I$ if, for all $x_{1},x_{2}\\in I,f(x_{1})\\ge f(x_{2})$ if $x_{1}<x_{2}$"
+  },
+  {
+   "term": "dependent variable",
+   "meaning": "the output variable for a function"
+  },
+  {
+   "term": "domain",
+   "meaning": "the set of inputs for a function"
+  },
+  {
+   "term": "even function",
+   "meaning": "a function is even if $f(-x)=f(x)$ for all $x$ in the domain of $f$"
+  },
+  {
+   "term": "function",
+   "meaning": "a set of inputs, a set of outputs, and a rule for mapping each input to exactly one output"
+  },
+  {
+   "term": "graph of a function",
+   "meaning": "the set of points $(x,y)$ such that $x$ is in the domain of $f$ and $y=f(x)$"
+  },
+  {
+   "term": "increasing on the interval I",
+   "meaning": "a function increasing on the interval $I$ if for all $x_{1},x_{2}\\in I,f(x_{1})\\le f(x_{2})$ if $x_{1}<x_{2}$"
+  },
+  {
+   "term": "independent variable",
+   "meaning": "the input variable for a function"
+  },
+  {
+   "term": "odd function",
+   "meaning": "a function is odd if $f(-x)=-f(x)$ for all $x$ in the domain of $f$"
+  },
+  {
+   "term": "range",
+   "meaning": "the set of outputs for a function"
+  },
+  {
+   "term": "symmetry about the origin",
+   "meaning": "the graph of a function $f$ is symmetric about the origin if $(-x,-y)$ is on the graph of $f$ whenever $(x,y)$ is on the graph"
+  },
+  {
+   "term": "symmetry about the y-axis",
+   "meaning": "the graph of a function $f$ is symmetric about the $y$-axis if $(-x,y)$ is on the graph of $f$ whenever $(x,y)$ is on the graph"
+  },
+  {
+   "term": "table of values",
+   "meaning": "a table containing a list of inputs and their corresponding outputs"
+  },
+  {
+   "term": "vertical line test",
+   "meaning": "given the graph of a function, every vertical line intersects the graph, at most, once"
+  },
+  {
+   "term": "zeros of a function",
+   "meaning": "when a real number $x$ is a zero of a function $f,f(x)=0$"
+  }
+ ]
+}

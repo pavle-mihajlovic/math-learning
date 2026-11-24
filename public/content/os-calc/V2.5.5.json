@@ -1,0 +1,2413 @@
+{
+ "schema": 1,
+ "id": "V2.5.5",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 5,
+ "section": 5,
+ "title": "Alternating Series",
+ "chapterTitle": "Sequences and Series",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53743",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/5-5-alternating-series",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §5.5 “Alternating Series”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use the alternating series test to test an alternating series for convergence.",
+  "Estimate the sum of an alternating series.",
+  "Explain the meaning of absolute convergence and conditional convergence."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "So far in this chapter, we have primarily discussed series with positive terms. In this section we introduce alternating series—those series whose terms alternate in sign. We will show in a later chapter that these series often arise when studying power series. After defining alternating series, we introduce the alternating series test to determine whether such a series converges."
+    }
+   ],
+   "title": "Alternating Series"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A series whose terms alternate between positive and negative values is an **alternating series**. For example, the series"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\left(-\\frac{1}{2}\\right)^{n}=-\\frac{1}{2}+\\frac{1}{4}-\\frac{1}{8}+\\frac{1}{16}-\\cdots"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n}=1-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+\\cdots"
+    },
+    {
+     "type": "p",
+     "text": "are both alternating series."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Any series whose terms alternate between positive and negative values is called an alternating series. An alternating series can be written in the form"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}}=b_{1}-b_{2}+b_{3}-b_{4}+\\cdots"
+      },
+      {
+       "type": "p",
+       "text": "or"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n}b_{n}=-b_{1}+b_{2}-b_{3}+b_{4}-\\cdots}"
+      },
+      {
+       "type": "p",
+       "text": "Where $b_{n}>0$ for all positive integers *n*."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Series (1), shown in (see above), is a geometric series. Since $|r|=|-1/2|<1,$ the series converges. Series (2), shown in (see above), is called the alternating harmonic series. We will show that whereas the harmonic series diverges, the alternating harmonic series converges."
+    },
+    {
+     "type": "p",
+     "text": "To prove this, we look at the sequence of partial sums $\\{S_{k}\\}$ (Figure 5.16)."
+    }
+   ],
+   "title": "The Alternating Series Test"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider the odd terms $S_{2k+1}$ for $k\\ge 0.$ Since $1/(2k+1)<1/2k,$"
+    },
+    {
+     "type": "math",
+     "tex": "S_{2k+1}=S_{2k-1}-\\frac{1}{2k}+\\frac{1}{2k+1}<S_{2k-1}."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, $\\{S_{2k+1}\\}$ is a decreasing sequence. Also,"
+    },
+    {
+     "type": "math",
+     "tex": "S_{2k+1}=\\left(1-\\frac{1}{2}\\right)+\\left(\\frac{1}{3}-\\frac{1}{4}\\right)+\\cdots +\\left(\\frac{1}{2k-1}-\\frac{1}{2k}\\right)+\\frac{1}{2k+1}>0."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, $\\{S_{2k+1}\\}$ is bounded below. Since $\\{S_{2k+1}\\}$ is a decreasing sequence that is bounded below, by the Monotone Convergence Theorem, $\\{S_{2k+1}\\}$ converges. Similarly, the even terms $\\{S_{2k}\\}$ form an increasing sequence that is bounded above because"
+    },
+    {
+     "type": "math",
+     "tex": "S_{2k}=S_{2k-2}+\\frac{1}{2k-1}-\\frac{1}{2k}>S_{2k-2}"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "S_{2k}=1+\\left(-\\frac{1}{2}+\\frac{1}{3}\\right)+\\cdots +\\left(-\\frac{1}{2k-2}+\\frac{1}{2k-1}\\right)-\\frac{1}{2k}<1."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, by the Monotone Convergence Theorem, the sequence $\\{S_{2k}\\}$ also converges. Since"
+    },
+    {
+     "type": "math",
+     "tex": "S_{2k+1}=S_{2k}+\\frac{1}{2k+1},"
+    },
+    {
+     "type": "p",
+     "text": "we know that"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{k\\to \\infty}S_{2k+1}=\\lim_{k\\to \\infty}S_{2k}+\\lim_{k\\to \\infty}\\frac{1}{2k+1}."
+    },
+    {
+     "type": "p",
+     "text": "Letting $S=\\lim_{k\\to \\infty}S_{2k+1}$ and using the fact that $1/(2k+1)\\to 0,$ we conclude that $\\lim_{k\\to \\infty}S_{2k}=S.$ Since the odd terms and the even terms in the sequence of partial sums converge to the same limit $S,$ it can be shown that the sequence of partial sums converges to $S,$ and therefore the alternating harmonic series converges to $S.$"
+    }
+   ],
+   "title": "Proof"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "It can also be shown that $S=\\ln \\,2,$ and we can write"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n}=1-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+\\cdots =\\ln (2)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_05_001.webp",
+     "alt": "This graph demonstrates the alternating hamanic series in the first quadrant. The highest line 1 is drawn to S1, the next line -1/2 is drawn to S2, the next line +1/3 is drawn to S3, the line -1/4 is drawn to S4, and the last line +1/5 is drawn to S5. The odd terms are decreasing and bounded below, and the even terms are increasing and bounded above. It seems to be converging to S, which is in the middle of S2, S4 and S5, S3, S1.",
+     "caption": "**Figure 5.16** For the alternating harmonic series, the odd terms $S_{2k+1}$ in the sequence of partial sums are decreasing and bounded below. The even terms $S_{2k}$ are increasing and bounded above.",
+     "width": 325,
+     "height": 205
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "More generally, any alternating series of form (3) ((see above)) or (4) ((see above)) converges as long as $b_{1}\\ge b_{2}\\ge b_{3}\\ge \\cdots$ and $b_{n}\\to 0$ (Figure 5.17). The proof is similar to the proof for the alternating harmonic series."
+    }
+   ],
+   "title": "Proof (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_05_002.webp",
+     "alt": "This diagram illustrates an alternating series in quadrant 1. The highest line b1 is drawn out to S1, the next line –b2 is drawn back to S2, the next line b3 is drawn out to S3, the next line –b4 is drawn back to S4, and the last line is drawn out to S5. It seems to be converging to S, which is in between S2, S4 and S5, S3, and S1. The odd terms are decreasing and bounded below. The even terms are increasing and bounded above.",
+     "caption": "**Figure 5.17** For an alternating series $b_{1}-b_{2}+b_{3}-\\cdots$ in which $b_{1}>b_{2}>b_{3}>\\cdots ,$ the odd terms $S_{2k+1}$ in the sequence of partial sums are decreasing and bounded below. The even terms $S_{2k}$ are increasing and bounded above.",
+     "width": 325,
+     "height": 206
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "An alternating series of the form"
+      },
+      {
+       "type": "math",
+       "tex": "\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}\\,\\text{or}\\,\\sum_{n=1}^{\\infty}(-1)^{n}b_{n}"
+      },
+      {
+       "type": "p",
+       "text": "converges if"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$0<b_{n+1}\\le b_{n}$ for all $n\\ge 1$ and",
+        "$\\lim_{n\\to \\infty}b_{n}=0.$"
+       ],
+       "ordered": true,
+       "style": "i"
+      },
+      {
+       "type": "p",
+       "text": "This is known as the **alternating series test**."
+      }
+     ],
+     "title": "Alternating Series Test"
+    },
+    {
+     "type": "p",
+     "text": "We remark that this theorem is true more generally as long as there exists some integer $N$ such that $0<b_{n+1}\\le b_{n}$ for all $n\\ge N.$"
+    }
+   ],
+   "title": "Proof (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 5.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following alternating series, determine whether the series converges or diverges."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}(-1)^{n+1}/n^{2}$",
+      "$\\sum_{n=1}^{\\infty}(-1)^{n+1}n/(n+1)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "Since\n\n$\\frac{1}{(n+1)^{2}}<\\frac{1}{n^{2}}\\quad \\text{and}\\quad \\frac{1}{n^{2}}\\to 0,$\n\nthe series converges.",
+       "Since $n/(n+1)↛0$ as $n\\to \\infty ,$ we cannot apply the alternating series test. Instead, we use the *n*th term test for divergence. Since\n\n$\\lim_{n\\to \\infty}\\frac{(-1)^{n+1}n}{n+1}\\ne 0,$\n\nthe series diverges."
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Convergence of Alternating Series"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether the series $\\sum_{n=1}^{\\infty}(-1)^{n+1}n/2^{n}$ converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The series converges."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Is $\\{n/2^{n}\\}$ decreasing? What is $\\lim_{n\\to \\infty}n/2^{n}\\text{?}$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "It is difficult to explicitly calculate the sum of most alternating series, so typically the sum is approximated by using a partial sum. When doing so, we are interested in the amount of error in our approximation. Consider an alternating series"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}"
+    },
+    {
+     "type": "p",
+     "text": "satisfying the hypotheses of the alternating series test. Let $S$ denote the sum of this series and $\\{S_{k}\\}$ be the corresponding sequence of partial sums. From Figure 5.17, we see that for any integer $N\\ge 1,$ the remainder $R_{N}$ satisfies"
+    },
+    {
+     "type": "math",
+     "tex": "|R_{N}|=|S-S_{N}|\\le |S_{N+1}-S_{N}|=b_{n+1}."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider an alternating series of the form"
+      },
+      {
+       "type": "math",
+       "tex": "\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}\\text{or}\\sum_{n=1}^{\\infty}(-1)^{n}b_{n}"
+      },
+      {
+       "type": "p",
+       "text": "that satisfies the hypotheses of the alternating series test. Let $S$ denote the sum of the series and $S_{N}$ denote the $N\\text{th}$ partial sum. For any integer $N\\ge 1,$ the remainder $R_{N}=S-S_{N}$ satisfies"
+      },
+      {
+       "type": "math",
+       "tex": "|R_{N}|\\le b_{N+1}."
+      }
+     ],
+     "title": "Remainders in Alternating Series"
+    },
+    {
+     "type": "p",
+     "text": "In other words, if the conditions of the alternating series test apply, then the error in approximating the infinite series by the $N\\text{th}$ partial sum $S_{N}$ is in magnitude at most the size of the next term $b_{N+1}.$"
+    }
+   ],
+   "title": "Remainder of an Alternating Series"
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 5.20",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the alternating series"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n^{2}}}."
+    },
+    {
+     "type": "p",
+     "text": "Use the remainder estimate to determine a bound on the error $R_{10}$ if we approximate the sum of the series by the partial sum $S_{10}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "From the theorem stated above,"
+     },
+     {
+      "type": "p",
+      "text": "$|R_{10}|\\le b_{11}=\\frac{1}{11^{2}}\\approx 0.008265.$"
+     }
+    ]
+   },
+   "title": "Estimating the Remainder of an Alternating Series"
+  },
+  {
+   "id": "c10",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a bound for $R_{20}$ when approximating $\\sum_{n=1}^{\\infty}(-1)^{n+1}/n$ by $S_{20}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0.04762$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "$|R_{20}|\\le b_{21}$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0.04762"
+   }
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider a series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ and the related series ${\\displaystyle \\sum_{n=1}^{\\infty}|}a_{n}|.$ Here we discuss possibilities for the relationship between the convergence of these two series. For example, consider the alternating harmonic series ${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n+1}}/n.$ The series whose terms are the absolute value of these terms is the harmonic series, since ${\\displaystyle \\sum_{n=1}^{\\infty}|}(-1)^{n+1}/n|={\\displaystyle \\sum_{n=1}^{\\infty}1}/n.$ Since the alternating harmonic series converges, but the harmonic series diverges, we say the alternating harmonic series exhibits conditional convergence."
+    },
+    {
+     "type": "p",
+     "text": "By comparison, consider the series ${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n+1}}/n^{2}.$ The series whose terms are the absolute values of the terms of this series is the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{2}.$ Since both of these series converge, we say the series ${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n+1}}/n^{2}$ exhibits absolute convergence."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A series $\\sum_{n=1}^{\\infty}a_{n}$ exhibits **absolute convergence** if $\\sum_{n=1}^{\\infty}|a_{n}|$ converges. A series $\\sum_{n=1}^{\\infty}a_{n}$ exhibits **conditional convergence** if $\\sum_{n=1}^{\\infty}a_{n}$ converges but $\\sum_{n=1}^{\\infty}|a_{n}|$ diverges."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "As shown by the alternating harmonic series, a series $\\sum_{n=1}^{\\infty}a_{n}$ may converge, but $\\sum_{n=1}^{\\infty}|a_{n}|$ may diverge. In the following theorem, however, we show that if $\\sum_{n=1}^{\\infty}|a_{n}|$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges."
+    }
+   ],
+   "title": "Absolute and Conditional Convergence"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $\\sum_{n=1}^{\\infty}|a_{n}|$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges."
+      }
+     ],
+     "title": "Absolute Convergence Implies Convergence"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Absolute Convergence Implies Convergence is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Absolute and Conditional Convergence (continued)"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "For an alternating series $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n},$ if $b_{k+1}\\le b_{k}$ for all $k$ and $b_{k}\\to 0$ as $k\\to \\infty ,$ the alternating series converges.",
+      "If $\\sum_{n=1}^{\\infty}|a_{n}|$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Alternating series**",
+       "${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}}=b_{1}-b_{2}+b_{3}-b_{4}+\\cdots \\,\\text{or}$\n\n${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n}b_{n}}=-b_{1}+b_{2}-b_{3}+b_{4}-\\cdots$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e250",
+   "number": 250,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{n}{n+3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737927682",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e251",
+   "number": 251,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{\\sqrt{n}+1}{\\sqrt{n}+3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738082378",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Does not converge by divergence test. Terms do not tend to zero."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e252",
+   "number": 252,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{1}{\\sqrt{n+3}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738082443",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e253",
+   "number": 253,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{\\sqrt{n+3}}{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737162038",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges conditionally by alternating series test, since $\\sqrt{n+3}/n$ is decreasing. Does not converge absolutely by comparison with *p*-series, $p=1/2.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e254",
+   "number": 254,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{1}{n!}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737930804",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e255",
+   "number": 255,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{3^{n}}{n!}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737930882",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges absolutely by limit comparison to $3^{n}/4^{n},$ for example."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e256",
+   "number": 256,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\left(\\frac{n-1}{n}\\right)^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738233606",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e257",
+   "number": 257,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\left(\\frac{n+1}{n}\\right)^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738244409",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Diverges by divergence test since $\\lim_{n\\to \\infty}|a_{n}|=e.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e258",
+   "number": 258,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\sin^{2}n$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737285022",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e259",
+   "number": 259,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\cos^{2}n$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737285077",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Does not converge. Terms do not tend to zero."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e260",
+   "number": 260,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\sin^{2}(1/n)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738171187",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e261",
+   "number": 261,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\cos^{2}(1/n)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737933512",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}\\cos^{2}(1/n)=1.$ Diverges by divergence test."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e262",
+   "number": 262,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\ln (1/n)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738234399",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e263",
+   "number": 263,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\ln \\left(1+\\frac{1}{n}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738234461",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by alternating series test."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e264",
+   "number": 264,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{n^{2}}{1+n^{4}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737214894",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e265",
+   "number": 265,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{n^{e}}{1+n^{\\pi}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737214974",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges conditionally by alternating series test. Does not converge absolutely by limit comparison with *p*-series, $p=\\pi -e$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e266",
+   "number": 266,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}2^{1/n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737160690",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e267",
+   "number": 267,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}n^{1/n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737160747",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Diverges; terms do not tend to zero."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e268",
+   "number": 268,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n}(1-n^{1/n})$ (*Hint:* $n^{1/n}\\approx 1+\\ln (n)/n$ for large $n.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738080352",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}n\\left(1-\\cos \\left(\\frac{1}{n}\\right)\\right)$ (*Hint:* $\\cos (1/n)\\approx 1-1/n^{2}$ for large $n.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738226127",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by alternating series test. Does not converge absolutely by limit comparison with harmonic series."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}(\\sqrt{n+1}-\\sqrt{n})$ (*Hint:* Rationalize the numerator.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737894446",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\left(\\frac{1}{\\sqrt{n}}-\\frac{1}{\\sqrt{n+1}}\\right)$ (*Hint:* Find common denominator then rationalize numerator.)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737227792",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges absolutely by limit comparison with *p*-series, $p=3/2,$ after applying the hint."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges absolutely|absolutely convergent|absolutely|converges absolutely"
+   }
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}(\\ln (n+1)-\\ln \\,n)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737227893",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}n(\\tan^{-1}(n+1)-\\tan^{-1}n)$ (*Hint:* Use Mean Value Theorem.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737298487",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by alternating series test since $n(\\tan^{-1}(n+1)-\\tan^{-1}n)$ is decreasing to zero for large $n.$ Does not converge absolutely by limit comparison with harmonic series after applying hint."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}((n+1)^{2}-n^{2})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737168083",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}(-1)^{n+1}\\left(\\frac{1}{n}-\\frac{1}{n+1}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737234379",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges absolutely, since $a_{n}=\\frac{1}{n}-\\frac{1}{n+1}$ are terms of a telescoping series."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{\\cos (n\\pi )}{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737234479",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{\\cos (n\\pi )}{n^{1/n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738153132",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Terms do not tend to zero. Series diverges by divergence test."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\frac{1}{n}\\,\\sin \\,\\left(\\frac{n\\pi}{2}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738153187",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sum_{n=1}^{\\infty}\\sin (n\\pi /2)\\sin (1/n)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737201422",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether each of the following series converges absolutely, conditionally, or not at all."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by alternating series test. Does not converge absolutely by limit comparison with harmonic series."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $b_{n}=1/n,$ error $<10^{-5}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737174610",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems, use the estimate $|R_{N}|\\le b_{N+1}$ to find a value of $N$ that guarantees that the sum of the first $N$ terms of the alternating series $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}$ differs from the infinite sum by at most the given error. Calculate the partial sum $S_{N}$ for this $N.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $b_{n}=1/\\ln (n),$ $n\\ge 2,$ error $<10^{-1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737160514",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems, use the estimate $|R_{N}|\\le b_{N+1}$ to find a value of $N$ that guarantees that the sum of the first $N$ terms of the alternating series $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}$ differs from the infinite sum by at most the given error. Calculate the partial sum $S_{N}$ for this $N.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (N+1)>10,$ $N+1>e^{10},$ $N\\ge 22026;$ $S_{22026}=-0.9743\\dots$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $b_{n}=1/\\sqrt{n},$ error $<10^{-3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737192226",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems, use the estimate $|R_{N}|\\le b_{N+1}$ to find a value of $N$ that guarantees that the sum of the first $N$ terms of the alternating series $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}$ differs from the infinite sum by at most the given error. Calculate the partial sum $S_{N}$ for this $N.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $b_{n}=1/2^{n},$ error $<10^{-6}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737248635",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems, use the estimate $|R_{N}|\\le b_{N+1}$ to find a value of $N$ that guarantees that the sum of the first $N$ terms of the alternating series $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}$ differs from the infinite sum by at most the given error. Calculate the partial sum $S_{N}$ for this $N.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2^{N+1}>10^{6}$ or $N+1>6\\,\\ln (10)/\\ln (2)=19.93.$ or $N\\ge 19;$ $S_{19}=0.333333969\\dots$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $b_{n}=\\ln \\left(1+\\frac{1}{n}\\right),$ error $<10^{-3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738153438",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems, use the estimate $|R_{N}|\\le b_{N+1}$ to find a value of $N$ that guarantees that the sum of the first $N$ terms of the alternating series $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}$ differs from the infinite sum by at most the given error. Calculate the partial sum $S_{N}$ for this $N.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $b_{n}=1/n^{2},$ error $<10^{-6}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737286637",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In each of the following problems, use the estimate $|R_{N}|\\le b_{N+1}$ to find a value of $N$ that guarantees that the sum of the first $N$ terms of the alternating series $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}$ differs from the infinite sum by at most the given error. Calculate the partial sum $S_{N}$ for this $N.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(N+1)^{2}>10^{6}$ or $N>999;$ $S_{1000}\\approx 0.822466.$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"(N+1)^2>10^6, N>999; S_1000=0.822466.\""
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $b_{n}\\ge 0$ is decreasing and $\\lim_{n\\to \\infty}b_{n}=0,$ then ${\\displaystyle \\sum_{n=1}^{\\infty}(b_{2n-1}-b_{2n})}$ converges absolutely."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738056344",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, indicate whether each of the following statements is true or false. If the statement is false, provide an example in which it is false."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $b_{n}\\ge 0$ is decreasing, then ${\\displaystyle \\sum_{n=1}^{\\infty}(b_{2n-1}-b_{2n})}$ converges absolutely."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737895447",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, indicate whether each of the following statements is true or false. If the statement is false, provide an example in which it is false."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True. $b_{n}$ need not tend to zero since if $c_{n}=b_{n}-\\lim \\,b_{n},$ then $c_{2n-1}-c_{2n}=b_{2n-1}-b_{2n}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $b_{n}\\ge 0$ and $\\lim_{n\\to \\infty}b_{n}=0$ then ${\\displaystyle \\sum_{n=1}^{\\infty}(\\frac{1}{2}(}b_{3n-2}+b_{3n-1})-b_{3n})$ converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738193743",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, indicate whether each of the following statements is true or false. If the statement is false, provide an example in which it is false."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $b_{n}\\ge 0$ is decreasing and ${\\displaystyle \\sum_{n=1}^{\\infty}(b_{3n-2}+b_{3n-1}-b_{3n})}$ converges then ${\\displaystyle \\sum_{n=1}^{\\infty}b_{3n-2}}$ converges."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737169445",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, indicate whether each of the following statements is true or false. If the statement is false, provide an example in which it is false."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True. $b_{3n-1}-b_{3n}\\ge 0,$ so convergence of ${\\displaystyle \\sum b_{3n-2}}$ follows from the comparison test."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $b_{n}\\ge 0$ is decreasing and ${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n-1}b_{n}}$ converges conditionally but not absolutely, then $b_{n}$ does not tend to zero."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738115247",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, indicate whether each of the following statements is true or false. If the statement is false, provide an example in which it is false."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e291",
+   "number": 291,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $a_{n}^{+}=a_{n}$ if $a_{n}\\ge 0$ and $a_{n}^{-}=-a_{n}$ if $a_{n}<0.$ (Also, $a_{n}^{+}=0\\,\\text{if}\\,a_{n}<0$ and $a_{n}^{-}=0\\,\\text{if}\\,a_{n}\\ge 0.)$ If ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges conditionally but not absolutely, then neither ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}^{+}}$ nor ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}^{-}}$ converge."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737300742",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, indicate whether each of the following statements is true or false. If the statement is false, provide an example in which it is false."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True. If one converges, then so must the other, implying absolute convergence."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "true"
+   }
+  },
+  {
+   "id": "e292",
+   "number": 292,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $a_{n}$ is a sequence of positive real numbers and that ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges."
+    },
+    {
+     "type": "p",
+     "text": "Suppose that $b_{n}$ is an arbitrary sequence of ones and minus ones. Does ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}b_{n}$ necessarily converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738164811",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, indicate whether each of the following statements is true or false. If the statement is false, provide an example in which it is false."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e293",
+   "number": 293,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $a_{n}$ is a sequence such that ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}b_{n}$ converges for every possible sequence $b_{n}$ of zeros and ones. Does ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converge absolutely?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738164901",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, indicate whether each of the following statements is true or false. If the statement is false, provide an example in which it is false."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Yes. Take $b_{n}=1$ if $a_{n}\\ge 0$ and $b_{n}=0$ if $a_{n}<0.$ Then ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}b_{n}={\\displaystyle \\sum_{n:a_{n}\\ge 0}a_{n}}$ converges. Similarly, one can show ${\\displaystyle \\sum_{n:a_{n}<0}a_{n}}$ converges. Since both series converge, the series must converge absolutely."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges absolutely|absolutely convergent|absolutely|converges absolutely"
+   }
+  },
+  {
+   "id": "e294",
+   "number": 294,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{\\sin^{2}n}{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737255493",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{\\cos^{2}n}{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737255554",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Not decreasing. Does not converge absolutely."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$1+\\frac{1}{2}-\\frac{1}{3}-\\frac{1}{4}+\\frac{1}{5}+\\frac{1}{6}-\\frac{1}{7}-\\frac{1}{8}+\\cdots$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737987462",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$1+\\frac{1}{2}-\\frac{1}{3}+\\frac{1}{4}+\\frac{1}{5}-\\frac{1}{6}+\\frac{1}{7}+\\frac{1}{8}-\\frac{1}{9}+\\cdots$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737155716",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Not alternating. Can be expressed as ${\\displaystyle \\sum_{n=1}^{\\infty}\\left(\\frac{1}{3n-2}+\\frac{1}{3n-1}-\\frac{1}{3n}\\right)},$ which diverges by comparison with ${\\displaystyle \\sum \\frac{1}{3n-2}}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the alternating series $1-\\frac{1}{2}+\\frac{1}{2}-\\frac{1}{4}+\\frac{1}{3}-\\frac{1}{6}+\\frac{1}{4}-\\frac{1}{8}+\\cdots$ does"
+    },
+    {
+     "type": "p",
+     "text": "not converge. What hypothesis of the alternating series test is not met?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737202968",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e299",
+   "number": 299,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that ${\\displaystyle \\sum a_{n}}$ converges absolutely. Show that the series consisting of the positive terms $a_{n}$ also converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737207550",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $a^{+}{}_{n}=a_{n}$ if $a_{n}\\ge 0$ and $a^{+}{}_{n}=0$ if $a_{n}<0.$ Then $a^{+}{}_{n}\\le |a_{n}|$ for all $n$ so the sequence of partial sums of $a^{+}{}_{n}$ is increasing and bounded above by the sequence of partial sums of $|a_{n}|,$ which converges; hence, ${\\displaystyle \\sum_{n=1}^{\\infty}a^{+}{}_{n}}$ converges."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e300",
+   "number": 300,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the alternating series $\\frac{2}{3}-\\frac{3}{5}+\\frac{4}{7}-\\frac{5}{9}+\\cdots$ does not converge. What hypothesis of the alternating series test is not met?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737228006",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e301",
+   "number": 301,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The formula $\\cos \\,\\theta =1-\\frac{\\theta^{2}}{2!}+\\frac{\\theta^{4}}{4!}-\\frac{\\theta^{6}}{6!}+\\cdots$ will be derived in the next chapter. Use the remainder $|R_{N}|\\le b_{N+1}$ to find a bound for the error in estimating $\\cos \\,\\theta$ by the fifth partial sum $1-\\theta^{2}/2!+\\theta^{4}/4!-\\theta^{6}/6!+\\theta^{8}/8!$ for $\\theta =1,$ $\\theta =\\pi /6,$ and $\\theta =\\pi .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737228064",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "For $N=5$ one has $|R_{N}|b_{6}=\\theta^{10}/10!.$ When $\\theta =1,$ $R_{5}\\le 1/10!\\approx 2.75\\,\\times \\,10^{-7}.$ When $\\theta =\\pi /6,$ $R_{5}\\le (\\pi /6)^{10}/10!\\approx 4.26\\,\\times \\,10^{-10}.$ When $\\theta =\\pi ,$ $R_{5}\\le \\pi^{10}/10!=0.0258.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e302",
+   "number": 302,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The formula $\\sin \\,\\theta =\\theta -\\frac{\\theta^{3}}{3!}+\\frac{\\theta^{5}}{5!}-\\frac{\\theta^{7}}{7!}+\\cdots$ will be derived in the next chapter. Use the remainder $|R_{N}|\\le b_{N+1}$ to find a bound for the error in estimating $\\sin \\,\\theta$ by the fifth partial sum $\\theta -\\theta^{3}/3!+\\theta^{5}/5!-\\theta^{7}/7!+\\theta^{9}/9!$ for $\\theta =1,$ $\\theta =\\pi /6,$ and $\\theta =\\pi .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738167847",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e303",
+   "number": 303,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "How many terms in $\\cos \\,\\theta =1-\\frac{\\theta^{2}}{2!}+\\frac{\\theta^{4}}{4!}-\\frac{\\theta^{6}}{6!}+\\cdots$ are needed to approximate $\\cos \\,1$ accurate to an error of at most $0.00001\\text{?}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737167800",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $b_{n}=1/(2n-2)!.$ Then $R_{N}\\le 1/(2N)!<0.00001$ when $(2N)!>10^{5}$ or $N=5$ and $1-\\frac{1}{2!}+\\frac{1}{4!}-\\frac{1}{6!}+\\frac{1}{8!}=0.540325\\dots ,$ whereas $\\cos \\,1=0.5403023\\dots$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e304",
+   "number": 304,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "How many terms in $\\sin \\,\\theta =\\theta -\\frac{\\theta^{3}}{3!}+\\frac{\\theta^{5}}{5!}-\\frac{\\theta^{7}}{7!}+\\cdots$ are needed to approximate $\\sin \\,1$ accurate to an error of at most $0.00001\\text{?}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737231421",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e305",
+   "number": 305,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Sometimes the alternating series ${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n-1}}b_{n}$ converges to a certain fraction of an absolutely convergent series ${\\displaystyle \\sum_{n=1}^{\\infty}b_{n}}$ at a faster rate. Given that ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{2}}}=\\frac{\\pi^{2}}{6},$ find $12=1-\\frac{1}{2^{2}}+\\frac{1}{3^{2}}-\\frac{1}{4^{2}}+\\cdots .$ Which of the series $6{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{2}}}$ and $S{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{n^{2}}}$ gives a better estimation of $\\pi^{2}$ using $1000$ terms?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737195168",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series do not satisfy the hypotheses of the alternating series test as stated."
+    },
+    {
+     "type": "p",
+     "text": "In each case, state which hypothesis is not satisfied. State whether the series converges absolutely."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $T={\\displaystyle \\sum \\frac{1}{n^{2}}}.$ Then $T-S=\\frac{1}{2}T,$ so $S=T/2.$ $\\sqrt{6\\,\\times \\,{\\displaystyle \\sum_{n=1}^{1000}1/n^{2}}}=3.140638\\dots ;$ $\\sqrt{12\\,\\times \\,{\\displaystyle \\sum_{n=1}^{1000}(-1)^{n-1}/n^{2}}}=3.141591\\dots ;$"
+     },
+     {
+      "type": "p",
+      "text": "$\\pi =3.141592\\dots .$ The alternating series is more accurate for $1000$ terms."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e306",
+   "number": 306,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\frac{\\pi}{4}={\\displaystyle \\sum_{n=0}^{\\infty}\\frac{(-1)^{n}}{2n+1}},$ error $<0.0001$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737934338",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e307",
+   "number": 307,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\frac{\\pi}{\\sqrt{12}}={\\displaystyle \\sum_{k=0}^{\\infty}\\frac{(-3)^{-k}}{2k+1}},$ error $<0.0001$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737236587",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$N=6,$ $S_{N}=0.9068$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"N=6, S_N=0.9068\""
+  },
+  {
+   "id": "e308",
+   "number": 308,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The series ${\\displaystyle \\sum_{n=0}^{\\infty}\\frac{\\sin (x+\\pi n)}{x+\\pi n}}$ plays an important role in signal processing. Show that ${\\displaystyle \\sum_{n=0}^{\\infty}\\frac{\\sin (x+\\pi n)}{x+\\pi n}}$ converges whenever $0<x<\\pi .$ (*Hint:* Use the formula for the sine of a sum of angles.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738216132",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e309",
+   "number": 309,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** If ${\\displaystyle \\sum_{n=1}^{N}(-1)^{n-1}\\frac{1}{n}}\\to \\ln \\,2,$ what is $1+\\frac{1}{3}+\\frac{1}{5}-\\frac{1}{2}-\\frac{1}{4}-\\frac{1}{6}+\\frac{1}{7}+\\frac{1}{9}+\\frac{1}{11}-\\frac{1}{8}-\\frac{1}{10}-\\frac{1}{12}+\\cdots \\text{?}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737785730",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (2).$ The $3n\\text{th}$ partial sum is the same as that for the alternating harmonic series."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e310",
+   "number": 310,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Plot the series ${\\displaystyle \\sum_{n=1}^{100}\\frac{\\cos (2\\pi nx)}{n}}$ for $0\\le x<1.$ Explain why ${\\displaystyle \\sum_{n=1}^{100}\\frac{\\cos (2\\pi nx)}{n}}$ diverges when $x=0,1.$ How does the series behave for other $x\\text{?}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738079245",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e311",
+   "number": 311,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Plot the series ${\\displaystyle \\sum_{n=1}^{100}\\frac{\\sin (2\\pi nx)}{n}}$ for $0\\le x<1$ and comment on its behavior"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738236406",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The series jumps rapidly near the endpoints. For $x$ away from the endpoints, the graph looks like $\\pi (1/2-x).$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_09_05_202.webp",
+      "alt": "This shows a function in quadrants 1 and 4 that begins at (0, 0), sharply increases to just below 1.5 close to the y axis, decreases linearly, crosses the x axis at 0.5, continues to decrease linearly, and sharply increases just before 1 to 0.",
+      "width": 440,
+      "height": 272
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e312",
+   "number": 312,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Plot the series ${\\displaystyle \\sum_{n=1}^{100}\\frac{\\cos (2\\pi nx)}{n^{2}}}$ for $0\\le x<1$ and describe its graph."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738153327",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e313",
+   "number": 313,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The alternating harmonic series converges because of cancellation among its terms. Its sum is known because the cancellation can be described explicitly. A random harmonic series is one of the form ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{S_{n}}{n}},$ where $s_{n}$ is a randomly generated sequence of $\\pm 1\\text{'s}$ in which the values $\\pm 1$ are equally likely to occur. Use a random number generator to produce $1000$ random $\\pm 1\\text{s}$ and plot the partial sums $S_{N}={\\displaystyle \\sum_{n=1}^{N}\\frac{s_{n}}{n}}$ of your random harmonic sequence for $N=1$ to $1000.$ Compare to a plot of the first $1000$ partial sums of the harmonic series."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737923754",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Here is a typical result. The top curve consists of partial sums of the harmonic series. The bottom curve plots partial sums of a random harmonic series."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_09_05_204.webp",
+      "alt": "This shows two curves. The top is an increasing concave down curve. The bottom is a jagged, random harmonic series plot that stays close to 0.",
+      "width": 437,
+      "height": 385
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e314",
+   "number": 314,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Estimates of ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{2}}}$ can be *accelerated* by writing its partial sums as ${\\displaystyle \\sum_{n=1}^{N}\\frac{1}{n^{2}}}={\\displaystyle \\sum_{n=1}^{N}\\frac{1}{n(n+1)}}+{\\displaystyle \\sum_{n=1}^{N}\\frac{1}{n^{2}(n+1)}}$ and recalling that ${\\displaystyle \\sum_{n=1}^{N}\\frac{1}{n(n+1)}}=1-\\frac{1}{N+1}$ converges to one as $N\\to \\infty .$ Compare the estimate of $\\pi^{2}/6$ using the sums ${\\displaystyle \\sum_{n=1}^{1000}\\frac{1}{n^{2}}}$ with the estimate using $1+{\\displaystyle \\sum_{n=1}^{1000}\\frac{1}{n^{2}(n+1)}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737229483",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e315",
+   "number": 315,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The **Euler transform** rewrites $S={\\displaystyle \\sum_{n=0}^{\\infty}(-1)^{n}}b_{n}$ as $S={\\displaystyle \\sum_{n=0}^{\\infty}(-1)^{n}}2^{-n-1}{\\displaystyle \\sum_{m=0}^{n}\\left(\\begin{array}{c}n \\\\ m\\end{array}\\right)}b_{n-m}.$ For the alternating harmonic series, it takes the form $\\ln (2)={\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{n}}={\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n2^{n}}}.$ Compute partial sums of ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n2^{n}}}$ until they approximate $\\ln (2)$ accurate to within $0.0001.$ How many terms are needed? Compare this answer to the number of terms of the alternating harmonic series are needed to estimate $\\ln (2).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737152003",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "By the alternating series test, $|S_{n}-S|\\le b_{n+1},$ so one needs $10^{4}$ terms of the alternating harmonic series to estimate $\\ln (2)$ to within $0.0001.$ The first $10$ partial sums of the series ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n2^{n}}}$ are (up to four decimals) $0.5000,0.6250,0.6667,0.6823,0.6885,0.6911,0.6923,0.6928,0.6930,0.6931$ and the tenth partial sum is within $0.0001$ of $\\ln (2)=0.6931\\dots .$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e316",
+   "number": 316,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** In the text it was stated that a conditionally convergent series can be rearranged to converge to any number. Here is a slightly simpler, but similar, fact. If $a_{n}\\ge 0$ is such that $a_{n}\\to 0$ as $n\\to \\infty$ but ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ diverges, then, given any number $A$ there is a sequence $s_{n}$ of $\\pm 1\\text{'s}$ such that ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}s_{n}\\to A.$ Show this for $A>0$ as follows."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Recursively define $s_{n}$ by $s_{n}=1$ if $S_{n-1}={\\displaystyle \\sum_{k=1}^{n-1}a_{k}}s_{k}<A$ and $s_{n}=-1$ otherwise.",
+      "Explain why eventually $S_{n}\\ge A,$ and for any $m$ larger than this $n,$ $A-a_{m}\\le S_{m}\\le A+a_{m}.$",
+      "Explain why this implies that $S_{n}\\to A$ as $n\\to \\infty .$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738071328",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following alternating series converge to given multiples of $\\pi .$ Find the value of $N$ predicted by the remainder estimate such that the $N\\text{th}$ partial sum of the series accurately approximates the left-hand side to within the given error. Find the minimum $N$ for which the error bound holds, and give the desired approximate value in each case. Up to $15$ decimals places, $\\pi =3.141592653589793\\dots .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Absolute Convergence Implies Convergence",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If $\\sum_{n=1}^{\\infty}|a_{n}|$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Suppose that ${\\displaystyle \\sum_{n=1}^{\\infty}|}a_{n}|$ converges. We show this by using the fact that $a_{n}=|a_{n}|$ or $a_{n}=-|a_{n}|$ and therefore $|a_{n}|+a_{n}=2|a_{n}|$ or $|a_{n}|+a_{n}=0.$ Therefore, $0\\le |a_{n}|+a_{n}\\le 2|a_{n}|.$ Consequently, by the comparison test, since $2\\sum_{n=1}^{\\infty}|a_{n}|$ converges, the series"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}(|a_{n}|+a_{n})"
+    },
+    {
+     "type": "p",
+     "text": "converges. By using the algebraic properties for convergent series, we conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "\\sum_{n=1}^{\\infty}a_{n}=\\sum_{n=1}^{\\infty}(|a_{n}|+a_{n})-\\sum_{n=1}^{\\infty}|a_{n}|"
+    },
+    {
+     "type": "p",
+     "text": "converges."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "For each of the following series, determine whether the series converges absolutely, converges conditionally, or diverges."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}(-1)^{n+1}/(3n+1)$",
+      "$\\sum_{n=1}^{\\infty}\\cos (n)/n^{2}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "We can see that"
+       },
+       {
+        "type": "math",
+        "tex": "\\sum_{n=1}^{\\infty}\\left|\\frac{(-1)^{n+1}}{3n+1}\\right|=\\sum_{n=1}^{\\infty}\\frac{1}{3n+1}"
+       },
+       {
+        "type": "p",
+        "text": "diverges by using the limit comparison test with the harmonic series."
+       },
+       {
+        "type": "math",
+        "tex": "\\lim_{n\\to \\infty}\\frac{1/(3n+1)}{1/n}=\\frac{1}{3}"
+       },
+       {
+        "type": "p",
+        "text": "Thus, applying Theorem 5.13, the series cannot converge absolutely. Moreover, because of the alternating series test, we can see that the series converges."
+       },
+       {
+        "type": "math",
+        "tex": "\\frac{1}{3(n+1)+1}<\\frac{1}{3n+1}\\,\\text{and}\\,\\frac{1}{3n+1}\\to 0,"
+       },
+       {
+        "type": "p",
+        "text": "We can conclude that $\\sum_{n=1}^{\\infty}(-1)^{n+1}/(3n+1)$ converges conditionally."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Noting that $|\\cos \\,n|\\le 1,$ to determine whether the series converges absolutely, compare"
+       },
+       {
+        "type": "math",
+        "tex": "\\sum_{n=1}^{\\infty}\\left|\\frac{\\cos \\,n}{n^{2}}\\right|"
+       },
+       {
+        "type": "p",
+        "text": "with the series $\\sum_{n=1}^{\\infty}1/n^{2}.$ Since $\\sum_{n=1}^{\\infty}1/n^{2}$ converges, by the comparison test, $\\sum_{n=1}^{\\infty}|\\cos \\,n/n^{2}|$ converges, and therefore $\\sum_{n=1}^{\\infty}\\cos \\,n/n^{2}$ converges absolutely."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "To see the difference between absolute and conditional convergence, look at what happens when we *rearrange* the terms of the alternating harmonic series $\\sum_{n=1}^{\\infty}(-1)^{n+1}/n.$ We show that we can rearrange the terms so that the new series diverges. Certainly if we rearrange the terms of a finite sum, the sum does not change. When we work with an infinite sum, however, interesting things can happen."
+    },
+    {
+     "type": "p",
+     "text": "Begin by adding enough of the positive terms to produce a sum that is larger than some real number $M>0.$ For example, let $M=10,$ and find an integer $k$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "1+\\frac{1}{3}+\\frac{1}{5}+\\cdots +\\frac{1}{2k-1}>10."
+    },
+    {
+     "type": "p",
+     "text": "(We can do this because the series $\\sum_{n=1}^{\\infty}1/(2n-1)$ diverges to infinity.) Then subtract $1/2.$ Then add more positive terms until the sum reaches 100. That is, find another integer $j>k$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "1+\\frac{1}{3}+\\cdots +\\frac{1}{2k-1}-\\frac{1}{2}+\\frac{1}{2k+1}+\\cdots +\\frac{1}{2j+1}>100."
+    },
+    {
+     "type": "p",
+     "text": "Then subtract $1/4.$ Continuing in this way, we have found a way of rearranging the terms in the alternating harmonic series so that the sequence of partial sums for the rearranged series is unbounded and therefore diverges."
+    },
+    {
+     "type": "p",
+     "text": "The terms in the alternating harmonic series can also be rearranged so that the new series converges to a different value. In Example 5.22, we show how to rearrange the terms to create a new series that converges to $3\\,\\ln (2)/2.$ We point out that the alternating harmonic series can be rearranged to create a series that converges to any real number $r;$ however, the proof of that fact is beyond the scope of this text."
+    },
+    {
+     "type": "p",
+     "text": "In general, any series $\\sum_{n=1}^{\\infty}a_{n}$ that converges conditionally can be rearranged so that the new series diverges or converges to a different real number. A series that converges absolutely does not have this property. For any series $\\sum_{n=1}^{\\infty}a_{n}$ that converges absolutely, the value of $\\sum_{n=1}^{\\infty}a_{n}$ is the same for any rearrangement of the terms. This result is known as the Riemann Rearrangement Theorem, which is beyond the scope of this book."
+    },
+    {
+     "type": "p",
+     "text": "Use the fact that"
+    },
+    {
+     "type": "math",
+     "tex": "1-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+\\frac{1}{5}-\\cdots =\\ln \\,2"
+    },
+    {
+     "type": "p",
+     "text": "to rearrange the terms in the alternating harmonic series so the sum of the rearranged series is $3\\,\\ln (2)/2.$"
+    },
+    {
+     "type": "p",
+     "text": "Let"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}=1-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+\\frac{1}{5}-\\frac{1}{6}+\\frac{1}{7}-\\frac{1}{8}+\\cdots ."
+    },
+    {
+     "type": "p",
+     "text": "Since ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}=\\ln (2),$ by the algebraic properties of convergent series,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{2}}a_{n}=\\frac{1}{2}-\\frac{1}{4}+\\frac{1}{6}-\\frac{1}{8}+\\cdots =\\frac{1}{2}{\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}=\\frac{\\ln \\,2}{2}."
+    },
+    {
+     "type": "p",
+     "text": "Now introduce the series ${\\displaystyle \\sum_{n=1}^{\\infty}b_{n}}$ such that for all $n\\ge 1,$ $b_{2n-1}=0$ and $b_{2n}=a_{n}/2.$ Then"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}b_{n}}=0+\\frac{1}{2}+0-\\frac{1}{4}+0+\\frac{1}{6}+0-\\frac{1}{8}+\\cdots =\\frac{\\ln \\,2}{2}."
+    },
+    {
+     "type": "p",
+     "text": "Then using the algebraic limit properties of convergent series, since ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ and ${\\displaystyle \\sum_{n=1}^{\\infty}b_{n}}$ converge, the series ${\\displaystyle \\sum_{n=1}^{\\infty}(a_{n}+b_{n})}$ converges and"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}(a_{n}+b_{n})}={\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}+{\\displaystyle \\sum_{n=1}^{\\infty}b_{n}}=\\ln \\,2+\\frac{\\ln \\,2}{2}=\\frac{3\\,\\ln \\,2}{2}."
+    },
+    {
+     "type": "p",
+     "text": "Now adding the corresponding terms, $a_{n}$ and $b_{n},$ we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\sum_{n=1}^{\\infty}(a_{n}+b_{n}) & =(1+0)+\\left(-\\frac{1}{2}+\\frac{1}{2}\\right)+\\left(\\frac{1}{3}+0\\right)+\\left(-\\frac{1}{4}-\\frac{1}{4}\\right)+\\left(\\frac{1}{5}+0\\right)+\\left(-\\frac{1}{6}+\\frac{1}{6}\\right) \\\\ \\, & \\, \\\\ & \\quad +\\left(\\frac{1}{7}+0\\right)+\\left(-\\frac{1}{8}-\\frac{1}{8}\\right)+\\cdots \\\\ & =1+\\frac{1}{3}-\\frac{1}{2}+\\frac{1}{5}+\\frac{1}{7}-\\frac{1}{4}+\\cdots .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "We notice that the series on the right side of the equal sign is a rearrangement of the alternating harmonic series. Since ${\\displaystyle \\sum_{n=1}^{\\infty}(a_{n}+b_{n})}=3\\,\\ln (2)/2,$ we conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "1+\\frac{1}{3}-\\frac{1}{2}+\\frac{1}{5}+\\frac{1}{7}-\\frac{1}{4}+\\cdots =\\frac{3\\,\\ln (2)}{2}."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, we have found a rearrangement of the alternating harmonic series having the desired property."
+    },
+    {
+     "type": "list",
+     "items": [
+      "For an alternating series $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n},$ if $b_{k+1}\\le b_{k}$ for all $k$ and $b_{k}\\to 0$ as $k\\to \\infty ,$ the alternating series converges.",
+      "If $\\sum_{n=1}^{\\infty}|a_{n}|$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges."
+     ]
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Alternating series**",
+       "${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}}=b_{1}-b_{2}+b_{3}-b_{4}+\\cdots \\,\\text{or}$\n\n${\\displaystyle \\sum_{n=1}^{\\infty}(-1)^{n}b_{n}}=-b_{1}+b_{2}-b_{3}+b_{4}-\\cdots$"
+      ]
+     ]
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "absolute convergence",
+   "meaning": "if the series $\\sum_{n=1}^{\\infty}|a_{n}|$ converges, the series $\\sum_{n=1}^{\\infty}a_{n}$ is said to converge absolutely"
+  },
+  {
+   "term": "alternating series",
+   "meaning": "a series of the form $\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}$ or $\\sum_{n=1}^{\\infty}(-1)^{n}b_{n},$ where $b_{n}\\ge 0,$ is called an alternating series"
+  },
+  {
+   "term": "alternating series test",
+   "meaning": "for an alternating series of either form, if $b_{n+1}\\le b_{n}$ for all integers $n\\ge 1$ and $b_{n}\\to 0,$ then an alternating series converges"
+  },
+  {
+   "term": "conditional convergence",
+   "meaning": "if the series $\\sum_{n=1}^{\\infty}a_{n}$ converges, but the series $\\sum_{n=1}^{\\infty}|a_{n}|$ diverges, the series $\\sum_{n=1}^{\\infty}a_{n}$ is said to converge conditionally"
+  }
+ ]
+}

@@ -1,0 +1,2762 @@
+{
+ "schema": 1,
+ "id": "V2.7.3",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 7,
+ "section": 3,
+ "title": "Polar Coordinates",
+ "chapterTitle": "Parametric Equations and Polar Coordinates",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53852",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/7-3-polar-coordinates",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §7.3 “Polar Coordinates”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Locate points in a plane by using polar coordinates.",
+  "Convert points between rectangular and polar coordinates.",
+  "Sketch polar curves from given equations.",
+  "Convert equations between rectangular and polar coordinates.",
+  "Identify symmetry in polar curves and equations."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The rectangular coordinate system (or Cartesian plane) provides a means of mapping points to ordered pairs and ordered pairs to points. This is called a *one-to-one mapping* from points in the plane to ordered pairs. The polar coordinate system provides an alternative method of mapping points to ordered pairs. In this section we see that in some circumstances, polar coordinates can be more useful than rectangular coordinates."
+    }
+   ],
+   "title": "Polar Coordinates"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "To find the coordinates of a point in the polar coordinate system, consider Figure 7.26. The point $P$ has Cartesian coordinates $(x,y).$ The line segment connecting the origin to the point $P$ measures the distance from the origin to $P$ and has length $r.$ The angle between the positive $x$-axis and the line segment has measure $\\theta .$ This observation suggests a natural correspondence between the coordinate pair $(x,y)$ and the values $r$ and $\\theta .$ This correspondence is the basis of the **polar coordinate system**. Note that every point in the Cartesian plane has two values (hence the term *ordered pair*) associated with it. In the polar coordinate system, each point also has two values associated with it: $r$ and $\\theta .$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_001.webp",
+     "alt": "A point P(x, y) is given in the first quadrant with lines drawn to indicate its x and y values. There is a line from the origin to P(x, y) marked r and this line make an angle θ with the x axis.",
+     "caption": "**Figure 7.26** An arbitrary point in the Cartesian plane.",
+     "width": 304,
+     "height": 309
+    },
+    {
+     "type": "p",
+     "text": "Using right-triangle trigonometry, the following equations are true for the point $P:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\cos \\,\\theta =\\frac{x}{r}\\,\\text{so}\\,x=r\\,\\cos \\,\\theta"
+    },
+    {
+     "type": "math",
+     "tex": "\\sin \\,\\theta =\\frac{y}{r}\\,\\text{so}\\,y=r\\,\\sin \\,\\theta ."
+    },
+    {
+     "type": "p",
+     "text": "Furthermore,"
+    },
+    {
+     "type": "math",
+     "tex": "r^{2}=x^{2}+y^{2}\\,\\text{and}\\,\\tan \\,\\theta =\\frac{y}{x}."
+    }
+   ],
+   "title": "Defining Polar Coordinates"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Each point $(x,y)$ in the Cartesian coordinate system can therefore be represented as an ordered pair $(r,\\theta )$ in the polar coordinate system. The first coordinate is called the **radial coordinate** and the second coordinate is called the **angular coordinate**. Every point in the plane can be represented in this form."
+    },
+    {
+     "type": "p",
+     "text": "Note that the equation $\\tan \\,\\theta =y/x$ has an infinite number of solutions for any ordered pair $(x,y).$ However, if we restrict the solutions to values between $0$ and $2\\pi$ then we can assign a unique solution to the quadrant in which the original point $(x,y)$ is located. Then the corresponding value of *r* is positive, so $r^{2}=x^{2}+y^{2}.$"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given a point $P$ in the plane with Cartesian coordinates $(x,y)$ and polar coordinates $(r,\\theta ),$ the following conversion formulas hold true:"
+      },
+      {
+       "type": "math",
+       "tex": "x=r\\,\\cos \\,\\theta \\,\\text{and}\\,y=r\\,\\sin \\,\\theta ,"
+      },
+      {
+       "type": "math",
+       "tex": "r^{2}=x^{2}+y^{2}\\,\\text{and}\\,\\tan \\,\\theta =\\frac{y}{x}."
+      },
+      {
+       "type": "p",
+       "text": "These formulas can be used to convert from rectangular to polar or from polar to rectangular coordinates."
+      }
+     ],
+     "title": "Converting Points between Coordinate Systems"
+    }
+   ],
+   "title": "Defining Polar Coordinates (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 7.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Convert each of the following points into polar coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$(1,1)$",
+      "$(-3,4)$",
+      "$(0,3)$",
+      "$(5\\sqrt{3},-5)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "Convert each of the following points into rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$(3,\\pi /3)$",
+      "$(2,3\\pi /2)$",
+      "$(6,-5\\pi /6)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Use $x=1$ and $y=1$ in (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{ccc}r^{2} & = & x^{2}+y^{2} \\\\ & = & 1^{2}+1^{2} \\\\ r & = & \\sqrt{2}\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}\\tan \\,\\theta & = & \\frac{y}{x} \\\\ & = & \\frac{1}{1}=1 \\\\ \\theta & = & \\frac{\\pi}{4}.\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore this point can be represented as $\\left(\\sqrt{2},\\frac{\\pi}{4}\\right)$ in polar coordinates."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Use $x=-3$ and $y=4$ in (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{ccc}r^{2} & = & x^{2}+y^{2} \\\\ & = & (-3)^{2}+(4)^{2} \\\\ r & = & 5\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}\\tan \\,\\theta & = & \\frac{y}{x} \\\\ & = & -\\frac{4}{3} \\\\ \\theta & = & \\pi -\\arctan (\\frac{4}{3}) \\\\ & \\approx & 2.21.\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The point $(-3,4)$ lies in Quadrant $\\text{II}$. Subtract the value of the reference angle, $\\arctan \\left(\\frac{4}{3}\\right)$, from $\\pi$ to find the radian measure of $\\theta$.\n\n\nTherefore this point can be represented as $(5,2.21)$ in polar coordinates."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Use $x=0$ and $y=3$ in (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{ccc}r^{2} & = & x^{2}+y^{2} \\\\ & = & (3)^{2}+(0)^{2} \\\\ & = & 9+0 \\\\ r & = & 3\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}\\tan \\,\\theta & = & \\frac{y}{x} \\\\ & = & \\frac{3}{0}.\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Direct application of the second equation leads to division by zero. Graphing the point $(0,3)$ on the rectangular coordinate system reveals that the point is located on the positive *y*-axis. The angle between the positive *x*-axis and the positive *y*-axis is $\\frac{\\pi}{2}.$ Therefore this point can be represented as $\\left(3,\\frac{\\pi}{2}\\right)$ in polar coordinates."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Use $x=5\\sqrt{3}$ and $y=-5$ in (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{ccc}r^{2} & = & x^{2}+y^{2} \\\\ & = & (5\\sqrt{3})^{2}+(-5)^{2} \\\\ & = & 75+25 \\\\ r & = & 10\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}\\tan \\,\\theta & = & \\frac{y}{x} \\\\ & = & \\frac{-5}{5\\sqrt{3}}=-\\frac{\\sqrt{3}}{3} \\\\ \\theta & = & -\\frac{\\pi}{6}.\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore this point can be represented as $\\left(10,-\\frac{\\pi}{6}\\right)$ in polar coordinates."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Use $r=3$ and $\\theta =\\frac{\\pi}{3}$ in (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{ccc}x & = & r\\,\\cos \\,\\theta \\\\ & = & 3\\,\\cos \\left(\\frac{\\pi}{3}\\right) \\\\ & = & 3\\left(\\frac{1}{2}\\right)=\\frac{3}{2}\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}y & = & r\\,\\sin \\,\\theta \\\\ & = & 3\\,\\sin \\left(\\frac{\\pi}{3}\\right) \\\\ & = & 3\\left(\\frac{\\sqrt{3}}{2}\\right)=\\frac{3\\sqrt{3}}{2}.\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore this point can be represented as $\\left(\\frac{3}{2},\\,\\frac{3\\sqrt{3}}{2}\\right)$ in rectangular coordinates."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Use $r=2$ and $\\theta =\\frac{3\\pi}{2}$ in (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{ccc}x & = & r\\,\\cos \\,\\theta \\\\ & = & 2\\,\\cos \\left(\\frac{3\\pi}{2}\\right) \\\\ & = & 2(0)=0\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}y & = & r\\,\\sin \\,\\theta \\\\ & = & 2\\,\\sin \\left(\\frac{3\\pi}{2}\\right) \\\\ & = & 2(-1)=-2.\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore this point can be represented as $(0,-2)$ in rectangular coordinates."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Use $r=6$ and $\\theta =-\\frac{5\\pi}{6}$ in (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{ccc}x & = & r\\,\\cos \\,\\theta \\\\ & = & 6\\,\\cos \\left(-\\frac{5\\pi}{6}\\right) \\\\ & = & 6\\left(-\\frac{\\sqrt{3}}{2}\\right) \\\\ & = & -3\\sqrt{3}\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}y & = & r\\,\\sin \\,\\theta \\\\ & = & 6\\,\\sin \\left(-\\frac{5\\pi}{6}\\right) \\\\ & = & 6\\left(-\\frac{1}{2}\\right) \\\\ & = & -3.\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore this point can be represented as $(-3\\sqrt{3},-3)$ in rectangular coordinates."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Converting between Rectangular and Polar Coordinates"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Convert $(-8,-8)$ into polar coordinates and $\\left(4,\\frac{2\\pi}{3}\\right)$ into rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(8\\sqrt{2},\\frac{5\\pi}{4}\\right)$ and $(-2,2\\sqrt{3})$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above) and (see above). Make sure to check the quadrant when calculating $\\theta .$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The polar representation of a point is not unique. For example, the polar coordinates $\\left(2,\\frac{\\pi}{3}\\right)$ and $\\left(2,\\frac{7\\pi}{3}\\right)$ both represent the point $(1,\\sqrt{3})$ in the rectangular system. Also, the value of $r$ can be negative. Therefore, the point with polar coordinates $\\left(-2,\\frac{4\\pi}{3}\\right)$ also represents the point $(1,\\sqrt{3})$ in the rectangular system, as we can see by using (see above):"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccccccc}\\begin{array}{ccc}x & = & r\\,\\cos \\,\\theta \\\\ & = & -2\\,\\cos \\left(\\frac{4\\pi}{3}\\right) \\\\ & = & -2\\left(-\\frac{1}{2}\\right)=1\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}y & = & r\\,\\sin \\,\\theta \\\\ & = & -2\\,\\sin \\left(\\frac{4\\pi}{3}\\right) \\\\ & = & -2\\left(-\\frac{\\sqrt{3}}{2}\\right)=\\sqrt{3}.\\end{array}\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Every point in the plane has an infinite number of representations in polar coordinates. However, each point in the plane has only one representation in the rectangular coordinate system."
+    },
+    {
+     "type": "p",
+     "text": "Note that the polar representation of a point in the plane also has a visual interpretation. In particular, $r$ is the directed distance that the point lies from the origin, and $\\theta$ measures the angle that the line segment from the origin to the point makes with the positive $x$-axis. Positive angles are measured in a counterclockwise direction and negative angles are measured in a clockwise direction. The polar coordinate system appears in the following figure."
+    }
+   ],
+   "title": "Defining Polar Coordinates (continued)"
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_002.webp",
+     "alt": "A series of concentric circles is drawn with spokes indicating different values between 0 and 2π in increments of π/12. The first quadrant starts with 0 where the x axis would be, then the next spoke is marked π/12, then π/6, π/4, π/3, 5π/12, π/2, and so on into the second, third, and fourth quadrants. The polar axis is noted near the former x axis line.",
+     "caption": "**Figure 7.27** The polar coordinate system.",
+     "width": 576,
+     "height": 499
+    },
+    {
+     "type": "p",
+     "text": "The line segment starting from the center of the graph going to the right (called the positive *x*-axis in the Cartesian system) is the **polar axis**. The center point is the **pole**, or origin, of the coordinate system, and corresponds to $r=0.$ The innermost circle shown in Figure 7.27 contains all points a distance of 1 unit from the pole, and is represented by the equation $r=1.$ Then $r=2$ is the set of points 2 units from the pole, and so on. The line segments emanating from the pole correspond to fixed angles. To plot a point in the polar coordinate system, start with the angle. If the angle is positive, then measure the angle from the polar axis in a counterclockwise direction. If it is negative, then measure it clockwise. If the value of $r$ is positive, move that distance along the terminal ray of the angle. If it is negative, move along the ray that is opposite the terminal ray of the given angle."
+    }
+   ],
+   "title": "Defining Polar Coordinates (continued)"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 7.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Plot each of the following points on the polar plane."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\left(2,\\frac{\\pi}{4}\\right)$",
+      "$\\left(-3,\\frac{2\\pi}{3}\\right)$",
+      "$\\left(4,\\frac{5\\pi}{4}\\right)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The three points are plotted in the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_003.webp",
+      "alt": "Three points are marked on a polar coordinate plane, specifically (2, π/4) in the first quadrant, (4, 5π/4) in the third quadrant, and (−3, 2π/3) in the fourth quadrant.",
+      "caption": "**Figure 7.28** Three points plotted in the polar coordinate system.",
+      "width": 417,
+      "height": 417
+     }
+    ]
+   },
+   "title": "Plotting Points in the Polar Plane"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Plot $\\left(4,\\frac{5\\pi}{3}\\right)$ and $\\left(-3,-\\frac{7\\pi}{2}\\right)$ on the polar plane."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_004.webp",
+      "alt": "Two points are marked on a polar coordinate plane, specifically (−3, −7π/2) on the y axis and (4, 5π/3) in the fourth quadrant.",
+      "width": 417,
+      "height": 417
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Start with $\\theta ,$ then use $r.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we know how to plot points in the polar coordinate system, we can discuss how to plot curves. In the rectangular coordinate system, we can graph a function $y=f(x)$ and create a curve in the Cartesian plane. In a similar fashion, we can graph a curve that is generated by a function $r=f(\\theta ).$"
+    },
+    {
+     "type": "p",
+     "text": "The general idea behind graphing a function in polar coordinates is the same as graphing a function in rectangular coordinates. Start with a list of values for the independent variable $(\\theta$ in this case) and calculate the corresponding values of the dependent variable $r.$ This process generates a list of ordered pairs, which can be plotted in the polar coordinate system. Finally, connect the points, and take advantage of any patterns that may appear. The function may be periodic, for example, which indicates that only a limited number of values for the independent variable are needed."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Create a table with two columns. The first column is for $\\theta ,$ and the second column is for $r.$",
+        "Create a list of values for $\\theta .$",
+        "Calculate the corresponding $r$ values for each $\\theta .$",
+        "Plot each ordered pair $(r,\\theta )$ on the coordinate axes.",
+        "Connect the points and look for a pattern."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Plotting a Curve in Polar Coordinates"
+    }
+   ],
+   "title": "Polar Curves"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 7.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Graph the curve defined by the function $r=4\\,\\sin \\,\\theta .$ Identify the curve and rewrite the equation in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Because the function is a multiple of a sine function, it is periodic with period $2\\pi ,$ so use values for $\\theta$ between 0 and $2\\pi .$ The result of steps 1–3 appear in the following table. Figure 7.29 shows the graph based on this table."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "0",
+        "0",
+        "",
+        "$\\pi$",
+        "0"
+       ],
+       [
+        "$\\frac{\\pi}{6}$",
+        "$2$",
+        "$\\frac{7\\pi}{6}$",
+        "$-2$"
+       ],
+       [
+        "$\\frac{\\pi}{4}$",
+        "$2\\sqrt{2}\\approx 2.8$",
+        "$\\frac{5\\pi}{4}$",
+        "$-2\\sqrt{2}\\approx -2.8$"
+       ],
+       [
+        "$\\frac{\\pi}{3}$",
+        "$2\\sqrt{3}\\approx 3.4$",
+        "$\\frac{4\\pi}{3}$",
+        "$-2\\sqrt{3}\\approx -3.4$"
+       ],
+       [
+        "$\\frac{\\pi}{2}$",
+        "$4$",
+        "$\\frac{3\\pi}{2}$",
+        "$-4$"
+       ],
+       [
+        "$\\frac{2\\pi}{3}$",
+        "$2\\sqrt{3}\\approx 3.4$",
+        "$\\frac{5\\pi}{3}$",
+        "$-2\\sqrt{3}\\approx -3.4$"
+       ],
+       [
+        "$\\frac{3\\pi}{4}$",
+        "$2\\sqrt{2}\\approx 2.8$",
+        "$\\frac{7\\pi}{4}$",
+        "$-2\\sqrt{2}\\approx -2.8$"
+       ],
+       [
+        "$\\frac{5\\pi}{6}$",
+        "$2$",
+        "$\\frac{11\\pi}{6}$",
+        "$-2$"
+       ],
+       [
+        "",
+        "",
+        "$2\\pi$",
+        "0"
+       ]
+      ],
+      "header": [
+       "$\\theta$",
+       "$r=4\\,\\sin \\,\\theta$",
+       "",
+       "$\\theta$",
+       "$r=4\\,\\sin \\,\\theta$"
+      ]
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_005.webp",
+      "alt": "On the polar coordinate plane, a circle is drawn with radius 2. It touches the origin, (2 times the square root of 2, π/4), (4, π/2), and (2 times the square root of 2, 3π/4).",
+      "caption": "**Figure 7.29** The graph of the function $r=4\\,\\sin \\,\\theta$ is a circle.",
+      "width": 417,
+      "height": 417
+     },
+     {
+      "type": "p",
+      "text": "This is the graph of a circle. The equation $r=4\\,\\sin \\,\\theta$ can be converted into rectangular coordinates by first multiplying both sides by $r.$ This gives the equation $r^{2}=4r\\,\\sin \\,\\theta .$ Next use the facts that $r^{2}=x^{2}+y^{2}$ and $y=r\\,\\sin \\,\\theta .$ This gives $x^{2}+y^{2}=4y.$ To put this equation into standard form, subtract $4y$ from both sides of the equation and complete the square:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}x^{2}+y^{2}-4y & = & 0 \\\\ x^{2}+(y^{2}-4y) & = & 0 \\\\ x^{2}+(y^{2}-4y+4) & = & 0+4 \\\\ x^{2}+(y-2)^{2} & = & 4.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This is the equation of a circle with radius 2 and center $(0,2)$ in the rectangular coordinate system."
+     }
+    ]
+   },
+   "title": "Graphing a Function in Polar Coordinates"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Create a graph of the curve defined by the function $r=4+4\\,\\cos \\,\\theta .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_006.webp",
+      "alt": "The graph of r = 4 + 4 cosθ is given. It vaguely looks look a heart tipped on its side with a rounded bottom instead of a pointed one. Specifically, the graph starts at the origin, moves into the second quadrant and increases to a rounded circle-like figure. The graph is symmetric about the x axis, so it continues its rounded circle-like figure, goes into the third quadrant, and comes to a point at the origin.",
+      "width": 717,
+      "height": 717
+     },
+     {
+      "type": "p",
+      "text": "The name of this shape is a cardioid, which we will study further later in this section."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the problem-solving strategy for creating a graph in polar coordinates."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The graph in Example 7.12 was that of a circle. The equation of the circle can be transformed into rectangular coordinates using the coordinate transformation formulas in (see above). Example 7.14 gives some more examples of functions for transforming from polar to rectangular coordinates."
+    }
+   ],
+   "title": "Polar Curves (continued)"
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 7.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Rewrite each of the following equations in rectangular coordinates and identify the graph."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\theta =\\frac{\\pi}{3}$",
+      "$r=3$",
+      "$r=6\\,\\cos \\,\\theta -8\\,\\sin \\,\\theta$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "Take the tangent of both sides. This gives $\\tan \\,\\theta =\\tan (\\pi /3)=\\sqrt{3}.$ Since $\\tan \\,\\theta =y/x$ we can replace the left-hand side of this equation by $y/x.$ This gives $y/x=\\sqrt{3},$ which can be rewritten as $y=x\\sqrt{3}.$ This is the equation of a straight line passing through the origin with slope $\\sqrt{3}.$ In general, any polar equation of the form $\\theta =K$ represents a straight line through the pole with slope equal to $\\tan \\,K.$",
+       "First, square both sides of the equation. This gives $r^{2}=9.$ Next replace $r^{2}$ with $x^{2}+y^{2}.$ This gives the equation $x^{2}+y^{2}=9,$ which is the equation of a circle centered at the origin with radius 3. In general, any polar equation of the form $r=k$ where *k* is a positive constant represents a circle of radius *k* centered at the origin. (*Note*: when squaring both sides of an equation it is possible to introduce new points unintentionally. This should always be taken into consideration. However, in this case we do not introduce new points. For example, $\\left(-3,\\frac{\\pi}{3}\\right)$ is the same point as $\\left(3,\\frac{4\\pi}{3}\\right).)$",
+       [
+        {
+         "type": "p",
+         "text": "Multiply both sides of the equation by $r.$ This leads to $r^{2}=6r\\,\\cos \\,\\theta -8r\\,\\sin \\,\\theta .$ Next use the formulas"
+        },
+        {
+         "type": "math",
+         "tex": "r^{2}=x^{2}+y^{2},\\quad x=r\\,\\cos \\,\\theta ,\\quad y=r\\,\\sin \\,\\theta ."
+        },
+        {
+         "type": "p",
+         "text": "This gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}r^{2} & = & 6(r\\,\\cos \\,\\theta )-8(r\\,\\sin \\,\\theta ) \\\\ x^{2}+y^{2} & = & 6x-8y.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "To put this equation into standard form, first move the variables from the right-hand side of the equation to the left-hand side, then complete the square."
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}x^{2}+y^{2} & = & 6x-8y \\\\ x^{2}-6x+y^{2}+8y & = & 0 \\\\ (x^{2}-6x)+(y^{2}+8y) & = & 0 \\\\ (x^{2}-6x+9)+(y^{2}+8y+16) & = & 9+16 \\\\ (x-3)^{2}+(y+4)^{2} & = & 25.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "This is the equation of a circle with center at $(3,-4)$ and radius 5. Notice that the circle passes through the origin since the center is 5 units away."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Transforming Polar Equations to Rectangular Coordinates"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Rewrite the equation $r=\\sec \\,\\theta \\,\\tan \\,\\theta$ in rectangular coordinates and identify its graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=x^{2},$ which is the equation of a parabola opening upward."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Convert to sine and cosine, then multiply both sides by cosine."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have now seen several examples of drawing graphs of curves defined by **polar equations**. A summary of some common curves is given in the tables below. In each equation, *a* and *b* are arbitrary constants."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_016.webp",
+     "alt": "This table has three columns and 3 rows. The first row is a header row and is given from left to right as name, equation, and example. The second row is Line passing through the pole with slope tan K; θ = K; and a picture of a straight line on the polar coordinate plane with θ = π/3. The third row is Circle; r = a cosθ + b sinθ; and a picture of a circle on the polar coordinate plane with equation r = 2 cos(θ) – 3 sin(θ): the circle touches the origin but has center in the third quadrant.",
+     "caption": "**Figure 7.30**",
+     "width": 796,
+     "height": 1041
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_017.webp",
+     "alt": "This table has three columns and 3 rows. The first row is Spiral; r = a + bθ; and a picture of a spiral starting at the origin with equation r = θ/3. The second row is Cardioid; r = a(1 + cosθ), r = a(1 – cosθ), r = a(1 + sinθ), r = a(1 – sinθ); and a picture of a cardioid with equation r = 3(1 + cosθ): the cardioid looks like a heart turned on its side with a rounded bottom instead of a pointed one. The third row is Limaçon; r = a cosθ + b, r = a sinθ + b; and a picture of a limaçon with equation r = 2 + 4 sinθ: the figure looks like a deformed circle with a loop inside of it. The seventh row is Rose; r = a cos(bθ), r = a sin(bθ); and a picture of a rose with equation r = 3 sin(2θ): the rose looks like a flower with four petals, one petal in each quadrant, each with length 3 and reaching to the origin between each petal.",
+     "caption": "**Figure 7.31**",
+     "width": 796,
+     "height": 1041
+    }
+   ],
+   "title": "Polar Curves (continued)"
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A **cardioid** is a special case of a **limaçon** (pronounced “lee-mah-son”), in which $a=b$ or $a=-b.$ The **rose** is a very interesting curve. Notice that the graph of $r=3\\,\\sin \\,2\\theta$ has four petals. However, the graph of $r=3\\,\\sin \\,3\\theta$ has three petals as shown."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_008.webp",
+     "alt": "A rose with three petals, one in the first quadrant, another in the second quadrant, and the third in both the third and fourth quadrants, each with length 3. Each petal starts and ends at the origin.",
+     "caption": "**Figure 7.32** Graph of $r=3\\,\\sin \\,3\\theta .$",
+     "width": 417,
+     "height": 417
+    },
+    {
+     "type": "p",
+     "text": "If the coefficient of $\\theta$ is even, the graph has twice as many petals as the coefficient. If the coefficient of $\\theta$ is odd, then the number of petals equals the coefficient. You are encouraged to explore why this happens. Even more interesting graphs emerge when the coefficient of $\\theta$ is not an integer. For example, if it is rational, then the curve is closed; that is, it eventually ends where it started (Figure 7.33(a)). However, if the coefficient is irrational, then the curve never closes (Figure 7.33(b)). Although it may appear that the curve is closed, a closer examination reveals that the petals just above the positive *r* axis are slightly thicker. This is because the petal does not quite match up with the starting point."
+    }
+   ],
+   "title": "Polar Curves (continued)"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_009.webp",
+     "alt": "This figure has two figures. The first is a rose with so many overlapping petals that there are a few patterns that develop, starting with a sharp 10 pointed star in the center and moving out to an increasingly rounded set of petals. The second figure is a rose with even more overlapping petals, so many so that it is impossible to tell what is happening in the center, but on the outer edges are a number of sharply rounded petals.",
+     "caption": "**Figure 7.33** Polar rose graphs of functions with (a) rational coefficient and (b) irrational coefficient. Note that the rose in part (b) does not fill the disk of radius 3 centered at the origin, even though it appears to. To see this, just note that for any fixed ray from the origin, there are only a countable number of values of theta for which we get a point on the graph along that ray. What we can say, though, is that for any point in the disk, there are points as close as you please to that point on the given graph.",
+     "width": 858,
+     "height": 458
+    }
+   ],
+   "title": "Polar Curves (continued)"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 7.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Recall the **chambered nautilus** introduced in the chapter opener. This creature displays a spiral when half the outer shell is cut away. It is possible to describe a spiral using rectangular coordinates. Figure 7.34 shows a spiral in rectangular coordinates. How can we describe this curve mathematically?"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_010.webp",
+     "alt": "A spiral starting at the origin and continually increasing its radius to a point P(x, y).",
+     "caption": "**Figure 7.34** How can we describe a spiral graph mathematically?",
+     "width": 417,
+     "height": 422
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "As the point *P* travels around the spiral in a counterclockwise direction, its distance *d* from the origin increases. Assume that the distance *d* is a constant multiple *k* of the angle $\\theta$ that the line segment *OP* makes with the positive *r*-axis. Therefore $d(P,O)=k\\theta ,$ where $O$ is the origin. Now use the distance formula and some trigonometry:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}d(P,O) & = & k\\theta \\\\ \\sqrt{(x-0)^{2}+(y-0)^{2}} & = & k\\,\\arctan \\left(\\frac{y}{x}\\right) \\\\ \\sqrt{x^{2}+y^{2}} & = & k\\,\\arctan \\left(\\frac{y}{x}\\right) \\\\ \\arctan \\left(\\frac{y}{x}\\right) & = & \\frac{\\sqrt{x^{2}+y^{2}}}{k} \\\\ y & = & x\\,\\tan \\left(\\frac{\\sqrt{x^{2}+y^{2}}}{k}\\right).\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Although this equation describes the spiral, it is not possible to solve it directly for either *x* or *y*. However, if we use polar coordinates, the equation becomes much simpler. In particular, $d(P,O)=r,$ and $\\theta$ is the second coordinate. Therefore the equation for the spiral becomes $r=k\\theta .$ Note that when $\\theta =0$ we also have $r=0,$ so the spiral emanates from the origin. We can remove this restriction by adding a constant to the equation. Then the equation for the spiral becomes $r=a+k\\theta$ for arbitrary constants $a$ and $k.$ This is referred to as an **Archimedean spiral**, after the Greek mathematician Archimedes."
+     },
+     {
+      "type": "p",
+      "text": "Another type of spiral is the logarithmic spiral, described by the function $r=a\\cdot b^{\\theta}.$ A graph of the function $r=1.2(1.25^{\\theta})$ is given in Figure 7.35. This spiral describes the shell shape of the chambered nautilus."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_011.webp",
+      "alt": "This figure has two figures. The first is a shell with many chambers that increase in size from the center out. The second is a spiral with equation r = 1.2(1.25θ).",
+      "caption": "**Figure 7.35** A logarithmic spiral is similar to the shape of the chambered nautilus shell. (credit: modification of work by Jitze Couperus, Flickr)",
+      "width": 858,
+      "height": 422
+     }
+    ]
+   },
+   "title": "Chapter Opener: Describing a Spiral"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Suppose a curve is described in the polar coordinate system via the function $r=f(\\theta ).$ Since we have conversion formulas from polar to rectangular coordinates given by"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}x=r\\,\\cos \\,\\theta \\\\ y=r\\,\\sin \\,\\theta ,\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "it is possible to rewrite these formulas using the function"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}x=f(\\theta )\\,\\cos \\,\\theta \\\\ y=f(\\theta )\\,\\sin \\,\\theta .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "This step gives a parameterization of the curve in rectangular coordinates using $\\theta$ as the parameter. For example, the spiral formula $r=a+b\\theta$ from Figure 7.30 becomes"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}x=(a+b\\theta )\\,\\cos \\,\\theta \\\\ y=(a+b\\theta )\\,\\sin \\,\\theta .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Letting $\\theta$ range from $-\\infty$ to $\\infty$ generates the entire spiral."
+    }
+   ],
+   "title": "Polar Curves (continued)"
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When studying **symmetry** of functions in rectangular coordinates (i.e., in the form $y=f(x)),$ we talk about symmetry with respect to the *y*-axis and symmetry with respect to the origin. In particular, if $f(-x)=f(x)$ for all $x$ in the domain of $f,$ then $f$ is an even function and its graph is symmetric with respect to the *y*-axis. If $f(-x)=-f(x)$ for all $x$ in the domain of $f,$ then $f$ is an odd function and its graph is symmetric with respect to the origin. By determining which types of symmetry a graph exhibits, we can learn more about the shape and appearance of the graph. Symmetry can also reveal other properties of the function that generates the graph. Symmetry in polar curves works in a similar fashion."
+    }
+   ],
+   "title": "Symmetry in Polar Coordinates"
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider a curve generated by the function $r=f(\\theta )$ in polar coordinates."
+      },
+      {
+       "type": "list",
+       "items": [
+        "The curve is symmetric about the polar axis if for every point $(r,\\theta )$ on the graph, the point $(r,-\\theta )$ is also on the graph. Similarly, the equation $r=f(\\theta )$ is unchanged by replacing $\\theta$ with $-\\theta .$",
+        "The curve is symmetric about the pole if for every point $(r,\\theta )$ on the graph, the point $(r,\\pi +\\theta )$ is also on the graph. Similarly, the equation $r=f(\\theta )$ is unchanged when replacing $r$ with $-r,$ or $\\theta$ with $\\pi +\\theta .$",
+        "The curve is symmetric about the vertical line $\\theta =\\frac{\\pi}{2}$ if for every point $(r,\\theta )$ on the graph, the point $(r,\\pi -\\theta )$ is also on the graph. Similarly, the equation $r=f(\\theta )$ is unchanged when $\\theta$ is replaced by $\\pi -\\theta .$"
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Symmetry in Polar Curves and Equations"
+    },
+    {
+     "type": "p",
+     "text": "The following table shows examples of each type of symmetry."
+    }
+   ],
+   "title": "Symmetry in Polar Coordinates (continued)"
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_018.webp",
+     "alt": "This table has three rows and two columns. The first row reads “Symmetry with respect to the polar axis: For every point (r, θ) on the graph, there is also a point reflected directly across the horizontal (polar) axis” and it has a picture of a cardioid with equation r = 2 – 2 cosθ: this cardioid has points marked (r, θ) and (r, −θ), which are symmetric about the x axis, and the entire cardioid is symmetric about the x axis. The second row reads “Symmetry with respect to the pole: For every point (r, θ) on the graph, there is also a point on the graph that is reflected through the pole as well” and it has a picture of a skewed infinity symbol with equation r2 = 9 cos(2θ – π/2): this figure has points marked (r, θ) and (−r, θ), which are symmetric about the pole, and the entire figure is symmetric about the pole. The third row reads “Symmetry with respect to the vertical line θ = π/2: For every point (r, θ) on the graph, there is also a point reflected directly across the vertical axis” and there is a picture of a cardioid with equation r = 2 – 2 sinθ: this figure has points marked (r, θ) and (r, π − θ), which are symmetric about the vertical line θ = π/2, and the entire cardioid is symmetric about the vertical line θ = π/2.",
+     "width": 796,
+     "height": 1002
+    }
+   ],
+   "title": "Symmetry in Polar Coordinates (continued)"
+  },
+  {
+   "id": "x24",
+   "kind": "example",
+   "label": "Example 7.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the symmetry of the rose defined by the equation $r=3\\,\\sin (2\\theta )$ and create a graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Suppose the point $(r,\\theta )$ is on the graph of $r=3\\,\\sin (2\\theta ).$"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "To test for symmetry about the polar axis, first try replacing $\\theta$ with $-\\theta .$ This gives $r=3\\,\\sin (2(-\\theta ))=-3\\,\\sin (2\\theta ).$ Since this changes the original equation, this test is not satisfied. However, returning to the original equation and replacing $r$ with $-r$ and $\\theta$ with $\\pi -\\theta$ yields"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c} \\\\ -r=3\\,\\sin (2(\\pi -\\theta )) \\\\ -r=3\\,\\sin (2\\pi -2\\theta ) \\\\ -r=3\\,\\sin (-2\\theta ) \\\\ -r=-3\\,\\sin \\,2\\theta .\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Multiplying both sides of this equation by $-1$ gives $r=3\\,\\sin \\,2\\theta ,$ which is the original equation. This demonstrates that the graph is symmetric with respect to the polar axis."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "To test for symmetry with respect to the pole, first replace $r$ with $-r,$ which yields $-r=3\\,\\sin (2\\theta ).$ Multiplying both sides by −1 gives $r=-3\\,\\sin (2\\theta ),$ which does not agree with the original equation. Therefore the equation does not pass the test for this symmetry. However, returning to the original equation and replacing $\\theta$ with $\\theta +\\pi$ gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}r & =3\\,\\sin (2(\\theta +\\pi )) \\\\ & =3\\,\\sin (2\\theta +2\\pi ) \\\\ & =3(\\sin \\,2\\theta \\,\\cos \\,2\\pi +\\cos \\,2\\theta \\,\\sin \\,2\\pi ) \\\\ & =3\\,\\sin \\,2\\theta .\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Since this agrees with the original equation, the graph is symmetric about the pole."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "To test for symmetry with respect to the vertical line $\\theta =\\frac{\\pi}{2},$ first replace both $r$ with $-r$ and $\\theta$ with $-\\theta .$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c} \\\\ -r=3\\,\\sin (2(-\\theta )) \\\\ -r=3\\,\\sin (-2\\theta ) \\\\ -r=-3\\,\\sin \\,2\\theta .\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Multiplying both sides of this equation by $-1$ gives $r=3\\,\\sin \\,2\\theta ,$ which is the original equation. Therefore the graph is symmetric about the vertical line $\\theta =\\frac{\\pi}{2}.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "i"
+     },
+     {
+      "type": "p",
+      "text": "This graph has symmetry with respect to the polar axis, the origin, and the vertical line going through the pole. To graph the function, tabulate values of $\\theta$ between 0 and $\\pi /2$ and then reflect the resulting graph."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "$0$",
+        "$0$"
+       ],
+       [
+        "$\\frac{\\pi}{6}$",
+        "$\\frac{3\\sqrt{3}}{2}\\approx 2.6$"
+       ],
+       [
+        "$\\frac{\\pi}{4}$",
+        "$3$"
+       ],
+       [
+        "$\\frac{\\pi}{3}$",
+        "$\\frac{3\\sqrt{3}}{2}\\approx 2.6$"
+       ],
+       [
+        "$\\frac{\\pi}{2}$",
+        "$0$"
+       ]
+      ],
+      "header": [
+       "$\\theta$",
+       "$r$"
+      ]
+     },
+     {
+      "type": "p",
+      "text": "This gives one petal of the rose, as shown in the following graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_013.webp",
+      "alt": "A single petal is graphed with equation r = 3 sin(2θ) for 0 ≤ θ ≤ π/2. It starts at the origin and reaches a maximum distance from the origin of 3.",
+      "caption": "**Figure 7.36** The graph of the equation between $\\theta =0$ and $\\theta =\\pi /2.$",
+      "width": 417,
+      "height": 417
+     },
+     {
+      "type": "p",
+      "text": "Reflecting this image into the other three quadrants gives the entire graph as shown."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_014.webp",
+      "alt": "A four-petaled rose is graphed with equation r = 3 sin(2θ). Each petal starts at the origin and reaches a maximum distance from the origin of 3.",
+      "caption": "**Figure 7.37** The entire graph of the equation is called a four-petaled rose.",
+      "width": 417,
+      "height": 417
+     }
+    ]
+   },
+   "title": "Using Symmetry to Graph a Polar Equation"
+  },
+  {
+   "id": "c25",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine the symmetry of the graph determined by the equation $r=2\\,\\cos (3\\theta )$ and create a graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Symmetric with respect to the polar axis."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_015.webp",
+      "alt": "A three-petaled rose is graphed with equation r = 2 cos(3θ). Each petal starts at the origin and reaches a maximum distance from the origin of 2.",
+      "width": 417,
+      "height": 417
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The polar coordinate system provides an alternative way to locate points in the plane.",
+      [
+       {
+        "type": "p",
+        "text": "Convert points between rectangular and polar coordinates using the formulas"
+       },
+       {
+        "type": "math",
+        "tex": "x=r\\,\\cos \\,\\theta \\,\\text{and}\\,y=r\\,\\sin \\,\\theta"
+       },
+       {
+        "type": "p",
+        "text": "and"
+       },
+       {
+        "type": "math",
+        "tex": "r=\\sqrt{x^{2}+y^{2}}\\,\\text{and}\\,\\tan \\,\\theta =\\frac{y}{x}."
+       }
+      ],
+      "To sketch a polar curve from a given polar function, make a table of values and take advantage of periodic properties.",
+      "Use the conversion formulas to convert equations between rectangular and polar coordinates.",
+      "Identify symmetry in polar curves, which can occur through the pole, the horizontal axis, or the vertical axis."
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e125",
+   "number": 125,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(3,\\frac{\\pi}{6}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793219227",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, plot the point whose polar coordinates are given by first constructing the angle $\\theta$ and then marking off the distance *r* along the ray."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_201.webp",
+      "alt": "On the polar coordinate plane, a ray is drawn from the origin marking π/6 and a point is drawn when this line crosses the circle with radius 3.",
+      "width": 375,
+      "height": 375
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e126",
+   "number": 126,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(-2,\\frac{5\\pi}{3}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793219273",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, plot the point whose polar coordinates are given by first constructing the angle $\\theta$ and then marking off the distance *r* along the ray."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e127",
+   "number": 127,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(0,\\frac{7\\pi}{6}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793219322",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, plot the point whose polar coordinates are given by first constructing the angle $\\theta$ and then marking off the distance *r* along the ray."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_203.webp",
+      "alt": "On the polar coordinate plane, a ray is drawn from the origin marking 7π/6 and a point is drawn when this line crosses the circle with radius 0, that is, it marks the origin.",
+      "width": 375,
+      "height": 375
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e128",
+   "number": 128,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(-4,\\frac{3\\pi}{4}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793251262",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, plot the point whose polar coordinates are given by first constructing the angle $\\theta$ and then marking off the distance *r* along the ray."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e129",
+   "number": 129,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(1,\\frac{\\pi}{4}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793251311",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, plot the point whose polar coordinates are given by first constructing the angle $\\theta$ and then marking off the distance *r* along the ray."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_205.webp",
+      "alt": "On the polar coordinate plane, a ray is drawn from the origin marking π/4 and a point is drawn when this line crosses the circle with radius 1.",
+      "width": 375,
+      "height": 375
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e130",
+   "number": 130,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(2,\\frac{5\\pi}{6}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793251357",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, plot the point whose polar coordinates are given by first constructing the angle $\\theta$ and then marking off the distance *r* along the ray."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e131",
+   "number": 131,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(1,\\frac{\\pi}{2}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793237871",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, plot the point whose polar coordinates are given by first constructing the angle $\\theta$ and then marking off the distance *r* along the ray."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_207.webp",
+      "alt": "On the polar coordinate plane, a ray is drawn from the origin marking π/2 and a point is drawn when this line crosses the circle with radius 1.",
+      "width": 375,
+      "height": 413
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e132",
+   "number": 132,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Coordinates of point *A*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793237937",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the polar graph below. Give two sets of polar coordinates for each point."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_208.webp",
+     "alt": "The polar coordinate plane is divided into 12 pies. Point A is drawn on the first circle on the first spoke above the θ = 0 line in the first quadrant. Point B is drawn in the fourth quadrant on the third circle and the second spoke below the θ = 0 line. Point C is drawn on the θ = π line on the third circle. Point D is drawn on the fourth circle on the first spoke below the θ = π line.",
+     "width": 458,
+     "height": 458
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e133",
+   "number": 133,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Coordinates of point *B*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794327485",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the polar graph below. Give two sets of polar coordinates for each point."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_208.webp",
+     "alt": "The polar coordinate plane is divided into 12 pies. Point A is drawn on the first circle on the first spoke above the θ = 0 line in the first quadrant. Point B is drawn in the fourth quadrant on the third circle and the second spoke below the θ = 0 line. Point C is drawn on the θ = π line on the third circle. Point D is drawn on the fourth circle on the first spoke below the θ = π line.",
+     "width": 458,
+     "height": 458
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$B\\begin{array}{cc}\\left(3,\\frac{-\\pi}{3}\\right) & B\\left(-3,\\frac{2\\pi}{3}\\right)\\end{array}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e134",
+   "number": 134,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Coordinates of point *C*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794327560",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the polar graph below. Give two sets of polar coordinates for each point."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_208.webp",
+     "alt": "The polar coordinate plane is divided into 12 pies. Point A is drawn on the first circle on the first spoke above the θ = 0 line in the first quadrant. Point B is drawn in the fourth quadrant on the third circle and the second spoke below the θ = 0 line. Point C is drawn on the θ = π line on the third circle. Point D is drawn on the fourth circle on the first spoke below the θ = π line.",
+     "width": 458,
+     "height": 458
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e135",
+   "number": 135,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Coordinates of point *D*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794327626",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the polar graph below. Give two sets of polar coordinates for each point."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_03_208.webp",
+     "alt": "The polar coordinate plane is divided into 12 pies. Point A is drawn on the first circle on the first spoke above the θ = 0 line in the first quadrant. Point B is drawn in the fourth quadrant on the third circle and the second spoke below the θ = 0 line. Point C is drawn on the θ = π line on the third circle. Point D is drawn on the fourth circle on the first spoke below the θ = π line.",
+     "width": 458,
+     "height": 458
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$D\\left(5,\\frac{7\\pi}{6}\\right)D\\left(-5,\\frac{\\pi}{6}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"expression\",\"value\":\"D(5, ((7 pi)/6))D(-5, (pi/6))\"} failed (checker cannot read the answer: A comma here is only allowed in points, vectors, intervals and lists)"
+  },
+  {
+   "id": "e136",
+   "number": 136,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(2,\\,2)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200105",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the rectangular coordinates of a point are given. Find two sets of polar coordinates for the point in $(0,2\\pi ].$ Round to three decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e137",
+   "number": 137,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(3,-4)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200191",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the rectangular coordinates of a point are given. Find two sets of polar coordinates for the point in $(0,2\\pi ].$ Round to three decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(5,5.356)(-5,2.214)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e138",
+   "number": 138,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(8,\\,15)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200263",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the rectangular coordinates of a point are given. Find two sets of polar coordinates for the point in $(0,2\\pi ].$ Round to three decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e139",
+   "number": 139,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(-6,\\,8)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794283037",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the rectangular coordinates of a point are given. Find two sets of polar coordinates for the point in $(0,2\\pi ].$ Round to three decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(10,2.214)(-10,5.356)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e140",
+   "number": 140,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(4,\\,3)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794283101",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the rectangular coordinates of a point are given. Find two sets of polar coordinates for the point in $(0,2\\pi ].$ Round to three decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e141",
+   "number": 141,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(3,-\\sqrt{3})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794283165",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the rectangular coordinates of a point are given. Find two sets of polar coordinates for the point in $(0,2\\pi ].$ Round to three decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(2\\sqrt{3},\\frac{11\\pi}{6}\\right)\\left(-2\\sqrt{3},\\frac{5\\pi}{6}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"number\",\"value\":\"(2 sqrt(3), ((11 pi)/6))(-2 sqrt(3), ((5 pi)/6))\"} failed (checker cannot read the answer: A comma here is only allowed in points, vectors, intervals and lists)"
+  },
+  {
+   "id": "e142",
+   "number": 142,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(2,\\frac{5\\pi}{4}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793244427",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find rectangular coordinates for the given point in polar coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e143",
+   "number": 143,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(-2,\\frac{\\pi}{6}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793244494",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find rectangular coordinates for the given point in polar coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\begin{array}{cc}-\\sqrt{3}, & -1\\end{array}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e144",
+   "number": 144,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(5,\\frac{\\pi}{3}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793244555",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find rectangular coordinates for the given point in polar coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e145",
+   "number": 145,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(1,\\frac{7\\pi}{6}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793244623",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find rectangular coordinates for the given point in polar coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\begin{array}{cc}-\\frac{\\sqrt{3}}{2}, & \\frac{-1}{2}\\end{array}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e146",
+   "number": 146,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(-3,\\frac{3\\pi}{4}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794172656",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find rectangular coordinates for the given point in polar coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e147",
+   "number": 147,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(0,\\frac{\\pi}{2}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794172732",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find rectangular coordinates for the given point in polar coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\begin{array}{cc}0, & 0\\end{array}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e148",
+   "number": 148,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(-4.5,6.5)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794172789",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find rectangular coordinates for the given point in polar coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e149",
+   "number": 149,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3\\,\\sin (2\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293219",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the graphs of the polar equation are symmetric with respect to the $x$-axis, the $y$-axis, or the origin."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Symmetry with respect to the *x*-axis, *y*-axis, and origin."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e150",
+   "number": 150,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r^{2}=9\\,\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293267",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the graphs of the polar equation are symmetric with respect to the $x$-axis, the $y$-axis, or the origin."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e151",
+   "number": 151,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\cos \\left(\\frac{\\theta}{5}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293309",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the graphs of the polar equation are symmetric with respect to the $x$-axis, the $y$-axis, or the origin."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Symmetric with respect to *x*-axis only."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e152",
+   "number": 152,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=2\\,\\sec \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293350",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the graphs of the polar equation are symmetric with respect to the $x$-axis, the $y$-axis, or the origin."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e153",
+   "number": 153,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=1+\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293383",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the graphs of the polar equation are symmetric with respect to the $x$-axis, the $y$-axis, or the origin."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Symmetry with respect to *x*-axis only."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e154",
+   "number": 154,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293423",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, describe the graph of each polar equation. Confirm each description by converting into a rectangular equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e155",
+   "number": 155,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\theta =\\frac{\\pi}{4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293447",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, describe the graph of each polar equation. Confirm each description by converting into a rectangular equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Line $y=x$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e156",
+   "number": 156,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\sec \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793234424",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, describe the graph of each polar equation. Confirm each description by converting into a rectangular equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e157",
+   "number": 157,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\csc \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793234457",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, describe the graph of each polar equation. Confirm each description by converting into a rectangular equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=1$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e158",
+   "number": 158,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}+y^{2}=16$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793234494",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the rectangular equation to polar form and sketch its graph."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e159",
+   "number": 159,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}-y^{2}=16$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793234555",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the rectangular equation to polar form and sketch its graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Hyperbola; polar form $r^{2}\\cos (2\\theta )=16$ or $r^{2}=16\\,\\sec \\,(2\\theta ).$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_210.webp",
+      "alt": "A hyperbola with vertices at (−4, 0) and (4, 0), the first pointing out into quadrants II and III and the second pointing out into quadrants I and IV.",
+      "width": 342,
+      "height": 347
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e160",
+   "number": 160,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=8$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793234650",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the rectangular equation to polar form and sketch its graph."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e161",
+   "number": 161,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$3x-y=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793287522",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the rectangular equation to polar form and sketch its graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$r=\\frac{2}{3\\,\\cos \\,\\theta -\\sin \\,\\theta}$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_212.webp",
+      "alt": "A straight line with slope 3 and y intercept −2.",
+      "width": 269,
+      "height": 347
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e162",
+   "number": 162,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y^{2}=4x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793287587",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the rectangular equation to polar form and sketch its graph."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e163",
+   "number": 163,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=4\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793287663",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the polar equation to rectangular form and sketch its graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^{2}+y^{2}=4y$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_214.webp",
+      "alt": "A circle of radius 2 with center at (2, π/2).",
+      "width": 458,
+      "height": 458
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e164",
+   "number": 164,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=6\\,\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793287724",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the polar equation to rectangular form and sketch its graph."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e165",
+   "number": 165,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200385",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the polar equation to rectangular form and sketch its graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x\\,\\tan \\sqrt{x^{2}+y^{2}}=y$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_216.webp",
+      "alt": "A spiral starting at the origin and crossing θ = π/2 between 1 and 2, θ = π between 3 and 4, θ = 3π/2 between 4 and 5, θ = 0 between 6 and 7, θ = π/2 between 7 and 8, and θ = π between 9 and 10.",
+      "width": 458,
+      "height": 458
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e166",
+   "number": 166,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\cot \\,\\theta \\,\\csc \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200448",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, convert the polar equation to rectangular form and sketch its graph."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e167",
+   "number": 167,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=1+\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200506",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_218.webp",
+      "alt": "A cardioid with the upper heart part at the origin and the rest of the cardioid oriented up.",
+      "width": 458,
+      "height": 458
+     },
+     {
+      "type": "p",
+      "text": "*y*-axis symmetry"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e168",
+   "number": 168,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3-2\\,\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200555",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e169",
+   "number": 169,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=2-2\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200606",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_220.webp",
+      "alt": "A cardioid with the upper heart part at the origin and the rest of the cardioid oriented down.",
+      "width": 458,
+      "height": 458
+     },
+     {
+      "type": "p",
+      "text": "*y*-axis symmetry"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e170",
+   "number": 170,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=5-4\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793245586",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e171",
+   "number": 171,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3\\,\\cos (2\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793245637",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_222.webp",
+      "alt": "A rose with four petals that reach their furthest extent from the origin at θ = 0, π/2, π, and 3π/2.",
+      "width": 458,
+      "height": 458
+     },
+     {
+      "type": "p",
+      "text": "*x*- and *y*-axis symmetry and symmetry about the pole"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e172",
+   "number": 172,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3\\,\\sin (2\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793245699",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e173",
+   "number": 173,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=2\\,\\cos (3\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793245760",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_224.webp",
+      "alt": "A rose with three petals that reach their furthest extent from the origin at θ = 0, 2π/3, and 4π/3.",
+      "width": 458,
+      "height": 458
+     },
+     {
+      "type": "p",
+      "text": "*x*-axis symmetry"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e174",
+   "number": 174,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3\\,\\cos \\left(\\frac{\\theta}{2}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793245816",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e175",
+   "number": 175,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r^{2}=4\\,\\cos (2\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299532",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_226.webp",
+      "alt": "The infinity symbol with the crossing point at the origin and with the furthest extent of the two petals being at θ = 0 and π.",
+      "width": 458,
+      "height": 458
+     },
+     {
+      "type": "p",
+      "text": "*x*- and *y*-axis symmetry and symmetry about the pole"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e176",
+   "number": 176,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r^{2}=4\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299597",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e177",
+   "number": 177,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=2\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299653",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_228.webp",
+      "alt": "A spiral that starts at the origin crossing the line θ = π/2 between 3 and 4, θ = π between 6 and 7, θ = 3π/2 between 9 and 10, θ = 0 between 12 and 13, θ = π/2 between 15 and 16, and θ = π between 18 and 19.",
+      "width": 458,
+      "height": 458
+     },
+     {
+      "type": "p",
+      "text": "no symmetry"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e178",
+   "number": 178,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The graph of $r=2\\,\\cos (2\\theta )\\sec (\\theta ).$ is called a *strophoid.* Use a graphing utility to sketch the graph, and, from the graph, determine the asymptote."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299694",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e179",
+   "number": 179,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a graphing utility and sketch the graph of $r=\\frac{6}{2\\,\\sin \\,\\theta -3\\,\\cos \\,\\theta}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299784",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_230.webp",
+      "alt": "A line that crosses the y axis at roughly 3 and has slope roughly 3/2.",
+      "width": 458,
+      "height": 458
+     },
+     {
+      "type": "p",
+      "text": "a line"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e180",
+   "number": 180,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a graphing utility to graph $r=\\frac{1}{1-\\cos \\,\\theta}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299845",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e181",
+   "number": 181,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology to graph $r=e^{\\sin (\\theta )}-2\\,\\cos (4\\theta ).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793279401",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_232.webp",
+      "alt": "A geometric shape that resembles a butterfly with larger wings in the first and second quadrants, smaller wings in the third and fourth quadrants, a body along the θ = π/2 line and legs along the θ = 0 and π lines.",
+      "width": 458,
+      "height": 458
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e182",
+   "number": 182,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology to plot $r=\\sin \\left(\\frac{3\\theta}{7}\\right)$ (use the interval $0\\le \\theta \\le 14\\pi ).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793279477",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e183",
+   "number": 183,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Without using technology, sketch the polar curve $\\theta =\\frac{2\\pi}{3}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793279556",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_234.webp",
+      "alt": "A line with θ = 120°.",
+      "width": 458,
+      "height": 458
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e184",
+   "number": 184,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a graphing utility to plot $r=\\theta \\,\\sin \\,\\theta$ for $-\\pi \\le \\theta \\le \\pi .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793279600",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e185",
+   "number": 185,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology to plot $r=e^{-0.1\\theta}$ for $-10\\le \\theta \\le 10.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793279662",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_03_236.webp",
+      "alt": "A spiral that starts in the third quadrant.",
+      "width": 458,
+      "height": 458
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e186",
+   "number": 186,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** There is a curve known as the “*Black Hole*.” Use technology to plot $r=e^{-0.01\\theta}$ for $-100\\le \\theta \\le 100.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793279725",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e187",
+   "number": 187,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use the results of the preceding two problems to explore the graphs of $r=e^{-0.001\\theta}$ and $r=e^{-0.0001\\theta}$ for $|\\theta |>100.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794188292",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch a graph of the polar equation and identify any symmetry."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers vary. One possibility is the spiral lines become closer together and the total number of spirals increases."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "angular coordinate",
+   "meaning": "$\\theta$ the angle formed by a line segment connecting the origin to a point in the polar coordinate system with the positive radial (*x*) axis, measured counterclockwise"
+  },
+  {
+   "term": "cardioid",
+   "meaning": "a plane curve traced by a point on the perimeter of a circle that is rolling around a fixed circle of the same radius; the equation of a cardioid is $r=a(1+\\sin \\,\\theta )$ or $r=a(1+\\cos \\,\\theta )$"
+  },
+  {
+   "term": "limaçon",
+   "meaning": "the graph of the equation $r=a+b\\,\\sin \\,\\theta$ or $r=a+b\\,\\cos \\,\\theta .$ If $a=b$ then the graph is a cardioid"
+  },
+  {
+   "term": "polar axis",
+   "meaning": "the horizontal axis in the polar coordinate system corresponding to $r\\ge 0$"
+  },
+  {
+   "term": "polar coordinate system",
+   "meaning": "a system for locating points in the plane. The coordinates are $r,$ the radial coordinate, and $\\theta ,$ the angular coordinate"
+  },
+  {
+   "term": "polar equation",
+   "meaning": "an equation or function relating the radial coordinate to the angular coordinate in the polar coordinate system"
+  },
+  {
+   "term": "pole",
+   "meaning": "the central point of the polar coordinate system, equivalent to the origin of a Cartesian system"
+  },
+  {
+   "term": "radial coordinate",
+   "meaning": "$r$ the coordinate in the polar coordinate system that measures the distance from a point in the plane to the pole"
+  },
+  {
+   "term": "rose",
+   "meaning": "graph of the polar equation $r=a\\,\\cos \\,2\\theta$ or $r=a\\,\\sin \\,2\\theta$ for a positive constant *a*"
+  },
+  {
+   "term": "space-filling curve",
+   "meaning": "a curve that completely occupies a two-dimensional subset of the real plane"
+  }
+ ]
+}

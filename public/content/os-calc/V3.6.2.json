@@ -1,0 +1,3065 @@
+{
+ "schema": 1,
+ "id": "V3.6.2",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 6,
+ "section": 2,
+ "title": "Line Integrals",
+ "chapterTitle": "Vector Calculus",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m54012",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/6-2-line-integrals",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §6.2 “Line Integrals”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Calculate a scalar line integral along a curve.",
+  "Calculate a vector line integral along an oriented curve in space.",
+  "Use a line integral to compute the work done in moving an object along a curve in a vector field.",
+  "Describe the flux and circulation of a vector field."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We are familiar with single-variable integrals of the form ${\\displaystyle \\int_{a}^{b}f(x)dx,}$ where the domain of integration is an interval $[a,b].$ Such an interval can be thought of as a curve in the *xy*-plane, since the interval defines a line segment with endpoints $(a,0)$ and $(b,0)$—in other words, a line segment located on the *x*-axis. Suppose we want to integrate over *any* curve in the plane, not just over a line segment on the *x*-axis. Such a task requires a new kind of integral, called a *line integral.*"
+    },
+    {
+     "type": "p",
+     "text": "Line integrals have many applications to engineering and physics. They also allow us to make several useful generalizations of the Fundamental Theorem of Calculus. And, they are closely connected to the properties of vector fields, as we shall see."
+    }
+   ],
+   "title": "Line Integrals"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A **line integral** gives us the ability to integrate multivariable functions and vector fields over arbitrary curves in a plane or in space. There are two types of line integrals: scalar line integrals and vector line integrals. Scalar line integrals are integrals of a scalar function over a curve in a plane or in space. Vector line integrals are integrals of a vector field over a curve in a plane or in space. Let’s look at scalar line integrals first."
+    },
+    {
+     "type": "p",
+     "text": "A scalar line integral is defined just as a single-variable integral is defined, except that for a scalar line integral, the integrand is a function of more than one variable and the domain of integration is a curve in a plane or in space, as opposed to a curve on the *x*-axis."
+    },
+    {
+     "type": "p",
+     "text": "For a scalar line integral, we let *C* be a smooth curve in a plane or in space and let $f$ be a function with a domain that includes *C*. We chop the curve into small pieces. For each piece, we choose point *P* in that piece and evaluate $f$ at *P.* (We can do this because all the points in the curve are in the domain of $f.$) We multiply $f(P)$ by the arc length of the piece $\\text{Δ}s,$ add the product $f(P)\\text{Δ}s$ over all the pieces, and then let the arc length of the pieces shrink to zero by taking a limit. The result is the scalar line integral of the function over the curve."
+    }
+   ],
+   "title": "Scalar Line Integrals"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For a formal description of a scalar line integral, let $C$ be a smooth curve in space given by the parameterization $\\text{r}(t)=〈x(t),y(t),z(t)〉,$ $a\\le t\\le b.$ Let $f(x,y,z)$ be a function with a domain that includes curve $C.$ To define the line integral of the function $f$ over $C,$ we begin as most definitions of an integral begin: we chop the curve into small pieces. Partition the parameter interval $[a,b]$ into *n* subintervals $[t_{i-1},t_{i}]$ of equal width for $\\text{l}\\le i\\le n,$ where $t_{0}=a$ and $t_{n}=b$ (Figure 6.11). Let $t_{i}^{*}$ be a value in the *i*th interval $[t_{i-\\text{l}},t_{i}].$ Denote the endpoints of $\\text{r}(t_{0}),\\text{r}(t_{1}),\\dots ,\\text{r}(t_{n})$ by $P_{0},\\dots ,P_{n}.$ Points *P$_{\\text{i}}$* divide curve $C$ into $n$ pieces $C_{1},C_{2},\\dots ,C_{n,}$ with lengths $\\text{Δ}s_{1},\\text{Δ}s_{2},\\dots ,\\text{Δ}s_{n},$ respectively. Let $P_{i}^{*}$ denote the endpoint of $\\text{r}(t_{i}^{*})$ for $1\\le i\\le n.$ Now, we evaluate the function $f$ at point $P_{i}^{*}$ for $1\\le i\\le n.$ Note that $P_{i}^{*}$ is in piece $C_{i},$ and therefore $P_{i}^{*}$ is in the domain of $f.$ Multiply $f\\left(P_{i}^{*}\\right)$ by the length $\\text{Δ}s_{i}$ of $C_{i},$ which gives the area of the “sheet” with base $C_{i},$ and height $f\\left(P_{i}^{*}\\right).$ This is analogous to using rectangles to approximate area in a single-variable integral. Now, we form the sum ${\\displaystyle \\sum_{i=1}^{n}f\\left(P_{i}^{*}\\right)\\text{Δ}s_{i}}.$ Note the similarity of this sum versus a Riemann sum; in fact, this definition is a generalization of a Riemann sum to arbitrary curves in space. Just as with Riemann sums and integrals of form ${\\displaystyle \\int_{a}^{b}g(x)dx},$ we define an integral by letting the width of the pieces of the curve shrink to zero by taking a limit. The result is the scalar line integral of $f$ along $C.$"
+    }
+   ],
+   "title": "Scalar Line Integrals (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_001.webp",
+     "alt": "A diagram of a curve in quadrant one. Several points and segments are labeled. Starting at the left, the first points are P_0 and P_1. The segment between them is labeled delta S_1. The next points are P_i-1, P_i, and P_i+1. The segments connecting them are delta S_i and delta S_j+1. Point P_i starred and point P_i+1 starred are located on each segment, respectively. The last two points are P_n-1 and P_n, connected by segment S_n.",
+     "caption": "**Figure 6.11** Curve *C* has been divided into *n* pieces, and a point inside each piece has been chosen.",
+     "width": 526,
+     "height": 310
+    },
+    {
+     "type": "p",
+     "text": "You may have noticed a difference between this definition of a scalar line integral and a single-variable integral. In this definition, the arc lengths $\\text{Δ}s_{1},\\text{Δ}s_{2},\\dots ,\\text{Δ}s_{n}$ aren’t necessarily the same; in the definition of a single-variable integral, the curve in the *x*-axis is partitioned into pieces of equal length. This difference does not have any effect in the limit. As we shrink the arc lengths to zero, their values become close enough that any small difference becomes irrelevant."
+    }
+   ],
+   "title": "Scalar Line Integrals (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ be a function with a domain that includes the smooth curve $C$ that is parameterized by $\\text{r}(t)=〈x(t),y(t),z(t)〉,$ $a\\le t\\le b.$ The **scalar line integral** of $f$ along $C$ is"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{C}f(x,y,z)ds=\\lim_{n\\to \\infty}}{\\displaystyle \\sum_{i=1}^{n}f\\left(P_{i}^{*}\\right)\\text{Δ}s_{i}}"
+      },
+      {
+       "type": "p",
+       "text": "if this limit exists $(t_{i}^{*}$ and $\\text{Δ}s_{i}$ are defined as in the previous paragraphs). If *C* is a planar curve, then *C* can be represented by the parametric equations $x=x(t),y=y(t),$ and $a\\le t\\le b.$ If *C* is smooth and $f(x,y)$ is a function of two variables, then the scalar line integral of $f$ along *C* is defined similarly as"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{C}f(x,y)ds=\\lim_{n\\to \\infty}}{\\displaystyle \\sum_{i=1}^{n}f\\left(P_{i}^{*}\\right)\\text{Δ}s_{i}},"
+      },
+      {
+       "type": "p",
+       "text": "if this limit exists."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "If $f$ is a continuous function on a smooth curve *C*, then ${\\displaystyle \\int_{C}fds}$ always exists. Since ${\\displaystyle \\int_{C}fds}$ is defined as a limit of Riemann sums, the continuity of $f$ is enough to guarantee the existence of the limit, just as the integral ${\\displaystyle \\int_{a}^{b}g(x)dx}$ exists if *g* is continuous over $[a,b].$"
+    }
+   ],
+   "title": "Scalar Line Integrals (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Before looking at how to compute a line integral, we need to examine the geometry captured by these integrals. Suppose that $f(x,y)\\ge 0$ for all points $(x,y)$ on a smooth planar curve $C.$ Imagine taking curve $C$ and projecting it “up” to the surface defined by $f(x,y),$ thereby creating a new curve $C'$ that lies in the graph of $f(x,y)$ (Figure 6.12). Now we drop a “sheet” from $C'$ down to the xy-plane. The area of this sheet is ${\\displaystyle \\int_{C}f(x,y)ds}.$ If $f(x,y)\\le 0$ for some points in $C,$ then the value of ${\\displaystyle \\int_{C}f(x,y)ds}$ is the area above the xy-plane less the area below the xy-plane. (Note the similarity with integrals of the form ${\\displaystyle \\int_{a}^{b}g(x)dx.})$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_002.webp",
+     "alt": "A diagram in three dimensions. The original curve C in the (x,y) plane looks like a parabola opening to the left with vertex in quadrant 1. The surface defined by f(x,y) is shown always above the (x,y) plane. A curve on the surface directly above the original curve C is labeled as C’. A blue sheet stretches down from C’ to C.",
+     "caption": "**Figure 6.12** The area of the blue sheet is ${\\displaystyle \\int_{C}f(x,y)ds.}$",
+     "width": 405,
+     "height": 386
+    },
+    {
+     "type": "p",
+     "text": "From this geometry, we can see that line integral ${\\displaystyle \\int_{C}f(x,y)ds}$ does not depend on the parameterization $\\text{r}(t)$ of *C*. As long as the curve is traversed exactly once by the parameterization, the area of the sheet formed by the function and the curve is the same. This same kind of geometric argument can be extended to show that the line integral of a three-variable function over a curve in space does not depend on the parameterization of the curve."
+    }
+   ],
+   "title": "Scalar Line Integrals (continued)"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 6.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of integral ${\\displaystyle \\int_{C}2ds,}$ where $C$ is the upper half of the unit circle."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The integrand is $f(x,y)=2.$ Figure 6.13 shows the graph of $f(x,y)=2,$ curve *C*, and the sheet formed by them. Notice that this sheet has the same area as a rectangle with width $\\pi$ and length 2. Therefore, ${\\displaystyle \\int_{C}2ds=2\\pi .}$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_02_003.webp",
+      "alt": "A graph in three dimensions. There is a flat plane just above the (x,y) plane. The upper half of the unit circle in quadrants 1 and 2 of the (x,y) plane is raised up to form a semicircle sheet into the z-plane.",
+      "caption": "**Figure 6.13** The sheet that is formed by the upper half of the unit circle in a plane and the graph of $f(x,y)=2.$",
+      "width": 424,
+      "height": 277
+     },
+     {
+      "type": "p",
+      "text": "To see that ${\\displaystyle \\int_{C}2ds=2\\pi}$ using the definition of line integral, we let $\\text{r}(t)$ be a parameterization of *C*. Then, $f(\\text{r}(t_{i}))=2$ for any number $t_{i}$ in the domain of **r**. Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\int_{C}fds & =\\lim_{n\\to \\infty}\\sum_{i=1}^{n}f\\left(\\text{r}\\left(t_{i}^{*}\\right)\\right)\\text{Δ}s_{i} \\\\ & =\\lim_{n\\to \\infty}\\sum_{i=1}^{n}2\\text{Δ}s_{i} \\\\ & =2\\lim_{n\\to \\infty}\\sum_{i=1}^{n}\\text{Δ}s_{i} \\\\ & =2(\\text{length of C}) \\\\ & =2\\pi .\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Value of a Line Integral"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of ${\\displaystyle \\int_{C}(x+y)ds,}$ where $C$ is the curve parameterized by $x=t,$ $y=t,$ $0\\le t\\le 1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{2}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find the shape formed by *C* and the graph of function $f(x,y)=x+y.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(2)"
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Note that in a scalar line integral, the integration is done with respect to arc length *s*, which can make a scalar line integral difficult to calculate. To make the calculations easier, we can translate ${\\displaystyle \\int_{C}fds}$ to an integral with a variable of integration that is *t*."
+    },
+    {
+     "type": "p",
+     "text": "Let $\\text{r}(t)=〈x(t),y(t),z(t)〉$ for $a\\le t\\le b$ be a parameterization of $C.$ Since we are assuming that $C$ is smooth, $r'(t)=〈x'(t),y'(t),z'(t)〉$ is continuous for all $t$ in $[a,b].$ In particular, $x'(t),y'(t),$ and $z'(t)$ exist for all $t$ in $[a,b].$ According to the arc length formula, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{length}(C_{i})=\\text{Δ}s_{i}={\\displaystyle \\int_{t_{i-1}}^{t_{i}}\\| r'(t)\\|}dt."
+    },
+    {
+     "type": "p",
+     "text": "If width $\\text{Δ}t_{i}=t_{i}-t_{i-1}$ is small, then function ${\\displaystyle \\int_{t_{i-1}}^{t_{i}}\\| r'(t)\\| dt\\approx \\| r'\\left(t_{i}^{*}\\right)\\| \\text{Δ}t_{i},}$ $\\| r'(t)\\|$ is almost constant over the interval $[t_{i-1},t_{i}].$ Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{t_{i-1}}^{t_{i}}\\| r'(t)\\| dt}\\approx \\left\\|r'(t_{i}^{*})\\right\\|\\text{Δ}t_{i},"
+    },
+    {
+     "type": "p",
+     "text": "and we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{i=1}^{n}f(\\text{r}(t_{i}^{*}))\\text{Δ}s_{i}}={\\displaystyle \\sum_{i=1}^{n}f(\\text{r}(t_{i}^{*}))\\left\\|r'(t_{i}^{*})\\right\\|}\\text{Δ}t_{i}."
+    },
+    {
+     "type": "p",
+     "text": "See Figure 6.14."
+    }
+   ],
+   "title": "Scalar Line Integrals (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_004.webp",
+     "alt": "A segment of an increasing concave down curve labeled C. A small segment of the curved is boxed and labeled as delta t_i. In the zoomed-in insert, this boxed segment of the curve is almost linear.",
+     "caption": "**Figure 6.14** If we zoom in on the curve enough by making $\\text{Δ}t_{i}$ very small, then the corresponding piece of the curve is approximately linear.",
+     "width": 419,
+     "height": 201
+    },
+    {
+     "type": "p",
+     "text": "Note that"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}{\\displaystyle \\sum_{i=1}^{n}f(\\text{r}(t_{i}^{*}))}\\left\\|r'(t_{i}^{*})\\right\\|\\text{Δ}t_{i}={\\displaystyle \\int_{a}^{b}f(\\text{r}(t))}\\| r'(t)\\| dt."
+    },
+    {
+     "type": "p",
+     "text": "In other words, as the widths of intervals $[t_{i-1},t_{i}]$ shrink to zero, the sum ${\\displaystyle \\sum_{i=1}^{n}f(\\text{r}(t_{i}^{*}))}\\left\\|r'(t_{i}^{*})\\right\\|\\text{Δ}t_{i}$ converges to the integral ${\\displaystyle \\int_{a}^{b}f(\\text{r}(t))}\\| r'(t)\\| dt.$ Therefore, we have the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ be a continuous function with a domain that includes the smooth curve $C$ with parameterization $\\text{r}(t),a\\le t\\le b.$ Then"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{C}fds={\\displaystyle \\int_{a}^{b}f(\\text{r}(t))}\\| r'(t)\\| dt}."
+      }
+     ],
+     "title": "Evaluating a Scalar Line Integral"
+    }
+   ],
+   "title": "Scalar Line Integrals (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Although we have labeled (see above) as an equation, it is more accurately considered an approximation because we can show that the left-hand side of (see above) approaches the right-hand side as $n\\to \\infty .$ In other words, letting the widths of the pieces shrink to zero makes the right-hand sum arbitrarily close to the left-hand sum. Since"
+    },
+    {
+     "type": "math",
+     "tex": "\\| r'(t)\\| =\\sqrt{(x'(t))^{2}+(y'(t))^{2}+(z'(t))^{2},}"
+    },
+    {
+     "type": "p",
+     "text": "we obtain the following theorem, which we use to compute scalar line integrals."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ be a continuous function with a domain that includes the smooth curve *C* with parameterization $\\text{r}(t)=〈x(t),y(t),z(t)〉,a\\le t\\le b.$ Then"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{C}f(x,y,z)ds={\\displaystyle \\int_{a}^{b}f(\\text{r}(t))\\sqrt{(x'(t))^{2}+(y'(t))^{2}+(z'(t))^{2}}}dt.}"
+      },
+      {
+       "type": "p",
+       "text": "Similarly,"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{C}f(x,y)ds={\\displaystyle \\int_{a}^{b}f(\\text{r}(t))\\sqrt{(x'(t))^{2}+(y'(t))^{2}}}dt}"
+      },
+      {
+       "type": "p",
+       "text": "if *C* is a planar curve and $f$ is a function of two variables."
+      }
+     ],
+     "title": "Scalar Line Integral Calculation"
+    },
+    {
+     "type": "p",
+     "text": "Note that a consequence of this theorem is the equation $ds=\\| r'(t)\\| dt.$ In other words, the change in arc length can be viewed as a change in the *t* domain, scaled by the magnitude of vector $r'(t).$"
+    }
+   ],
+   "title": "Scalar Line Integrals (continued)"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 6.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of integral ${\\displaystyle \\int_{C}(x^{2}+y^{2}+z)ds,}$ where $C$ is part of the helix parameterized by $\\text{r}(t)=〈\\cos \\,t,\\sin \\,t,t〉,$ $0\\le t\\le 2\\pi .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To compute a scalar line integral, we start by converting the variable of integration from arc length *s* to *t*. Then, we can use (see above) to compute the integral with respect to *t*. Note that $f(\\text{r}(t))=\\cos^{2}t+\\sin^{2}t+t=1+t$ and"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\sqrt{(x'(t))^{2}+(y'(t))^{2}+(z'(t))^{2}} & =\\sqrt{(-\\sin (t))^{2}+\\cos^{2}(t)+1} \\\\ & =\\sqrt{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{C}(x^{2}+y^{2}+z)ds={\\displaystyle \\int_{0}^{2\\pi}(1+t)\\sqrt{2}dt.}}"
+     },
+     {
+      "type": "p",
+      "text": "Notice that (see above) translated the original difficult line integral into a manageable single-variable integral. Since"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{0}^{2\\pi}(1+t)}\\sqrt{2}dt & =\\left[\\sqrt{2}t+\\frac{\\sqrt{2}t^{2}}{2}\\right]_{0}^{2\\pi} \\\\ & =2\\sqrt{2}\\pi +2\\sqrt{2}\\pi^{2},\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "we have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{C}(x^{2}+y^{2}+z)ds=2\\sqrt{2}\\pi +2\\sqrt{2}\\pi^{2}}."
+     }
+    ]
+   },
+   "title": "Evaluating a Line Integral"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{C}(x^{2}+y^{2}+z)ds,}$ where *C* is the curve with parameterization $\\text{r}(t)=\\langle \\sin (3t),\\cos (3t)\\text{,t}\\rangle ,0\\le t\\le 2\\pi .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\sqrt{10}\\pi +2\\sqrt{10}\\pi^{2}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the two-variable version of (see above)."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2 sqrt(10) pi +2 sqrt(10)pi^2"
+   }
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 6.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of integral ${\\displaystyle \\int_{C}(x^{2}+y^{2}+z)ds,}$ where $C$ is part of the helix parameterized by $\\text{r}(t)=〈\\cos (2t),\\sin (2t),2t〉,0\\le t\\le \\pi .$ Notice that this function and curve are the same as in the previous example; the only difference is that the curve has been reparameterized so that time runs twice as fast."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "As with the previous example, we use (see above) to compute the integral with respect to *t*. Note that $f(\\text{r}(t))=\\cos^{2}(2t)+\\sin^{2}(2t)+2t=2t+1$ and"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\sqrt{(x'(t))^{2}+(y'(t))^{2}+(z'(t))^{2}} & =\\sqrt{\\left(\\text{−2sin}\\left(2t\\right)\\right)^{2}+\\left(2\\cos \\left(2t\\right)\\right)^{2}+2^{2}} \\\\ & \\sqrt{4\\sin^{2}\\left(2t\\right)+4\\cos^{2}\\left(2t\\right)+4} \\\\ & =2\\sqrt{2}\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "so we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}(x^{2}+y^{2}+z)ds} & =2\\sqrt{2}{\\displaystyle \\int_{0}^{\\pi}(1+2t)dt} \\\\ & =2\\sqrt{2}[t+t^{2}]_{0}^{\\pi} \\\\ & =2\\sqrt{2}(\\pi +\\pi^{2}).\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Notice that this agrees with the answer in the previous example. Changing the parameterization did not change the value of the line integral. Scalar line integrals are independent of parameterization, as long as the curve is traversed exactly once by the parameterization."
+     }
+    ]
+   },
+   "title": "Independence of Parameterization"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate line integral ${\\displaystyle \\int_{C}(x^{2}+yz)ds},$ where $C$ is the line with parameterization $\\text{r}(t)=〈2t,5t,-t〉,0\\le t\\le 10.$ Reparameterize *C* with parameterization $\\text{s}(t)=〈4t,10t,-2t〉,0\\le t\\le 5,$ recalculate line integral ${\\displaystyle \\int_{C}(x^{2}+yz)ds},$ and notice that the change of parameterization had no effect on the value of the integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Both line integrals equal $-\\frac{1000\\sqrt{30}}{3}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we can evaluate line integrals, we can use them to calculate arc length. If $f(x,y,z)=1,$ then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\int_{C}f(x,y,z)ds & =\\lim_{n\\to \\infty}\\sum_{i=1}^{n}f\\left(P_{i}^{*}\\right)\\text{Δ}s_{i} \\\\ & =\\lim_{n\\to \\infty}\\sum_{i=1}^{n}\\text{Δ}s_{i} \\\\ & =\\lim_{n\\to \\infty}\\text{length}(C) \\\\ & =\\text{length}(C).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Therefore, ${\\displaystyle \\int_{C}1ds}$ is the arc length of $C.$"
+    }
+   ],
+   "title": "Scalar Line Integrals (continued)"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 6.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A wire has a shape that can be modeled with the parameterization $\\text{r}(t)=\\left\\langle\\cos \\,t,\\sin \\,t,\\frac{2}{3}t^{3/2}\\right\\rangle,0\\le t\\le 4\\pi .$ Find the length of the wire."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The length of the wire is given by ${\\displaystyle \\int_{C}1ds},$ where *C* is the curve with parameterization **r**. Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\text{The length of the wire} & ={\\displaystyle \\int_{C}1ds} \\\\ & ={\\displaystyle \\int_{0}^{4\\pi}\\| r'(t)\\| dt} \\\\ & ={\\displaystyle \\int_{0}^{4\\pi}\\sqrt{(-\\sin \\,t)^{2}+\\cos^{2}t+t}dt} \\\\ & ={\\displaystyle \\int_{0}^{4\\pi}\\sqrt{1+t}dt} \\\\ & =\\left[\\frac{2(1+t)^{3/2}}{3}\\right]_{0}^{4\\pi} \\\\ & =\\frac{2}{3}((1+4\\pi )^{3/2}-1).\\end{array}"
+     }
+    ]
+   },
+   "title": "Calculating Arc Length"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the length of a wire with parameterization $\\text{r}(t)=〈3t+1,4-2t,5+2t〉,0\\le t\\le 4.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4\\sqrt{17}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find the line integral of one over the corresponding curve."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "4 sqrt(17)"
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The second type of line integrals are vector line integrals, in which we integrate along a curve through a vector field. For example, let"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{F}(x,y,z)=P(x,y,z)\\text{i}+Q(x,y,z)\\text{j}+R(x,y,z)\\text{k}"
+    },
+    {
+     "type": "p",
+     "text": "be a continuous vector field in ${\\mathbb{R}}^{3}$ that represents a force on a particle, and let *C* be a smooth curve in ${\\mathbb{R}}^{3}$ contained in the domain of $\\text{F}.$ How would we compute the work done by $\\text{F}$ in moving a particle along *C*?"
+    },
+    {
+     "type": "p",
+     "text": "To answer this question, first note that a particle could travel in two directions along a curve: a forward direction and a backward direction. The work done by the vector field depends on the direction in which the particle is moving. Therefore, we must specify a direction along curve *C*; such a specified direction is called an **orientation of a curve**. The specified direction is the *positive* direction along *C*; the opposite direction is the *negative* direction along *C*. When *C* has been given an orientation, *C* is called an *oriented curve* (Figure 6.15). The work done on the particle depends on the direction along the curve in which the particle is moving."
+    },
+    {
+     "type": "p",
+     "text": "A **closed curve** is one for which there exists a parameterization $\\text{r}(t),$ $a\\le t\\le b,$ such that $\\text{r}(a)=\\text{r}(b),$ and the curve is traversed exactly once. In other words, the parameterization is one-to-one on the domain $(a,b).$"
+    }
+   ],
+   "title": "Vector Line Integrals"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_005.webp",
+     "alt": "Two images, labeled A and B. Image A shows a curve C that is an oriented curve. It is a curve that connects two points; it is a line segment with curves. Image B, on the other hand, is a closed curve. It has no endpoints and completely encloses an area.",
+     "caption": "**Figure 6.15** (a) An oriented curve between two points. (b) A closed oriented curve.",
+     "width": 506,
+     "height": 186
+    },
+    {
+     "type": "p",
+     "text": "Let $\\text{r}(t)$ be a parameterization of *C* for $a\\le t\\le b$ such that the curve is traversed exactly once by the particle and the particle moves in the positive direction along *C*. Divide the parameter interval $[a,b]$ into *n* subintervals $[t_{i-1},t_{i}],0\\le i\\le n,$ of equal width. Denote the endpoints of $\\text{r}(t_{0}),\\text{r}(t_{1}),\\dots ,\\text{r}(t_{n})$ by $P_{0},\\dots ,P_{n}.$ Points *P$_{\\text{i}}$* divide *C* into *n* pieces. Denote the length of the piece from *P$_{\\text{i−1}}$* to *P$_{\\text{i}}$* by $\\text{Δ}s_{i}.$ For each *i*, choose a value $t_{i}^{*}$ in the subinterval $[t_{i-1},t_{i}].$ Then, the endpoint of $\\text{r}(t_{i}^{*})$ is a point in the piece of *C* between $P_{i-1}$ and *P$_{\\text{i}}$* (Figure 6.16). If $\\text{Δ}s_{i}$ is small, then as the particle moves from $P_{i-1}$ to $P_{i}$ along *C*, it moves approximately in the direction of $\\text{T}(P_{i}),$ the unit tangent vector at the endpoint of $\\text{r}(t_{i}^{*}).$ Let $P_{i}^{*}$ denote the endpoint of $\\text{r}(t_{i}^{*}).$ Then, the work done by the force vector field in moving the particle from $P_{i-1}$ to *P$_{\\text{i}}$* is $\\text{F}\\left(P_{i}^{*}\\right)\\cdot \\left(\\text{Δ}s_{i}\\text{T}\\left(P_{i}^{*}\\right)\\right),$ so the total work done along *C* is"
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{i=1}^{n}\\text{F}\\left(P_{i}^{*}\\right)\\cdot \\left(\\text{Δ}s_{i}\\text{T}\\left(P_{i}^{*}\\right)\\right)}={\\displaystyle \\sum_{i=1}^{n}\\text{F}\\left(P_{i}^{*}\\right)\\cdot \\text{T}\\left(P_{i}^{*}\\right)}\\text{Δ}s_{i}."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_006.webp",
+     "alt": "An image of a concave down curve – initially increasing, but later decreasing. Several points are labeled along the curve, as are arrowheads along the curve pointing in the direction of increasing P value. The points are: P_0, P_1, P_i-1, P_i starred, P_i, P_n-1, and Pn. Two arrows have their endpoints at P_i. The first is an increasing tangent vector labeled T(P_i starred). The second is labeled F(P_i starred) and points up and to the left.",
+     "caption": "**Figure 6.16** Curve *C* is divided into *n* pieces, and a point inside each piece is chosen. The dot product of any tangent vector in the *i*th piece with the corresponding vector **F** is approximated by $\\text{F}\\left(P_{i}^{*}\\right)\\cdot \\text{T}\\left(P_{i}^{*}\\right).$",
+     "width": 350,
+     "height": 304
+    },
+    {
+     "type": "p",
+     "text": "Letting the arc length of the pieces of *C* get arbitrarily small by taking a limit as $n\\to \\infty$ gives us the work done by the field in moving the particle along *C*. Therefore, the work done by **F** in moving the particle in the positive direction along *C* is defined as"
+    },
+    {
+     "type": "math",
+     "tex": "W={\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds,}"
+    },
+    {
+     "type": "p",
+     "text": "which gives us the concept of a vector line integral."
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **vector line integral** of vector field **F** along oriented smooth curve *C* is"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds=}\\lim_{n\\to \\infty}{\\displaystyle \\sum_{i=1}^{n}\\text{F}\\left(P_{i}^{*}\\right)}\\cdot \\text{T}\\left(P_{i}^{*}\\right)\\text{Δ}s_{i}"
+      },
+      {
+       "type": "p",
+       "text": "if that limit exists."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "With scalar line integrals, neither the orientation nor the parameterization of the curve matters. As long as the curve is traversed exactly once by the parameterization, the value of the line integral is unchanged. With vector line integrals, the orientation of the curve does matter. If we think of the line integral as computing work, then this makes sense: if you hike up a mountain, then the gravitational force of Earth does negative work on you. If you walk down the mountain by the exact same path, then Earth’s gravitational force does positive work on you. In other words, reversing the path changes the work value from negative to positive in this case. Note that if *C* is an oriented curve, then we let −*C* represent the same curve but with opposite orientation."
+    },
+    {
+     "type": "p",
+     "text": "As with scalar line integrals, it is easier to compute a vector line integral if we express it in terms of the parameterization function **r** and the variable *t*. To translate the integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}$ in terms of *t*, note that unit tangent vector **T** along *C* is given by $\\text{T}=\\frac{r'(t)}{\\| r'(t)\\|}$ (assuming $\\| r'(t)\\| \\ne 0).$ Since $ds=\\| r'(t)\\| dt,$ as we saw when discussing scalar line integrals, we have"
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\text{F}\\cdot \\text{T}ds=\\text{F}(\\text{r}(t))\\cdot \\frac{r'(t)}{\\| r'(t)\\|}\\| r'(t)\\| dt=\\text{F}(\\text{r}(t))\\cdot r'(t)dt."
+    },
+    {
+     "type": "p",
+     "text": "Thus, we have the following formula for computing vector line integrals:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}={\\displaystyle \\int_{a}^{b}\\text{F}(\\text{r}(t))}\\cdot r'(t)dt."
+    },
+    {
+     "type": "p",
+     "text": "Because of (see above), we often use the notation ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds.}$"
+    },
+    {
+     "type": "p",
+     "text": "If $\\text{r}(t)=〈x(t),y(t),z(t)〉,$ then *d***r** denotes vector differential $〈x'(t),y'(t),z'(t)〉dt.$"
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "x24",
+   "kind": "example",
+   "label": "Example 6.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r},}$ where $C$ is the semicircle parameterized by $\\text{r}(t)=〈\\cos \\,t,\\sin \\,t〉,$ $0\\le t\\le \\pi$ and $\\text{F}=〈-y,x〉.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We can use (see above) to convert the variable of integration from *r* to *t*. We then have"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{F}(\\text{r}(t))=〈-\\sin \\,t,\\cos \\,t〉\\,\\text{and}\\,r'(t)=〈-\\sin \\,t,\\cos \\,t〉."
+     },
+     {
+      "type": "p",
+      "text": "Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}}\\cdot d\\text{r} & ={\\displaystyle \\int_{0}^{\\pi}〈-\\sin \\,t,\\cos \\,t〉\\cdot 〈-\\sin \\,t,\\cos \\,t〉dt} \\\\ & ={\\displaystyle \\int_{0}^{\\pi}\\sin^{2}t}+\\cos^{2}tdt \\\\ & ={\\displaystyle \\int_{0}^{\\pi}1dt}=\\pi .\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "See Figure 6.17."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_02_007.webp",
+      "alt": "A vector field in two dimensions. The closer the arrows are to the origin, the smaller they are. The further away they are, the longer they are. The arrows surround the origin in a radial pattern. A single curve is plotted and follows the radial pattern in quadrants 1 and 2 over the interval [-1,1]. It is a concave down arch that looks like a downward opening parabola.",
+      "caption": "**Figure 6.17** This figure shows curve $\\text{r}(t)=〈\\cos \\,t,\\sin \\,t〉,0\\le t\\le \\pi$ in vector field $\\text{F}=〈-y,x〉.$",
+      "width": 500,
+      "height": 497
+     }
+    ]
+   },
+   "title": "Evaluating a Vector Line Integral"
+  },
+  {
+   "id": "x25",
+   "kind": "example",
+   "label": "Example 6.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r},}$ where $C$ is the semicircle parameterized by $\\text{r}(t)=〈\\cos \\,(t+\\pi ),\\sin \\,t〉,0\\le t\\le \\pi$ and $\\text{F}=〈-y,x〉.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Notice that this is the same problem as Example 6.18, except the orientation of the curve has been reversed. In this example, the parameterization starts at $\\text{r}(0)=〈-1,0〉$ and ends at $\\text{r}(\\pi )=〈1,0〉.$ By (see above),"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}}\\cdot d\\text{r} & ={\\displaystyle \\int_{0}^{\\pi}〈-\\sin \\,t,\\cos \\,(t+\\pi )〉\\cdot 〈-\\sin \\,(t+\\pi ),\\cos \\,t〉dt} \\\\ & ={\\displaystyle \\int_{0}^{\\pi}〈-\\sin \\,t,-\\cos \\,t〉\\cdot 〈\\sin \\,t,\\cos \\,t〉dt} \\\\ & ={\\displaystyle \\int_{0}^{\\pi}(-\\sin^{2}t-\\cos^{2}t)dt} \\\\ & ={\\displaystyle \\int_{0}^{\\pi}-1dt} \\\\ & =-\\pi .\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Notice that this is the negative of the answer in Example 6.18. It makes sense that this answer is negative because the orientation of the curve goes against the “flow” of the vector field."
+     }
+    ]
+   },
+   "title": "Reversing Orientation"
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let *C* be an oriented curve and let −*C* denote the same curve but with the orientation reversed. Then, the previous two examples illustrate the following fact:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{\\mathrm{–C}}\\text{F}\\cdot d\\text{r}=-{\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}}."
+    },
+    {
+     "type": "p",
+     "text": "That is, reversing the orientation of a curve changes the sign of a line integral."
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "c27",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $\\text{F}=x\\text{i}+y\\text{j}$ be a vector field and let *C* be the curve with parameterization $〈t,t^{2}〉$ for $0\\le t\\le 2.$ Which is greater: ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}$ or ${\\displaystyle \\int_{-C}\\text{F}\\cdot \\text{T}ds}?$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}}ds$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Imagine moving along the path and computing the dot product $\\text{F}\\cdot \\text{T}$ as you go."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r28",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Another standard notation for integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ is ${\\displaystyle \\int_{C}Pdx+Qdy+Rdz.}$ In this notation, *P*, *Q*, and *R* are functions, and we think of *d***r** as vector $〈dx,dy,dz〉.$ To justify this convention, recall that $d\\text{r}=\\text{T}ds=r'(t)dt=〈\\frac{dx}{dt},\\frac{dy}{dt},\\frac{dz}{dt}〉dt.$ Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{F}\\cdot d\\text{r}=〈P,Q,R〉\\cdot 〈dx,dy,dz〉=Pdx+Qdy+Rdz."
+    },
+    {
+     "type": "p",
+     "text": "If $d\\text{r}=〈dx,dy,dz〉,$ then $\\frac{d\\text{r}}{dt}=〈\\frac{dx}{dt},\\frac{dy}{dt},\\frac{dz}{dt}〉,$ which implies that $d\\text{r}=〈\\frac{dx}{dt},\\frac{dy}{dt},\\frac{dz}{dt}〉dt.$ Therefore"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{C}Pdx+Qdy+Rdz} \\\\ & =\\int (P(\\text{r}(t))\\frac{dx}{dt}+Q(\\text{r}(t))\\frac{dy}{dt}+R(\\text{r}(t))\\frac{dz}{dt})dt.\\end{array}"
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "x29",
+   "kind": "example",
+   "label": "Example 6.20",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of integral ${\\displaystyle \\int_{C}zdx+xdy+ydz,}$ where *C* is the curve parameterized by $\\text{r}(t)=〈t^{2},\\sqrt{t},t〉,1\\le t\\le 4.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "As with our previous examples, to compute this line integral we should perform a change of variables to write everything in terms of *t*. In this case, (see above) allows us to make this change:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}z}dx+xdy+ydz & ={\\displaystyle \\int_{1}^{4}\\left(t(2t)+t^{2}\\left(\\frac{1}{2\\sqrt{t}}\\right)+\\sqrt{t}\\right)dt} \\\\ & ={\\displaystyle \\int_{1}^{4}\\left(2t^{2}+\\frac{t^{3/2}}{2}+\\sqrt{t}\\right)dt} \\\\ & =\\left[\\frac{2t^{3}}{3}+\\frac{t^{5/2}}{5}+\\frac{2t^{3/2}}{3}\\right]_{t=1}^{t=4} \\\\ & =\\frac{793}{15}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Value of an Integral of the Form ${\\displaystyle \\int_{C}Pdx+Qdy+Rdz}$"
+  },
+  {
+   "id": "c30",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of ${\\displaystyle \\int_{C}4xdx+zdy+4y^{2}dz,}$ where $C$ is the curve parameterized by $\\text{r}(t)=〈4\\,\\cos (2t),2\\,\\sin (2t),3〉,0\\le t\\le \\frac{\\pi}{4}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-26$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Write the integral in terms of *t* using (see above)."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-26"
+   }
+  },
+  {
+   "id": "r31",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have learned how to integrate smooth oriented curves. Now, suppose that *C* is an oriented curve that is not smooth, but can be written as the union of finitely many smooth curves. In this case, we say that *C* is a **piecewise smooth curve**. To be precise, curve *C* is piecewise smooth if *C* can be written as a union of *n* smooth curves $C_{1},C_{2},\\dots ,C_{n}$ such that the endpoint of $C_{i}$ is the starting point of $C_{i+1}$ (Figure 6.18). When curves $C_{i}$ satisfy the condition that the endpoint of $C_{i}$ is the starting point of $C_{i+1},$ we write their union as $C_{1}+C_{2}+\\cdots +C_{n}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_008.webp",
+     "alt": "Three curves: C_1, C_2, and C_3. One of the endpoints of C_2 is also an endpoint of C_1, and the other endpoint of C_2 is also an end point of C_3. C_1’s and C_3’s other endpoints are not connect to any other curve. C_1 and C_3 appear to be nearly straight lines while C_2 is an increasing concave down curve. There are three arrowheads on each curve segment all pointing in the same direction: C_1 to C_2, C_2 to C_3, and C_3 to its other endpoint.",
+     "caption": "**Figure 6.18** The union of $C_{1},C_{2},C_{3}$ is a piecewise smooth curve.",
+     "width": 227,
+     "height": 211
+    },
+    {
+     "type": "p",
+     "text": "The next theorem summarizes several key properties of vector line integrals."
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "r32",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let **F** and **G** be continuous vector fields with domains that include the oriented smooth curve *C*. Then"
+      },
+      {
+       "type": "list",
+       "items": [
+        "${\\displaystyle \\int_{C}(\\text{F}+\\text{G})\\cdot d\\text{r}}={\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}+{\\displaystyle \\int_{C}\\text{G}\\cdot d\\text{r}}$",
+        "${\\displaystyle \\int_{C}k\\text{F}\\cdot d\\text{r}}=k{\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r},}$ where *k* is a constant",
+        "${\\displaystyle \\int_{-C}\\text{F}\\cdot d\\text{r}=}{\\displaystyle -\\int_{C}\\text{F}\\cdot d\\text{r}}$",
+        [
+         {
+          "type": "p",
+          "text": "Suppose instead that *C* is a piecewise smooth curve in the domains of **F** and **G**, where $C=C_{1}+C_{2}+\\cdots +C_{n}$ and $C_{1},C_{2},\\dots ,C_{n}$ are smooth curves such that the endpoint of $C_{i}$ is the starting point of $C_{i+1}.$ Then"
+         },
+         {
+          "type": "math",
+          "tex": "\\int_{C}\\text{F}\\cdot d\\text{r}=\\int_{C_{1}}\\text{F}\\cdot d\\text{r}+\\int_{C_{2}}\\text{F}\\cdot d\\text{r}+\\cdots +\\int_{C_{n}}\\text{F}\\cdot d\\text{r}."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Properties of Vector Line Integrals"
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "r33",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Notice the similarities between these items and the properties of single-variable integrals. Properties i. and ii. say that line integrals are linear, which is true of single-variable integrals as well. Property iii. says that reversing the orientation of a curve changes the sign of the integral. If we think of the integral as computing the work done on a particle traveling along *C*, then this makes sense. If the particle moves backward rather than forward, then the value of the work done has the opposite sign. This is analogous to the equation ${\\displaystyle \\int_{a}^{b}f(x)dx=-{\\displaystyle \\int_{b}^{a}f(x)dx.}}$ Finally, if $[a_{1},a_{2}],[a_{2},a_{3}],\\dots ,[a_{n-1},a_{n}]$ are intervals, then"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{a_{1}}^{a_{n}}f(x)dx=}{\\displaystyle \\int_{a_{1}}^{a_{2}}f(x)dx}+{\\displaystyle \\int_{a_{2}}^{a_{3}}f(x)dx+\\cdots +{\\displaystyle \\int_{a_{n-1}}^{a_{n}}f(x)dx}},"
+    },
+    {
+     "type": "p",
+     "text": "which is analogous to property iv."
+    }
+   ],
+   "title": "Vector Line Integrals (continued)"
+  },
+  {
+   "id": "x34",
+   "kind": "example",
+   "label": "Example 6.21",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the value of integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}}ds,$ where *C* is the rectangle (oriented counterclockwise) in a plane with vertices $(0,0),(2,0),(2,1),\\,\\text{and}\\,(0,1),$ and where $\\text{F}=〈x-2y,y-x〉$ (Figure 6.19)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_009.webp",
+     "alt": "A vector field in two dimensions. The arrows following roughly a 90-degree angle to the origin in quadrants 1 and 3 point to the origin. As the arrows deviate from this angle, they point away from the angle ad become smaller. Above, they point up and to the left, and below, they point down and to the right. A rectangle is drawn in quadrant 1 from 0 to 2 on the x axis and from 0 to 1 on the y axis. C_1 is the base, C_2 is the right leg, C_3 is the top, and C_4 is the left leg.",
+     "caption": "**Figure 6.19** Rectangle and vector field for Example 6.21.",
+     "width": 642,
+     "height": 572
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Note that curve *C* is the union of its four sides, and each side is smooth. Therefore *C* is piecewise smooth. Let $C_{1}$ represent the side from $(0,0)$ to $(2,0),$ let $C_{2}$ represent the side from $(2,0)$ to $(2,1),$ let $C_{3}$ represent the side from $(2,1)$ to $(0,1),$ and let $C_{4}$ represent the side from $(0,1)$ to $(0,0)$ (Figure 6.19). Then,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}d\\text{r}}={\\displaystyle \\int_{C_{1}}\\text{F}\\cdot \\text{T}d\\text{r}}+{\\displaystyle \\int_{C_{2}}\\text{F}\\cdot \\text{T}d\\text{r}}+{\\displaystyle \\int_{C_{3}}\\text{F}\\cdot \\text{T}d\\text{r}}+{\\displaystyle \\int_{C_{4}}\\text{F}\\cdot \\text{T}d\\text{r}}."
+     },
+     {
+      "type": "p",
+      "text": "We want to compute each of the four integrals on the right-hand side using (see above). Before doing this, we need a parameterization of each side of the rectangle. Here are four parameterizations (note that they traverse *C* counterclockwise):"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c}C_{1}:〈t,0〉,0\\le t\\le 2 \\\\ C_{2}:〈2,t〉,0\\le t\\le 1 \\\\ C_{3}:〈2-t,1〉,0\\le t\\le 2 \\\\ C_{4}:〈0,1-t〉,0\\le t\\le 1.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\int_{C_{1}}\\text{F}\\cdot \\text{T}d\\text{r} & =\\int_{0}^{2}\\text{F}(\\text{r}(t))\\cdot {\\mathbf{r}}'(t)dt \\\\ & =\\int_{0}^{2}\\langle t-2(0),0-t\\rangle \\cdot \\langle 1,0\\rangle dt=\\int_{0}^{2}tdt \\\\ & =\\left[\\frac{t^{2}}{2}\\right]_{0}^{2}=2.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Notice that the value of this integral is positive, which should not be surprising. As we move along curve *C$_{\\text{1}}$* from left to right, our movement flows in the general direction of the vector field itself. At any point along *C$_{\\text{1}}$*, the tangent vector to the curve and the corresponding vector in the field form an angle that is less than 90°. Therefore, the tangent vector and the force vector have a positive dot product all along *C$_{\\text{1}}$*, and the line integral will have positive value."
+     },
+     {
+      "type": "p",
+      "text": "The calculations for the three other line integrals are done similarly:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{0}^{1}〈2-2t,t-2〉}\\cdot 〈0,1〉dt \\\\ & ={\\displaystyle \\int_{0}^{1}(t-2)dt} \\\\ & =\\left[\\frac{t^{2}}{2}-2t\\right]_{0}^{1}=-\\frac{3}{2},\\end{array}"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C_{3}}\\text{F}\\cdot \\text{T}ds} & ={\\displaystyle \\int_{0}^{2}〈(2-t)-2,1-(2-t)〉}\\cdot 〈-1,0〉dt \\\\ & ={\\displaystyle \\int_{0}^{2}tdt}=2,\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C_{4}}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{0}^{1}〈-2(1-t),1-t〉}\\cdot 〈0,-1〉dt \\\\ & ={\\displaystyle \\int_{0}^{1}(t-1)dt} \\\\ & =\\left[\\frac{t^{2}}{2}-t\\right]_{0}^{1}=-\\frac{1}{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus, we have ${\\displaystyle \\int_{C}\\text{F}}\\cdot d\\text{r}=2.$"
+     }
+    ]
+   },
+   "title": "Using Properties to Compute a Vector Line Integral"
+  },
+  {
+   "id": "c35",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate line integral ${\\displaystyle \\int_{C}\\text{F}}\\cdot d\\text{r},$ where **F** is vector field $〈y^{2},2xy+1〉$ and *C* is a triangle with vertices $(0,0),$ $(4,0),$ and $(0,5),$ oriented counterclockwise."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Write the triangle as a union of its three sides, then calculate three separate line integrals."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "r36",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Scalar line integrals have many applications. They can be used to calculate the length or mass of a wire, the surface area of a sheet of a given height, or the electric potential of a charged wire given a linear charge density. Vector line integrals are extremely useful in physics. They can be used to calculate the work done on a particle as it moves through a force field, or the flow rate of a fluid across a curve. Here, we calculate the **mass of a wire** using a scalar line integral and the work done by a force using a vector line integral."
+    },
+    {
+     "type": "p",
+     "text": "Suppose that a piece of wire is modeled by curve *C* in space. The mass per unit length (the linear density) of the wire is a continuous function $\\rho (x,y,z).$ We can calculate the total mass of the wire using the scalar line integral ${\\displaystyle \\int_{C}\\rho (x,y,z)ds.}$ The reason is that mass is density multiplied by length, and therefore the density of a small piece of the wire can be approximated by $\\rho (x*,y*,z*)\\text{Δ}s$ for some point $(x*,y*,z*)$ in the piece. Letting the length of the pieces shrink to zero with a limit yields the line integral ${\\displaystyle \\int_{C}\\rho (x,y,z)ds.}$"
+    }
+   ],
+   "title": "Applications of Line Integrals"
+  },
+  {
+   "id": "x37",
+   "kind": "example",
+   "label": "Example 6.22",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the mass of a spring in the shape of a curve parameterized by $〈t,2\\,\\cos \\,t,2\\,\\sin \\,t〉,$ $0\\le t\\le \\frac{\\pi}{2},$ with a density function given by $\\rho (x,y,z)=e^{x}+yz$ kg/m (Figure 6.20)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_010.webp",
+     "alt": "A three dimensional diagram. An increasing, then slightly decreasing concave down curve is drawn from (0,2,0) to (pi/2, 0, 2). The arrow on the curve is pointing to the latter endpoint.",
+     "caption": "**Figure 6.20** The wire from Example 6.22.",
+     "width": 421,
+     "height": 522
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To calculate the mass of the spring, we must find the value of the scalar line integral ${\\displaystyle \\int_{C}(e^{x}+yz)ds},$ where *C* is the given helix. To calculate this integral, we write it in terms of *t* using (see above):"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}e^{x}}+yzds & ={\\displaystyle \\int_{0}^{\\pi /2}((e^{t}+4\\,\\cos \\,t\\,\\sin \\,t)\\sqrt{1+(-2\\,\\cos \\,t)^{2}+(2\\,\\sin \\,t)^{2}})dt} \\\\ & ={\\displaystyle \\int_{0}^{\\pi /2}((e^{t}+4\\,\\cos \\,t\\,\\sin \\,t)\\sqrt{5})dt} \\\\ & =\\sqrt{5}[e^{t}+2\\,\\sin^{2}t]_{t=0}^{t=\\pi /2} \\\\ & =\\sqrt{5}(e^{\\pi /2}+1).\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the mass is $\\sqrt{5}(e^{\\pi /2}+1)$ kg."
+     }
+    ]
+   },
+   "title": "Calculating the Mass of a Wire"
+  },
+  {
+   "id": "c38",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.20",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the mass of a spring in the shape of a helix parameterized by $\\text{r}(t)=〈\\cos \\,t,\\sin \\,t,t〉,0\\le t\\le 6\\pi ,$ with a density function given by $\\rho (x,y,z)=x+y+z$ kg/m."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$18\\sqrt{2}\\pi^{2}$ kg"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate the line integral of $\\rho$ over the curve with parameterization **r**."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "18 sqrt(2)pi^2"
+   }
+  },
+  {
+   "id": "r39",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When we first defined vector line integrals, we used the concept of work to motivate the definition. Therefore, it is not surprising that calculating the **work done by a vector field** representing a force is a standard use of vector line integrals. Recall that if an object moves along curve *C* in force field **F**, then the work required to move the object is given by ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}.$"
+    }
+   ],
+   "title": "Applications of Line Integrals (continued)"
+  },
+  {
+   "id": "x40",
+   "kind": "example",
+   "label": "Example 6.23",
+   "problem": [
+    {
+     "type": "p",
+     "text": "How much work is required to move an object in vector force field $\\text{F}=〈yz,xy,xz〉$ along path $\\text{r}(t)=〈t^{2},t,t^{4}〉,$ $0\\le t\\le 1?$ See Figure 6.21."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let *C* denote the given path. We need to find the value of ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}.$ To do this, we use (see above):"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}}\\cdot d\\text{r} & ={\\displaystyle \\int_{0}^{1}(〈t^{5},t^{3},t^{6}〉\\cdot 〈2t,1,4t^{3}〉)dt} \\\\ & ={\\displaystyle \\int_{0}^{1}(2t^{6}+t^{3}+4t^{9})dt} \\\\ & =\\left[\\frac{2t^{7}}{7}+\\frac{t^{4}}{4}+\\frac{2t^{10}}{5}\\right]_{t=0}^{t=1}=\\frac{131}{140}.\\end{array}"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_02_011.webp",
+      "alt": "A three dimensional diagram of the curve and vector field for the example. The curve is an increasing concave up curve starting close to the origin and above the x axis. As the curve goes left above the (x,y) plane, the height also increases. The arrows in the vector field get longer as the z component becomes larger.",
+      "caption": "**Figure 6.21** The curve and vector field for Example 6.23.",
+      "width": 316,
+      "height": 597
+     }
+    ]
+   },
+   "title": "Calculating Work"
+  },
+  {
+   "id": "r41",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We close this section by discussing two key concepts related to line integrals: flux across a plane curve and circulation along a plane curve. Flux is used in applications to calculate fluid flow across a curve, and the concept of circulation is important for characterizing conservative gradient fields in terms of line integrals. Both these concepts are used heavily throughout the rest of this chapter. The idea of flux is especially important for Green’s theorem, and in higher dimensions for Stokes’ theorem and the divergence theorem."
+    },
+    {
+     "type": "p",
+     "text": "Let *C* be a plane curve and let **F** be a vector field in the plane. Imagine *C* is a membrane across which fluid flows, but *C* does not impede the flow of the fluid. In other words, *C* is an idealized membrane invisible to the fluid. Suppose **F** represents the velocity field of the fluid. How could we quantify the rate at which the fluid is crossing *C*?"
+    },
+    {
+     "type": "p",
+     "text": "Recall that the line integral of **F** along *C* is ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}$—in other words, the line integral is the dot product of the vector field with the unit tangential vector with respect to arc length. If we replace the unit tangential vector with unit normal vector $\\text{N}(t)$ and instead compute integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}ds},$ we determine the flux across *C*. To be precise, the definition of integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}ds}$ is the same as integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds},$ except the **T** in the Riemann sum is replaced with **N**. Therefore, the flux across *C* is defined as"
+    }
+   ],
+   "title": "Flux and Circulation"
+  },
+  {
+   "id": "r42",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}ds=}\\lim_{n\\to \\infty}{\\displaystyle \\sum_{i=1}^{n}\\text{F}\\left(P_{i}^{*}\\right)}\\cdot \\text{N}\\left(P_{i}^{*}\\right)\\text{Δ}s_{i},"
+    },
+    {
+     "type": "p",
+     "text": "where $P_{i}^{*}$ and $\\text{Δ}s_{i}$ are defined as they were for integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}.$ Therefore, a flux integral is an integral that is *perpendicular* to a vector line integral, because **N** and **T** are perpendicular vectors."
+    },
+    {
+     "type": "p",
+     "text": "If **F** is a velocity field of a fluid and *C* is a curve that represents a membrane, then the flux of **F** across *C* is the quantity of fluid flowing across *C* per unit time, or the rate of flow."
+    },
+    {
+     "type": "p",
+     "text": "More formally, let *C* be a plane curve parameterized by $\\text{r}(t)=〈x(t),y(t)〉,$ $a\\le t\\le b.$ Let $\\text{n}(t)=〈y'(t),-x'(t)〉$ be the vector that is normal to *C* at the endpoint of $\\text{r}(t)$ and points to the right as we traverse *C* in the positive direction (Figure 6.22). Then, $\\text{N}(t)=\\frac{\\text{n}(t)}{\\| \\text{n}(t)\\|}$ is the unit normal vector to *C* at the endpoint of $\\text{r}(t)$ that points to the right as we traverse *C*."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **flux** of **F** across *C* is line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\frac{\\text{n}(t)}{\\| \\text{n}(t)\\|}}ds.$"
+      }
+     ]
+    }
+   ],
+   "title": "Flux and Circulation (continued)"
+  },
+  {
+   "id": "r43",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_012.webp",
+     "alt": "A simple diagram of an increasing concave down curve C in vector field F, with no coordinate plane. Towards the top of the curve, the normal n is drawn perpendicular to the curve C. Another arrow F is drawn sharing n’s endpoint. This flux points up and to the right at about a 90-degree angle to n. The arrows in the vector field to the left of n are drawn pointing straight up. The arrows after n point in the same direction as the flux.",
+     "caption": "**Figure 6.22** The flux of vector field **F** across curve *C* is computed by an integral similar to a vector line integral.",
+     "width": 522,
+     "height": 491
+    },
+    {
+     "type": "p",
+     "text": "We now give a formula for calculating the flux across a curve. This formula is analogous to the formula used to calculate a vector line integral (see (see above))."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let **F** be a vector field and let *C* be a smooth curve with parameterization $\\text{r}(t)=〈x(t),y(t)〉,a\\le t\\le b.$ Let $\\text{n}(t)=〈y'(t),-x'(t)〉.$ The flux of **F** across *C* is"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}ds={\\displaystyle \\int_{a}^{b}\\text{F}(\\text{r}(t))\\cdot \\text{n}(t)dt}}"
+      }
+     ],
+     "title": "Calculating Flux across a Curve"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Calculating Flux across a Curve is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Flux and Circulation (continued)"
+  },
+  {
+   "id": "r44",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Line integrals generalize the notion of a single-variable integral to higher dimensions. The domain of integration in a single-variable integral is a line segment along the *x*-axis, but the domain of integration in a line integral is a curve in a plane or in space.",
+      "If *C* is a curve, then the length of *C* is ${\\displaystyle \\int_{C}ds}.$",
+      "There are two kinds of line integral: scalar line integrals and vector line integrals. Scalar line integrals can be used to calculate the mass of a wire; vector line integrals can be used to calculate the work done on a particle traveling through a field.",
+      "Scalar line integrals can be calculated using (see above); vector line integrals can be calculated using (see above).",
+      "Two key concepts expressed in terms of line integrals are flux and circulation. Flux measures the rate that a field crosses a given line; circulation measures the tendency of a field to move in the same direction as a given closed curve."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r45",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Calculating a scalar line integral**",
+       "${\\displaystyle \\int_{C}f(x,y,z)ds={\\displaystyle \\int_{a}^{b}f(\\text{r}(t))\\sqrt{(x'(t))^{2}+(y'(t))^{2}+(z'(t))^{2}}dt}}$"
+      ],
+      [
+       "**Calculating a vector line integral**",
+       "${\\displaystyle \\int_{C}\\text{F}\\cdot dr}={\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}={\\displaystyle \\int_{a}^{b}\\text{F}(\\text{r}(t))\\cdot r'(t)dt}$\n\nor\n\n${\\displaystyle \\int_{C}Pdx+Qdy+Rdz}={\\displaystyle \\int_{a}^{b}\\left(P(\\text{r}(t))\\frac{dx}{dt}+Q(\\text{r}(t))\\frac{dy}{dt}+R(\\text{r}(t))\\frac{dz}{dt}\\right)dt}$"
+      ],
+      [
+       "**Calculating flux**",
+       "${\\displaystyle \\int_{C}\\text{F}\\cdot \\frac{\\text{n}(t)}{\\| \\text{n}(t)\\|}}\\,ds={\\displaystyle \\int_{a}^{b}\\text{F}(\\text{r}(t))\\cdot \\text{n}(t)dt}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True or False?* Line integral ${\\displaystyle \\int_{C}^{}f(x,y)ds}$ is equal to a definite integral if *C* is a smooth curve defined on $[a,b]$ and if function $f$ is continuous on some region that contains curve *C*."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793234249",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "true"
+   }
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True or False?* Vector functions ${\\text{r}}_{1}=t\\text{i}+t^{2}\\text{j},$ $0\\le t\\le 1,$ and ${\\text{r}}_{2}=(1-t)\\text{i}+(1-t)^{2}\\text{j},$ $0\\le t\\le 1,$ define the same oriented curve."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793452354",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e41",
+   "number": 41,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True or False?* ${\\displaystyle \\int_{-C}^{}(Pdx+Qdy)={\\displaystyle \\int_{C}^{}(Pdx-Qdy)}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793688256",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "false"
+   }
+  },
+  {
+   "id": "e42",
+   "number": 42,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True or False?* A piecewise smooth curve *C* consists of a finite number of smooth curves that are joined together end to end."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793566587",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e43",
+   "number": 43,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True or False?* If *C* is given by $x(t)=t,\\,y(t)=t, 0\\le \\text{t}\\le 1,$ then ${\\displaystyle \\int_{C}^{}xyds={\\displaystyle \\int_{0}^{1}t^{2}dt}}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793490620",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "false"
+   }
+  },
+  {
+   "id": "e44",
+   "number": 44,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{C}^{}(x+y)ds}$"
+    },
+    {
+     "type": "p",
+     "text": "$C:\\,x=t,y=(1-t),\\,z=0$ from (0, 1, 0) to (1, 0, 0)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793829030",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a computer algebra system (CAS) to evaluate the line integrals over the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e45",
+   "number": 45,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{C}^{}(x-y)ds}$"
+    },
+    {
+     "type": "p",
+     "text": "$C:\\,\\text{r}(t)=4t\\text{i}+3t\\text{j}$ when $0\\le t\\le 2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793246898",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a computer algebra system (CAS) to evaluate the line integrals over the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}(x-y)ds}=10$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "10"
+   }
+  },
+  {
+   "id": "e46",
+   "number": 46,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{C}^{}(x^{2}+y^{2}+z^{2})ds}$"
+    },
+    {
+     "type": "p",
+     "text": "$C:\\,\\text{r}(t)=\\sin \\,t\\text{i}+\\cos \\,t\\text{j}+8t\\text{k}$ when $0\\le t\\le \\frac{\\pi}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793441543",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a computer algebra system (CAS) to evaluate the line integrals over the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e47",
+   "number": 47,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\int_{C}^{}xy^{4}ds},$ where *C* is the right half of circle $x^{2}+y^{2}=16$ and is traversed in the clockwise direction."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793750231",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a computer algebra system (CAS) to evaluate the line integrals over the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}xy^{4}ds}=\\frac{8192}{5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(8192/5)"
+   }
+  },
+  {
+   "id": "e48",
+   "number": 48,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\int_{C}^{}4x^{3}ds},$ where *C* is the line segment from $(-2,-1)$ to (1, 2)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794138227",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a computer algebra system (CAS) to evaluate the line integrals over the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e49",
+   "number": 49,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the work done by vector field $\\text{F}(x,y,z)=x\\text{i}+3xy\\text{j}-(x+z)\\text{k}$ on a particle moving along a line segment that goes from $(1,4,2)$ to $(0,5,1).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793613000",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the work done."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=8$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W=8"
+   }
+  },
+  {
+   "id": "e50",
+   "number": 50,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the work done by a person weighing 150 lb walking exactly one revolution up a circular, spiral staircase of radius 3 ft if the person rises 10 ft."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793640203",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the work done."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e51",
+   "number": 51,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the work done by force field $\\text{F}(x,y,z)=-\\frac{1}{2}x\\text{i}-\\frac{1}{2}y\\text{j}+\\frac{1}{4}\\text{k}$ on a particle as it moves along the helix $\\text{r}(t)=\\cos \\,t\\text{i}+\\sin \\,t\\text{j}+t\\text{k}$ from point $(1,0,0)$ to point $(-1,0,3\\pi ).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793640233",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the work done."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=\\frac{3\\pi}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W=((3 pi)/4)"
+   }
+  },
+  {
+   "id": "e52",
+   "number": 52,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the work done by vector field $\\text{F}(x,y)=y\\text{i}+2x\\text{j}$ in moving an object along path *C*, the straight line which joins points (1, 0) and (0, 1)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794121587",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the work done."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e53",
+   "number": 53,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the work done by force $\\text{F}(x,y)=2y\\text{i}+3x\\text{j}+(x+y)\\text{k}$ in moving an object along curve $\\text{r}(t)=\\cos (t)\\text{i}+\\sin (t)\\text{j}+\\frac{1}{6}\\text{k},$ where $0\\le t\\le 2\\pi .$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793451270",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the work done."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W= pi"
+   }
+  },
+  {
+   "id": "e54",
+   "number": 54,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the mass of a wire in the shape of a circle of radius 2 centered at (3, 4) with linear mass density $\\rho (x,y)=y^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793634090",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the work done."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e55",
+   "number": 55,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}},$ where $\\text{F}(x,y)=-1\\text{j},$ and *C* is the part of the graph of $y=\\frac{1}{2}x^{3}-x$ from $(2,2)$ to $(-2,-2).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793705676",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}=4$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "4"
+   }
+  },
+  {
+   "id": "e56",
+   "number": 56,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{\\gamma}^{}(x^{2}+y^{2}+z^{2})^{-1}ds},$ where $\\gamma$ is the helix $x=\\cos \\,t,y=\\sin \\,t,z=t(0\\le t\\le T).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793477547",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e57",
+   "number": 57,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{C}^{}yz\\,dx+xz\\,dy+xy\\,dz}$ over the line segment from $(1,1,1)$ to $(3,2,0).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793400578",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}yzdx+xzdy+xydz}=-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   }
+  },
+  {
+   "id": "e58",
+   "number": 58,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let *C* be the line segment from point (0, 1, 1) to point (2, 2, 3). Evaluate line integral ${\\displaystyle \\int_{C}^{}yds}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794284370",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e59",
+   "number": 59,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a computer algebra system to evaluate the line integral ${\\displaystyle \\int_{C}y^{2}dx+xdy},$ where *C* is the arc of the parabola $x=4-y^{2}$ from (−5, −3) to (0, 2)."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793544911",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}(y^{2})dx+(x)dy}=\\frac{245}{6}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(245/6)"
+   }
+  },
+  {
+   "id": "e60",
+   "number": 60,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a computer algebra system to evaluate the line integral ${\\displaystyle \\int_{C}^{}(x+3y^{2})dy}$ over the path *C* given by $x=2t,\\,y=10t,$ where $0\\le t\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793925228",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e61",
+   "number": 61,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a CAS to evaluate line integral ${\\displaystyle \\int_{C}^{}xydx+ydy}$ over path *C* given by $x=2t,\\,y=10t,$ where $0\\le t\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793590154",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}xydx+ydy=\\frac{190}{3}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e62",
+   "number": 62,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate line integral ${\\displaystyle \\int_{C}^{}(2x-y)dx+(x+3y)dy},$ where *C* lies along the *x*-axis from $x=0\\,\\text{to}\\,x=5.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167791542878",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e63",
+   "number": 63,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a CAS to evaluate ${\\displaystyle \\int_{C}^{}\\frac{y}{2x^{2}-y^{2}}ds},$ where *C* is $x=t,\\,y=t,\\,1\\le t\\le 5.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793938055",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}\\frac{y}{2x^{2}-y^{2}}ds=\\sqrt{2}\\,\\ln \\,5}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e64",
+   "number": 64,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a CAS to evaluate ${\\displaystyle \\int_{C}xyds,}$ where *C* is $x=t^{2},y=4t,0\\le t\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793298598",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e65",
+   "number": 65,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=-x\\text{i}-2y\\text{j}$"
+    },
+    {
+     "type": "p",
+     "text": "$C:\\,y=x^{3}\\,\\text{from (0, 0) to (2, 8)}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794296818",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=-66$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W=-66"
+   }
+  },
+  {
+   "id": "e66",
+   "number": 66,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,\\,y)=2x\\mathbf{i}+y\\text{j}$"
+    },
+    {
+     "type": "p",
+     "text": "*C*: counterclockwise around the triangle with vertices (0, 0), (1, 0), and (1, 1)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793939279",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e67",
+   "number": 67,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,\\,y,\\,z)=x\\text{i}+y\\text{j}-5z\\text{k}$"
+    },
+    {
+     "type": "p",
+     "text": "$\\text{C}:\\,\\text{r}(t)=2\\,\\cos \\,t\\text{i}+2\\,\\sin \\,t\\text{j}+t\\text{k},\\,0\\le t\\le 2\\pi$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793451632",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=-10\\pi^{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W=-10 pi^2"
+   }
+  },
+  {
+   "id": "e68",
+   "number": 68,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let **F** be vector field $\\text{F}(x,y)=(y^{2}+2xe^{y}+1)\\text{i}+(2xy+x^{2}e^{y}+2y)\\text{j}.$ Compute the work of integral ${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}},$ where *C* is the path $\\text{r}(t)=\\sin \\,t\\text{i}+\\cos \\,t\\text{j},\\,0\\le t\\le \\frac{\\pi}{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793498768",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e69",
+   "number": 69,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Compute the work done by force $\\text{F}(x,y,z)=2x\\text{i}+3y\\text{j}-z\\text{k}$ along path $\\text{r}(t)=t\\text{i}+t^{2}\\text{j}+t^{3}\\text{k},$ where $0\\le t\\le 1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793515633",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W=2"
+   }
+  },
+  {
+   "id": "e70",
+   "number": 70,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}},$ where $\\text{F}(x,y)=\\frac{1}{x+y}\\text{i}+\\frac{1}{x+y}\\text{j}$ and *C* is the segment of the unit circle going counterclockwise from $(1,0)$ to (0, 1)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794143457",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e71",
+   "number": 71,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Force $\\text{F}(x,y,z)=zy\\text{i}+x\\text{j}+z^{2}x\\text{k}$ acts on a particle that travels from the origin to point (1, 2, 3). Calculate the work done if the particle travels:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "along the path $(0,0,0)\\to (1,0,0)\\to (1,2,0)\\to (1,2,3)$ along straight-line segments joining each pair of endpoints;",
+      "along the straight line joining the initial and final points.",
+      [
+       {
+        "type": "p",
+        "text": "Is the work the same along the two paths?"
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_16_02_201.webp",
+        "alt": "A curve and vector field in three dimensions. The curve segments go from (1,2,3) to (0,0,0) to (1,0,0) to (1,2,0), and the arrowheads point to (0,0,0), (1,0,0), and (1,2,0). The surrounding vectors are larger the more the z component increases.",
+        "width": 461,
+        "height": 447
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794054390",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $W=11;$ b. $W=\\frac{39}{4};$ c. No"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "equation",
+       "value": "W=11"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "equation",
+       "value": "W=(39/4)"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "text",
+       "value": "no"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e72",
+   "number": 72,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the work done by vector field $\\text{F}(x,y,z)=x\\text{i}+3xy\\text{j}-(x+z)\\text{k}$ on a particle moving along a line segment that goes from (1, 4, 2) to (0, 5, 1)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793641122",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e73",
+   "number": 73,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "How much work is required to move an object in vector field $\\text{F}(x,y)=y\\text{i}+3x\\text{j}$ along the upper part of ellipse $\\frac{x^{2}}{4}+y^{2}=1$ from (2, 0) to $(-2,0)?$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793401442",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=2\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W=2 pi"
+   }
+  },
+  {
+   "id": "e74",
+   "number": 74,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A vector field is given by $\\text{F}(x,y)=(2x+3y)\\text{i}+(3x+2y)\\text{j}.$ Evaluate the line integral of the field around a circle of unit radius traversed in a clockwise fashion."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793611105",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e75",
+   "number": 75,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate the line integral of scalar function $xy$ along parabolic path $y=x^{2}$ connecting the origin to point (1, 1)."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793267536",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}xyds=\\frac{25\\sqrt{5}+1}{120}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((25 sqrt(5)+1)/120)"
+   }
+  },
+  {
+   "id": "e76",
+   "number": 76,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find ${\\displaystyle \\int_{C}^{}y^{2}dx+(xy-x^{2})dy}$ along *C*: $y=3x$ from (0, 0) to (1, 3)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793244285",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e77",
+   "number": 77,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find ${\\displaystyle \\int_{C}^{}y^{2}dx+(xy-x^{2})dy}$ along *C*: $y^{2}=9x$ from (0, 0) to (1, 3)."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793513199",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the work done by force field **F** on an object moving along the indicated path."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}y^{2}dx+(xy-x^{2})dy}=6.15$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "6.15"
+   }
+  },
+  {
+   "id": "e78",
+   "number": 78,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate $\\text{F}(x,y,z)=x^{2}z\\text{i}+6y\\text{j}+yz^{2}\\text{k},$ where *C* is represented by $\\text{r}(t)=t\\text{i}+t^{2}\\text{j}+\\ln \\,t\\text{k},\\,1\\le t\\le 3.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793279328",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e79",
+   "number": 79,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate line integral ${\\displaystyle \\int_{\\gamma}^{}xe^{y}ds}$ where, $\\gamma$ is the arc of curve $x=e^{y}$ from $(1,0)$ to $(e,1).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793547321",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{\\gamma}^{}xe^{y}ds\\approx 7.157}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e80",
+   "number": 80,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate the integral ${\\displaystyle \\int_{\\gamma}^{}xy^{2}ds},$ where $\\gamma$ is a triangle with vertices (0, 1, 2), (1, 0, 3), and $(0,-1,0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793590315",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e81",
+   "number": 81,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate line integral ${\\displaystyle \\int_{\\gamma}^{}(y^{2}-xy)ds},$ where $\\gamma$ is curve $y=\\ln \\,x$ from (1, 0) toward $(e,\\,1).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793545835",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{\\gamma}^{}(y^{2}-xy)dx\\approx -1.379}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e82",
+   "number": 82,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate line integral ${\\displaystyle \\int_{\\gamma}^{}xy^{4}ds},$ where $\\gamma$ is the right half of circle $x^{2}+y^{2}=16.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793688224",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e83",
+   "number": 83,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}},$ where $\\text{F}(x,y,z)=x^{2}y\\text{i}+(x-z)\\text{j}+xyz\\text{k}$ and"
+    },
+    {
+     "type": "p",
+     "text": "*C*: $\\text{r}(t)=t\\text{i}+t^{2}\\text{j}+2\\text{k},\\,0\\le t\\le 1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794223657",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}}\\approx -1.133$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1.133"
+   }
+  },
+  {
+   "id": "e84",
+   "number": 84,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}},$ where $\\text{F}(x,y)=2x\\,\\sin (y)\\text{i}+(x^{2}\\cos (y)-3y^{2})\\text{j}$ and"
+    },
+    {
+     "type": "p",
+     "text": "*C* is any path from $(-1,0)$ to (5, 1)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793386797",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e85",
+   "number": 85,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the line integral of $\\text{F}(x,y,z)=12x^{2}\\text{i}-5xy\\text{j}+xz\\text{k}$ over path *C* defined by $y=x^{2},$ $z=x^{3}$ from point (0, 0, 0) to point (2, 4, 8)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793442525",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}\\approx 22.857}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e86",
+   "number": 86,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the line integral of ${\\displaystyle \\int_{C}^{}(1+x^{2}y)ds},$ where *C* is ellipse $\\text{r}(t)=2\\,\\cos \\,t\\text{i}+3\\,\\sin \\,t\\text{j}$ from $0\\le t\\le \\pi .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794186628",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a CAS to evaluate the given line integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e87",
+   "number": 87,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Compute the flux of $\\text{F}=x^{2}\\text{i}+y\\text{j}$ across a line segment from (0, 0) to (1, 2)."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793545723",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{flux}=-\\frac{1}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-(1/3)"
+   }
+  },
+  {
+   "id": "e88",
+   "number": 88,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $\\text{F}=5\\text{i}$ and let *C* be curve $y=0,0\\le x\\le 4.$ Find the flux across *C*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793569457",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e89",
+   "number": 89,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $\\text{F}=5\\text{j}$ and let *C* be curve $y=0,0\\le x\\le 4.$ Find the flux across *C*."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793553836",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{flux}=-20$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-20"
+   }
+  },
+  {
+   "id": "e90",
+   "number": 90,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $\\text{F}=-y\\text{i}+x\\text{j}$ and let *C*: $\\text{r}(t)=\\cos \\,t\\text{i}+\\sin \\,t\\text{j}$ $(0\\le t\\le 2\\pi ).$ Calculate the flux across *C*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793571388",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e91",
+   "number": 91,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $\\text{F}=(x^{2}+y^{3})\\text{i}+(2xy)\\text{j}.$ Calculate flux **F** orientated counterclockwise across curve *C*: $x^{2}+y^{2}=9.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794124182",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{flux}=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e92",
+   "number": 92,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the line integral of ${\\displaystyle \\int_{C}^{}z^{2}dx+ydy+2ydz},$ where *C* consists of two parts: $C_{1}$ and $C_{2}.$ $C_{1}$ is the intersection of cylinder $x^{2}+y^{2}=16$ and plane $z=3$ from (0, 4, 3) to $(-4,0,3).$ $C_{2}$ is a line segment from $(-4,0,3)$ to (0, 1, 5)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794158635",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e93",
+   "number": 93,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A spring is made of a thin wire twisted into the shape of a circular helix $x=2\\,\\cos \\,t,\\,y=2\\,\\sin \\,t,\\,z=t.$ Find the mass of two turns of the spring if the wire has constant mass density."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793637435",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$m=4\\pi \\rho \\sqrt{5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "m=4 pi rho sqrt(5)"
+   }
+  },
+  {
+   "id": "e94",
+   "number": 94,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A thin wire is bent into the shape of a semicircle of radius *a*. If the linear mass density at point *P* is directly proportional to its distance from the line through the endpoints, find the mass of the wire."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793375666",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e95",
+   "number": 95,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "An object moves in force field $\\text{F}(x,y,z)=y^{2}\\text{i}+2(x+1)y\\text{j}$ counterclockwise from point (2, 0) along elliptical path $x^{2}+4y^{2}=4$ to $(-2,0),$ and back to point (2, 0) along the *x*-axis. How much work is done by the force field on the object?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793957759",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W=0"
+   }
+  },
+  {
+   "id": "e96",
+   "number": 96,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the work done when an object moves in force field $\\text{F}(x,y,z)=2x\\text{i}-(x+z)\\text{j}+(y-x)\\text{k}$ along the path given by $\\text{r}(t)=t^{2}\\text{i}+(t^{2}-t)\\text{j}+3\\text{k},$ $0\\le t\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793582800",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e97",
+   "number": 97,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If an inverse force field **F** is given by $\\text{F}(x,y,z)=\\frac{\\mathbf{k}}{\\| \\text{r}\\|^{3}}\\text{r},$ where *k* is a constant, find the work done by **F** as its point of application moves along the *x*-axis from $A(1,0,0)\\,\\text{to}\\,B(2,0,0).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793315974",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$W=\\frac{k}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "W=(k/2)"
+   }
+  },
+  {
+   "id": "e98",
+   "number": 98,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "David and Sandra plan to evaluate line integral ${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}}$ along a path in the *xy*-plane from (0, 0) to (1, 1). The force field is $\\text{F}(x,y)=(x+2y)\\text{i}+(-x+y^{2})\\text{j}.$ David chooses the path that runs along the *x*-axis from (0, 0) to (1, 0) and then runs along the vertical line $x=1$ from (1, 0) to the final point (1, 1). Sandra chooses the direct path along the diagonal line $y=x$ from (0, 0) to (1, 1). Whose line integral is larger and by how much?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793940527",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the flux."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Calculating Flux across a Curve",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Let **F** be a vector field and let *C* be a smooth curve with parameterization $\\text{r}(t)=〈x(t),y(t)〉,a\\le t\\le b.$ Let $\\text{n}(t)=〈y'(t),-x'(t)〉.$ The flux of **F** across *C* is"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}ds={\\displaystyle \\int_{a}^{b}\\text{F}(\\text{r}(t))\\cdot \\text{n}(t)dt}}"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "The proof of (see above) is similar to the proof of (see above). Before deriving the formula, note that $\\| \\text{n}(t)\\| =\\| 〈y'(t),-x'(t)〉\\| =\\sqrt{(y'(t))^{2}+(x'(t))^{2}}=\\| r'(t)\\| .$ Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}}\\cdot \\text{N}ds & ={\\displaystyle \\int_{C}\\text{F}\\cdot \\frac{\\text{n}(t)}{\\| \\text{n}(t)\\|}ds} \\\\ & ={\\displaystyle \\int_{a}^{b}\\text{F}\\cdot \\frac{\\text{n}(t)}{\\| \\text{n}(t)\\|}\\| r'(t)\\| dt} \\\\ & ={\\displaystyle \\int_{a}^{b}\\text{F}(\\text{r}(t))\\cdot \\text{n}(t)dt}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Calculate the flux of $\\text{F}=〈2x,2y〉$ across a unit circle oriented counterclockwise (Figure 6.23)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_02_013.webp",
+     "alt": "A unit circle in a vector field in two dimensions. The arrows point away from the origin in a radial pattern. Shorter vectors are near the origin, and longer ones are further away. A unit circle is drawn around the origin to fit the pattern, and arrowheads are drawn on the circle in a counterclockwise manner.",
+     "caption": "**Figure 6.23** A unit circle in vector field $\\text{F}=〈2x,2y〉.$",
+     "width": 496,
+     "height": 272
+    },
+    {
+     "type": "p",
+     "text": "To compute the flux, we first need a parameterization of the unit circle. We can use the standard parameterization $\\text{r}(t)=〈\\cos \\,t,\\sin \\,t〉,$ $0\\le t\\le 2\\pi .$ The normal vector to a unit circle is $〈\\cos \\,t,\\sin \\,t〉.$ Therefore, the flux is"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}}ds & ={\\displaystyle \\int_{0}^{2\\pi}〈2\\,\\cos \\,t,2\\,\\sin \\,t〉\\cdot 〈\\cos \\,t,\\sin \\,t〉}\\,dt \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}(2\\,\\cos^{2}t+2\\,\\sin^{2}t)}\\,dt=2{\\displaystyle \\int_{0}^{2\\pi}(\\cos^{2}t+\\sin^{2}t)}\\,dt \\\\ & =2{\\displaystyle \\int_{0}^{2\\pi}dt}=4\\pi .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Let $\\text{F}(x,y)=〈P(x,y),Q(x,y)〉$ be a two-dimensional vector field. Recall that integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}}ds$ is sometimes written as ${\\displaystyle \\int_{C}Pdx+Qdy}.$ Analogously, flux ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}ds}$ is sometimes written in the notation ${\\displaystyle \\int_{C}-Qdx+Pdy,}$ because the unit normal vector **N** is perpendicular to the unit tangent **T**. Rotating the vector $d\\text{r}=〈dx,dy〉$ by 90° results in vector $〈dy,-dx〉.$ Therefore, the line integral in Example 6.21 can be written as ${\\displaystyle \\int_{C}-2ydx+2xdy}.$"
+    },
+    {
+     "type": "p",
+     "text": "Now that we have defined flux, we can turn our attention to circulation. The line integral of vector field **F** along an oriented closed curve is called the **circulation** of **F** along *C*. Circulation line integrals have their own notation: ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}.$ The circle on the integral symbol denotes that *C* is “circular” in that it has no endpoints. Example 6.18 shows a calculation of circulation."
+    },
+    {
+     "type": "p",
+     "text": "To see where the term *circulation* comes from and what it measures, let **v** represent the velocity field of a fluid and let *C* be an oriented closed curve. At a particular point *P*, the closer the direction of **v**(*P*) is to the direction of **T**(*P*), the larger the value of the dot product $\\text{v}(P)\\cdot \\text{T}(P).$ The maximum value of $\\text{v}(P)\\cdot \\text{T}(P)$ occurs when the two vectors are pointing in the exact same direction; the minimum value of $\\text{v}(P)\\cdot \\text{T}(P)$ occurs when the two vectors are pointing in opposite directions. Thus, the value of the circulation ${\\displaystyle \\int_{C}\\text{v}\\cdot \\text{T}ds}$ measures the tendency of the fluid to move in the direction of *C*."
+    },
+    {
+     "type": "p",
+     "text": "Let $\\text{F}=〈-y,x〉$ be the vector field from Example 6.16 and let *C* represent the unit circle oriented counterclockwise. Calculate the circulation of **F** along *C*."
+    },
+    {
+     "type": "p",
+     "text": "We use the standard parameterization of the unit circle: $\\text{r}(t)=〈\\cos \\,t,\\sin \\,t〉,0\\le t\\le 2\\pi .$ Then, $\\text{F}(\\text{r}(t))=〈-\\sin \\,t,\\cos \\,t〉$ and $r'(t)=〈-\\sin \\,t,\\cos \\,t〉.$ Therefore, the circulation of **F** along *C* is"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}}\\cdot \\text{T}ds & ={\\displaystyle \\int_{0}^{2\\pi}〈-\\sin \\,t,\\cos \\,t〉\\cdot 〈-\\sin \\,t,\\cos \\,t〉dt} \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}(\\sin^{2}t+\\cos^{2}t)}\\,dt \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}dt}=2\\pi .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Notice that the circulation is positive. The reason for this is that the orientation of *C* “flows” with the direction of **F**. At any point along the circle, the tangent vector and the vector from **F** form an angle of less than 90°, and therefore the corresponding dot product is positive."
+    },
+    {
+     "type": "p",
+     "text": "In Example 6.25, what if we had oriented the unit circle clockwise? We denote the unit circle oriented clockwise by $-C.$ Then"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{-C}\\text{F}\\cdot \\text{T}}ds=-{\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}}ds=-2\\pi ."
+    },
+    {
+     "type": "p",
+     "text": "Notice that the circulation is negative in this case. The reason for this is that the orientation of the curve flows against the direction of **F**."
+    },
+    {
+     "type": "p",
+     "text": "Calculate the work done on a particle that traverses circle *C* of radius 2 centered at the origin, oriented counterclockwise, by field $\\text{F}(x,y)=〈-2,y〉.$ Assume the particle starts its movement at $(1,0).$"
+    },
+    {
+     "type": "p",
+     "text": "The work done by **F** on the particle is the circulation of **F** along *C*: ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}.$ We use the parameterization $\\text{r}(t)=〈2\\,\\cos \\,t,2\\,\\sin \\,t〉,0\\le t\\le 2\\pi$ for *C*. Then, $r'(t)=〈-2\\,\\sin \\,t,2\\,\\cos \\,t〉$ and $\\text{F}(\\text{r}(t))=〈-2,2\\,\\sin \\,t〉.$ Therefore, the circulation of **F** along *C* is"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}}\\text{F}\\cdot \\text{T}ds & ={\\displaystyle \\int_{0}^{2\\pi}〈-2,2\\,\\sin \\,t〉\\cdot 〈-2\\,\\sin \\,t,2\\,\\cos \\,t〉dt} \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}(4\\,\\sin \\,t+4\\,\\sin \\,t\\,\\cos \\,t)dt} \\\\ & =[-4\\,\\cos \\,t+4\\,\\sin^{2}t]_{0}^{2\\pi} \\\\ & =(-4\\,\\cos (2\\pi )+2\\,\\sin^{2}(2\\pi ))-(-4\\,\\cos (0)+4\\,\\sin^{2}(0)) \\\\ & =-4+4=0.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "The force field does zero work on the particle."
+    },
+    {
+     "type": "p",
+     "text": "Notice that the circulation of **F** along *C* is zero. Furthermore, notice that since **F** is the gradient of $f(x,y)=-2x+\\frac{y^{2}}{2},$ **F** is conservative. We prove in a later section that under certain broad conditions, the circulation of a conservative vector field along a closed curve is zero."
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "circulation",
+   "meaning": "the tendency of a fluid to move in the direction of curve *C*. If *C* is a closed curve, then the circulation of **F** along *C* is line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds,}$ which we also denote ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds}$"
+  },
+  {
+   "term": "closed curve",
+   "meaning": "a curve for which there exists a parameterization $\\text{r}(t),$ $a\\le t\\le b,$ such that $\\text{r}(a)=\\text{r}(b),$ and the curve is traversed exactly once"
+  },
+  {
+   "term": "flux",
+   "meaning": "the rate of a fluid flowing across a curve in a vector field; the flux of vector field **F** across plane curve *C* is line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\frac{\\text{n}(t)}{\\| \\text{n}(t)\\|}}\\,ds$"
+  },
+  {
+   "term": "line integral",
+   "meaning": "the integral of a function along a curve in a plane or in space"
+  },
+  {
+   "term": "orientation of a curve",
+   "meaning": "the orientation of a curve *C* is a specified direction of *C*"
+  },
+  {
+   "term": "piecewise smooth curve",
+   "meaning": "an oriented curve that is not smooth, but can be written as the union of finitely many smooth curves"
+  },
+  {
+   "term": "scalar line integral",
+   "meaning": "the scalar line integral of a function $f$ along a curve *C* with respect to arc length is the integral ${\\displaystyle \\int_{C}fds},$ it is the integral of a scalar function $f$ along a curve in a plane or in space; such an integral is defined in terms of a Riemann sum, as is a single-variable integral"
+  },
+  {
+   "term": "vector line integral",
+   "meaning": "the vector line integral of vector field **F** along curve *C* is the integral of the dot product of **F** with unit tangent vector **T** of *C* with respect to arc length, ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{T}ds};$ such an integral is defined in terms of a Riemann sum, similar to a single-variable integral"
+  }
+ ]
+}

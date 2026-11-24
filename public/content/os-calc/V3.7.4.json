@@ -1,0 +1,1416 @@
+{
+ "schema": 1,
+ "id": "V3.7.4",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 7,
+ "section": 4,
+ "title": "Series Solutions of Differential Equations",
+ "chapterTitle": "Second-Order Differential Equations",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m54046",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/7-4-series-solutions-of-differential-equations",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §7.4 “Series Solutions of Differential Equations”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use power series to solve first-order and second-order differential equations."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Introduction to Power Series, we studied how functions can be represented as power series, $y(x)=\\sum_{n=0}^{\\infty}a_{n}x^{n}.$ We also saw that we can find series representations of the derivatives of such functions by differentiating the **power series** term by term. This gives $y'(x)={\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n-1}$ and $y''(x)={\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}.$ In some cases, these power series representations can be used to find solutions to differential equations."
+    },
+    {
+     "type": "p",
+     "text": "Be aware that this subject is given only a very brief treatment in this text. Most introductory differential equations textbooks include an entire chapter on power series solutions. This text has only a single section on the topic, so several important issues are not addressed here, particularly issues related to existence of solutions. The examples and exercises in this section were chosen for which power solutions exist. However, it is not always the case that power solutions exist. Those of you interested in a more rigorous treatment of this topic should consult a differential equations text."
+    }
+   ],
+   "title": "Series Solutions of Differential Equations"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Assume the differential equation has a solution of the form $y(x)=\\sum_{n=0}^{\\infty}a_{n}x^{n}.$",
+        "Differentiate the power series term by term to get $y'(x)={\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n-1}$ and $y''(x)={\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}.$",
+        "Substitute the power series expressions into the differential equation.",
+        "Re-index sums as necessary to combine terms and simplify the expression.",
+        "Equate coefficients of like powers of $x$ to determine values for the coefficients $a_{n}$ in the power series.",
+        "Substitute the coefficients back into the power series and write the solution."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Finding Power Series Solutions to Differential Equations"
+    }
+   ],
+   "title": "Series Solutions of Differential Equations (continued)"
+  },
+  {
+   "id": "x3",
+   "kind": "example",
+   "label": "Example 7.25",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y''-y=0$",
+      "$(x^{2}-1)y''+6xy'+4y=-4$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Assume $y(x)=\\sum_{n=0}^{\\infty}a_{n}x^{n}$ (step 1). Then, $y'(x)={\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n-1}$ and $y''(x)={\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}$ (step 2). We want to find values for the coefficients $a_{n}$ such that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}y''-y & = & 0 \\\\ {\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}-\\sum_{n=0}^{\\infty}a_{n}x^{n} & = & 0\\,\\text{(step 3).}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "We want the indices on our sums to match so that we can express them using a single summation. That is, we want to rewrite the first summation so that it starts with $n=0.$\n\nTo re-index the first term, replace *n* with $n+2$ inside the sum, and change the lower summation limit to $n=0.$ We get"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}={\\displaystyle \\sum_{n=0}^{\\infty}(n+2)}(n+1)a_{n+2}x^{n}."
+        },
+        {
+         "type": "p",
+         "text": "This gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}{\\displaystyle \\sum_{n=0}^{\\infty}(n+2)}(n+1)a_{n+2}x^{n}-\\sum_{n=0}^{\\infty}a_{n}x^{n} & = & 0 \\\\ \\sum_{n=0}^{\\infty}[(n+2)(n+1)a_{n+2}-a_{n}]x^{n} & = & 0\\,\\text{(step 4).}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Because power series expansions of functions are unique, this equation can be true only if the coefficients of each power of *x* are zero. So we have"
+        },
+        {
+         "type": "math",
+         "tex": "(n+2)(n+1)a_{n+2}-a_{n}=0\\,\\text{for}\\,n=0,1,2,\\dots ."
+        },
+        {
+         "type": "p",
+         "text": "This recurrence relationship allows us to express each coefficient $a_{n}$ in terms of the coefficient two terms earlier. This yields one expression for even values of *n* and another expression for odd values of *n*. Looking first at the equations involving even values of *n*, we see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}a_{2} & = & \\frac{a_{0}}{2} \\\\ a_{4} & = & \\frac{a_{2}}{4\\cdot 3}=\\frac{a_{0}}{4!} \\\\ a_{6} & = & \\frac{a_{4}}{6\\cdot 5}=\\frac{a_{0}}{6!} \\\\ & \\text{⋮.} & \\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Thus, in general, when *n* is even, $a_{n}=\\frac{a_{0}}{n!}$ (step 5).\n\nFor the equations involving odd values of *n*, we see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}a_{3} & = & \\frac{a_{1}}{3\\cdot 2}=\\frac{a_{1}}{3!} \\\\ a_{5} & = & \\frac{a_{3}}{5\\cdot 4}=\\frac{a_{1}}{5!} \\\\ a_{7} & = & \\frac{a_{5}}{7\\cdot 6}=\\frac{a_{1}}{7!} \\\\ & \\text{⋮.} & \\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, in general, when *n* is odd, $a_{n}=\\frac{a_{1}}{n!}$ (step 5 continued).\n\nPutting this together, we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}y(x) & ={\\displaystyle \\sum_{n=0}^{\\infty}a_{n}}x^{n} \\\\ & =a_{0}+a_{1}x+\\frac{a_{0}}{2}x^{2}+\\frac{a_{1}}{3!}x^{3}+\\frac{a_{0}}{4!}x^{4}+\\frac{a_{1}}{5!}x^{5}+\\cdots .\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Re-indexing the sums to account for the even and odd values of *n* separately, we obtain"
+        },
+        {
+         "type": "math",
+         "tex": "y(x)=a_{0}\\sum_{k=0}^{\\infty}\\frac{1}{(2k)!}x^{2k}+a_{1}\\sum_{k=0}^{\\infty}\\frac{1}{(2k+1)!}x^{2k+1}\\,\\text{(step 6).}"
+        },
+        {
+         "type": "p",
+         "text": "**Analysis for part a.**\n\nAs expected for a second-order differential equation, this solution depends on two arbitrary constants. However, note that our differential equation is a constant-coefficient differential equation, yet the power series solution does not appear to have the familiar form (containing exponential functions) that we are used to seeing. Furthermore, since $y(x)=c_{1}e^{x}+c_{2}e^{-x}$ is the general solution to this equation, we must be able to write any solution in this form, and it is not clear whether the power series solution we just found can, in fact, be written in that form.\n\nFortunately, after writing the power series representations of $e^{x}$ and $e^{-x},$ and doing some algebra, we find that if we choose"
+        },
+        {
+         "type": "math",
+         "tex": "c_{0}=\\frac{(a_{0}+a_{1})}{2},\\ c_{1}=\\frac{(a_{0}-a_{1})}{2},"
+        },
+        {
+         "type": "p",
+         "text": "we then have $a_{0}=c_{0}+c_{1}$ and$a_{1}=c_{0}-c_{1},$ and"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}y(x) & =a_{0}+a_{1}x+\\frac{a_{0}}{2}x^{2}+\\frac{a_{1}}{3!}x^{3}+\\frac{a_{0}}{4!}x^{4}+\\frac{a_{1}}{5!}x^{5}+\\cdots \\\\ & =(c_{0}+c_{1})+(c_{0}-c_{1})x+\\frac{(c_{0}+c_{1})}{2}x^{2}+\\frac{(c_{0}-c_{1})}{3!}x^{3}+\\frac{(c_{0}+c_{1})}{4!}x^{4}+\\frac{(c_{0}-c_{1})}{5!}x^{5}+\\cdots \\\\ & =c_{0}{\\displaystyle \\sum_{n=0}^{\\infty}\\frac{x^{n}}{n!}}+c_{1}{\\displaystyle \\sum_{n=0}^{\\infty}\\frac{(-x)^{n}}{n!}} \\\\ & =c_{0}e^{x}+c_{1}e^{-x}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "So we have, in fact, found the same general solution. Note that this choice of $c_{1}$ and $c_{2}$ is not obvious. This is a case when we know what the answer should be, and have essentially “reverse-engineered” our choice of coefficients."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Assume $y(x)=\\sum_{n=0}^{\\infty}a_{n}x^{n}$ (step 1). Then, $y'(x)={\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n-1}$ and $y''(x)={\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}$ (step 2). We want to find values for the coefficients $a_{n}$ such that"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc} \\\\ \\\\ (x^{2}-1)y''+6xy'+4y & = & -4 \\\\ (x^{2}-1){\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}+6x{\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n-1}+4{\\displaystyle \\sum_{n=0}^{\\infty}a_{n}}x^{n} & = & -4 \\\\ x^{2}{\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}-{\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}+6x{\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n-1}+4{\\displaystyle \\sum_{n=0}^{\\infty}a_{n}}x^{n} & = & -4.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Taking the external factors inside the summations, we get"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n}-{\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}+{\\displaystyle \\sum_{n=1}^{\\infty}6n}a_{n}x^{n}+{\\displaystyle \\sum_{n=0}^{\\infty}4a_{n}}x^{n}=-4\\,\\text{(step 3).}"
+        },
+        {
+         "type": "p",
+         "text": "Now, in the first summation, we see that when $n=0$ or $n=1,$ the term evaluates to zero, so we can add these terms back into our sum to get"
+        },
+        {
+         "type": "math",
+         "tex": "\\sum_{n=2}^{\\infty}n(n-1)a_{n}x^{n}=\\sum_{n=0}^{\\infty}n(n-1)a_{n}x^{n}."
+        },
+        {
+         "type": "p",
+         "text": "Similarly, in the third term, we see that when $n=0,$ the expression evaluates to zero, so we can add that term back in as well. We have"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}6}na_{n}x^{n}={\\displaystyle \\sum_{n=0}^{\\infty}6}na_{n}x^{n}."
+        },
+        {
+         "type": "p",
+         "text": "Then, we need only shift the indices in our second term. We get"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}={\\displaystyle \\sum_{n=0}^{\\infty}(n+2)}(n+1)a_{n+2}x^{n}."
+        },
+        {
+         "type": "p",
+         "text": "Thus, we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}{\\displaystyle \\sum_{n=0}^{\\infty}n}(n-1)a_{n}x^{n}-{\\displaystyle \\sum_{n=0}^{\\infty}(n+2)}(n+1)a_{n+2}x^{n}+{\\displaystyle \\sum_{n=0}^{\\infty}6n}a_{n}x^{n}+{\\displaystyle \\sum_{n=0}^{\\infty}4a_{n}}x^{n} & = & -4\\,\\text{(step 4).} \\\\ \\sum_{n=0}^{\\infty}[n(n-1)a_{n}-(n+2)(n+1)a_{n+2}+6na_{n}+4a_{n}]x^{n} & = & -4 \\\\ \\sum_{n=0}^{\\infty}[(n^{2}-n)a_{n}+6na_{n}+4a_{n}-(n+2)(n+1)a_{n+2}]x^{n} & = & -4 \\\\ \\sum_{n=0}^{\\infty}[n^{2}a_{n}+5na_{n}+4a_{n}-(n+2)(n+1)a_{n+2}]x^{n} & = & -4 \\\\ \\sum_{n=0}^{\\infty}[(n^{2}+5n+4)a_{n}-(n+2)(n+1)a_{n+2}]x^{n} & = & -4 \\\\ \\sum_{n=0}^{\\infty}[(n+4)(n+1)a_{n}-(n+2)(n+1)a_{n+2}]x^{n} & = & -4\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Looking at the coefficients of each power of *x*, we see that the constant term must be equal to $-4,$ and the coefficients of all other powers of *x* must be zero. Then, looking first at the constant term,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}4a_{0}-2a_{2} & = & -4 \\\\ a_{2} & = & 2a_{0}+2\\,\\text{(step 3).}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "For $n\\ge 1,$ we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}(n+4)(n+1)a_{n}-(n+2)(n+1)a_{n+2} & = & 0 \\\\ (n+1)[(n+4)a_{n}-(n+2)a_{n+2}] & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Since $n\\ge 1,$ $n+1\\ne 0,$ we see that"
+        },
+        {
+         "type": "math",
+         "tex": "(n+4)a_{n}-(n+2)a_{n+2}=0"
+        },
+        {
+         "type": "p",
+         "text": "and thus"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n+2}=\\frac{n+4}{n+2}\\,a_{n}."
+        },
+        {
+         "type": "p",
+         "text": "For even values of *n*, we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}a_{4} & = & \\frac{6}{4}(2a_{0}+2)=3a_{0}+3 \\\\ a_{6} & = & \\frac{8}{6}(3a_{0}+3)=4a_{0}+4 \\\\ & \\text{⋮.} & \\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "In general, $a_{2k}=(k+1)(a_{0}+1)$ (step 5).\n\nFor odd values of *n*, we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}a_{3} & = & \\frac{5}{3}\\,a_{1} \\\\ a_{5} & = & \\frac{7}{5}\\,a_{3}=\\frac{7}{3}\\,a_{1} \\\\ a_{7} & = & \\frac{9}{7}\\,a_{5}=\\frac{9}{3}\\,a_{1}=3a_{1} \\\\ & \\text{⋮.} & \\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "In general, $a_{2k+1}=\\frac{2k+3}{3}\\,a_{1}$ (step 5 continued).\n\nPutting this together, we have"
+        },
+        {
+         "type": "math",
+         "tex": "y(x)={\\displaystyle \\sum_{k=0}^{\\infty}(k+1)(a_{0}+1)}x^{2k}+{\\displaystyle \\sum_{k=0}^{\\infty}\\left(\\frac{2k+3}{3}\\right)a_{1}}x^{2k+1}\\,\\text{(step 6).}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Series Solutions to Differential Equations"
+  },
+  {
+   "id": "c4",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.22",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y'+2xy=0$",
+      "$(x+1)y'=3y$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$y(x)=a_{0}\\sum_{n=0}^{\\infty}\\frac{(-1)^{n}}{n!}x^{2n}=a_{0}e^{-x^{2}}$",
+       "$y(x)=a_{0}(x+1)^{3}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the problem-solving strategy."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We close this section with a brief introduction to **Bessel functions**. Complete treatment of Bessel functions is well beyond the scope of this course, but we get a little taste of the topic here so we can see how series solutions to differential equations are used in real-world applications. The Bessel equation of order *n* is given by"
+    },
+    {
+     "type": "math",
+     "tex": "x^{2}y''+xy'+(x^{2}-n^{2})y=0."
+    },
+    {
+     "type": "p",
+     "text": "This equation arises in many physical applications, particularly those involving cylindrical coordinates, such as the vibration of a circular drum head and transient heating or cooling of a cylinder. In the next example, we find a power series solution to the Bessel equation of order 0."
+    }
+   ],
+   "title": "Series Solutions of Differential Equations (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 7.26",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a power series solution to the Bessel equation of order 0 and graph the solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The Bessel equation of order 0 is given by"
+     },
+     {
+      "type": "math",
+      "tex": "x^{2}y''+xy'+x^{2}y=0."
+     },
+     {
+      "type": "p",
+      "text": "We assume a solution of the form $y=\\sum_{n=0}^{\\infty}a_{n}x^{n}.$ Then $y'(x)={\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n-1}$ and $y''(x)={\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}.$ Substituting this into the differential equation, we get"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc} \\\\ \\\\ x^{2}{\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n-2}+x{\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n-1}+x^{2}\\sum_{n=0}^{\\infty}a_{n}x^{n}=0 & & \\text{Substitution.} \\\\ {\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n}+{\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n}+\\sum_{n=0}^{\\infty}a_{n}x^{n+2}=0 & & \\text{Bring external factors within sums.} \\\\ {\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n}+{\\displaystyle \\sum_{n=1}^{\\infty}n}a_{n}x^{n}+\\sum_{n=2}^{\\infty}a_{n-2}x^{n}=0 & & \\text{Re-index third sum.} \\\\ {\\displaystyle \\sum_{n=2}^{\\infty}n}(n-1)a_{n}x^{n}+a_{1}x+{\\displaystyle \\sum_{n=2}^{\\infty}n}a_{n}x^{n}+\\sum_{n=2}^{\\infty}a_{n-2}x^{n}=0 & & \\text{Separate}\\,n=1\\,\\text{term from second sum.} \\\\ a_{1}x+{\\displaystyle \\sum_{n=2}^{\\infty}[n(n-1)a_{n}+na_{n}+a_{n-2}]}x^{n}=0 & & \\text{Collect summation terms.} \\\\ a_{1}x+{\\displaystyle \\sum_{n=2}^{\\infty}[(n^{2}-n)a_{n}+na_{n}+a_{n-2}]}x^{n}=0 & & \\text{Multiply through in first term.} \\\\ a_{1}x+{\\displaystyle \\sum_{n=2}^{\\infty}[n^{2}a_{n}+a_{n-2}]}x^{n}=0. & & \\text{Simplify.}\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Then, $a_{1}=0,$ and for $n\\ge 2,$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{l}n^{2}a_{n}+a_{n-2}=0 \\\\ \\\\ a_{n}=-\\frac{1}{n^{2}}\\,a_{n-2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Because $a_{1}=0,$ all odd terms are zero. Then, for even values of *n*, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}a_{2} & = & -\\frac{1}{2^{2}}\\,a_{0} \\\\ a_{4} & = & -\\frac{1}{4^{2}}\\,a_{2}=\\frac{1}{4^{2}\\cdot 2^{2}}\\,a_{0}. \\\\ a_{6} & = & -\\frac{1}{6^{2}}\\,a_{4}=-\\frac{1}{6^{2}\\cdot 4^{2}\\cdot 2^{2}}\\,a_{0}\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "In general,"
+     },
+     {
+      "type": "math",
+      "tex": "a_{2k}=\\frac{(-1)^{k}}{(2)^{2k}(k!)^{2}}\\,a_{0}."
+     },
+     {
+      "type": "p",
+      "text": "Thus, we have"
+     },
+     {
+      "type": "math",
+      "tex": "y(x)=a_{0}\\sum_{k=0}^{\\infty}\\frac{(-1)^{k}}{(2)^{2k}(k!)^{2}}x^{2k}."
+     },
+     {
+      "type": "p",
+      "text": "The graph appears below for $a_{0}=1$."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_17_04_001.webp",
+      "alt": "This figure is the graph of a function. The graph is oscillating with the highest amplitude above the origin. The horizontal axis is labeled in increments of 2.5. The vertical axis is labeled in increments of 0.2.",
+      "width": 487,
+      "height": 316
+     }
+    ]
+   },
+   "title": "Power Series Solution to the Bessel Equation"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.23",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Verify that the expression found in Example 7.26 is a solution to the Bessel equation of order 0."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Differentiate the power series term by term and substitute it into the differential equation."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Power series representations of functions can sometimes be used to find solutions to differential equations.",
+      "Differentiate the power series term by term and substitute into the differential equation to find relationships between the power series coefficients."
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e104",
+   "number": 104,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+6y'=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573505926",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e105",
+   "number": 105,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$5y''+y'=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571118620",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=a_{0}+5a_{1}{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-x/5)^{n}}{n!}=c_{0}+5c_{1}e^{-x/5}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e106",
+   "number": 106,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+25y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571046582",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e107",
+   "number": 107,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571246765",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=a_{0}{\\displaystyle \\sum_{n=0}^{\\infty}\\frac{(x)^{2n}}{(2n)!}}+a_{1}{\\displaystyle \\sum_{n=0}^{\\infty}\\frac{(x)^{2n+1}}{(2n+1)!}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e108",
+   "number": 108,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$2y'+y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571105758",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e109",
+   "number": 109,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'-2xy=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571214796",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=a_{0}{\\displaystyle \\sum_{n=0}^{\\infty}\\frac{x^{2n}}{n!}=c_{0}e^{x^{2}}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e110",
+   "number": 110,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(x-7)y'+2y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573720316",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e111",
+   "number": 111,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-xy'-y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571138039",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=a_{0}{\\displaystyle \\sum_{n=0}^{\\infty}\\frac{x^{2n}}{2^{n}n!}+a_{1}{\\displaystyle \\sum_{n=0}^{\\infty}\\frac{x^{2n+1}}{1\\cdot 3\\cdot 5\\cdot 7\\cdots (2n+1)}}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e112",
+   "number": 112,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(1+x^{2})y''-4xy'+6y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571450727",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e113",
+   "number": 113,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}y''-xy'-3y=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571131595",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{0}x^{3}+\\frac{c_{1}}{x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_0 x^3+(c_1/x)"
+   }
+  },
+  {
+   "id": "e114",
+   "number": 114,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-8y'=0,\\qquad y(0)=-2,\\,\\,y'(0)=10$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571133048",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e115",
+   "number": 115,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-2xy=0,\\qquad y(0)=1,\\,\\,y'(0)=-3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571203615",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=1-3x+\\frac{2x^{3}}{3!}-\\frac{12x^{4}}{4!}+\\frac{16x^{6}}{6!}-\\frac{120x^{7}}{7!}+\\cdots$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e116",
+   "number": 116,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The differential equation $x^{2}y''+xy'+(x^{2}-1)y=0$ is a Bessel equation of order 1. Use a power series of the form $y={\\displaystyle \\sum_{n=0}^{\\infty}a_{n}x^{n}}$ to find the solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571021687",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a power series solution for the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e117",
+   "number": 117,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $y$ and $z$ are both solutions to $y''+2y'+y=0,$ then $y+z$ is also a solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573739219",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e118",
+   "number": 118,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The following system of algebraic equations has a unique solution:"
+    },
+    {
+     "type": "p",
+     "text": "$\\begin{array}{c}6z_{1}+3z_{2}=8 \\\\ 4z_{1}+2z_{2}=4.\\end{array}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571337322",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e119",
+   "number": 119,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{x}\\cos (3x)+e^{x}\\sin (2x)$ is a solution to the second-order differential equation $y''+2y'+10=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571244243",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e120",
+   "number": 120,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "To find the particular solution to a second-order differential equation, you need one initial condition."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571092923",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e121",
+   "number": 121,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-2y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571454358",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify the differential equation. Determine the order, whether it is linear and, if linear, whether the differential equation is homogeneous or nonhomogeneous. If the equation is second-order homogeneous and linear, find the characteristic equation."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "second order, linear, homogeneous, $\\lambda^{2}-2=0$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e122",
+   "number": 122,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-3y+2y=\\cos \\,(t)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571368964",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify the differential equation. Determine the order, whether it is linear and, if linear, whether the differential equation is homogeneous or nonhomogeneous. If the equation is second-order homogeneous and linear, find the characteristic equation."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e123",
+   "number": 123,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(\\frac{dy}{dt}\\right)^{2}+yy'=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571021351",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify the differential equation. Determine the order, whether it is linear and, if linear, whether the differential equation is homogeneous or nonhomogeneous. If the equation is second-order homogeneous and linear, find the characteristic equation."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "first order, nonlinear, nonhomogeneous"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e124",
+   "number": 124,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d^{2}y}{dt^{2}}+t\\frac{dy}{dt}+\\sin^{2}(t)y=e^{t}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571408159",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify the differential equation. Determine the order, whether it is linear and, if linear, whether the differential equation is homogeneous or nonhomogeneous. If the equation is second-order homogeneous and linear, find the characteristic equation."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e125",
+   "number": 125,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+9y=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571146398",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}\\cos \\,(3x)+c_{2}\\sin \\,(3x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 cos (3 x)+c_2 sin (3 x)"
+   }
+  },
+  {
+   "id": "e126",
+   "number": 126,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+2y'+y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571080113",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e127",
+   "number": 127,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-2y'+10y=4x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571145615",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{x}\\cos \\,(3x)+c_{2}e^{x}\\sin \\,(3x)+\\frac{2}{5}x+\\frac{2}{25}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^x cos (3 x)+c_2 e^x sin (3 x)+(2/5)x+(2/25)"
+   }
+  },
+  {
+   "id": "e128",
+   "number": 128,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''=\\cos \\,(x)+2y'+y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573544055",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e129",
+   "number": 129,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+5y'+4y=x+e^{2x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571461823",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{-x}+c_{2}e^{-4x}+\\frac{x}{4}+\\frac{e^{2x}}{18}-\\frac{5}{16}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^(-x)+c_2 e^(-4 x)+(x/4)+((e^(2 x))/18)-(5/16)"
+   }
+  },
+  {
+   "id": "e130",
+   "number": 130,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''=3y'+xe^{-x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571281501",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e131",
+   "number": 131,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-x^{2}=-3y'-\\frac{9}{4}y+3x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573549277",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{(-3/2)x}+c_{2}xe^{(-3/2)x}+\\frac{4}{9}x^{2}+\\frac{4}{27}x-\\frac{16}{27}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=c_1 e^((-3/2)x)+c_2 x e^((-3/2)x)+(4/9)x^2+(4/27)x-(16/27)"
+   }
+  },
+  {
+   "id": "e132",
+   "number": 132,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''=2\\,\\cos \\,x+y'-y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571281415",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e133",
+   "number": 133,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+4y'+6y=0,$ $y(0)=0,$ $y'(0)=\\sqrt{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571415759",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the initial-value problem, if possible."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=e^{-2x}\\sin \\,(\\sqrt{2}x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=e^(-2 x) sin (sqrt(2)x)"
+   }
+  },
+  {
+   "id": "e134",
+   "number": 134,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''=3y-\\cos \\,(x),$ $y(0)=\\frac{9}{4},$ $y'(0)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571378640",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the initial-value problem, if possible."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e135",
+   "number": 135,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4y'=-6y+2y'',$ $y(0)=0,$ $y(1)=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571105139",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the boundary-value problem, if possible."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{e^{1-x}}{e^{4}-1}(e^{4x}-1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=((e^(1-x))/(e^4-1))(e^(4 x)-1)"
+   }
+  },
+  {
+   "id": "e136",
+   "number": 136,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''=3x-y-y',$ $y(0)=-3,$ $y(1)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571207012",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the boundary-value problem, if possible."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e137",
+   "number": 137,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The motion of a swinging pendulum for small angles $\\theta$ can be approximated by $\\frac{d^{2}\\theta}{dt^{2}}+\\frac{g}{L}\\theta =0,$ where $\\theta$ is the angle the pendulum makes with respect to a vertical line, *g* is the acceleration resulting from gravity, and *L* is the length of the pendulum. Find the equation describing the angle of the pendulum at time $t,$ assuming an initial displacement of $\\theta_{0}$ and an initial velocity of zero."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571160625",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problem, set up and solve the differential equation."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\theta (t)=\\theta_{0}\\cos \\,\\left(\\sqrt{\\frac{g}{l}}L\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e138",
+   "number": 138,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the general solution to this equation (*Hint:* call $\\omega_{0}=\\sqrt{b/a}$)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571506095",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the “beats” that occur when the forcing term of a differential equation causes “slow” and “fast” amplitudes. Consider the general differential equation$ay''+by=\\cos (\\omega t)$ that governs undamped motion. Assume that $\\sqrt{\\frac{b}{a}}\\ne \\omega .$"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e139",
+   "number": 139,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Assuming the system starts from rest, show that the particular solution can be written as $y=\\frac{2}{a(\\omega_{0}{}^{2}-\\omega^{2})}\\,\\sin \\,\\left(\\frac{\\omega_{0}-\\omega t}{2}\\right)\\,\\sin \\,\\left(\\frac{\\omega_{0}+\\omega t}{2}\\right).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571287905",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the “beats” that occur when the forcing term of a differential equation causes “slow” and “fast” amplitudes. Consider the general differential equation$ay''+by=\\cos (\\omega t)$ that governs undamped motion. Assume that $\\sqrt{\\frac{b}{a}}\\ne \\omega .$"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e140",
+   "number": 140,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Using your solutions derived earlier, plot the solution to the system $2y''+9y=\\cos (2t)$ over the interval $t=[-50,50].$ Find, analytically, the period of the fast and slow amplitudes."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571409967",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the “beats” that occur when the forcing term of a differential equation causes “slow” and “fast” amplitudes. Consider the general differential equation$ay''+by=\\cos (\\omega t)$ that governs undamped motion. Assume that $\\sqrt{\\frac{b}{a}}\\ne \\omega .$"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e141",
+   "number": 141,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "An opera singer is attempting to shatter a glass by singing a particular note. The vibrations of the glass can be modeled by $y''+ay=0,$ where $a>0$ represents the natural frequency of the glass and the singer is forcing the vibrations at $\\cos (bt).$ For what value $b$ would the singer be able to break that glass? (*Note*: in order for the glass to break, the oscillations would need to get higher and higher.)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571080168",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problem, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$b=\\sqrt{a}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "b=sqrt(a)"
+   }
+  }
+ ],
+ "proofs": []
+}

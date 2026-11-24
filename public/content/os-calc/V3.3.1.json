@@ -1,0 +1,1751 @@
+{
+ "schema": 1,
+ "id": "V3.3.1",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 3,
+ "section": 1,
+ "title": "Vector-Valued Functions and Space Curves",
+ "chapterTitle": "Vector-Valued Functions",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53913",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/3-1-vector-valued-functions-and-space-curves",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §3.1 “Vector-Valued Functions and Space Curves”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Write the general equation of a vector-valued function in component form and unit-vector form.",
+  "Recognize parametric equations for a space curve.",
+  "Describe the shape of a helix and write its equation.",
+  "Define the limit of a vector-valued function."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Our study of vector-valued functions combines ideas from our earlier examination of single-variable calculus with our description of vectors in three dimensions from the preceding chapter. In this section we extend concepts from earlier chapters and also examine new ideas concerning curves in three-dimensional space. These definitions and theorems support the presentation of material in the rest of this chapter and also in the remaining chapters of the text."
+    }
+   ],
+   "title": "Vector-Valued Functions and Space Curves"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Our first step in studying the calculus of vector-valued functions is to define what exactly a vector-valued function is. We can then look at graphs of vector-valued functions and see how they define curves in both two and three dimensions."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A **vector-valued function** is a function of the form"
+      },
+      {
+       "type": "math",
+       "tex": "\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}\\quad \\text{or}\\quad \\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k},"
+      },
+      {
+       "type": "p",
+       "text": "where the **component functions** *f, g,* and *h*, are real-valued functions of the parameter *t.* Vector-valued functions are also written in the form"
+      },
+      {
+       "type": "math",
+       "tex": "\\text{r}(t)=〈f(t),g(t)〉\\quad \\text{or}\\quad \\text{r}(t)=〈f(t),g(t),h(t)〉."
+      },
+      {
+       "type": "p",
+       "text": "In both cases, the first form of the function defines a two-dimensional vector-valued function; the second form describes a three-dimensional vector-valued function."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The parameter *t* can lie between two real numbers: $a\\le t\\le b.$ Another possibility is that the value of *t* might take on all real numbers. Last, the component functions themselves may have domain restrictions that enforce restrictions on the value of *t.* We often use *t* as a parameter because *t* can represent time."
+    }
+   ],
+   "title": "Definition of a Vector-Valued Function"
+  },
+  {
+   "id": "x3",
+   "kind": "example",
+   "label": "Example 3.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following vector-valued functions, evaluate $\\text{r}(0),\\,\\text{r}\\left(\\frac{\\pi}{2}\\right),\\text{and}\\,\\text{r}\\left(\\frac{2\\pi}{3}\\right).$ Do any of these functions have domain restrictions?"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}+3\\,\\sin \\,t\\,\\text{j}$",
+      "$\\text{r}(t)=3\\,\\tan \\,t\\,\\text{i}+4\\,\\sec \\,t\\,\\text{j}+5t\\,\\text{k}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "To calculate each of the function values, substitute the appropriate value of *t* into the function:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}\\text{r}(0) & = & 4\\,\\cos (0)\\,\\text{i}+3\\,\\sin (0)\\,\\text{j} \\\\ & = & 4\\,\\text{i}+0\\,\\text{j}=4\\,\\text{i} \\\\ \\text{r}\\left(\\frac{\\pi}{2}\\right) & = & 4\\,\\cos \\left(\\frac{\\pi}{2}\\right)\\,\\text{i}+3\\,\\sin \\left(\\frac{\\pi}{2}\\right)\\,\\text{j} \\\\ & = & 0\\,\\text{i}+3\\,\\text{j}=3\\,\\text{j} \\\\ \\text{r}\\left(\\frac{2\\pi}{3}\\right) & = & 4\\,\\cos \\left(\\frac{2\\pi}{3}\\right)\\,\\text{i}+3\\,\\sin \\left(\\frac{2\\pi}{3}\\right)\\,\\text{j} \\\\ & = & 4\\left(-\\frac{1}{2}\\right)\\,\\text{i}+3\\left(\\frac{\\sqrt{3}}{2}\\right)\\,\\text{j}=-2\\,\\text{i}+\\frac{3\\sqrt{3}}{2}\\,\\text{j}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "To determine whether this function has any domain restrictions, consider the component functions separately. The first component function is $f(t)=4\\,\\cos \\,t$ and the second component function is $g(t)=3\\,\\sin \\,t.$ Neither of these functions has a domain restriction, so the domain of $\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}+3\\,\\sin \\,t\\,\\text{j}$ is all real numbers."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "To calculate each of the function values, substitute the appropriate value of *t* into the function:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}\\,\\text{r}(0) & = & 3\\,\\tan (0)\\,\\text{i}+4\\,\\sec (0)\\,\\text{j}+5(0)\\,\\text{k} \\\\ & = & 0\\,\\text{i}+4\\,\\text{j}+0\\,\\text{k}=4\\,\\text{j} \\\\ \\,\\text{r}\\left(\\frac{\\pi}{2}\\right) & = & 3\\,\\tan \\left(\\frac{\\pi}{2}\\right)\\,\\text{i}+4\\,\\sec \\left(\\frac{\\pi}{2}\\right)\\,\\text{j}+5\\left(\\frac{\\pi}{2}\\right)\\,\\text{k},\\text{which does not exist} \\\\ \\,\\text{r}\\left(\\frac{2\\pi}{3}\\right) & = & 3\\,\\tan \\left(\\frac{2\\pi}{3}\\right)\\,\\text{i}+4\\,\\sec \\left(\\frac{2\\pi}{3}\\right)\\,\\text{j}+5\\left(\\frac{2\\pi}{3}\\right)\\,\\text{k} \\\\ & = & 3(-\\sqrt{3})\\,\\text{i}+4(-2)\\,\\text{j}+\\frac{10\\pi}{3}\\,\\text{k} \\\\ & = & -3\\sqrt{3}\\,\\text{i}-8\\,\\text{j}+\\frac{10\\pi}{3}\\,\\text{k}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "To determine whether this function has any domain restrictions, consider the component functions separately. The first component function is $f(t)=3\\,\\tan \\,t,$ the second component function is $g(t)=4\\,\\sec \\,t,$ and the third component function is $h(t)=5t.$ The first two functions are not defined for odd multiples of $\\pi /2,$ so the function is not defined for odd multiples of $\\pi /2.$ Therefore, $\\text{dom}(\\,\\text{r}(t))=\\left\\{t\\,|t\\ne \\frac{(2n+1)\\pi}{2}\\right\\},$ where *n* is any integer."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Evaluating Vector-Valued Functions and Determining Domains"
+  },
+  {
+   "id": "c4",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the vector-valued function $\\text{r}(t)=(t^{2}-3t)\\,\\text{i}+(4t+1)\\,\\text{j},$ evaluate $\\text{r}(0),\\,\\text{r}(1),\\text{and}\\,\\text{r}(-4).$ Does this function have any domain restrictions?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{r}(0)=\\text{j},\\,\\text{r}(1)=-2\\,\\text{i}+5\\,\\text{j},\\,\\text{r}(-4)=28\\,\\text{i}-15\\,\\text{j}$"
+     },
+     {
+      "type": "p",
+      "text": "The domain of $\\text{r}(t)=(t^{2}-3t)\\,\\text{i}+(4t+1)\\,\\text{j}$ is all real numbers."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Substitute the appropriate values of *t* into the function."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Example 3.1 illustrates an important concept. The domain of a vector-valued function consists of real numbers. The domain can be all real numbers or a subset of the real numbers. The range of a vector-valued function consists of vectors. Each real number in the domain of a vector-valued function is mapped to either a two- or a three-dimensional vector."
+    }
+   ],
+   "title": "Definition of a Vector-Valued Function (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall that a plane vector consists of two quantities: direction and magnitude. Given any point in the plane (the **initial point**), if we move in a specific direction for a specific distance, we arrive at a second point. This represents the **terminal point** of the vector. We calculate the components of the vector by subtracting the coordinates of the initial point from the coordinates of the terminal point."
+    },
+    {
+     "type": "p",
+     "text": "A vector is considered to be in **standard position** if the initial point is located at the origin. When graphing a vector-valued function, we typically graph the vectors in the domain of the function in standard position, because doing so guarantees the uniqueness of the graph. This convention applies to the graphs of three-dimensional vector-valued functions as well. The graph of a vector-valued function of the form $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}$ consists of the set of all $(t,\\,\\text{r}(t)),$ and the path it traces is called a **plane curve**. The graph of a vector-valued function of the form $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k}$ consists of the set of all $(t,\\,\\text{r}(t)),$ and the path it traces is called a **space curve**. Any representation of a plane curve or space curve using a vector-valued function is called a **vector parameterization** of the curve."
+    }
+   ],
+   "title": "Graphing Vector-Valued Functions"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 3.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Create a graph of each of the following vector-valued functions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "The plane curve represented by $\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}+3\\,\\sin \\,t\\,\\text{j},$ $0\\le t\\le 2\\pi$",
+      "The plane curve represented by $\\text{r}(t)=4\\,\\cos \\,2t\\text{i}+3\\,\\sin \\,2\\,t\\text{j},$ $0\\le t\\le \\pi$",
+      "The space curve represented by $\\text{r}(t)=4\\cos \\,t\\,\\text{i}+4\\sin \\,t\\,\\text{j}+t\\,\\text{k},$ $0\\le t\\le 4\\pi$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "As with any graph, we start with a table of values. We then graph each of the vectors in the second column of the table in standard position and connect the terminal points of each vector to form a curve (Figure 3.1). This curve turns out to be an ellipse centered at the origin."
+        },
+        {
+         "type": "table",
+         "rows": [
+          [
+           "*t*",
+           "$\\text{r}(t)$",
+           "*t*",
+           "$\\text{r}(t)$"
+          ],
+          [
+           "0",
+           "$4\\,\\text{i}$",
+           "$\\pi$",
+           "$-4\\,\\text{i}$"
+          ],
+          [
+           "$\\frac{\\pi}{4}$",
+           "$2\\sqrt{2}\\,\\text{i}+\\frac{3\\sqrt{2}}{2}\\,\\text{j}$",
+           "$\\frac{5\\pi}{4}$",
+           "$-2\\sqrt{2}\\,\\text{i}-\\frac{3\\sqrt{2}}{2}\\,\\text{j}$"
+          ],
+          [
+           "$\\frac{\\pi}{2}$",
+           "$3\\,\\text{j}$",
+           "$\\frac{3\\pi}{2}$",
+           "$-3\\,\\text{j}$"
+          ],
+          [
+           "$\\frac{3\\pi}{4}$",
+           "$-2\\sqrt{2}\\,\\text{i}+\\frac{3\\sqrt{2}}{2}\\,\\text{j}$",
+           "$\\frac{7\\pi}{4}$",
+           "$2\\sqrt{2}\\,\\text{i}-\\frac{3\\sqrt{2}}{2}\\,\\text{j}$"
+          ],
+          [
+           "$2\\pi$",
+           "$4\\,\\text{i}$",
+           "",
+           ""
+          ]
+         ],
+         "caption": "**Table 3.1** Table of Values for $\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}+3\\,\\sin \\,t\\,\\text{j},$ $0\\le t\\le 2\\pi$"
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_13_01_001.webp",
+         "alt": "This figure is a graph of an ellipse centered at the origin. The graph is the vector-valued function r(t)=4cost i + 3sint j. The ellipse has arrows on the curve representing counter-clockwise orientation. There are also line segments inside of the ellipse to the curve at different increments of t. The increments are t=0, t=pi/4, t=pi/2, t=3pi/4.",
+         "caption": "**Figure 3.1** The graph of the first vector-valued function is an ellipse.",
+         "width": 417,
+         "height": 422
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The table of values for $\\text{r}(t)=4\\cos \\,2t\\text{i}+3\\,\\sin \\,2\\,t\\text{j},$ $0\\le t\\le \\pi$ is as follows:"
+        },
+        {
+         "type": "table",
+         "rows": [
+          [
+           "*t*",
+           "$\\text{r}(t)$",
+           "*t*",
+           "$\\text{r}(t)$"
+          ],
+          [
+           "0",
+           "$4\\,\\text{i}$",
+           "$\\frac{\\pi}{2}$",
+           "$-4\\,\\text{i}$"
+          ],
+          [
+           "$\\frac{\\pi}{8}$",
+           "$2\\sqrt{2}\\,\\text{i}+\\frac{3\\sqrt{2}}{2}\\,\\text{j}$",
+           "$\\frac{5\\pi}{8}$",
+           "$-2\\sqrt{2}\\,\\text{i}-\\frac{3\\sqrt{2}}{2}\\,\\text{j}$"
+          ],
+          [
+           "$\\frac{\\pi}{4}$",
+           "$3\\,\\text{j}$",
+           "$\\frac{3\\pi}{4}$",
+           "$-3\\,\\text{j}$"
+          ],
+          [
+           "$\\frac{3\\pi}{8}$",
+           "$-2\\sqrt{2}\\,\\text{i}+\\frac{3\\sqrt{2}}{2}\\,\\text{j}$",
+           "$\\frac{7\\pi}{8}$",
+           "$2\\sqrt{2}\\,\\text{i}-\\frac{3\\sqrt{2}}{2}\\,\\text{j}$"
+          ],
+          [
+           "",
+           "",
+           "$\\pi$",
+           "$4\\,\\text{i}$"
+          ]
+         ],
+         "caption": "**Table 3.2** Table of Values for $\\text{r}(t)=4\\,\\cos \\,\\left(2t\\right)\\,\\text{i}+3\\,\\sin \\left(2t\\right)\\,\\text{j},$ $0\\le t\\le \\pi$"
+        },
+        {
+         "type": "p",
+         "text": "The graph of this curve is also an ellipse centered at the origin."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_13_01_002.webp",
+         "alt": "This figure is a graph of an ellipse centered at the origin. The graph is the vector-valued function r(t)=4cost^3 i + 3sint^3 j.",
+         "caption": "**Figure 3.2** The graph of the second vector-valued function is also an ellipse.",
+         "width": 426,
+         "height": 422
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "We go through the same procedure for a three-dimensional vector function."
+        },
+        {
+         "type": "table",
+         "rows": [
+          [
+           "*t*",
+           "$\\text{r}(t)$",
+           "*t*",
+           "$\\text{r}(t)$"
+          ],
+          [
+           "0",
+           "$4\\,\\text{i}$",
+           "$\\pi$",
+           "$-4\\,\\text{j}+\\pi \\,\\text{k}$"
+          ],
+          [
+           "$\\frac{\\pi}{4}$",
+           "$2\\sqrt{2}\\,\\text{i}+2\\sqrt{2}\\,\\text{j}+\\frac{\\pi}{4}\\,\\text{k}$",
+           "$\\frac{5\\pi}{4}$",
+           "$-2\\sqrt{2}\\,\\text{i}-2\\sqrt{2}\\,\\text{j}+\\frac{5\\pi}{4}\\,\\text{k}$"
+          ],
+          [
+           "$\\frac{\\pi}{2}$",
+           "$4\\,\\text{j}+\\frac{\\pi}{2}\\,\\text{k}$",
+           "$\\frac{3\\pi}{2}$",
+           "$-4\\,\\text{j}+\\frac{3\\pi}{2}\\,\\text{k}$"
+          ],
+          [
+           "$\\frac{3\\pi}{4}$",
+           "$-2\\sqrt{2}\\,\\text{i}+2\\sqrt{2}\\,\\text{j}+\\frac{3\\pi}{4}\\,\\text{k}$",
+           "$\\frac{7\\pi}{4}$",
+           "$2\\sqrt{2}\\,\\text{i}-2\\sqrt{2}\\,\\text{j}+\\frac{7\\pi}{4}\\,\\text{k}$"
+          ],
+          [
+           "$2\\pi$",
+           "$4\\,\\text{i}+2\\pi \\,\\text{k}$",
+           "",
+           ""
+          ]
+         ],
+         "caption": "**Table 3.3** Table of Values for $\\text{r}(t)=4\\cos \\,t\\,\\text{i}+4\\sin \\,t\\,\\text{j}+t\\,\\text{k},$ $0\\le t\\le 4\\pi$"
+        },
+        {
+         "type": "p",
+         "text": "The values then repeat themselves, except for the fact that the coefficient of k is always increasing (Figure 3.3). This curve is called a **helix**. Notice that if the **k** component is eliminated, then the function becomes $\\text{r}(t)=\\cos \\,t\\,\\text{i}+\\sin \\,t\\,\\text{j},$ which is a unit circle centered at the origin."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_13_01_003.webp",
+         "alt": "This figure is the graph of a helix in the 3 dimensional coordinate system. The curve represents the function r(t) = cost i + sint j + tk. The curve spirals in a circular path around the vertical z-axis and has the look of a spring. The arrows on the curve represent orientation.",
+         "caption": "**Figure 3.3** The graph of the third vector-valued function is a helix.",
+         "width": 488,
+         "height": 386
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Graphing a Vector-Valued Function"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "You may notice that the graphs in parts a. and b. are identical. This happens because the function describing curve b is a so-called **reparameterization** of the function describing curve a. In fact, any curve has an infinite number of reparameterizations; for example, we can replace *t* with $2t$ in any of the three previous curves without changing the shape of the curve. The interval over which *t* is defined may change, but that is all. We return to this idea later in this chapter when we study arc-length parameterization."
+    },
+    {
+     "type": "p",
+     "text": "As mentioned, the name of the shape of the curve of the graph in Example 3.2c. is a **helix** (Figure 3.3). The curve resembles a spring, with a circular cross-section looking down along the *z*-axis. It is possible for a helix to be elliptical in cross-section as well. For example, the vector-valued function $\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}+3\\,\\sin \\,t\\,\\text{j}+t\\,\\text{k}$ describes an elliptical helix. The projection of this helix into the $x,y\\text{-plane}$ is an ellipse. Last, the arrows in the graph of this helix indicate the orientation of the curve as *t* progresses from 0 to $4\\pi .$"
+    }
+   ],
+   "title": "Graphing Vector-Valued Functions (continued)"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Create a graph of the vector-valued function $\\text{r}(t)=(t^{2}-1)\\,\\text{i}+(2t-3)\\,\\text{j},$ $0\\le t\\le 3.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_004.webp",
+      "alt": "This figure is a graph of the function r(t) = (t^2-1)i + (2t-3)j, for the values of t from 0 to 3. The curve begins in the 3rd quadrant at the ordered pair (-1,-3) and increases up through the 1st quadrant. It is increasing and has arrows on the curve representing orientation to the right.",
+      "width": 417,
+      "height": 347
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Start by making a table of values, then graph the vectors for each value of *t*."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "At this point, you may notice a similarity between vector-valued functions and parameterized curves. Indeed, given a vector-valued function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j},$ we can define $x=f(t)$ and $y=g(t).$ If a restriction exists on the values of *t* (for example, *t* is restricted to the interval $[a,b]$ for some constants $a<b),$ then this restriction is enforced on the parameter. The graph of the parameterized function would then agree with the graph of the vector-valued function, except that the vector-valued graph would represent vectors rather than points. Since we can parameterize a curve defined by a function $y=f(x),$ it is also possible to represent an arbitrary plane curve by a vector-valued function."
+    }
+   ],
+   "title": "Graphing Vector-Valued Functions (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now take a look at the **limit of a vector-valued function**. This is important to understand to study the calculus of vector-valued functions."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A vector-valued function **r** approaches the limit **L** as *t* approaches *a,* written"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{t\\to a}\\,\\text{r}(t)=\\text{L},"
+      },
+      {
+       "type": "p",
+       "text": "provided"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{t\\to a}||\\,\\text{r}(t)-\\text{L}||=0."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "This is a rigorous definition of the limit of a vector-valued function. In practice, we use the following theorem:"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *f, g,* and *h* be functions of *t.* Then the limit of the vector-valued function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}$ as *t* approaches *a* is given by"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{t\\to a}\\,\\text{r}(t)=[\\lim_{t\\to a}f(t)]\\,\\text{i}+[\\lim_{t\\to a}g(t)]\\,\\text{j},"
+      },
+      {
+       "type": "p",
+       "text": "provided the limits $\\lim_{t\\to a}f(t)\\,\\text{and}\\,\\lim_{t\\to a}g(t)$ exist. Similarly, the limit of the vector-valued function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k}$ as *t* approaches *a* is given by"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{t\\to a}\\,\\text{r}(t)=[\\lim_{t\\to a}f(t)]\\,\\text{i}+[\\lim_{t\\to a}g(t)]\\,\\text{j}+[\\lim_{t\\to a}h(t)]\\,\\text{k},"
+      },
+      {
+       "type": "p",
+       "text": "provided the limits $\\lim_{t\\to a}f(t),\\,\\lim_{t\\to a}g(t)\\text{and}\\,\\lim_{t\\to a}h(t)$ exist."
+      }
+     ],
+     "title": "Limit of a Vector-Valued Function"
+    },
+    {
+     "type": "p",
+     "text": "In the following example, we show how to calculate the limit of a vector-valued function."
+    }
+   ],
+   "title": "Limits and Continuity of a Vector-Valued Function"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 3.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following vector-valued functions, calculate $\\lim_{t\\to 3}\\,\\text{r}(t)$ for"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\text{r}(t)=(t^{2}-3t+4)\\,\\text{i}+(4t+3)\\,\\text{j}$",
+      "$\\text{r}(t)=\\frac{2t-4}{t+1}\\,\\text{i}+\\frac{t}{t^{2}+1}\\,\\text{j}+(4t-3)\\,\\text{k}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Use (see above) and substitute the value $t=3$ into the two component expressions:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\lim_{t\\to 3}\\,\\text{r}(t) & =\\lim_{t\\to 3}[(t^{2}-3t+4)\\,\\text{i}+(4t+3)\\,\\text{j}] \\\\ & =[\\lim_{t\\to 3}(t^{2}-3t+4)]\\,\\text{i}+[\\lim_{t\\to 3}(4t+3)]\\,\\text{j} \\\\ & =4\\,\\text{i}+15\\,\\text{j}.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Use (see above) and substitute the value $t=3$ into the three component expressions:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\lim_{t\\to 3}\\,\\text{r}(t) & =\\lim_{t\\to 3}\\left(\\frac{2t-4}{t+1}\\,\\text{i}+\\frac{t}{t^{2}+1}\\,\\text{j}+(4t-3)\\,\\text{k}\\right) \\\\ & =\\left[\\lim_{t\\to 3}\\left(\\frac{2t-4}{t+1}\\right)\\right]\\,\\text{i}+\\left[\\lim_{t\\to 3}\\left(\\frac{t}{t^{2}+1}\\right)\\right]\\,\\text{j}+[\\lim_{t\\to 3}(4t-3)]\\,\\text{k} \\\\ & =\\frac{1}{2}\\,\\text{i}+\\frac{3}{10}\\,\\text{j}+9\\,\\text{k}.\\end{array}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Evaluating the Limit of a Vector-Valued Function"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate $\\lim_{t\\to -2}\\,\\text{r}(t)$ for the function $\\text{r}(t)=\\sqrt{t^{2}-3t-1}\\,\\text{i}+(4t+3)\\,\\text{j}+\\sin \\,\\frac{(t+1)\\pi}{2}\\,\\text{k}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{t\\to -2}\\,\\text{r}(t)=3\\,\\text{i}-5\\,\\text{j}-\\text{k}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above) from the preceding theorem."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "3 i -5 j - k"
+   }
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we know how to calculate the limit of a vector-valued function, we can define continuity at a point for such a function."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *f, g,* and *h* be functions of *t.* Then, the vector-valued function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}$ is continuous at point $t=a$ if the following three conditions hold:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$\\text{r}(a)$ exists",
+        "$\\lim_{t\\to a}\\,\\text{r}(t)$ exists",
+        "$\\lim_{t\\to a}\\,\\text{r}(t)=\\text{r}(a)$"
+       ],
+       "ordered": true,
+       "style": "1"
+      },
+      {
+       "type": "p",
+       "text": "Similarly, the vector-valued function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k}$ is continuous at point $t=a$ if the following three conditions hold:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$\\text{r}(a)$ exists",
+        "$\\lim_{t\\to a}\\,\\text{r}(t)$ exists",
+        "$\\lim_{t\\to a}\\,\\text{r}(t)=\\text{r}(a)$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ]
+    }
+   ],
+   "title": "Limits and Continuity of a Vector-Valued Function (continued)"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "A vector-valued function is a function of the form $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}$ or $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k},$ where the component functions *f, g,* and *h* are real-valued functions of the parameter *t*.",
+      "The graph of a vector-valued function of the form $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}$ is called a *plane curve*. The graph of a vector-valued function of the form $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k}$ is called a *space curve*.",
+      "It is possible to represent an arbitrary plane curve by a vector-valued function.",
+      "To calculate the limit of a vector-valued function, calculate the limits of the component functions separately."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Vector-valued function**",
+       "$\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}\\;\\text{or}\\;\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k},\\,\\text{or}\\;\\text{r}(t)=〈f(t),g(t)〉\\,\\text{or}\\;\\text{r}(t)=〈f(t),g(t),h(t)〉$"
+      ],
+      [
+       "**Limit of a vector-valued function**",
+       "$\\lim_{t\\to a}\\,\\text{r}(t)=[\\lim_{t\\to a}f(t)]\\,\\text{i}+[\\lim_{t\\to a}g(t)]\\,\\text{j}\\,\\text{or}\\,\\lim_{t\\to a}\\,\\text{r}(t)=[\\lim_{t\\to a}f(t)]\\,\\text{i}+[\\lim_{t\\to a}g(t)]\\,\\text{j}+[\\lim_{t\\to a}h(t)]\\,\\text{k}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e1",
+   "number": 1,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Give the component functions $x=f(t)$ and $y=g(t)$ for the vector-valued function $\\text{r}(t)=3\\,\\sec \\,t\\,\\text{i}+2\\,\\tan \\,t\\,\\text{j}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737792858",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(t)=3\\,\\sec \\,t,g(t)=2\\,\\tan \\,t$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"f(t)=3 sec t, g(t)=2 tan t\""
+  },
+  {
+   "id": "e2",
+   "number": 2,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $\\text{r}(t)=3\\,\\sec \\,t\\,\\text{i}+2\\,\\tan \\,t\\,\\text{j},$ find the following values (if possible)."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\text{r}\\left(\\frac{\\pi}{4}\\right)$",
+      "$\\text{r}(\\pi )$",
+      "$\\text{r}\\left(\\frac{\\pi}{2}\\right)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737194982",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e3",
+   "number": 3,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Sketch the curve of the vector-valued function $\\text{r}(t)=3\\,\\sec \\,t\\,\\text{i}+2\\,\\tan \\,t\\,\\text{j}$ and give the orientation of the curve. Sketch asymptotes as a guide to the graph."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737142156",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_201.webp",
+      "alt": "This figure is the graph of the function r(t) = 3sect i + 2tant j. The graph has two slant asymptotes. They are diagonal and pass through the origin. The curve has two parts, one to the left of the y-axis with a hyperbolic bend. Also, there is a second part of the curve to the right of the y-axis with a hyperbolic bend. The orientation is represented by arrows on the curve. Both curves have orientation that is rising.",
+      "width": 419,
+      "height": 272
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e4",
+   "number": 4,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate $\\lim_{t\\to 0}〈e^{t}\\,,\\frac{\\sin \\,t}{t}\\,,e^{-t}〉.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737493382",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e5",
+   "number": 5,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given the vector-valued function $\\text{r}(t)=〈\\cos \\,t,\\sin \\,t〉,$ find the following values:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{t\\to \\frac{\\pi}{3}}\\,\\text{r}(t)$",
+      "$\\text{r}\\left(\\frac{\\pi}{3}\\right)$",
+      "Is $\\text{r}(t)$ continuous at $t=\\frac{\\pi}{3}?$",
+      "Graph $\\text{r}(t).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737300623",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $〈\\frac{1}{2},\\frac{\\sqrt{3}}{2}〉,$ b. $〈\\frac{1}{2},\\frac{\\sqrt{3}}{2}〉,$ c. Yes, the limit as *t* approaches $\\pi /3$ is equal to $\\text{r}(\\pi /3),$ d."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_202.webp",
+      "alt": "This figure is a graph of a circle centered at the origin. The circle has radius of 1 and has counter-clockwise orientation with arrows representing the orientation.",
+      "width": 342,
+      "height": 347
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e6",
+   "number": 6,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given the vector-valued function $\\text{r}(t)=〈t,t^{2}+1〉,$ find the following values:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{t\\to -3}\\,\\text{r}(t)$",
+      "$\\text{r}(-3)$",
+      "Is $\\text{r}(t)$ continuous at $t=-3?$",
+      "$\\text{r}(t+2)-\\text{r}(t)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737177667",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e7",
+   "number": 7,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $\\text{r}(t)=e^{t}\\,\\text{i}+\\sin \\,t\\,\\text{j}+\\ln \\,t\\,\\text{k}.$ Find the following values:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\text{r}\\left(\\frac{\\pi}{4}\\right)$",
+      "$\\lim_{t\\to \\pi /4}\\,\\text{r}(t)$",
+      "Is $\\text{r}(t)$ continuous at $t=\\frac{\\pi}{4}?$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737949241",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $〈e^{\\pi /4},\\frac{\\sqrt{2}}{2},\\ln \\left(\\frac{\\pi}{4}\\right)〉;$ b. $〈e^{\\pi /4},\\frac{\\sqrt{2}}{2},\\ln \\left(\\frac{\\pi}{4}\\right)〉;$ c. Yes"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e8",
+   "number": 8,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{t\\to 4}〈\\sqrt{t-3},\\frac{\\sqrt{t}-2}{t-4},\\tan \\left(\\frac{\\pi}{t}\\right)〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738133619",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of the following vector-valued functions at the indicated value of *t*."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e9",
+   "number": 9,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{t\\to \\pi /2}\\,\\text{r}(t)$ for $\\text{r}(t)=e^{t}\\,\\text{i}+\\sin \\,t\\,\\text{j}+\\ln \\,t\\,\\text{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737399708",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of the following vector-valued functions at the indicated value of *t*."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$〈e^{\\pi /2},1,\\ln \\left(\\frac{\\pi}{2}\\right)〉$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e10",
+   "number": 10,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{t\\to \\infty}〈e^{-2t},\\frac{2t+3}{3t-1},\\arctan (2t)〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737392215",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of the following vector-valued functions at the indicated value of *t*."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e11",
+   "number": 11,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{t\\to e^{2}}〈t\\,\\ln (t),\\frac{\\ln \\,t}{t^{2}},\\sqrt{\\ln \\,(t^{2})}〉$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738023210",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of the following vector-valued functions at the indicated value of *t*."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2e^{2}\\,\\text{i}+\\frac{2}{e^{4}}\\,\\text{j}+2\\,\\text{k}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "2 e^2 i +(2/(e^4)) j +2 k"
+   }
+  },
+  {
+   "id": "e12",
+   "number": 12,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{t\\to \\pi /6}〈\\cos^{2}t,\\sin^{2}t,1〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737910572",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of the following vector-valued functions at the indicated value of *t*."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e13",
+   "number": 13,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{t\\to \\infty}\\,\\text{r}(t)$ for $\\text{r}(t)=2e^{-t}\\,\\text{i}+e^{-t}\\,\\text{j}+\\ln (t-1)\\,\\text{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737264017",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of the following vector-valued functions at the indicated value of *t*."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The limit does not exist because the limit of $\\ln (t-1)$ as *t* approaches infinity does not exist."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e14",
+   "number": 14,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Describe the curve defined by the vector-valued function $\\text{r}(t)=(1+t)\\,\\text{i}+(2+5t)\\,\\text{j}+(-1+6t)\\,\\text{k}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738028885",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of the following vector-valued functions at the indicated value of *t*."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e15",
+   "number": 15,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Domain: $\\text{r}(t)=〈t^{2},\\tan \\,t,\\ln \\,t〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737394656",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the domain of the vector-valued functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$t>0,t\\ne (2k+1)\\frac{\\pi}{2},$ where k is an integer"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e16",
+   "number": 16,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Domain: $\\text{r}(t)=〈t^{2},\\sqrt{t-3},\\frac{3}{2t+1}〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738080318",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the domain of the vector-valued functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e17",
+   "number": 17,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Domain: $\\text{r}(t)=〈\\csc (t),\\frac{1}{\\sqrt{t-3}},\\ln (t-2)〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737490912",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the domain of the vector-valued functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$t>3,t\\ne n\\pi ,$ where *n* is an integer"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e18",
+   "number": 18,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For what values of *t* is $\\text{r}(t)$ continuous?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737953751",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Let $\\text{r}(t)=〈\\cos \\,t,t,\\sin \\,t〉$ and use it to answer the following questions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e19",
+   "number": 19,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Sketch the graph of $\\text{r}(t).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737911233",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Let $\\text{r}(t)=〈\\cos \\,t,t,\\sin \\,t〉$ and use it to answer the following questions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_203.webp",
+      "alt": "This figure has two graphs. The first graph is labeled “cross section” and is a circle centered at the origin with radius of 1. It has counter-clockwise orientation. The section graph is labeled “side view” and is a 3 dimensional helix. The helix has counterclockwise orientation.",
+      "width": 438,
+      "height": 900
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e20",
+   "number": 20,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the domain of $\\text{r}(t)=2e^{-t}\\,\\text{i}+e^{-t}\\,\\text{j}+\\ln (t-1)\\,\\text{k}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738228505",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Let $\\text{r}(t)=〈\\cos \\,t,t,\\sin \\,t〉$ and use it to answer the following questions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e21",
+   "number": 21,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For what values of *t* is $\\text{r}(t)=2e^{-t}\\,\\text{i}+e^{-t}\\,\\text{j}+\\ln (t-1)\\,\\text{k}$ continuous?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738166893",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Let $\\text{r}(t)=〈\\cos \\,t,t,\\sin \\,t〉$ and use it to answer the following questions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "All *t* such that $t\\in (1,\\infty )$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e22",
+   "number": 22,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=2t\\,\\text{i}+t^{2}\\,\\text{j}$ (*Hint:* Let $x=2t$ and $y=t^{2}.$ Solve the first equation for *x* in terms of *t* and substitute this result into the second equation.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737364387",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Eliminate the parameter *t*, write the equation in Cartesian coordinates, then sketch the graphs of the vector-valued functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e23",
+   "number": 23,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=t^{3}\\,\\text{i}+2t\\,\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737167230",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Eliminate the parameter *t*, write the equation in Cartesian coordinates, then sketch the graphs of the vector-valued functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=2\\sqrt[3]{x},$ a variation of the cube-root function"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_205.webp",
+      "alt": "This figure is the graph of y = 2 times the cube root of x. It is an increasing function passing through the origin. The curve becomes more vertical near the origin. It has orientation to the right represented with arrows on the curve.",
+      "width": 342,
+      "height": 347
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e24",
+   "number": 24,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=2(\\sinh \\,t)\\,\\text{i}+2(\\cosh \\,t)\\,\\text{j},t>0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738016083",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Eliminate the parameter *t*, write the equation in Cartesian coordinates, then sketch the graphs of the vector-valued functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e25",
+   "number": 25,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=3(\\cos \\,t)\\,\\text{i}+3(\\sin \\,t)\\,\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737950449",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Eliminate the parameter *t*, write the equation in Cartesian coordinates, then sketch the graphs of the vector-valued functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^{2}+y^{2}=9,$ a circle centered at $(0,0)$ with radius 3, and a counterclockwise orientation"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_207.webp",
+      "alt": "This figure is the graph of x^2 + y^2 = 9. It is a circle centered at the origin with radius 3. It has orientation counter-clockwise represented with arrows on the curve.",
+      "width": 342,
+      "height": 347
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e26",
+   "number": 26,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=〈3\\,\\sin \\,t,3\\,\\cos \\,t〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737460223",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Eliminate the parameter *t*, write the equation in Cartesian coordinates, then sketch the graphs of the vector-valued functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e27",
+   "number": 27,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\text{r}(t)=\\left(2\\,\\cos^{2}\\,t\\right)\\,\\text{i}+(2-\\sqrt{t})\\,\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737148326",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a graphing utility to sketch each of the following vector-valued functions:"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_208.webp",
+      "alt": "This figure is the graph of r(t) = 2cost^2 i + (2 – the square root of t) j. The curve spirals in the first quadrant, touching the y-axis. As the curve gets closer to the x-axis, the spirals become tighter. It has the look of a spring being compressed. The arrows on the curve represent orientation going downward.",
+      "width": 235,
+      "height": 234
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e28",
+   "number": 28,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\text{r}(t)=〈e^{\\cos (3t)},e^{-\\sin (t)}〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738083682",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a graphing utility to sketch each of the following vector-valued functions:"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e29",
+   "number": 29,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\text{r}(t)=〈2-\\sin (2t),3+2\\,\\cos \\,t〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737160691",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a graphing utility to sketch each of the following vector-valued functions:"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_210.webp",
+      "alt": "This figure has two graphs. The first is 3 dimensional and is a curve making a figure eight on its side inside of a box. The box represents the first octant. The second graph is 2 dimensional. It represents the same curve from a “view in the yt plane”. The horizontal axis is labeled “t”. The curve is connected and crosses over itself in the first quadrant resembling a figure eight.",
+      "width": 438,
+      "height": 834
+     },
+     {
+      "type": "p",
+      "text": "Find a vector-valued function that traces out the given curve in the indicated direction."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e30",
+   "number": 30,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4x^{2}+9y^{2}=36;$ clockwise and counterclockwise"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738216363",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a graphing utility to sketch each of the following vector-valued functions:"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e31",
+   "number": 31,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=〈t,t^{2}〉;$ from left to right"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737788723",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a graphing utility to sketch each of the following vector-valued functions:"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "For left to right, $y=x^{2},$ where t increases"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e32",
+   "number": 32,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The line through *P* and *Q* where *P* is $(1,4,-2)$ and *Q* is $(3,9,6)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737910147",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a graphing utility to sketch each of the following vector-valued functions:"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e33",
+   "number": 33,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "What is the initial point of the path corresponding to $\\text{r}(0)?$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738133270",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Consider the curve described by the vector-valued function $\\text{r}(t)=(50e^{-t}\\cos \\,t)\\,\\text{i}+(50e^{-t}\\sin \\,t)\\,\\text{j}+(5-5e^{-t})\\,\\text{k}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(50,0,0)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(50, 0, 0)"
+   }
+  },
+  {
+   "id": "e34",
+   "number": 34,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "What is $\\lim_{t\\to \\infty}\\,\\text{r}(t)?$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737778518",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Consider the curve described by the vector-valued function $\\text{r}(t)=(50e^{-t}\\cos \\,t)\\,\\text{i}+(50e^{-t}\\sin \\,t)\\,\\text{j}+(5-5e^{-t})\\,\\text{k}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e35",
+   "number": 35,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology to sketch the curve."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737399959",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Consider the curve described by the vector-valued function $\\text{r}(t)=(50e^{-t}\\cos \\,t)\\,\\text{i}+(50e^{-t}\\sin \\,t)\\,\\text{j}+(5-5e^{-t})\\,\\text{k}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_211.webp",
+      "alt": "This figure is a graph in the 3 dimensional coordinate system. It is a curve starting at the middle of the box and curving towards the upper left corner The box represents an octant of the coordinate system.",
+      "width": 449,
+      "height": 380
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e36",
+   "number": 36,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Eliminate the parameter *t* to show that $z=5-\\frac{r}{10}$ where $r^{2}=x^{2}+y^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738146069",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Consider the curve described by the vector-valued function $\\text{r}(t)=(50e^{-t}\\cos \\,t)\\,\\text{i}+(50e^{-t}\\sin \\,t)\\,\\text{j}+(5-5e^{-t})\\,\\text{k}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e37",
+   "number": 37,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Let $r(t)=\\cos \\,t\\,\\text{i}+\\sin \\,t\\,\\text{j}+0.3\\,\\sin (2t)\\,\\text{k}.$ Use technology to graph the curve (called the *roller-coaster curve*) over the interval $[0,2\\pi ).$ Choose at least two views to determine the peaks and valleys."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738188924",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Consider the curve described by the vector-valued function $\\text{r}(t)=(50e^{-t}\\cos \\,t)\\,\\text{i}+(50e^{-t}\\sin \\,t)\\,\\text{j}+(5-5e^{-t})\\,\\text{k}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_212.webp",
+      "alt": "This figure has two graphs. The first is 3 dimensional and is a connected curve with counter-clockwise orientation inside of a box. The second graph is 3 dimensional. It represents the same curve from different view of the box. From the side of the box the curve is connected and has depth to it.",
+      "width": 465,
+      "height": 659
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e38",
+   "number": 38,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use the result of the preceding problem to construct an equation of a roller coaster with a steep drop from the peak and steep incline from the “valley.” Then, use technology to graph the equation."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737490804",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Consider the curve described by the vector-valued function $\\text{r}(t)=(50e^{-t}\\cos \\,t)\\,\\text{i}+(50e^{-t}\\sin \\,t)\\,\\text{j}+(5-5e^{-t})\\,\\text{k}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the results of the preceding two problems to construct an equation of a path of a roller coaster with more than two turning points (peaks and valleys)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737270469",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Consider the curve described by the vector-valued function $\\text{r}(t)=(50e^{-t}\\cos \\,t)\\,\\text{i}+(50e^{-t}\\sin \\,t)\\,\\text{j}+(5-5e^{-t})\\,\\text{k}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "One possibility is $r(t)=\\cos \\,t\\,\\text{i}+\\sin \\,t\\,\\text{j}+\\sin (4t)\\,\\text{k}.$ By increasing the coefficient of *t* in the third component, the number of turning points will increase."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_01_214.webp",
+      "alt": "This figure is a 3 dimensional graph. It is a connected curve inside of a box. The curve has orientation. As the orientation travels around the curve, it does go up and down in depth.",
+      "width": 421,
+      "height": 464
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "list",
+     "items": [
+      "Graph the curve $\\text{r}(t)=(4+\\cos (18t))\\cos (t)\\,\\text{i}+(4+\\cos (18t)\\sin (t))\\,\\text{j}+0.3\\,\\sin (18t)\\,\\text{k}$ using two viewing angles of your choice to see the overall shape of the curve.",
+      "Does the curve resemble a “slinky”?",
+      "What changes to the equation should be made to increase the number of coils of the slinky?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737400116",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Consider the curve described by the vector-valued function $\\text{r}(t)=(50e^{-t}\\cos \\,t)\\,\\text{i}+(50e^{-t}\\sin \\,t)\\,\\text{j}+(5-5e^{-t})\\,\\text{k}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "component functions",
+   "meaning": "the component functions of the vector-valued function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}$ are $f(t)$ and $g(t),$ and the component functions of the vector-valued function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k}$ are $f(t),$ $g(t)$ and $h(t)$"
+  },
+  {
+   "term": "helix",
+   "meaning": "a three-dimensional curve in the shape of a spiral"
+  },
+  {
+   "term": "limit of a vector-valued function",
+   "meaning": "a vector-valued function $\\text{r}(t)$ has a limit **L** as *t* approaches *a* if $\\lim_{t\\to a}|\\,\\text{r}(t)-\\text{L}|=0$"
+  },
+  {
+   "term": "plane curve",
+   "meaning": "the set of ordered pairs $(f(t),g(t))$ together with their defining parametric equations $x=f(t)$ and $y=g(t)$"
+  },
+  {
+   "term": "reparameterization",
+   "meaning": "an alternative parameterization of a given vector-valued function"
+  },
+  {
+   "term": "space curve",
+   "meaning": "the set of ordered triples $(f(t),g(t),h(t))$ together with their defining parametric equations $x=f(t),$ $y=g(t)$ and $z=h(t)$"
+  },
+  {
+   "term": "vector parameterization",
+   "meaning": "any representation of a plane or space curve using a vector-valued function"
+  },
+  {
+   "term": "vector-valued function",
+   "meaning": "a function of the form $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}$ or $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k},$ where the component functions *f, g,* and *h* are real-valued functions of the parameter *t*"
+  }
+ ]
+}

@@ -1,0 +1,3201 @@
+{
+ "schema": 1,
+ "id": "V2.4.5",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 4,
+ "section": 5,
+ "title": "First-Order Linear Equations",
+ "chapterTitle": "Introduction to Differential Equations",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53713",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/4-5-first-order-linear-equations",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §4.5 “First-Order Linear Equations”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Write a first-order linear differential equation in standard form.",
+  "Find an integrating factor and use it to solve a first-order linear differential equation.",
+  "Solve applied problems involving first-order linear differential equations."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Earlier, we studied an application of a first-order differential equation that involved solving for the velocity of an object. In particular, if a ball is thrown upward with an initial velocity of $v_{0}$ ft/s, then an initial-value problem that describes the velocity of the ball after $t$ seconds is given by"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dv}{dt}=-32,\\quad v(0)=v_{0}."
+    },
+    {
+     "type": "p",
+     "text": "This model assumes that the only force acting on the ball is gravity. Now we add to the problem by allowing for the possibility of **air resistance** acting on the ball."
+    },
+    {
+     "type": "p",
+     "text": "Air resistance always acts in the direction opposite to motion. Therefore if an object is rising, air resistance acts in a downward direction. If the object is falling, air resistance acts in an upward direction (Figure 4.23). There is no exact relationship between the velocity of an object and the air resistance acting on it. For very small objects, air resistance is proportional to velocity; that is, the force due to air resistance is numerically equal to some constant $k$ times $v.$ For larger (e.g., baseball-sized) objects, depending on the shape, air resistance can be approximately proportional to the square of the velocity. In fact, air resistance may be proportional to $v^{1.5},$ or $v^{0.9},$ or some other power of $v.$"
+    }
+   ],
+   "title": "First-Order Linear Equations"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_08_05_001.webp",
+     "alt": "A diagram of a baseball with an arrow above it pointing up and an arrow below it pointing down. The upper arrow is labeled “air resistance –kv” and the lower arrow is labeled “g = -9.8 m/sec ^ 2.”",
+     "caption": "**Figure 4.23** Forces acting on a moving baseball: gravity acts in a downward direction and air resistance acts in a direction opposite to the direction of motion.",
+     "width": 325,
+     "height": 352
+    },
+    {
+     "type": "p",
+     "text": "We will work with the linear approximation for air resistance. If we assume $k>0,$ then the expression for the force $F_{A}$ due to air resistance is given by $F_{A}=-kv.$ Therefore the sum of the forces acting on the object is equal to the sum of the gravitational force and the force due to air resistance. This, in turn, is equal to the mass of the object multiplied by its acceleration at time $t$ (Newton’s second law). This gives us the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "m\\frac{dv}{dt}=-kv-mg."
+    },
+    {
+     "type": "p",
+     "text": "Finally, we impose an initial condition $v(0)=v_{0},$ where $v_{0}$ is the initial velocity measured in meters per second. This makes $g=9.8{\\,\\text{m/s}}^{2}.$ The initial-value problem becomes"
+    },
+    {
+     "type": "math",
+     "tex": "m\\frac{dv}{dt}=-kv-mg,\\quad v(0)=v_{0}."
+    },
+    {
+     "type": "p",
+     "text": "The differential equation in this initial-value problem is an example of a first-order linear differential equation. (Recall that a differential equation is first-order if the highest-order derivative that appears in the equation is $1.)$ In this section, we study first-order linear equations and examine a method for finding a general solution to these types of equations, as well as solving initial-value problems involving them."
+    }
+   ],
+   "title": "First-Order Linear Equations (continued)"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A first-order differential equation is **linear** if it can be written in the form"
+      },
+      {
+       "type": "math",
+       "tex": "a(x)y'+b(x)y=c(x),"
+      },
+      {
+       "type": "p",
+       "text": "where $a(x),b(x),$ and $c(x)$ are arbitrary functions of $x.$"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Remember that the unknown function $y$ depends on the variable $x;$ that is, $x$ is the independent variable and $y$ is the dependent variable. Some examples of first-order linear differential equations are"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}(3x^{2}-4)y'+(x-3)y & = & \\sin \\,x \\\\ (\\sin \\,x)y'-(\\cos \\,x)y & = & \\cot \\,x \\\\ 4xy'+(3\\,\\ln \\,x)y & = & x^{3}-4x.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Examples of first-order nonlinear differential equations include"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}(y')^{4}-(y')^{3} & = & (3x-2)(y+4) \\\\ 4y'+3y^{3} & = & 4x-5 \\\\ (y')^{2} & = & \\sin \\,y+\\cos \\,x.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "These equations are nonlinear because of terms like $(y')^{4},y^{3},$ etc. Due to these terms, it is impossible to put these equations into the same form as (see above)."
+    }
+   ],
+   "title": "First-Order Linear Equations (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "(3x^{2}-4)y'+(x-3)y=\\sin \\,x."
+    },
+    {
+     "type": "p",
+     "text": "Our main goal in this section is to derive a solution method for equations of this form. It is useful to have the coefficient of $y'$ be equal to $1.$ To make this happen, we divide both sides by $3x^{2}-4.$"
+    },
+    {
+     "type": "math",
+     "tex": "y'+\\left(\\frac{x-3}{3x^{2}-4}\\right)\\,y=\\frac{\\sin \\,x}{3x^{2}-4}"
+    },
+    {
+     "type": "p",
+     "text": "This is called the **standard form** of the differential equation. We will use it later when finding the solution to a general first-order linear differential equation. Returning to (see above), we can divide both sides of the equation by $a(x).$ This leads to the equation"
+    },
+    {
+     "type": "math",
+     "tex": "y'+\\frac{b(x)}{a(x)}y=\\frac{c(x)}{a(x)}."
+    },
+    {
+     "type": "p",
+     "text": "Now define $p(x)=\\frac{b(x)}{a(x)}$ and $q(x)=\\frac{c(x)}{a(x)}.$ Then (see above) becomes"
+    },
+    {
+     "type": "math",
+     "tex": "y'+p(x)y=q(x)."
+    },
+    {
+     "type": "p",
+     "text": "We can write any first-order linear differential equation in this form, and this is referred to as the standard form for a first-order linear differential equation."
+    }
+   ],
+   "title": "Standard Form"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 4.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Put each of the following first-order linear differential equations into standard form. Identify $p(x)$ and $q(x)$ for each equation."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y'=3x-4y$",
+      "$\\frac{3xy'}{4y-3}=2$ (here $x\\ne 0)$",
+      "$y=3y'-4x^{2}+5$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Add $4y$ to both sides:"
+        },
+        {
+         "type": "math",
+         "tex": "y'+4y=3x."
+        },
+        {
+         "type": "p",
+         "text": "In this equation, $p(x)=4$ and $q(x)=3x.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Multiply both sides by $4y-3,$ then subtract $8y$ from each side:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}\\frac{3xy'}{4y-3} & = & 2 \\\\ 3xy' & = & 2(4y-3) \\\\ 3xy' & = & 8y-6 \\\\ 3xy'-8y & = & -6.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Finally, divide both sides by $3x$ to make the coefficient of $y'$ equal to $1:$"
+        },
+        {
+         "type": "math",
+         "tex": "y'-\\frac{8}{3x}y=-\\frac{2}{x}."
+        },
+        {
+         "type": "p",
+         "text": "This is allowable because in the original statement of this problem we assumed that $x\\ne 0.$ (If $x=0$ then the original equation becomes $0=2,$ which is clearly a false statement.)\n\nIn this equation, $p(x)=-\\frac{8}{3x}$ and $q(x)=-\\frac{2}{x}.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Subtract $y$ from each side and add $4x^{2}-5:$"
+        },
+        {
+         "type": "math",
+         "tex": "3y'-y=4x^{2}-5."
+        },
+        {
+         "type": "p",
+         "text": "Next divide both sides by $3:$"
+        },
+        {
+         "type": "math",
+         "tex": "y'-\\frac{1}{3}y=\\frac{4}{3}x^{2}-\\frac{5}{3}."
+        },
+        {
+         "type": "p",
+         "text": "In this equation, $p(x)=-\\frac{1}{3}$ and $q(x)=\\frac{4}{3}x^{2}-\\frac{5}{3}.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Writing First-Order Linear Equations in Standard Form"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Put the equation $\\frac{(x+3)y'}{2x-3y-4}=5$ into standard form and identify $p(x)$ and $q(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'+\\frac{15}{x+3}y=\\frac{10x-20}{x+3};p(x)=\\frac{15}{x+3}$ and $q(x)=\\frac{10x-20}{x+3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Multiply both sides by the common denominator, then collect all terms involving $y$ on one side."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now develop a solution technique for any first-order linear differential equation. We start with the standard form of a first-order linear differential equation:"
+    },
+    {
+     "type": "math",
+     "tex": "y'+p(x)y=q(x)."
+    },
+    {
+     "type": "p",
+     "text": "The first term on the left-hand side of (see above) is the derivative of the unknown function, and the second term is the product of a known function with the unknown function. This is somewhat reminiscent of the product rule from the Differentiation Rules section. If we multiply (see above) by a yet-to-be-determined function $\\mu (x),$ then the equation becomes"
+    },
+    {
+     "type": "math",
+     "tex": "\\mu (x)y'+\\mu (x)p(x)y=\\mu (x)q(x)."
+    },
+    {
+     "type": "p",
+     "text": "The left-hand side (see above) can be matched perfectly to the product rule:"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}[f(x)g(x)]=f'(x)g(x)+f(x)g'(x)."
+    },
+    {
+     "type": "p",
+     "text": "Matching term by term gives $y=f(x),g(x)=\\mu (x),$ and $g'(x)=\\mu (x)p(x).$ Taking the derivative of $g(x)=\\mu (x)$ and setting it equal to the right-hand side of $g'(x)=\\mu (x)p(x)$ leads to"
+    },
+    {
+     "type": "math",
+     "tex": "\\mu'(x)=\\mu (x)p(x)."
+    },
+    {
+     "type": "p",
+     "text": "This is a first-order, separable differential equation for $\\mu (x).$ We know $p(x)$ because it appears in the differential equation we are solving. Separating variables and integrating yields"
+    }
+   ],
+   "title": "Integrating Factors"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\frac{\\mu'(x)}{\\mu (x)} & = & p(x) \\\\ {\\displaystyle \\int \\frac{\\mu'(x)}{\\mu (x)}}dx & = & {\\displaystyle \\int p(x)\\,dx} \\\\ \\ln |\\mu (x)| & = & {\\displaystyle \\int p(x)\\,dx}+C \\\\ e^{\\ln |\\mu (x)|} & = & e^{{\\displaystyle \\int p(x)\\,dx}+C} \\\\ |\\mu (x)| & = & C_{1}e^{{\\displaystyle \\int p(x)\\,dx}} \\\\ \\mu (x) & = & C_{2}e^{{\\displaystyle \\int p(x)\\,dx}}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Here $C_{2}$ can be an arbitrary (positive or negative) constant. This leads to a general method for solving a first-order linear differential equation. We first multiply both sides of (see above) by the **integrating factor** $\\mu (x).$ This gives"
+    },
+    {
+     "type": "math",
+     "tex": "\\mu (x)y'+\\mu (x)p(x)y=\\mu (x)q(x)."
+    },
+    {
+     "type": "p",
+     "text": "The left-hand side of (see above) can be rewritten as $\\frac{d}{dx}(\\mu (x)y).$"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(\\mu (x)y)=\\mu (x)q(x)."
+    },
+    {
+     "type": "p",
+     "text": "Next integrate both sides of (see above) with respect to $x.$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}{\\displaystyle \\int \\frac{d}{dx}(\\mu (x)y)\\,dx} & = & {\\displaystyle \\int \\mu (x)q(x)\\,dx} \\\\ \\mu (x)y & = & {\\displaystyle \\int \\mu (x)q(x)\\,dx}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Divide both sides of (see above) by $\\mu (x):$"
+    },
+    {
+     "type": "math",
+     "tex": "y=\\frac{1}{\\mu (x)}\\left[{\\displaystyle \\int \\mu (x)q(x)\\,dx+C}\\right]."
+    }
+   ],
+   "title": "Integrating Factors (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Since $\\mu (x)$ was previously calculated, we are now finished. An important note about the integrating constant $C:$ It may seem that we are inconsistent in the usage of the integrating constant. However, the integral involving $p(x)$ is necessary in order to find an integrating factor for (see above). Only one integrating factor is needed in order to solve the equation; therefore, it is safe to assign a value for $C$ for this integral. We chose $C=0.$ When calculating the integral inside the brackets in (see above), it is necessary to keep our options open for the value of the integrating constant, because our goal is to find a general family of solutions to (see above). This integrating factor guarantees just that."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Put the equation into standard form and identify $p(x)$ and $q(x).$",
+        "Calculate the integrating factor $\\mu (x)=e^{{\\displaystyle \\int p(x)\\,dx}}.$",
+        "Multiply both sides of the differential equation by $\\mu (x).$",
+        "Integrate both sides of the equation obtained in step $3,$ and divide both sides by $\\mu (x).$",
+        "If there is an initial condition, determine the value of $C.$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Solving a First-order Linear Differential Equation"
+    }
+   ],
+   "title": "Integrating Factors (continued)"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 4.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a general solution for the differential equation $xy'+3y=4x^{2}-3x.$ Assume $x>0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "To put this differential equation into standard form, divide both sides by $x:$"
+        },
+        {
+         "type": "math",
+         "tex": "y'+\\frac{3}{x}y=4x-3."
+        },
+        {
+         "type": "p",
+         "text": "Therefore $p(x)=\\frac{3}{x}$ and $q(x)=4x-3.$"
+        }
+       ],
+       "The integrating factor is $\\mu (x)=e^{{\\displaystyle \\int (3/x)\\,dx}}=e^{3\\,\\ln \\,x}=x^{3}.$",
+       [
+        {
+         "type": "p",
+         "text": "Multiplying both sides of the differential equation by $\\mu (x)$ gives us"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}x^{3}y'+x^{3}\\left(\\frac{3}{x}\\right)y & = & x^{3}(4x-3) \\\\ x^{3}y'+3x^{2}y & = & 4x^{4}-3x^{3} \\\\ \\frac{d}{dx}(x^{3}y) & = & 4x^{4}-3x^{3}.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Integrate both sides of the equation."
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}{\\displaystyle \\int \\frac{d}{dx}(x^{3}y)}dx & = & {\\displaystyle \\int 4x^{4}-3x^{3}}dx \\\\ x^{3}y & = & \\frac{4x^{5}}{5}-\\frac{3x^{4}}{4}+C \\\\ y & = & \\frac{4x^{2}}{5}-\\frac{3x}{4}+Cx^{-3}.\\end{array}"
+        }
+       ],
+       "There is no initial value, so the problem is complete."
+      ],
+      "ordered": true,
+      "style": "1"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "You may have noticed the condition that was imposed on the differential equation; namely, $x>0.$ For any nonzero value of $C,$ the general solution is not defined at $x=0.$ Furthermore, when $x<0,$ the integrating factor changes. The integrating factor is given by (see above) as $\\mu (x)=e^{{\\displaystyle \\int p(x)}dx}.$ For this $p(x)$ we get"
+       },
+       {
+        "type": "math",
+        "tex": "e^{{\\displaystyle \\int p(x)\\,dx=}}e^{{\\displaystyle \\int (3/x)dx}}=e^{3\\,\\ln |x|}=|x|^{3},"
+       },
+       {
+        "type": "p",
+        "text": "since $x<0.$ The behavior of the general solution changes at $x=0$ largely due to the fact that $p(x)$ is not defined there."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Solving a First-order Linear Equation"
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to the differential equation $(x-2)y'+y=3x^{2}+2x.$ Assume $x>2.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{x^{3}+x^{2}+C}{x-2}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the method outlined in the problem-solving strategy for first-order linear differential equations."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=((x^3+x^2+C)/(x-2))"
+   }
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now we use the same strategy to find the solution to an initial-value problem."
+    }
+   ],
+   "title": "Integrating Factors (continued)"
+  },
+  {
+   "id": "x13",
+   "kind": "example",
+   "label": "Example 4.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem"
+    },
+    {
+     "type": "math",
+     "tex": "y'+3y=2x-1,\\quad y(0)=3."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "This differential equation is already in standard form with $p(x)=3$ and $q(x)=2x-1.$",
+       "The integrating factor is $\\mu (x)=e^{{\\displaystyle \\int 3dx}}=e^{3x}.$",
+       [
+        {
+         "type": "p",
+         "text": "Multiplying both sides of the differential equation by $\\mu (x)$ gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}e^{3x}y'+3e^{3x}y & = & (2x-1)e^{3x} \\\\ \\frac{d}{dx}[ye^{3x}] & = & (2x-1)e^{3x}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Integrate both sides of the equation:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}{\\displaystyle \\int \\frac{d}{dx}[ye^{3x}]dx} & = & {\\displaystyle \\int (2x-1)e^{3x}dx} \\\\ ye^{3x} & = & \\frac{e^{3x}}{3}(2x-1)-{\\displaystyle \\int \\frac{2}{3}e^{3x}dx} \\\\ ye^{3x} & = & \\frac{e^{3x}(2x-1)}{3}-\\frac{2e^{3x}}{9}+C \\\\ y & = & \\frac{2x-1}{3}-\\frac{2}{9}+Ce^{-3x} \\\\ y & = & \\frac{2x}{3}-\\frac{5}{9}+Ce^{-3x}.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Now substitute $x=0$ and $y=3$ into the general solution and solve for $C:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}y & = & \\frac{2}{3}x-\\frac{5}{9}+Ce^{-3x} \\\\ 3 & = & \\frac{2}{3}(0)-\\frac{5}{9}+Ce^{-3(0)} \\\\ 3 & = & -\\frac{5}{9}+C \\\\ C & = & \\frac{32}{9}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore the solution to the initial-value problem is"
+        },
+        {
+         "type": "math",
+         "tex": "y=\\frac{2}{3}x-\\frac{5}{9}+\\frac{32}{9}e^{-3x}."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "1"
+     }
+    ]
+   },
+   "title": "A First-order Linear Initial-Value Problem"
+  },
+  {
+   "id": "c14",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem $y'-2y=4x+3\\quad y(0)=-2.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-2x-\\frac{5}{2}+\\frac{1}{2}e^{2x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-2 x-(5/2)+(1/2)e^(2 x)"
+   }
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We look at two different applications of first-order linear differential equations. The first involves air resistance as it relates to objects that are rising or falling; the second involves an electrical circuit. Other applications are numerous, but most are solved in a similar fashion."
+    }
+   ],
+   "title": "Applications of First-order Linear Differential Equations"
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We discussed air resistance at the beginning of this section. The next example shows how to apply this concept for a ball in vertical motion. Other factors can affect the force of air resistance, such as the size and shape of the object, but we ignore them here."
+    }
+   ],
+   "title": "Free fall with air resistance"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 4.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A racquetball is hit straight upward with an initial velocity of $2$ m/s. The mass of a racquetball is approximately $0.0427$ kg. Air resistance acts on the ball with a force numerically equal to $0.5v,$ where $v$ represents the velocity of the ball at time $t.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the velocity of the ball as a function of time.",
+      "How long does it take for the ball to reach its maximum height?",
+      "If the ball is hit from an initial height of $1$ meter, how high will it reach?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "The mass $m=0.0427\\,\\text{kg},k=0.5,$ and $g=9.8{\\,\\text{m/s}}^{2}.$ The initial velocity is $v_{0}=2$ m/s. Therefore the initial-value problem is"
+        },
+        {
+         "type": "math",
+         "tex": "0.0427\\frac{dv}{dt}=-0.5v-0.0427(9.8),\\quad v_{0}=2."
+        },
+        {
+         "type": "p",
+         "text": "Dividing the differential equation by $0.0427$ gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{dv}{dt}=-11.7096v-9.8,\\quad v_{0}=2."
+        },
+        {
+         "type": "p",
+         "text": "The differential equation is linear. Using the problem-solving strategy for linear differential equations:\n\nStep 1. Rewrite the differential equation as $\\frac{dv}{dt}+11.7096v=-9.8.$ This gives $p(t)=11.7096$ and $q(t)=-9.8$\n\nStep 2. The integrating factor is $\\mu (t)=e^{{\\displaystyle \\int 11.7096dt}}=e^{11.7096t}.$\n\nStep 3. Multiply the differential equation by $\\mu (t):$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}e^{11.7096t}\\frac{dv}{dt}+11.7096ve^{11.7096t} & = & -9.8e^{11.7096t} \\\\ \\frac{d}{dt}[ve^{11.7096t}] & = & -9.8e^{11.7096t}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Step 4. Integrate both sides:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}{\\displaystyle \\int \\frac{d}{dt}[ve^{11.7096t}]}\\,dt & = & {\\displaystyle \\int -9.8e^{11.7096t}dt} \\\\ ve^{11.7096t} & = & \\frac{-9.8}{11.7096}e^{11.7096t}+C \\\\ v(t) & = & -0.8369+Ce^{-11.7096t}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Step 5. Solve for $C$ using the initial condition $v_{0}=v(0)=2:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}v(t) & = & -0.8369+Ce^{-11.7096t} \\\\ v(0) & = & -0.8369+Ce^{-11.7096(0)} \\\\ 2 & = & -0.8369+C \\\\ C & = & 2.8369.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore the solution to the initial-value problem is $v(t)=2.8369e^{-11.7096t}-0.8369.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The ball reaches its maximum height when the velocity is equal to zero. The reason is that when the velocity is positive, it is rising, and when it is negative, it is falling. Therefore when it is zero, it is neither rising nor falling, and is at its maximum height:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc} \\\\ 2.8369e^{-11.7096t}-0.8369 & = & 0 \\\\ 2.8369e^{-11.7096t} & = & 0.8369 \\\\ e^{-11.7096t} & = & \\frac{0.8369}{2.8369}\\approx 0.295 \\\\ \\ln \\,e^{-11.7096t} & = & \\ln \\,0.295\\approx -1.221 \\\\ -11.7096t & = & -1.221 \\\\ t & \\approx & 0.104.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore it takes approximately $0.104$ second to reach maximum height."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "To find the height of the ball as a function of time, use the fact that the derivative of position is velocity, i.e., if $h(t)$ represents the height at time $t,$ then $h'(t)=v(t).$ Because we know $v(t)$ and the initial height, we can form an initial-value problem:"
+        },
+        {
+         "type": "math",
+         "tex": "h'(t)=2.8369e^{-11.7096t}-0.8369,\\quad h(0)=1."
+        },
+        {
+         "type": "p",
+         "text": "Integrating both sides of the differential equation with respect to $t$ gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}{\\displaystyle \\int h'(t)\\,dt} & = & {\\displaystyle \\int 2.8369e^{-11.7096t}-0.8369}dt \\\\ h(t) & = & -\\frac{2.8369}{11.7096}e^{-11.7096t}-0.8369t+C \\\\ h(t) & = & -0.2423e^{-11.7096t}-0.8369t+C.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Solve for $C$ by using the initial condition:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}h(t) & = & -0.2423e^{-11.7096t}-0.8369t+C \\\\ h(0) & = & -0.2423e^{-11.7096(0)}-0.8369(0)+C \\\\ 1 & = & -0.2423+C \\\\ C & = & 1.2423.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore"
+        },
+        {
+         "type": "math",
+         "tex": "h(t)=-0.2423e^{-11.7096t}-0.8369t+1.2423."
+        },
+        {
+         "type": "p",
+         "text": "After $0.104$ second, the height is given by\n\n$h(0.104)=-0.2423e^{-11.7096t}-0.8369t+1.2423\\approx 1.0836$ meter."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "A Ball with Air Resistance"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "The weight of a penny is $2.5$ grams (United States Mint, “Coin Specifications,” accessed April 9, 2015, http://www.usmint.gov/about_the_mint/?action=coin_specifications), and the upper observation deck of the Empire State Building is $369$ meters above the street. Since the penny is a small and relatively smooth object, air resistance acting on the penny is actually quite small. We assume the air resistance is numerically equal to $0.0025v.$ Furthermore, the penny is dropped with no initial velocity imparted to it."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Set up an initial-value problem that represents the falling penny.",
+      "Solve the problem for $v(t).$",
+      "What is the terminal velocity of the penny (i.e., calculate the limit of the velocity as $t$ approaches infinity)?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$\\begin{array}{ccc}\\frac{dv}{dt} & = & -v-9.8 \\\\ v(0) & = & 0\\end{array}$",
+       "$v(t)=9.8(e^{-t}-1)$",
+       "$\\lim_{t\\to \\infty}v(t)=\\lim_{t\\to \\infty}(9.8(e^{-t}-1))=-9.8\\,\\text{m/s}\\approx -21.922\\,\\text{mph}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Set up the differential equation the same way as Example 4.15. Remember to convert from grams to kilograms."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A source of electromotive force (e.g., a battery or generator) produces a flow of current in a closed circuit, and this current produces a voltage drop across each resistor, inductor, and capacitor in the circuit. Kirchhoff’s Loop Rule states that the sum of the voltage drops across resistors, inductors, and capacitors is equal to the total electromotive force in a closed circuit. We have the following three results:"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "The voltage drop across a resistor is given by"
+       },
+       {
+        "type": "math",
+        "tex": "E_{R}=Ri,"
+       },
+       {
+        "type": "p",
+        "text": "where $R$ is a constant of proportionality called the *resistance,* and $i$ is the current."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "The voltage drop across an inductor is given by"
+       },
+       {
+        "type": "math",
+        "tex": "E_{L}=Li',"
+       },
+       {
+        "type": "p",
+        "text": "where $L$ is a constant of proportionality called the *inductance*, and $i$ again denotes the current."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "The voltage drop across a capacitor is given by"
+       },
+       {
+        "type": "math",
+        "tex": "E_{C}=\\frac{1}{C}q,"
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "1"
+    },
+    {
+     "type": "p",
+     "text": "where $C$ is a constant of proportionality called the *capacitance*, and $q$ is the instantaneous charge on the capacitor. The relationship between $i$ and $q$ is $i=q'.$"
+    },
+    {
+     "type": "p",
+     "text": "We use units of volts $(\\text{V})$ to measure voltage $E,$ amperes $(\\text{A})$ to measure current $i,$ coulombs $(\\text{C})$ to measure charge $q,$ ohms $(\\text{Ω})$ to measure resistance $R,$ henrys $(\\text{H})$ to measure inductance $L,$ and farads $(\\text{F})$ to measure capacitance $C.$ Consider the circuit in Figure 4.24."
+    }
+   ],
+   "title": "Electrical Circuits"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_08_05_003.webp",
+     "alt": "A diagram of an electric circuit in a rectangle. The top has a capacitor C, the left has a voltage generator Vs, the bottom was a resistor R, and the right has an inductor L.",
+     "caption": "**Figure 4.24** A typical electric circuit, containing a voltage generator $(V_{S}),$ capacitor $(C),$ inductor $(L),$ and resistor $(R).$",
+     "width": 392,
+     "height": 242
+    },
+    {
+     "type": "p",
+     "text": "Applying Kirchhoff’s Loop Rule to this circuit, we let $E$ denote the electromotive force supplied by the voltage generator. Then"
+    },
+    {
+     "type": "math",
+     "tex": "E_{L}+E_{R}+E_{C}=E."
+    },
+    {
+     "type": "p",
+     "text": "Substituting the expressions for $E_{L},E_{R},$ and $E_{C}$ into this equation, we obtain"
+    },
+    {
+     "type": "math",
+     "tex": "Li'+Ri+\\frac{1}{C}q=E."
+    },
+    {
+     "type": "p",
+     "text": "If there is no capacitor in the circuit, then the equation becomes"
+    },
+    {
+     "type": "math",
+     "tex": "Li'+Ri=E."
+    },
+    {
+     "type": "p",
+     "text": "This is a first-order differential equation in $i.$ The circuit is referred to as an $LR$ circuit."
+    },
+    {
+     "type": "p",
+     "text": "Next, suppose there is no inductor in the circuit, but there is a capacitor and a resistor, so $L=0,R\\ne 0,$ and $C\\ne 0.$ Then (see above) can be rewritten as"
+    },
+    {
+     "type": "math",
+     "tex": "Rq'+\\frac{1}{C}q=E,"
+    },
+    {
+     "type": "p",
+     "text": "which is a first-order linear differential equation. This is referred to as an **RC circuit**. In either case, we can set up and solve an initial-value problem."
+    }
+   ],
+   "title": "Electrical Circuits (continued)"
+  },
+  {
+   "id": "x21",
+   "kind": "example",
+   "label": "Example 4.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A circuit has in series an electromotive force given by $E=50\\,\\sin \\,20t\\,\\text{V},$ a resistor of $5\\text{Ω},$ and an inductor of $0.4\\,\\text{H}.$ If the initial current is $0,$ find the current at time $t>0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have a resistor and an inductor in the circuit, so we use (see above). The voltage drop across the resistor is given by $E_{R}=Ri=5i.$ The voltage drop across the inductor is given by $E_{L}=Li'=0.4i'.$ The electromotive force becomes the right-hand side of (see above). Therefore (see above) becomes"
+     },
+     {
+      "type": "math",
+      "tex": "0.4i'+5i=50\\,\\sin \\,20t."
+     },
+     {
+      "type": "p",
+      "text": "Dividing both sides by $0.4$ gives the equation"
+     },
+     {
+      "type": "math",
+      "tex": "i'+12.5i=125\\,\\sin \\,20t."
+     },
+     {
+      "type": "p",
+      "text": "Since the initial current is 0, this result gives an initial condition of $i(0)=0.$ We can solve this initial-value problem using the five-step strategy for solving first-order differential equations."
+     },
+     {
+      "type": "p",
+      "text": "Step 1. Rewrite the differential equation as $i'+12.5i=125\\,\\sin \\,20t.$ This gives $p(t)=12.5$ and $q(t)=125\\,\\sin \\,20t.$"
+     },
+     {
+      "type": "p",
+      "text": "Step 2. The integrating factor is $\\mu (t)=e^{{\\displaystyle \\int 12.5dt}}=e^{12.5t}.$"
+     },
+     {
+      "type": "p",
+      "text": "Step 3. Multiply the differential equation by $\\mu (t):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}e^{12.5t}i'+12.5e^{12.5t}i & = & 125e^{12.5t}\\sin \\,20t \\\\ \\frac{d}{dt}\\,[ie^{12.5t}] & = & 125e^{12.5t}\\sin \\,20t.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Step 4. Integrate both sides:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}{\\displaystyle \\int \\frac{d}{dt}\\,[ie^{12.5t}]}\\,dt & = & {\\displaystyle \\int 125e^{12.5t}\\sin \\,20t\\,dt} \\\\ ie^{12.5t} & = & \\left(\\frac{250\\,\\sin \\,20t-400\\,\\cos \\,20t}{89}\\right)\\,e^{12.5t}+C \\\\ i(t) & = & \\frac{250\\,\\sin \\,20t-400\\,\\cos \\,20t}{89}+Ce^{-12.5t}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Step 5. Solve for $C$ using the initial condition $v(0)=2:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}i(t) & = & \\frac{250\\,\\sin \\,20t-400\\,\\cos \\,20t}{89}+Ce^{-12.5t} \\\\ i(0) & = & \\frac{250\\,\\sin \\,20(0)-400\\,\\cos \\,20(0)}{89}+Ce^{-12.5(0)} \\\\ 0 & = & -\\frac{400}{89}+C \\\\ C & = & \\frac{400}{89}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore the solution to the initial-value problem is $i(t)=\\frac{250\\,\\sin \\,20t-400\\,\\cos \\,20t+400e^{-12.5t}}{89}=\\frac{250\\,\\sin \\,20t-400\\,\\cos \\,20t}{89}+\\frac{400e^{-12.5t}}{89}.$"
+     },
+     {
+      "type": "p",
+      "text": "The first term can be rewritten as a single cosine function. First, multiply and divide by $\\sqrt{250^{2}+400^{2}}=50\\sqrt{89}:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\frac{250\\,\\sin \\,20t-400\\,\\cos \\,20t}{89} & =\\frac{50\\sqrt{89}}{89}\\left(\\frac{250\\,\\sin \\,20t-400\\,\\cos \\,20t}{50\\sqrt{89}}\\right) \\\\ & =-\\frac{50\\sqrt{89}}{89}\\left(\\frac{8\\,\\cos \\,20t}{\\sqrt{89}}-\\frac{5\\,\\sin \\,20t}{\\sqrt{89}}\\right).\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Next, define $\\varphi$ to be an acute angle such that $\\cos \\,\\varphi =\\frac{8}{\\sqrt{89}}.$ Then $\\sin \\,\\varphi =\\frac{5}{\\sqrt{89}}$ and"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}-\\frac{50\\sqrt{89}}{89}\\left(\\frac{8\\,\\cos \\,20t}{\\sqrt{89}}-\\frac{5\\,\\sin \\,20t}{\\sqrt{89}}\\right) & =-\\frac{50\\sqrt{89}}{89}\\,(\\cos \\,\\varphi \\,\\cos \\,20t-\\sin \\,\\varphi \\,\\sin \\,20t) \\\\ & =-\\frac{50\\sqrt{89}}{89}\\cos (20t+\\varphi ).\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore the solution can be written as"
+     },
+     {
+      "type": "math",
+      "tex": "i(t)=-\\frac{50\\sqrt{89}}{89}\\,\\cos \\,(20t+\\varphi )+\\frac{400e^{-12.5t}}{89}."
+     },
+     {
+      "type": "p",
+      "text": "The second term is called the *attenuation* term, because it disappears rapidly as *t* grows larger. The phase shift is given by $\\varphi ,$ and the amplitude of the steady-state current is given by $\\frac{50\\sqrt{89}}{89}.$ The graph of this solution appears in Figure 4.25:"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_08_05_004.webp",
+      "alt": "A graph of the given solution over [0, 6] on the x axis. It is an oscillating function, rapidly going from just below -5 to just above 5.",
+      "caption": "**Figure 4.25**",
+      "width": 464,
+      "height": 497
+     }
+    ]
+   },
+   "title": "Finding Current in an *RL* Electric Circuit"
+  },
+  {
+   "id": "c22",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A circuit has in series an electromotive force given by $E=20\\,\\sin \\,5t$ V, a capacitor with capacitance $0.02\\,\\text{F},$ and a resistor of $8\\,\\text{Ω}.$ If the initial charge is $4\\,\\text{C},$ find the charge at time $t>0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Initial-value problem:"
+     },
+     {
+      "type": "p",
+      "text": "$8q'+\\frac{1}{0.02}q=20\\,\\sin \\,5t,\\quad q(0)=4$"
+     },
+     {
+      "type": "p",
+      "text": "$q(t)=\\frac{10\\,\\sin \\,5t-8\\,\\cos \\,5t+172e^{-6.25t}}{41}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above) for an $RC$ circuit to set up an initial-value problem."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Any first-order linear differential equation can be written in the form $y'+p(x)y=q(x).$",
+      "We can use a five-step problem-solving strategy for solving a first-order linear differential equation that may or may not include an initial value.",
+      "Applications of first-order linear differential equations include determining motion of a rising or falling object with air resistance and finding current in an electrical circuit."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**standard form**",
+       "$y'+p(x)y=q(x)$"
+      ],
+      [
+       "**integrating factor**",
+       "$\\mu (x)=e^{{\\displaystyle \\int p(x)\\,dx}}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e208",
+   "number": 208,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dx}=x^{2}y+\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572591375",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Are the following differential equations linear? Explain your reasoning."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e209",
+   "number": 209,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=ty$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572447491",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Are the following differential equations linear? Explain your reasoning."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Yes"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e210",
+   "number": 210,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}+y^{2}=x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572447527",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Are the following differential equations linear? Explain your reasoning."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e211",
+   "number": 211,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=x^{3}+e^{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572587618",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Are the following differential equations linear? Explain your reasoning."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Yes"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e212",
+   "number": 212,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=y+e^{y}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572449686",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Are the following differential equations linear? Explain your reasoning."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e213",
+   "number": 213,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=x^{3}y+\\sin \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572449722",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Write the following first-order differential equations in standard form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'-x^{3}y=\\sin \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y'-x^3 y= sin x"
+   }
+  },
+  {
+   "id": "e214",
+   "number": 214,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'+3y-\\ln \\,x=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572375969",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Write the following first-order differential equations in standard form."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e215",
+   "number": 215,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$-xy'=(3x+2)y+xe^{x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572573687",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Write the following first-order differential equations in standard form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'+\\frac{(3x+2)}{x}y=-e^{x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y'+((3 x+2)/x)y=-e^x"
+   }
+  },
+  {
+   "id": "e216",
+   "number": 216,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=4y+ty+\\tan \\,t$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572330281",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Write the following first-order differential equations in standard form."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e217",
+   "number": 217,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=yx(x+1)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572567913",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Write the following first-order differential equations in standard form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dt}-yx(x+1)=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "((d y)/(d t))-y x(x+1)=0"
+   }
+  },
+  {
+   "id": "e218",
+   "number": 218,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=xy+3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572281909",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "What are the integrating factors for the following differential equations?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e219",
+   "number": 219,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'+e^{x}y=\\sin \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571758322",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "What are the integrating factors for the following differential equations?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{\\left(e^{x}\\right)}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^(e^x)"
+   }
+  },
+  {
+   "id": "e220",
+   "number": 220,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=x\\,\\ln (x)y+3x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572290061",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "What are the integrating factors for the following differential equations?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e221",
+   "number": 221,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dx}=\\tanh (x)y+1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572290309",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "What are the integrating factors for the following differential equations?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\ln (\\cosh \\,x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- ln (cosh x)"
+   }
+  },
+  {
+   "id": "e222",
+   "number": 222,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}+3ty=e^{t}y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572401993",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "What are the integrating factors for the following differential equations?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e223",
+   "number": 223,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=3y+2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572410628",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=Ce^{3x}-\\frac{2}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C e^(3 x)-(2/3)"
+   }
+  },
+  {
+   "id": "e224",
+   "number": 224,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=2y-x^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572116338",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e225",
+   "number": 225,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$xy'=3y-6x^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571780010",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=Cx^{3}+6x^{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C x^3+6 x^2"
+   }
+  },
+  {
+   "id": "e226",
+   "number": 226,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(x+2)y'=3x+y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572375731",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e227",
+   "number": 227,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=3x+xy$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571613598",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=Ce^{x^{2}/2}-3$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C e^(x^2/2)-3"
+   }
+  },
+  {
+   "id": "e228",
+   "number": 228,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$xy'=x+y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571613657",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e229",
+   "number": 229,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin (x)y'=y+2x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571639298",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=C\\,\\tan \\left(\\frac{x}{2}\\right)-2x+4\\,\\tan \\left(\\frac{x}{2}\\right)\\ln \\left(\\sin \\left(\\frac{x}{2}\\right)\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C tan ((x/2))-2 x+4 tan ((x/2)) ln (sin ((x/2)))"
+   }
+  },
+  {
+   "id": "e230",
+   "number": 230,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=y+e^{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572284967",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e231",
+   "number": 231,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$xy'=3y+x^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572480155",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=Cx^{3}-x^{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C x^3-x^2"
+   }
+  },
+  {
+   "id": "e232",
+   "number": 232,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'+\\ln \\,x=\\frac{y}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571606664",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e233",
+   "number": 233,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $(x+2)y'=2y-1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571548292",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations. Use your calculator to draw a family of solutions. Are there certain initial conditions that change the behavior of the solution?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=C(x+2)^{2}+\\frac{1}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e234",
+   "number": 234,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y'=3e^{t/3}-2y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572088657",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations. Use your calculator to draw a family of solutions. Are there certain initial conditions that change the behavior of the solution?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e235",
+   "number": 235,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $xy'+\\frac{y}{2}=\\sin (3t)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571809463",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations. Use your calculator to draw a family of solutions. Are there certain initial conditions that change the behavior of the solution?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{C}{\\sqrt{x}}+2\\,\\sin (3t)$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e236",
+   "number": 236,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $xy'=2\\frac{\\cos \\,x}{x}-3y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571694863",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations. Use your calculator to draw a family of solutions. Are there certain initial conditions that change the behavior of the solution?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e237",
+   "number": 237,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $(x+1)y'=3y+x^{2}+2x+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572469686",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations. Use your calculator to draw a family of solutions. Are there certain initial conditions that change the behavior of the solution?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=C(x+1)^{3}-x^{2}-2x-1$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e238",
+   "number": 238,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\sin (x)y'+\\cos (x)y=2x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572294225",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations. Use your calculator to draw a family of solutions. Are there certain initial conditions that change the behavior of the solution?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e239",
+   "number": 239,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\sqrt{x^{2}+1}y'=y+2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571776599",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations. Use your calculator to draw a family of solutions. Are there certain initial conditions that change the behavior of the solution?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=Ce^{\\sinh^{-1}x}-2$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e240",
+   "number": 240,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $x^{3}y'+2x^{2}y=x+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571532443",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following differential equations. Use your calculator to draw a family of solutions. Are there certain initial conditions that change the behavior of the solution?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e241",
+   "number": 241,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'+y=x,y(0)=3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572610838",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=x+4e^{\\mathrm{–x}}-1$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e242",
+   "number": 242,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=y+2x^{2},y(0)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572611763",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e243",
+   "number": 243,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$xy'=y-3x^{3},y(1)=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572172985",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-\\frac{3x}{2}(x^{2}-1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-((3 x)/2)(x^2-1)"
+   }
+  },
+  {
+   "id": "e244",
+   "number": 244,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}y'=xy-\\ln \\,x,y(1)=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571750493",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e245",
+   "number": 245,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(1+x^{2})y'=y-1,y(0)=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571768630",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=1-e^{\\tan^{-1}x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=1-e^(tan^(-1) x)"
+   }
+  },
+  {
+   "id": "e246",
+   "number": 246,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$xy'=y+2x\\,\\ln \\,x,y(1)=5$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571821996",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e247",
+   "number": 247,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(2+x)y'=y+2+x,y(0)=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571539148",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=(x+2)\\ln \\,\\left(\\frac{x+2}{2}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=(x+2) ln (((x+2)/2))"
+   }
+  },
+  {
+   "id": "e248",
+   "number": 248,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=xy+2xe^{\\frac{1}{2}x^{2}},y(0)=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572222188",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e249",
+   "number": 249,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sqrt{x}y'=y+2x,y(0)=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571565951",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=2e^{2\\sqrt{x}}-2x-2\\sqrt{x}-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=2 e^(2 sqrt(x))-2 x-2 sqrt(x)-1"
+   }
+  },
+  {
+   "id": "e250",
+   "number": 250,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=2y+xe^{x},y(0)=-1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572184061",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e251",
+   "number": 251,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A falling object of mass $m$ can reach terminal velocity when the drag force is proportional to its velocity, with proportionality constant $k.$ Set up the differential equation and solve for the velocity given an initial velocity of $0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572605479",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v(t)=\\frac{gm}{k}(1-e^{-kt/m})$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"vector\",\"value\":\"((g m)/k)(1-e^(-k t/m))\"} failed (checker rejects the answer itself)"
+  },
+  {
+   "id": "e252",
+   "number": 252,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Using your expression from the preceding problem, what is the terminal velocity? (*Hint:* Examine the limiting behavior; does the velocity approach a value?)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572412082",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e253",
+   "number": 253,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Using your equation for terminal velocity, solve for the distance fallen. How long does it take to fall $5000$ meters if the mass is $100$ kilograms, the acceleration due to gravity is $9.8$ m/s$^{\\text{2}}$ and the proportionality constant is $4?$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571814983",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$40.451$ seconds"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "40.451"
+   }
+  },
+  {
+   "id": "e254",
+   "number": 254,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A more accurate way to describe terminal velocity is that the drag force is proportional to the square of velocity, with a proportionality constant $k.$ Set up the differential equation and solve for the velocity."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571815034",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e255",
+   "number": 255,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Using your expression from the preceding problem, what is the terminal velocity? (*Hint:* Examine the limiting behavior: Does the velocity approach a value?)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572504560",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{\\frac{gm}{k}}$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"vector\",\"value\":\"sqrt(((g m)/k))\"} failed (checker rejects the answer itself)"
+  },
+  {
+   "id": "e256",
+   "number": 256,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Using your equation for terminal velocity, solve for the distance fallen. How long does it take to fall $5000$ meters if the mass is $100$ kilograms, the acceleration due to gravity is $9.8{\\,\\text{m/s}}^{2}$ and the proportionality constant is $4?$ Does it take more or less time than your initial estimate?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571631470",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems by using integrating factors."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e257",
+   "number": 257,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Solve the generic equation $y'=ax+y.$ How does varying $a$ change the behavior?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572468399",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, determine how parameter $a$ affects the solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=Ce^{x}-a(x+1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C e^x-a(x+1)"
+   }
+  },
+  {
+   "id": "e258",
+   "number": 258,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Solve the generic equation $y'=ay+x.$ How does varying $a$ change the behavior?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572468472",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, determine how parameter $a$ affects the solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e259",
+   "number": 259,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Solve the generic equation $y'=ax+xy.$ How does varying $a$ change the behavior?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572176201",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, determine how parameter $a$ affects the solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=Ce^{x^{2}/2}-a$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C e^(x^2/2)-a"
+   }
+  },
+  {
+   "id": "e260",
+   "number": 260,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Solve the generic equation $y'=x+axy.$ How does varying $a$ change the behavior?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572387691",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, determine how parameter $a$ affects the solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e261",
+   "number": 261,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Solve $y'-y=e^{kt}$ with the initial condition $y(0)=0.$ As $k$ approaches $1,$ what happens to your formula?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571783178",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, determine how parameter $a$ affects the solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{e^{kt}-e^{t}}{k-1}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=((e^(k t)-e^t)/(k-1))"
+   }
+  },
+  {
+   "id": "e262",
+   "number": 262,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The differential equation $y'=3x^{2}y-\\cos (x)y''$ is linear."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572115965",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e263",
+   "number": 263,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The differential equation $y'=x-y$ is separable."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572439961",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "F"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e264",
+   "number": 264,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You can explicitly solve all first-order differential equations by separation or by the method of integrating factors."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572439993",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e265",
+   "number": 265,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You can determine the behavior of all first-order differential equations using directional fields or Euler’s method."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571526558",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "T"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e266",
+   "number": 266,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=x^{2}+3e^{x}-2x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571526580",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equations."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e267",
+   "number": 267,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=2^{x}+\\cos^{-1}x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571776648",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equations."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=\\frac{2^{x}}{\\ln (2)}+x\\,\\cos^{-1}x-\\sqrt{1-x^{2}}+C$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"y(x)=((2^x)/(ln (2)))+x cos^(-1) x-sqrt(1-x^2)+C\""
+  },
+  {
+   "id": "e268",
+   "number": 268,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=y(x^{2}+1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572548229",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equations."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=e^{-y}\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572476629",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equations."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=\\ln (C-\\cos \\,x)$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"y(x)= ln (C- cos x)\""
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=3x-2y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572394399",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equations."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=y\\,\\ln \\,y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572408332",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equations."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=e^{e^{C+x}}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"y(x)=e^(e^(C+x))\""
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=8x-\\ln \\,x-3x^{4},y(1)=5$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572353254",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the initial value problem."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=3x-\\cos \\,x+2,y(0)=4$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572404963",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the initial value problem."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=4+\\frac{3}{2}x^{2}+2x-\\sin \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "4+(3/2)x^2+2 x- sin x"
+   }
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$xy'=y(x-2),y(1)=3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572625676",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the initial value problem."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=3y^{2}(x+\\cos \\,x),y(0)=-2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571731266",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the initial value problem."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=-\\frac{2}{1+3(x^{2}+2\\,\\sin \\,x)}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(2/(1+3(x^2+2 sin x)))"
+   }
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(x-1)y'=y-2,y(0)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572296610",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the initial value problem."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=3y-x+6x^{2},y(0)=-1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572593776",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the solution to the initial value problem."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=-2x^{2}-2x-\\frac{1}{3}-\\frac{2}{3}e^{3x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-2 x^2-2 x-(1/3)-(2/3)e^(3 x)"
+   }
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=2y-y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571715442",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, draw the directional field associated with the differential equation, then solve the differential equation. Draw a sample solution on the directional field."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=\\frac{1}{x}+\\ln \\,x-y,$ for $x>0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571601346",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, draw the directional field associated with the differential equation, then solve the differential equation. Draw a sample solution on the directional field."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_08_05_202.webp",
+      "alt": "A direction field with arrows pointing up and to the right along a logarithmic curve that approaches negative infinity as x goes to zero and increases as x goes to infinity.",
+      "width": 423,
+      "height": 484
+     },
+     {
+      "type": "p",
+      "text": "$y(x)=Ce^{-x}+\\ln \\,x$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=-4yx,y(0)=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572347279",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, use Euler’s Method with $n=5$ steps over the interval $t=[0,1].$ Then solve the initial-value problem exactly. How close is your Euler’s Method estimate?"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=3^{x}-2y,y(0)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572116146",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, use Euler’s Method with $n=5$ steps over the interval $t=[0,1].$ Then solve the initial-value problem exactly. How close is your Euler’s Method estimate?"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Euler: $0.6939,$ exact solution: $y(x)=\\frac{3^{x}-e^{-2x}}{2+\\ln (3)}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A car drives along a freeway, accelerating according to $a=5\\,\\sin (\\pi t),$ where $t$ represents time in minutes. Find the velocity at any time $t,$ assuming the car starts with an initial speed of $60$ mph."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572582674",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You throw a ball of mass $2$ kilograms into the air with an upward velocity of $8$ m/s. Find exactly the time the ball will remain in the air, assuming that gravity is given by $g=9.8{\\,\\text{m/s}}^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572230461",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{40}{49}$ second"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You drop a ball with a mass of $5$ kilograms out an airplane window at a height of $5000$ m. How long does it take for the ball to reach the ground?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572230516",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You drop the same ball of mass $5$ kilograms out of the same airplane window at the same height, except this time you assume a drag force proportional to the ball’s velocity, using a proportionality constant of $3$ and the ball reaches terminal velocity. Solve for the distance fallen as a function of time. How long does it take the ball to reach the ground?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572179974",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)=5000+\\frac{245}{9}-\\frac{49}{3}t-\\frac{245}{9}e^{-5/3t},t=307.8$ seconds"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"x(t)=5000+(245/9)-(49/3)t-(245/9)e^(-5/3 t), t=307.8\""
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A drug is administered to a patient every $24$ hours and is cleared at a rate proportional to the amount of drug left in the body, with proportionality constant $0.2.$ If the patient needs a baseline level of $5$ mg to be in the bloodstream at all times, how large should the dose be?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571586043",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A $1000$-liter tank contains pure water and a solution of $0.2$ kg salt/L is pumped into the tank at a rate of $1$ L/min and is drained at the same rate. Solve for total amount of salt in the tank at time $t.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571586096",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T(t)=200(1-e^{-t/1000})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "200(1-e^(-t/1000))"
+   }
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You boil water to make tea. When you pour the water into your teapot, the temperature is $100\\text{°C.}$ After $5$ minutes in your $15\\text{°C}$ room, the temperature of the tea is $85\\text{°C.}$ Solve the equation to determine the temperatures of the tea at time $t.$ How long must you wait until the tea is at a drinkable temperature $(72\\text{°C})?$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571822214",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The human population (in thousands) of Nevada in $1950$ was roughly $160.$ If the carrying capacity is estimated at $10$ million individuals, and assuming a growth rate of $2\\text{\\%}$ per year, develop a logistic growth model and solve for the population in Nevada at any time (use $1950$ as time = 0). What population does your model predict for $2000?$ How close is your prediction to the true value of $1,998,257?$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571642098",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$P(t)=\\frac{1600000e^{0.02t}}{9840+160e^{0.02t}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((1600000 e^(0.02 t))/(9840+160 e^(0.02 t)))"
+   }
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Repeat the previous problem but use Gompertz growth model. Which is more accurate?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571832364",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, set up and solve the differential equations."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "integrating factor",
+   "meaning": "any function $f(x)$ that is multiplied on both sides of a differential equation to make the side involving the unknown function equal to the derivative of a product of two functions"
+  },
+  {
+   "term": "linear",
+   "meaning": "description of a first-order differential equation that can be written in the form $a(x)y'+b(x)y=c(x)$"
+  },
+  {
+   "term": "standard form",
+   "meaning": "the form of a first-order linear differential equation obtained by writing the differential equation in the form $y'+p(x)y=q(x)$"
+  }
+ ]
+}

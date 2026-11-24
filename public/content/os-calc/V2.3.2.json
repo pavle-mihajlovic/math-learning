@@ -1,0 +1,2415 @@
+{
+ "schema": 1,
+ "id": "V2.3.2",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 3,
+ "section": 2,
+ "title": "Trigonometric Integrals",
+ "chapterTitle": "Techniques of Integration",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53657",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/3-2-trigonometric-integrals",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §3.2 “Trigonometric Integrals”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Solve integration problems involving products and powers of $\\sin x$ and $\\cos x.$",
+  "Solve integration problems involving products and powers of $\\tan x$ and $\\sec x.$",
+  "Use reduction formulas to solve trigonometric integrals."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section we look at how to integrate a variety of products of trigonometric functions. These integrals are called **trigonometric integrals**. They are an important part of the integration technique called *trigonometric substitution*, which is featured in Trigonometric Substitution. This technique allows us to convert algebraic expressions that we may not be able to integrate into expressions involving trigonometric functions, which we may be able to integrate using the techniques described in this section. In addition, these types of integrals appear frequently when we study polar, cylindrical, and spherical coordinate systems later. Let’s begin our study with products of $\\sin \\,x$ and $\\cos \\,x.$"
+    }
+   ],
+   "title": "Trigonometric Integrals"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A key idea behind the strategy used to integrate combinations of products and powers of $\\sin \\,x$ and $\\cos \\,x$ involves rewriting these expressions as sums and differences of integrals of the form ${\\displaystyle \\int}\\sin^{j}x\\,\\cos \\,x\\,dx$ or ${\\displaystyle \\int}\\cos^{j}x\\,\\sin \\,x\\,dx.$ After rewriting these integrals, we evaluate them using *u*-substitution. Before describing the general process in detail, let’s take a look at the following examples."
+    }
+   ],
+   "title": "Integrating Products and Powers of sin*x* and cos*x*"
+  },
+  {
+   "id": "x3",
+   "kind": "example",
+   "label": "Example 3.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\cos^{3}x\\,\\sin \\,x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use $u$-substitution and let $u=\\cos \\,x.$ In this case, $du=-\\sin \\,x\\,dx.$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int}\\cos^{3}\\,x\\,\\sin \\,x\\,dx & =-{\\displaystyle \\int}u^{3}\\,du \\\\ & =-\\frac{1}{4}u^{4}+C \\\\ & =-\\frac{1}{4}\\cos^{4}\\,x+C.\\end{array}"
+     }
+    ]
+   },
+   "title": "Integrating ${\\displaystyle \\int}\\cos^{j}x\\,\\sin \\,x\\,dx$"
+  },
+  {
+   "id": "c4",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\sin^{4}x\\,\\cos \\,x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{5}\\sin^{5}x+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Let $u=\\sin \\,x.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/5) sin^5 x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 3.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\cos^{2}x\\,\\sin^{3}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To convert this integral to integrals of the form ${\\displaystyle \\int}\\cos^{j}x\\,\\sin \\,x\\,dx,$ rewrite $\\sin^{3}x=\\sin^{2}x\\,\\sin \\,x$ and make the substitution $\\sin^{2}x=1-\\cos^{2}x.$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}\\int \\cos^{2}x\\,\\sin^{3}x\\,dx & =\\int \\cos^{2}x(1-\\cos^{2}x)\\sin \\,x\\,dx & \\text{Let}\\,u=\\cos \\,x;\\,\\text{then}\\,du=-\\sin \\,x\\,dx. \\\\ & =-\\int u^{2}(1-u^{2})du & \\\\ & =\\int (u^{4}-u^{2})du & \\\\ & =\\frac{1}{5}u^{5}-\\frac{1}{3}u^{3}+C & \\\\ & =\\frac{1}{5}\\cos^{5}x-\\frac{1}{3}\\cos^{3}x+C. & \\end{array}"
+     }
+    ]
+   },
+   "title": "A Preliminary Example: Integrating ${\\displaystyle \\int}\\cos^{j}x\\,\\sin^{k}x\\,dx$ Where *k* is Odd"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\cos^{3}x\\,\\sin^{2}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}\\sin^{3}x-\\frac{1}{5}\\sin^{5}x+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Write $\\cos^{3}x=\\cos^{2}x\\,\\cos \\,x=(1-\\sin^{2}x)\\cos \\,x$ and let $u=\\sin \\,x.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3) sin^3 x-(1/5) sin^5 x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the next example, we see the strategy that must be applied when there are only even powers of $\\sin \\,x$ and $\\cos \\,x.$ For integrals of this type, the identities"
+    },
+    {
+     "type": "math",
+     "tex": "\\sin^{2}x=\\frac{1}{2}-\\frac{1}{2}\\cos (2x)=\\frac{1-\\cos (2x)}{2}"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "\\cos^{2}x=\\frac{1}{2}+\\frac{1}{2}\\cos (2x)=\\frac{1+\\cos (2x)}{2}"
+    },
+    {
+     "type": "p",
+     "text": "are invaluable. These identities are sometimes known as **power-reducing identities** and they may be derived from the double-angle identity $\\cos (2x)=\\cos^{2}x-\\sin^{2}x$ and the Pythagorean identity $\\cos^{2}x+\\sin^{2}x=1.$"
+    }
+   ],
+   "title": "Integrating Products and Powers of sin*x* and cos*x* (continued)"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 3.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\sin^{2}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To evaluate this integral, let’s use the trigonometric identity $\\sin^{2}x=\\frac{1}{2}-\\frac{1}{2}\\cos (2x).$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int}\\sin^{2}x\\,dx & ={\\displaystyle \\int}\\left(\\frac{1}{2}-\\frac{1}{2}\\cos (2x)\\right)dx \\\\ & =\\frac{1}{2}x-\\frac{1}{4}\\sin (2x)+C.\\end{array}"
+     }
+    ]
+   },
+   "title": "Integrating an Even Power of $\\sin \\,x$"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int \\cos^{2}x\\,dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}x+\\frac{1}{4}\\sin (2x)+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "math",
+        "tex": "\\cos^{2}x=\\frac{1}{2}+\\frac{1}{2}\\cos (2x)"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)x+(1/4) sin (2 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The general process for integrating products of powers of $\\sin \\,x$ and $\\cos \\,x$ is summarized in the following set of guidelines."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "p",
+       "text": "To integrate ${\\displaystyle \\int}\\cos^{j}x\\,\\sin^{k}x\\,dx$ use the following strategies:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $k$ is odd, rewrite $\\sin^{k}x=\\sin^{k-1}x\\,\\sin \\,x$ and use the identity $\\sin^{2}x=1-\\cos^{2}x$ to rewrite $\\sin^{k-1}x$ in terms of $\\cos \\,x.$ Integrate using the substitution $u=\\cos \\,x.$ This substitution makes $du=-\\sin \\,x\\,dx.$",
+        "If $j$ is odd, rewrite $\\cos^{j}x=\\cos^{j-1}x\\,\\cos \\,x$ and use the identity $\\cos^{2}x=1-\\sin^{2}x$ to rewrite $\\cos^{j-1}x$ in terms of $\\sin \\,x.$ Integrate using the substitution $u=\\sin \\,x.$ This substitution makes $du=\\cos \\,x\\,dx.$ (*Note*: If both $j$ and $k$ are odd, either strategy 1 or strategy 2 may be used.)",
+        "If both $j$ and $k$ are even, use $\\sin^{2}x=(1/2)-(1/2)\\cos (2x)$ and $\\cos^{2}x=(1/2)+(1/2)\\cos (2x).$ After applying these formulas, simplify and reapply strategies 1 through 3 as appropriate."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Integrating Products and Powers of sin *x* and cos *x*"
+    }
+   ],
+   "title": "Integrating Products and Powers of sin*x* and cos*x* (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 3.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\cos^{8}x\\,\\sin^{5}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since the power on $\\sin \\,x$ is odd, use strategy 1. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc}{\\displaystyle \\int}\\cos^{8}x\\,\\sin^{5}x\\,dx & ={\\displaystyle \\int}\\cos^{8}x\\,\\sin^{4}x\\,\\sin \\,x\\,dx & & \\text{Break off}\\,\\sin \\,x. \\\\ & ={\\displaystyle \\int}\\cos^{8}x(\\sin^{2}x)^{2}\\sin \\,x\\,dx & & \\text{Rewrite}\\,\\sin^{4}x=(\\sin^{2}x)^{2}. \\\\ & ={\\displaystyle \\int}\\cos^{8}x(1-\\cos^{2}x)^{2}\\sin \\,x\\,dx & & \\text{Substitute}\\,\\sin^{2}x=1-\\cos^{2}x. \\\\ & ={\\displaystyle \\int}u^{8}(1-u^{2})^{2}(-du) & & \\text{Let}\\,u=\\cos \\,x\\,\\text{and}\\,du=-\\sin \\,x\\,dx. \\\\ & ={\\displaystyle \\int}(-u^{8}+2u^{10}-u^{12})du & & \\text{Expand}. \\\\ & =-\\frac{1}{9}u^{9}+\\frac{2}{11}u^{11}-\\frac{1}{13}u^{13}+C & & \\text{Evaluate the integral}. \\\\ & =-\\frac{1}{9}\\cos^{9}x+\\frac{2}{11}\\cos^{11}x-\\frac{1}{13}\\cos^{13}x+C. & & \\text{Substitute}\\,u=\\cos \\,x.\\end{array}"
+     }
+    ]
+   },
+   "title": "Integrating ${\\displaystyle \\int \\cos^{j}x\\,\\sin^{k}x\\,dx}$ where *k* is Odd"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 3.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\sin^{4}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since the power on $\\sin \\,x$ is even $(k=4)$ and the power on $\\cos \\,x$ is even $(j=0),$ we must use strategy 3. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc}{\\displaystyle \\int}\\sin^{4}x\\,dx & ={\\displaystyle \\int}(\\sin^{2}x)^{2}dx & & \\text{Rewrite}\\,\\sin^{4}x=(\\sin^{2}x)^{2}. \\\\ & ={\\displaystyle \\int}\\left(\\frac{1}{2}-\\frac{1}{2}\\cos (2x)\\right)^{2}dx & & \\text{Substitute}\\,\\sin^{2}x=\\frac{1}{2}-\\frac{1}{2}\\cos (2x). \\\\ & ={\\displaystyle \\int}\\left(\\frac{1}{4}-\\frac{1}{2}\\cos (2x)+\\frac{1}{4}\\cos^{2}(2x)\\right)dx & & \\text{Expand}\\,\\left(\\frac{1}{2}-\\frac{1}{2}\\cos (2x)\\right)^{2}. \\\\ & ={\\displaystyle \\int}\\left(\\frac{1}{4}-\\frac{1}{2}\\cos (2x)+\\frac{1}{4}(\\frac{1}{2}+\\frac{1}{2}\\cos (4x)\\right)dx. & & \\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Since $\\cos^{2}(2x)$ has an even power, substitute $\\cos^{2}(2x)=\\frac{1}{2}+\\frac{1}{2}\\cos (4x):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}={\\displaystyle \\int}\\left(\\frac{3}{8}-\\frac{1}{2}\\cos (2x)+\\frac{1}{8}\\cos (4x)\\right)dx & \\text{Simplify}. \\\\ =\\frac{3}{8}x-\\frac{1}{4}\\sin (2x)+\\frac{1}{32}\\,\\sin (4x)+C & \\text{Evaluate the integral}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Integrating ${\\displaystyle \\int}\\cos^{j}x\\,\\sin^{k}x\\,dx$ where *k* and *j* are Even"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\cos^{3}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin \\,x-\\frac{1}{3}\\sin^{3}x+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use strategy 2. Write $\\cos^{3}x=\\cos^{2}x\\,\\cos \\,x$ and substitute $\\cos^{2}x=1-\\sin^{2}x.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sin x-(1/3) sin^3 x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "c14",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\cos^{2}(3x)dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}x+\\frac{1}{12}\\,\\sin (6x)+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use strategy 3. Substitute $\\cos^{2}(3x)=\\frac{1}{2}+\\frac{1}{2}\\cos (6x)$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)x+(1/12) sin (6 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In some areas of physics, such as quantum mechanics, signal processing, and the computation of Fourier series, it is often necessary to integrate products that include $\\sin (ax),$ $\\sin (bx),$ $\\cos (ax),$ and $\\cos (bx).$ These integrals are evaluated by applying trigonometric identities, as outlined in the following rule."
+    },
+    {
+     "type": "box",
+     "variant": "rule",
+     "body": [
+      {
+       "type": "p",
+       "text": "To integrate products involving $\\sin (ax),$ $\\sin (bx),$ $\\cos (ax),$ and $\\cos (bx),$ use the substitutions"
+      },
+      {
+       "type": "math",
+       "tex": "\\;\\sin (ax)\\sin (bx)=\\frac{1}{2}\\cos ((a-b)x)-\\frac{1}{2}\\cos ((a+b)x)"
+      },
+      {
+       "type": "math",
+       "tex": "\\sin (ax)\\cos (bx)=\\frac{1}{2}\\sin ((a-b)x)+\\frac{1}{2}\\sin ((a+b)x)"
+      },
+      {
+       "type": "math",
+       "tex": "\\;\\cos (ax)\\cos (bx)=\\frac{1}{2}\\cos ((a-b)x)+\\frac{1}{2}\\cos ((a+b)x)"
+      }
+     ],
+     "title": "Integrating Products of Sines and Cosines of Different Angles"
+    },
+    {
+     "type": "p",
+     "text": "These formulas may be derived from the sum-of-angle formulas for sine and cosine."
+    }
+   ],
+   "title": "Integrating Products and Powers of sin*x* and cos*x* (continued)"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 3.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\sin (5x)\\cos (3x)dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Apply the identity $\\sin (5x)\\cos (3x)=\\frac{1}{2}\\sin (2x)+\\frac{1}{2}\\sin (8x).$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int}\\sin (5x)\\cos (3x)dx & ={\\displaystyle \\int}\\frac{1}{2}\\sin (2x)\\mathrm{dx}+{\\displaystyle \\int}\\frac{1}{2}\\sin (8x)\\mathrm{dx} \\\\ & =-\\frac{1}{4}\\cos (2x)-\\frac{1}{16}\\,\\cos (8x)+C.\\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating ${\\displaystyle \\int \\sin (ax)\\cos (bx)dx}$"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\cos (6x)\\cos (5x)dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\sin \\,x+\\frac{1}{22}\\,\\sin (11x)+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Substitute $\\cos (6x)\\cos (5x)=\\frac{1}{2}\\cos \\,x+\\frac{1}{2}\\cos (11x).$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2) sin x+(1/22) sin (11 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Before discussing the integration of products and powers of $\\tan \\,x$ and $\\sec \\,x,$ it is useful to recall the integrals involving $\\tan \\,x$ and $\\sec \\,x$ we have already learned:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "${\\displaystyle \\int}\\sec^{2}x\\,dx=\\tan \\,x+C$",
+      "${\\displaystyle \\int}\\sec \\,x\\,\\tan \\,x\\,dx=\\sec \\,x+C$",
+      "${\\displaystyle \\int}\\tan \\,x\\,dx=\\ln |\\sec \\,x|+C$",
+      "${\\displaystyle \\int}\\sec \\,x\\,dx=\\ln |\\sec \\,x+\\tan \\,x|+C.$"
+     ],
+     "ordered": true,
+     "style": "1"
+    },
+    {
+     "type": "p",
+     "text": "For most integrals of products and powers of $\\tan \\,x$ and $\\sec \\,x,$ we rewrite the expression we wish to integrate as the sum or difference of integrals of the form ${\\displaystyle \\int}\\tan^{j}x\\,\\sec^{2}x\\,dx$ or ${\\displaystyle \\int}\\sec^{j}x\\,\\tan \\,x\\,dx.$ As we see in the following example, we can evaluate these new integrals by using *u*-substitution."
+    }
+   ],
+   "title": "Integrating Products and Powers of tan*x* and sec*x*"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 3.14",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\sec^{5}x\\,\\tan \\,x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Start by rewriting $\\sec^{5}x\\,\\tan \\,x$ as $\\sec^{4}x\\,\\sec \\,x\\,\\tan \\,x.$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc}{\\displaystyle \\int}\\sec^{5}x\\,\\tan \\,x\\,dx & ={\\displaystyle \\int}\\sec^{4}x\\,\\sec \\,x\\,\\tan \\,x\\,dx & & \\text{Let}\\,u=\\sec \\,x;\\,\\text{then},\\,du=\\sec \\,x\\,\\tan \\,x\\,dx. \\\\ & ={\\displaystyle \\int}u^{4}du & & \\text{Evaluate the integral}. \\\\ & =\\frac{1}{5}u^{5}+C & & \\text{Substitute}\\,\\sec \\,x=u. \\\\ & =\\frac{1}{5}\\sec^{5}x+C & & \\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating ${\\displaystyle \\int}\\sec^{j}x\\,\\tan \\,x\\,dx$"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\tan^{5}x\\,\\sec^{2}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{6}\\tan^{6}x+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Let $u=\\tan \\,x$ and $du=\\sec^{2}x.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/6) tan^6 x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now take a look at the various strategies for integrating products and powers of $\\sec \\,x$ and $\\tan \\,x.$"
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "p",
+       "text": "To integrate ${\\displaystyle \\int}\\tan^{k}x\\,\\sec^{j}x\\,dx,$ use the following strategies:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $j$ is even and $j\\ge 2,$ rewrite $\\sec^{j}x=\\sec^{j-2}x\\,\\sec^{2}x$ and use $\\sec^{2}x=\\tan^{2}x+1$ to rewrite $\\sec^{j-2}x$ in terms of $\\tan \\,x.$ Let $u=\\tan \\,x$ and $du=\\sec^{2}x\\mathrm{dx}.$",
+        "If $k$ is odd and $j\\ge 1,$ rewrite $\\tan^{k}x\\,\\sec^{j}x=\\tan^{k-1}x\\,\\sec^{j-1}x\\,\\sec \\,x\\,\\tan \\,x$ and use $\\tan^{2}x=\\sec^{2}x-1$ to rewrite $\\tan^{k-1}x$ in terms of $\\sec \\,x.$ Let $u=\\sec \\,x$ and $du=\\sec \\,x\\,\\tan \\,x\\,dx.$ (*Note*: If $j$ is even and $k$ is odd, then either strategy 1 or strategy 2 may be used.)",
+        "If $k$ is odd where $k\\ge 3$ and $j=0,$ rewrite $\\tan^{k}x=\\tan^{k-2}x\\,\\tan^{2}x=\\tan^{k-2}x(\\sec^{2}x-1)=\\tan^{k-2}x\\,\\sec^{2}x-\\tan^{k-2}x.$ It may be necessary to repeat this process on the $\\tan^{k-2}x$ term.",
+        "If $k$ is even and $j$ is odd, then use $\\tan^{2}x=\\sec^{2}x-1$ to express $\\tan^{k}x$ in terms of $\\sec \\,x.$ Use integration by parts to integrate odd powers of $\\sec \\,x.$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Integrating ${\\displaystyle \\int}\\tan^{k}x\\,\\sec^{j}x\\,dx$"
+    }
+   ],
+   "title": "Integrating Products and Powers of tan*x* and sec*x* (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 3.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\tan^{6}x\\,\\sec^{4}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since the power on $\\sec \\,x$ is even, rewrite $\\sec^{4}x=\\sec^{2}x\\,\\sec^{2}x$ and use $\\sec^{2}x=\\tan^{2}x+1$ to rewrite the first $\\sec^{2}x$ in terms of $\\tan \\,x.$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc}{\\displaystyle \\int}\\tan^{6}x\\,\\sec^{4}x\\,dx & ={\\displaystyle \\int}\\tan^{6}x(\\tan^{2}x+1)\\sec^{2}x\\,dx & & \\text{Let}\\,u=\\tan \\,x\\,\\text{and}\\,du=\\sec^{2}x\\mathrm{dx}. \\\\ & ={\\displaystyle \\int}u^{6}(u^{2}+1)du & & \\text{Expand}. \\\\ & ={\\displaystyle \\int}(u^{8}+u^{6})du & & \\text{Evaluate the integral}. \\\\ & =\\frac{1}{9}u^{9}+\\frac{1}{7}u^{7}+C & & \\text{Substitute}\\,\\tan \\,x=u. \\\\ & =\\frac{1}{9}\\tan^{9}x+\\frac{1}{7}\\tan^{7}x+C. & & \\end{array}"
+     }
+    ]
+   },
+   "title": "Integrating ${\\displaystyle \\int}\\tan^{k}x\\,\\sec^{j}x\\,dx$ when $j$ is Even"
+  },
+  {
+   "id": "x23",
+   "kind": "example",
+   "label": "Example 3.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\tan^{5}x\\,\\sec^{3}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since the power on $\\tan \\,x$ is odd, begin by rewriting $\\tan^{5}x\\,\\sec^{3}x=\\tan^{4}x\\,\\sec^{2}x\\,\\sec \\,x\\,\\tan \\,x.$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccccc}\\tan^{5}x\\,\\sec^{3}x & = & \\tan^{4}x\\,\\sec^{2}x\\,\\sec \\,x\\,\\tan \\,x. & & & \\text{Write}\\,\\tan^{4}x=(\\tan^{2}x)^{2}. \\\\ {\\displaystyle \\int}\\tan^{5}x\\,\\sec^{3}x\\,dx & = & {\\displaystyle \\int}(\\tan^{2}x)^{2}\\sec^{2}x\\,\\sec \\,x\\,\\tan \\,x\\,dx & & & \\text{Use}\\,\\tan^{2}x=\\sec^{2}x-1. \\\\ & = & {\\displaystyle \\int}(\\sec^{2}x-1)^{2}\\sec^{2}x\\,\\sec \\,x\\,\\tan \\,x\\,dx & & & \\text{Let}\\,u=\\sec \\,x\\,\\text{and}\\,du=\\sec \\,x\\,\\tan \\,x\\,dx. \\\\ & = & {\\displaystyle \\int}(u^{2}-1)^{2}u^{2}du & & & \\text{Expand}. \\\\ & = & {\\displaystyle \\int}(u^{6}-2u^{4}+u^{2})du & & & \\text{Integrate}. \\\\ & = & \\frac{1}{7}u^{7}-\\frac{2}{5}u^{5}+\\frac{1}{3}u^{3}+C & & & \\text{Substitute}\\,\\sec \\,x=u. \\\\ & = & \\frac{1}{7}\\sec^{7}x-\\frac{2}{5}\\sec^{5}x+\\frac{1}{3}\\sec^{3}x+C. & & & \\end{array}"
+     }
+    ]
+   },
+   "title": "Integrating ${\\displaystyle \\int}\\tan^{k}x\\,\\sec^{j}x\\,dx$ when $k$ is Odd"
+  },
+  {
+   "id": "x24",
+   "kind": "example",
+   "label": "Example 3.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\tan^{3}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Begin by rewriting $\\tan^{3}x=\\tan \\,x\\,\\tan^{2}x=\\tan \\,x(\\sec^{2}x-1)=\\tan \\,x\\,\\sec^{2}x-\\tan \\,x.$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int}\\tan^{3}x\\,dx & ={\\displaystyle \\int}(\\tan \\,x\\,\\sec^{2}x-\\tan \\,x)dx \\\\ & ={\\displaystyle \\int}\\tan \\,x\\,\\sec^{2}x\\,dx-{\\displaystyle \\int}\\tan \\,x\\,dx \\\\ & =\\frac{1}{2}\\tan^{2}x-\\ln |\\sec \\,x|+C.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "For the first integral, use the substitution $u=\\tan \\,x.$ For the second integral, use the formula."
+     }
+    ]
+   },
+   "title": "Integrating ${\\displaystyle \\int}\\tan^{k}x\\,dx$ where $k$ is Odd and $k\\ge 3$"
+  },
+  {
+   "id": "x25",
+   "kind": "example",
+   "label": "Example 3.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Integrate ${\\displaystyle \\int}\\sec^{3}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This integral requires integration by parts. To begin, let $u=\\sec \\,x$ and $dv=\\sec^{2}x\\mathrm{dx}.$ These choices make $du=\\sec \\,x\\,\\tan \\,x$ and $v=\\tan \\,x.$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc}{\\displaystyle \\int}\\sec^{3}x\\,dx & =\\sec \\,x\\,\\tan \\,x-{\\displaystyle \\int}\\tan \\,x\\,\\sec \\,x\\,\\tan \\,x\\,dx & & \\\\ & =\\sec \\,x\\,\\tan \\,x-{\\displaystyle \\int}\\tan^{2}x\\,\\sec \\,x\\,dx & & \\text{Simplify}. \\\\ & =\\sec \\,x\\,\\tan \\,x-{\\displaystyle \\int}(\\sec^{2}x-1)\\sec \\,x\\,dx & & \\text{Substitute}\\,\\tan^{2}x=\\sec^{2}x-1. \\\\ & =\\sec \\,x\\,\\tan \\,x+{\\displaystyle \\int}\\sec \\,x\\,dx-{\\displaystyle \\int}\\sec^{3}x\\,dx & & \\text{Rewrite}. \\\\ & =\\sec \\,x\\,\\tan \\,x+\\ln |\\sec \\,x+\\tan \\,x|-{\\displaystyle \\int}\\sec^{3}x\\,dx. & & \\text{Evaluate}{\\displaystyle \\int}\\sec \\,x\\,dx.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "We now have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int}\\sec^{3}x\\,dx=\\sec \\,x\\,\\tan \\,x+\\ln |\\sec \\,x+\\tan \\,x|-{\\displaystyle \\int}\\sec^{3}x\\,dx."
+     },
+     {
+      "type": "p",
+      "text": "Since the integral ${\\displaystyle \\int}\\sec^{3}x\\,dx$ has reappeared on the right-hand side, we can solve for ${\\displaystyle \\int}\\sec^{3}x\\,dx$ by adding it to both sides. In doing so, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "2{\\displaystyle \\int}\\sec^{3}x\\,dx=\\sec \\,x\\,\\tan \\,x+\\ln |\\sec \\,x+\\tan \\,x|."
+     },
+     {
+      "type": "p",
+      "text": "Dividing by 2, we arrive at"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int}\\sec^{3}x\\,dx=\\frac{1}{2}\\sec \\,x\\,\\tan \\,x+\\frac{1}{2}\\ln |\\sec \\,x+\\tan \\,x|+C."
+     }
+    ]
+   },
+   "title": "Integrating ${\\displaystyle \\int}\\sec^{3}x\\,dx$"
+  },
+  {
+   "id": "c26",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\tan^{3}x\\,\\sec^{7}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{9}\\sec^{9}x-\\frac{1}{7}\\sec^{7}x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/9) sec^9 x-(1/7) sec^7 x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r27",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Evaluating ${\\displaystyle \\int}\\sec^{n}x\\,dx$ for values of $n$ where $n$ is odd requires integration by parts. In addition, we must also know the value of ${\\displaystyle \\int}\\sec^{n-2}x\\,dx$ to evaluate ${\\displaystyle \\int}\\sec^{n}x\\,dx.$ The evaluation of ${\\displaystyle \\int}\\tan^{n}x\\,dx$ also requires being able to integrate ${\\displaystyle \\int}\\tan^{n-2}x\\,dx.$ To make the process easier, we can derive and apply the following **power reduction formulas**. These rules allow us to replace the integral of a power of $\\sec \\,x$ or $\\tan \\,x$ with the integral of a lower power of $\\sec \\,x$ or $\\tan \\,x.$"
+    },
+    {
+     "type": "box",
+     "variant": "rule",
+     "body": [
+      {
+       "type": "math",
+       "tex": "\\qquad {\\displaystyle \\int}\\sec^{n}x\\,dx=\\frac{1}{n-1}\\sec^{n-2}x\\,\\tan \\,x+\\frac{n-2}{n-1}{\\displaystyle \\int}\\sec^{n-2}x\\,dx"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int}\\tan^{n}x\\,dx=\\frac{1}{n-1}\\tan^{n-1}x-{\\displaystyle \\int}\\tan^{n-2}x\\,dx"
+      },
+      {
+       "type": "p",
+       "text": "The first power reduction rule may be verified by applying integration by parts. The second may be verified by following the strategy outlined for integrating odd powers of $\\tan \\,x.$"
+      }
+     ],
+     "title": "Reduction Formulas for ${\\displaystyle \\int}\\sec^{n}x\\,dx$ and ${\\displaystyle \\int}\\tan^{n}x\\,dx$"
+    }
+   ],
+   "title": "Reduction Formulas"
+  },
+  {
+   "id": "x28",
+   "kind": "example",
+   "label": "Example 3.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Apply a reduction formula to evaluate ${\\displaystyle \\int}\\sec^{3}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "By applying the first reduction formula, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int}\\sec^{3}x\\,dx & =\\frac{1}{2}\\sec \\,x\\,\\tan \\,x+\\frac{1}{2}{\\displaystyle \\int}\\sec \\,x\\,dx \\\\ & =\\frac{1}{2}\\sec \\,x\\,\\tan \\,x+\\frac{1}{2}\\ln |\\sec \\,x+\\tan \\,x|+C.\\end{array}"
+     }
+    ]
+   },
+   "title": "Revisiting ${\\displaystyle \\int}\\sec^{3}x\\,dx$"
+  },
+  {
+   "id": "x29",
+   "kind": "example",
+   "label": "Example 3.20",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}\\tan^{4}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Applying the reduction formula for ${\\displaystyle \\int}\\tan^{4}x\\,dx$ we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc}{\\displaystyle \\int}\\tan^{4}x\\,dx & =\\frac{1}{3}\\tan^{3}x-{\\displaystyle \\int}\\tan^{2}x\\,dx & & \\\\ & =\\frac{1}{3}\\tan^{3}x-(\\tan \\,x-{\\displaystyle \\int}\\tan^{0}x\\,dx) & & \\text{Apply the reduction formula to}{\\displaystyle \\int}\\tan^{2}x\\,dx. \\\\ & =\\frac{1}{3}\\tan^{3}x-\\tan \\,x+{\\displaystyle \\int}1\\,dx & & \\text{Simplify}. \\\\ & =\\frac{1}{3}\\tan^{3}x-\\tan \\,x+x+C. & & \\text{Evaluate}{\\displaystyle \\int}1dx.\\end{array}"
+     }
+    ]
+   },
+   "title": "Using a Reduction Formula"
+  },
+  {
+   "id": "c30",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Apply the reduction formula to ${\\displaystyle \\int}\\sec^{5}x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int}\\sec^{5}x\\,dx=\\frac{1}{4}\\sec^{3}x\\,\\tan \\,x+\\frac{3}{4}{\\displaystyle \\int}\\sec^{3}x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use reduction formula 1 and let $n=5.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r31",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "Integrals of trigonometric functions can be evaluated by the use of various strategies. These strategies include"
+       },
+       {
+        "type": "list",
+        "items": [
+         "Applying trigonometric identities to rewrite the integral so that it may be evaluated by *u*-substitution",
+         "Using integration by parts",
+         "Applying trigonometric identities to rewrite products of sines and cosines with different arguments as the sum of individual sine and cosine functions",
+         "Applying reduction formulas"
+        ],
+        "ordered": true,
+        "style": "1"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r32",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "p",
+     "text": "To integrate products involving $\\sin (ax),$ $\\sin (bx),$ $\\cos (ax),$ and $\\cos (bx),$ use the substitutions."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Sine Products**",
+       "$\\sin (ax)\\sin (bx)=\\frac{1}{2}\\cos ((a-b)x)-\\frac{1}{2}\\cos ((a+b)x)$"
+      ],
+      [
+       "**Sine and Cosine Products**",
+       "$\\sin (ax)\\cos (bx)=\\frac{1}{2}\\sin ((a-b)x)+\\frac{1}{2}\\sin ((a+b)x)$"
+      ],
+      [
+       "**Cosine Products**",
+       "$\\cos (ax)\\cos (bx)=\\frac{1}{2}\\cos ((a-b)x)+\\frac{1}{2}\\cos ((a+b)x)$"
+      ],
+      [
+       "**Power Reduction Formula**",
+       "$\\int \\sec^{n}xdx=\\frac{\\sec^{n-2}x\\tan x}{n-1}+\\frac{n-2}{n-1}\\int \\sec^{n-2}x\\,dx;n\\ne 1$"
+      ],
+      [
+       "**Power Reduction Formula**",
+       "${\\displaystyle \\int}\\tan^{n}x\\,dx=\\frac{1}{n-1}\\tan^{n-1}x-{\\displaystyle \\int}\\tan^{n-2}x\\,dx$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e69",
+   "number": 69,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin^{2}x+\\_\\_\\_\\_\\_\\_\\_=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042466940",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Fill in the blank to make a true statement."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cos^{2}x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "cos^2 x"
+   }
+  },
+  {
+   "id": "e70",
+   "number": 70,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sec^{2}x-1=\\_\\_\\_\\_\\_\\_\\_$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042466992",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Fill in the blank to make a true statement."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e71",
+   "number": 71,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin^{2}x=\\_\\_\\_\\_\\_\\_\\_$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042815096",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use an identity to reduce the power of the trigonometric function to a trigonometric function raised to the first power."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1-\\cos (2x)}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((1- cos (2 x))/2)"
+   }
+  },
+  {
+   "id": "e72",
+   "number": 72,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cos^{2}x=\\_\\_\\_\\_\\_\\_\\_$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042659418",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use an identity to reduce the power of the trigonometric function to a trigonometric function raised to the first power."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e73",
+   "number": 73,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{3}x\\,\\cos \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042659489",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following integrals by *u*-substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\sin^{4}x}{4}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((sin^4 x)/4)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e74",
+   "number": 74,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sqrt{\\cos \\,x}\\,\\sin \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042467974",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following integrals by *u*-substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e75",
+   "number": 75,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan^{5}(2x)\\sec^{2}(2x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165039566778",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following integrals by *u*-substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{12}\\tan^{6}(2x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/12) tan^6 (2 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e76",
+   "number": 76,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{7}(2x)\\cos (2x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042634849",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following integrals by *u*-substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e77",
+   "number": 77,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan \\left(\\frac{x}{2}\\right)\\sec^{2}\\left(\\frac{x}{2}\\right)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043188506",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following integrals by *u*-substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\left(\\frac{x}{2}\\right)\\left(\\frac{x}{2}\\right)+C_{1}{\\text{or sec}}^{2}\\left(\\frac{x}{2}\\right)+C_{2}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e78",
+   "number": 78,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan^{2}x\\,\\sec^{2}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042977490",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following integrals by *u*-substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e79",
+   "number": 79,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{3}x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043179948",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\cos x+\\frac{1}{3}\\cos^{3}x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- cos x+(1/3) cos^3 x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e80",
+   "number": 80,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos^{3}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042601915",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e81",
+   "number": 81,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin \\,x\\,\\cos \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042533152",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}\\cos^{2}x+C$ or $\\frac{1}{2}\\sin^{2}x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "list",
+    "value": "-(1/2) cos^2 x+C, (1/2) sin^2 x+C"
+   }
+  },
+  {
+   "id": "e82",
+   "number": 82,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos^{5}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165039554216",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e83",
+   "number": 83,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{5}x\\,\\cos^{2}x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165039562435",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{3}\\cos^{3}x+\\frac{2}{5}\\cos^{5}x-\\frac{1}{7}\\cos^{7}x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/3) cos^3 x+(2/5) cos^5 x-(1/7) cos^7 x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e84",
+   "number": 84,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{3}x\\,\\cos^{3}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042640865",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e85",
+   "number": 85,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sqrt{\\sin \\,x}}\\,\\cos \\,x\\,dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042977672",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2}{3}(\\sin \\,x)^{\\frac{3}{2}}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(2/3)(sin x)^(3/2)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e86",
+   "number": 86,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sqrt{\\sin \\,x}}\\,\\cos^{3}x\\,dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042977754",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e87",
+   "number": 87,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sec \\,x\\,\\tan \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165039565954",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sec \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sec x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e88",
+   "number": 88,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan (5x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165039566014",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e89",
+   "number": 89,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan^{2}x\\,\\sec \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043404330",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\sec \\,x\\,\\tan \\,x-\\frac{1}{2}\\ln (\\sec \\,x+\\tan \\,x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2) sec x tan x-(1/2) ln (sec x+ tan x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e90",
+   "number": 90,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan \\,x\\,\\sec^{3}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042466689",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e91",
+   "number": 91,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sec^{4}x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042323266",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2\\,\\tan \\,x}{3}+\\frac{1}{3}\\sec (x)^{2}\\tan \\,x$ $=\\tan \\,x+\\frac{\\tan^{3}x}{3}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "((2 tan x)/3)+(1/3) sec (x)^2 tan x = tan x+((tan^3 x)/3)+C"
+   }
+  },
+  {
+   "id": "e92",
+   "number": 92,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cot \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042672318",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e93",
+   "number": 93,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\csc \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042672375",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\ln |\\cot \\,x+\\csc \\,x|+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- ln | cot x+ csc x|+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e94",
+   "number": 94,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\tan^{3}x}{\\sqrt{\\sec \\,x}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042659338",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the following integrals using the guidelines for integrating powers of trigonometric functions. Use a CAS to check the solutions. (*Note*: Some of the problems may be done using techniques of integration learned previously.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e95",
+   "number": 95,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{2}ax\\,\\cos \\,ax\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042659035",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find a general formula for the integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\sin^{3}(ax)}{3a}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((sin^3 (a x))/(3 a))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e96",
+   "number": 96,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin \\,ax\\,\\cos \\,ax\\,dx.}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042508180",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find a general formula for the integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e97",
+   "number": 97,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}\\sin^{2}x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043310799",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the double-angle formulas to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/2)"
+   }
+  },
+  {
+   "id": "e98",
+   "number": 98,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}\\sin^{4}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043310848",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the double-angle formulas to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e99",
+   "number": 99,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos^{2}3x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043310900",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the double-angle formulas to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{x}{2}+\\frac{1}{12}\\,\\sin (6x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(x/2)+(1/12) sin (6 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e100",
+   "number": 100,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{2}x\\,\\cos^{2}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042659165",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the double-angle formulas to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e101",
+   "number": 101,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{2}x\\,dx}+{\\displaystyle \\int \\cos^{2}x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165039563290",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the double-angle formulas to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "*$x+C$*"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e102",
+   "number": 102,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{2}x\\,\\cos^{2}(2x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165039563361",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the double-angle formulas to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e103",
+   "number": 103,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2\\pi}\\cos \\,x\\,\\sin \\,2x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042657818",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e104",
+   "number": 104,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}\\sin \\,3x\\,\\sin \\,5x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042657875",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e105",
+   "number": 105,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}\\cos (99x)\\sin (101x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042657931",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e106",
+   "number": 106,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-\\pi}^{\\pi}\\cos^{2}(3x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042390932",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e107",
+   "number": 107,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2\\pi}\\sin \\,x\\,\\sin (2x)\\sin (3x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042390991",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e108",
+   "number": 108,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{4\\pi}\\cos (x/2)\\sin}(x/2)dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042364127",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e109",
+   "number": 109,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\pi /6}^{\\pi /3}\\frac{\\cos^{3}x}{\\sqrt{\\sin \\,x}}dx}$ (Round this answer to three decimal places.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165039521468",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Approximately 0.239"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e110",
+   "number": 110,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-\\pi /3}^{\\pi /3}\\sqrt{\\sec^{2}x-1}\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165039521536",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e111",
+   "number": 111,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /2}\\sqrt{1-\\cos (2x)}\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043378020",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(2)"
+   }
+  },
+  {
+   "id": "e112",
+   "number": 112,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area of the region bounded by the graphs of the equations $y=\\sin \\,x,y=\\sin^{3}x,x=0,\\text{and}\\,x=\\frac{\\pi}{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043378087",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e113",
+   "number": 113,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area of the region bounded by the graphs of the equations $y=\\cos^{2}x,y=\\sin^{2}x,x=-\\frac{\\pi}{4},\\text{and}\\,x=\\frac{\\pi}{4}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042448062",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "1.0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1.0"
+   }
+  },
+  {
+   "id": "e114",
+   "number": 114,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A particle moves in a straight line with the velocity function $v(t)=\\sin (\\omega t)\\cos^{2}(\\omega t).$ Find its position function $x=f(t)$ if $f(0)=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042668725",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e115",
+   "number": 115,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the average value of the function $f(x)=\\sin^{2}x\\,\\cos^{3}x$ over the interval $[-\\pi ,\\pi ].$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042327533",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the definite integrals. Express answers in exact form whenever possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e116",
+   "number": 116,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dx}=\\sin^{2}x.$ The curve passes through point $(0,0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042327606",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e117",
+   "number": 117,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{d\\theta}=\\sin^{4}(\\pi \\theta )$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042627387",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{3\\theta}{8}-\\frac{1}{4\\pi}\\,\\sin (2\\pi \\theta )+\\frac{1}{32\\pi}\\,\\sin (4\\pi \\theta )+C=f(x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "((3 theta)/8)-(1/(4 pi)) sin (2 pi theta)+(1/(32 pi)) sin (4 pi theta)+C=f(x)"
+   }
+  },
+  {
+   "id": "e118",
+   "number": 118,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the length of the curve $y=\\ln (\\csc \\,x),\\frac{\\pi}{4}\\le x\\le \\frac{\\pi}{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042658490",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e119",
+   "number": 119,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the length of the curve $y=\\ln (\\sin \\,x),\\frac{\\pi}{3}\\le x\\le \\frac{\\pi}{2}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042660279",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (\\sqrt{3})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "ln (sqrt(3))"
+   }
+  },
+  {
+   "id": "e120",
+   "number": 120,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by revolving the curve $y=\\cos (3x)$ about the *x*-axis, $0\\le x\\le \\frac{\\pi}{36}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042660353",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e121",
+   "number": 121,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that $\\{\\sin (2x),\\cos (3x)\\}$ are orthogonal over the interval $[-\\pi ,\\pi ].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042477378",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: The inner product of two functions *f* and *g* over $[a,b]$ is defined by $f(x)\\cdot g(x)=〈f,g〉={\\displaystyle \\int_{a}^{b}f\\cdot gdx.}$ Two distinct functions *f* and *g* are said to be orthogonal if $〈f,g〉=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{-\\pi}^{\\pi}\\sin (2x)\\cos (3x)}dx=0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e122",
+   "number": 122,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{-\\pi}^{\\pi}\\sin (mx)\\cos (nx)dx}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043311345",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: The inner product of two functions *f* and *g* over $[a,b]$ is defined by $f(x)\\cdot g(x)=〈f,g〉={\\displaystyle \\int_{a}^{b}f\\cdot gdx.}$ Two distinct functions *f* and *g* are said to be orthogonal if $〈f,g〉=0.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e123",
+   "number": 123,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Integrate $y'=\\sqrt{\\tan \\,x}\\sec^{4}x.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043311416",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: The inner product of two functions *f* and *g* over $[a,b]$ is defined by $f(x)\\cdot g(x)=〈f,g〉={\\displaystyle \\int_{a}^{b}f\\cdot gdx.}$ Two distinct functions *f* and *g* are said to be orthogonal if $〈f,g〉=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{\\tan (x)}(\\frac{8\\,\\tan \\,x}{21}+\\frac{2}{7}\\sec \\,x^{2}\\tan \\,x)+C=f(x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "sqrt(tan (x))(((8 tan x)/21)+(2/7) sec x^2 tan x)+C=f(x)"
+   }
+  },
+  {
+   "id": "e124",
+   "number": 124,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{456}x\\,\\cos \\,x\\,dx}$ or ${\\displaystyle \\int \\sin^{2}x\\,\\cos^{2}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042549309",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each pair of integrals, determine which one is more difficult to evaluate. Explain your reasoning."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e125",
+   "number": 125,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan^{350}x\\,\\sec^{2}x\\,dx}$ or ${\\displaystyle \\int \\tan^{350}x\\,\\sec \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042633982",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each pair of integrals, determine which one is more difficult to evaluate. Explain your reasoning."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The second integral is more difficult because the first integral is simply a *u*-substitution type."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "power reduction formula",
+   "meaning": "a rule that allows an integral of a power of a trigonometric function to be exchanged for an integral involving a lower power"
+  },
+  {
+   "term": "trigonometric integral",
+   "meaning": "an integral involving powers and products of trigonometric functions"
+  }
+ ]
+}

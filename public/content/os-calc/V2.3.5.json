@@ -1,0 +1,1648 @@
+{
+ "schema": 1,
+ "id": "V2.3.5",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 3,
+ "section": 5,
+ "title": "Other Strategies for Integration",
+ "chapterTitle": "Techniques of Integration",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53684",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/3-5-other-strategies-for-integration",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §3.5 “Other Strategies for Integration”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use a table of integrals to solve integration problems.",
+  "Use a computer algebra system (CAS) to solve integration problems."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In addition to the techniques of integration we have already seen, several other tools are widely available to assist with the process of integration. Among these tools are **integration tables**, which are readily available in many books, including the appendices to this one. Also widely available are **computer algebra systems (CAS)**, which are found on calculators and in many campus computer labs, and are free online."
+    }
+   ],
+   "title": "Other Strategies for Integration"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Integration tables, if used in the right manner, can be a handy way either to evaluate or check an integral quickly. Keep in mind that when using a table to check an answer, it is possible for two completely correct solutions to look very different. For example, in Trigonometric Substitution, we found that, by using the substitution $x=\\tan \\,\\theta ,$ we can arrive at"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int \\frac{dx}{\\sqrt{1+x^{2}}}}=\\ln (x+\\sqrt{x^{2}+1})+C."
+    },
+    {
+     "type": "p",
+     "text": "However, using $x=\\sinh \\,\\theta ,$ we obtained a different solution—namely,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int \\frac{dx}{\\sqrt{1+x^{2}}}}=\\sinh^{-1}x+C."
+    },
+    {
+     "type": "p",
+     "text": "We later showed algebraically that the two solutions are equivalent. That is, we showed that $\\sinh^{-1}x=\\ln (x+\\sqrt{x^{2}+1}).$ In this case, the two antiderivatives that we found were actually equal. This need not be the case. However, as long as the difference in the two antiderivatives is a constant, they are equivalent."
+    }
+   ],
+   "title": "Tables of Integrals"
+  },
+  {
+   "id": "x3",
+   "kind": "example",
+   "label": "Example 3.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the table formula"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int \\frac{\\sqrt{a^{2}-u^{2}}}{u^{2}}du}=-\\frac{\\sqrt{a^{2}-u^{2}}}{u}-\\sin^{-1}\\frac{u}{a}+C"
+    },
+    {
+     "type": "p",
+     "text": "to evaluate ${\\displaystyle \\int \\frac{\\sqrt{16-e^{2x}}}{e^{x}}dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "If we look at integration tables, we see that several formulas contain expressions of the form $\\sqrt{a^{2}-u^{2}}.$ This expression is actually similar to $\\sqrt{16-e^{2x}},$ where $a=4$ and $u=e^{x}.$ Keep in mind that we must also have $du=e^{x}\\mathrm{dx}.$ Multiplying the numerator and the denominator of the given integral by $e^{x}$ should help to put this integral in a useful form. Thus, we now have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\frac{\\sqrt{16-e^{2x}}}{e^{x}}dx}={\\displaystyle \\int \\frac{\\sqrt{16-e^{2x}}}{e^{2x}}e^{x}dx.}"
+     },
+     {
+      "type": "p",
+      "text": "Substituting $u=e^{x}$ and $du=e^{x}\\mathrm{dx}$ produces ${\\displaystyle \\int \\frac{\\sqrt{a^{2}-u^{2}}}{u^{2}}du.}$ From the integration table (#88 in Appendix A),"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\frac{\\sqrt{a^{2}-u^{2}}}{u^{2}}du}=-\\frac{\\sqrt{a^{2}-u^{2}}}{u}-\\sin^{-1}\\frac{u}{a}+C."
+     },
+     {
+      "type": "p",
+      "text": "Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccc}{\\displaystyle \\int \\frac{\\sqrt{16-e^{2x}}}{e^{x}}dx} & ={\\displaystyle \\int \\frac{\\sqrt{16-e^{2x}}}{e^{2x}}e^{x}dx} & & & \\text{Substitute}\\,u=e^{x}\\,\\text{and}\\,du=e^{x}dx. \\\\ & ={\\displaystyle \\int \\frac{\\sqrt{4^{2}-u^{2}}}{u^{2}}du} & & & \\text{Apply the formula using}\\,a=4. \\\\ & =-\\frac{\\sqrt{4^{2}-u^{2}}}{u}-\\sin^{-1}\\frac{u}{4}+C & & & \\text{Substitute}\\,u=e^{x}. \\\\ & =-\\frac{\\sqrt{16-e^{2x}}}{e^{x}}-\\sin^{-1}\\left(\\frac{e^{x}}{4}\\right)+C. & & & \\end{array}"
+     }
+    ]
+   },
+   "title": "Using a Formula from a Table to Evaluate an Integral"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If available, a CAS is a faster alternative to a table for solving an integration problem. Many such systems are widely available and are, in general, quite easy to use."
+    }
+   ],
+   "title": "Computer Algebra Systems"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 3.37",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use a computer algebra system to evaluate ${\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}-4}}.}$ Compare this result with $\\ln \\left|\\frac{\\sqrt{x^{2}-4}}{2}+\\frac{x}{2}\\right|+C,$ a result we might have obtained if we had used trigonometric substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using Wolfram Alpha, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}-4}}}=\\ln |\\sqrt{x^{2}-4}+x|+C."
+     },
+     {
+      "type": "p",
+      "text": "Notice that"
+     },
+     {
+      "type": "math",
+      "tex": "\\ln \\left|\\frac{\\sqrt{x^{2}-4}}{2}+\\frac{x}{2}\\right|+C=\\ln \\left|\\frac{\\sqrt{x^{2}-4}+x}{2}\\right|+C=\\ln |\\sqrt{x^{2}-4}+x|-\\ln \\,2+C."
+     },
+     {
+      "type": "p",
+      "text": "Since these two antiderivatives differ by only a constant, the solutions are equivalent. We could have also demonstrated that each of these antiderivatives is correct by differentiating them."
+     }
+    ]
+   },
+   "title": "Using a Computer Algebra System to Evaluate an Integral"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 3.38",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}^{\\text{​}}\\sin^{3}x\\,dx$ using a CAS. Compare the result to $\\frac{1}{3}\\cos^{3}x-\\cos \\,x+C,$ the result we might have obtained using the technique for integrating odd powers of $\\sin \\,x$ discussed earlier in this chapter."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using Wolfram Alpha, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\sin^{3}x\\,dx}=\\frac{1}{12}(\\cos (3x)-9\\,\\cos \\,x)+C."
+     },
+     {
+      "type": "p",
+      "text": "This looks quite different from $\\frac{1}{3}\\cos^{3}x-\\cos \\,x+C.$ To see that these antiderivatives are equivalent, we can make use of a few trigonometric identities:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\frac{1}{12}(\\cos (3x)-9\\,\\cos \\,x) & =\\frac{1}{12}(\\cos (x+2x)-9\\,\\cos \\,x) \\\\ & =\\frac{1}{12}(\\cos (x)\\cos (2x)-\\sin (x)\\sin (2x)-9\\,\\cos \\,x) \\\\ & =\\frac{1}{12}(\\cos \\,x(2\\,\\cos^{2}x-1)-\\sin \\,x(2\\,\\sin \\,x\\,\\cos \\,x)-9\\,\\cos \\,x) \\\\ & =\\frac{1}{12}(2\\cos^{3}x-\\cos \\,x-2\\,\\cos \\,x(1-\\cos^{2}x)-9\\,\\cos \\,x) \\\\ & =\\frac{1}{12}(4\\cos^{3}x-12\\,\\cos \\,x) \\\\ & =\\frac{1}{3}\\cos^{3}x-\\cos \\,x.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus, the two antiderivatives are identical."
+     },
+     {
+      "type": "p",
+      "text": "We may also use a CAS to compare the graphs of the two functions, as shown in the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_07_05_001.webp",
+      "alt": "This is the graph of a periodic function. The waves have an amplitude of approximately 0.7 and a period of approximately 10. The graph represents the functions y = cos^3(x)/3 – cos(x) and y = 1/12(cos(3x)-9cos(x). The graph is the same for both functions.",
+      "caption": "**Figure 3.11** The graphs of $y=\\frac{1}{3}\\cos^{3}x-\\cos \\,x$ and $y=\\frac{1}{12}(\\cos (3x)-9\\,\\cos \\,x)$ are identical.",
+      "width": 494,
+      "height": 347
+     }
+    ]
+   },
+   "title": "Using a CAS to Evaluate an Integral"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.21",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate ${\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}+4}}.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Possible solutions include $\\sinh^{-1}\\left(\\frac{x}{2}\\right)+C$ and $\\ln |\\sqrt{x^{2}+4}+x|+C.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Answers may vary."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "An integration table may be used to evaluate indefinite integrals.",
+      "A CAS (or computer algebra system) may be used to evaluate indefinite integrals.",
+      "It may require some effort to reconcile equivalent solutions obtained using different methods."
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e244",
+   "number": 244,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{4}\\frac{x}{\\sqrt{1+2x}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042277957",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e245",
+   "number": 245,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x+3}{x^{2}+2x+2}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042066444",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\ln |x^{2}+2x+2|+2\\,\\arctan (x+1)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2) ln |x^2+2 x+2|+2 arctan (x+1)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e246",
+   "number": 246,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{3}\\sqrt{1+2x^{2}}\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041826184",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e247",
+   "number": 247,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{1}{\\sqrt{x^{2}+6x}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040797018",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cosh^{-1}\\left(\\frac{x+3}{3}\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "cosh^(-1) (((x+3)/3))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e248",
+   "number": 248,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{x}{x+1}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041972617",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e249",
+   "number": 249,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\cdot 2^{x^{2}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042281143",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2^{x^{2}-1}}{\\ln \\,2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((2^(x^2-1))/(ln 2))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e250",
+   "number": 250,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{1}{4x^{2}+25}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041830459",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e251",
+   "number": 251,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dy}{\\sqrt{4-y^{2}}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041818478",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\arcsin \\left(\\frac{y}{2}\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "arcsin ((y/2))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e252",
+   "number": 252,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{3}(2x)\\cos (2x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042264498",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e253",
+   "number": 253,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\csc (2w)\\cot (2w)dw}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041838330",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}\\csc (2w)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/2) csc (2 w)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e254",
+   "number": 254,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int 2^{y}dy}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042126632",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e255",
+   "number": 255,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\frac{3x\\,dx}{\\sqrt{x^{2}+8}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040682461",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$9-6\\sqrt{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "9-6 sqrt(2)"
+   }
+  },
+  {
+   "id": "e256",
+   "number": 256,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-1/4}^{1/4}\\sec^{2}(\\pi x)\\tan (\\pi x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041810578",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e257",
+   "number": 257,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /2}\\tan^{2}\\left(\\frac{x}{2}\\right)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041893186",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2-\\frac{\\pi}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2-(pi/2)"
+   }
+  },
+  {
+   "id": "e258",
+   "number": 258,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos^{3}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041979103",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e259",
+   "number": 259,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan^{5}(3x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041795957",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{12}\\tan^{4}(3x)-\\frac{1}{6}\\tan^{2}(3x)+\\frac{1}{3}\\ln |\\sec (3x)|+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/12) tan^4 (3 x)-(1/6) tan^2 (3 x)+(1/3) ln | sec (3 x)|+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e260",
+   "number": 260,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{2}y\\,\\cos^{3}ydy}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040676004",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a table of integrals to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e261",
+   "number": 261,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{dw}{1+\\sec \\left(\\frac{w}{2}\\right)}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042033160",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\,\\cot \\left(\\frac{w}{2}\\right)-2\\,\\csc \\left(\\frac{w}{2}\\right)+w+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 cot ((w/2))-2 csc ((w/2))+w+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e262",
+   "number": 262,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{dw}{1-\\cos (7w)}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041847489",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e263",
+   "number": 263,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{0}^{t}\\frac{dt}{4\\,\\cos \\,t+3\\,\\sin \\,t}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041805666",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{5}\\ln \\left|\\frac{2(5+4\\,\\sin \\,t-3\\,\\cos \\,t)}{4\\,\\cos \\,t+3\\,\\sin \\,t}\\right|$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/5) ln |((2(5+4 sin t-3 cos t))/(4 cos t+3 sin t))|"
+   }
+  },
+  {
+   "id": "e264",
+   "number": 264,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{\\sqrt{x^{2}-9}}{3x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042032048",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e265",
+   "number": 265,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{dx}{x^{1/2}+x^{1/3}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042088563",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$6x^{1/6}-3x^{1/3}+2\\sqrt{x}-6\\,\\ln [1+x^{1/6}]+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "6 x^(1/6)-3 x^(1/3)+2 sqrt(x)-6 ln [1+x^(1/6)]+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e266",
+   "number": 266,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{dx}{x\\sqrt{x-1}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042066597",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e267",
+   "number": 267,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int x^{3}\\sin \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042303689",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-x^{3}\\cos \\,x+3x^{2}\\sin \\,x+6x\\,\\cos \\,x-6\\,\\sin \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-x^3 cos x+3 x^2 sin x+6 x cos x-6 sin x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e268",
+   "number": 268,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int x\\sqrt{x^{4}-9}\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041840382",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{x}{1+e^{-x^{2}}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042295836",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}(x^{2}+\\ln |1+e^{-x^{2}}|)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)(x^2+ ln |1+e^(-x^2)|)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{\\sqrt{3-5x}}{2x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042137321",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{dx}{x\\sqrt{x-1}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040758316",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\,\\arctan (\\sqrt{x-1})+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 arctan (sqrt(x-1))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int e^{x}\\cos^{-1}(e^{x})dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041814632",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a CAS to evaluate the following integrals. Tables can also be used to verify the answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{0}^{\\pi /4}\\cos (2x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042083447",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a calculator or CAS to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0.5=\\frac{1}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"equation\",\"value\":\"0.5=(1/2)\"} failed (checker rejects the answer itself)"
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{0}^{1}x\\cdot e^{-x^{2}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042192508",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a calculator or CAS to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{0}^{8}\\frac{2x}{\\sqrt{x^{2}+36}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042231112",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a calculator or CAS to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "8.0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "8.0"
+   }
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{0}^{2/\\sqrt{3}}\\frac{1}{4+9x^{2}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042050506",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a calculator or CAS to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{dx}{x^{2}+4x+13}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042281590",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a calculator or CAS to evaluate the following integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}\\arctan \\left(\\frac{1}{3}(x+2)\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3) arctan ((1/3)(x+2))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{dx}{1+\\sin \\,x}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042195596",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use a calculator or CAS to evaluate the following integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{x^{2}+2x+10}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042071606",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to evaluate the integrals. You may need to complete the square or change variables to put the integral into a form given in the table."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}\\arctan \\left(\\frac{x+1}{3}\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3) arctan (((x+1)/3))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}-6x}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042108904",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to evaluate the integrals. You may need to complete the square or change variables to put the integral into a form given in the table."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{e^{x}}{\\sqrt{e^{2x}-4}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041908101",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to evaluate the integrals. You may need to complete the square or change variables to put the integral into a form given in the table."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (e^{x}+\\sqrt{-4+e^{2x}})+C$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\cos \\,x}{\\sin^{2}x+2\\,\\sin \\,x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040776919",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to evaluate the integrals. You may need to complete the square or change variables to put the integral into a form given in the table."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\arctan (x^{3})}{x^{4}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040796026",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to evaluate the integrals. You may need to complete the square or change variables to put the integral into a form given in the table."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln \\,x-\\frac{1}{6}\\ln (x^{6}+1)-\\frac{\\arctan (x^{3})}{3x^{3}}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln x-(1/6) ln (x^6+1)-((arctan (x^3))/(3 x^3))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\ln |x|\\arcsin (\\ln |x|)}{x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042042777",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to evaluate the integrals. You may need to complete the square or change variables to put the integral into a form given in the table."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}+16}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042066364",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln |x+\\sqrt{16+x^{2}}|+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln |x+sqrt(16+x^2)|+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{3x}{2x+7}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042006650",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{1-\\cos (4x)}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042063055",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{4}\\cot (2x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/4) cot (2 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{\\sqrt{4x+1}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040757639",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area bounded by $y=\\frac{5}{4+25x^{2}},x=0,y=0,\\text{and}\\,x=4.$ Use a table of integrals or a CAS."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040796057",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\arctan \\,10$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2) arctan 10"
+   }
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The region bounded between the curve $y=\\frac{1}{\\sqrt{1+\\cos \\,x}},0.3\\le x\\le 1.1,$ and the *x*-axis is revolved about the *x*-axis to generate a solid. Use a table of integrals to find the volume of the solid generated. (Round the answer to two decimal places.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040665701",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e291",
+   "number": 291,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use substitution and a table of integrals to find the area of the surface generated by revolving the curve $y=e^{x},0\\le x\\le 3,$ about the *x*-axis. (Round the answer to two decimal places.)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040757800",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "1276.14"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1276.14"
+   }
+  },
+  {
+   "id": "e292",
+   "number": 292,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use an integral table and a calculator to find the area of the surface generated by revolving the curve $y=\\frac{x^{2}}{2},0\\le x\\le 1,$ about the *x*-axis. (Round the answer to two decimal places.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040774255",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e293",
+   "number": 293,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a CAS or tables to find the area of the surface generated by revolving the curve $y=\\cos \\,x,0\\le x\\le \\frac{\\pi}{2},$ about the *x*-axis. (Round the answer to two decimal places.)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042107572",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "7.21"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "7.21"
+   }
+  },
+  {
+   "id": "e294",
+   "number": 294,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the length of the curve $y=\\frac{x^{2}}{4}$ over $[0,8].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042041810",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the length of the curve $y=e^{x}$ over $[0,\\ln (2)].$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041921707",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{5}-\\sqrt{2}+\\ln \\left|\\frac{2+2\\sqrt{2}}{1+\\sqrt{5}}\\right|$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(5)-sqrt(2)+ ln |((2+2 sqrt(2))/(1+sqrt(5)))|"
+   }
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area of the surface formed by revolving the graph of $y=2\\sqrt{x}$ over the interval $[0,9]$ about the *x*-axis."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041874050",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the average value of the function $f(x)=\\frac{1}{x^{2}+1}$ over the interval $[-3,3].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042238064",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}\\arctan (3)\\approx 0.416$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"equation\",\"value\":\"(1/3) arctan (3)=0.416\"} failed (checker rejects the answer itself)"
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Approximate the arc length of the curve $y=\\tan (\\pi x)$ over the interval $\\left[0,\\frac{1}{4}\\right].$ (Round the answer to three decimal places.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040690874",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use tables to perform the integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "computer algebra system (CAS)",
+   "meaning": "technology used to perform many mathematical tasks, including integration"
+  },
+  {
+   "term": "integration table",
+   "meaning": "a table that lists integration formulas"
+  }
+ ]
+}

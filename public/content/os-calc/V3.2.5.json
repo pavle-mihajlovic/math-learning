@@ -1,0 +1,3543 @@
+{
+ "schema": 1,
+ "id": "V3.2.5",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 2,
+ "section": 5,
+ "title": "Equations of Lines and Planes in Space",
+ "chapterTitle": "Vectors in Space",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53870",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/2-5-equations-of-lines-and-planes-in-space",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §2.5 “Equations of Lines and Planes in Space”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Write the vector, parametric, and symmetric equations of a line through a given point in a given direction, and a line through two given points.",
+  "Find the distance from a point to a given line.",
+  "Write the vector and scalar equations of a plane through a given point with a given normal.",
+  "Find the distance from a point to a given plane.",
+  "Find the angle between two planes."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "By now, we are familiar with writing equations that describe a line in two dimensions. To write an equation for a line, we must know two points on the line, or we must know the direction of the line and at least one point through which the line passes. In two dimensions, we use the concept of slope to describe the orientation, or direction, of a line. In three dimensions, we describe the direction of a line using a vector parallel to the line. In this section, we examine how to use equations to describe lines and planes in space."
+    }
+   ],
+   "title": "Equations of Lines and Planes in Space"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let’s first explore what it means for two vectors to be parallel. Recall that parallel vectors must have the same or opposite directions. If two nonzero vectors, $\\text{u}$ and $\\text{v},$ are parallel, we claim there must be a scalar, $k,$ such that $\\text{u}=k\\text{v}.$ If $\\text{u}$ and $\\text{v}$ have the same direction, simply choose $k=\\frac{\\| \\text{u}\\|}{\\| \\text{v}\\|}.$ If $\\text{u}$ and $\\text{v}$ have opposite directions, choose $k=-\\frac{\\| \\text{u}\\|}{\\| \\text{v}\\|}.$ Note that the converse holds as well. If $\\text{u}=k\\text{v}$ for some scalar $\\text{k},$ then either $\\text{u}$ and $\\text{v}$ have the same direction $(k>0)$ or opposite directions $(k<0),$ so $\\text{u}$ and $\\text{v}$ are parallel. Therefore, two nonzero vectors $\\text{u}$ and $\\text{v}$ are parallel if and only if $\\text{u}=k\\text{v}$ for some scalar $\\text{k}.$ By convention, the zero vector $0$ is considered to be parallel to all vectors."
+    },
+    {
+     "type": "p",
+     "text": "As in two dimensions, we can describe a line in space using a point on the line and the direction of the line, or a parallel vector, which we call the **direction vector** (Figure 2.61). Let $L$ be a line in space passing through point $P(x_{0},y_{0},z_{0}).$ Let $\\text{v}=〈a,b,c〉$ be a vector parallel to $L.$ Then, for any point $Q(x,y,z)$ on line $L$, we know that $\\vec{PQ}$ is parallel to $\\text{v}.$ Thus, as we just discussed, there is a scalar, $t,$ such that $\\vec{PQ}=t\\text{v},$ which gives"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\vec{PQ} & = & t\\text{v} \\\\ 〈x-x_{0},y-y_{0},z-z_{0}〉 & = & t〈a,b,c〉 \\\\ 〈x-x_{0},y-y_{0},z-z_{0}〉 & = & 〈ta,tb,tc〉.\\end{array}"
+    }
+   ],
+   "title": "Equations for a Line in Space"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_001.webp",
+     "alt": "This figure is the first octant of the 3-dimensional coordinate system. There is a line segment passing through two points. The points are labeled “P = (x sub 0, y sub 0, z sub 0)” and “Q = (x, y, z).” There is also a vector in standard position drawn. The vector is labeled “v = <a, b, c>.”",
+     "caption": "**Figure 2.61** Vector **v** is the direction vector for $\\vec{PQ}.$",
+     "width": 433,
+     "height": 390
+    },
+    {
+     "type": "p",
+     "text": "Using vector operations, we can rewrite (see above) as"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}〈x-x_{0},y-y_{0},z-z_{0}〉 & = & 〈ta,tb,tc〉 \\\\ 〈x,y,z〉-〈x_{0},y_{0},z_{0}〉 & = & t〈a,b,c〉 \\\\ 〈x,y,z〉 & = & 〈x_{0},y_{0},z_{0}〉+t〈a,b,c〉.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Setting $\\text{r}=〈x,y,z〉$ and ${\\text{r}}_{0}=〈x_{0},y_{0},z_{0}〉,$ we now have the **vector equation of a line**:"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}={\\text{r}}_{0}+t\\text{v}."
+    },
+    {
+     "type": "p",
+     "text": "Equating components, (see above) shows that the following equations are simultaneously true: $x-x_{0}=ta,$ $y-y_{0}=tb,$ and $z-z_{0}=tc.$ If we solve each of these equations for the component variables $x,y,\\,\\text{and}\\,z,$ we get a set of equations in which each variable is defined in terms of the parameter *t* and that, together, describe the line. This set of three equations forms a set of **parametric equations of a line**:"
+    },
+    {
+     "type": "math",
+     "tex": "x=x_{0}+ta\\quad y=y_{0}+tb\\quad z=z_{0}+tc."
+    },
+    {
+     "type": "p",
+     "text": "If we solve each of the equations for $t$ assuming $a,b,\\,\\text{and}\\,c$ are nonzero, we get a different description of the same line:"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{x-x_{0}}{a}=t\\quad \\frac{y-y_{0}}{b}=t\\quad \\frac{z-z_{0}}{c}=t."
+    }
+   ],
+   "title": "Equations for a Line in Space (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Because each expression equals *t*, they all have the same value. We can set them equal to each other to create **symmetric equations of a line**:"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{x-x_{0}}{a}=\\frac{y-y_{0}}{b}=\\frac{z-z_{0}}{c}."
+    },
+    {
+     "type": "p",
+     "text": "We summarize the results in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "A line $L$ parallel to vector $\\text{v}=〈a,b,c〉$ and passing through point $P(x_{0},y_{0},z_{0})$ can be described by the following parametric equations:"
+      },
+      {
+       "type": "math",
+       "tex": "x=x_{0}+ta,y=y_{0}+tb,\\,\\text{and}\\,z=z_{0}+tc."
+      },
+      {
+       "type": "p",
+       "text": "If the constants $a,b,\\,\\text{and}\\,c$ are all nonzero, then $L$ can be described by the symmetric equation of the line:"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{x-x_{0}}{a}=\\frac{y-y_{0}}{b}=\\frac{z-z_{0}}{c}."
+      }
+     ],
+     "title": "Parametric and Symmetric Equations of a Line"
+    },
+    {
+     "type": "p",
+     "text": "The parametric equations of a line are not unique. Using a different parallel vector or a different point on the line leads to a different, equivalent representation. Each set of parametric equations leads to a related set of symmetric equations, so it follows that a symmetric equation of a line is not unique either."
+    }
+   ],
+   "title": "Equations for a Line in Space (continued)"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 2.45",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find parametric and symmetric equations of the line passing through points $(1,4,-2)$ and $(-3,5,0).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First, identify a vector parallel to the line:"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{v}=〈-3-1,5-4,0-(-2)〉=〈-4,1,2〉."
+     },
+     {
+      "type": "p",
+      "text": "Use either of the given points on the line to complete the parametric equations:"
+     },
+     {
+      "type": "math",
+      "tex": "x=1-4t,y=4+t,\\,\\text{and}\\,z=-2+2t."
+     },
+     {
+      "type": "p",
+      "text": "Solve each equation for $t$ to create the symmetric equation of the line:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{x-1}{-4}=y-4=\\frac{z+2}{2}."
+     }
+    ]
+   },
+   "title": "Equations of a Line in Space"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.43",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find parametric and symmetric equations of the line passing through points $(1,-3,2)$ and $(5,-2,8).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Possible set of parametric equations: $x=1+4t,y=-3+t,z=2+6t;$"
+     },
+     {
+      "type": "p",
+      "text": "related set of symmetric equations: $\\frac{x-1}{4}=y+3=\\frac{z-2}{6}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Start by finding a vector parallel to the line."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Sometimes we don’t want the equation of a whole line, just a line segment. In this case, we limit the values of our parameter $t.$ For example, let $P(x_{0},y_{0},z_{0})$ and $Q(x_{1},y_{1},z_{1})$ be points on a line, and let $\\text{p}=〈x_{0},y_{0},z_{0}〉$ and $\\text{q}=〈x_{1},y_{1},z_{1}〉$ be the associated position vectors. In addition, let $\\text{r}=〈x,y,z〉.$ We want to find a vector equation for the line segment between $P$ and $Q.$ Using $P$ as our known point on the line, and $\\vec{PQ}=〈x_{1}-x_{0},y_{1}-y_{0},z_{1}-z_{0}〉$ as the direction vector equation, (see above) gives"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}=\\text{p}+t(\\vec{PQ})."
+    },
+    {
+     "type": "p",
+     "text": "Using properties of vectors, then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\text{r} & =\\text{p}+t(\\vec{PQ}) \\\\ & =〈x_{0},y_{0},z_{0}〉+t〈x_{1}-x_{0},y_{1}-y_{0},z_{1}-z_{0}〉 \\\\ & =〈x_{0},y_{0},z_{0}〉+t(〈x_{1},y_{1},z_{1}〉-〈x_{0},y_{0},z_{0}〉) \\\\ & =〈x_{0},y_{0},z_{0}〉+t〈x_{1},y_{1},z_{1}〉-t〈x_{0},y_{0},z_{0}〉 \\\\ & =(1-t)〈x_{0},y_{0},z_{0}〉+t〈x_{1},y_{1},z_{1}〉 \\\\ & =(1-t)\\text{p}+t\\text{q}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus, the vector equation of the line passing through $P$ and $Q$ is"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}=(1-t)\\text{p}+t\\text{q}."
+    },
+    {
+     "type": "p",
+     "text": "Remember that we didn’t want the equation of the whole line, just the line segment between $P$ and $Q.$ Notice that when $t=0,$ we have $r=p,$ and when $t=1,$ we have $r=q.$ Therefore, the vector equation of the line segment between $P$ and $Q$ is"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}=(1-t)\\text{p}+t\\text{q},0\\le t\\le 1."
+    },
+    {
+     "type": "p",
+     "text": "Going back to (see above), we can also find parametric equations for this line segment. We have"
+    }
+   ],
+   "title": "Equations for a Line in Space (continued)"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\text{r} & = & \\text{p}+t(\\vec{PQ}) \\\\ 〈x,y,z〉 & = & 〈x_{0},y_{0},z_{0}〉+t〈x_{1}-x_{0},y_{1}-y_{0},z_{1}-z_{0}〉 \\\\ & = & 〈x_{0}+t(x_{1}-x_{0}),y_{0}+t(y_{1}-y_{0}),z_{0}+t(z_{1}-z_{0})〉.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Then, the parametric equations are"
+    },
+    {
+     "type": "math",
+     "tex": "x=x_{0}+t(x_{1}-x_{0}),y=y_{0}+t(y_{1}-y_{0}),z=z_{0}+t(z_{1}-z_{0}),0\\le t\\le 1."
+    }
+   ],
+   "title": "Equations for a Line in Space (continued)"
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 2.46",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find parametric equations of the line segment between the points $P(2,1,4)$ and $Q(3,-1,3).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "By (see above), we have"
+     },
+     {
+      "type": "math",
+      "tex": "x=x_{0}+t(x_{1}-x_{0}),y=y_{0}+t(y_{1}-y_{0}),z=z_{0}+t(z_{1}-z_{0}),0\\le t\\le 1."
+     },
+     {
+      "type": "p",
+      "text": "Working with each component separately, we get"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}x & =x_{0}+t(x_{1}-x_{0}) \\\\ & =2+t(3-2) \\\\ & =2+t,\\end{array}"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}y & =y_{0}+t(y_{1}-y_{0}) \\\\ & =1+t(-1-1) \\\\ & =1-2t,\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}z & =z_{0}+t(z_{1}-z_{0}) \\\\ & =4+t(3-4) \\\\ & =4-t.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the parametric equations for the line segment are"
+     },
+     {
+      "type": "math",
+      "tex": "x=2+t,y=1-2t,z=4-t,0\\le t\\le 1."
+     }
+    ]
+   },
+   "title": "Parametric Equations of a Line Segment"
+  },
+  {
+   "id": "c10",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.44",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find parametric equations of the line segment between points $P(-1,3,6)$ and $Q(-8,2,4).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=-1-7t,y=3-t,z=6-2t,0\\le t\\le 1$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We already know how to calculate the distance between two points in space. We now expand this definition to describe the distance between a point and a line in space. Several real-world contexts exist when it is important to be able to calculate these distances. When building a home, for example, builders must consider “setback” requirements, when structures or fixtures have to be a certain distance from the property line. Air travel offers another example. Airlines are concerned about the distances between populated areas and proposed flight paths."
+    },
+    {
+     "type": "p",
+     "text": "Let $L$ be a line in the plane and let $M$ be any point not on the line. Then, we define distance $d$ from $M$ to $L$ as the length of line segment $\\overset{-}{MP},$ where $P$ is a point on $L$ such that $\\overset{-}{MP}$ is perpendicular to $L$ (Figure 2.62)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_002.webp",
+     "alt": "This figure has two line segments. The first line is labeled “L” and has point P on the segment. The second line segment is drawn from point P to point M and is perpendicular to line L. The second line segment is labeled “d.”",
+     "caption": "**Figure 2.62** The distance from point $M$ to line $L$ is the length of $\\overset{-}{MP}.$",
+     "width": 382,
+     "height": 210
+    }
+   ],
+   "title": "Distance between a Point and a Line"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When we’re looking for the distance between a line and a point in space, Figure 2.62 still applies. We still define the distance as the length of the perpendicular line segment connecting the point to the line. In space, however, there is no clear way to know which point on the line creates such a perpendicular line segment, so we select an arbitrary point on the line and use properties of vectors to calculate the distance. Therefore, let $P$ be an arbitrary point on line $L$ and let $\\text{v}$ be a direction vector for $L$ (Figure 2.63)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_003.webp",
+     "alt": "This figure has a line segment labeled “L.” On the line segment L there is point P. There is a vector drawn from point P to another point M. Also, from M there is a line segment drawn to line L. This segment is perpendicular to line L. There is also a vector labeled “v” on line segment L. A parallelogram has been formed with vector v, line segment P M, and two other segments back to line L.",
+     "caption": "**Figure 2.63** Vectors $\\vec{PM}$ and **v** form two sides of a parallelogram with base $\\| \\text{v}\\|$ and height $d,$ which is the distance between a line and a point in space.",
+     "width": 438,
+     "height": 234
+    },
+    {
+     "type": "p",
+     "text": "By (see above), vectors $\\vec{PM}$ and $\\text{v}$ form two sides of a parallelogram with area $\\| \\vec{PM}\\,\\times \\,\\text{v}\\| .$ Using a formula from geometry, the area of this parallelogram can also be calculated as the product of its base and height:"
+    },
+    {
+     "type": "math",
+     "tex": "\\| \\vec{PM}\\,\\times \\,\\text{v}\\| =\\| \\text{v}\\| d."
+    },
+    {
+     "type": "p",
+     "text": "We can use this formula to find a general formula for the distance between a line in space and any point not on the line."
+    }
+   ],
+   "title": "Distance between a Point and a Line (continued)"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $L$ be a line in space passing through point $P$ with direction vector $\\text{v}.$ If $M$ is any point not on $L,$ then the distance from $M$ to $L$ is"
+      },
+      {
+       "type": "math",
+       "tex": "d=\\frac{\\| \\vec{PM}\\,\\times \\,\\text{v}\\|}{\\| \\text{v}\\|}."
+      }
+     ],
+     "title": "Distance from a Point to a Line"
+    }
+   ],
+   "title": "Distance between a Point and a Line (continued)"
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 2.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the distance between the point $M=(1,1,3)$ and line $\\frac{x-3}{4}=\\frac{y+1}{2}=z-3.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "From the symmetric equations of the line, we know that vector $\\text{v}=〈4,2,1〉$ is a direction vector for the line. Setting the symmetric equations of the line equal to zero, we see that point $P(3,-1,3)$ lies on the line. Then,"
+     },
+     {
+      "type": "math",
+      "tex": "\\vec{PM}=〈1-3,1-(-1),3-3〉=〈-2,2,0〉."
+     },
+     {
+      "type": "p",
+      "text": "To calculate the distance, we need to find $\\vec{PM}\\,\\times \\,\\text{v}:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\vec{PM}\\,\\times \\,\\text{v} & =\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ -2 & 2 & 0 \\\\ 4 & 2 & 1\\end{array}\\right| \\\\ & =(2-0)\\text{i}-(-2-0)\\text{j}+(-4-8)\\text{k} \\\\ & =2\\text{i}+2\\text{j}-12\\text{k}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the distance between the point and the line is (Figure 2.64)"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}d & =\\frac{\\| \\vec{PM}\\,\\times \\,\\text{v}\\|}{\\| \\text{v}\\|} \\\\ & =\\frac{\\sqrt{2^{2}+2^{2}+12^{2}}}{\\sqrt{4^{2}+2^{2}+1^{2}}} \\\\ & =\\frac{2\\sqrt{38}}{\\sqrt{21}}.\\end{array}"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_12_05_004.webp",
+      "alt": "This figure is the first octant of the 3-dimensional coordinate system. There is a 3-dimensional box drawn in the octant. There is a point labeled at (1, 1, 3). There is a line segment labeled “L” inside of the box. Also, there is a perpendicular line segment from the point to line L.",
+      "caption": "**Figure 2.64** Point $(1,1,3)$ is approximately $2.7$ units from the line with symmetric equations $\\frac{x-3}{4}=\\frac{y+1}{2}=z-3.$",
+      "width": 357,
+      "height": 396
+     }
+    ]
+   },
+   "title": "Calculating the Distance from a Point to a Line"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.45",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the distance between point $(0,3,6)$ and the line with parametric equations $x=1-t,y=1+2t,z=5+3t.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{\\frac{10}{7}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find a vector with initial point $(0,3,6)$ and a terminal point on the line, and then find a direction vector for the line."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "sqrt((10/7))"
+   }
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Given two lines in the two-dimensional plane, the lines are equal, they are parallel but not equal, or they intersect in a single point. In three dimensions, a fourth case is possible. If two lines in space are not parallel, but do not intersect, then the lines are said to be **skew lines** (Figure 2.65)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_005.webp",
+     "alt": "This figure has two line segments. They are 3-dimensional, are not parallel, and do not intersect. The directions are different and one is above the other.",
+     "caption": "**Figure 2.65** In three dimensions, it is possible that two lines do not cross, even when they have different directions.",
+     "width": 418,
+     "height": 117
+    },
+    {
+     "type": "p",
+     "text": "To classify lines as parallel but not equal, equal, intersecting, or skew, we need to know two things: whether the direction vectors are parallel and whether the lines share a point (Figure 2.66)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_006.webp",
+     "alt": "This figure is a table with two rows and two columns. Above the columns is the question “Lines share a common point?” The first column is labeled “yes,” and the second column is labeled “no.” To the left of the rows is the question “Direction vectors are parallel?” The first row is labeled “yes,” and the second row is labeled “no.” The entries of the first row are “equal” and “parallel but not equal.” The entries in the second row are “intersecting” and “skew.”",
+     "caption": "**Figure 2.66** Determine the relationship between two lines based on whether their direction vectors are parallel and whether they share a point.",
+     "width": 610,
+     "height": 334
+    }
+   ],
+   "title": "Relationships between Lines"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 2.48",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each pair of lines, determine whether the lines are equal, parallel but not equal, skew, or intersecting."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$L_{1}:x=2s-1,y=s-1,z=s-4$\n\n$L_{2}:x=t-3,y=3t+8,z=5-2t$",
+      "$L_{1}:$ $x=-y=z$\n\n$L_{2}:\\frac{x-3}{2}=y=z-2$",
+      "$L_{1}:x=6s-1,y=-2s,z=3s+1;s\\ne 0$\n\n$L_{2}:\\frac{x-4}{6}=\\frac{y+3}{-2}=\\frac{z-1}{3}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Line $L_{1}$ has direction vector ${\\text{v}}_{1}=〈2,1,1〉;$ line $L_{2}$ has direction vector ${\\text{v}}_{2}=〈1,3,-2〉.$ Because the direction vectors are not parallel vectors, the lines are either intersecting or skew. To determine whether the lines intersect, we see if there is a point, $(x,y,z),$ that lies on both lines. To find this point, we use the parametric equations to create a system of equalities:"
+        },
+        {
+         "type": "math",
+         "tex": "2s-1=t-3;\\quad s-1=3t+8;\\quad s-4=5-2t."
+        },
+        {
+         "type": "p",
+         "text": "By the first equation, $t=2s+2.$ Substituting into the second equation yields"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}s-1 & = & 3(2s+2)+8 \\\\ s-1 & = & 6s+6+8 \\\\ 5s & = & -15 \\\\ s & = & -3.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Substitution into the third equation, however, yields a contradiction:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}s-4 & = & 5-2(2s+2) \\\\ s-4 & = & 5-4s-4 \\\\ 5s & = & 5 \\\\ s & = & 1.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "There is no single point that satisfies the parametric equations for $L_{1}\\,\\text{and}\\,L_{2}$ simultaneously. These lines do not intersect, so they are skew (see the following figure)."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_12_05_011.webp",
+         "alt": "This figure is the 3-dimensional coordinate system. There are two skew lines drawn. They do not intersect and are not parallel.",
+         "width": 376,
+         "height": 380
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Line *L$_{\\text{1}}$* has direction vector ${\\text{v}}_{1}=〈1,-1,1〉$ and passes through the origin, $(0,0,0).$ Line $L_{2}$ has a different direction vector, ${\\text{v}}_{2}=〈2,1,1〉,$ so these lines are not parallel or equal. Let $r$ represent the parameter for line $L_{1}$ and let $s$ represent the parameter for $L_{2}:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cccc}\\begin{array}{cc}x & =r \\\\ y & =-r \\\\ z & =r\\end{array} & & & \\begin{array}{cc}x & =2s+3 \\\\ y & =s \\\\ z & =s+2.\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Solve the system of equations to find $r=1$ and $s=-1.$ If we need to find the point of intersection, we can substitute these parameters into the original equations to get $(1,-1,1)$ (see the following figure)."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_12_05_012.webp",
+         "alt": "This figure is the 3-dimensional coordinate system. There are two skew lines drawn. They do not intersect and are not parallel.",
+         "width": 514,
+         "height": 501
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Lines $L_{1}$ and $L_{2}$ have equivalent direction vectors: $\\text{v}=〈6,-2,3〉.$ These two lines are parallel (see the following figure)."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_12_05_013.webp",
+         "alt": "This figure is the 3-dimensional coordinate system. There are two skew lines drawn. They do not intersect and are not parallel.",
+         "width": 397,
+         "height": 378
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Classifying Lines in Space"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.46",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Describe the relationship between the lines with the following parametric equations:"
+    },
+    {
+     "type": "math",
+     "tex": "x=1-4t,y=3+t,z=8-6t"
+    },
+    {
+     "type": "math",
+     "tex": "x=2+3s,y=2s,z=-1-3s."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "These lines are skew because their direction vectors are not parallel and there is no point $(x,y,z)$ that lies on both lines."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Start by identifying direction vectors for each line. Is one a multiple of the other?"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We know that a line is determined by two points. In other words, for any two distinct points, there is exactly one line that passes through those points, whether in two dimensions or three. Similarly, given any three points that do not all lie on the same line, there is a unique plane that passes through these points. Just as a line is determined by two points, a plane is determined by three."
+    },
+    {
+     "type": "p",
+     "text": "This may be the simplest way to characterize a plane, but we can use other descriptions as well. For example, given two distinct, intersecting lines, there is exactly one plane containing both lines. A plane is also determined by a line and any point that does not lie on the line. These characterizations arise naturally from the idea that a plane is determined by three points. Perhaps the most surprising characterization of a plane is actually the most useful."
+    },
+    {
+     "type": "p",
+     "text": "Imagine a pair of orthogonal vectors that share an initial point. Visualize grabbing one of the vectors and twisting it. As you twist, the other vector spins around and sweeps out a plane. Here, we describe that concept mathematically. Let $\\text{n}=〈a,b,c〉$ be a vector and $P=(x_{0},y_{0},z_{0})$ be a point. Then the set of all points $Q=(x,y,z)$ such that $\\vec{PQ}$ is orthogonal to $\\text{n}$ forms a plane (Figure 2.67). We say that $\\text{n}$ is a **normal vector**, or perpendicular to the plane. Remember, the dot product of orthogonal vectors is zero. This fact generates the **vector equation of a plane**: $\\text{n}\\cdot \\vec{PQ}=0.$ Rewriting this equation provides additional ways to describe the plane:"
+    }
+   ],
+   "title": "Equations for a Plane"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc} \\\\ \\text{n}\\cdot \\vec{PQ} & = & 0 \\\\ 〈a,b,c〉\\cdot 〈x-x_{0},y-y_{0},z-z_{0}〉 & = & 0 \\\\ a(x-x_{0})+b(y-y_{0})+c(z-z_{0}) & = & 0.\\end{array}"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_007.webp",
+     "alt": "This figure is a parallelogram representing a plane. In the plane is a vector from point P to point Q. Perpendicular to the vector P Q is the vector n.",
+     "caption": "**Figure 2.67** Given a point $P$ and vector $\\text{n},$ the set of all points $Q$ with $\\vec{PQ}$ orthogonal to $\\text{n}$ forms a plane.",
+     "width": 441,
+     "height": 226
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given a point $P$ and vector $\\text{n},$ the set of all points $Q$ satisfying the equation $\\text{n}\\cdot \\vec{PQ}=0$ forms a plane. The equation"
+      },
+      {
+       "type": "math",
+       "tex": "\\text{n}\\cdot \\vec{PQ}=0"
+      },
+      {
+       "type": "p",
+       "text": "is known as the vector equation of a plane."
+      },
+      {
+       "type": "p",
+       "text": "The **scalar equation of a plane** containing point $P=(x_{0},y_{0},z_{0})$ with normal vector $\\text{n}=〈a,b,c〉$ is"
+      },
+      {
+       "type": "math",
+       "tex": "a(x-x_{0})+b(y-y_{0})+c(z-z_{0})=0."
+      },
+      {
+       "type": "p",
+       "text": "This equation can be expressed as $ax+by+cz+d=0,$ where $d=-ax_{0}-by_{0}-cz_{0}.$ This form of the equation is sometimes called the **general form of the equation of a plane**."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "As described earlier in this section, any three points that do not all lie on the same line determine a plane. Given three such points, we can find an equation for the plane containing these points."
+    }
+   ],
+   "title": "Equations for a Plane (continued)"
+  },
+  {
+   "id": "x21",
+   "kind": "example",
+   "label": "Example 2.49",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Write an equation for the plane containing points $P=(1,1,-2),$ $Q=(0,2,1),$ and $R=(-1,-1,0)$ in both standard and general forms."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To write an equation for a plane, we must find a normal vector for the plane. We start by identifying two vectors in the plane:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}\\vec{PQ} & = & 〈0-1,2-1,1-(-2)〉=〈-1,1,3〉 \\\\ \\vec{QR} & = & 〈-1-0,-1-2,0-1〉=〈-1,-3,-1〉.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The cross product $\\vec{PQ}\\,\\times \\,\\vec{QR}$ is orthogonal to both $\\vec{PQ}$ and $\\vec{QR},$ so it is normal to the plane that contains these two vectors:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\text{n} & =\\vec{PQ}\\,\\times \\,\\vec{QR} \\\\ & =\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ -1 & 1 & 3 \\\\ -1 & -3 & -1\\end{array}\\right| \\\\ & =(-1+9)\\text{i}-(1+3)\\text{j}+(3+1)\\text{k} \\\\ & =8\\text{i}-4\\text{j}+4\\text{k}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus, $\\text{n}=〈8,-4,4〉,$ and we can choose any of the three given points to write an equation of the plane:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}8(x-1)-4(y-1)+4(z+2) & = & 0 \\\\ 8x-4y+4z+4 & = & 0.\\end{array}"
+     }
+    ]
+   },
+   "title": "Writing an Equation of a Plane Given Three Points in the Plane"
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The scalar equations of a plane vary depending on the normal vector and point chosen."
+    }
+   ],
+   "title": "Equations for a Plane (continued)"
+  },
+  {
+   "id": "x23",
+   "kind": "example",
+   "label": "Example 2.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find an equation of the plane that passes through point $(1,4,3)$ and contains the line given by $x=\\frac{y-1}{2}=z+1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Symmetric equations describe the line that passes through point $(0,1,-1)$ parallel to vector ${\\text{v}}_{1}=〈1,2,1〉$ (see the following figure). Use this point and the given point, $(1,4,3),$ to identify a second vector parallel to the plane:"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{v}}_{2}=〈1-0,4-1,3-(-1)〉=〈1,3,4〉."
+     },
+     {
+      "type": "p",
+      "text": "Use the cross product of these vectors to identify a normal vector for the plane:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\text{n} & ={\\text{v}}_{1}\\,\\times \\,{\\text{v}}_{2} \\\\ & =\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ 1 & 2 & 1 \\\\ 1 & 3 & 4\\end{array}\\right| \\\\ & =(8-3)\\text{i}-(4-1)\\text{j}+(3-2)\\text{k} \\\\ & =5\\text{i}-3\\text{j}+\\text{k}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The scalar equations for the plane are $5x-3(y-1)+(z+1)=0$ and $5x-3y+z+4=0.$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_12_05_014.webp",
+      "alt": "This figure is the 3-dimensional coordinate system. There is a plane sketched. It is vertical, but skew to the z-axis.",
+      "width": 387,
+      "height": 478
+     }
+    ]
+   },
+   "title": "Writing an Equation for a Plane Given a Point and a Line"
+  },
+  {
+   "id": "c24",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find an equation of the plane containing the lines $L_{1}$ and $L_{2}:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}L_{1}:x=-y=z \\\\ L_{2}:\\frac{x-3}{2}=y=z-2.\\end{array}"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-2(x-1)+(y+1)+3(z-1)=0$ or $-2x+y+3z=0$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The cross product of the lines’ direction vectors gives a normal vector for the plane."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we can write an equation for a plane, we can use the equation to find the distance $d$ between a point $P$ and the plane. It is defined as the shortest possible distance from $P$ to a point on the plane."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_008.webp",
+     "alt": "This figure is the sketch of a parallelogram representing a plane. In the plane are points Q and R. there is a broken line from Q to R on the plane. There is a vector n out of the plane at point Q. Also, there is a vector labeled “R P” from point R to point P which is above the plane. This vector is perpendicular to the plane.",
+     "caption": "**Figure 2.68** We want to find the shortest distance from point *P* to the plane. Let point $R$ be the point in the plane such that, for any other point in the plane $Q,$ $\\| \\vec{RP}\\| <\\| \\vec{QP}\\| .$",
+     "width": 456,
+     "height": 299
+    },
+    {
+     "type": "p",
+     "text": "Just as we find the two-dimensional distance between a point and a line by calculating the length of a line segment perpendicular to the line, we find the three-dimensional distance between a point and a plane by calculating the length of a line segment perpendicular to the plane. Let $R$ be the point in the plane such that $\\vec{RP}$ is orthogonal to the plane, and let $Q$ be an arbitrary point in the plane. Then the projection of vector $\\vec{QP}$ onto the normal vector describes vector $\\vec{RP},$ as shown in Figure 2.68."
+    }
+   ],
+   "title": "Equations for a Plane (continued)"
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose a plane with normal vector $\\text{n}$ passes through point $Q.$ The distance $d$ from the plane to a point $P$ not in the plane is given by"
+      },
+      {
+       "type": "math",
+       "tex": "d=\\| {\\text{proj}}_{\\text{n}}\\vec{QP}\\| =|{\\text{comp}}_{\\text{n}}\\vec{QP}|=\\frac{|\\vec{QP}\\cdot \\text{n}|}{\\| \\text{n}\\|}."
+      }
+     ],
+     "title": "The Distance between a Plane and a Point"
+    }
+   ],
+   "title": "Equations for a Plane (continued)"
+  },
+  {
+   "id": "x27",
+   "kind": "example",
+   "label": "Example 2.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the distance between point $P=(3,1,2)$ and the plane given by $x-2y+z=5$ (see the following figure)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_015.webp",
+     "alt": "This figure is the 3-dimensional coordinate system. There is a point drawn at (3, 1, 2). The point is labeled “P(3, 1, 2).” There is a plane drawn. There is a perpendicular line from the plane to point P(3, 1, 2).",
+     "width": 386,
+     "height": 392
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The coefficients of the plane’s equation provide a normal vector for the plane: $\\text{n}=〈1,-2,1〉.$ To find vector $\\vec{QP},$ we need a point in the plane. Any point will work, so set $y=z=0$ to see that point $Q=(5,0,0)$ lies in the plane. Find the component form of the vector from $Q\\,\\text{to}\\,P:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\vec{QP}=〈3-5,1-0,2-0〉=〈-2,1,2〉."
+     },
+     {
+      "type": "p",
+      "text": "Apply the distance formula from (see above):"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}d & =\\frac{|\\vec{QP}\\cdot \\text{n}|}{\\| \\text{n}\\|} \\\\ & =\\frac{|〈-2,1,2〉\\cdot 〈1,-2,1〉|}{\\sqrt{1^{2}+(-2)^{2}+1^{2}}} \\\\ & =\\frac{|-2-2+2|}{\\sqrt{6}} \\\\ & =\\frac{2}{\\sqrt{6}}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Distance between a Point and a Plane"
+  },
+  {
+   "id": "c28",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.48",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the distance between point $P=(5,-1,0)$ and the plane given by $4x+2y-z=3.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{15}{\\sqrt{21}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Point $(0,0,-3)$ lies on the plane."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(15/(sqrt(21)))"
+   }
+  },
+  {
+   "id": "r29",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have discussed the various possible relationships between two lines in two dimensions and three dimensions. When we describe the relationship between two planes in space, we have only two possibilities: the two distinct planes are parallel or they intersect. When two planes are parallel, their normal vectors are parallel. When two planes intersect, the intersection is a line (Figure 2.69)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_009.webp",
+     "alt": "This figure is two planes that are intersecting. The intersection forms a line segment.",
+     "caption": "**Figure 2.69** The intersection of two nonparallel planes is always a line.",
+     "width": 286,
+     "height": 368
+    },
+    {
+     "type": "p",
+     "text": "We can use the equations of the two planes to find parametric equations for the line of intersection."
+    }
+   ],
+   "title": "Parallel and Intersecting Planes"
+  },
+  {
+   "id": "x30",
+   "kind": "example",
+   "label": "Example 2.52",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find parametric and symmetric equations for the line formed by the intersection of the planes given by $x+y+z=0$ and $2x-y+z=0$ (see the following figure)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_016.webp",
+     "alt": "This figure is two planes intersecting in the 3-dimensional coordinate system.",
+     "width": 412,
+     "height": 453
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Note that the two planes have nonparallel normals, so the planes intersect. Further, the origin satisfies each equation, so we know the line of intersection passes through the origin. Add the plane equations so we can eliminate the one of the variables, in this case, $y:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c}\\underset{\\text{\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_}}{\\begin{array}{ccccccc}x & + & y & + & z & = & 0 \\\\ 2x & - & y & + & z & = & 0\\end{array}} \\\\ \\\\ \\;3x\\qquad +2z\\;=\\;0.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This gives us $x=-\\frac{2}{3}z.$ We substitute this value into the first equation to express $y$ in terms of $z:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}x+y+z & = & 0 \\\\ -\\frac{2}{3}z+y+z & = & 0 \\\\ y+\\frac{1}{3}z & = & 0 \\\\ y & = & -\\frac{1}{3}z.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "We now have the first two variables, $x$ and $y,$ in terms of the third variable, $z.$ Now we define $z$ in terms of $t.$ To eliminate the need for fractions, we choose to define the parameter $t$ as $t=-\\frac{1}{3}z.$ Then, $z=-3t.$ Substituting the parametric representation of $z$ back into the other two equations, we see that the parametric equations for the line of intersection are $x=2t,y=t,z=-3t.$ The symmetric equations for the line are $\\frac{x}{2}=y=\\frac{z}{-3}.$"
+     }
+    ]
+   },
+   "title": "Finding the Line of Intersection for Two Planes"
+  },
+  {
+   "id": "c31",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.49",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find parametric equations for the line formed by the intersection of planes $x+y-z=3$ and $3x-y+3z=5.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=t,y=7-3t,z=4-2t$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Add the two equations, then express $z$ in terms of $x.$ Then, express $y$ in terms of $x.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r32",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In addition to finding the equation of the line of intersection between two planes, we may need to find the angle formed by the intersection of two planes. For example, builders constructing a house need to know the angle where different sections of the roof meet to know whether the roof will look good and drain properly. We can use normal vectors to calculate the angle between the two planes. We can do this because the angle between the normal vectors is the same as the angle between the planes. Figure 2.70 shows why this is true."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_010.webp",
+     "alt": "This figure is two parallelograms representing planes. The planes intersect forming angle theta between them. The first plane as vector “n sub 1” normal to the plane. The second vector has vector “n sub 2” normal to the plane. The normal vectors intersect and form the angle theta.",
+     "caption": "**Figure 2.70** The angle between two planes has the same measure as the angle between the normal vectors for the planes.",
+     "width": 412,
+     "height": 316
+    },
+    {
+     "type": "p",
+     "text": "We can find the measure of the angle *θ* between two intersecting planes by first finding the cosine of the angle, using the following equation:"
+    },
+    {
+     "type": "math",
+     "tex": "\\cos \\,\\theta =\\frac{|{\\text{n}}_{1}\\cdot {\\text{n}}_{2}|}{\\| {\\text{n}}_{1}\\| \\| {\\text{n}}_{2}\\|}."
+    },
+    {
+     "type": "p",
+     "text": "We can then use the angle to determine whether two planes are parallel or orthogonal or if they intersect at some other angle."
+    }
+   ],
+   "title": "Parallel and Intersecting Planes (continued)"
+  },
+  {
+   "id": "x33",
+   "kind": "example",
+   "label": "Example 2.53",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether each pair of planes is parallel, orthogonal, or neither. If the planes are intersecting, but not orthogonal, find the measure of the angle between them. Give the answer in radians and round to two decimal places."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$x+2y-z=8\\,\\text{and}\\,2x+4y-2z=10$",
+      "$2x-3y+2z=3\\,\\text{and}\\,6x+2y-3z=1$",
+      "$x+y+z=4\\,\\text{and}\\,x-3y+5z=1$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "The normal vectors for these planes are ${\\text{n}}_{1}=〈1,2,-1〉$ and ${\\text{n}}_{2}=〈2,4,-2〉.$ These two vectors are scalar multiples of each other. The normal vectors are parallel, so the planes are parallel.",
+       [
+        {
+         "type": "p",
+         "text": "The normal vectors for these planes are ${\\text{n}}_{1}=〈2,-3,2〉$ and ${\\text{n}}_{2}=〈6,2,-3〉.$ Taking the dot product of these vectors, we have"
+        },
+        {
+         "type": "math",
+         "tex": "{\\text{n}}_{1}\\cdot {\\text{n}}_{2}=〈2,-3,2〉\\cdot 〈6,2,-3〉=2(6)-3(2)+2(-3)=0."
+        },
+        {
+         "type": "p",
+         "text": "The normal vectors are orthogonal, so the corresponding planes are orthogonal as well."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The normal vectors for these planes are ${\\text{n}}_{1}=〈1,1,1〉$ and ${\\text{n}}_{2}=〈1,-3,5〉:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\cos \\,\\theta & =\\frac{|{\\text{n}}_{1}\\cdot {\\text{n}}_{2}|}{\\| {\\text{n}}_{1}\\| \\| {\\text{n}}_{2}\\|} \\\\ & =\\frac{|〈1,1,1〉\\cdot 〈1,-3,5〉|}{\\sqrt{1^{2}+1^{2}+1^{2}}\\,\\sqrt{1^{2}+(-3)^{2}+5^{2}}} \\\\ & =\\frac{3}{\\sqrt{105}}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The angle between the two planes is $1.27$ rad, or approximately $73\\text{°}.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding the Angle between Two Planes"
+  },
+  {
+   "id": "c34",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the measure of the angle between planes $x+y-z=3$ and $3x-y+3z=5.$ Give the answer in radians and round to two decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1.44$ rad"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the coefficients of the variables in each equation to find a normal vector for each plane."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1.44"
+   }
+  },
+  {
+   "id": "r35",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When we find that two planes are parallel, we may need to find the distance between them. To find this distance, we simply select a point in one of the planes. The distance from this point to the other plane is the distance between the planes."
+    },
+    {
+     "type": "p",
+     "text": "Previously, we introduced the formula for calculating this distance in (see above):"
+    },
+    {
+     "type": "math",
+     "tex": "d=\\frac{\\vec{QP}\\cdot \\text{n}}{\\| \\text{n}\\|},"
+    },
+    {
+     "type": "p",
+     "text": "where $Q$ is a point on the plane, $P$ is a point not on the plane, and $\\text{n}$ is the normal vector that passes through point $Q.$ Consider the distance from point $(x_{0},y_{0},z_{0})$ to plane $ax+by+cz+k=0.$ Let $(x_{1},y_{1},z_{1})$ be any point in the plane. Substituting into the formula yields"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}d & =\\frac{|a(x_{0}-x_{1})+b(y_{0}-y_{1})+c(z_{0}-z_{1})|}{\\sqrt{a^{2}+b^{2}+c^{2}}} \\\\ & =\\frac{|ax_{0}+by_{0}+cz_{0}+k|}{\\sqrt{a^{2}+b^{2}+c^{2}}}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "We state this result formally in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $P(x_{0},y_{0},z_{0})$ be a point. The distance from $P$ to plane $ax+by+cz+k=0$ is given by"
+      },
+      {
+       "type": "math",
+       "tex": "d=\\frac{|ax_{0}+by_{0}+cz_{0}+k|}{\\sqrt{a^{2}+b^{2}+c^{2}}}."
+      }
+     ],
+     "title": "Distance from a Point to a Plane"
+    }
+   ],
+   "title": "Parallel and Intersecting Planes (continued)"
+  },
+  {
+   "id": "x36",
+   "kind": "example",
+   "label": "Example 2.54",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the distance between the two parallel planes given by $2x+y-z=2$ and $2x+y-z=8.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Point $(1,0,0)$ lies in the first plane. The desired distance, then, is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}d & =\\frac{|ax_{0}+by_{0}+cz_{0}+k|}{\\sqrt{a^{2}+b^{2}+c^{2}}} \\\\ & =\\frac{|2(1)+1(0)+(-1)(0)+(-8)|}{\\sqrt{2^{2}+1^{2}+(-1)^{2}}} \\\\ & =\\frac{6}{\\sqrt{6}}=\\sqrt{6}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Distance between Parallel Planes"
+  },
+  {
+   "id": "c37",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the distance between parallel planes $5x-2y+z=6$ and $5x-2y+z=-3.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{9}{\\sqrt{30}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Set $x=y=0$ to find a point on the first plane."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(9/(sqrt(30)))"
+   }
+  },
+  {
+   "id": "r38",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "In three dimensions, the direction of a line is described by a direction vector. The vector equation of a line with direction vector $\\text{v}=〈a,b,c〉$ passing through point $P=(x_{0},y_{0},z_{0})$ is $\\text{r}={\\text{r}}_{0}+t\\text{v},$ where ${\\text{r}}_{0}=〈x_{0},y_{0},z_{0}〉$ is the position vector of point $P.$ This equation can be rewritten to form the parametric equations of the line: $x=x_{0}+ta,$ $y=y_{0}+tb,$ and $z=z_{0}+tc.$ The line can also be described with the symmetric equations $\\frac{x-x_{0}}{a}=\\frac{y-y_{0}}{b}=\\frac{z-z_{0}}{c}.$",
+      "Let $L$ be a line in space passing through point $P$ with direction vector $\\text{v}.$ If $Q$ is any point not on $L,$ then the distance from $Q$ to $L$ is $d=\\frac{\\| \\vec{PQ}\\,\\times \\,\\text{v}\\|}{\\| \\text{v}\\|}.$",
+      "In three dimensions, two lines may be parallel but not equal, equal, intersecting, or skew.",
+      "Given a point $P$ and vector $\\text{n},$ the set of all points $Q$ satisfying equation $\\text{n}\\cdot \\vec{PQ}=0$ forms a plane. Equation $\\text{n}\\cdot \\vec{PQ}=0$ is known as the *vector equation of a plane.*",
+      "The scalar equation of a plane containing point $P=(x_{0},y_{0},z_{0})$ with normal vector $\\text{n}=〈a,b,c〉$ is $a(x-x_{0})+b(y-y_{0})+c(z-z_{0})=0.$ This equation can be expressed as $ax+by+cz+d=0,$ where $d=-ax_{0}-by_{0}-cz_{0}.$ This form of the equation is sometimes called the *general form of the equation of a plane*.",
+      [
+       {
+        "type": "p",
+        "text": "Suppose a plane with normal vector **n** passes through point $Q.$ The distance $D$ from the plane to point $P$ not in the plane is given by"
+       },
+       {
+        "type": "math",
+        "tex": "D=\\| {\\text{proj}}_{\\text{n}}\\vec{QP}\\| =|{\\text{comp}}_{\\text{n}}\\vec{QP}|=\\frac{|\\vec{QP}\\cdot \\text{n}|}{\\| \\text{n}\\|}."
+       }
+      ],
+      "The normal vectors of parallel planes are parallel. When two planes intersect, they form a line.",
+      "The measure of the angle $\\theta$ between two intersecting planes can be found using the equation: $\\cos \\,\\theta =\\frac{|{\\text{n}}_{1}\\cdot {\\text{n}}_{2}|}{\\| {\\text{n}}_{1}\\| \\| {\\text{n}}_{2}\\|},$ where ${\\text{n}}_{1}$ and ${\\text{n}}_{2}$ are normal vectors to the planes.",
+      [
+       {
+        "type": "p",
+        "text": "The distance $D$ from point $(x_{0},y_{0},z_{0})$ to plane $ax+by+cz+d=0$ is given by"
+       },
+       {
+        "type": "math",
+        "tex": "D=\\frac{|a(x_{0}-x_{1})+b(y_{0}-y_{1})+c(z_{0}-z_{1})|}{\\sqrt{a^{2}+b^{2}+c^{2}}}=\\frac{|ax_{0}+by_{0}+cz_{0}+d|}{\\sqrt{a^{2}+b^{2}+c^{2}}}."
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r39",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Vector Equation of a Line**",
+       "$\\text{r}={\\text{r}}_{0}+t\\text{v}$"
+      ],
+      [
+       "**Parametric Equations of a Line**",
+       "$\\frac{x-x_{0}}{a}=\\frac{y-y_{0}}{b}=\\frac{z-z_{0}}{c}$"
+      ],
+      [
+       "**Vector Equation of a Plane**",
+       "$\\text{n}\\cdot \\vec{PQ}=0$"
+      ],
+      [
+       "**Scalar Equation of a Plane**",
+       "$a(x-x_{0})+b(y-y_{0})+c(z-z_{0})=0$"
+      ],
+      [
+       "**Distance between a Plane and a Point**",
+       "$d=\\| {\\text{proj}}_{\\text{n}}\\vec{QP}\\| =|{\\text{comp}}_{\\text{n}}\\vec{QP}|=\\frac{|\\vec{QP}\\cdot \\text{n}|}{\\| \\text{n}\\|}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e243",
+   "number": 243,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(-3,5,9),$ $Q(4,-7,2)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724043599",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, points $P$ and $Q$ are given. Let $L$ be the line passing through points $P$ and $Q.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the vector equation of line $L.$",
+      "Find parametric equations of line $L.$",
+      "Find symmetric equations of line $L.$",
+      "Find parametric equations of the line segment determined by $P$ and $Q.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\text{r}=〈-3,5,9〉+t〈7,-12,-7〉,$ $t\\in \\mathbb{R} ;$ b. $x=-3+7t,y=5-12t,z=9-7t,$ $t\\in \\mathbb{R} ;$ c. $\\frac{x+3}{7}=\\frac{y-5}{-12}=\\frac{z-9}{-7};$ d. $x=-3+7t,y=5-12t,z=9-7t,$ $t\\in [0,1]$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e244",
+   "number": 244,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(4,0,5),Q(2,3,1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724049570",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, points $P$ and $Q$ are given. Let $L$ be the line passing through points $P$ and $Q.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the vector equation of line $L.$",
+      "Find parametric equations of line $L.$",
+      "Find symmetric equations of line $L.$",
+      "Find parametric equations of the line segment determined by $P$ and $Q.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e245",
+   "number": 245,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(-1,0,5),$ $Q(4,0,3)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723295622",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, points $P$ and $Q$ are given. Let $L$ be the line passing through points $P$ and $Q.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the vector equation of line $L.$",
+      "Find parametric equations of line $L.$",
+      "Find symmetric equations of line $L.$",
+      "Find parametric equations of the line segment determined by $P$ and $Q.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\text{r}=〈-1,0,5〉+t〈5,0,-2〉,$ $t\\in \\mathbb{R} ;$ b. $x=-1+5t,y=0,z=5-2t,$ $t\\in \\mathbb{R} ;$ c. $\\frac{x+1}{5}=\\frac{z-5}{-2},y=0;$ d. $x=-1+5t,y=0,z=5-2t,$ $t\\in [0,1]$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e246",
+   "number": 246,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(7,-2,6),$ $Q(-3,0,6)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723093365",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, points $P$ and $Q$ are given. Let $L$ be the line passing through points $P$ and $Q.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the vector equation of line $L.$",
+      "Find parametric equations of line $L.$",
+      "Find symmetric equations of line $L.$",
+      "Find parametric equations of the line segment determined by $P$ and $Q.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e247",
+   "number": 247,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(1,-2,3),$ $\\text{v}=〈1,2,3〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724050300",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, point $P$ and vector $\\text{v}$ are given. Let $L$ be the line passing through point $P$ with direction $\\text{v}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find parametric equations of line $L.$",
+      "Find symmetric equations of line $L.$",
+      "Find the intersection of the line with the *xy*-plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x=1+t,y=-2+2t,z=3+3t,$ $t\\in \\mathbb{R} ;$ b. $\\frac{x-1}{1}=\\frac{y+2}{2}=\\frac{z-3}{3};$ c. $(0,-4,0)$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e248",
+   "number": 248,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(3,1,5),$ $\\text{v}=〈1,1,1〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723183781",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, point $P$ and vector $\\text{v}$ are given. Let $L$ be the line passing through point $P$ with direction $\\text{v}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find parametric equations of line $L.$",
+      "Find symmetric equations of line $L.$",
+      "Find the intersection of the line with the *xy*-plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e249",
+   "number": 249,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(3,1,5),$ $\\text{v}=\\vec{QR},$ where $Q(2,2,3)$ and $R(3,2,3)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723789662",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, point $P$ and vector $\\text{v}$ are given. Let $L$ be the line passing through point $P$ with direction $\\text{v}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find parametric equations of line $L.$",
+      "Find symmetric equations of line $L.$",
+      "Find the intersection of the line with the *xy*-plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x=3+t,y=1,z=5,$ $t\\in \\mathbb{R} ;$ b. $y=1,z=5;$ c. The line does not intersect the *xy*-plane."
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e250",
+   "number": 250,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(2,3,0),$ $\\text{v}=\\vec{QR},$ where $Q(0,4,5)$ and $R(0,4,6)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723298912",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, point $P$ and vector $\\text{v}$ are given. Let $L$ be the line passing through point $P$ with direction $\\text{v}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find parametric equations of line $L.$",
+      "Find symmetric equations of line $L.$",
+      "Find the intersection of the line with the *xy*-plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e251",
+   "number": 251,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=1+t,y=3+t,z=5+4t,$ $t\\in \\mathbb{R}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723279453",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, line $L$ is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find point $P$ that belongs to the line and direction vector $\\text{v}$ of the line. Express $\\text{v}$ in component form.",
+      "Find the distance from the origin to line $L.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $P(1,3,5),$ $v=〈1,1,4〉;$ b. $\\sqrt{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e252",
+   "number": 252,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$-x=y+1,z=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723279579",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, line $L$ is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find point $P$ that belongs to the line and direction vector $\\text{v}$ of the line. Express $\\text{v}$ in component form.",
+      "Find the distance from the origin to line $L.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e253",
+   "number": 253,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the distance between point $A(-3,1,1)$ and the line of symmetric equations"
+    },
+    {
+     "type": "p",
+     "text": "$x=-y=-z.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163724057710",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, line $L$ is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find point $P$ that belongs to the line and direction vector $\\text{v}$ of the line. Express $\\text{v}$ in component form.",
+      "Find the distance from the origin to line $L.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2\\sqrt{2}}{\\sqrt{3}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((2 sqrt(2))/(sqrt(3)))"
+   }
+  },
+  {
+   "id": "e254",
+   "number": 254,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the distance between point $A(4,2,5)$ and the line of parametric equations"
+    },
+    {
+     "type": "p",
+     "text": "$x=-1-t,y=-t,z=2,$ $t\\in \\mathbb{R} .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724057783",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, line $L$ is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find point $P$ that belongs to the line and direction vector $\\text{v}$ of the line. Express $\\text{v}$ in component form.",
+      "Find the distance from the origin to line $L.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e255",
+   "number": 255,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$L_{1}:x=1+t,y=t,z=2+t,$ $t\\in \\mathbb{R} ,$ $L_{2}:x-3=y-1=z-3$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163723073088",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, lines $L_{1}$ and $L_{2}$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Verify whether lines $L_{1}$ and $L_{2}$ are parallel.",
+      "If the lines $L_{1}$ and $L_{2}$ are parallel, then find the distance between them."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Parallel; b. $\\frac{\\sqrt{2}}{\\sqrt{3}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "text",
+       "value": "parallel"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "((sqrt(2))/(sqrt(3)))"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e256",
+   "number": 256,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$L_{1}:x=2,y=1,z=t,$ $L_{2}:x=1,y=1,z=2-3t,$ $t\\in \\mathbb{R}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723073204",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, lines $L_{1}$ and $L_{2}$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Verify whether lines $L_{1}$ and $L_{2}$ are parallel.",
+      "If the lines $L_{1}$ and $L_{2}$ are parallel, then find the distance between them."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e257",
+   "number": 257,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the line passing through points $P(3,1,0)$ and $Q(1,4,-3)$ is perpendicular to the line with equations $x=3+3t,y=1+8t,z=6t,$ $t\\in \\mathbb{R} .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723339452",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e258",
+   "number": 258,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Are the lines of equations $x=-2+2t,y=-6,z=2+6t$ and $x=-1+t,y=1+t,z=t,$ $t\\in \\mathbb{R} ,$ perpendicular to each other?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723339566",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e259",
+   "number": 259,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the point of intersection of the lines of equations $x=-2y=3z$ and $x=-5-t,y=-1+t,z=t-11,$ $t\\in \\mathbb{R} .$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163724138582",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(-12,6,-4)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(-12, 6, -4)"
+   }
+  },
+  {
+   "id": "e260",
+   "number": 260,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the intersection point of the *x*-axis with the line of parametric equations"
+    },
+    {
+     "type": "p",
+     "text": "$x=10+t,y=2-2t,z=-3+3t,$ $t\\in \\mathbb{R} .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724138687",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e261",
+   "number": 261,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$L_{1}:x=y-1=-z$ and $L_{2}:x-2=-y=\\frac{z}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723171378",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, lines $L_{1}$ and $L_{2}$ are given. Determine whether the lines are equal, parallel but not equal, skew, or intersecting."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The lines are skew."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e262",
+   "number": 262,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$L_{1}:x=2t,y=0,z=3,$ $t\\in \\mathbb{R}$ and $L_{2}:x=0,y=8+s,z=7+s,$ $s\\in \\mathbb{R}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723171451",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, lines $L_{1}$ and $L_{2}$ are given. Determine whether the lines are equal, parallel but not equal, skew, or intersecting."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e263",
+   "number": 263,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$L_{1}:x=-1+2t,y=1+3t,z=7t,$ $t\\in \\mathbb{R}$ and $L_{2}:x-1=\\frac{2}{3}(y-4)=\\frac{2}{7}z-2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723341703",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, lines $L_{1}$ and $L_{2}$ are given. Determine whether the lines are equal, parallel but not equal, skew, or intersecting."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The lines are equal."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e264",
+   "number": 264,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$L_{1}:3x=y+1=2z$ and $L_{2}:x=6+2t,y=17+6t,z=9+3t,$ $t\\in \\mathbb{R}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723341829",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, lines $L_{1}$ and $L_{2}$ are given. Determine whether the lines are equal, parallel but not equal, skew, or intersecting."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e265",
+   "number": 265,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider line $L$ of symmetric equations $x-2=-y=\\frac{z}{2}$ and point $A(1,1,1).$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find parametric equations for a line parallel to $L$ that passes through point $A.$",
+      "Find symmetric equations of a line skew to $L$ and that passes through point $A.$",
+      "Find symmetric equations of a line that intersects $L$ and passes through point $A.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723995158",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, lines $L_{1}$ and $L_{2}$ are given. Determine whether the lines are equal, parallel but not equal, skew, or intersecting."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x=1+t,y=1-t,z=1+2t,$ $t\\in \\mathbb{R} ;$ b. For instance, the line passing through $A$ with direction vector $\\text{j}:x=1,z=1;$ c. For instance, the line passing through $A$ and point $(2,0,0)$ that belongs to $L$ is a line that intersects; $L:\\frac{x-1}{-1}=y-1=z-1$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e266",
+   "number": 266,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider line $L$ of parametric equations $x=t,y=2t,z=3,$ $t\\in \\mathbb{R} .$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find parametric equations for a line parallel to $L$ that passes through the origin.",
+      "Find parametric equations of a line skew to $L$ that passes through the origin.",
+      "Find symmetric equations of a line that intersects $L$ and passes through the origin."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723113308",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, lines $L_{1}$ and $L_{2}$ are given. Determine whether the lines are equal, parallel but not equal, skew, or intersecting."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e267",
+   "number": 267,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(0,0,0),$ $\\text{n}=3\\text{i}-2\\text{j}+4\\text{k}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163723140003",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, point $P$ and vector $\\text{n}$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the scalar equation of the plane that passes through $P$ and has normal vector $\\text{n}.$",
+      "Find the general form of the equation of the plane that passes through $P$ and has normal vector $\\text{n}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $3x-2y+4z=0;$ b. $3x-2y+4z=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "equation",
+       "value": "3 x-2 y+4 z=0"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "equation",
+       "value": "3 x-2 y+4 z=0"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e268",
+   "number": 268,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(3,2,2),$ $\\text{n}=2\\text{i}+3\\text{j}-\\text{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723326837",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, point $P$ and vector $\\text{n}$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the scalar equation of the plane that passes through $P$ and has normal vector $\\text{n}.$",
+      "Find the general form of the equation of the plane that passes through $P$ and has normal vector $\\text{n}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(1,2,3),$ $\\text{n}=〈1,2,3〉$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163724053884",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, point $P$ and vector $\\text{n}$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the scalar equation of the plane that passes through $P$ and has normal vector $\\text{n}.$",
+      "Find the general form of the equation of the plane that passes through $P$ and has normal vector $\\text{n}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $(x-1)+2(y-2)+3(z-3)=0;$ b. $x+2y+3z-14=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "equation",
+       "value": "(x-1)+2(y-2)+3(z-3)=0"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "equation",
+       "value": "x+2 y+3 z-14=0"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(0,0,0),$ $\\text{n}=〈-3,2,-1〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724054034",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, point $P$ and vector $\\text{n}$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the scalar equation of the plane that passes through $P$ and has normal vector $\\text{n}.$",
+      "Find the general form of the equation of the plane that passes through $P$ and has normal vector $\\text{n}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $4x+5y+10z-20=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723090908",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\text{n}=4\\text{i}+5\\text{j}+10\\text{k};$ b. $(5,0,0),$ $(0,4,0),$ and $(0,0,2);$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_12_05_201.webp",
+      "alt": "This figure is the first octant of the 3-dimensional coordinate system. It has a triangle drawn with vertices on the x, y, and z axes.",
+      "width": 297,
+      "height": 306
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$3x+4y-12=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724066213",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$3x-2y+4z=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724066353",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\text{n}=3\\text{i}-2\\text{j}+4\\text{k};$ b. $(0,0,0);$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_12_05_203.webp",
+      "alt": "This figure is the 3-dimensional coordinate system represented in a box. It has a tilted parallelogram inside the box representing a plane.",
+      "width": 445,
+      "height": 497
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x+z=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724022806",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given point $P(1,2,3)$ and vector $\\text{n}=\\text{i}+\\text{j},$ find point $Q$ on the *x*-axis such that $\\vec{PQ}$ and $\\text{n}$ are orthogonal."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163724022903",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(3,0,0)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(3, 0, 0)"
+   }
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show there is no plane perpendicular to $\\text{n}=\\text{i}+\\text{j}$ that passes through points $P(1,2,3)$ and $Q(2,3,4).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724061052",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find parametric equations of the line passing through point $P(-2,1,3)$ that is perpendicular to the plane of equation $2x-3y+z=7.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724061137",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=-2+2t,y=1-3t,z=3+t,$ $t\\in \\mathbb{R}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find symmetric equations of the line passing through point $P(2,5,4)$ that is perpendicular to the plane of equation $2x+3y-5z=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724153130",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that line $\\frac{x-1}{2}=\\frac{y+1}{3}=\\frac{z-2}{4}$ is parallel to plane $x-2y+z=6.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724153235",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the real number $\\alpha$ such that the line of parametric equations $x=t,y=2-t,z=3+t,$ $t\\in \\mathbb{R}$ is parallel to the plane of equation $\\alpha x+5y+z-10=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723979834",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equation of a plane is given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find normal vector $\\text{n}$ to the plane. Express $\\text{n}$ using standard unit vectors.",
+      "Find the intersections of the plane with the coordinate axes.",
+      "Sketch the plane."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(1,1,1),Q(2,4,3),$ and $R(-1,-2,-1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723124284",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $-2y+3z-1=0;$ b. $〈0,-2,3〉\\cdot 〈x-1,y-1,z-1〉=0;$ c. $x=0,y=-2t,z=3t,$ $t\\in \\mathbb{R}$"
+     },
+     {
+      "type": "p",
+      "text": "Answers may vary by a sign, depending on how the vector cross multiplication is performed."
+     }
+    ]
+   },
+   "notes": "self-check: part c is not plain math"
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$P(-2,1,4),Q(3,1,3),$ and $R(-2,1,0)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724062242",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider the planes of equations $x+y+z=1$ and $x+z=0.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Show that the planes intersect.",
+      "Find symmetric equations of the line passing through point $P(1,4,6)$ that is parallel to the line of intersection of the planes."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724062443",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Answers may vary; b. $\\frac{x-1}{1}=\\frac{z-6}{-1},y=4$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider the planes of equations $-y+z-2=0$ and $x-y=0.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Show that the planes intersect.",
+      "Find parametric equations of the line passing through point $P(-8,0,2)$ that is parallel to the line of intersection of the planes."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724055577",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the scalar equation of the plane that passes through point $P(-1,2,1)$ and is perpendicular to the line of intersection of planes $x+y-z-2=0$ and $2x-y+3z-1=0.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163724042028",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2x-5y-3z+15=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "2 x-5 y-3 z+15=0"
+   }
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the general equation of the plane that passes through the origin and is perpendicular to the line of intersection of planes $-x+y+2=0$ and $z-3=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724042145",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Determine whether the line of parametric equations $x=1+2t,y=-2t,z=2+t,$ $t\\in \\mathbb{R}$ intersects the plane with equation $3x+4y+6z-7=0.$ If it does intersect, find the point of intersection."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724042209",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The line intersects the plane at point $P(-3,4,0).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Determine whether the line of parametric equations $x=5,y=4-t,z=2t,$ $t\\in \\mathbb{R}$ intersects the plane with equation $2x-y+z=5.$ If it does intersect, find the point of intersection."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724034962",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the distance from point $P(1,5,-4)$ to the plane of equation $3x-y+2z-6=0.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163724035079",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{16}{\\sqrt{14}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(16/(sqrt(14)))"
+   }
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the distance from point $P(1,-2,3)$ to the plane of equation $(x-3)+2(y+1)-4z=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723290007",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P,Q,\\,\\text{and}\\,R$ are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general equation of the plane passing through $P,Q,\\,\\text{and}\\,R.$",
+      "Write the vector equation $\\text{n}\\cdot \\vec{PS}=0$ of the plane at a., where $S(x,y,z)$ is an arbitrary point of the plane.",
+      "Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through $P,Q,\\,\\text{and}\\,R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e291",
+   "number": 291,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $x+y+z=0,$ $2x-y+z-7=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723290120",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The planes are neither parallel nor orthogonal; b. $62\\text{°}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is prose"
+  },
+  {
+   "id": "e292",
+   "number": 292,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$5x-3y+z=4,$ $x+4y+7z=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724066397",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e293",
+   "number": 293,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x-5y-z=1,$ $5x-25y-5z=-3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724066458",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The planes are parallel."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e294",
+   "number": 294,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $x-3y+6z=4,$ $5x+y-z=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724066520",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the lines of equations $x=t,y=1+t,z=2+t,$ $t\\in \\mathbb{R} ,$ and $\\frac{x}{2}=\\frac{y-1}{3}=z-3$ are skew, and find the distance between them."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724066592",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{\\sqrt{6}}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the lines of equations $x=-1+t,y=-2+t,z=3t,$ $t\\in \\mathbb{R} ,$ and $x=5+s,y=-8+2s,z=7s,$ $s\\in \\mathbb{R}$ are skew, and find the distance between them."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724159245",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider point $C(-3,2,4)$ and the plane of equation $2x+4y-3z=8.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the radius of the sphere with center $C$ tangent to the given plane.",
+      "Find point *P* of tangency."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724159371",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\frac{18}{\\sqrt{29}};$ b. $P\\left(-\\frac{51}{29},\\frac{130}{29},\\frac{62}{29}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"multi\",\"parts\":[{\"label\":\"a\",\"answer\":{\"kind\":\"number\",\"value\":\"(18/(sqrt(29)))\"}},{\"label\":\"b\",\"answer\":{\"kind\":\"expression\",\"value\":\"P(-(51/29), (130/29), (62/29))\"}}]} failed (checker cannot read the answer: A comma here is only allowed in points, vectors, intervals and lists)"
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider the plane of equation $x-y-z-8=0.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find an equation of the sphere with center $C$ at the origin that is tangent to the given plane.",
+      "Find parametric equations of the line passing through the origin and the point of tangency."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723286790",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e299",
+   "number": 299,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Two children are playing with a ball. The girl throws the ball to the boy. The ball travels in"
+    },
+    {
+     "type": "p",
+     "text": "the air, curves $3$ ft to the right, and falls $5$ ft away from the girl (see the following figure). If the plane that contains the trajectory of the ball is perpendicular to the ground, find its equation."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_05_205.webp",
+     "alt": "This figure is the image of two children throwing a ball. The path of the ball is represented with an arc. The distance from the child throwing the ball to the point where the ball hits is 5 feet. The distance from the second child to where the ball hits is 3 feet.",
+     "width": 450,
+     "height": 182
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1163724026902",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4x-3y=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "4 x-3 y=0"
+   }
+  },
+  {
+   "id": "e300",
+   "number": 300,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** John allocates $d$ dollars to consume monthly three goods of prices $a,b,\\,\\text{and}\\,c.$ In this context, the budget equation is defined as $ax+by+cz=d,$ where $x\\ge 0,y\\ge 0,$ and $z\\ge 0$ represent the number of items bought from each of the goods. The budget set is given by $\\{(x,y,z)|ax+by+cz\\le d,x\\ge 0,y\\ge 0,z\\ge 0\\},$ and the budget plane is the part of the plane of equation $ax+by+cz=d$ for which $x\\ge 0,y\\ge 0,$ and $z\\ge 0.$ Consider $a=\\text{\\$}8,$ $b=\\text{\\$}5,$ $c=\\text{\\$}10,$ and $d=\\text{\\$}500.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Use a CAS to graph the budget set and budget plane.",
+      "For $z=25,$ find the new budget equation and graph the budget set in the same system of coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724026963",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e301",
+   "number": 301,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Consider $\\text{r}(t)=〈\\sin \\,t,\\cos \\,t,2t〉$ the position vector of a particle at time $t\\in [0,3],$ where the components of **r** are expressed in centimeters and time is measured in seconds. Let $\\vec{OP}$ be the position vector of the particle after $1$ sec."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine the velocity vector $\\text{v}(1)$ of the particle after $1$ sec.",
+      "Find the scalar equation of the plane that is perpendicular to $\\text{v}(1)$ and passes through point $P.$ This plane is called the *normal plane* to the path of the particle at point $P.$",
+      "Use a CAS to visualize the path of the particle along with the velocity vector and normal plane at point $P.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163724182678",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\text{v}(1)=〈\\cos \\,1,-\\sin \\,1,2〉;$ b. $(\\cos \\,1)(x-\\sin \\,1)-(\\sin \\,1)(y-\\cos \\,1)+2(z-2)=0;$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_12_05_207.webp",
+      "alt": "This figure is the first octant of the 3-dimensional coordinate system. It has a parallelogram grid drawn representing a plane. There is a curve from y = 1 increasing. The curve intersects the plane. At the point the curve intersects the plane, there is a vector labeled “v(1).” It is upward parallel to the z-axis.",
+      "width": 267,
+      "height": 253
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e302",
+   "number": 302,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A solar panel is mounted on the roof of a house. The panel may be regarded as positioned at the points of coordinates (in meters) $A(8,0,0),$ $B(8,18,0),$ $C(0,18,8),$ and $D(0,0,8)$ (see the following figure)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_12_04_214.webp",
+     "alt": "This figure is a picture of a rectangular solar grid on a roof. The corners of the rectangle are labeled A, B, C, D. There are two vectors, the first is from A to D. The second is from A to B.",
+     "width": 325,
+     "height": 192
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the general form of the equation of the plane that contains the solar panel by using points $A,B,\\,\\text{and}\\,C,$ and show that its normal vector is equivalent to $\\vec{AB}\\,\\times \\,\\vec{AD}.$",
+      "Find parametric equations of line $L_{1}$ that passes through the center of the solar panel and has direction vector $\\text{s}=\\frac{1}{\\sqrt{3}}\\text{i}+\\frac{1}{\\sqrt{3}}\\text{j}+\\frac{1}{\\sqrt{3}}\\text{k},$ which points toward the position of the Sun at a particular time of day.",
+      "Find symmetric equations of line $L_{2}$ that passes through the center of the solar panel and is perpendicular to it.",
+      "Determine the angle of elevation of the Sun above the solar panel by using the angle between lines $L_{1}$ and $L_{2}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1163723335876",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the equations of two planes are given."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine whether the planes are parallel, orthogonal, or neither.",
+      "If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "direction vector",
+   "meaning": "a vector parallel to a line that is used to describe the direction, or orientation, of the line in space"
+  },
+  {
+   "term": "general form of the equation of a plane",
+   "meaning": "an equation in the form $ax+by+cz+d=0,$ where $\\text{n}=〈a,b,c〉$ is a normal vector of the plane, $P=(x_{0},y_{0},z_{0})$ is a point on the plane, and $d=-ax_{0}-by_{0}-cz_{0}$"
+  },
+  {
+   "term": "normal vector",
+   "meaning": "a vector perpendicular to a plane"
+  },
+  {
+   "term": "parametric equations of a line",
+   "meaning": "the set of equations $x=x_{0}+ta,$ $y=y_{0}+tb,$ and $z=z_{0}+tc$ describing the line with direction vector $\\text{v}=〈a,b,c〉$ passing through point $(x_{0},y_{0},z_{0})$"
+  },
+  {
+   "term": "scalar equation of a plane",
+   "meaning": "the equation $a(x-x_{0})+b(y-y_{0})+c(z-z_{0})=0$ used to describe a plane containing point $P=(x_{0},y_{0},z_{0})$ with normal vector $\\text{n}=〈a,b,c〉$ or its alternate form $ax+by+cz+d=0,$ where $d=-ax_{0}-by_{0}-cz_{0}$"
+  },
+  {
+   "term": "skew lines",
+   "meaning": "two lines that are not parallel but do not intersect"
+  },
+  {
+   "term": "symmetric equations of a line",
+   "meaning": "the equations $\\frac{x-x_{0}}{a}=\\frac{y-y_{0}}{b}=\\frac{z-z_{0}}{c}$ describing the line with direction vector $\\text{v}=〈a,b,c〉$ passing through point $(x_{0},y_{0},z_{0})$"
+  },
+  {
+   "term": "vector equation of a line",
+   "meaning": "the equation $\\text{r}={\\text{r}}_{0}+t\\text{v}$ used to describe a line with direction vector $\\text{v}=〈a,b,c〉$ passing through point $P=(x_{0},y_{0},z_{0}),$ where ${\\text{r}}_{0}=〈x_{0},y_{0},z_{0}〉,$ is the position vector of point $P$"
+  },
+  {
+   "term": "vector equation of a plane",
+   "meaning": "the equation $\\text{n}\\cdot \\vec{PQ}=0,$ where $P$ is a given point in the plane, $Q$ is any point in the plane, and $\\text{n}$ is a normal vector of the plane"
+  }
+ ]
+}
