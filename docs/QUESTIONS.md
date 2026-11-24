@@ -1,24 +1,19 @@
 # Questions
 
-## Round 1: answered (recorded as decisions D1–D9 in SPEC.md)
-iPhone / web app · no PDFs yet, physical books · typed auto-checked answers · took Calc 1–3, proofs and LA 7 years ago, reviewing everything · bite-sized AI chunks · human solutions preferred, AI OK if labeled · small budget OK · repo private.
+## Round 1: answered (D1–D9 in SPEC.md)
+## Round 2: answered (D10–D21 in SPEC.md)
 
-## Round 2: each has a default; reply only where you disagree
+## Round 3: each has a default; reply only where you disagree
 
 | # | Question | Default |
 |---|---|---|
-| Q1 | **Answer typing:** plain calculator text (`x^2*e^x`) with a helper key row and live preview, **or** a visual equation editor (MathLive)? | Plain text + preview (faster on an iPhone) |
-| Q2 | **Session order:** strict sequence, or **two tracks mixed** daily (e.g. Calc + Proofs)? | Two tracks mixed |
-| Q3 | **New material per day:** how many new chunks (about 2 min each) per day by default? | 5 new chunks + all due reviews |
-| Q4 | **Wrong answer:** retry first, or show the solution immediately? | 1 retry → hint → solution |
-| Q5 | **Missed problems:** come back as the **same** problem or a **variant with new numbers**? | Variant when possible |
-| Q6 | **Lessons vs problems:** short concept card before problems, or problems first with a "Teach me" button? | Concept card first; skippable |
-| Q7 | **Rigor in calculus:** include short proofs of the big theorems (MVT, FTC) during calc, or save rigor for P and R? | Include, as optional cards |
-| Q8 | **Bridge book before Baby Rudin:** Abbott (gentler, built for this) or Spivak (longer, harder, famous problems)? | Abbott |
-| Q9 | **Computer:** what do you use: Windows, Linux, Chromebook? (Proof writing and long problems happen there.) | Windows |
-| Q10 | **Device setup:** enter a sync code once per device (no account), or a real email login? | Sync code / QR |
-| Q11 | **Graphs:** want problems that show a graph ("read the limit from this graph") or interactive plots? | Yes, rendered graphs (no images needed) |
-| Q12 | **Physical books:** which do you own? Problems from them can be typed in from photos later. | — |
-| Q13 | **Look and feel:** dark mode default? Big or small font? | Follow iPhone setting |
-| Q14 | **Gamification:** streaks and stats, or minimal? | Minimal streak + weekly stats |
-| Q15 | **AI hints live in the app** (pay-per-use API key), or only hints prewritten in the content? | Prewritten only for now |
+| Q1 | **Spivak's place:** after Calc I–III, linear algebra and proofs (as planned), or right after Calc I–III? | After LA and proofs |
+| Q2 | **Linear algebra book:** Hefferon (free, full answers), or another you prefer (Strang, Lay, Axler)? Axler can come later, before Rudin. | Hefferon, with Axler before Rudin |
+| Q3 | **Do you own Spivak?** If not, the Spivak stage needs a copy (PDF or photos) plus ideally the *Answer Book*. | — |
+| Q4 | **Required reading length:** short (5–8 cards, key ideas and examples) or close to the full section (10–20 cards)? | Close to the full section |
+| Q5 | **Book worked examples:** shown inside the reading, or turned into "try it first" problems with the book's solution as the answer? | Try it first, then the book's solution |
+| Q6 | **Reviews of missed problems:** mixed between chunks automatically, or kept in a separate "Practice mistakes" button? | Mixed in automatically |
+| Q7 | **Sounds:** on by default? | On, with a mute toggle |
+| Q8 | **Email login:** OK to set up a free email-sending account (Resend) once for the login codes? If not, use Cloudflare's built-in email-code login, which asks again about once a month. | Resend |
+| Q9 | **Badges and XP:** serious and minimal, or playful with silly names? | Playful |
+| Q10 | **App name?** | "Rudin Road" |
