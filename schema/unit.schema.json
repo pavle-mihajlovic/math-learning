@@ -1,0 +1,886 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://road-to-rudin/schema/unit.schema.json",
+  "title": "Road to Rudin unit (one book section)",
+  "description": "Mirrors src/content/types.ts. See docs/CONTENT_GUIDE.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "book",
+    "volume",
+    "chapter",
+    "section",
+    "title",
+    "chapterTitle",
+    "source",
+    "status",
+    "objectives",
+    "reading",
+    "exercises",
+    "proofs"
+  ],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^V[1-3]\\.[0-9]+\\.[0-9]+$"
+    },
+    "book": {
+      "const": "os-calc"
+    },
+    "volume": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "chapter": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "section": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "chapterTitle": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "book",
+        "module",
+        "url",
+        "license",
+        "licenseUrl",
+        "attribution"
+      ],
+      "properties": {
+        "book": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "licenseUrl": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "imported",
+        "reading",
+        "answers"
+      ],
+      "properties": {
+        "imported": {
+          "type": "string"
+        },
+        "reading": {
+          "enum": [
+            "imported",
+            "adapted"
+          ]
+        },
+        "answers": {
+          "enum": [
+            "imported",
+            "reviewed"
+          ]
+        }
+      }
+    },
+    "objectives": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/inline"
+      }
+    },
+    "reading": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/readingCard"
+      }
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/exercise"
+      }
+    },
+    "proofs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/proofCard"
+      }
+    },
+    "glossary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "term",
+          "meaning"
+        ],
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "meaning": {
+            "$ref": "#/definitions/inline"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "inline": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/block"
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "text"
+          ],
+          "properties": {
+            "type": {
+              "const": "p"
+            },
+            "text": {
+              "$ref": "#/definitions/inline"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "tex"
+          ],
+          "properties": {
+            "type": {
+              "const": "math"
+            },
+            "tex": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "items"
+          ],
+          "properties": {
+            "type": {
+              "const": "list"
+            },
+            "ordered": {
+              "type": "boolean"
+            },
+            "style": {
+              "enum": [
+                "a",
+                "A",
+                "1",
+                "i"
+              ]
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/inline"
+                  },
+                  {
+                    "$ref": "#/definitions/blocks"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "src",
+            "alt"
+          ],
+          "properties": {
+            "type": {
+              "const": "figure"
+            },
+            "src": {
+              "type": "string",
+              "pattern": "^figures/"
+            },
+            "alt": {
+              "type": "string"
+            },
+            "caption": {
+              "$ref": "#/definitions/inline"
+            },
+            "width": {
+              "type": "integer"
+            },
+            "height": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "rows"
+          ],
+          "properties": {
+            "type": {
+              "const": "table"
+            },
+            "header": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/inline"
+              }
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/inline"
+                }
+              }
+            },
+            "caption": {
+              "$ref": "#/definitions/inline"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "variant",
+            "body"
+          ],
+          "properties": {
+            "type": {
+              "const": "box"
+            },
+            "variant": {
+              "enum": [
+                "definition",
+                "theorem",
+                "rule",
+                "strategy",
+                "note"
+              ]
+            },
+            "title": {
+              "$ref": "#/definitions/inline"
+            },
+            "body": {
+              "$ref": "#/definitions/blocks"
+            }
+          }
+        }
+      ]
+    },
+    "solution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "body"
+      ],
+      "properties": {
+        "label": {
+          "enum": [
+            "book",
+            "verified",
+            "ai"
+          ]
+        },
+        "body": {
+          "$ref": "#/definitions/blocks"
+        }
+      }
+    },
+    "readingCard": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind"
+      ],
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "kind",
+            "body"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "text"
+            },
+            "title": {
+              "$ref": "#/definitions/inline"
+            },
+            "body": {
+              "$ref": "#/definitions/blocks"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "kind",
+            "label",
+            "problem",
+            "solution"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "kind": {
+              "enum": [
+                "example",
+                "checkpoint"
+              ]
+            },
+            "label": {
+              "type": "string"
+            },
+            "title": {
+              "$ref": "#/definitions/inline"
+            },
+            "problem": {
+              "$ref": "#/definitions/blocks"
+            },
+            "solution": {
+              "$ref": "#/definitions/solution"
+            },
+            "answer": {
+              "$ref": "#/definitions/answer"
+            }
+          }
+        }
+      ]
+    },
+    "tolerance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "abs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rel": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "domain": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "singleAnswer": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "number"
+            },
+            "value": {
+              "type": "string"
+            },
+            "tolerance": {
+              "$ref": "#/definitions/tolerance"
+            },
+            "accept": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reject": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "prompt": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "expression"
+            },
+            "value": {
+              "type": "string"
+            },
+            "constant": {
+              "type": "boolean"
+            },
+            "domain": {
+              "$ref": "#/definitions/domain"
+            },
+            "accept": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reject": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "prompt": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "equation"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "="
+            },
+            "domain": {
+              "$ref": "#/definitions/domain"
+            },
+            "accept": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reject": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "prompt": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "set",
+                "vector",
+                "matrix",
+                "text"
+              ]
+            },
+            "value": {
+              "type": "string"
+            },
+            "accept": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reject": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "prompt": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "list"
+            },
+            "value": {
+              "type": "string"
+            },
+            "ordered": {
+              "type": "boolean"
+            },
+            "accept": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reject": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "prompt": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "options",
+            "correct"
+          ],
+          "properties": {
+            "kind": {
+              "const": "choice"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2
+            },
+            "correct": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "accept": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reject": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "prompt": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "answer": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/singleAnswer"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "parts"
+          ],
+          "properties": {
+            "kind": {
+              "const": "multi"
+            },
+            "parts": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "label",
+                  "answer"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "answer": {
+                    "$ref": "#/definitions/singleAnswer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "exercise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "number",
+        "prompt",
+        "check"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^e[0-9]+$"
+        },
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "review": {
+          "type": "boolean"
+        },
+        "instructions": {
+          "$ref": "#/definitions/blocks"
+        },
+        "prompt": {
+          "$ref": "#/definitions/blocks"
+        },
+        "check": {
+          "enum": [
+            "auto",
+            "self"
+          ]
+        },
+        "answer": {
+          "$ref": "#/definitions/answer"
+        },
+        "solution": {
+          "$ref": "#/definitions/solution"
+        },
+        "hints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline"
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline"
+          }
+        },
+        "variant": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "params",
+            "prompt",
+            "answer"
+          ],
+          "properties": {
+            "params": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "min",
+                      "max"
+                    ],
+                    "properties": {
+                      "min": {
+                        "type": "number"
+                      },
+                      "max": {
+                        "type": "number"
+                      },
+                      "step": {
+                        "type": "number"
+                      },
+                      "exclude": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "choices"
+                    ],
+                    "properties": {
+                      "choices": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        },
+                        "minItems": 1
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "prompt": {
+              "$ref": "#/definitions/blocks"
+            },
+            "answer": {
+              "$ref": "#/definitions/answer"
+            }
+          }
+        },
+        "verify": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sympy"
+          ],
+          "properties": {
+            "sympy": {
+              "type": "string"
+            },
+            "vars": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": {
+          "check": {
+            "const": "auto"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "answer"
+        ]
+      }
+    },
+    "proofCard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "statement",
+        "proof",
+        "label"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "$ref": "#/definitions/inline"
+        },
+        "statement": {
+          "$ref": "#/definitions/blocks"
+        },
+        "proof": {
+          "$ref": "#/definitions/blocks"
+        },
+        "label": {
+          "enum": [
+            "book",
+            "verified",
+            "ai"
+          ]
+        }
+      }
+    }
+  }
+}

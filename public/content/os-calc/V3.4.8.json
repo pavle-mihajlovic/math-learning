@@ -1,0 +1,2335 @@
+{
+ "schema": 1,
+ "id": "V3.4.8",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 4,
+ "section": 8,
+ "title": "Lagrange Multipliers",
+ "chapterTitle": "Differentiation of Functions of Several Variables",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53943",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/4-8-lagrange-multipliers",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §4.8 “Lagrange Multipliers”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use the method of Lagrange multipliers to solve optimization problems with one constraint.",
+  "Use the method of Lagrange multipliers to solve optimization problems with two constraints."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Solving optimization problems for functions of two or more variables can be similar to solving such problems in single-variable calculus. However, techniques for dealing with multiple variables allow us to solve more varied optimization problems for which we need to deal with additional conditions or constraints. In this section, we examine one of the more common and useful methods for solving optimization problems with constraints."
+    }
+   ],
+   "title": "Lagrange Multipliers"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Example 4.41 was an applied situation involving maximizing a profit function, subject to certain **constraints**. In that example, the constraints involved a maximum number of golf balls that could be produced and sold in $1$ month $(x),$ and a maximum number of advertising hours that could be purchased per month $(y).$ Suppose these were combined into a budgetary constraint, such as $20x+4y\\le 216,$ that took into account the cost of producing the golf balls and the number of advertising hours purchased per month. The goal is, still, to maximize profit, but now there is a different type of constraint on the values of $x$ and $y.$ This constraint, when combined with the profit function $f(x,y)=48x+96y-x^{2}-2xy-9y^{2},$ is an example of an **optimization problem**, and the function $f(x,y)$ is called the **objective function**. A graph of various level curves of the function $f(x,y)$ follows."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_08_001.webp",
+     "alt": "A series of rotated ellipses that become increasingly large. The smallest one is marked f(x, y) = 400, and the biggest one is marked f(x, y) = 150.",
+     "caption": "**Figure 4.58** Graph of level curves of the function $f(x,y)=48x+96y-x^{2}-2xy-9y^{2}$ corresponding to $c=150,250,350,\\,\\text{and}\\,400.$",
+     "width": 417,
+     "height": 347
+    }
+   ],
+   "title": "Lagrange Multipliers"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Figure 4.58, the value $c$ represents different profit levels (i.e., values of the function $f).$ As the value of $c$ increases, the curve shifts to the right. Since our goal is to maximize profit, we want to choose a curve as far to the right as possible. If there was no restriction on the number of golf balls the company could produce, or the number of units of advertising available, then we could produce as many golf balls as we want, and advertise as much as we want, and there would not be a maximum profit for the company. Unfortunately, we have a budgetary constraint that is modeled by the inequality $20x+4y\\le 216.$ To see how this constraint interacts with the profit function, Figure 4.59 shows the graph of the line $20x+4y=216$ superimposed on the previous graph."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_08_002.webp",
+     "alt": "A series of rotated ellipses that become increasingly large. On the smallest ellipse, which is red, there is a tangent line marked with equation 20x + 4y = 216 that appears to touch the ellipse near (10, 4).",
+     "caption": "**Figure 4.59** Graph of level curves of the function $f(x,y)=48x+96y-x^{2}-2xy-9y^{2}$ corresponding to $c=150,250,350,\\,\\text{and}\\,395.$ The red graph is the constraint function.",
+     "width": 370,
+     "height": 309
+    }
+   ],
+   "title": "Lagrange Multipliers (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As mentioned previously, the maximum profit occurs when the level curve is as far to the right as possible. However, the level of production corresponding to this maximum profit must also satisfy the budgetary constraint, so the point at which this profit occurs must also lie on (or to the left of) the red line in Figure 4.59. Inspection of this graph reveals that this point exists where the line is tangent to the level curve of $f.$ Trial and error reveals that this profit level seems to be around $395,$ when $x$ and $y$ are both just less than $5.$ We return to the solution of this problem later in this section. From a theoretical standpoint, at the point where the profit curve is tangent to the constraint line, the gradient of both of the functions evaluated at that point must point in the same (or opposite) direction. Recall that the gradient of a function of more than one variable is a vector. If two vectors point in the same (or opposite) directions, then one must be a constant multiple of the other. This idea is the basis of the **method of Lagrange multipliers**."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ and $g$ be functions of two variables with continuous partial derivatives at every point of some open set containing the smooth curve $g(x,y)=0.$ Suppose that $f,$ when restricted to points on the curve $g(x,y)=0,$ has a local extremum at the point $(x_{0},y_{0})$ and that $\\nabla g(x_{0},y_{0})\\ne 0.$ Then there is a number $\\lambda$ called a **Lagrange multiplier**, for which"
+      },
+      {
+       "type": "math",
+       "tex": "\\nabla f(x_{0},y_{0})=\\lambda \\nabla g(x_{0},y_{0})."
+      }
+     ],
+     "title": "Method of Lagrange Multipliers: One Constraint"
+    }
+   ],
+   "title": "Lagrange Multipliers (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "*A proof of Method of Lagrange Multipliers: One Constraint is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Lagrange Multipliers (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The method of Lagrange multipliers can be applied to problems with more than one constraint. In this case the optimization function, $w$ is a function of three variables:"
+    },
+    {
+     "type": "math",
+     "tex": "w=f(x,y,z)"
+    },
+    {
+     "type": "p",
+     "text": "and it is subject to two constraints:"
+    },
+    {
+     "type": "math",
+     "tex": "g(x,y,z)=0\\,\\text{and}\\,h(x,y,z)=0."
+    },
+    {
+     "type": "p",
+     "text": "There are two Lagrange multipliers, $\\lambda_{1}$ and $\\lambda_{2},$ and the system of equations becomes"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\nabla f(x_{0},y_{0},z_{0}) & = & \\lambda_{1}\\nabla g(x_{0},y_{0},z_{0})+\\lambda_{2}\\nabla h(x_{0},y_{0},z_{0}) \\\\ g(x_{0},y_{0},z_{0}) & = & 0 \\\\ h(x_{0},y_{0},z_{0}) & = & 0.\\end{array}"
+    }
+   ],
+   "title": "Problems with Two Constraints"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 4.45",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the local extreme values of the function"
+    },
+    {
+     "type": "math",
+     "tex": "f(x,y,z)=x^{2}+y^{2}+z^{2}"
+    },
+    {
+     "type": "p",
+     "text": "subject to the constraints $z^{2}=x^{2}+y^{2}$ and $x+y-z+1=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let’s follow the problem-solving strategy:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "The optimization function is $f(x,y,z)=x^{2}+y^{2}+z^{2}.$ To determine the constraint functions, we first subtract $z^{2}$ from both sides of the first constraint, which gives $x^{2}+y^{2}-z^{2}=0,$ so $g(x,y,z)=x^{2}+y^{2}-z^{2}.$ The second constraint function is $h(x,y,z)=x+y-z+1.$",
+       [
+        {
+         "type": "p",
+         "text": "We then calculate the gradients of $f,g,\\,\\text{and}\\,h:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c}\\nabla f(x,y,z)=2xi+2yj+2zk \\\\ \\nabla g(x,y,z)=2xi+2yj-2zk \\\\ \\nabla h(x,y,z)=i+j-k.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The equation $\\nabla f(x_{0},y_{0},z_{0})=\\lambda_{1}\\nabla g(x_{0},y_{0},z_{0})+\\lambda_{2}\\nabla h(x_{0},y_{0},z_{0})$ becomes"
+        },
+        {
+         "type": "math",
+         "tex": "2x_{0}i+2y_{0}j+2z_{0}k=\\lambda_{1}(2x_{0}i+2y_{0}j-2z_{0}k)+\\lambda_{2}(i+j-k),"
+        },
+        {
+         "type": "p",
+         "text": "which can be rewritten as"
+        },
+        {
+         "type": "math",
+         "tex": "2x_{0}i+2y_{0}j+2z_{0}k=(2\\lambda_{1}x_{0}+\\lambda_{2})i+(2\\lambda_{1}y_{0}+\\lambda_{2})j-(2\\lambda_{1}z_{0}+\\lambda_{2})k."
+        },
+        {
+         "type": "p",
+         "text": "Next, we set the coefficients of $i\\,,\\,j\\text{, and}\\,k$ equal to each other:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c}2x_{0}=2\\lambda_{1}x_{0}+\\lambda_{2} \\\\ 2y_{0}=2\\lambda_{1}y_{0}+\\lambda_{2} \\\\ 2z_{0}=-2\\lambda_{1}z_{0}-\\lambda_{2}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The two equations that arise from the constraints are $z_{0}{}^{2}=x_{0}{}^{2}+y_{0}{}^{2}$ and $x_{0}+y_{0}-z_{0}+1=0.$ Combining these equations with the previous three equations gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}2x_{0} & = & 2\\lambda_{1}x_{0}+\\lambda_{2} \\\\ 2y_{0} & = & 2\\lambda_{1}y_{0}+\\lambda_{2} \\\\ 2z_{0} & = & -2\\lambda_{1}z_{0}-\\lambda_{2} \\\\ z_{0}{}^{2} & = & x_{0}{}^{2}+y_{0}{}^{2} \\\\ x_{0}+y_{0}-z_{0}+1 & = & 0.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The first three equations contain the variable $\\lambda_{2}.$ Solving the third equation for $\\lambda_{2}$ and replacing into the first and second equations reduces the number of equations to four:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}2x_{0} & = & 2\\lambda_{1}x_{0}-2\\lambda_{1}z_{0}-2z_{0} \\\\ 2y_{0} & = & 2\\lambda_{1}y_{0}-2\\lambda_{1}z_{0}-2z_{0} \\\\ z_{0}{}^{2} & = & x_{0}{}^{2}+y_{0}{}^{2} \\\\ x_{0}+y_{0}-z_{0}+1 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Next, we solve the first and second equation for $\\lambda_{1}.$ The first equation gives $\\lambda_{1}=\\frac{x_{0}+z_{0}}{x_{0}-z_{0}},$ the second equation gives $\\lambda_{1}=\\frac{y_{0}+z_{0}}{y_{0}-z_{0}}.$ We set the right-hand side of each equation equal to each other and cross-multiply:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}\\frac{x_{0}+z_{0}}{x_{0}-z_{0}} & = & \\frac{y_{0}+z_{0}}{y_{0}-z_{0}} \\\\ (x_{0}+z_{0})(y_{0}-z_{0}) & = & (x_{0}-z_{0})(y_{0}+z_{0}) \\\\ x_{0}y_{0}-x_{0}z_{0}+y_{0}z_{0}-z_{0}{}^{2} & = & x_{0}y_{0}+x_{0}z_{0}-y_{0}z_{0}-z_{0}2 \\\\ 2y_{0}z_{0}-2x_{0}z_{0} & = & 0 \\\\ 2z_{0}(y_{0}-x_{0}) & = & 0.\\end{array}."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, either $z_{0}=0$ or $y_{0}=x_{0}.$ If $z_{0}=0,$ then the first constraint becomes $0=x_{0}{}^{2}+y_{0}{}^{2}.$ The only real solution to this equation is $x_{0}=0$ and $y_{0}=0,$ which gives the ordered triple $(0,0,0).$ This point does not satisfy the second constraint, so it is not a solution.\n\nNext, we consider $y_{0}=x_{0},$ which reduces the number of equations to three:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}y_{0} & = & x_{0} \\\\ z_{0}{}^{2} & = & x_{0}{}^{2}+y_{0}{}^{2} \\\\ x_{0}+y_{0}-z_{0}+1 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "We substitute the first equation into the second and third equations:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}z_{0}{}^{2} & = & x_{0}{}^{2}+x_{0}{}^{2} \\\\ x_{0}+x_{0}-z_{0}+1 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Then, we solve the second equation for $z_{0},$ which gives $z_{0}=2x_{0}+1.$ We then substitute this into the first equation,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}z_{0}{}^{2} & = & 2x_{0}{}^{2} \\\\ (2x_{0}+1)^{2} & = & 2x_{0}{}^{2} \\\\ 4x_{0}{}^{2}+4x_{0}+1 & = & 2x_{0}{}^{2} \\\\ 2x_{0}{}^{2}+4x_{0}+1 & = & 0,\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "and use the quadratic formula to solve for $x_{0}:$"
+        },
+        {
+         "type": "math",
+         "tex": "x_{0}=\\frac{-4\\pm \\sqrt{4^{2}-4(2)(1)}}{2(2)}=\\frac{-4\\pm \\sqrt{8}}{4}=\\frac{-4\\pm 2\\sqrt{2}}{4}=-1\\pm \\frac{\\sqrt{2}}{2}."
+        },
+        {
+         "type": "p",
+         "text": "Recall $y_{0}=x_{0},$ so this solves for $y_{0}$ as well. Then, $z_{0}=2x_{0}+1,$ so"
+        },
+        {
+         "type": "math",
+         "tex": "z_{0}=2x_{0}+1=2\\left(-1\\pm \\frac{\\sqrt{2}}{2}\\right)+1=-2+1\\pm \\sqrt{2}=-1\\pm \\sqrt{2}."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, there are two ordered triplet solutions:"
+        },
+        {
+         "type": "math",
+         "tex": "\\left(-1+\\frac{\\sqrt{2}}{2},-1+\\frac{\\sqrt{2}}{2},-1+\\sqrt{2}\\right)\\,\\text{and}\\,\\left(-1-\\frac{\\sqrt{2}}{2},-1-\\frac{\\sqrt{2}}{2},-1-\\sqrt{2}\\right)."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "We substitute $\\left(-1+\\frac{\\sqrt{2}}{2},-1+\\frac{\\sqrt{2}}{2},-1+\\sqrt{2}\\right)$ into $f(x,y,z)=x^{2}+y^{2}+z^{2},$ which gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}f\\left(-1+\\frac{\\sqrt{2}}{2},-1+\\frac{\\sqrt{2}}{2},-1+\\sqrt{2}\\right) & =\\left(-1+\\frac{\\sqrt{2}}{2}\\right)^{2}+\\left(-1+\\frac{\\sqrt{2}}{2}\\right)^{2}+(-1+\\sqrt{2})^{2} \\\\ & =\\left(1-\\sqrt{2}+\\frac{1}{2}\\right)+\\left(1-\\sqrt{2}+\\frac{1}{2}\\right)+(1-2\\sqrt{2}+2) \\\\ & =6-4\\sqrt{2}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Then, we substitute $\\left(-1-\\frac{\\sqrt{2}}{2},-1-\\frac{\\sqrt{2}}{2},-1-\\sqrt{2}\\right)$ into $f(x,y,z)=x^{2}+y^{2}+z^{2},$ which gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}f\\left(-1-\\frac{\\sqrt{2}}{2},-1-\\frac{\\sqrt{2}}{2},-1-\\sqrt{2}\\right) & =\\left(-1-\\frac{\\sqrt{2}}{2}\\right)^{2}+\\left(-1-\\frac{\\sqrt{2}}{2}\\right)^{2}+(-1-\\sqrt{2})^{2} \\\\ & =\\left(1+\\sqrt{2}+\\frac{1}{2}\\right)+\\left(1+\\sqrt{2}+\\frac{1}{2}\\right)+(1+2\\sqrt{2}+2) \\\\ & =6+4\\sqrt{2}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "$6+4\\sqrt{2}$ and $6-4\\sqrt{2}$ are the local extreme values of $f(x,y,z),$ subject to the given constraints."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "1"
+     }
+    ]
+   },
+   "title": "Lagrange Multipliers with Two Constraints"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.40",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the method of Lagrange multipliers to find the minimum value of the function"
+    },
+    {
+     "type": "math",
+     "tex": "f(x,y,z)=x^{2}+y^{2}+z^{2}"
+    },
+    {
+     "type": "p",
+     "text": "subject to the constraints $2x+y+2z=9$ and $5x+5y+7z=29.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(2,1,2)=9$ is a minimum."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the problem-solving strategy for the method of Lagrange multipliers with two constraints."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "An objective function combined with one or more constraints is an example of an optimization problem.",
+      "To solve optimization problems, we apply the method of Lagrange multipliers using a four-step problem-solving strategy."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Method of Lagrange multipliers, one constraint**",
+       "$\\begin{array}{ccc}\\nabla f(x_{0},y_{0}) & = & \\lambda \\nabla g(x_{0},y_{0}) \\\\ g(x_{0},y_{0}) & = & 0\\end{array}$"
+      ],
+      [
+       "**Method of Lagrange multipliers, two constraints**",
+       "$\\begin{array}{ccc}\\nabla f(x_{0},y_{0},z_{0}) & = & \\lambda_{1}\\nabla g(x_{0},y_{0},z_{0})+\\lambda_{2}\\nabla h(x_{0},y_{0},z_{0}) \\\\ g(x_{0},y_{0},z_{0}) & = & 0 \\\\ h(x_{0},y_{0},z_{0}) & = & 0\\end{array}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e358",
+   "number": 358,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}y;x^{2}+2y^{2}=6$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794284207",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e359",
+   "number": 359,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=xyz,x^{2}+2y^{2}+3z^{2}=6$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794160233",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "maximum: $2\\frac{\\sqrt{3}}{3},$ minimum: $\\frac{-2\\sqrt{3}}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e360",
+   "number": 360,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=xy;4x^{2}+8y^{2}=16$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793400750",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e361",
+   "number": 361,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=4x^{3}+y^{2};2x^{2}+y^{2}=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794051632",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "maximum: $\\left(\\frac{\\sqrt{2}}{2},0,\\sqrt{2}\\right),$ minimum: $\\left(\\frac{-\\sqrt{2}}{2},0,-\\sqrt{2}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e362",
+   "number": 362,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=x^{2}+y^{2}+z^{2},x^{4}+y^{4}+z^{4}=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794292192",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e363",
+   "number": 363,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=yz+xy,xy=1,y^{2}+z^{2}=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793631556",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "maximum: $\\frac{3}{2},$ minimum = $\\frac{1}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e364",
+   "number": 364,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+y^{2},(x-1)^{2}+4y^{2}=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793383335",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e365",
+   "number": 365,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=4xy,\\frac{x^{2}}{9}+\\frac{y^{2}}{16}=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793609406",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "maxima: $f\\left(\\frac{3\\sqrt{2}}{2},2\\sqrt{2}\\right)=24,$ $f\\left(-\\frac{3\\sqrt{2}}{2},-2\\sqrt{2}\\right)=24;$ minima: $f\\left(-\\frac{3\\sqrt{2}}{2},2\\sqrt{2}\\right)=-24,$ $f\\left(\\frac{3\\sqrt{2}}{2},-2\\sqrt{2}\\right)=-24$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e366",
+   "number": 366,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=x+y+z,\\frac{1}{x}+\\frac{1}{y}+\\frac{1}{z}=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793422615",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e367",
+   "number": 367,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=x+3y-z,x^{2}+y^{2}+z^{2}=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793233837",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "maximum: $2\\sqrt{11}$ at $f\\left(\\frac{2}{\\sqrt{11}},\\frac{6}{\\sqrt{11}},\\frac{-2}{\\sqrt{11}}\\right);$ minimum: $-2\\sqrt{11}$ at $f\\left(\\frac{-2}{\\sqrt{11}},\\frac{-6}{\\sqrt{11}},\\frac{2}{\\sqrt{11}}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e368",
+   "number": 368,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=x^{2}+y^{2}+z^{2},xyz=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794328256",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e369",
+   "number": 369,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Minimize $f(x,y)=x^{2}+y^{2}$ on the hyperbola $xy=1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793618923",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2.0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2.0"
+   }
+  },
+  {
+   "id": "e370",
+   "number": 370,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Minimize $f(x,y)=xy$ on the ellipse $b^{2}x^{2}+a^{2}y^{2}=a^{2}b^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793927484",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e371",
+   "number": 371,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Maximize $f(x,y,z)=2x+3y+5z$ on the sphere $x^{2}+y^{2}+z^{2}=19.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793928536",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$19\\sqrt{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "19 sqrt(2)"
+   }
+  },
+  {
+   "id": "e372",
+   "number": 372,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Maximize $\\begin{array}{c}f(x,y)=x^{2}-y^{2};x>0,y>0; \\\\ g(x,y)=y-x^{2}=0\\end{array}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794292470",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e373",
+   "number": 373,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The curve $x^{3}-y^{3}=1$ is asymptotic to the line $y=x.$ Find the point(s) on the curve $x^{3}-y^{3}=1$ farthest from the line $y=x.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793363126",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{1}{\\sqrt[3]{2}},\\frac{-1}{\\sqrt[3]{2}}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "((1/(root(2, 3))), ((-1)/(root(2, 3))))"
+   }
+  },
+  {
+   "id": "e374",
+   "number": 374,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Maximize $U(x,y)=8x^{4/5}y^{1/5};4x+2y=12$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793420367",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e375",
+   "number": 375,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Minimize $f(x,y)=x^{2}+y^{2},x+2y-5=0.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793409892",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(1,2)=5$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "5"
+   }
+  },
+  {
+   "id": "e376",
+   "number": 376,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Maximize $f(x,y)=\\sqrt{6-x^{2}-y^{2}},x+y-2=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793502411",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e377",
+   "number": 377,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Minimize $f(x,y,z)=x^{2}+y^{2}+z^{2},x+y+z=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794095053",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f\\left(\\frac{1}{3},\\frac{1}{3},\\frac{1}{3}\\right)=\\frac{1}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"f((1/3), (1/3), (1/3))=(1/3)\""
+  },
+  {
+   "id": "e378",
+   "number": 378,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Minimize $f(x,y)=x^{2}-y^{2}$ subject to the constraint $x-2y+6=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793618211",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e379",
+   "number": 379,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Minimize $f(x,y,z)=x^{2}+y^{2}+z^{2}$ when $x+y+z=9$ and $x+2y+3z=20.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793610968",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "minimum: $f(2,3,4)=29$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e380",
+   "number": 380,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A pentagon is formed by placing an isosceles triangle on a rectangle, as shown in the diagram. If the perimeter of the pentagon is $10$ in., find the lengths of the sides of the pentagon that will maximize the area of the pentagon."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_08_201.webp",
+     "alt": "A rectangle with an isosceles triangle on top. The side of the isosceles triangle with the two equal angles of size θ overlaps the top length of the rectangle.",
+     "width": 314,
+     "height": 318
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794051145",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e381",
+   "number": 381,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A rectangular box without a top (a topless box) is to be made from $12$ ft$^{\\text{2}}$ of cardboard. Find the maximum volume of such a box."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793641973",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The maximum volume is $4$ ft$^{\\text{3}}$. The dimensions are $1\\,\\times \\,2\\,\\times \\,2$ ft."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e382",
+   "number": 382,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the minimum and maximum distances between the ellipse $x^{2}+xy+2y^{2}=1$ and the origin."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793377846",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e383",
+   "number": 383,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the point on the surface $x^{2}-2xy+y^{2}-x+y=0$ closest to the point $(1,2,-3).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793501794",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The point on the surface $x^{2}-2xy+y^{2}-x+y=0$ closest to the point $(1,2,-3)$ is $\\left(\\frac{3}{2},\\frac{3}{2},-3\\right)$."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e384",
+   "number": 384,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that, of all the triangles inscribed in a circle of radius $R$ (see diagram), the equilateral triangle has the largest perimeter."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_08_202.webp",
+     "alt": "A circle with an equilateral triangle drawn inside of it such that each vertex of the triangle touches the circle.",
+     "width": 314,
+     "height": 315
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793298519",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e385",
+   "number": 385,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the minimum distance from point $(0,1)$ to the parabola $x^{2}=4y.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793925038",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1.0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1.0"
+   }
+  },
+  {
+   "id": "e386",
+   "number": 386,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the minimum distance from the parabola $y=x^{2}$ to point $(0,3).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793358302",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e387",
+   "number": 387,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the minimum distance from the plane $x+y+z=1$ to point $(2,1,1).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793577801",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(3)"
+   }
+  },
+  {
+   "id": "e388",
+   "number": 388,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A large container in the shape of a rectangular solid must have a volume of $480$ m$^{\\text{3}}$. The bottom of the container costs \\$5/m$^{\\text{2}}$ to construct whereas the top and sides cost \\$3/m$^{\\text{2}}$ to construct. Use Lagrange multipliers to find the dimensions of the container of this size that has the minimum cost."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794159985",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e389",
+   "number": 389,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the point on the line $y=2x+3$ that is closest to point $(4,2).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793618148",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{2}{5},\\frac{19}{5}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "((2/5), (19/5))"
+   }
+  },
+  {
+   "id": "e390",
+   "number": 390,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the point on the plane $4x+3y+z=2$ that is closest to the point $(1,-1,1).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793958649",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e391",
+   "number": 391,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the maximum value of $f(x,y)=\\sin \\,x\\,\\sin \\,y,$ where $x\\,\\text{and}\\,y$ denote the acute angles of a right triangle. Draw the contours of the function using a CAS."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793455554",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_08_203.webp",
+      "alt": "An alternating series of hills and holes of amplitude 1 across xyz space.",
+      "width": 466,
+      "height": 360
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e392",
+   "number": 392,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A rectangular solid is contained within a tetrahedron with vertices at"
+    },
+    {
+     "type": "p",
+     "text": "$(1,0,0),(0,1,0),(0,0,1),$ and the origin. The base of the box has dimensions $x,y,$ and the height of the box is $z.$ If the sum of $x,y,\\,\\text{and}\\,z$ is 1.0, find the dimensions that maximizes the volume of the rectangular solid."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793637673",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e393",
+   "number": 393,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** By investing *x* units of labor and *y* units of capital, a watch manufacturer can produce $P(x,y)=50x^{0.4}y^{0.6}$ watches. Find the maximum number of watches that can be produced on a budget of $\\text{\\$}20,000$ if labor costs \\$100/unit and capital costs \\$200/unit. Use a CAS to sketch a contour plot of the function."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589592",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Roughly 3365 watches at the critical point $(80,60)$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_08_204.webp",
+      "alt": "A series of curves in the first quadrant, with the first starting near (2, 120), decreasing sharply to near (20, 20), and then decreasing slowly to (120, 5). The next curve starts near (10, 120), decreases sharply to near (40, 40), and then decreases slowly to (120, 20). The next curve starts near (20, 120), decreases sharply to near (60, 60), and then decreases slowly to (120, 40). The next curve starts near (40, 120), decreases to near (80, 80), and then decreases a little slowly to (120, 60). The last curve starts near (60, 120) and decreases rather evenly through (100, 100) to (120, 90).",
+      "width": 285,
+      "height": 278
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e394",
+   "number": 394,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The domain of $f(x,y)=x^{3}\\sin^{-1}(y)$ is $x=$ all real numbers, and $-\\pi \\le y\\le \\pi .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793378469",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statement is *true or false*. Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e395",
+   "number": 395,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If the function $f(x,y)$ and all its second derivatives are continuous everywhere, then $f_{xy}=f_{yx}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793443560",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statement is *true or false*. Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True, by Clairaut’s theorem"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e396",
+   "number": 396,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The linear approximation to the function of $f(x,y)=5x^{2}+x\\,\\tan (y)$ at $(2,\\pi )$ is given by $L(x,y)=22+21(x-2)+(y-\\pi ).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793499060",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statement is *true or false*. Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e397",
+   "number": 397,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(\\frac{3}{4},\\frac{9}{16}\\right)$ is a critical point of $g(x,y)=4x^{3}-2x^{2}y+y^{2}-2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793255949",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statement is *true or false*. Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e398",
+   "number": 398,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=e^{-(x^{2}+2y^{2})}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793423043",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch the function in one graph and, in a second, sketch several level curves."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e399",
+   "number": 399,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x+4y^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793638541",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, sketch the function in one graph and, in a second, sketch several level curves."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e400",
+   "number": 400,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (1,1)}\\frac{4xy}{x-2y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794050696",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the following limits, if they exist. If they do not exist, prove it."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e401",
+   "number": 401,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{(x,y)\\to (0,0)}\\frac{4xy}{x-2y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793584554",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the following limits, if they exist. If they do not exist, prove it."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Does not exist"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e402",
+   "number": 402,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{3}\\sin^{-1}(y)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794212738",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the largest region of continuity for the function."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e403",
+   "number": 403,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y)=\\ln (4-x^{2}-y^{2})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793514908",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the largest region of continuity for the function."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Continuous at all points on the $x,y\\text{-plane,}$ except where $x^{2}+y^{2}>4.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e404",
+   "number": 404,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sqrt{x^{2}-y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793515930",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find all first derivatives, full or partial, as appropriate."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e405",
+   "number": 405,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$u(x,y)=x^{4}-3xy+1,x=2t,y=t^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793423286",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find all first derivatives, full or partial, as appropriate."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\partial u}{\\partial x}=4x^{3}-3y,\\frac{\\partial u}{\\partial y}=-3x,\\frac{dx}{dt}=2,\\frac{dy}{dt}=3t^{2},\\frac{du}{dt}=40t^{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e406",
+   "number": 406,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(t,x)=3t^{2}-\\sin (x+t)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793924536",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find all second partial derivatives."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e407",
+   "number": 407,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$h(x,y,z)=\\frac{x^{3}e^{2y}}{z}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929129",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find all second partial derivatives."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h_{xx}(x,y,z)=\\frac{6xe^{2y}}{z},$ $h_{xy}(x,y,z)=\\frac{6x^{2}e^{2y}}{z},$ $h_{xz}(x,y,z)=-\\frac{3x^{2}e^{2y}}{z^{2}},$ $h_{yx}(x,y,z)=\\frac{6x^{2}e^{2y}}{z},$ $h_{yy}(x,y,z)=\\frac{4x^{3}e^{2y}}{z},$ $h_{yz}(x,y,z)=-\\frac{2x^{3}e^{2y}}{z^{2}},$ $h_{zx}(x,y,z)=-\\frac{3x^{2}e^{2y}}{z^{2}},$ $h_{zy}(x,y,z)=-\\frac{2x^{3}e^{2y}}{z^{2}},$ $h_{zz}(x,y,z)=\\frac{2x^{3}e^{2y}}{z^{3}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e408",
+   "number": 408,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$z=x^{3}-2y^{2}+y-1$ at point $(1,1,-1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793957816",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent plane to the specified surface at the given point."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e409",
+   "number": 409,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$z=e^{x}+\\frac{2}{y}$ at point $(0,1,3)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793377749",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent plane to the specified surface at the given point."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$z=x-2y+5$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "z=x-2 y+5"
+   }
+  },
+  {
+   "id": "e410",
+   "number": 410,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Approximate $f(x,y)=e^{x^{2}}+\\sqrt{y}$ at $(0.1,9.1).$ Write down your linear approximation function $L(x,y).$ How accurate is the approximation to the exact answer, rounded to four digits?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793245597",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent plane to the specified surface at the given point."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e411",
+   "number": 411,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the differential $dz$ of $h(x,y)=4x^{2}+2xy-3y$ and approximate $\\text{Δ}z$ at the point $(1,-2).$ Let $\\text{Δ}x=0.1$ and $\\text{Δ}y=0.01.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793637887",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent plane to the specified surface at the given point."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$dz=4dx-dy,$ $dz(0.1,0.01)=0.39,$ $\\text{Δ}z=0.432$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e412",
+   "number": 412,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the directional derivative of $f(x,y)=x^{2}+6xy-y^{2}$ in the direction $\\text{v}=i+4j.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794147215",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent plane to the specified surface at the given point."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e413",
+   "number": 413,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the maximal directional derivative magnitude and direction for the function $f(x,y)=x^{3}+2xy-\\cos (\\pi y)$ at point $(3,0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793508394",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent plane to the specified surface at the given point."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3\\sqrt{85},〈27,6〉$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e414",
+   "number": 414,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$c(x,t)=e(t-x)^{2}+3\\,\\cos (t)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793593470",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e415",
+   "number": 415,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\frac{\\sqrt{x}+y^{2}}{xy}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794324487",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\nabla f(x,y)=-\\frac{\\sqrt{x}+2y^{2}}{2x^{2}y}\\text{i}+\\left(\\frac{1}{x}-\\frac{1}{\\sqrt{x}y^{2}}\\right)\\text{j}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "-((sqrt(x)+2 y^2)/(2 x^2 y)) i +((1/x)-(1/(sqrt(x)y^2))) j"
+   }
+  },
+  {
+   "id": "e416",
+   "number": 416,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$z=x^{3}-xy+y^{2}-1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793638437",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find and classify the critical points."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e417",
+   "number": 417,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}y,x^{2}+y^{2}=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793425931",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use Lagrange multipliers to find the maximum and minimum values for the functions with the given constraints."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "maximum: $\\frac{16}{3\\sqrt{3}},$ minimum: $-\\frac{16}{3\\sqrt{3}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e418",
+   "number": 418,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}-y^{2},x+6y=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793943760",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use Lagrange multipliers to find the maximum and minimum values for the functions with the given constraints."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e419",
+   "number": 419,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A machinist is constructing a right circular cone out of a block of aluminum. The machine gives an error of $5\\text{\\%}$ in height and $2\\text{\\%}$ in radius. Find the maximum error in the volume of the cone if the machinist creates a cone of height $6$ cm and radius $2$ cm."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793571536",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use Lagrange multipliers to find the maximum and minimum values for the functions with the given constraints."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2.3228$ cm$^{\\text{3}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e420",
+   "number": 420,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A trash compactor is in the shape of a cuboid. Assume the trash compactor is filled with incompressible liquid. The length and width are decreasing at rates of $2$ ft/sec and $3$ ft/sec, respectively. Find the rate at which the liquid level is rising when the length is $14$ ft, the width is $10$ ft, and the height is $4$ ft."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793571584",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use Lagrange multipliers to find the maximum and minimum values for the functions with the given constraints."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Method of Lagrange Multipliers: One Constraint",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Let $f$ and $g$ be functions of two variables with continuous partial derivatives at every point of some open set containing the smooth curve $g(x,y)=0.$ Suppose that $f,$ when restricted to points on the curve $g(x,y)=0,$ has a local extremum at the point $(x_{0},y_{0})$ and that $\\nabla g(x_{0},y_{0})\\ne 0.$ Then there is a number $\\lambda$ called a **Lagrange multiplier**, for which"
+    },
+    {
+     "type": "math",
+     "tex": "\\nabla f(x_{0},y_{0})=\\lambda \\nabla g(x_{0},y_{0})."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Assume that a constrained extremum occurs at the point $(x_{0},y_{0}).$ Furthermore, we assume that the equation $g(x,y)=0$ can be smoothly parameterized as"
+    },
+    {
+     "type": "math",
+     "tex": "x=x(s)\\,\\text{and}\\,y=y(s)"
+    },
+    {
+     "type": "p",
+     "text": "where *s* is an arc length parameter with reference point $(x_{0},y_{0})$ at $s=0.$ Therefore, the quantity $z=f(x(s),y(s))$ has a relative maximum or relative minimum at $s=0,$ and this implies that $\\frac{dz}{ds}=0$ at that point. From the chain rule,"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dz}{ds}=\\frac{\\partial f}{\\partial x}\\cdot \\frac{dx}{ds}+\\frac{\\partial f}{\\partial y}\\cdot \\frac{dy}{ds}=\\left(\\frac{\\partial f}{\\partial x}\\hat{\\mathbf{i}}+\\frac{\\partial f}{\\partial y}\\hat{\\mathbf{j}}\\right)\\cdot \\left(\\frac{dx}{ds}\\hat{\\mathbf{i}}+\\frac{dy}{ds}\\hat{\\mathbf{j}}\\right)=0,"
+    },
+    {
+     "type": "p",
+     "text": "where the derivatives are all evaluated at $s=0.$ However, the first factor in the dot product is the gradient of $f,$ and the second factor is the unit tangent vector $\\text{T}(0)$ to the constraint curve. Since the point $(x_{0},y_{0})$ corresponds to $s=0,$ it follows from this equation that"
+    },
+    {
+     "type": "math",
+     "tex": "\\nabla f(x_{0},y_{0})\\cdot \\text{T}(0)=0,"
+    },
+    {
+     "type": "p",
+     "text": "which implies that the gradient is either $0$ or is normal to the constraint curve at a constrained relative extremum. However, the constraint curve $g(x,y)=0$ is a level curve for the function $g(x,y)$ so that if $\\nabla g(x_{0},y_{0})\\ne 0$ then $\\nabla g(x_{0},y_{0})$ is normal to this curve at $(x_{0},y_{0})$ It follows, then, that there is some scalar $\\lambda$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "\\nabla f(x_{0},y_{0})=\\lambda \\nabla g(x_{0},y_{0})"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "To apply (see above) to an optimization problem similar to that for the golf ball manufacturer, we need a problem-solving strategy."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Determine the objective function $f(x,y)$ and the constraint function $g(x,y).$ Does the optimization problem involve maximizing or minimizing the objective function?",
+        [
+         {
+          "type": "p",
+          "text": "Set up a system of equations using the following template:"
+         },
+         {
+          "type": "math",
+          "tex": "\\begin{array}{ccc}\\nabla f(x_{0},y_{0}) & = & \\lambda \\nabla g(x_{0},y_{0}) \\\\ g(x_{0},y_{0}) & = & 0.\\end{array}"
+         }
+        ],
+        "Solve for $x_{0}$ and $y_{0}.$",
+        "The largest of the values of $f$ at the solutions found in step $3$ maximizes $f;$ the smallest of those values minimizes $f.$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Steps for Using Lagrange Multipliers"
+    },
+    {
+     "type": "p",
+     "text": "Use the method of Lagrange multipliers to find the minimum value of $f(x,y)=x^{2}+4y^{2}-2x+8y$ subject to the constraint $x+2y=7.$"
+    },
+    {
+     "type": "p",
+     "text": "Let’s follow the problem-solving strategy:"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "The optimization function is $f(x,y)=x^{2}+4y^{2}-2x+8y.$ To determine the constraint function, we must first subtract $7$ from both sides of the constraint. This gives $x+2y-7=0.$ The constraint function is equal to the left-hand side, so $g(x,y)=x+2y-7.$ The problem asks us to solve for the minimum value of $f,$ subject to the constraint (see the following graph)."
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_14_08_003.webp",
+        "alt": "Two rotated ellipses, one within the other. On the largest ellipse, which is marked f(x, y) = 26, there is a tangent line marked with equation x + 2y = 7 that appears to touch the ellipse near (5, 1).",
+        "caption": "**Figure 4.60** Graph of level curves of the function $f(x,y)=x^{2}+4y^{2}-2x+8y$ corresponding to $c=10$ and $26.$ The red graph is the constraint function.",
+        "width": 343,
+        "height": 348
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "We then must calculate the gradients of both *f* and *g*:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{c}\\nabla f(x,y)=(2x-2)i+(8y+8)j \\\\ \\nabla g(x,y)=i+2j.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "The equation $\\nabla f(x_{0},y_{0})=\\lambda \\nabla g(x_{0},y_{0})$ becomes"
+       },
+       {
+        "type": "math",
+        "tex": "(2x_{0}-2)i+(8y_{0}+8)j=\\lambda (i+2j),"
+       },
+       {
+        "type": "p",
+        "text": "which can be rewritten as"
+       },
+       {
+        "type": "math",
+        "tex": "(2x_{0}-2)i+(8y_{0}+8)j=\\lambda i+2\\lambda j."
+       },
+       {
+        "type": "p",
+        "text": "Next, we set the coefficients of $i\\,\\text{and}\\,j$ equal to each other:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{c}2x_{0}-2=\\lambda \\\\ 8y_{0}+8=2\\lambda .\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "The equation $g(x_{0},y_{0})=0$ becomes $x_{0}+2y_{0}-7=0.$ Therefore, the system of equations that needs to be solved is"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}2x_{0}-2 & = & \\lambda \\\\ 8y_{0}+8 & = & 2\\lambda \\\\ x_{0}+2y_{0}-7 & = & 0.\\end{array}"
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "This is a linear system of three equations in three variables. We start by solving the second equation for $\\lambda$ and substituting it into the first equation. This gives $\\lambda =4y_{0}+4,$ so substituting this into the first equation gives"
+       },
+       {
+        "type": "math",
+        "tex": "2x_{0}-2=4y_{0}+4."
+       },
+       {
+        "type": "p",
+        "text": "Solving this equation for $x_{0}$ gives $x_{0}=2y_{0}+3.$ We then substitute this into the third equation:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}(2y_{0}+3)+2y_{0}-7 & = & 0 \\\\ 4y_{0}-4 & = & 0 \\\\ y_{0} & = & 1.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Since $x_{0}=2y_{0}+3,$ this gives $x_{0}=5.$"
+       }
+      ],
+      "Next, we substitute $(5,1)$ into $f(x,y)=x^{2}+4y^{2}-2x+8y,$ gives $f(5,1)=5^{2}+4(1)^{2}-2(5)+8(1)=27.$ To ensure this corresponds to a minimum value on the constraint function, let’s try some other values, such as the intercepts of $g(x,y)=0,$ Which are $(7,0)$ and $(0,3.5).$ We get $f(7,0)=35$ and $f(0,3.5)=77,$ so it appears $f$ has a minimum at $(5,1).$"
+     ],
+     "ordered": true,
+     "style": "1"
+    },
+    {
+     "type": "p",
+     "text": "Let’s now return to the problem posed at the beginning of the section."
+    },
+    {
+     "type": "p",
+     "text": "The golf ball manufacturer, Pro-T, has developed a profit model that depends on the number $x$ of golf balls sold per month (measured in thousands), and the number of hours per month of advertising *y*, according to the function"
+    },
+    {
+     "type": "math",
+     "tex": "z=f(x,y)=48x+96y-x^{2}-2xy-9y^{2},"
+    },
+    {
+     "type": "p",
+     "text": "where $z$ is measured in thousands of dollars. The budgetary constraint function relating the cost of the production of thousands golf balls and advertising units is given by $20x+4y=216.$ Find the values of $x$ and $y$ that maximize profit, and find the maximum profit."
+    },
+    {
+     "type": "p",
+     "text": "Again, we follow the problem-solving strategy:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "The optimization function is $f(x,y)=48x+96y-x^{2}-2xy-9y^{2}.$ To determine the constraint function, we first subtract 216 from both sides of the constraint, then divide both sides by $4,$ which gives $5x+y-54=0.$ The constraint function is equal to the left-hand side, so $g(x,y)=5x+y-54.$ The problem asks us to solve for the maximum value of $f,$ subject to this constraint.",
+      [
+       {
+        "type": "p",
+        "text": "So, we calculate the gradients of both $f\\,\\text{and}$ $g:$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{c}\\nabla f(x,y)=(48-2x-2y)i+(96-2x-18y)j \\\\ \\nabla g(x,y)=5i+j.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "The equation $\\nabla f(x_{0},y_{0})=\\lambda \\nabla g(x_{0},y_{0})$ becomes"
+       },
+       {
+        "type": "math",
+        "tex": "(48-2x_{0}-2y_{0})i+(96-2x_{0}-18y_{0})j=\\lambda (5i+j),"
+       },
+       {
+        "type": "p",
+        "text": "which can be rewritten as"
+       },
+       {
+        "type": "math",
+        "tex": "(48-2x_{0}-2y_{0})i+(96-2x_{0}-18y_{0})j=\\lambda 5i+\\lambda j."
+       },
+       {
+        "type": "p",
+        "text": "We then set the coefficients of $i\\,\\text{and}\\,j$ equal to each other:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}48-2x_{0}-2y_{0} & = & 5\\lambda \\\\ 96-2x_{0}-18y_{0} & = & \\lambda .\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "The equation $g(x_{0},y_{0})=0$ becomes $5x_{0}+y_{0}-54=0.$ Therefore, the system of equations that needs to be solved is"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}48-2x_{0}-2y_{0} & = & 5\\lambda \\\\ 96-2x_{0}-18y_{0} & = & \\lambda \\\\ 5x_{0}+y_{0}-54 & = & 0.\\end{array}"
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "We use the left-hand side of the second equation to replace $\\lambda$ in the first equation:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}48-2x_{0}-2y_{0} & = & 5(96-2x_{0}-18y_{0}) \\\\ 48-2x_{0}-2y_{0} & = & 480-10x_{0}-90y_{0} \\\\ 8x_{0} & = & 432-88y_{0} \\\\ x_{0} & = & 54-11y_{0}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Then we substitute this into the third equation:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}5(54-11y_{0})+y_{0}-54 & = & 0 \\\\ 270-55y_{0}+y_{0} & = & 0 \\\\ 216-54y_{0} & = & 0 \\\\ y_{0} & = & 4.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Since $x_{0}=54-11y_{0},$ this gives $x_{0}=10.$"
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "We then substitute $(10,4)$ into $f(x,y)=48x+96y-x^{2}-2xy-9y^{2},$ which gives"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}f(10,4) & =48(10)+96(4)-(10)^{2}-2(10)(4)-9(4)^{2} \\\\ & =480+384-100-80-144=540.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Therefore the maximum profit that can be attained, subject to budgetary constraints, is $\\text{\\$}540,000$ with a production level of $10,000$ golf balls and $4$ hours of advertising bought per month. Let’s check to make sure this truly is a maximum. The endpoints of the line that defines the constraint are $(10.8,0)$ and $(0,54)$ Let’s evaluate $f$ at both of these points:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}f(10.8,0) & = & 48(10.8)+96(0)-10.8^{2}-2(10.8)(0)-9(0^{2})=401.76 \\\\ f(0,54) & = & 48(0)+96(54)-0^{2}-2(0)(54)-9(54^{2})=-21,060.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "The second value represents a loss, since no golf balls are produced. Neither of these values exceed $540,$ so it seems that our extremum is a maximum value of $f.$"
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "1"
+    },
+    {
+     "type": "p",
+     "text": "In the case of an optimization function with three variables and a single constraint function, it is possible to use the method of Lagrange multipliers to solve an optimization problem as well. An example of an optimization function with three variables could be the **Cobb-Douglas function** in the previous example: $f(x,y,z)=x^{0.2}y^{0.4}z^{0.4},$ where $x$ represents the cost of labor, $y$ represents capital input, and $z$ represents the cost of advertising. The method is the same as for the method with a function of two variables; the equations to be solved are"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\nabla f(x,y,z) & = & \\lambda \\nabla g(x,y,z) \\\\ g(x,y,z) & = & 0.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Find the minimum of the function $f(x,y,z)=x^{2}+y^{2}+z^{2}$ subject to the constraint $x+y+z=1.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "The optimization function is $f(x,y,z)=x^{2}+y^{2}+z^{2}.$ To determine the constraint function, we subtract $1$ from each side of the constraint: $x+y+z-1=0$ which gives the constraint function as $g(x,y,z)=x+y+z-1.$",
+      [
+       {
+        "type": "p",
+        "text": "Next, we calculate $\\nabla f(x,y,z)$ and $\\nabla g(x,y,z):$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{c}\\nabla f(x,y,z)=〈2x,2y,2z〉 \\\\ \\nabla g(x,y,z)=〈1,1,1〉.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "This leads to the equations"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}〈2x_{0},2y_{0},2z_{0}〉 & = & \\lambda 〈1,1,1〉 \\\\ x_{0}+y_{0}+z_{0}-1 & = & 0\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "which can be rewritten in the following form:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}2x_{0} & = & \\lambda \\\\ 2y_{0} & = & \\lambda \\\\ 2z_{0} & = & \\lambda \\\\ x_{0}+y_{0}+z_{0}-1 & = & 0.\\end{array}"
+       }
+      ],
+      "Since each of the first three equations has $\\lambda$ on the right-hand side, we know that $2x_{0}=2y_{0}=2z_{0}$ and all three variables are equal to each other. Substituting $y_{0}=x_{0}$ and $z_{0}=x_{0}$ into the last equation yields $3x_{0}-1=0,$ so $x_{0}=\\frac{1}{3}$ and $y_{0}=\\frac{1}{3}$ and $z_{0}=\\frac{1}{3}$ which corresponds to a critical point on the constraint curve.",
+      [
+       {
+        "type": "p",
+        "text": "Then, we evaluate *f* at the point $\\left(\\frac{1}{3},\\frac{1}{3},\\frac{1}{3}\\right):$"
+       },
+       {
+        "type": "math",
+        "tex": "f\\left(\\frac{1}{3},\\frac{1}{3},\\frac{1}{3}\\right)=\\left(\\frac{1}{3}\\right)^{2}+\\left(\\frac{1}{3}\\right)^{2}+\\left(\\frac{1}{3}\\right)^{2}=\\frac{3}{9}=\\frac{1}{3}."
+       },
+       {
+        "type": "p",
+        "text": "Therefore, an extremum of the function is $\\frac{1}{3}.$ To verify it is a minimum, choose other points that satisfy the constraint and calculate $f$ at that point. For example,"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccc}f(1,0,0) & = & 1^{2}+0^{2}+0^{2}=1 \\\\ f(0,-2,3) & = & 0^{2}+(-2)^{2}+3^{2}=13.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Both of these values are greater than $\\frac{1}{3},$ leading us to believe the extremum is a minimum."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "1"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "constraint",
+   "meaning": "an inequality or equation involving one or more variables that is used in an optimization problem; the constraint enforces a limit on the possible solutions for the problem"
+  },
+  {
+   "term": "Lagrange multiplier",
+   "meaning": "the constant (or constants) used in the method of Lagrange multipliers; in the case of one constant, it is represented by the variable $\\lambda$"
+  },
+  {
+   "term": "method of Lagrange multipliers",
+   "meaning": "a method of solving an optimization problem subject to one or more constraints"
+  },
+  {
+   "term": "objective function",
+   "meaning": "the function that is to be maximized or minimized in an optimization problem"
+  },
+  {
+   "term": "optimization problem",
+   "meaning": "calculation of a maximum or minimum value of a function of several variables, often using Lagrange multipliers"
+  }
+ ]
+}

@@ -1,0 +1,2715 @@
+{
+ "schema": 1,
+ "id": "V3.6.3",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 6,
+ "section": 3,
+ "title": "Conservative Vector Fields",
+ "chapterTitle": "Vector Calculus",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53987",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/6-3-conservative-vector-fields",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §6.3 “Conservative Vector Fields”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Describe simple and closed curves; define connected and simply connected regions.",
+  "Explain how to find a potential function for a conservative vector field.",
+  "Use the Fundamental Theorem for Line Integrals to evaluate a line integral in a vector field.",
+  "Explain how to test a vector field to determine whether it is conservative."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section, we continue the study of conservative vector fields. We examine the Fundamental Theorem for Line Integrals, which is a useful generalization of the Fundamental Theorem of Calculus to line integrals of conservative vector fields. We also show how to test whether a given vector field is conservative, and determine how to build a potential function for a vector field known to be conservative."
+    }
+   ],
+   "title": "Conservative Vector Fields"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Before continuing our study of conservative vector fields, we need some geometric definitions. The theorems in the subsequent sections all rely on integrating over certain kinds of curves and regions, so we develop the definitions of those curves and regions here."
+    },
+    {
+     "type": "p",
+     "text": "We first define two special kinds of curves: closed curves and simple curves. As we have learned, a closed curve is one that begins and ends at the same point. A simple curve is one that does not cross itself. A curve that is both closed and simple is a simple closed curve (Figure 6.24)."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Curve *C* is a **closed curve** if there is a parameterization $\\text{r}(t),a\\le t\\le b$ of *C* such that the parameterization traverses the curve exactly once and $\\text{r}(a)=\\text{r}(b).$ Curve *C* is a **simple curve** if *C* does not cross itself. That is, *C* is simple if there exists a parameterization $\\text{r}(t),a\\le t\\le b$ of *C* such that **r** is one-to-one over $(a,b).$ It is possible for $\\text{r}(a)=\\text{r}(b),$ meaning that the simple curve is also closed."
+      }
+     ]
+    }
+   ],
+   "title": "Curves and Regions"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_001.webp",
+     "alt": "An image showing eight curves and their types. The first curve is neither simple nor closed; it has two endpoints and crosses itself twice. The second curve is simple but not closed; it does not cross itself and has two endpoints. The third curve is closed but is not simple; it crosses itself a few times. The fourth is a simple closed curve; it does not cross itself and has no endpoints. The fifth is a simple, not closed curve; it does not cross itself, but it has endpoints. The sixth is a simple, closed curve; it does not cross itself and has no endpoints. The seventh is closed but not a simple curve; it crosses itself but has no endpoints. The last is not simple and not closed; it crosses itself and has endpoints.",
+     "caption": "**Figure 6.24** Types of curves that are simple or not simple and closed or not closed.",
+     "width": 900,
+     "height": 367
+    }
+   ],
+   "title": "Curves and Regions (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 6.27",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Is the curve with parameterization $\\text{r}(t)=〈\\cos \\,t,\\frac{\\sin (2t)}{2}〉,0\\le t\\le 2\\pi$ a simple closed curve?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Note that $\\text{r}(0)=〈1,0〉=\\text{r}(2\\pi );$ therefore, the curve is closed. The curve is not simple, however. To see this, note that $\\text{r}\\left(\\frac{\\pi}{2}\\right)=〈0,0〉=\\text{r}\\left(\\frac{3\\pi}{2}\\right),$ and therefore the curve crosses itself at the origin (Figure 6.25)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_03_002.webp",
+      "alt": "A diagram in the (x,y) coordinate plane that shows a closed but not simple curve. It looks like a horizontal figure eight with the crossing point at the origin.",
+      "caption": "**Figure 6.25** A curve that is closed but not simple.",
+      "width": 642,
+      "height": 371
+     }
+    ]
+   },
+   "title": "Determining Whether a Curve Is Simple and Closed"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.24",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Is the curve given by parameterization $\\text{r}(t)=〈2\\,\\cos \\,t,3\\,\\sin \\,t〉,0\\le t\\le 6\\pi ,$ a simple closed curve?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Yes"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Sketch the curve."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "yes"
+   }
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Many of the theorems in this chapter relate an integral over a region to an integral over the boundary of the region, where the region’s boundary is a simple closed curve or a union of simple closed curves. To develop these theorems, we need two geometric definitions for regions: that of a connected region and that of a simply connected region. A connected region is one in which there is a path in the region that connects any two points that lie within that region. A simply connected region is a connected region that does not have any holes in it. These two notions, along with the notion of a simple closed curve, allow us to state several generalizations of the Fundamental Theorem of Calculus later in the chapter. These two definitions are valid for regions in any number of dimensions, but we are only concerned with regions in two or three dimensions."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A region *D* is a **connected region** if, for any two points $P_{1}$ and $P_{2},$ there is a path from $P_{1}$ to $P_{2}$ with a trace contained entirely inside *D*. A region *D* is a **simply connected region** if *D* is connected for any simple closed curve *C* that lies inside *D*, and curve *C* can be shrunk continuously to a point while staying entirely inside *D*. In two dimensions, a region is simply connected if it is connected and has no holes."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "All simply connected regions are connected, but not all connected regions are simply connected (Figure 6.26)."
+    }
+   ],
+   "title": "Curves and Regions (continued)"
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_003.webp",
+     "alt": "A diagram showing simply connected, connected, and not connected regions. The simply connected regions have no holes. The connected regions may have holes, but a path can still be found between any two points in the region. The not connected region has some points that cannot be connected by a path in the region. Here, this is illustrated by showing two circular shapes that are defined as part of region D1 but are separated by white space.",
+     "caption": "**Figure 6.26** Not all connected regions are simply connected. (a) Simply connected regions have no holes. (b) Connected regions that are not simply connected may have holes but you can still find a path in the region between any two points. (c) A region that is not connected has some points that cannot be connected by a path in the region.",
+     "width": 548,
+     "height": 657
+    }
+   ],
+   "title": "Curves and Regions (continued)"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.25",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Is the region in the below image connected? Is the region simply connected?"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_004.webp",
+     "alt": "A shaded circle with an open space in the shape of a circle inside it but very close to the boundary.",
+     "width": 254,
+     "height": 254
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The region in the figure is connected. The region in the figure is not simply connected."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Consider the definitions."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we understand some basic curves and regions, let’s generalize the Fundamental Theorem of Calculus to line integrals. Recall that the Fundamental Theorem of Calculus says that if a function $f$ has an antiderivative *F*, then the integral of $f$ from *a* to *b* depends only on the values of *F* at *a* and at *b*—that is,"
+    },
+    {
+     "type": "math",
+     "tex": "\\int_{a}^{b}f(x)dx=\\text{F}(b)-\\text{F}(a)."
+    },
+    {
+     "type": "p",
+     "text": "If we think of the gradient as a derivative, then the same theorem holds for vector line integrals. We show how this works using a motivational example."
+    }
+   ],
+   "title": "Fundamental Theorem for Line Integrals"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 6.28",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $\\text{F}(x,y)=〈2x,4y〉.$ Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r},}$ where *C* is the line segment from (0,0) to (2,2)(Figure 6.27)."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We use (see above) to calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}.}$ Curve *C* can be parameterized by $\\text{r}(t)=〈2t,2t〉,0\\le t\\le 1.$ Then, $\\text{F}(\\text{r}(t))=〈4t,8t〉$ and ${\\text{r}}'(t)=〈2,2〉,$ which implies that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{0}^{1}〈4t,8t〉}\\cdot 〈2,2〉dt \\\\ & ={\\displaystyle \\int_{0}^{1}(8t+16t)}dt={\\displaystyle \\int_{0}^{1}24t\\,dt} \\\\ & =[12t^{2}]_{0}^{1}=12.\\end{array}"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_03_005.webp",
+      "alt": "A vector field in two dimensions. The arrows are longer the further away from the origin they are. They stretch out from the origin, forming a rectangular pattern. A line segment is drawn from P_0 at (0,0) to P_1 at (2,2).",
+      "caption": "**Figure 6.27** The value of line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ depends only on the value of the potential function of **F** at the endpoints of the curve.",
+      "width": 455,
+      "height": 385
+     },
+     {
+      "type": "p",
+      "text": "Notice that $F=\\text{∇}f,$ where $f(x,y)=x^{2}+2y^{2}.$ If we think of the gradient as a derivative, then $f$ is an “antiderivative” of **F**. In the case of single-variable integrals, the integral of derivative $g'(x)$ is $g(b)-g(a),$ where *a* is the start point of the interval of integration and *b* is the endpoint. If vector line integrals work like single-variable integrals, then we would expect integral **F** to be $f(P_{1})-f(P_{0}),$ where $P_{1}$ is the endpoint of the curve of integration and $P_{0}$ is the start point. Notice that this is the case for this example:"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}={\\displaystyle \\int_{C}\\text{∇}f.d\\text{r}=12}}"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "f(2,2)-f(0,0)=4+8-0=12."
+     },
+     {
+      "type": "p",
+      "text": "In other words, the integral of a “derivative” can be calculated by evaluating an “antiderivative” at the endpoints of the curve and subtracting, just as for single-variable integrals."
+     }
+    ]
+   },
+   "title": "Evaluating a Line Integral and the Antiderivatives of the Endpoints"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The following theorem says that, under certain conditions, what happened in the previous example holds for any gradient field. The same theorem holds for vector line integrals, which we call the **Fundamental Theorem for Line Integrals.**"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *C* be a piecewise smooth curve with parameterization $\\text{r}(t),a\\le t\\le b.$ Let $f$ be a function of two or three variables with first-order partial derivatives that exist and are continuous on *C*. Then,"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{C}\\text{∇}f.d\\text{r}=f(\\text{r}(b))-f(\\text{r}(a)).}"
+      }
+     ],
+     "title": "The Fundamental Theorem for Line Integrals"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of The Fundamental Theorem for Line Integrals is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Fundamental Theorem for Line Integrals (continued)"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let *D* denote the domain of **F** and let $C_{1}$ and $C_{2}$ be two paths in *D* with the same initial and terminal points (Figure 6.28). Call the initial point $P_{1}$ and the terminal point $P_{2}.$ Since **F** is conservative, there is a potential function $f$ for **F**. By the Fundamental Theorem for Line Integrals,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}}=f(P_{2})-f(P_{1})={\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}}."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, ${\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}}={\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}}$ and **F** is independent of path."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_007.webp",
+     "alt": "A vector field in two dimensions. The arrows are shorter the closer to the x axis and line x=1.5 they become. The arrows point up, converging around x=1.5 in quadrant 1. That line is approached from the left and from the right. Below, in quadrant 4, the arrows in the rough interval [1,2.5] curve out, away from the given line x=1.5, but do turn back in and converge to x=1.5 above the x axis. Outside of that interval, the arrows go to the left and right horizontally for x values less than 1 and greater than 2.5, respectively. A line is drawn from P_1 at the origin to P_2 at (3,.75) and labeled C_2. C_1 is a simple curve that connects the given endpoints above C_2, C_3 is a simple curve that connects the given endpoints below C_2.",
+     "caption": "**Figure 6.28** The vector field is conservative, and therefore independent of path.",
+     "width": 655,
+     "height": 352
+    }
+   ],
+   "title": "Proof"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "To visualize what independence of path means, imagine three hikers climbing from base camp to the top of a mountain. Hiker 1 takes a steep route directly from camp to the top. Hiker 2 takes a winding route that is not steep from camp to the top. Hiker 3 starts by taking the steep route but halfway to the top decides it is too difficult for him. Therefore he returns to camp and takes the non-steep path to the top. All three hikers are traveling along paths in a gravitational field. Since gravity is a force in which energy is conserved, the gravitational field is conservative. By independence of path, the total amount of work done by gravity on each of the hikers is the same because they all started in the same place and ended in the same place. The work done by the hikers includes other factors such as friction and muscle movement, so the total amount of energy each one expended is not the same, but the net energy expended against gravity is the same for all three hikers."
+    },
+    {
+     "type": "p",
+     "text": "We have shown that if **F** is conservative, then **F** is independent of path. It turns out that if the domain of **F** is open and connected, then the converse is also true. That is, if **F** is independent of path and the domain of **F** is open and connected, then **F** is conservative. Therefore, the set of conservative vector fields on open and connected domains is precisely the set of vector fields independent of path."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If **F** is a continuous vector field that is independent of path and the domain *D* of **F** is open and connected, then **F** is conservative."
+      }
+     ],
+     "title": "The Path Independence Test for Conservative Fields"
+    }
+   ],
+   "title": "Proof (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "*A proof of The Path Independence Test for Conservative Fields is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Proof (continued)"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As we have learned, the Fundamental Theorem for Line Integrals says that if **F** is conservative, then calculating ${\\displaystyle \\int_{C}\\text{F}\\cdot dr}$ has two steps: first, find a potential function $f$ for **F** and, second, calculate $f(P_{1})-f(P_{0}),$ where $P_{1}$ is the endpoint of *C* and $P_{0}$ is the starting point. To use this theorem for a conservative field **F**, we must be able to find a potential function $f$ for **F**. Therefore, we must answer the following question: Given a conservative vector field **F**, how do we find a function $f$ such that $\\text{∇}f=\\text{F}?$ Before giving a general method for finding a potential function, let’s motivate the method with an example."
+    }
+   ],
+   "title": "Conservative Vector Fields and Potential Functions"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 6.31",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a potential function for $\\text{F}(x,y)=〈2xy^{3},3x^{2}y^{2}+\\cos (y)〉,$ thereby showing that **F** is conservative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Suppose that $f(x,y)$ is a potential function for **F**. Then, $\\text{∇}f=\\text{F},$ and therefore"
+     },
+     {
+      "type": "math",
+      "tex": "f_{x}=2xy^{3}\\,\\text{and}\\,f_{y}=3x^{2}y^{2}+\\cos \\,y."
+     },
+     {
+      "type": "p",
+      "text": "Integrating the equation $f_{x}=2xy^{3}$ with respect to *x* yields the equation"
+     },
+     {
+      "type": "math",
+      "tex": "f(x,y)=x^{2}y^{3}+h(y)."
+     },
+     {
+      "type": "p",
+      "text": "Notice that since we are integrating a two-variable function with respect to *x*, we must add a constant of integration that is a constant with respect to *x*, but may still be a function of *y*. The equation $f(x,y)=x^{2}y^{3}+h(y)$ can be confirmed by taking the partial derivative with respect to *x*:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{\\partial f}{\\partial x}=\\frac{\\partial}{\\partial x}(x^{2}y^{3})+\\frac{\\partial}{\\partial x}(h(y))=2xy^{3}+0=2xy^{3}."
+     },
+     {
+      "type": "p",
+      "text": "Since $f$ is a potential function for **F**,"
+     },
+     {
+      "type": "math",
+      "tex": "f_{y}=3x^{2}y^{2}+\\cos (y),"
+     },
+     {
+      "type": "p",
+      "text": "and therefore"
+     },
+     {
+      "type": "math",
+      "tex": "3x^{2}y^{2}+h'(y)=3x^{2}y^{2}+\\cos (y)."
+     },
+     {
+      "type": "p",
+      "text": "This implies that $h'(y)=\\cos \\,y,$ so $h(y)=\\sin \\,y+C.$ Therefore, *any* function of the form $f(x,y)=x^{2}y^{3}+\\sin (y)+C$ is a potential function. Taking, in particular, $C=0$ gives the potential function $f(x,y)=x^{2}y^{3}+\\sin (y).$"
+     },
+     {
+      "type": "p",
+      "text": "To verify that $f$ is a potential function, note that $\\text{∇}f=〈2xy^{3},3x^{2}y^{2}+\\cos \\,y〉=\\text{F}.$"
+     }
+    ]
+   },
+   "title": "Finding a Potential Function"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.28",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a potential function for $\\text{F}(x,y)=〈e^{x}y^{3}+y,3e^{x}y^{2}+x〉.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x,y)=e^{x}y^{3}+xy$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps in Example 6.31."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^x y^3+x y"
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The logic of the previous example extends to finding the potential function for any conservative vector field in ${\\mathbb{R}}^{2}.$ Thus, we have the following problem-solving strategy for finding potential functions:"
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Integrate *P* with respect to *x*. This results in a function of the form $g(x,y)+h(y),$ where $h(y)$ is unknown.",
+        "Take the partial derivative of $g(x,y)+h(y)$ with respect to *y*, which results in the function $g_{y}(x,y)+h'(y).$",
+        "Use the equation $g_{y}(x,y)+h'(y)=Q(x,y)$ to find $h'(y).$",
+        "Integrate $h'(y)$ to find $h(y).$",
+        "Any function of the form $f(x,y)=g(x,y)+h(y)+C,$ where *C* is a constant, is a potential function for **F**."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Problem-Solving Strategy: Finding a Potential Function for a Conservative Vector Field $\\text{F}(x,y)=〈P(x,y),Q(x,y)〉$"
+    },
+    {
+     "type": "p",
+     "text": "We can adapt this strategy to find potential functions for vector fields in ${\\mathbb{R}}^{3},$ as shown in the next example."
+    }
+   ],
+   "title": "Conservative Vector Fields and Potential Functions (continued)"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 6.32",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a potential function for $\\text{F}(x,y,z)=〈2xy,x^{2}+2yz^{3},3y^{2}z^{2}+2z〉,$ thereby showing that $\\text{F}$ is conservative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Suppose that $f$ is a potential function. Then, $\\text{∇}f=\\text{F}$ and therefore $f_{x}=2xy.$ Integrating this equation with respect to *x* yields the equation $f(x,y,z)=x^{2}y+g(y,z)$ for some function *g*. Notice that, in this case, the constant of integration with respect to *x* is a function of *y* and *z*."
+     },
+     {
+      "type": "p",
+      "text": "Since $f$ is a potential function,"
+     },
+     {
+      "type": "math",
+      "tex": "x^{2}+2yz^{3}=f_{y}=x^{2}+g_{y}."
+     },
+     {
+      "type": "p",
+      "text": "Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "g_{y}=2yz^{3}."
+     },
+     {
+      "type": "p",
+      "text": "Integrating this function with respect to *y* yields"
+     },
+     {
+      "type": "math",
+      "tex": "g(y,z)=y^{2}z^{3}+h(z)"
+     },
+     {
+      "type": "p",
+      "text": "for some function $h(z)$ of *z* alone. (Notice that, because we know that *g* is a function of only *y* and *z*, we do not need to write $g(y,z)=y^{2}z^{3}+h(x,z).)$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "f(x,y,z)=x^{2}y+g(y,z)=x^{2}y+y^{2}z^{3}+h(z)."
+     },
+     {
+      "type": "p",
+      "text": "To find $f$, we now must only find *h*. Since $f$ is a potential function,"
+     },
+     {
+      "type": "math",
+      "tex": "3y^{2}z^{2}+2z=g_{z}=3y^{2}z^{2}+h'(z)."
+     },
+     {
+      "type": "p",
+      "text": "This implies that $h'(z)=2z,$ so $h(z)=z^{2}+C.$ Letting $C=0$ gives the potential function"
+     },
+     {
+      "type": "math",
+      "tex": "f(x,y,z)=x^{2}y+y^{2}z^{3}+z^{2}."
+     },
+     {
+      "type": "p",
+      "text": "To verify that $f$ is a potential function, note that $\\text{∇}f=〈2xy,x^{2}+2yz^{3},3y^{2}z^{2}+2z〉=\\text{F}.$"
+     }
+    ]
+   },
+   "title": "Finding a Potential Function in ${\\mathbb{R}}^{3}$"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.29",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a potential function for $\\text{F}(x,y,z)=〈12x^{2},\\cos \\,y\\,\\cos \\,z,1-\\sin \\,y\\,\\sin \\,z〉.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x,y,z)=4x^{3}+\\sin \\,y\\,\\cos \\,z+z$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Following Example 6.32, begin by integrating with respect to *x.*"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "4 x^3+ sin y cos z+z"
+   }
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We can apply the process of finding a potential function to a **gravitational force**. Recall that, if an object has unit mass and is located at the origin, then the gravitational force in ${\\mathbb{R}}^{2}$ that the object exerts on another object of unit mass at the point $(x,y)$ is given by vector field"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{F}(x,y)=-G〈\\frac{x}{(x^{2}+y^{2})^{3/2}},\\frac{y}{(x^{2}+y^{2})^{3/2}}〉,"
+    },
+    {
+     "type": "p",
+     "text": "where *G* is the universal gravitational constant. In the next example, we build a potential function for **F**, thus confirming what we already know: that gravity is conservative."
+    }
+   ],
+   "title": "Conservative Vector Fields and Potential Functions (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 6.33",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a potential function $f$ for $\\text{F}(x,y)=-G〈\\frac{x}{(x^{2}+y^{2})^{3/2}},\\frac{y}{(x^{2}+y^{2})^{3/2}}〉.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Suppose that $f$ is a potential function. Then, $\\text{∇}f=\\text{F}$ and therefore"
+     },
+     {
+      "type": "math",
+      "tex": "f_{x}=\\frac{-Gx}{(x^{2}+y^{2})^{3/2}}."
+     },
+     {
+      "type": "p",
+      "text": "To integrate this function with respect to *x,* we can use *u*-substitution. If $u=x^{2}+y^{2},$ then $\\frac{du}{2}=xdx,$ so"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int \\frac{-Gx}{(x^{2}+y^{2})^{3/2}}}dx & ={\\displaystyle \\int \\frac{-G}{2u^{3/2}}}du \\\\ & =\\frac{G}{\\sqrt{u}}+h(y) \\\\ & =\\frac{G}{\\sqrt{x^{2}+y^{2}}}+h(y)\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "for some function $h(y).$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "f(x,y)=\\frac{G}{\\sqrt{x^{2}+y^{2}}}+h(y)."
+     },
+     {
+      "type": "p",
+      "text": "Since $f$ is a potential function for **F**,"
+     },
+     {
+      "type": "math",
+      "tex": "f_{y}=\\frac{-Gy}{(x^{2}+y^{2})^{3/2}}."
+     },
+     {
+      "type": "p",
+      "text": "Since $f(x,y)=\\frac{G}{\\sqrt{x^{2}+y^{2}}}+h(y),$ $f_{y}$ also equals $\\frac{-Gy}{(x^{2}+y^{2})^{3/2}}+h'(y).$"
+     },
+     {
+      "type": "p",
+      "text": "Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{-Gy}{(x^{2}+y^{2})^{3/2}}+h'(y)=\\frac{-Gy}{(x^{2}+y^{2})^{3/2}},"
+     },
+     {
+      "type": "p",
+      "text": "which implies that $h'(y)=0.$ Thus, we can take $h(y)$ to be any constant; in particular, we can let $h(y)=0.$ The function"
+     },
+     {
+      "type": "math",
+      "tex": "f(x,y)=\\frac{G}{\\sqrt{x^{2}+y^{2}}}"
+     },
+     {
+      "type": "p",
+      "text": "is a potential function for the gravitational field **F**. To confirm that $f$ is a potential function, note that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\text{∇}f & =〈-\\frac{1}{2}\\,\\frac{G}{(x^{2}+y^{2})^{3/2}}(2x),-\\frac{1}{2}\\,\\frac{G}{(x^{2}+y^{2})^{3/2}}(2y)〉 \\\\ & =〈\\frac{-Gx}{(x^{2}+y^{2})^{3/2}},\\frac{-Gy}{(x^{2}+y^{2})^{3/2}}〉 \\\\ & =\\text{F}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding a Potential Function"
+  },
+  {
+   "id": "c23",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.30",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find a potential function $f$ for the three-dimensional gravitational force $\\text{F}(x,y,z)=〈\\frac{-Gx}{(x^{2}+y^{2}+z^{2})^{3/2}},\\frac{-Gy}{(x^{2}+y^{2}+z^{2})^{3/2}},\\frac{-Gz}{(x^{2}+y^{2}+z^{2})^{3/2}}〉.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x,y,z)=\\frac{G}{\\sqrt{x^{2}+y^{2}+z^{2}}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the Problem-Solving Strategy."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(G/(sqrt(x^2+y^2+z^2)))"
+   }
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Until now, we have worked with vector fields that we know are conservative, but if we are not told that a vector field is conservative, we need to be able to test whether it is conservative. Recall that, if **F** is conservative, then **F** has the cross-partial property (see (see above)). That is, if $\\text{F}=〈P,Q,R〉$ is conservative, then $P_{y}=Q_{x},P_{z}=R_{x},$ and $Q_{z}=R_{y}.$ So, if **F** has the cross-partial property, then is **F** conservative? If the domain of **F** is open and simply connected, then the answer is yes."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $\\text{F}=〈P,Q,R〉$ is a vector field on an open, simply connected region *D* and $P_{y}=Q_{x},P_{z}=R_{x},$ and $Q_{z}=R_{y}$ throughout *D*, then **F** is conservative."
+      }
+     ],
+     "title": "The Cross-Partial Test for Conservative Fields"
+    },
+    {
+     "type": "p",
+     "text": "Although a proof of this theorem is beyond the scope of the text, we can discover its power with some examples. Later, we see why it is necessary for the region to be simply connected."
+    },
+    {
+     "type": "p",
+     "text": "Combining this theorem with the cross-partial property, we can determine whether a given vector field is conservative:"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $\\text{F}=〈P,Q,R〉$ be a vector field on an open, simply connected region *D.* Then $P_{y}=Q_{x},P_{z}=R_{x},$ and $Q_{z}=R_{y}$ throughout *D* if and only if **F** is conservative."
+      }
+     ],
+     "title": "Cross-Partial Property of Conservative Fields"
+    },
+    {
+     "type": "p",
+     "text": "The version of this theorem in ${\\mathbb{R}}^{2}$ is also true. If $\\text{F}=〈P,Q〉$ is a vector field on an open, simply connected domain in ${\\mathbb{R}}^{2},$ then **F** is conservative if and only if $P_{y}=Q_{x}.$"
+    }
+   ],
+   "title": "Testing a Vector Field"
+  },
+  {
+   "id": "x25",
+   "kind": "example",
+   "label": "Example 6.34",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether vector field $\\text{F}(x,y,z)=〈xy^{2}z,x^{2}yz,z^{2}〉$ is conservative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Note that the domain of **F** is all of ${\\mathbb{R}}^{2}$ and ${\\mathbb{R}}^{3}$ is simply connected. Therefore, we can use (see above) to determine whether **F** is conservative. Let"
+     },
+     {
+      "type": "math",
+      "tex": "P(x,y,z)=xy^{2}z,Q(x,y,z)=x^{2}yz,\\,\\text{and}\\,R(x,y,z)=z^{2}."
+     },
+     {
+      "type": "p",
+      "text": "Since $Q_{z}=x^{2}y$ and $R_{y}=0,$ the vector field is not conservative."
+     }
+    ]
+   },
+   "title": "Determining Whether a Vector Field Is Conservative"
+  },
+  {
+   "id": "x26",
+   "kind": "example",
+   "label": "Example 6.35",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine vector field $\\text{F}(x,y)=〈x\\,\\ln (y),\\frac{x^{2}}{2y}〉$ is conservative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Note that the domain of **F** is the part of ${\\mathbb{R}}^{2}$ in which $y>0.$ Thus, the domain of **F** is part of a plane above the *x*-axis, and this domain is simply connected (there are no holes in this region and this region is connected). Therefore, we can use (see above) to determine whether **F** is conservative. Let"
+     },
+     {
+      "type": "math",
+      "tex": "P(x,y)=x\\,\\ln (y)\\,\\text{and}\\,Q(x,y)=\\frac{x^{2}}{2y}."
+     },
+     {
+      "type": "p",
+      "text": "Then $P_{y}=\\frac{x}{y}=Q_{x}$ and thus **F** is conservative."
+     }
+    ]
+   },
+   "title": "Determining Whether a Vector Field Is Conservative"
+  },
+  {
+   "id": "c27",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.31",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether $\\text{F}(x,y)=〈\\sin \\,x\\,\\cos \\,y,\\cos \\,x\\,\\sin \\,y〉$ is conservative."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "It is conservative."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r28",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When using (see above), it is important to remember that a theorem is a tool, and like any tool, it can be applied only under the right conditions. In the case of (see above), the theorem can be applied only if the domain of the vector field is simply connected."
+    },
+    {
+     "type": "p",
+     "text": "To see what can go wrong when misapplying the theorem, consider the vector field:"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{F}(x,y)=\\frac{y}{x^{2}+y^{2}}\\text{i}+\\frac{-x}{x^{2}+y^{2}}\\text{j}."
+    },
+    {
+     "type": "p",
+     "text": "This vector field satisfies the cross-partial property, since"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{\\partial}{\\partial y}\\left(\\frac{y}{x^{2}+y^{2}}\\right)=\\frac{(x^{2}+y^{2})-y(2y)}{(x^{2}+y^{2})^{2}}=\\frac{x^{2}-y^{2}}{(x^{2}+y^{2})^{2}}"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{\\partial}{\\partial x}\\left(\\frac{-x}{x^{2}+y^{2}}\\right)=\\frac{-(x^{2}+y^{2})+x(2x)}{(x^{2}+y^{2})^{2}}=\\frac{x^{2}-y^{2}}{(x^{2}+y^{2})^{2}}."
+    },
+    {
+     "type": "p",
+     "text": "Since **F** satisfies the cross-partial property, we might be tempted to conclude that **F** is conservative. However, **F** is not conservative. To see this, let"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(t)=〈\\cos \\,t,\\sin \\,t〉,0\\le t\\le \\pi"
+    },
+    {
+     "type": "p",
+     "text": "be a parameterization of the upper half of a unit circle oriented counterclockwise (denote this $C_{1})$ and let"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{s}(t)=〈\\cos \\,t,-\\sin \\,t〉,0\\le t\\le \\pi"
+    },
+    {
+     "type": "p",
+     "text": "be a parameterization of the lower half of a unit circle oriented clockwise (denote this $C_{2}).$ Notice that $C_{1}$ and $C_{2}$ have the same starting point and endpoint. Since $\\sin^{2}t+\\cos^{2}t=1,$"
+    }
+   ],
+   "title": "Testing a Vector Field (continued)"
+  },
+  {
+   "id": "r29",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\text{F}(\\text{r}(t)).{\\text{r}}'(t)=〈\\sin (t),-\\cos (t)〉.〈-\\sin (t),\\cos (t)〉=-1"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\text{F}(s(t))\\cdot \\text{s}'(t) & =〈-\\sin \\,t,-\\cos \\,t〉\\cdot 〈-\\sin \\,t,-\\cos \\,t〉 \\\\ & =\\sin^{2}t+\\cos^{2}t \\\\ & =1.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}}={\\displaystyle \\int_{0}^{\\pi}-1dt}=-\\pi \\,\\text{and}\\,{\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}=}{\\displaystyle \\int_{0}^{\\pi}1dt}=\\pi ."
+    },
+    {
+     "type": "p",
+     "text": "Thus, $C_{1}$ and $C_{2}$ have the same starting point and endpoint, but ${\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}}\\ne {\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}}.$ Therefore, **F** is not independent of path and **F** is not conservative."
+    },
+    {
+     "type": "p",
+     "text": "To summarize: **F** satisfies the cross-partial property and yet **F** is not conservative. What went wrong? Does this contradict (see above)? The issue is that the domain of **F** is all of ${\\mathbb{R}}^{2}$ except for the origin. In other words, the domain of **F** has a hole at the origin, and therefore the domain is not simply connected. Since the domain is not simply connected, (see above) does not apply to **F**."
+    }
+   ],
+   "title": "Testing a Vector Field (continued)"
+  },
+  {
+   "id": "r30",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We close this section by looking at an example of the usefulness of the Fundamental Theorem for Line Integrals. Now that we can test whether a vector field is conservative, we can always decide whether the Fundamental Theorem for Line Integrals can be used to calculate a vector line integral. If we are asked to calculate an integral of the form ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}},$ then our first question should be: Is **F** conservative? If the answer is yes, then we should find a potential function and use the Fundamental Theorem for Line Integrals to calculate the integral. If the answer is no, then the Fundamental Theorem for Line Integrals can’t help us and we have to use other methods, such as using (see above)."
+    }
+   ],
+   "title": "Testing a Vector Field (continued)"
+  },
+  {
+   "id": "x31",
+   "kind": "example",
+   "label": "Example 6.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}},$ where $\\text{F}(x,y,z)=〈2xe^{y}z+e^{x}z,x^{2}e^{y}z,x^{2}e^{y}+e^{x}〉$ and *C* is any smooth curve that goes from the origin to $(1,1,1).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Before trying to compute the integral, we need to determine whether **F** is conservative and whether the domain of **F** is simply connected. The domain of **F** is all of ${\\mathbb{R}}^{3},$ which is connected and has no holes. Therefore, the domain of **F** is simply connected. Let"
+     },
+     {
+      "type": "math",
+      "tex": "P(x,y,z)=2xe^{y}z+e^{x}z,Q(x,y,z)=x^{2}e^{y}z,\\,\\text{and}\\,R(x,y,z)=x^{2}e^{y}+e^{x}"
+     },
+     {
+      "type": "p",
+      "text": "so that $\\text{F}=〈P,Q,R〉.$ Since the domain of **F** is simply connected, we can check the cross partials to determine whether **F** is conservative. Note that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}P_{y} & = & 2xe^{y}z=Q_{x} \\\\ P_{z} & = & 2xe^{y}+e^{x}=R_{x} \\\\ Q_{z} & = & x^{2}e^{y}=R_{y}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, **F** is conservative."
+     },
+     {
+      "type": "p",
+      "text": "To evaluate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ using the Fundamental Theorem for Line Integrals, we need to find a potential function $f$ for **F**. Let $f$ be a potential function for **F**. Then, $\\text{∇}f=\\text{F},$ and therefore $f_{x}=2xe^{y}z+e^{x}z.$ Integrating this equation with respect to *x* gives $f(x,y,z)=x^{2}e^{y}z+e^{x}z+h(y,z)$ for some function *h*. Differentiating this equation with respect to *y* gives $x^{2}e^{y}z+h_{y}=Q=x^{2}e^{y}z,$ which implies that $h_{y}=0.$ Therefore, *h* is a function of *z* only, and $f(x,y,z)=x^{2}e^{y}z+e^{x}z+h(z).$ To find *h*, note that $f_{z}=x^{2}e^{y}+e^{x}+h'(z)=R=x^{2}e^{y}+e^{x}.$ Therefore, $h'(z)=0$ and we can take $h(z)=0.$ A potential function for **F** is $f(x,y,z)=x^{2}e^{y}z+e^{x}z.$"
+     },
+     {
+      "type": "p",
+      "text": "Now that we have a potential function, we can use the Fundamental Theorem for Line Integrals to evaluate the integral. By the theorem,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{C}\\text{∇}f\\cdot d\\text{r}} \\\\ & =f(1,1,1)-f(0,0,0) \\\\ & =2e.\\end{array}"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "Notice that if we hadn’t recognized that **F** is conservative, we would have had to parameterize *C* and use (see above). Since curve *C* is unknown, using the Fundamental Theorem for Line Integrals is much simpler."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Using the Fundamental Theorem for Line Integrals"
+  },
+  {
+   "id": "c32",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.32",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}},$ where $\\text{F}(x,y)=〈\\sin \\,x\\,\\sin \\,y,5-\\cos \\,x\\,\\cos \\,y〉$ and *C* is a semicircle with starting point $(0,\\pi )$ and endpoint $(0,-\\pi ).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-10\\pi$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the Fundamental Theorem for Line Integrals."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-10 pi"
+   }
+  },
+  {
+   "id": "x33",
+   "kind": "example",
+   "label": "Example 6.37",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $\\text{F}(x,y)=〈2xy^{2},2x^{2}y〉$ be a force field. Suppose that a particle begins its motion at the origin and ends its movement at any point in a plane that is not on the *x*-axis or the *y*-axis. Furthermore, the particle’s motion can be modeled with a smooth parameterization. Show that **F** does positive work on the particle."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We show that **F** does positive work on the particle by showing that **F** is conservative and then by using the Fundamental Theorem for Line Integrals."
+     },
+     {
+      "type": "p",
+      "text": "To show that **F** is conservative, suppose $f(x,y)$ were a potential function for **F**. Then, $\\text{∇}f=\\text{F}=〈2xy^{2},2x^{2}y〉$ and therefore $f_{x}=2xy^{2}$ and $f_{y}=2x^{2}y.$ Equation $f_{x}=2xy^{2}$ implies that $f(x,y)=x^{2}y^{2}+h(y).$ Deriving both sides with respect to *y* yields $f_{y}=2x^{2}y+h'(y).$ Therefore, $h'(y)=0$ and we can take $h(y)=0.$"
+     },
+     {
+      "type": "p",
+      "text": "If $f(x,y)=x^{2}y^{2},$ then note that $\\text{∇}f=〈2xy^{2},2x^{2}y〉=\\text{F},$ and therefore $f$ is a potential function for **F**."
+     },
+     {
+      "type": "p",
+      "text": "Let $(a,b)$ be the point at which the particle stops is motion, and let *C* denote the curve that models the particle’s motion. The work done by **F** on the particle is ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}.$ By the Fundamental Theorem for Line Integrals,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{C}\\text{∇}f\\cdot d\\text{r}} \\\\ & =f(a,b)-f(0,0) \\\\ & =a^{2}b^{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Since $a\\ne 0$ and $b\\ne 0,$ by assumption, $a^{2}b^{2}>0.$ Therefore, ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}>0,$ and **F** does positive work on the particle."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "Notice that this problem would be much more difficult without using the Fundamental Theorem for Line Integrals. To apply the tools we have learned, we would need to give a curve parameterization and use (see above). Since the path of motion *C* can be as exotic as we wish (as long as it is smooth), it can be very difficult to parameterize the motion of the particle."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Work Done on a Particle"
+  },
+  {
+   "id": "c34",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.33",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $\\text{F}(x,y)=〈4x^{3}y^{4},4x^{4}y^{3}〉,$ and suppose that a particle moves from point $(4,4)$ to $(1,1)$ along any smooth curve. Is the work done by **F** on the particle positive, negative, or zero?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Negative"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the Fundamental Theorem for Line Integrals."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r35",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The theorems in this section require curves that are closed, simple, or both, and regions that are connected or simply connected.",
+      "The line integral of a conservative vector field can be calculated using the Fundamental Theorem for Line Integrals. This theorem is a generalization of the Fundamental Theorem of Calculus in higher dimensions. Using this theorem usually makes the calculation of the line integral easier.",
+      "Conservative fields are independent of path. The line integral of a conservative field depends only on the value of the potential function at the endpoints of the domain curve.",
+      "Given vector field **F**, we can test whether **F** is conservative by using the cross-partial property. If **F** has the cross-partial property and the domain is simply connected, then **F** is conservative (and thus has a potential function). If **F** is conservative, we can find a potential function by using the Problem-Solving Strategy.",
+      "The circulation of a conservative vector field on a simply connected domain over a closed curve is zero."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r36",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Fundamental Theorem for Line Integrals**",
+       "${\\displaystyle \\int_{C}\\text{∇}f\\cdot d\\text{r}}=f(\\text{r}(b))-f(\\text{r}(a))$"
+      ],
+      [
+       "**Circulation of a conservative field over curve C that encloses a simply connected region**",
+       "${\\displaystyle \\int_{C}\\text{∇}f\\cdot d\\text{r}}=0$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e99",
+   "number": 99,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True* or *False?* If vector field **F** is conservative on the open and connected region *D*, then line integrals of **F** are path independent on *D*, regardless of the shape of *D*."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793473478",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "true"
+   }
+  },
+  {
+   "id": "e100",
+   "number": 100,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True* or *False?* Function $\\text{r}(t)=\\text{a}+t(\\text{b}-\\text{a}),$ where $0\\le t\\le 1,$ parameterizes the straight-line segment from $\\text{a}\\,\\text{to}\\,\\text{b}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794101732",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e101",
+   "number": 101,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True* or *False?* Vector field $\\text{F}(x,y,z)=(y\\,\\sin \\,z)\\text{i}+(x\\,\\sin \\,z)\\text{j}+(xy\\,\\cos \\,z)\\text{k}$ is conservative."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793501940",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "true"
+   }
+  },
+  {
+   "id": "e102",
+   "number": 102,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "*True* or *False?* Vector field $\\text{F}(x,y,z)=y\\text{i}+(x+z)\\text{j}-y\\text{k}$ is conservative."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794212821",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e103",
+   "number": 103,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Verify the Fundamental Theorem of Line Integrals for ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ by computing the integral using a parameterization and, separately, by finding a potential function for the case when $\\text{F}(x,y)=(2x+2y)\\text{i}+(2x+2y)\\text{j}$ and *C* is a portion of circle $x^{2}+y^{2}=25$ oriented counterclockwise from (5, 0) to (3, 4)."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794020793",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}}=24$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "24"
+   }
+  },
+  {
+   "id": "e104",
+   "number": 104,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find ${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}},$ where $\\text{F}(x,y)=(ye^{xy}+\\cos \\,x)\\text{i}+\\left(xe^{xy}+\\frac{1}{y^{2}+1}\\right)\\text{j}$ and *C* is a portion of curve $y=\\sin \\,x$ from $x=0$ to $x=\\frac{\\pi}{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794284458",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e105",
+   "number": 105,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate line integral ${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}},$ where $\\text{F}(x,y)=(e^{x}\\sin \\,y-y)\\text{i}+(e^{x}\\cos \\,y-x-2)\\text{j},$ and *C* is the path given by $\\mathbf{r}(t)=\\left[t^{3}\\sin \\,\\frac{\\pi t}{2}\\right]\\text{i}-\\left[\\frac{\\pi}{2}\\cos \\left(\\frac{\\pi t}{2}+\\frac{\\pi}{2}\\right)\\right]\\text{j}$ for $0\\le t\\le 1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793432382",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}^{}\\text{F}\\cdot d\\text{r}}=e-\\frac{3\\pi}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "e-((3 pi)/2)"
+   }
+  },
+  {
+   "id": "e106",
+   "number": 106,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=2xy^{3}\\text{i}+3y^{2}x^{2}\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793482847",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if it is, find the potential function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e107",
+   "number": 107,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=(-y+e^{x}\\sin \\,y)\\text{i}+[(x+2)e^{x}\\cos \\,y]\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222595",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if it is, find the potential function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Not conservative"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e108",
+   "number": 108,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=(e^{2x}\\sin \\,y)\\text{i}+[e^{2x}\\cos \\,y]\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793354868",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if it is, find the potential function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e109",
+   "number": 109,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=(6x+5y)\\text{i}+(5x+4y)\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793397133",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if it is, find the potential function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Conservative, $f(x,y)=3x^{2}+5xy+2y^{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e110",
+   "number": 110,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=[2x\\,\\cos (y)-y\\,\\cos (x)]\\text{i}+[-x^{2}\\sin (y)-\\sin (x)]\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794054196",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if it is, find the potential function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e111",
+   "number": 111,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=[ye^{x}+\\sin (y)]\\text{i}+[e^{x}+x\\,\\cos (y)]\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794147413",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if it is, find the potential function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Conservative, $f(x,y)=ye^{x}+x\\,\\sin (y)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e112",
+   "number": 112,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{C}(y\\text{i}+x\\text{j})\\cdot d\\text{r}},$ where *C* is any path from (0, 0) to (2, 4)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793281029",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals using the Fundamental Theorem of Line Integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e113",
+   "number": 113,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{C}(2ydx+2xdy)},$ where *C* is the line segment from (0, 0) to (4, 4)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793559400",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals using the Fundamental Theorem of Line Integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}(2ydx+2xdy)}=32$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "32"
+   }
+  },
+  {
+   "id": "e114",
+   "number": 114,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int_{C}\\left[\\arctan \\,\\frac{y}{x}-\\frac{xy}{x^{2}+y^{2}}\\right]dx+\\left[\\frac{x^{2}}{x^{2}+y^{2}}+e^{-y}(1-y)\\right]dy},$ where *C* is any smooth curve from (1, 1) to $(-1,2)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793545004",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals using the Fundamental Theorem of Line Integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e115",
+   "number": 115,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the conservative vector field for the potential function"
+    },
+    {
+     "type": "math",
+     "tex": "f(x,y)=5x^{2}+3xy+{10y}^{2}."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793979093",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the line integrals using the Fundamental Theorem of Line Integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{F}(x,y)=(10x+3y)\\text{i}+(3x+20y)\\text{j}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e116",
+   "number": 116,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=(12xy)\\text{i}+6(x^{2}+y^{2})\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794181384",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e117",
+   "number": 117,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=(e^{x}\\cos \\,y)\\text{i}+6(e^{x}\\sin \\,y)\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793617078",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "**F** is not conservative."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e118",
+   "number": 118,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=(2xye^{x^{2}y})\\text{i}+(x^{2}e^{x^{2}y})\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794171752",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e119",
+   "number": 119,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y,\\,z)=(ye^{z})\\text{i}+(xe^{z})\\text{j}+(xye^{z})\\text{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794163735",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "**F** is conservative and a potential function is $f(x,y,\\,z)=xye^{z}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e120",
+   "number": 120,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y,\\,z)=(\\sin \\,y)\\text{i}-(x\\,\\cos \\,y)\\text{j}+\\text{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793494920",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e121",
+   "number": 121,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y,\\,z)=\\left(-\\frac{1}{y}\\right)\\text{i}+\\left(\\frac{x}{y^{2}}\\right)\\text{j}+(2z-1)\\text{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793640125",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "**F** is conservative and a potential function is $f(x,y,z)=z^{2}-z-\\frac{x}{y}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e122",
+   "number": 122,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y,z)=3z^{2}\\text{i}-\\cos \\,y\\text{j}+2xz\\text{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793563657",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e123",
+   "number": 123,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y,\\,z)=(2xy)\\text{i}+(x^{2}+2yz)\\text{j}+y^{2}\\text{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793925730",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "**F** is conservative and a potential function is $f(x,y,\\,z)=x^{2}y+y^{2}z.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e124",
+   "number": 124,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=(4e^{x}\\cos \\,y)\\text{i}-(4e^{x}\\sin \\,y)\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793547024",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e125",
+   "number": 125,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y)=(ye^{x^{2}})\\text{i}+(x^{2}e^{y^{2}})\\text{j}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793378763",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the vector field is conservative and, if so, find a potential function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "**F** is conservative and a potential function is $f(x,y)=e^{x^{2}y}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e126",
+   "number": 126,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{C}\\nabla f\\cdot d\\text{r}},$ where $f(x,y,\\,z)=\\cos (\\pi x)+\\sin (\\pi y)-xyz$ and *C* is any path that starts at $\\left(1,\\frac{1}{2},2\\right)$ and ends at $(2,1,-1).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793482906",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral using the Fundamental Theorem of Line Integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e127",
+   "number": 127,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\int_{C}\\nabla f\\cdot d\\text{r}},$ where $f(x,y)=xy+e^{x}$ and *C* is a straight line from $(0,0)$ to $(2,1).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793927681",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral using the Fundamental Theorem of Line Integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}\\text{F}\\cdot dr}=e^{2}+1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "e^2+1"
+   }
+  },
+  {
+   "id": "e128",
+   "number": 128,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\int_{C}\\nabla f\\cdot d\\text{r}},$ where $f(x,y)=x^{2}y-x$ and *C* is any path in a plane from (1, 2) to (3, 2)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794213214",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral using the Fundamental Theorem of Line Integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e129",
+   "number": 129,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{C}\\nabla f\\cdot d\\text{r}},$ where $f(x,y,\\,z)=xyz^{2}-yz$ and *C* has initial point (1, 2, 3) and terminal point (3, 5, 1)."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793427728",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral using the Fundamental Theorem of Line Integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}\\text{F}\\cdot dr}=-2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-2"
+   }
+  },
+  {
+   "id": "e130",
+   "number": 130,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Calculate the line integral of **F** over *C*$_{\\text{1}}$."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794292819",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let $\\text{F}(x,y)=2xy^{2}\\text{i}+(2yx^{2}+2y)\\text{j}$ and $G(x,y)=(y+x)\\text{i}+(y-x)\\text{j},$ and let *C*$_{\\text{1}}$ be the curve consisting of the circle of radius 2, centered at the origin and oriented counterclockwise, and *C*$_{\\text{2}}$ be the curve consisting of a line segment from (0, 0) to (1, 1) followed by a line segment from (1, 1) to (3, 1)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_202.webp",
+     "alt": "A vector fields in two dimensions is shown. It has short arrows close to the origin. Longer arrows are in the upper right corner of quadrant 1 and somewhat in the bottom right of quadrant 4, upper left of quadrant 2, and lower left of quadrant 3. The arrows all point away from the origin at about 90-degrees in their respective quadrants. A unit circle with center at the origin is drawn as C_1. Curve C_2 connects the origin, (1,1), and (3,1) with arrowheads pointing in that order.",
+     "width": 247,
+     "height": 263
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_203.webp",
+     "alt": "A vector field has the same curves C_1 and C_2. However, the arrows are different. Here, the arrows spiral out from the origin in a clockwise manner. The further away they are from the origin, the longer they become. They are largely horizontal in quadrants 1 and 3 and largely vertical in quadrants 2 and 4.",
+     "width": 239,
+     "height": 257
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e131",
+   "number": 131,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Calculate the line integral of **G** over *C*$_{\\text{1}}$."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794021708",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let $\\text{F}(x,y)=2xy^{2}\\text{i}+(2yx^{2}+2y)\\text{j}$ and $G(x,y)=(y+x)\\text{i}+(y-x)\\text{j},$ and let *C*$_{\\text{1}}$ be the curve consisting of the circle of radius 2, centered at the origin and oriented counterclockwise, and *C*$_{\\text{2}}$ be the curve consisting of a line segment from (0, 0) to (1, 1) followed by a line segment from (1, 1) to (3, 1)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_202.webp",
+     "alt": "A vector fields in two dimensions is shown. It has short arrows close to the origin. Longer arrows are in the upper right corner of quadrant 1 and somewhat in the bottom right of quadrant 4, upper left of quadrant 2, and lower left of quadrant 3. The arrows all point away from the origin at about 90-degrees in their respective quadrants. A unit circle with center at the origin is drawn as C_1. Curve C_2 connects the origin, (1,1), and (3,1) with arrowheads pointing in that order.",
+     "width": 247,
+     "height": 263
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_203.webp",
+     "alt": "A vector field has the same curves C_1 and C_2. However, the arrows are different. Here, the arrows spiral out from the origin in a clockwise manner. The further away they are from the origin, the longer they become. They are largely horizontal in quadrants 1 and 3 and largely vertical in quadrants 2 and 4.",
+     "width": 239,
+     "height": 257
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C_{1}}\\text{G}\\cdot d\\text{r}}=-8\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-8 pi"
+   }
+  },
+  {
+   "id": "e132",
+   "number": 132,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Calculate the line integral of **F** over *C*$_{\\text{2}}$."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794173339",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let $\\text{F}(x,y)=2xy^{2}\\text{i}+(2yx^{2}+2y)\\text{j}$ and $G(x,y)=(y+x)\\text{i}+(y-x)\\text{j},$ and let *C*$_{\\text{1}}$ be the curve consisting of the circle of radius 2, centered at the origin and oriented counterclockwise, and *C*$_{\\text{2}}$ be the curve consisting of a line segment from (0, 0) to (1, 1) followed by a line segment from (1, 1) to (3, 1)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_202.webp",
+     "alt": "A vector fields in two dimensions is shown. It has short arrows close to the origin. Longer arrows are in the upper right corner of quadrant 1 and somewhat in the bottom right of quadrant 4, upper left of quadrant 2, and lower left of quadrant 3. The arrows all point away from the origin at about 90-degrees in their respective quadrants. A unit circle with center at the origin is drawn as C_1. Curve C_2 connects the origin, (1,1), and (3,1) with arrowheads pointing in that order.",
+     "width": 247,
+     "height": 263
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_203.webp",
+     "alt": "A vector field has the same curves C_1 and C_2. However, the arrows are different. Here, the arrows spiral out from the origin in a clockwise manner. The further away they are from the origin, the longer they become. They are largely horizontal in quadrants 1 and 3 and largely vertical in quadrants 2 and 4.",
+     "width": 239,
+     "height": 257
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e133",
+   "number": 133,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Calculate the line integral of **G** over *C*$_{\\text{2}}$."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793515011",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let $\\text{F}(x,y)=2xy^{2}\\text{i}+(2yx^{2}+2y)\\text{j}$ and $G(x,y)=(y+x)\\text{i}+(y-x)\\text{j},$ and let *C*$_{\\text{1}}$ be the curve consisting of the circle of radius 2, centered at the origin and oriented counterclockwise, and *C*$_{\\text{2}}$ be the curve consisting of a line segment from (0, 0) to (1, 1) followed by a line segment from (1, 1) to (3, 1)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_202.webp",
+     "alt": "A vector fields in two dimensions is shown. It has short arrows close to the origin. Longer arrows are in the upper right corner of quadrant 1 and somewhat in the bottom right of quadrant 4, upper left of quadrant 2, and lower left of quadrant 3. The arrows all point away from the origin at about 90-degrees in their respective quadrants. A unit circle with center at the origin is drawn as C_1. Curve C_2 connects the origin, (1,1), and (3,1) with arrowheads pointing in that order.",
+     "width": 247,
+     "height": 263
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_203.webp",
+     "alt": "A vector field has the same curves C_1 and C_2. However, the arrows are different. Here, the arrows spiral out from the origin in a clockwise manner. The further away they are from the origin, the longer they become. They are largely horizontal in quadrants 1 and 3 and largely vertical in quadrants 2 and 4.",
+     "width": 239,
+     "height": 257
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C_{2}}\\text{G}\\cdot d\\text{r}}=7$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "7"
+   }
+  },
+  {
+   "id": "e134",
+   "number": 134,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Let $\\text{F}(x,y,z)=x^{2}\\text{i}+z\\,\\sin (yz)\\text{j}+y\\,\\sin (yz)\\text{k}.$ Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot dr},$ where *C* is a path from $A=(0,0,1)$ to $B=(3,1,2).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793570825",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let $\\text{F}(x,y)=2xy^{2}\\text{i}+(2yx^{2}+2y)\\text{j}$ and $G(x,y)=(y+x)\\text{i}+(y-x)\\text{j},$ and let *C*$_{\\text{1}}$ be the curve consisting of the circle of radius 2, centered at the origin and oriented counterclockwise, and *C*$_{\\text{2}}$ be the curve consisting of a line segment from (0, 0) to (1, 1) followed by a line segment from (1, 1) to (3, 1)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_202.webp",
+     "alt": "A vector fields in two dimensions is shown. It has short arrows close to the origin. Longer arrows are in the upper right corner of quadrant 1 and somewhat in the bottom right of quadrant 4, upper left of quadrant 2, and lower left of quadrant 3. The arrows all point away from the origin at about 90-degrees in their respective quadrants. A unit circle with center at the origin is drawn as C_1. Curve C_2 connects the origin, (1,1), and (3,1) with arrowheads pointing in that order.",
+     "width": 247,
+     "height": 263
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_203.webp",
+     "alt": "A vector field has the same curves C_1 and C_2. However, the arrows are different. Here, the arrows spiral out from the origin in a clockwise manner. The further away they are from the origin, the longer they become. They are largely horizontal in quadrants 1 and 3 and largely vertical in quadrants 2 and 4.",
+     "width": 239,
+     "height": 257
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e135",
+   "number": 135,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot dr}$ of vector field $\\text{F}(x,y,z)=3x^{2}z\\text{i}+z^{2}\\text{j}+(x^{3}+2yz)\\text{k}$ along curve *C* parameterized by $\\mathbf{r}(t)=\\left(\\frac{\\ln \\,t}{\\ln \\,2}\\right)\\text{i}+t^{3/2}\\text{j}+t\\,\\cos (\\pi t)\\mathbf{k},\\,1\\le t\\le 4.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793638778",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let $\\text{F}(x,y)=2xy^{2}\\text{i}+(2yx^{2}+2y)\\text{j}$ and $G(x,y)=(y+x)\\text{i}+(y-x)\\text{j},$ and let *C*$_{\\text{1}}$ be the curve consisting of the circle of radius 2, centered at the origin and oriented counterclockwise, and *C*$_{\\text{2}}$ be the curve consisting of a line segment from (0, 0) to (1, 1) followed by a line segment from (1, 1) to (3, 1)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_202.webp",
+     "alt": "A vector fields in two dimensions is shown. It has short arrows close to the origin. Longer arrows are in the upper right corner of quadrant 1 and somewhat in the bottom right of quadrant 4, upper left of quadrant 2, and lower left of quadrant 3. The arrows all point away from the origin at about 90-degrees in their respective quadrants. A unit circle with center at the origin is drawn as C_1. Curve C_2 connects the origin, (1,1), and (3,1) with arrowheads pointing in that order.",
+     "width": 247,
+     "height": 263
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_203.webp",
+     "alt": "A vector field has the same curves C_1 and C_2. However, the arrows are different. Here, the arrows spiral out from the origin in a clockwise manner. The further away they are from the origin, the longer they become. They are largely horizontal in quadrants 1 and 3 and largely vertical in quadrants 2 and 4.",
+     "width": 239,
+     "height": 257
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}\\text{F}}\\cdot d\\text{r}=159$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "159"
+   }
+  },
+  {
+   "id": "e136",
+   "number": 136,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}=(xy^{2}+3x^{2}y)\\text{i}+(x+y)x^{2}\\text{j};$ *C* is the curve consisting of line segments from $(1,1)$ to $(0,2)$ to $(3,0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793705999",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e137",
+   "number": 137,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}=\\frac{2x}{y^{2}+1}\\text{i}-\\frac{2y(x^{2}+1)}{(y^{2}+1)^{2}}\\text{j};$ *C* is parameterized by $x=t^{3}-1,y=t^{6}-t,0\\le t\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793355109",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}=-1$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e138",
+   "number": 138,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\text{F}=[\\cos (xy^{2})-xy^{2}\\sin (xy^{2})]\\text{i}-2x^{2}y\\,\\sin (xy^{2})\\text{j};$ *C* is curve $\\mathbf{r}(t)=\\left<e^{t},e^{t+1}\\right>,-1\\le t\\le 0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793546436",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e139",
+   "number": 139,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The mass of Earth is approximately $6\\,\\times \\,10^{27}\\text{g}$ and that of the Sun is 330,000 times as much. The gravitational constant is $6.7\\,\\times \\,10^{-8}{\\text{cm}}^{3}/({\\text{s}}^{2}\\cdot \\text{g}).$ The distance of Earth from the Sun is about $1.5\\,\\times \\,10^{12}\\text{cm}.$ Compute, approximately, the work necessary to increase the distance of Earth from the Sun by $1\\,\\text{cm}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794090678",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4\\,\\times \\,10^{29}\\text{erg}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e140",
+   "number": 140,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Let $\\text{F}=(e^{x}\\sin \\,y)\\text{i}+(e^{x}\\cos \\,y)\\text{j}+z^{2}\\text{k}.$ Evaluate the integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\mathbf{r}},$ where $C$ is the curve $\\mathbf{r}(t)=\\left<\\sqrt{t},t^{3},e^{\\sqrt{t}}\\right>,0\\le t\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793491131",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e141",
+   "number": 141,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Let $\\text{r}:[1,2]\\to {\\mathbb{R}}^{2}$ be given by $x=e^{t-1},y=\\sin \\left(\\frac{\\pi}{t}\\right).$ Use a computer to compute the integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}={\\displaystyle \\int_{C}2x\\,\\cos \\,ydx-x^{2}\\sin \\,ydy,}}$ where $\\text{F}=(2x\\,\\cos \\,y)\\text{i}-(x^{2}\\sin \\,y)\\text{j}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793414830",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}\\approx 2.9923}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e142",
+   "number": 142,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a computer algebra system to find the mass of a wire that lies along curve $\\text{r}(t)=(t^{2}-1)\\text{j}+2t\\text{k},0\\le t\\le 1,$ if the density is $\\frac{3}{2}t.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793515506",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e143",
+   "number": 143,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the circulation and flux of field $\\text{F}=-y\\text{i}+x\\text{j}$ around and across the closed semicircular path that consists of semicircular arch ${\\text{r}}_{1}(t)=(a\\,\\cos \\,t)\\text{i}+(a\\,\\sin \\,t)\\text{j},0\\le t\\le \\pi ,$ followed by line segment ${\\text{r}}_{2}(t)=t\\text{i},-a\\le t\\le a.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_204.webp",
+     "alt": "A vector field in two dimensions. The arrows are shorter the closer they are to the origin. They surround the origin in a counterclockwise radial pattern. The outline of the circle has counterclockwise arrows. The upper half of a circle with radius 2 and center at the origin is drawn. (-2,0) and (2,0) are labeled as –a and a, respectively, and the curve is labeled r_1.",
+     "width": 382,
+     "height": 298
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794075585",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{circulation}=\\pi a^{2}\\,\\text{and flux}=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e144",
+   "number": 144,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Compute ${\\displaystyle \\int_{C}\\cos \\,x\\,\\cos \\,ydx-\\sin \\,x\\,\\sin \\,ydy},$ where $\\text{c}(t)=\\left<t,t^{2}\\right>,0\\le t\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793505439",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e145",
+   "number": 145,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Complete the proof of (see above) by showing that $f_{y}=Q(x,y).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793499349",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that the following vector fields are conservative by using a computer. Calculate ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ for the given curve."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "The Fundamental Theorem for Line Integrals",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Let *C* be a piecewise smooth curve with parameterization $\\text{r}(t),a\\le t\\le b.$ Let $f$ be a function of two or three variables with first-order partial derivatives that exist and are continuous on *C*. Then,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{C}\\text{∇}f.d\\text{r}=f(\\text{r}(b))-f(\\text{r}(a)).}"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "By (see above),"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{C}\\text{∇}f.d\\text{r}={\\displaystyle \\int_{a}^{b}\\text{∇}f(\\text{r}(t)).{\\text{r}}'(t)dt.}}"
+    },
+    {
+     "type": "p",
+     "text": "By the chain rule,"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dt}(f(\\text{r}(t))=\\text{∇}f(\\text{r}(t)).{\\text{r}}'(t)."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, by the Fundamental Theorem of Calculus,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\nabla}f.d\\text{r} & ={\\displaystyle \\int_{a}^{b}\\text{∇}f(\\text{r}(t)).{\\text{r}}'(t)dt} \\\\ & ={\\displaystyle \\int_{a}^{b}\\frac{d}{dt}(f(\\text{r}(t))dt} \\\\ & =[f(\\text{r}(t))]_{t=a}^{t=b} \\\\ & =f(\\text{r}(b))-f(\\text{r}(a)).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "We know that if **F** is a conservative vector field, there are potential functions $f$ such that $\\text{∇}f=\\text{F}.$ Therefore ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}={\\displaystyle \\int_{C}\\text{∇}f\\cdot d\\text{r}}=f(\\text{r}(b))-f(\\text{r}(a)).$ In other words, just as with the Fundamental Theorem of Calculus, computing the line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}},$ where **F** is conservative, is a two-step process: (1) find a potential function (“antiderivative”) $f$ for **F** and (2) compute the value of $f$ at the endpoints of *C* and calculate their difference $f(\\text{r}(b))-f(\\text{r}(a)).$ Keep in mind, however, there is one major difference between the Fundamental Theorem of Calculus and the Fundamental Theorem for Line Integrals. *A function of one variable that is continuous must have an antiderivative. However, a vector field, even if it is continuous, does not need to have a potential function.*"
+    },
+    {
+     "type": "p",
+     "text": "Calculate integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r},}$ where $\\text{F}(x,y,z)=〈2x\\,\\ln \\,y,\\frac{x^{2}}{y}+z^{2},2yz〉$ and *C* is a curve with parameterization $\\text{r}(t)=〈t^{2},t,t〉,1\\le t\\le e$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "without using the Fundamental Theorem of Line Integrals and",
+      "using the Fundamental Theorem of Line Integrals."
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "First, let’s calculate the integral without the Fundamental Theorem for Line Integrals and instead use (see above):"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\int_{C}\\text{F}\\cdot d\\text{r} & =\\int_{1}^{e}\\text{F}(\\text{r}(t)).{\\text{r}}'(t)dt \\\\ & =\\int_{1}^{e}\\left\\langle2t^{2}\\ln \\,t,\\frac{t^{4}}{t}+t^{2},2t^{2}\\right\\rangle.\\langle 2t,1,1\\rangle dt \\\\ & =\\int_{1}^{e}(4t^{3}\\ln \\,t+t^{3}+3t^{2})dt \\\\ & =\\int_{1}^{e}4t^{3}\\ln \\,tdt+\\int_{1}^{e}(t^{3}+3t^{2})dt \\\\ & =\\int_{1}^{e}4t^{3}\\ln \\,tdt+\\left[\\frac{t^{4}}{4}+t^{3}\\right]_{1}^{e} \\\\ & =2\\int_{1}^{e}t^{3}\\ln \\,tdt+\\frac{e^{4}}{4}+e^{3}-\\frac{5}{4}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Integral ${\\displaystyle \\int_{1}^{e}t^{3}\\ln \\,tdt}$ requires integration by parts. Let $u=\\ln \\,t$ and $dv=t^{3}.$ Then $u=\\ln \\,t,dv=t^{3}$\n\nand"
+       },
+       {
+        "type": "math",
+        "tex": "du=\\frac{1}{t}dt,v=\\frac{t^{4}}{4}."
+       },
+       {
+        "type": "p",
+        "text": "Therefore,"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}{\\displaystyle \\int_{1}^{e}t^{3}\\ln \\,tdt} & =\\left[\\frac{t^{4}}{4}\\ln \\,t\\right]_{1}^{e}-\\frac{1}{4}{\\displaystyle \\int_{1}^{e}t^{3}dt} \\\\ & =\\frac{e^{4}}{4}-\\frac{1}{4}\\left(\\frac{e^{4}}{4}-\\frac{1}{4}\\right).\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Thus,"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}}\\cdot dr & =4{\\displaystyle \\int_{1}^{e}t^{3}\\ln \\,tdt+\\frac{e^{4}}{4}+e^{3}-\\frac{5}{4}} \\\\ & =4\\left(\\frac{e^{4}}{4}-\\frac{1}{4}\\left(\\frac{e^{4}}{4}-\\frac{1}{4}\\right)\\right)+\\frac{e^{4}}{4}+e^{3}-\\frac{5}{4} \\\\ & =e^{4}-\\frac{e^{4}}{4}+\\frac{1}{4}+\\frac{e^{4}}{4}+e^{3}-\\frac{5}{4} \\\\ & =e^{4}+e^{3}-1.\\end{array}"
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Given that $f(x,y,z)=x^{2}\\ln \\,y+yz^{2}$ is a potential function for **F**, let’s use the Fundamental Theorem for Line Integrals to calculate the integral. Note that"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}}\\cdot d\\text{r} & ={\\displaystyle \\int_{C}\\text{∇}f.d\\text{r}} \\\\ & =f(\\text{r}(e))-f(\\text{r}(1)) \\\\ & =f(e^{2},e,e)-f(1,1,1) \\\\ & =e^{4}+e^{3}-1.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "This calculation is much more straightforward than the calculation we did in (a). As long as we have a potential function, calculating a line integral using the Fundamental Theorem for Line Integrals is much easier than calculating without the theorem."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "Example 6.29 illustrates a nice feature of the Fundamental Theorem of Line Integrals: it allows us to calculate more easily many vector line integrals. As long as we have a potential function, calculating the line integral is only a matter of evaluating the potential function at the endpoints and subtracting."
+    },
+    {
+     "type": "p",
+     "text": "The Fundamental Theorem for Line Integrals has two important consequences. The first consequence is that if **F** is conservative and *C* is a closed curve, then the circulation of **F** along *C* is zero—that is, ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}=0.$ To see why this is true, let $f$ be a potential function for **F**. Since *C* is a closed curve, the terminal point **r**(b) of *C* is the same as the initial point **r**(a) of *C*—that is, $\\text{r}(a)=\\text{r}(b).$ Therefore, by the Fundamental Theorem for Line Integrals,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{C}\\text{∇}f\\cdot d\\text{r}} \\\\ & =f(\\text{r}(b))-f(\\text{r}(a)) \\\\ & =f(\\text{r}(b))-f(\\text{r}(b)) \\\\ & =0.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Recall that the reason a conservative vector field **F** is called “conservative” is because such vector fields model forces in which energy is conserved. We have shown gravity to be an example of such a force. If we think of vector field **F** in integral ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}$ as a gravitational field, then the equation ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}=0$ follows. If a particle travels along a path that starts and ends at the same place, then the work done by gravity on the particle is zero."
+    },
+    {
+     "type": "p",
+     "text": "The second important consequence of the Fundamental Theorem for Line Integrals is that line integrals of conservative vector fields are independent of path—meaning, they depend only on the endpoints of the given curve, and do not depend on the path between the endpoints."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let **F** be a vector field with domain *D*. The vector field **F** is **independent of path** (or **path independent**) if ${\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}}={\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}}$ for any paths $C_{1}$ and $C_{2}$ in *D* with the same initial and terminal points."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The second consequence is stated formally in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If **F** is a conservative vector field, then **F** is independent of path."
+      }
+     ],
+     "title": "Path Independence of Conservative Fields"
+    }
+   ],
+   "label": "book"
+  },
+  {
+   "id": "p2",
+   "title": "The Path Independence Test for Conservative Fields",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If **F** is a continuous vector field that is independent of path and the domain *D* of **F** is open and connected, then **F** is conservative."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "We prove the theorem for vector fields in ${\\mathbb{R}}^{2}.$ The proof for vector fields in ${\\mathbb{R}}^{3}$ is similar. To show that $\\text{F}=〈P,Q〉$ is conservative, we must find a potential function $f$ for **F**. To that end, let *X* be a fixed point in *D*. For any point $(x,y)$ in *D*, let *C* be a path from *X* to $(x,y).$ Define $f$$(x,y)$ by $f(x,y)={\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}.}$ (Note that this definition of $f$ makes sense only because **F** is independent of path. If **F** was not independent of path, then it might be possible to find another path $C'$ from *X* to $(x,y)$ such that ${\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}}\\ne {\\displaystyle \\int_{C}\\text{F}\\cdot d\\text{r}},$ and in such a case $f$$(x,y)$ would not be a function.) We want to show that $f$ has the property $\\text{∇}f=\\text{F}.$"
+    },
+    {
+     "type": "p",
+     "text": "Since domain *D* is open, it is possible to find a disk centered at $(x,y)$ such that the disk is contained entirely inside *D*. Let $(a,y)$ with $a<x$ be a point in that disk. Let *C* be a path from *X* to $(x,y)$ that consists of two pieces: $C_{1}$ and $C_{2}.$ The first piece, $C_{1},$ is any path from *X* to $(a,y)$ that stays inside *D*; $C_{2}$ is the horizontal line segment from $(a,y)$ to $(x,y)$ (Figure 6.29). Then"
+    },
+    {
+     "type": "math",
+     "tex": "f(x,y)={\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}}+{\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}.}"
+    },
+    {
+     "type": "p",
+     "text": "The first integral does not depend on *x*, so"
+    },
+    {
+     "type": "math",
+     "tex": "f_{x}=\\frac{\\partial}{\\partial x}{\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}.}"
+    },
+    {
+     "type": "p",
+     "text": "If we parameterize $C_{2}$ by $\\text{r}(t)=〈t,y〉,a\\le t\\le x,$ then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}f_{x} & =\\frac{\\partial}{\\partial x}\\int_{C_{2}}\\text{F}\\cdot d\\text{r} \\\\ & =\\frac{\\partial}{\\partial x}\\int_{a}^{x}\\text{F}(\\text{r}(t)).{\\text{r}}'(t)dt \\\\ & =\\frac{\\partial}{\\partial x}\\int_{a}^{x}\\text{F}(\\text{r}(t)).\\frac{d}{dt}(\\langle t,y\\rangle )dt \\\\ & =\\frac{\\partial}{\\partial x}\\int_{a}^{x}\\text{F}(\\text{r}(t)).\\langle 1,0\\rangle dt \\\\ & =\\frac{\\partial}{\\partial x}\\int_{a}^{x}P(t,y)dt.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "By the Fundamental Theorem of Calculus (part 1),"
+    },
+    {
+     "type": "math",
+     "tex": "f_{x}=\\frac{\\partial}{\\partial x}{\\displaystyle \\int_{a}^{x}P}(t,y)dt=P(x,y)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_008.webp",
+     "alt": "A diagram of a region D in the rough shape of a backwards C. It is a simply connected region formed by a closed curve. Another curve C_1 is drawn inside D from point X to (a,y). C_2 is a horizontal line segment drawn from (a,y) to (x,y). Arrowheads point to (a,y) on C_1 and to (x,y) on C_2.",
+     "caption": "**Figure 6.29** Here, $C_{1}$ is any path from *X* to $(a,y)$ that stays inside *D*, and $C_{2}$ is the horizontal line segment from $(a,y)$ to $(x,y).$",
+     "width": 428,
+     "height": 511
+    },
+    {
+     "type": "p",
+     "text": "A similar argument using a vertical line segment rather than a horizontal line segment shows that $f_{y}=Q(x,y).$"
+    },
+    {
+     "type": "p",
+     "text": "Therefore $\\text{∇}f=\\text{F}$ and **F** is conservative."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "We have spent a lot of time discussing and proving (see above) and (see above), but we can summarize them simply: a vector field **F** on an open and connected domain is conservative if and only if it is independent of path. This is important to know because conservative vector fields are extremely important in applications, and these theorems give us a different way of viewing what it means to be conservative using path independence."
+    },
+    {
+     "type": "p",
+     "text": "Use path independence to show that vector field $\\text{F}(x,y)=〈x^{2}y,y+5〉$ is not conservative."
+    },
+    {
+     "type": "p",
+     "text": "We can indicate that **F** is not conservative by showing that **F** is not path independent. We do so by giving two different paths, $C_{1}$ and $C_{2},$ that both start at $(0,0)$ and end at $(1,1),$ and yet ${\\displaystyle \\int_{C_{1}}\\text{F}}\\cdot dr\\ne {\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}.}$"
+    },
+    {
+     "type": "p",
+     "text": "Let $C_{1}$ be the curve with parameterization ${\\text{r}}_{1}(t)=〈t,t〉,0\\le t\\le 1$ and let $C_{2}$ be the curve with parameterization ${\\text{r}}_{2}(t)=〈t,t^{2}〉,0\\le t\\le 1$ (Figure 6.30). Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{0}^{1}\\text{F}({\\text{r}}_{1}(t))\\cdot {\\text{r}}_{1}{}'(t)dt} \\\\ & ={\\displaystyle \\int_{0}^{1}〈t^{3},t+5〉\\cdot 〈1,1〉dt}={\\displaystyle \\int_{0}^{1}(t^{3}+t+5)dt} \\\\ & =\\left[\\frac{t^{4}}{4}+\\frac{t^{2}}{2}+5t\\right]_{0}^{1}=\\frac{23}{4}\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}} & ={\\displaystyle \\int_{0}^{1}\\text{F}({\\text{r}}_{2}(t))\\cdot {\\text{r}}_{2}'(t)dt} \\\\ & ={\\displaystyle \\int_{0}^{1}〈t^{4},t^{2}+5〉\\cdot 〈1,2t〉dt}={\\displaystyle \\int_{0}^{1}(t^{4}+2t^{3}+10t)dt} \\\\ & =\\left[\\frac{t^{5}}{5}+\\frac{t^{4}}{2}+5t^{2}\\right]_{0}^{1}=\\frac{57}{10}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Since ${\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}}\\ne {\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r},}$ the value of a line integral of **F** depends on the path between two given points. Therefore, **F** is not independent of path, and **F** is not conservative."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_03_009.webp",
+     "alt": "A vector field drawn in two dimensions. The arrows are roughly the same length. They point directly up but tend to shift to the right in the upper right portion of quadrant 1. Curves C_1 and C_2 connect the origin to point (1,1). They are both simple curves, and their arrowheads point to (1,1).",
+     "caption": "**Figure 6.30** Curves $C_{1}$ and $C_{2}$ are both oriented from left to right.",
+     "width": 340,
+     "height": 348
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "closed curve",
+   "meaning": "a curve that begins and ends at the same point"
+  },
+  {
+   "term": "connected region",
+   "meaning": "a region in which any two points can be connected by a path with a trace contained entirely inside the region"
+  },
+  {
+   "term": "Fundamental Theorem for Line Integrals",
+   "meaning": "the value of line integral ${\\displaystyle \\int_{C}\\text{∇}f\\cdot d\\text{r}}$ depends only on the value of $f$ at the endpoints of *C*: ${\\displaystyle \\int_{C}\\text{∇}f\\cdot d\\text{r}}=f(\\text{r}(b))-f(\\text{r}(a))$"
+  },
+  {
+   "term": "independence of path",
+   "meaning": "a vector field **F** has path independence if ${\\displaystyle \\int_{C_{1}}\\text{F}\\cdot d\\text{r}}={\\displaystyle \\int_{C_{2}}\\text{F}\\cdot d\\text{r}}$ for any curves $C_{1}$ and $C_{2}$ in the domain of **F** with the same initial points and terminal points"
+  },
+  {
+   "term": "simple curve",
+   "meaning": "a curve that does not cross itself"
+  },
+  {
+   "term": "simply connected region",
+   "meaning": "a region that is connected and has the property that any closed curve that lies entirely inside the region encompasses points that are entirely inside the region"
+  }
+ ]
+}

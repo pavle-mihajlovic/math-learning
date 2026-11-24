@@ -1,0 +1,3664 @@
+{
+ "schema": 1,
+ "id": "V3.6.6",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 6,
+ "section": 6,
+ "title": "Surface Integrals",
+ "chapterTitle": "Vector Calculus",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m54004",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/6-6-surface-integrals",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §6.6 “Surface Integrals”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Find the parametric representations of a cylinder, a cone, and a sphere.",
+  "Describe the surface integral of a scalar-valued function over a parametric surface.",
+  "Use a surface integral to calculate the area of a given surface.",
+  "Explain the meaning of an oriented surface, giving an example.",
+  "Describe the surface integral of a vector field.",
+  "Use surface integrals to solve applied problems."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have seen that a line integral is an integral over a path in a plane or in space. However, if we wish to integrate over a surface (a two-dimensional object) rather than a path (a one-dimensional object) in space, then we need a new kind of integral that can handle integration over objects in higher dimensions. We can extend the concept of a line integral to a surface integral to allow us to perform this integration."
+    },
+    {
+     "type": "p",
+     "text": "Surface integrals are important for the same reasons that line integrals are important. They have many applications to physics and engineering, and they allow us to develop higher dimensional versions of the Fundamental Theorem of Calculus. In particular, surface integrals allow us to generalize Green’s theorem to higher dimensions, and they appear in some important theorems we discuss in later sections."
+    }
+   ],
+   "title": "Surface Integrals"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A surface integral is similar to a line integral, except the integration is done over a surface rather than a path. In this sense, surface integrals expand on our study of line integrals. Just as with line integrals, there are two kinds of surface integrals: a surface integral of a scalar-valued function and a surface integral of a vector field."
+    },
+    {
+     "type": "p",
+     "text": "However, before we can integrate over a surface, we need to consider the surface itself. Recall that to calculate a scalar or vector line integral over curve *C*, we first need to parameterize *C*. In a similar way, to calculate a surface integral over surface *S*, we need to parameterize *S*. That is, we need a working concept of a **parameterized surface** (or a **parametric surface**), in the same way that we already have a concept of a parameterized curve."
+    },
+    {
+     "type": "p",
+     "text": "A parameterized surface is given by a description of the form"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉."
+    },
+    {
+     "type": "p",
+     "text": "Notice that this parameterization involves two parameters, *u* and *v*, because a surface is two-dimensional, and therefore two variables are needed to trace out the surface. The parameters *u* and *v* vary over a region called the parameter domain, or **parameter space**—the set of points in the *uv*-plane that can be substituted into **r**. Each choice of *u* and *v* in the parameter domain gives a point on the surface, just as each choice of a parameter *t* gives a point on a parameterized curve. The entire surface is created by making all possible choices of *u* and *v* over the parameter domain."
+    }
+   ],
+   "title": "Parametric Surfaces"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given a parameterization of surface $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉,$ the **parameter domain** of the parameterization is the set of points in the *uv*-plane that can be substituted into **r**."
+      }
+     ]
+    }
+   ],
+   "title": "Parametric Surfaces (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 6.58",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Describe surface *S* parameterized by"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(u,v)=〈\\cos \\,u,\\sin \\,u,v〉,-\\infty <u<\\infty ,-\\infty <v<\\infty ."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To get an idea of the shape of the surface, we first plot some points. Since the parameter domain is all of ${\\mathbb{R}}^{2},$ we can choose any value for *u* and *v* and plot the corresponding point. If $u=v=0,$ then $\\text{r}(0,0)=〈1,0,0〉,$ so point (1, 0, 0) is on *S*. Similarly, points $\\text{r}(\\pi ,2)=(-1,0,2)$ and $\\text{r}\\left(\\frac{\\pi}{2},4\\right)=(0,1,4)$ are on *S*."
+     },
+     {
+      "type": "p",
+      "text": "Although plotting points may give us an idea of the shape of the surface, we usually need quite a few points to see the shape. Since it is time-consuming to plot dozens or hundreds of points, we use another strategy. To visualize *S*, we visualize two families of curves that lie on *S.* In the first family of curves we hold *u* constant; in the second family of curves we hold *v* constant. This allows us to build a “skeleton” of the surface, thereby getting an idea of its shape."
+     },
+     {
+      "type": "p",
+      "text": "First, suppose that *u* is a constant *K*. Then the curve traced out by the parameterization is $〈\\cos \\,K,\\sin \\,K,v〉,$ which gives a vertical line that goes through point $(\\cos \\,K,\\sin \\,K,v)$ in the *xy*-plane."
+     },
+     {
+      "type": "p",
+      "text": "Now suppose that *v* is a constant *K.* Then the curve traced out by the parameterization is $〈\\cos \\,u,\\sin \\,u,K〉,$ which gives a circle in plane $z=K$ with radius 1 and center (0, 0, *K*)."
+     },
+     {
+      "type": "p",
+      "text": "If *u* is held constant, then we get vertical lines; if *v* is held constant, then we get circles of radius 1 centered around the vertical line that goes through the origin. Therefore the surface traced out by the parameterization is cylinder $x^{2}+y^{2}=1$ (Figure 6.56)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_06_001.webp",
+      "alt": "Three diagrams in three dimensions. The first shows vertical lines around the origin. The second shows parallel circles all with center at the origin and radius of 1. The third shows the lines and circle. Together, they form the skeleton of a cylinder.",
+      "caption": "**Figure 6.56** (a) Lines $〈\\cos \\,K,\\sin \\,K,v〉$ for $K=0,\\frac{\\pi}{2},\\pi ,\\,\\text{and}\\,\\frac{3\\pi}{2}.$ (b) Circles $〈\\cos \\,u,\\sin \\,u,K〉$ for $K=-2,-1,1,\\,\\text{and}\\,2.$ (c) The lines and circles together. As *u* and *v* vary, they describe a cylinder.",
+      "width": 900,
+      "height": 328
+     },
+     {
+      "type": "p",
+      "text": "Notice that if $x=\\cos \\,u$ and $y=\\sin \\,u,$ then $x^{2}+y^{2}=1,$ so points from *S* do indeed lie on the cylinder. Conversely, each point on the cylinder is contained in some circle $〈\\cos \\,u,\\sin \\,u,k〉$ for some *k*, and therefore each point on the cylinder is contained in the parameterized surface (Figure 6.57)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_06_002.webp",
+      "alt": "An image of a vertical cylinder in three dimensions with the center of its circular base located on the z axis.",
+      "caption": "**Figure 6.57** Cylinder $x^{2}+y^{2}=r^{2}$ has parameterization $\\text{r}(u,v)=〈r\\,\\cos \\,u,r\\,\\sin \\,u,v〉,$ $0\\le u\\le 2\\pi ,-\\infty <v<\\infty .$",
+      "width": 376,
+      "height": 467
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "Notice that if we change the parameter domain, we could get a different surface. For example, if we restricted the domain to $0\\le u\\le \\pi ,0<v<6,$ then the surface would be a half-cylinder of height 6."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Parameterizing a Cylinder"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Describe the surface with parameterization $\\text{r}(u,v)=〈2\\,\\cos \\,u,2\\,\\sin \\,u,v〉,0\\le u<2\\pi ,-\\infty <v<\\infty .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Cylinder $x^{2}+y^{2}=4$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Hold *u* and *v* constant, and see what kind of curves result."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "It follows from Example 6.58 that we can parameterize all cylinders of the form $x^{2}+y^{2}=R^{2}.$ If *S* is a cylinder given by equation $x^{2}+y^{2}=R^{2},$ then a parameterization of *S* is"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(u,v)=〈R\\,\\cos \\,u,R\\,\\sin \\,u,v〉,0\\le u<2\\pi ,-\\infty <v<\\infty ."
+    },
+    {
+     "type": "p",
+     "text": "We can also find different types of surfaces given their parameterization, or we can find a parameterization when we are given a surface."
+    }
+   ],
+   "title": "Parametric Surfaces (continued)"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 6.59",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Describe surface *S* parameterized by"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(u,v)=〈u\\,\\cos \\,v,u\\,\\sin \\,v,u^{2}〉,0\\le u<\\infty ,0\\le v<2\\pi ."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Notice that if *u* is held constant, then the resulting curve is a circle of radius *u* in plane $z=u^{2}.$ Therefore, as *u* increases, the radius of the resulting circle increases. If *v* is held constant, then the resulting curve is a vertical parabola. Therefore, we expect the surface to be an elliptic paraboloid. To confirm this, notice that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}x^{2}+y^{2} & =(u\\,\\cos \\,v)^{2}+(u\\,\\sin \\,v)^{2} \\\\ & =u^{2}\\cos^{2}v+u^{2}\\sin^{2}v \\\\ & =u^{2} \\\\ & =z.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the surface is elliptic paraboloid $x^{2}+y^{2}=z$ (Figure 6.58)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_06_003.webp",
+      "alt": "Two images in three dimensions. The first shows parallel circles on the z axis with radii increasing as z increases. Vertical parabolas opening up frame the circles, forming the skeleton of a paraboloid. The second shows the elliptic paraboloid, which is made of all the possible circles and vertical parabolas in the parameter domain.",
+      "caption": "**Figure 6.58** (a) Circles arise from holding *u* constant; the vertical parabolas arise from holding *v* constant. (b) An elliptic paraboloid results from all choices of *u* and *v* in the parameter domain.",
+      "width": 622,
+      "height": 437
+     }
+    ]
+   },
+   "title": "Describing a Surface"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.48",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Describe the surface parameterized by $\\text{r}(u,v)=〈u\\,\\cos \\,v,u\\,\\sin \\,v,u〉,-\\infty <u<\\infty ,0\\le v<2\\pi .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Cone $x^{2}+y^{2}=z^{2}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Hold *u* constant and see what kind of curves result. Imagine what happens as *u* increases or decreases."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 6.60",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Give a parameterization of the cone $x^{2}+y^{2}=z^{2}$ lying on or above the plane $z=-2.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The horizontal cross-section of the cone at height $z=u$ is circle $x^{2}+y^{2}=u^{2}.$ Therefore, a point on the cone at height *u* has coordinates $(u\\,\\cos \\,v,u\\,\\sin \\,v,u)$ for angle *v*. Hence, a parameterization of the cone is $\\text{r}(u,v)=〈u\\,\\cos \\,v,u\\,\\sin \\,v,u〉.$ Since we are not interested in the entire cone, only the portion on or above plane $z=-2,$ the parameter domain is given by $-2\\le u<\\infty ,0\\le v<2\\pi$ (Figure 6.59)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_06_004.webp",
+      "alt": "A three-dimensional diagram of the cone x^2 + y^2 = z^2, which opens up along the z axis for positive z values and opens down along the z axis for negative z values. The center is at the origin.",
+      "caption": "**Figure 6.59** Cone $x^{2}+y^{2}=z^{2}$ has parameterization\n\n$r(u,v)=〈u\\,\\cos \\,v,u\\,\\sin \\,v,u〉,-\\infty <u<\\infty ,0\\le v\\le 2\\pi .$",
+      "width": 343,
+      "height": 403
+     }
+    ]
+   },
+   "title": "Finding a Parameterization"
+  },
+  {
+   "id": "c10",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.49",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Give a parameterization for the portion of cone $x^{2}+y^{2}=z^{2}$ lying in the first octant."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{r}(u,v)=〈u\\,\\cos \\,v,u\\,\\sin \\,v,u〉,$ $0<u<\\infty ,0\\le v<\\frac{\\pi}{2}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Consider the parameter domain for this surface."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have discussed parameterizations of various surfaces, but two important types of surfaces need a separate discussion: spheres and graphs of two-variable functions. To parameterize a sphere, it is easiest to use spherical coordinates. The sphere of radius $\\rho$ centered at the origin is given by the parameterization"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(\\phi ,\\theta )=〈\\rho \\,\\cos \\,\\theta \\,\\sin \\,\\phi ,\\rho \\,\\sin \\,\\theta \\,\\sin \\,\\phi ,\\rho \\,\\cos \\,\\phi 〉,0\\le \\theta \\le 2\\pi ,0\\le \\phi \\le \\pi ."
+    },
+    {
+     "type": "p",
+     "text": "The idea of this parameterization is that as $\\phi$ sweeps downward from the positive *z*-axis, a circle of radius $\\rho \\,\\sin \\,\\phi$ is traced out by letting $\\theta$ run from 0 to $2\\pi .$ To see this, let $\\phi$ be fixed. Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}x^{2}+y^{2} & =(\\rho \\,\\cos \\,\\theta \\,\\sin \\,\\phi )^{2}+(\\rho \\,\\sin \\,\\theta \\,\\sin \\,\\phi )^{2} \\\\ & =\\rho^{2}\\sin^{2}\\phi (\\cos^{2}\\theta +\\sin^{2}\\theta ) \\\\ & =\\rho^{2}\\sin^{2}\\phi \\\\ & =(\\rho \\,\\sin \\,\\phi )^{2}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "This results in the desired circle (Figure 6.60)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_005.webp",
+     "alt": "A three-dimensional diagram of the sphere of radius rho.",
+     "caption": "**Figure 6.60** The sphere of radius $\\rho$ has parameterization $\\text{r}(\\phi ,\\theta )=〈\\rho \\,\\cos \\,\\theta \\,\\sin \\,\\phi ,\\rho \\,\\sin \\,\\theta \\,\\sin \\,\\phi ,\\rho \\,\\cos \\,\\phi 〉,$ $0\\le \\theta \\le 2\\pi ,0\\le \\phi \\le \\pi .$",
+     "width": 343,
+     "height": 371
+    }
+   ],
+   "title": "Parametric Surfaces (continued)"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Finally, to parameterize the graph of a two-variable function, we first let $z=f(x,y)$ be a function of two variables. The simplest parameterization of the graph of $f$ is $\\text{r}(x,y)=〈x,y,f(x,y)〉,$ where *x* and *y* vary over the domain of $f$ (Figure 6.61). For example, the graph of $f(x,y)=x^{2}y$ can be parameterized by $\\text{r}(x,y)=〈x,y,x^{2}y〉,$ where the parameters *x* and *y* vary over the domain of $f.$ If we only care about a piece of the graph of $f$—say, the piece of the graph over rectangle $[1,3]\\,\\times \\,[2,5]$—then we can restrict the parameter domain to give this piece of the surface:"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(x,y)=〈x,y,x^{2}y〉,1\\le x\\le 3,2\\le y\\le 5."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, if *S* is a surface given by equation $x=g(y,z)$ or equation $y=h(x,z),$ then a parameterization of *S* is"
+    },
+    {
+     "type": "p",
+     "text": "$\\text{r}(y,z)=〈g(y,z),y,z〉$ or $\\text{r}(x,z)=〈x,h(x,z),z〉,$ respectively. For example, the graph of paraboloid $2y=x^{2}+z^{2}$ can be parameterized by $\\text{r}(x,z)=〈x,\\frac{x^{2}+z^{2}}{2},z〉,0\\le x<\\infty ,0\\le z<\\infty .$ Notice that we do not need to vary over the entire domain of *y* because *x* and *z* are squared."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_006.webp",
+     "alt": "A three-dimensional diagram of a surface z = f(x,y) above its mapping in the two-dimensional x,y plane. The point (x,y) in the plane corresponds to the point z = f(x,y) on the surface.",
+     "caption": "**Figure 6.61** The simplest parameterization of the graph of a function is $\\text{r}(x,y)=〈x,y,f(x,y)〉.$",
+     "width": 423,
+     "height": 499
+    }
+   ],
+   "title": "Parametric Surfaces (continued)"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let’s now generalize the notions of smoothness and regularity to a parametric surface. Recall that curve parameterization $\\text{r}(t),a\\le t\\le b$ is regular if $\\text{r}'(t)\\ne 0$ for all *t* in $[a,b].$ For a curve, this condition ensures that the image of **r** really is a curve, and not just a point. For example, consider curve parameterization $\\text{r}(t)=〈1,2〉,0\\le t\\le 5.$ The image of this parameterization is simply point $(1,2),$ which is not a curve. Notice also that $\\text{r}'(t)=0.$ The fact that the derivative is the zero vector indicates we are not actually looking at a curve."
+    },
+    {
+     "type": "p",
+     "text": "Analogously, we would like a notion of regularity for surfaces so that a surface parameterization really does trace out a surface. To motivate the definition of regularity of a surface parameterization, consider parameterization"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(u,v)=〈0,\\cos \\,v,1〉,0\\le u\\le 1,0\\le v\\le \\pi ."
+    },
+    {
+     "type": "p",
+     "text": "Although this parameterization appears to be the parameterization of a surface, notice that the image is actually a line (Figure 6.62). How could we avoid parameterizations such as this? Parameterizations that do not give an actual surface? Notice that ${\\text{r}}_{u}=〈0,0,0〉$ and ${\\text{r}}_{v}=〈0,-\\sin \\,v,0〉,$ and the corresponding cross product is zero. The analog of the condition $\\text{r}'(t)=0$ is that ${\\text{r}}_{u}\\,\\times \\,{\\text{r}}_{v}$ is not zero for any point $(u,v)$ in the parameter domain, which is a regular parameterization."
+    }
+   ],
+   "title": "Parametric Surfaces (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_007.webp",
+     "alt": "A three-dimensional diagram of a line on the x,z plane where the z component is 1, the x component is 1, and the y component exists between -1 and 1.",
+     "caption": "**Figure 6.62** The image of parameterization $\\text{r}(u,v)=〈0,\\cos \\,v,1〉,0\\le u\\le 1,0\\le v\\le \\pi$ is a line.",
+     "width": 311,
+     "height": 358
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Parameterization $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$ is a **regular parameterization** if ${\\text{r}}_{u}\\,\\times \\,{\\text{r}}_{v}$ is not zero for any point $(u,v)$ in the parameter domain."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "If parameterization **r** is regular, then the image of **r** is a two-dimensional object, as a surface should be. Throughout this chapter, parameterizations $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$ are assumed to be regular."
+    },
+    {
+     "type": "p",
+     "text": "Recall that curve parameterization $\\text{r}(t),a\\le t\\le b$ is smooth if $\\text{r}'(t)$ is continuous and $\\text{r}'(t)\\ne 0$ for all *t* in $[a,b].$ Informally, a curve parameterization is smooth if the resulting curve has no sharp corners. The definition of a smooth surface parameterization is similar. Informally, a surface parameterization is *smooth* if the resulting surface has no sharp corners."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A surface parameterization $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$ is *smooth* if vector ${\\text{r}}_{u}\\,\\times \\,{\\text{r}}_{v}$ is not zero for any choice of *u* and *v* in the parameter domain."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "A surface may also be *piecewise smooth* if it has smooth faces but also has locations where the directional derivatives do not exist."
+    }
+   ],
+   "title": "Parametric Surfaces (continued)"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 6.61",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Which of the figures in Figure 6.63 is smooth?"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_008.webp",
+     "alt": "Two three-dimensional figures. The first surface is smooth. It looks like a tire with a large hole in the middle. The second is piecewise smooth. It is a pyramid with a rectangular base and four sides.",
+     "caption": "**Figure 6.63** (a) This surface is smooth. (b) This surface is piecewise smooth.",
+     "width": 882,
+     "height": 410
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The surface in Figure 6.63(a) can be parameterized by"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{r}(u,v)=〈(2+\\cos \\,v)\\cos \\,u,(2+\\cos \\,v)\\sin \\,u,\\sin \\,v〉,0\\le u<2\\pi ,0\\le v<2\\pi"
+     },
+     {
+      "type": "p",
+      "text": "(we can use technology to verify). Notice that vectors"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{r}}_{u}=〈-(2+\\cos \\,v)\\sin \\,u,(2+\\cos \\,v)\\cos \\,u,0〉\\,\\text{and}\\,{\\text{r}}_{v}=〈-\\sin \\,v\\,\\cos \\,u,-\\sin \\,v\\,\\sin \\,u,\\cos \\,v〉"
+     },
+     {
+      "type": "p",
+      "text": "exist for any choice of *u* and *v* in the parameter domain, and"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\text{r}}_{u}\\,\\times \\,{\\text{r}}_{v} & =\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ -(2+\\cos \\,v)\\sin \\,u & (2+\\cos \\,v)\\cos \\,u & 0 \\\\ -\\sin \\,v\\,\\cos \\,u & -\\sin \\,v\\,\\sin \\,u & \\cos \\,v\\end{array}\\right| \\\\ & =[(2+\\cos \\,v)\\cos \\,u\\,\\cos \\,v]\\text{i}+[(2+\\cos \\,v)\\sin \\,u\\,\\cos \\,v]\\text{j} \\\\ & \\;+[(2+\\cos \\,v)\\sin \\,v\\,\\sin^{2}u+(2+\\cos \\,v)\\sin \\,v\\,\\cos^{2}u]\\text{k} \\\\ & =[(2+\\cos \\,v)\\cos \\,u\\,\\cos \\,v]\\text{i}+[(2+\\cos \\,v)\\sin \\,u\\,\\cos \\,v]\\text{j}+[(2+\\cos \\,v)\\sin \\,v]\\text{k}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The **k** component of this vector is zero only if $v=0$ or $v=\\pi .$ If $v=0$ or $v=\\pi ,$ then the only choices for *u* that make the **j** component zero are $u=0$ or $u=\\pi .$ But, these choices of *u* do not make the **i** component zero. Therefore, ${\\text{r}}_{u}\\,\\times \\,{\\text{r}}_{v}$ is not zero for any choice of *u* and *v* in the parameter domain, and the parameterization is smooth. Notice that the corresponding surface has no sharp corners."
+     },
+     {
+      "type": "p",
+      "text": "In the pyramid in Figure 6.63(b), the sharpness of the corners ensures that directional derivatives do not exist at those locations. Therefore, the pyramid has no smooth parameterization. However, the pyramid consists of five smooth faces, and thus this surface is piecewise smooth."
+     }
+    ]
+   },
+   "title": "Identifying Smooth and Nonsmooth Surfaces"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Is the surface parameterization $\\text{r}(u,v)=〈u^{2v},v+1,\\sin \\,u〉,0\\le u\\le 2,0\\le v\\le 3$ smooth?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Yes"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Investigate the cross product ${\\text{r}}_{u}\\,\\times \\,{\\text{r}}_{v}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "yes"
+   }
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Our goal is to define a surface integral, and as a first step we have examined how to parameterize a surface. The second step is to define the surface area of a parametric surface. The notation needed to develop this definition is used throughout the rest of this chapter."
+    },
+    {
+     "type": "p",
+     "text": "Let *S* be a surface with parameterization $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$ over some parameter domain *D*. We assume here and throughout that the surface parameterization $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$ is continuously differentiable—meaning, each component function has continuous partial derivatives. Assume for the sake of simplicity that *D* is a rectangle (although the following material can be extended to handle nonrectangular parameter domains). Divide rectangle *D* into subrectangles $D_{ij}$ with horizontal width $\\text{Δ}u$ and vertical length $\\text{Δ}v.$ Suppose that *i* ranges from 1 to *m* and *j* ranges from 1 to *n* so that *D* is subdivided into *mn* rectangles. This division of *D* into subrectangles gives a corresponding division of surface *S* into pieces $S_{ij}.$ Choose point $P_{ij}$ in each piece $S_{ij}.$ Point $P_{ij}$ corresponds to point $(u_{i},v_{j})$ in the parameter domain."
+    }
+   ],
+   "title": "Surface Area of a Parametric Surface"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Note that we can form a grid with lines that are parallel to the *u*-axis and the *v*-axis in the *uv*-plane. These grid lines correspond to a set of **grid curves** on surface *S* that is parameterized by $\\text{r}(u,v).$ Without loss of generality, we assume that $P_{ij}$ is located at the corner of two grid curves, as in Figure 6.64. If we think of **r** as a mapping from the *uv*-plane to ${\\mathbb{R}}^{3},$ the grid curves are the image of the grid lines under **r**. To be precise, consider the grid lines that go through point $(u_{i},v_{j}).$ One line is given by $x=u_{i},y=v;$ the other is given by $x=u,y=v_{j}.$ In the first grid line, the horizontal component is held constant, yielding a vertical line through $(u_{i},v_{j}).$ In the second grid line, the vertical component is held constant, yielding a horizontal line through $(u_{i},v_{j}).$ The corresponding grid curves are $\\text{r}(u_{i},v)$ and $\\text{r}(u,v_{j}),$ and these curves intersect at point $P_{ij}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_009.webp",
+     "alt": "Two diagrams, showing that grid lines on a parameter domain correspond to grid curves on a surface. The first shows a two-dimensional rectangle in the u,v plane. The horizontal rectangle is in quadrant 1 and broken into 9x5 rectangles in a grid format. One rectangle Dij has side lengths delta u and delta v. The coordinates of the lower left corner are (u_i *, v_j *). In three dimensions, the surface curves above the x,y plane. The D_ij portion has become S_ij on the surface with lower left corner P_ij.",
+     "caption": "**Figure 6.64** Grid lines on a parameter domain correspond to grid curves on a surface.",
+     "width": 727,
+     "height": 262
+    }
+   ],
+   "title": "Surface Area of a Parametric Surface (continued)"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now consider the vectors that are tangent to these grid curves. For grid curve $\\text{r}(u_{i},v),$ the tangent vector at $P_{ij}$ is"
+    },
+    {
+     "type": "math",
+     "tex": "{\\text{t}}_{v}(P_{ij})={\\text{r}}_{v}(u_{i},v_{j})=〈x_{v}(u_{i},v_{j}),y_{v}(u_{i},v_{j}),z_{v}(u_{i},v_{j})〉."
+    },
+    {
+     "type": "p",
+     "text": "For grid curve $\\text{r}(u,v_{j}),$ the tangent vector at $P_{ij}$ is"
+    },
+    {
+     "type": "math",
+     "tex": "{\\text{t}}_{u}(P_{ij})={\\text{r}}_{u}(u_{i},v_{j})=〈x_{u}(u_{i},v_{j}),y_{u}(u_{i},v_{j}),z_{u}(u_{i},v_{j})〉."
+    },
+    {
+     "type": "p",
+     "text": "If vector $\\text{N}={\\text{t}}_{u}(P_{ij})\\,\\times \\,{\\text{t}}_{v}(P_{ij})$ exists and is not zero, then the tangent plane at $P_{ij}$ exists (Figure 6.65). If piece $S_{ij}$ is small enough, then the tangent plane at point $P_{ij}$ is a good approximation of piece $S_{ij}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_010.webp",
+     "alt": "Two diagrams. The one on the left is two dimensional and in the first quadrant of the u,v coordinate plane. A point u_0 is marked on the horizontal u axis, and a point v_0 is marked on the vertical v axis. The point (u_0, v_0) is shown in the plane. The diagram on the right shows the grid curve version. Now, the u_0 is marked as r(u_0, v) and the v_0 is marked as r(u, v_0). The (u_0, v_0) point is labeled P. Coming out of P are three arrows: one is a vertical N arrow, and the other two are t_u and t_v for the tangent plane.",
+     "caption": "**Figure 6.65** If the cross product of vectors ${\\text{t}}_{u}$ and ${\\text{t}}_{v}$ exists, then there is a tangent plane.",
+     "width": 636,
+     "height": 281
+    }
+   ],
+   "title": "Surface Area of a Parametric Surface (continued)"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The tangent plane at $P_{ij}$ contains vectors ${\\text{t}}_{u}(P_{ij})$ and ${\\text{t}}_{v}(P_{ij}),$ and therefore the parallelogram spanned by ${\\text{t}}_{u}(P_{ij})$ and ${\\text{t}}_{v}(P_{ij})$ is in the tangent plane. Since the original rectangle in the *uv*-plane corresponding to $S_{ij}$ has width $\\text{Δ}u$ and length $\\text{Δ}v,$ the parallelogram that we use to approximate $S_{ij}$ is the parallelogram spanned by $\\text{Δ}u{\\text{t}}_{u}(P_{ij})$ and $\\text{Δ}v{\\text{t}}_{v}(P_{ij}).$ In other words, we scale the tangent vectors by the constants $\\text{Δ}u$ and $\\text{Δ}v$ to match the scale of the original division of rectangles in the parameter domain. Therefore, the area of the parallelogram used to approximate the area of $S_{ij}$ is"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{Δ}S_{ij}\\approx \\| (\\text{Δ}u{\\text{t}}_{u}(P_{ij}))\\,\\times \\,(\\text{Δ}v{\\text{t}}_{v}(P_{ij}))\\| =\\| {\\text{t}}_{u}(P_{ij})\\,\\times \\,{\\text{t}}_{v}(P_{ij})\\| \\text{Δ}u\\text{Δ}v."
+    },
+    {
+     "type": "p",
+     "text": "Varying point $P_{ij}$ over all pieces $S_{ij}$ and the previous approximation leads to the following definition of surface area of a parametric surface (Figure 6.66)."
+    }
+   ],
+   "title": "Surface Area of a Parametric Surface (continued)"
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_011.webp",
+     "alt": "A surface S_ij that looks like a curved parallelogram. Point P_ij is at the bottom left corner, and two blue arrows stretch from this point to the upper left and lower right corners of the surface. Two red arrows also stretch out from this point, and they are labeled t_v delta v and t_u delta u. These form two sides of a parallelogram that approximates the piece of surface of S_ij. The other two sides are drawn as dotted lines.",
+     "caption": "**Figure 6.66** The parallelogram spanned by ${\\text{t}}_{u}$ and ${\\text{t}}_{v}$ approximates the piece of surface $S_{ij}.$",
+     "width": 255,
+     "height": 207
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$ with parameter domain *D* be a smooth parameterization of surface *S*. Furthermore, assume that *S* is traced out only once as $(u,v)$ varies over *D*. The **surface area** of *S* is"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\iint_{D}\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| dA},"
+      },
+      {
+       "type": "p",
+       "text": "where ${\\text{t}}_{u}=〈\\frac{\\partial x}{\\partial u},\\frac{\\partial y}{\\partial u},\\frac{\\partial z}{\\partial u}〉$ and ${\\text{t}}_{v}=〈\\frac{\\partial x}{\\partial v},\\frac{\\partial y}{\\partial v},\\frac{\\partial z}{\\partial v}〉$ and all partial derivatives are continuous."
+      }
+     ]
+    }
+   ],
+   "title": "Surface Area of a Parametric Surface (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 6.62",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the lateral surface area (the area of the “side,” not including the base) of the right circular cone with height *h* and radius *r*."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Before calculating the surface area of this cone using (see above), we need a parameterization. We assume this cone is in ${\\mathbb{R}}^{3}$ with its vertex at the origin (Figure 6.67). To obtain a parameterization, let $\\alpha$ be the angle that is swept out by starting at the positive *z*-axis and ending at the cone, and let $k=\\tan \\,\\alpha .$ For a height value *v* with $0\\le v\\le h,$ the radius of the circle formed by intersecting the cone with plane $z=v$ is $kv.$ Therefore, a parameterization of this cone is"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{s}(u,v)=〈kv\\,\\cos \\,u,kv\\,\\sin \\,u,v〉,0\\le u<2\\pi ,0\\le v\\le h."
+     },
+     {
+      "type": "p",
+      "text": "The idea behind this parameterization is that for a fixed *v* value, the circle swept out by letting *u* vary is the circle at height *v* and radius *kv*. As *v* increases, the parameterization sweeps out a “stack” of circles, resulting in the desired cone."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_06_012.webp",
+      "alt": "A right circular cone in three dimensions, opening upwards on the z axis. It has radius r = kh and height h with the given parameterization. Alpha is the angle that is swept out by starting at the positive z-axis and ending at the cone. It is noted that k is equal to the tangent of alpha.",
+      "caption": "**Figure 6.67** The right circular cone with radius *r = kh* and height *h* has parameterization $\\text{s}(u,v)=〈kv\\,\\cos \\,u,kv\\,\\sin \\,u,v〉,0\\le u<2\\pi ,0\\le v\\le h.$",
+      "width": 262,
+      "height": 490
+     },
+     {
+      "type": "p",
+      "text": "With a parameterization in hand, we can calculate the surface area of the cone using (see above). The tangent vectors are ${\\text{t}}_{u}=〈-kv\\,\\sin \\,u,kv\\,\\cos \\,u,0〉$ and ${\\text{t}}_{v}=〈k\\,\\cos \\,u,k\\,\\sin \\,u,1〉.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v} & =\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ -kv\\,\\sin \\,u & kv\\,\\cos \\,u & 0 \\\\ k\\,\\cos \\,u & k\\,\\sin \\,u & 1\\end{array}\\right| \\\\ & =〈kv\\,\\cos \\,u,kv\\,\\sin \\,u,-k^{2}v\\,\\sin^{2}u-k^{2}v\\,\\cos^{2}u〉 \\\\ & =〈kv\\,\\cos \\,u,kv\\,\\sin \\,u,-k^{2}v〉.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The magnitude of this vector is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\| 〈kv\\,\\cos \\,u,kv\\,\\sin \\,u,-k^{2}v〉\\| & =\\sqrt{k^{2}v^{2}\\cos^{2}u+k^{2}v^{2}\\sin^{2}u+k^{4}v^{2}} \\\\ & =\\sqrt{k^{2}v^{2}+k^{4}v^{2}} \\\\ & =kv\\sqrt{1+k^{2}}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "By (see above), the surface area of the cone is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{D}\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| dA} & ={\\displaystyle \\int_{0}^{h}{\\displaystyle \\int_{0}^{2\\pi}kv\\sqrt{1+k^{2}}}dudv} \\\\ & =2\\pi k\\sqrt{1+k^{2}}{\\displaystyle \\int_{0}^{h}vdv} \\\\ & =2\\pi k\\sqrt{1+k^{2}}\\left[\\frac{v^{2}}{2}\\right]_{0}^{h} \\\\ & =\\pi kh^{2}\\sqrt{1+k^{2}}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Since $k=\\tan \\,\\alpha =r/h,$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\pi kh^{2}\\sqrt{1+k^{2}} & =\\pi \\frac{r}{h}h^{2}\\sqrt{1+\\frac{r^{2}}{h^{2}}} \\\\ & =\\pi rh\\sqrt{1+\\frac{r^{2}}{h^{2}}} \\\\ & =\\pi r\\sqrt{h^{2}+h^{2}\\left(\\frac{r^{2}}{h^{2}}\\right)} \\\\ & =\\pi r\\sqrt{h^{2}+r^{2}}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the lateral surface area of the cone is $\\pi r\\sqrt{h^{2}+r^{2}}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "The surface area of a right circular cone with radius *r* and height *h* is usually given as $\\pi r^{2}+\\pi r\\sqrt{h^{2}+r^{2}}.$ The reason for this is that the circular base is included as part of the cone, and therefore the area of the base $\\pi r^{2}$ is added to the lateral surface area $\\pi r\\sqrt{h^{2}+r^{2}}$ that we found."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Calculating Surface Area"
+  },
+  {
+   "id": "c23",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the surface area of the surface with parameterization $\\text{r}(u,v)=〈u+v,u^{2},2v〉,0\\le u\\le 3,0\\le v\\le 2.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\approx 43.02$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x24",
+   "kind": "example",
+   "label": "Example 6.63",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that the surface area of the sphere $x^{2}+y^{2}+z^{2}=r^{2}$ is $4\\pi r^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The sphere has parameterization"
+     },
+     {
+      "type": "math",
+      "tex": "〈r\\,\\cos \\,\\theta \\,\\sin \\,\\phi ,r\\,\\sin \\,\\theta \\,\\sin \\,\\phi ,r\\,\\cos \\,\\phi 〉,0\\le \\theta <2\\pi ,0\\le \\phi \\le \\pi ."
+     },
+     {
+      "type": "p",
+      "text": "The tangent vectors are"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{\\theta}=〈-r\\,\\sin \\,\\theta \\,\\sin \\,\\phi ,r\\,\\cos \\,\\theta \\,\\sin \\,\\phi ,0〉\\,\\text{and}\\,{\\text{t}}_{\\phi}=〈r\\,\\cos \\,\\theta \\,\\cos \\,\\phi ,r\\,\\sin \\,\\theta \\,\\cos \\,\\phi ,-r\\,\\sin \\,\\phi 〉."
+     },
+     {
+      "type": "p",
+      "text": "Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\text{t}}_{\\phi}\\,\\times \\,{\\text{t}}_{\\theta} & =〈r^{2}\\cos \\,\\theta \\,\\sin^{2}\\phi ,r^{2}\\sin \\,\\theta \\,\\sin^{2}\\phi ,r^{2}\\sin^{2}\\theta \\,\\sin \\,\\phi \\,\\cos \\,\\phi +r^{2}\\cos^{2}\\theta \\,\\sin \\,\\phi \\,\\cos \\,\\phi 〉 \\\\ & =〈r^{2}\\cos \\,\\theta \\,\\sin^{2}\\phi ,r^{2}\\sin \\,\\theta \\,\\sin^{2}\\phi ,r^{2}\\sin \\,\\phi \\,\\cos \\,\\phi 〉.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Now,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\| {\\text{t}}_{\\phi}\\,\\times \\,{\\text{t}}_{\\theta}\\| & =\\sqrt{r^{4}\\sin^{4}\\phi \\,\\cos^{2}\\theta +r^{4}\\sin^{4}\\phi \\,\\sin^{2}\\theta +r^{4}\\sin^{2}\\phi \\,\\cos^{2}\\phi} \\\\ & =\\sqrt{r^{4}\\sin^{4}\\phi +r^{4}\\sin^{2}\\phi \\,\\cos^{2}\\phi} \\\\ & =r^{2}\\sqrt{\\sin^{2}\\phi} \\\\ & =r^{2}\\,\\sin \\,\\phi .\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Notice that $\\sin \\,\\phi \\ge 0$ on the parameter domain because $0\\le \\phi <\\pi ,$ and this justifies equation $\\sqrt{\\sin^{2}\\phi}=\\sin \\,\\phi .$ The surface area of the sphere is"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{\\pi}r^{2}\\sin \\,\\phi d\\phi d\\theta}}=r^{2}{\\displaystyle \\int_{0}^{2\\pi}2d\\theta}=4\\pi r^{2}."
+     },
+     {
+      "type": "p",
+      "text": "We have derived the familiar formula for the surface area of a sphere using surface integrals."
+     }
+    ]
+   },
+   "title": "Calculating Surface Area"
+  },
+  {
+   "id": "c25",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.52",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that the surface area of cylinder $x^{2}+y^{2}=r^{2},0\\le z\\le h$ is $2\\pi rh.$ Notice that this cylinder does not include the top and bottom circles."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "With the standard parameterization of a cylinder, (see above) shows that the surface area is $2\\pi rh.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the standard parameterization of a cylinder and follow the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In addition to parameterizing surfaces given by equations or standard geometric shapes such as cones and spheres, we can also parameterize surfaces of revolution. Therefore, we can calculate the surface area of a surface of revolution by using the same techniques. Let $y=f(x)\\ge 0$ be a positive single-variable function on the domain $a\\le x\\le b$ and let *S* be the surface obtained by rotating $f$ about the *x*-axis (Figure 6.68). Let $\\theta$ be the angle of rotation. Then, *S* can be parameterized with parameters *x* and $\\theta$ by"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(x,\\theta )=〈x,f(x)\\cos \\,\\theta ,f(x)\\sin \\,\\theta 〉,a\\le x\\le b,0\\le \\theta <2\\pi ."
+    }
+   ],
+   "title": "Surface Area of a Parametric Surface (continued)"
+  },
+  {
+   "id": "r27",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_013.webp",
+     "alt": "Two diagrams, a and b, showing the surface of revolution. The first shows three dimensions. In the (x,y) plane, a curve labeled y = f(x) is drawn in quadrant 1. A line is drawn from the endpoint of the curve down to the x axis, and it is labeled f(x). The second shows the same three dimensional view. However, the curve from the first diagram has been rotated to form a three dimensional shape about the x axis. The boundary is still labeled y = f(x), as the curve in the first plane was. The opening of the three dimensional shape is circular with the radius f(x), just as the line from the curve to the x axis in the plane of the first diagram was labeled. A point on the opening’s boundary is labeled (x,y,z), the distance from the x axis to this point is drawn and labeled f(x), and the height is drawn and labeled z. The height is perpendicular to the x,y plane and, as such, the original f(x) line drawn from the first diagram. The angle between this line and the line from the x axis to (x,y,z) is labeled theta.",
+     "caption": "**Figure 6.68** We can parameterize a surface of revolution by $\\text{r}(x,\\theta )=〈x,f(x)\\cos \\,\\theta ,f(x)\\sin \\,\\theta 〉,$ $a\\le x\\le b,0\\le x<2\\pi .$",
+     "width": 651,
+     "height": 355
+    }
+   ],
+   "title": "Surface Area of a Parametric Surface (continued)"
+  },
+  {
+   "id": "x28",
+   "kind": "example",
+   "label": "Example 6.64",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the area of the surface of revolution obtained by rotating $y=x^{2},0\\le x\\le b$ about the *x*-axis (Figure 6.69)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_014.webp",
+     "alt": "A solid of revolution drawn in two dimensions. The solid is formed by rotating the function y = x^2 about the x axis. A point C is marked on the x axis between 0 and x’, which marks the opening of the solid.",
+     "caption": "**Figure 6.69** A surface integral can be used to calculate the surface area of this solid of revolution.",
+     "width": 459,
+     "height": 360
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This surface has parameterization"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{r}(x,\\theta )=〈x,x^{2}\\cos \\,\\theta ,x^{2}\\sin \\,\\theta 〉,0\\le x\\le b,0\\le \\theta <2\\pi ."
+     },
+     {
+      "type": "p",
+      "text": "The tangent vectors are ${\\text{t}}_{x}=〈1,2x\\,\\cos \\,\\theta ,2x\\,\\sin \\,\\theta 〉\\,\\text{and}\\,{\\text{t}}_{\\theta}=〈0,-x^{2}\\sin \\,\\theta ,x^{2}\\cos \\,\\theta 〉.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\text{t}}_{x}\\,\\times \\,{\\text{t}}_{\\theta} & =〈2x^{3}\\cos^{2}\\theta +2x^{3}\\sin^{2}\\theta ,-x^{2}\\cos \\,\\theta ,-x^{2}\\sin \\,\\theta 〉 \\\\ & =〈2x^{3},-x^{2}\\cos \\,\\theta ,-x^{2}\\sin \\,\\theta 〉\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}||{\\text{t}}_{x}\\,\\times \\,{\\text{t}}_{\\theta}|| & =\\sqrt{4x^{6}+x^{4}\\cos^{2}\\theta +x^{4}\\sin^{2}\\theta} \\\\ & =\\sqrt{4x^{6}+x^{4}} \\\\ & =x^{2}\\sqrt{4x^{2}+1}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The area of the surface of revolution is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int_{0}^{b}{\\displaystyle \\int_{0}^{\\pi}x^{2}\\sqrt{4x^{2}+1}d\\theta dx}} & =2\\pi {\\displaystyle \\int_{0}^{b}x^{2}\\sqrt{4x^{2}+1}}dx \\\\ & =2\\pi \\left[\\frac{1}{64}(2\\sqrt{4x^{2}+1}(8x^{3}+x){-\\sinh}^{-1}(2x))\\right]_{0}^{b} \\\\ & =2\\pi \\left[\\frac{1}{64}(2\\sqrt{4b^{2}+1}(8b^{3}+b){-\\sinh}^{-1}(2b))\\right].\\end{array}"
+     }
+    ]
+   },
+   "title": "Calculating Surface Area"
+  },
+  {
+   "id": "c29",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.53",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use (see above) to find the area of the surface of revolution obtained by rotating curve $y=\\sin \\,x,0\\le x\\le \\pi$ about the *x*-axis."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\pi (\\sqrt{2}+\\sinh^{-1}(1))$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the parameterization of surfaces of revolution given before Example 6.63."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2 pi (sqrt(2)+ sinh^(-1) (1))"
+   }
+  },
+  {
+   "id": "r30",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we can parameterize surfaces and we can calculate their surface areas, we are able to define surface integrals. First, let’s look at the surface integral of a scalar-valued function. Informally, the surface integral of a scalar-valued function is an analog of a scalar line integral in one higher dimension. The domain of integration of a scalar line integral is a parameterized curve (a one-dimensional object); the domain of integration of a scalar surface integral is a parameterized surface (a two-dimensional object). Therefore, the definition of a surface integral follows the definition of a line integral quite closely. For scalar line integrals, we chopped the domain curve into tiny pieces, chose a point in each piece, computed the function at that point, and took a limit of the corresponding Riemann sum. For scalar surface integrals, we chop the domain *region* (no longer a curve) into tiny pieces and proceed in the same fashion."
+    }
+   ],
+   "title": "Surface Integral of a Scalar-Valued Function"
+  },
+  {
+   "id": "r31",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let *S* be a piecewise smooth surface with parameterization $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$ with parameter domain *D* and let $f(x,y,z)$ be a function with a domain that contains *S.* For now, assume the parameter domain *D* is a rectangle, but we can extend the basic logic of how we proceed to any parameter domain (the choice of a rectangle is simply to make the notation more manageable). Divide rectangle *D* into subrectangles $D_{ij}$ with horizontal width $\\text{Δ}u$ and vertical length $\\text{Δ}v.$ Suppose that *i* ranges from 1 to *m* and *j* ranges from 1 to *n* so that *D* is subdivided into *mn* rectangles. This division of *D* into subrectangles gives a corresponding division of *S* into pieces $S_{ij}.$ Choose point $P_{ij}$ in each piece $S_{ij},$ evaluate $P_{ij}$ at $f$, and multiply by area $\\text{Δ}S_{ij}$ to form the Riemann sum"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(P_{ij})}}\\text{Δ}S_{ij}."
+    },
+    {
+     "type": "p",
+     "text": "To define a surface integral of a scalar-valued function, we let the areas of the pieces of *S* shrink to zero by taking a limit."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **surface integral of a scalar-valued function** of $f$ over a piecewise smooth surface *S* is"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\iint_{S}f(x,y,z)}dS=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(P_{ij})}}\\text{Δ}S_{ij}."
+      }
+     ]
+    }
+   ],
+   "title": "Surface Integral of a Scalar-Valued Function (continued)"
+  },
+  {
+   "id": "r32",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Again, notice the similarities between this definition and the definition of a scalar line integral. In the definition of a line integral we chop a curve into pieces, evaluate a function at a point in each piece, and let the length of the pieces shrink to zero by taking the limit of the corresponding Riemann sum. In the definition of a surface integral, we chop a surface into pieces, evaluate a function at a point in each piece, and let the area of the pieces shrink to zero by taking the limit of the corresponding Riemann sum. Thus, a surface integral is similar to a line integral but in one higher dimension."
+    },
+    {
+     "type": "p",
+     "text": "The definition of a scalar line integral can be extended to parameter domains that are not rectangles by using the same logic used earlier. The basic idea is to chop the parameter domain into small pieces, choose a sample point in each piece, and so on. The exact shape of each piece in the sample domain becomes irrelevant as the areas of the pieces shrink to zero."
+    },
+    {
+     "type": "p",
+     "text": "Scalar surface integrals are difficult to compute from the definition, just as scalar line integrals are. To develop a method that makes surface integrals easier to compute, we approximate surface areas $\\text{Δ}S_{ij}$ with small pieces of a tangent plane, just as we did in the previous subsection. Recall the definition of vectors ${\\text{t}}_{u}$ and ${\\text{t}}_{v}:$"
+    },
+    {
+     "type": "math",
+     "tex": "{\\text{t}}_{u}=〈\\frac{\\partial x}{\\partial u},\\frac{\\partial y}{\\partial u},\\frac{\\partial z}{\\partial u}〉\\,\\text{and}\\,{\\text{t}}_{v}=〈\\frac{\\partial x}{\\partial v},\\frac{\\partial y}{\\partial v},\\frac{\\partial z}{\\partial v}〉."
+    },
+    {
+     "type": "p",
+     "text": "From the material we have already studied, we know that"
+    }
+   ],
+   "title": "Surface Integral of a Scalar-Valued Function (continued)"
+  },
+  {
+   "id": "r33",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\text{Δ}S_{ij}\\approx \\| {\\text{t}}_{u}(P_{ij})\\,\\times \\,{\\text{t}}_{v}(P_{ij})\\| \\text{Δ}u\\text{Δ}v."
+    },
+    {
+     "type": "p",
+     "text": "Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{S}f(x,y,z)dS\\approx \\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(P_{ij})\\| {\\text{t}}_{u}(P_{ij})\\,\\times \\,{\\text{t}}_{v}(P_{ij})\\| \\text{Δ}u\\text{Δ}v}}}."
+    },
+    {
+     "type": "p",
+     "text": "This approximation becomes arbitrarily close to $\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(P_{ij})\\text{Δ}S_{ij}}}$ as we increase the number of pieces $S_{ij}$ by letting *m* and *n* go to infinity. Therefore, we have the following equation to calculate scalar surface integrals:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{S}f(x,y,z)dS}={\\displaystyle \\iint_{D}f(\\text{r}(u,v))}\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| dA."
+    },
+    {
+     "type": "p",
+     "text": "(see above) allows us to calculate a surface integral by transforming it into a double integral. This equation for surface integrals is analogous to (see above) for line integrals:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{C}f(x,y,z)ds}={\\displaystyle \\int_{a}^{b}f(\\text{r}(t))}\\| r'(t)\\| dt."
+    },
+    {
+     "type": "p",
+     "text": "In this case, vector ${\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}$ is perpendicular to the surface, whereas vector $r'(t)$ is tangent to the curve."
+    }
+   ],
+   "title": "Surface Integral of a Scalar-Valued Function (continued)"
+  },
+  {
+   "id": "x34",
+   "kind": "example",
+   "label": "Example 6.65",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate surface integral ${\\displaystyle \\iint_{S}5}dS,$ where $S$ is the surface with parameterization $\\text{r}(u,v)=〈u,u^{2},v〉$ for $0\\le u\\le 2$ and $0\\le v\\le u.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Notice that this parameter domain *D* is a triangle, and therefore the parameter domain is not rectangular. This is not an issue though, because (see above) does not place any restrictions on the shape of the parameter domain."
+     },
+     {
+      "type": "p",
+      "text": "To use (see above) to calculate the surface integral, we first find vector ${\\text{t}}_{u}$ and ${\\text{t}}_{v}.$ Note that ${\\text{t}}_{u}=〈1,2u,0〉$ and ${\\text{t}}_{v}=〈0,0,1〉.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}=\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ 1 & 2u & 0 \\\\ 0 & 0 & 1\\end{array}\\right|=〈2u,-1,0〉"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| =\\sqrt{1+4u^{2}}."
+     },
+     {
+      "type": "p",
+      "text": "By (see above),"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{S}5}dS & =5{\\displaystyle \\iint_{D}\\sqrt{1+4u^{2}}}dA \\\\ & =5{\\displaystyle \\int_{0}^{2}{\\displaystyle \\int_{0}^{u}\\sqrt{1+4u^{2}}}}dvdu=5{\\displaystyle \\int_{0}^{2}u\\sqrt{1+4u^{2}}}du \\\\ & =5\\left[\\frac{(1+4u^{2})^{3/2}}{3}\\right]_{0}^{2}=\\frac{5(17^{3/2}-1)}{12}\\approx 28.79.\\end{array}"
+     }
+    ]
+   },
+   "title": "Calculating a Surface Integral"
+  },
+  {
+   "id": "x35",
+   "kind": "example",
+   "label": "Example 6.66",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate surface integral ${\\displaystyle \\iint_{S}(x+y^{2})dS},$ where *S* is cylinder $x^{2}+y^{2}=4,0\\le z\\le 3$ (Figure 6.70)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_015.webp",
+     "alt": "A graph in three dimensions of a cylinder. The base of the cylinder is on the (x,z) plane, with center on the y axis. It stretches along the y axis.",
+     "caption": "**Figure 6.70** Integrating function $f(x,y,z)=x+y^{2}$ over a cylinder.",
+     "width": 264,
+     "height": 361
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To calculate the surface integral, we first need a parameterization of the cylinder. Following Example 6.58, a parameterization is"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{r}(u,v)=〈2\\cos \\,u,2\\sin \\,u,v〉,0\\le u\\le 2\\pi ,0\\le v\\le 3."
+     },
+     {
+      "type": "p",
+      "text": "The tangent vectors are ${\\text{t}}_{u}=〈-2\\sin \\,u,2\\cos \\,u,0〉$ and ${\\text{t}}_{v}=〈0,0,1〉.$ Then,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}=\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ -2\\sin \\,u & 2\\cos \\,u & 0 \\\\ 0 & 0 & 1\\end{array}\\right|=\\langle 2\\cos \\,u,2\\sin \\,u,0\\rangle"
+     },
+     {
+      "type": "p",
+      "text": "and $\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| =\\sqrt{{4\\cos}^{2}u+{4\\sin}^{2}u}=2.$ By (see above),"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c}\\, \\\\ \\, \\\\ \\, \\\\ \\quad \\iint_{S}f(x,y,z)dS=\\iint_{D}f(\\text{r}(u,v))\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| \\,dA \\\\ =\\int_{0}^{3}\\int_{0}^{2\\pi}(2\\cos \\,u+4\\sin^{2}u)2dudv \\\\ =2\\int_{0}^{3}[2\\sin \\,u+2u-\\sin (2u)]_{0}^{2\\pi}dv=2\\int_{0}^{3}4\\pi dv=24\\pi .\\end{array}"
+     }
+    ]
+   },
+   "title": "Calculating the Surface Integral of a Cylinder"
+  },
+  {
+   "id": "c36",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.54",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate ${\\displaystyle \\iint_{S}(x^{2}-z)}dS,$ where *S* is the surface with parameterization $\\text{r}(u,v)=〈v,u^{2}+v^{2},1〉,0\\le u\\le 2,0\\le v\\le 3.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "24"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "24"
+   }
+  },
+  {
+   "id": "x37",
+   "kind": "example",
+   "label": "Example 6.67",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate surface integral ${\\displaystyle \\iint_{S}f(x,y,z)dS},$ where $f(x,y,z)=z^{2}$ and *S* is the surface that consists of the piece of sphere $x^{2}+y^{2}+z^{2}=4$ that lies on or above plane $z=1$ and the disk that is enclosed by intersection plane $z=1$ and the given sphere (Figure 6.71)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_016.webp",
+     "alt": "A diagram in three dimensions of the upper half of a sphere. The center is at the origin, and the radius is 2. The top part above the plane z=1 is cut off and shaded; the rest is simply an outline of the hemisphere. The top section has center at (0,0,1) and radius of radical three.",
+     "caption": "**Figure 6.71** Calculating a surface integral over surface *S*.",
+     "width": 407,
+     "height": 378
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Notice that *S* is not smooth but is piecewise smooth; *S* can be written as the union of its base $S_{1}$ and its spherical top $S_{2},$ and both $S_{1}$ and $S_{2}$ are smooth. Therefore, to calculate ${\\displaystyle \\iint_{S}z^{2}dS},$ we write this integral as ${\\displaystyle \\iint_{S_{1}}z^{2}dS}+{\\displaystyle \\iint_{S_{2}}z^{2}dS}$ and we calculate integrals ${\\displaystyle \\iint_{S_{1}}z^{2}dS}$ and ${\\displaystyle \\iint_{S_{2}}z^{2}dS}.$"
+     },
+     {
+      "type": "p",
+      "text": "First, we calculate ${\\displaystyle \\iint_{S_{1}}z^{2}dS}.$ To calculate this integral we need a parameterization of $S_{1}.$ This surface is a disk in plane $z=1$ centered at $(0,0,1).$ To parameterize this disk, we need to know its radius. Since the disk is formed where plane $z=1$ intersects sphere $x^{2}+y^{2}+z^{2}=4,$ we can substitute $z=1$ into equation $x^{2}+y^{2}+z^{2}=4:$"
+     },
+     {
+      "type": "math",
+      "tex": "x^{2}+y^{2}+1=4\\Rightarrow x^{2}+y^{2}=3."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the radius of the disk is $\\sqrt{3}$ and a parameterization of $S_{1}$ is $\\text{r}(u,v)=〈u\\,\\cos \\,v,u\\,\\sin \\,v,1〉,0\\le u\\le \\sqrt{3},0\\le v\\le 2\\pi .$ The tangent vectors are ${\\text{t}}_{u}=〈\\cos \\,v,\\sin \\,v,0〉$ and ${\\text{t}}_{v}=〈-u\\,\\sin \\,v,u\\mathrm{co}\\mathrm{s}v,0〉,$ and thus"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}=\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ \\cos \\,v & \\sin \\,v & 0 \\\\ -u\\,\\sin \\,v & u\\,\\cos \\,v & 0\\end{array}\\right|=〈0,0,u\\,\\cos^{2}v+u\\,\\sin^{2}v〉=〈0,0,u〉."
+     },
+     {
+      "type": "p",
+      "text": "The magnitude of this vector is *u*. Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{S_{1}}z^{2}dS} & ={\\displaystyle \\int_{0}^{\\sqrt{3}}{\\displaystyle \\int_{0}^{2\\pi}f(\\text{r}(u,v))}}\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| \\,dv\\,du \\\\ & ={\\displaystyle \\int_{0}^{\\sqrt{3}}{\\displaystyle \\int_{0}^{2\\pi}u}}\\,dv\\,du \\\\ & =2\\pi {\\displaystyle \\int_{0}^{\\sqrt{3}}udu} \\\\ & =3\\pi .\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Now we calculate ${\\displaystyle \\iint_{S_{2}}dS}.$ To calculate this integral, we need a parameterization of $S_{2}.$ The parameterization of full sphere $x^{2}+y^{2}+z^{2}=4$ is"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{r}(\\phi ,\\theta )=〈2\\,\\cos \\,\\theta \\,\\sin \\,\\phi ,2\\,\\sin \\,\\theta \\,\\sin \\,\\phi ,2\\,\\cos \\,\\phi 〉,0\\le \\theta \\le 2\\pi ,0\\le \\phi \\le \\pi ."
+     },
+     {
+      "type": "p",
+      "text": "Since we are only taking the piece of the sphere on or above plane $z=1,$ we have to restrict the domain of $\\phi .$ To see how far this angle sweeps, notice that the angle can be located in a right triangle, as shown in Figure 6.72 (the $\\sqrt{3}$ comes from the fact that the base of *S* is a disk with radius $\\sqrt{3}).$ Therefore, the tangent of $\\phi$ is $\\sqrt{3},$ which implies that $\\phi$ is $\\pi /3.$ We now have a parameterization of $S_{2}:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{r}(\\phi ,\\theta )=〈2\\,\\cos \\,\\theta \\,\\sin \\,\\phi ,2\\,\\sin \\,\\theta \\,\\sin \\,\\phi ,2\\,\\cos \\,\\phi 〉,0\\le \\theta \\le 2\\pi ,0\\le \\phi \\le \\pi /3."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_06_017.webp",
+      "alt": "A diagram of a plane within the three-dimensional coordinate system. Two points are marked on the z axis: (0,0,2) and (0,0,1). The distance from the origin to (0,0,1) is marked as 1, the horizontal distance between the point (0,0,1) and a point of the sphere is labeled radical three, and the angle between the origin and the point on the sphere is theta. There is a line drawn from the origin to the point on the sphere, and this forms a triangle.",
+      "caption": "**Figure 6.72** The maximum value of $\\phi$ has a tangent value of $\\sqrt{3}.$",
+      "width": 422,
+      "height": 285
+     },
+     {
+      "type": "p",
+      "text": "The tangent vectors are"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{\\phi}=〈2\\,\\cos \\,\\theta \\,\\cos \\,\\phi ,2\\,\\sin \\,\\theta \\,\\cos \\,\\phi ,-2\\,\\sin \\,\\phi 〉\\,\\text{and}\\,{\\text{t}}_{\\theta}=〈-2\\,\\sin \\,\\theta \\,\\sin \\,\\phi ,u\\,\\cos \\,\\theta \\,\\sin \\,\\phi ,0〉,"
+     },
+     {
+      "type": "p",
+      "text": "and thus"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\text{t}}_{\\phi}\\,\\times \\,{\\text{t}}_{\\theta} & =\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ 2\\,\\cos \\,\\theta \\,\\cos \\,\\phi & 2\\,\\sin \\,\\theta \\,\\cos \\,\\phi & -2\\,\\sin \\,\\phi \\\\ -2\\,\\sin \\,\\theta \\,\\sin \\,\\phi & 2\\,\\cos \\,\\theta \\,\\sin \\,\\phi & 0\\end{array}\\right| \\\\ & =〈4\\,\\cos \\,\\theta \\,\\sin^{2}\\phi ,4\\,\\sin \\,\\theta \\,\\sin^{2}\\phi ,4\\,\\cos^{2}\\theta \\,\\cos \\,\\phi \\,\\sin \\,\\phi +4\\,\\sin^{2}\\theta \\,\\cos \\,\\phi \\,\\sin \\,\\phi 〉 \\\\ & =〈4\\,\\cos \\,\\theta \\,\\sin^{2}\\phi ,4\\,\\sin \\,\\theta \\,\\sin^{2}\\phi ,4\\,\\cos \\,\\phi \\,\\sin \\,\\phi 〉.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The magnitude of this vector is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\| {\\text{t}}_{\\phi}\\,\\times \\,{\\text{t}}_{\\theta}\\| & =\\sqrt{16\\,\\cos^{2}\\theta \\,\\sin^{4}\\phi +16\\,\\sin^{2}\\theta \\,\\sin^{4}\\phi +16\\,\\cos^{2}\\phi \\,\\sin^{2}\\phi} \\\\ & =4\\sqrt{\\sin^{4}\\phi +\\cos^{2}\\phi \\,\\sin^{2}\\phi}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\iint_{S_{2}}zdS & =\\int_{0}^{\\pi /3}\\int_{0}^{2\\pi}f(\\text{r}(\\phi ,\\theta ))\\| {\\text{t}}_{\\phi}\\,\\times \\,{\\text{t}}_{\\theta}\\| \\,d\\theta \\,d\\phi \\\\ & =\\int_{0}^{\\pi /3}\\int_{0}^{2\\pi}16\\,\\cos^{2}\\phi \\sqrt{\\sin^{4}\\phi +\\cos^{2}\\phi \\,\\sin^{2}\\phi}d\\theta \\,d\\phi \\\\ & =32\\pi \\int_{0}^{\\pi /3}\\cos^{2}\\phi \\sqrt{\\sin^{4}\\phi +\\cos^{2}\\phi \\,\\sin^{2}\\phi}\\,d\\phi \\\\ & =32\\pi \\int_{0}^{\\pi /3}\\cos^{2}\\phi \\,\\sin \\,\\phi \\sqrt{\\sin^{2}\\phi +\\cos^{2}\\phi}\\,d\\phi \\\\ & =32\\pi \\int_{0}^{\\pi /3}\\cos^{2}\\phi \\,\\sin \\,\\phi \\,d\\phi \\\\ & =32\\pi \\left[-\\frac{\\cos^{3}\\phi}{3}\\right]_{0}^{\\pi /3}=32\\pi \\left[\\frac{1}{3}-\\frac{\\sqrt{3}}{8}\\right]=\\frac{28\\pi}{3}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Since $\\iint_{S}z^{2}dS=\\iint_{S_{1}}z^{2}dS+\\iint_{S_{2}}z^{2}dS=3\\pi +\\frac{28\\pi}{3}=\\frac{37\\pi}{3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "In this example we broke a surface integral over a piecewise surface into the addition of surface integrals over smooth subsurfaces. There were only two smooth subsurfaces in this example, but this technique extends to finitely many smooth subsurfaces."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Calculating the Surface Integral of a Piece of a Sphere"
+  },
+  {
+   "id": "c38",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.55",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate surface integral ${\\displaystyle \\iint_{S}(x-y)dS},$ where *S* is cylinder $x^{2}+y^{2}=1,0\\le z\\le 2,$ including the circular top and bottom."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Break the integral into three separate surface integrals."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "r39",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Scalar surface integrals have several real-world applications. Recall that scalar line integrals can be used to compute the mass of a wire given its density function. In a similar fashion, we can use scalar surface integrals to compute the mass of a sheet given its density function. If a thin sheet of metal has the shape of surface *S* and the density of the sheet at point $(x,y,z)$ is $\\rho (x,y,z),$ then mass *m* of the sheet is $m={\\displaystyle \\iint_{S}\\rho (x,y,z)dS}.$"
+    }
+   ],
+   "title": "Surface Integral of a Scalar-Valued Function (continued)"
+  },
+  {
+   "id": "x40",
+   "kind": "example",
+   "label": "Example 6.68",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A flat sheet of metal has the shape of surface $z=1+x+2y$ that lies above rectangle $0\\le x\\le 4$ and $0\\le y\\le 2.$ If the density of the sheet is given by $\\rho (x,y,z)=x^{2}yz,$ what is the mass of the sheet?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let *S* be the surface that describes the sheet. Then, the mass of the sheet is given by $m={\\displaystyle \\iint_{S}x^{2}yzdS}.$ To compute this surface integral, we first need a parameterization of *S*. Since *S* is given by the function $f(x,y)=1+x+2y,$ a parameterization of *S* is $\\text{r}(x,y)=〈x,y,1+x+2y〉,0\\le x\\le 4,0\\le y\\le 2.$"
+     },
+     {
+      "type": "p",
+      "text": "The tangent vectors are ${\\text{t}}_{x}=〈1,0,1〉$ and ${\\text{t}}_{y}=〈1,0,2〉.$ Therefore, ${\\text{t}}_{x}\\,\\times \\,{\\text{t}}_{y}=〈-1,-2,1〉$ and $\\| {\\text{t}}_{x}\\,\\times \\,{\\text{t}}_{y}\\| =\\sqrt{6}.$ By (see above),"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}m & ={\\displaystyle \\iint_{S}x^{2}yz^{}dS} \\\\ & =\\sqrt{6}{\\displaystyle \\int_{0}^{4}{\\displaystyle \\int_{0}^{2}x^{2}y(1+x+2y)dydx}} \\\\ & =\\sqrt{6}{\\displaystyle \\int_{0}^{4}\\frac{22x^{2}}{3}}+2x^{3}dx \\\\ & =\\frac{2560\\sqrt{6}}{9} \\\\ & \\approx 696.74.\\end{array}"
+     }
+    ]
+   },
+   "title": "Calculating the Mass of a Sheet"
+  },
+  {
+   "id": "c41",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.56",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A piece of metal has a shape that is modeled by paraboloid $z=x^{2}+y^{2},0\\le z\\le 4,$ and the density of the metal is given by $\\rho (x,y,z)=z+1.$ Find the mass of the piece of metal."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$38.401\\pi \\approx 120.640$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The mass of a sheet is given by $m={\\displaystyle \\iint_{S}\\rho (x,y,z)dS}.$ A useful parameterization of a paraboloid was given in a previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r42",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall that when we defined a scalar line integral, we did not need to worry about an orientation of the curve of integration. The same was true for scalar surface integrals: we did not need to worry about an “orientation” of the surface of integration."
+    },
+    {
+     "type": "p",
+     "text": "On the other hand, when we defined vector line integrals, the curve of integration needed an orientation. That is, we needed the notion of an oriented curve to define a vector line integral without ambiguity. Similarly, when we define a surface integral of a vector field, we need the notion of an oriented surface. An oriented surface is given an “upward” or “downward” orientation or, in the case of surfaces such as a sphere or cylinder, an “outward” or “inward” orientation."
+    },
+    {
+     "type": "p",
+     "text": "Let *S* be a smooth surface. For any point $(x,y,z)$ on *S,* we can identify two unit normal vectors $\\text{N}$ and $-\\text{N}.$ If it is possible to choose a unit normal vector **N** at every point $(x,y,z)$ on *S* so that **N** varies continuously over *S*, then *S* is “*orientable*.” Such a choice of unit normal vector at each point gives the **orientation of a surface** *S*. If you think of the normal field as describing water flow, then the side of the surface that water flows toward is the “negative” side and the side of the surface at which the water flows away is the “positive” side. Informally, a choice of orientation gives *S* an “outer” side and an “inner” side (or an “upward” side and a “downward” side), just as a choice of orientation of a curve gives the curve “forward” and “backward” directions."
+    }
+   ],
+   "title": "Orientation of a Surface"
+  },
+  {
+   "id": "r43",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Closed surfaces such as spheres are orientable: if we choose the outward normal vector at each point on the surface of the sphere, then the unit normal vectors vary continuously. This is called the *positive orientation of the closed surface* (Figure 6.73). We also could choose the inward normal vector at each point to give an “inward” orientation, which is the negative orientation of the surface."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_018.webp",
+     "alt": "A three-dimensional image of an oriented sphere with positive orientation. A normal vector N stretches out from the top of the sphere, as does one from the upper left portion of the sphere.",
+     "caption": "**Figure 6.73** An oriented sphere with positive orientation.",
+     "width": 419,
+     "height": 519
+    },
+    {
+     "type": "p",
+     "text": "A portion of the graph of any smooth function $z=f(x,y)$ is also orientable. If we choose the unit normal vector that points “above” the surface at each point, then the unit normal vectors vary continuously over the surface. We could also choose the unit normal vector that points “below” the surface at each point. To get such an orientation, we parameterize the graph of $f$ in the standard way: $\\text{r}(x,y)=〈x,y,f(x,y)〉,$ where *x* and *y* vary over the domain of $f.$ Then, ${\\text{t}}_{x}=〈1,0,f_{x}〉$ and ${\\text{t}}_{y}=〈0,1,f_{y}〉,$ and therefore the cross product ${\\text{t}}_{x}\\,\\times \\,{\\text{t}}_{y}$ (which is normal to the surface at any point on the surface) is $〈-f_{x},-f_{y},1〉.$ Since the *z* component of this vector is one, the corresponding unit normal vector points “upward,” and the upward side of the surface is chosen to be the “positive” side."
+    }
+   ],
+   "title": "Orientation of a Surface (continued)"
+  },
+  {
+   "id": "r44",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let *S* be a smooth orientable surface with parameterization $\\text{r}(u,v).$ For each point $\\text{r}(a,b)$ on the surface, vectors ${\\text{t}}_{u}$ and ${\\text{t}}_{v}$ lie in the tangent plane at that point. Vector ${\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}$ is normal to the tangent plane at $\\text{r}(a,b)$ and is therefore normal to *S* at that point. Therefore, the choice of unit normal vector"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{N}=\\frac{{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}}{\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\|}"
+    },
+    {
+     "type": "p",
+     "text": "gives an orientation of surface *S*."
+    }
+   ],
+   "title": "Orientation of a Surface (continued)"
+  },
+  {
+   "id": "x45",
+   "kind": "example",
+   "label": "Example 6.69",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Give an orientation of cylinder $x^{2}+y^{2}=r^{2},0\\le z\\le h.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This surface has parameterization"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{r}(u,v)=〈r\\,\\cos \\,u,r\\,\\sin \\,u,v〉,0\\le u<2\\pi ,0\\le v\\le h."
+     },
+     {
+      "type": "p",
+      "text": "The tangent vectors are ${\\text{t}}_{u}=〈-r\\,\\sin \\,u,r\\,\\cos \\,u,0〉$ and ${\\text{t}}_{v}=〈0,0,1〉.$ To get an orientation of the surface, we compute the unit normal vector"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{N}=\\frac{{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}}{\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\|}."
+     },
+     {
+      "type": "p",
+      "text": "In this case, ${\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}=〈r\\,\\cos \\,u,r\\,\\sin \\,u,0〉$ and therefore"
+     },
+     {
+      "type": "math",
+      "tex": "\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| =\\sqrt{r^{2}\\cos^{2}u+r^{2}\\sin^{2}u}=r."
+     },
+     {
+      "type": "p",
+      "text": "An orientation of the cylinder is"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{N}(u,v)=\\frac{〈r\\,\\cos \\,u,r\\,\\sin \\,u,0〉}{r}=〈\\cos \\,u,\\sin \\,u,0〉."
+     },
+     {
+      "type": "p",
+      "text": "Notice that all vectors are parallel to the *xy*-plane, which should be the case with vectors that are normal to the cylinder. Furthermore, all the vectors point outward, and therefore this is an outward orientation of the cylinder (Figure 6.74)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_16_06_019.webp",
+      "alt": "A diagram of a vertical cylinder cut in half by a plane. An outward-pointing normal stretches out from the side of the cylinder.",
+      "caption": "**Figure 6.74** If all the vectors normal to a cylinder point outward, then this is an outward orientation of the cylinder.",
+      "width": 324,
+      "height": 130
+     }
+    ]
+   },
+   "title": "Choosing an Orientation"
+  },
+  {
+   "id": "c46",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.57",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Give the “upward” orientation of the graph of $f(x,y)=xy.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{N}(x,y)=〈\\frac{-y}{\\sqrt{1+x^{2}+y^{2}}},\\frac{-x}{\\sqrt{1+x^{2}+y^{2}}},\\frac{1}{\\sqrt{1+x^{2}+y^{2}}}〉$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Parameterize the surface and use the fact that the surface is the graph of a function."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r47",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Since every curve has a “forward” and “backward” direction (or, in the case of a closed curve, a clockwise and counterclockwise direction), it is possible to give an orientation to any curve. Hence, it is possible to think of every curve as an oriented curve. This is not the case with surfaces, however. Some surfaces cannot be oriented; such surfaces are called *nonorientable*. Essentially, a surface can be oriented if the surface has an “inner” side and an “outer” side, or an “upward” side and a “downward” side. Some surfaces are twisted in such a fashion that there is no well-defined notion of an “inner” or “outer” side."
+    },
+    {
+     "type": "p",
+     "text": "The classic example of a nonorientable surface is the Möbius strip. To create a Möbius strip, take a rectangular strip of paper, give the piece of paper a half-twist, and the glue the ends together (Figure 6.75). Because of the half-twist in the strip, the surface has no “outer” side or “inner” side. If you imagine placing a normal vector at a point on the strip and having the vector travel all the way around the band, then (because of the half-twist) the vector points in the opposite direction when it gets back to its original position. Therefore, the strip really only has one side."
+    }
+   ],
+   "title": "Orientation of a Surface (continued)"
+  },
+  {
+   "id": "r48",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_020.webp",
+     "alt": "An image showing the construction of a Mobius strip. The first step shows a rectangle with corners A, B, C, and D, labeled from bottom left to bottom right in a clockwise manner. In the second step, the rectangle is flipped along the middle; now, corner D is in the upper right position, and corner C is in the lower right position. We can see the “back” side of the rectangle. In the final step, the rectangle is looped. Corner B connects to corner D, and corner A connects to corner C. The flip from step two remains. But, the “front” and “back” are now the same because of the flip!",
+     "caption": "**Figure 6.75** The construction of a Möbius strip.",
+     "width": 900,
+     "height": 122
+    },
+    {
+     "type": "p",
+     "text": "Since some surfaces are nonorientable, it is not possible to define a vector surface integral on all piecewise smooth surfaces. This is in contrast to vector line integrals, which can be defined on any piecewise smooth curve."
+    }
+   ],
+   "title": "Orientation of a Surface (continued)"
+  },
+  {
+   "id": "r49",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "With the idea of orientable surfaces in place, we are now ready to define a **surface integral of a vector field**. The definition is analogous to the definition of the flux of a vector field along a plane curve. Recall that if **F** is a two-dimensional vector field and *C* is a plane curve, then the definition of the flux of **F** along *C* involved chopping *C* into small pieces, choosing a point inside each piece, and calculating $\\text{F}\\cdot \\text{N}$ at the point (where **N** is the unit normal vector at the point). The definition of a surface integral of a vector field proceeds in the same fashion, except now we chop surface *S* into small pieces, choose a point in the small (two-dimensional) piece, and calculate $\\text{F}\\cdot \\text{N}$ at the point."
+    },
+    {
+     "type": "p",
+     "text": "To place this definition in a real-world setting, let *S* be an oriented surface with unit normal vector **N**. Let **v** be a velocity field of a fluid flowing through *S*, and suppose the fluid has density $\\rho (x,y,z).$ Imagine the fluid flows through *S*, but *S* is completely permeable so that it does not impede the fluid flow (Figure 6.76). The **mass flux** of the fluid is the rate of mass flow per unit area. The mass flux is measured in mass per unit time per unit area. How could we calculate the mass flux of the fluid across *S*?"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_021.webp",
+     "alt": "A diagram showing fluid flowing across a completely permeable surface S. The surface S is a rectangle curving to the right. Arrows point out of the surface to the right.",
+     "caption": "**Figure 6.76** Fluid flows across a completely permeable surface *S*.",
+     "width": 231,
+     "height": 455
+    }
+   ],
+   "title": "Surface Integral of a Vector Field"
+  },
+  {
+   "id": "r50",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The rate of flow, measured in mass per unit time per unit area, is $\\rho \\text{N}.$ To calculate the mass flux across *S*, chop *S* into small pieces $S_{ij}.$ If $S_{ij}$ is small enough, then it can be approximated by a tangent plane at some point *P* in $S_{ij}.$ Therefore, the unit normal vector at *P* can be used to approximate $\\text{N}(x,y,z)$ across the entire piece $S_{ij},$ because the normal vector to a plane does not change as we move across the plane. The component of the vector $\\rho \\text{v}$ at *P* in the direction of **N** is $\\rho \\text{v}\\cdot \\text{N}$ at *P*. Since $S_{ij}$ is small, the dot product $\\rho \\text{v}\\cdot \\text{N}$ changes very little as we vary across $S_{ij},$ and therefore $\\rho \\text{v}\\cdot \\text{N}$ can be taken as approximately constant across $S_{ij}.$ To approximate the mass of fluid per unit time flowing across $S_{ij}$ (and not just locally at point *P*), we need to multiply $(\\rho \\text{v}\\cdot \\text{N})(P)$ by the area of $S_{ij}.$ Therefore, the mass of fluid per unit time flowing across $S_{ij}$ in the direction of **N** can be approximated by $(\\rho \\text{v}\\cdot \\text{N})\\text{Δ}S_{ij},$ where **N**, $\\rho ,$ and **v** are all evaluated at *P* (Figure 6.77). This is analogous to the flux of two-dimensional vector field **F** across plane curve *C*, in which we approximated flux across a small piece of *C* with the expression $(\\text{F}\\cdot \\text{N})\\text{Δ}s.$ To approximate the mass flux across *S*, form the sum ${\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}(\\rho \\text{v}\\cdot \\text{N})}}\\text{Δ}{\\text{S}}_{ij}.$ As pieces $S_{ij}$ get smaller, the sum ${\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}(\\rho \\text{v}\\cdot \\text{N})}}\\text{Δ}{\\text{S}}_{ij}$ gets arbitrarily close to the mass flux. Therefore, the mass flux is"
+    }
+   ],
+   "title": "Surface Integral of a Vector Field (continued)"
+  },
+  {
+   "id": "r51",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{s}\\rho \\text{v}\\cdot \\text{N}dS=}\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}(\\rho \\text{v}\\cdot \\text{N})}}\\text{Δ}{\\text{S}}_{ij}."
+    },
+    {
+     "type": "p",
+     "text": "This is a surface integral of a vector field. Letting the vector field $\\rho \\text{v}$ be an arbitrary vector field **F** leads to the following definition."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_022.webp",
+     "alt": "A diagram in three dimensions of a surface S. A small section S_ij is labeled. Coming out of this section are two vectors, labeled N and F = v. The latter points in the same direction as several other arrows with positive z and y components but negative x components.",
+     "caption": "**Figure 6.77** The mass of fluid per unit time flowing across $S_{ij}$ in the direction of **N** can be approximated by $(\\rho \\text{v}\\cdot \\text{N})\\text{Δ}S_{ij}.$",
+     "width": 497,
+     "height": 418
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let **F** be a continuous vector field with a domain that contains oriented surface *S* with unit normal vector **N**. The **surface integral** of **F** over *S* is"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\iint_{S}\\text{F}\\cdot d\\text{S}={\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS}}."
+      }
+     ]
+    }
+   ],
+   "title": "Surface Integral of a Vector Field (continued)"
+  },
+  {
+   "id": "r52",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Notice the parallel between this definition and the definition of vector line integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}ds}.$ A surface integral of a vector field is defined in a similar way to a flux line integral across a curve, except the domain of integration is a surface (a two-dimensional object) rather than a curve (a one-dimensional object). Integral ${\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS}$ is called the *flux of F across S*, just as integral ${\\displaystyle \\int_{C}\\text{F}\\cdot \\text{N}ds}$ is the flux of **F** across curve *C*. A surface integral over a vector field is also called a **flux integral**."
+    },
+    {
+     "type": "p",
+     "text": "Just as with vector line integrals, surface integral ${\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS}$ is easier to compute after surface *S* has been parameterized. Let $\\text{r}(u,v)$ be a parameterization of *S* with parameter domain *D*. Then, the unit normal vector is given by $\\text{N}=\\frac{{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}}{\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\|}$ and, from (see above), we have"
+    }
+   ],
+   "title": "Surface Integral of a Vector Field (continued)"
+  },
+  {
+   "id": "r53",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{S}\\text{F}\\cdot d\\text{S}} & ={\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS} \\\\ & ={\\displaystyle \\iint_{S}\\text{F}\\cdot \\frac{{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}}{\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\|}dS} \\\\ & ={\\displaystyle \\iint_{D}\\left(\\text{F}(\\text{r}(u,v))\\cdot \\frac{{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}}{\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\|}\\right)\\| {\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}\\| dA} \\\\ & ={\\displaystyle \\iint_{D}(\\text{F}(\\text{r}(u,v))\\cdot ({\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}))dA}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Therefore, to compute a surface integral over a vector field we can use the equation"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS}={\\displaystyle \\iint_{D}(\\text{F}(\\text{r}(u,v))\\cdot ({\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}))dA}."
+    }
+   ],
+   "title": "Surface Integral of a Vector Field (continued)"
+  },
+  {
+   "id": "x54",
+   "kind": "example",
+   "label": "Example 6.70",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the surface integral ${\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS},$ where $\\text{F}=〈-y,x,0〉$ and $S$ is the surface with parameterization $\\text{r}(u,v)=〈u,v^{2}-u,u+v〉,0\\le u<3,0\\le v\\le 4.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The tangent vectors are ${\\text{t}}_{u}=〈1,-1,1〉$ and ${\\text{t}}_{v}=〈0,2v,1〉.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}=〈-1-2v,-1,2v〉."
+     },
+     {
+      "type": "p",
+      "text": "By (see above),"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{S}\\text{F}}\\cdot d\\text{S} & ={\\displaystyle \\int_{0}^{4}{\\displaystyle \\int_{0}^{3}\\text{F}(\\text{r}(u,v))}}\\cdot ({\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v})dudv \\\\ & ={\\displaystyle \\int_{0}^{4}{\\displaystyle \\int_{0}^{3}〈u-v^{2},u,0〉\\cdot 〈-1-2v,-1,2v〉}}\\,dudv \\\\ & ={\\displaystyle \\int_{0}^{4}{\\displaystyle \\int_{0}^{3}[(u-v^{2})(-1-2v)-u]}}dudv \\\\ & ={\\displaystyle \\int_{0}^{4}{\\displaystyle \\int_{0}^{3}(2v^{3}+v^{2}-2uv-2u)}}dudv \\\\ & ={\\displaystyle \\int_{0}^{4}[2v^{3}u+v^{2}u-vu^{2}-u^{2}]}_{0}^{3}dv \\\\ & ={\\displaystyle \\int_{0}^{4}(6v^{3}+3v^{2}-9v-9)dv} \\\\ & =\\left[\\frac{3v^{4}}{2}+v^{3}-\\frac{9v^{2}}{2}-9v\\right]_{0}^{4} \\\\ & =340.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the flux of **F** across *S* is 340."
+     }
+    ]
+   },
+   "title": "Calculating a Surface Integral"
+  },
+  {
+   "id": "c55",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.58",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate surface integral ${\\displaystyle \\iint_{S}\\text{F}\\cdot d\\text{S}},$ where $\\text{F}=〈0,-z,y〉$ and *S* is the portion of the unit sphere in the first octant with outward orientation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "x56",
+   "kind": "example",
+   "label": "Example 6.71",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $\\text{v}(x,y,z)=〈2x,2y,z〉$ represent a velocity field (with units of meters per second) of a fluid with constant density 80 kg/m$^{\\text{3}}$. Let *S* be hemisphere $x^{2}+y^{2}+z^{2}=9$ with $z\\ge 0$ such that *S* is oriented outward. Find the mass flow rate of the fluid across *S*."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "A parameterization of the surface is"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{r}(\\phi ,\\theta )=〈3\\,\\cos \\,\\theta \\,\\sin \\,\\phi ,3\\,\\sin \\,\\theta \\,\\sin \\,\\phi ,3\\,\\cos \\,\\phi 〉,0\\le \\theta \\le 2\\pi ,0\\le \\phi \\le \\pi /2."
+     },
+     {
+      "type": "p",
+      "text": "As in Example 6.64, the tangent vectors are"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{\\theta}=〈-3\\,\\sin \\,\\theta \\,\\sin \\,\\phi ,3\\,\\cos \\,\\theta \\,\\sin \\,\\phi ,0〉\\,\\text{and}\\,{\\text{t}}_{\\phi}=〈3\\,\\cos \\,\\theta \\,\\cos \\,\\phi ,3\\,\\sin \\,\\theta \\,\\cos \\,\\phi ,-3\\,\\sin \\,\\phi 〉,"
+     },
+     {
+      "type": "p",
+      "text": "and their cross product is"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{\\phi}\\,\\times \\,{\\text{t}}_{\\theta}=〈9\\,\\cos \\,\\theta \\,\\sin^{2}\\phi ,9\\,\\sin \\,\\theta \\,\\sin^{2}\\phi ,9\\,\\sin \\,\\phi \\,\\cos \\,\\phi 〉."
+     },
+     {
+      "type": "p",
+      "text": "Notice that each component of the cross product is positive, and therefore this vector gives the outward orientation. Therefore we use the orientation $\\text{N}=〈9\\,\\cos \\,\\theta \\,\\sin^{2}\\phi ,9\\,\\sin \\,\\theta \\,\\sin^{2}\\phi ,9\\,\\sin \\,\\phi \\,\\cos \\,\\phi 〉$ for the sphere."
+     },
+     {
+      "type": "p",
+      "text": "By (see above),"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{S}\\rho \\text{v}\\cdot d\\text{S}} & =80{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{\\pi /2}\\text{v}(\\text{r}(\\phi ,\\theta ))}}\\cdot ({\\text{t}}_{\\phi}\\,\\times \\,{\\text{t}}_{\\theta})d\\phi d\\theta \\\\ & =80{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{\\pi /2}}} \\\\ & =80{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{\\pi /2}\\begin{array}{c}〈6\\,\\cos \\,\\theta \\,\\sin \\,\\phi ,6\\,\\sin \\,\\theta \\,\\sin \\,\\phi ,3\\,\\cos \\,\\phi 〉 \\\\ \\cdot 〈9\\,\\cos \\,\\theta \\,\\sin^{2}\\phi ,9\\,\\sin \\,\\theta \\,\\sin^{2}\\phi ,9\\,\\sin \\,\\phi \\,\\cos \\,\\phi 〉d\\phi d\\theta\\end{array}}} \\\\ & =80{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{\\pi /2}54\\,\\sin^{3}\\phi +27\\,\\cos^{2}\\phi \\,\\sin \\,\\phi d\\phi d\\theta}} \\\\ & =80{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{\\pi /2}54(1-\\cos^{2}\\phi )\\sin \\,\\phi +27\\,\\cos^{2}\\phi \\,\\sin \\,\\phi d\\phi d\\theta}} \\\\ & =80{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{\\pi /2}54\\,\\sin \\,\\phi -27\\,\\cos^{2}\\phi \\,\\sin \\,\\phi d\\phi d\\theta}} \\\\ & =80{\\displaystyle \\int_{0}^{2\\pi}[-54\\,\\cos \\,\\phi +9\\,\\cos^{3}\\phi ]_{\\phi =0}^{\\phi =2\\pi}d\\theta} \\\\ & =80{\\displaystyle \\int_{0}^{2\\pi}45d\\theta}=7200\\pi .\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the mass flow rate is $7200\\pi \\,\\text{kg}/\\sec /{\\text{m}}^{2}.$"
+     }
+    ]
+   },
+   "title": "Calculating Mass Flow Rate"
+  },
+  {
+   "id": "c57",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.59",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $\\text{v}(x,y,z)=〈x^{2}+y^{2},z,4y〉$ m/sec represent a velocity field of a fluid with constant density 100 kg/m$^{\\text{3}}$. Let *S* be the half-cylinder $\\text{r}(u,v)=〈\\cos \\,u,\\sin \\,u,v〉,0\\le u\\le \\pi ,0\\le v\\le 2$ oriented outward. Calculate the mass flux of the fluid across *S*."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "400 kg/sec/m"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r58",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Example 6.71, we computed the mass flux, which is the rate of mass flow per unit area. If we want to find the flow rate (measured in volume per time) instead, we can use flux integral $\\iint_{S}\\text{v}\\cdot \\text{N}dS,$ which leaves out the density. Since the flow rate of a fluid is measured in volume per unit time, flow rate does not take mass into account. Therefore, we have the following characterization of the flow rate of a fluid with velocity **v** across a surface *S*:"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{Flow rate of fluid across}\\,S=\\iint_{S}v\\cdot d\\text{S}."
+    },
+    {
+     "type": "p",
+     "text": "To compute the flow rate of the fluid in Example 6.71, we simply remove the density constant, which gives a flow rate of $90\\pi {\\,\\text{m}}^{3}/\\sec .$"
+    },
+    {
+     "type": "p",
+     "text": "Both mass flux and flow rate are important in physics and engineering. Mass flux measures how much mass is flowing across a surface; flow rate measures how much volume of fluid is flowing across a surface."
+    },
+    {
+     "type": "p",
+     "text": "In addition to modeling fluid flow, surface integrals can be used to model heat flow. Suppose that the temperature at point $(x,y,z)$ in an object is $T(x,y,z).$ Then the **heat flow** is a vector field proportional to the negative temperature gradient in the object. To be precise, the heat flow is defined as vector field $\\text{F}=-k\\nabla T,$ where the constant *k* is the *thermal conductivity* of the substance from which the object is made (this constant is determined experimentally). The rate of heat flow across surface *S* in the object is given by the flux integral"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{S}\\text{F}\\cdot d\\text{S}}={\\displaystyle \\iint_{S}-k\\nabla T\\cdot d\\text{S}}."
+    }
+   ],
+   "title": "Surface Integral of a Vector Field (continued)"
+  },
+  {
+   "id": "x59",
+   "kind": "example",
+   "label": "Example 6.72",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A cast-iron solid cylinder is given by inequalities $x^{2}+y^{2}\\le 1,$ $1\\le z\\le 4.$ The temperature at point $(x,y,z)$ in a region containing the cylinder is $T(x,y,z)=(x^{2}+y^{2})z.$ Given that the thermal conductivity of cast iron is 55, find the heat flow across the boundary of the solid if this boundary is oriented outward."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let *S* denote the boundary of the object. To find the heat flow, we need to calculate flux integral ${\\displaystyle \\iint_{S}-k\\nabla T\\cdot d\\text{S}}.$ Notice that *S* is not a smooth surface but is piecewise smooth, since *S* is the union of three smooth surfaces (the circular top and bottom, and the cylindrical side). Therefore, we calculate three separate integrals, one for each smooth piece of *S*. Before calculating any integrals, note that the gradient of the temperature is $\\nabla T=〈2xz,2yz,x^{2}+y^{2}〉.$"
+     },
+     {
+      "type": "p",
+      "text": "First we consider the circular bottom of the object, which we denote $S_{1}.$ We can see that $S_{1}$ is a circle of radius 1 centered at point $(0,0,1),$ sitting in plane $z=1.$ This surface has parameterization $\\text{r}(u,v)=〈v\\,\\cos \\,u,v\\,\\sin \\,u,1〉,0\\le u<2\\pi ,0\\le v\\le 1.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{u}=〈-v\\,\\sin \\,u,v\\,\\cos \\,u,0〉\\,\\text{and}\\,{\\text{t}}_{v}=〈\\cos \\,u,v\\,\\sin \\,u,0〉,"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}=〈0,0,-v\\,\\sin^{2}u-v\\,\\cos^{2}u〉=〈0,0,-v〉."
+     },
+     {
+      "type": "p",
+      "text": "Since the surface is oriented outward and $S_{1}$ is the bottom of the object, it makes sense that this vector points downward. By (see above), the heat flow across $S_{1}$ is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{S_{1}}-k\\nabla T\\cdot d\\text{S}} & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}\\nabla T(u,v)\\cdot ({\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v})dvdu}} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}〈2v\\,\\cos \\,u,2v\\,\\sin \\,u,v^{2}\\cos^{2}u+v^{2}\\sin^{2}u〉\\cdot 〈0,0,-v〉dvdu}} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}〈2v\\,\\cos \\,u,2v\\,\\sin \\,u,v^{2}〉\\cdot 〈0,0,-v〉dvdu}} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}-v^{3}}dvdu}=-55{\\displaystyle \\int_{0}^{2\\pi}-\\frac{1}{4}du}=\\frac{55\\pi}{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Now let’s consider the circular top of the object, which we denote $S_{2}.$ We see that $S_{2}$ is a circle of radius 1 centered at point $(0,0,4),$ sitting in plane $z=4.$ This surface has parameterization $\\text{r}(u,v)=〈v\\,\\cos \\,u,v\\,\\sin \\,u,4〉,0\\le u<2\\pi ,0\\le v\\le 1.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{u}=〈-v\\,\\sin \\,u,v\\,\\cos \\,u,0〉\\,\\text{and}\\,{\\text{t}}_{v}=〈\\cos \\,u,v\\,\\sin \\,u,0〉,"
+     },
+     {
+      "type": "p",
+      "text": "and"
+     },
+     {
+      "type": "math",
+      "tex": "{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}=〈0,0,-v\\,\\sin^{2}u-v\\,\\cos^{2}u〉=〈0,0,-v〉."
+     },
+     {
+      "type": "p",
+      "text": "Since the surface is oriented outward and $S_{1}$ is the top of the object, we instead take vector ${\\text{t}}_{v}\\,\\times \\,{\\text{t}}_{u}=〈0,0,v〉.$ By (see above), the heat flow across $S_{1}$ is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int {\\displaystyle \\int_{S_{2}}-k}}\\nabla T\\cdot d\\text{S} & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}\\nabla T(u,v)\\cdot ({\\text{t}}_{v}\\,\\times \\,{\\text{t}}_{u})dvdu}} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}〈8v\\,\\cos \\,u,8v\\,\\sin \\,u,v^{2}\\cos^{2}u+v^{2}\\sin^{2}u〉\\cdot 〈0,0,v〉dvdu}} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}〈8v\\,\\cos \\,u,8v\\,\\sin \\,u,v^{2}〉\\cdot 〈0,0,v〉dvdu}} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}v^{3}dvdu}}=-\\frac{55\\pi}{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Last, let’s consider the cylindrical side of the object. This surface has parameterization $\\text{r}(u,v)=〈\\cos \\,u,\\sin \\,u,v〉,0\\le u<2\\pi ,1\\le v\\le 4.$ By Example 6.66, we know that ${\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}=〈\\cos \\,u,\\sin \\,u,0〉.$ By (see above),"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{S_{3}}-k\\nabla T\\cdot d\\text{S}} & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{1}^{4}\\nabla T(u,v)\\cdot ({\\text{t}}_{v}\\,\\times \\,{\\text{t}}_{u})dvdu}} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{1}^{4}〈2v\\,\\cos \\,u,2v\\,\\sin \\,u,\\cos^{2}u+\\sin^{2}u〉\\cdot 〈\\cos \\,u,\\sin \\,u,0〉}dvdu} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}〈2v\\,\\cos \\,u,2v\\,\\sin \\,u,1〉\\cdot 〈\\cos \\,u,\\sin \\,u,0〉}dvdu} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}(2v\\,\\cos^{2}u+2v\\,\\sin^{2}u)}dvdu} \\\\ & =-55{\\displaystyle \\int_{0}^{2\\pi}{\\displaystyle \\int_{0}^{1}2v}dvdu}=-55{\\displaystyle \\int_{0}^{2\\pi}du}=-110\\pi .\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the rate of heat flow across *S* is $\\frac{55\\pi}{2}-\\frac{55\\pi}{2}-110\\pi =-110\\pi .$"
+     }
+    ]
+   },
+   "title": "Calculating Heat Flow"
+  },
+  {
+   "id": "c60",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.60",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A cast-iron solid ball is given by inequality $x^{2}+y^{2}+z^{2}\\le 1.$ The temperature at a point in a region containing the ball is $T(x,y,z)=\\frac{1}{3}(x^{2}+y^{2}+z^{2}).$ Find the heat flow across the boundary of the solid if this boundary is oriented outward."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{440\\pi}{3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps of Example 6.70."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-((440 pi)/3)"
+   }
+  },
+  {
+   "id": "r61",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Surfaces can be parameterized, just as curves can be parameterized. In general, surfaces must be parameterized with two parameters.",
+      "Surfaces can sometimes be oriented, just as curves can be oriented. Some surfaces, such as a Möbius strip, cannot be oriented.",
+      "A surface integral is like a line integral in one higher dimension. The domain of integration of a surface integral is a surface in a plane or space, rather than a curve in a plane or space.",
+      "The integrand of a surface integral can be a scalar function or a vector field. To calculate a surface integral with an integrand that is a function, use (see above). To calculate a surface integral with an integrand that is a vector field, use (see above).",
+      "If *S* is a surface, then the area of *S* is ${\\displaystyle \\int {\\displaystyle \\int_{S}dS}}.$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r62",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Scalar surface integral**",
+       "${\\displaystyle \\int {\\displaystyle \\int_{S}f(x,y,z)dS={\\displaystyle \\int {\\displaystyle \\int_{D}f(\\text{r}(u,v))||{\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v}||dA}}}}$"
+      ],
+      [
+       "**Flux integral**",
+       "${\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS=}{\\displaystyle \\iint_{S}\\text{F}\\cdot d\\text{S}=}{\\displaystyle \\iint_{D}\\text{F}(\\text{r}(u,v))\\cdot ({\\text{t}}_{u}\\,\\times \\,{\\text{t}}_{v})dA}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If surface *S* is given by $\\{(x,y,z):0\\le x\\le 1,0\\le y\\le 1,z=10\\},$ then ${\\displaystyle \\iint_{S}f(x,y,z)}dS={\\displaystyle \\int_{0}^{1}{\\displaystyle \\int_{0}^{1}f(x,y,10)}}dxdy.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794221059",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statements are *true or false*."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "true"
+   }
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If surface *S* is given by $\\{(x,y,z):0\\le x\\le 1,0\\le y\\le 1,z=x\\},$ then ${\\displaystyle \\iint_{S}f(x,y,z)}dS={\\displaystyle \\int_{0}^{1}{\\displaystyle \\int_{0}^{1}f(x,y,x)}}dxdy.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793490667",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statements are *true or false*."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Surface $\\text{r}=〈v\\,\\cos \\,u,v\\,\\sin \\,u,v^{2}〉,\\,\\text{for}\\,0\\le u\\le \\pi ,0\\le v\\le 2,$ is the same as surface $\\text{r}=〈\\sqrt{v}\\,\\cos \\,2u,\\sqrt{v}\\,\\sin \\,2u,v〉,$ for $0\\le u\\le \\frac{\\pi}{2},0\\le v\\le 4.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794214059",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statements are *true or false*."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "true"
+   }
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given the standard parameterization of a sphere, normal vectors ${\\text{t}}_{u}^{}\\,\\times \\,{\\text{t}}_{v}$ are outward normal vectors."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793392783",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statements are *true or false*."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Plane $3x-2y+z=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793401623",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find parametric descriptions for the following surfaces."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{r}(u,v)=〈u,v,2-3u+2v〉$ for $-\\infty \\le u<\\infty$ and $-\\infty \\le v<\\infty .$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Paraboloid $z=x^{2}+y^{2},$ for $0\\le z\\le 9.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793631923",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find parametric descriptions for the following surfaces."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Plane $2x-4y+3z=16$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794138250",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find parametric descriptions for the following surfaces."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{r}(u,v)=〈u,v,\\frac{1}{3}(16-2u+4v)〉$ for $|u|<\\infty$ and $|v|<\\infty .$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The frustum of cone $z^{2}=x^{2}+y^{2},\\,\\text{for}\\,2\\le z\\le 8$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794210461",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find parametric descriptions for the following surfaces."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The portion of cylinder $x^{2}+y^{2}=9$ in the first octant, for $0\\le z\\le 3$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_201.webp",
+     "alt": "A diagram in three dimensions of a section of a cylinder with radius 3. The center of its circular top is (0,0,3). The section exists for x, y, and z between 0 and 3.",
+     "width": 463,
+     "height": 329
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793612973",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find parametric descriptions for the following surfaces."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{r}(u,v)=〈3\\,\\cos \\,u,3\\,\\sin \\,u,v〉$ for $0\\le u\\le \\frac{\\pi}{2},0\\le v\\le 3$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A cone with base radius *r* and height *h*, where *r* and *h* are positive constants"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793640233",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find parametric descriptions for the following surfaces."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Half cylinder $\\{(r,\\theta ,z):r=4,0\\le \\theta \\le \\pi ,0\\le z\\le 7\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794210185",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a computer algebra system to approximate the area of the following surfaces using a parametric description of the surface."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$A=28\\pi =87.9646$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"A=28 pi =87.9646\""
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Plane $z=10-x-y$ above square $|x|\\le 2,|y|\\le 2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794090614",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use a computer algebra system to approximate the area of the following surfaces using a parametric description of the surface."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}zdS}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794121580",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let *S* be the hemisphere $x^{2}+y^{2}+z^{2}=4,$ with $z\\ge 0,$ and evaluate each surface integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}zdS}=8\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "8 pi"
+   }
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}(x-2y)dS}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794090418",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let *S* be the hemisphere $x^{2}+y^{2}+z^{2}=4,$ with $z\\ge 0,$ and evaluate each surface integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}(x^{2}+y^{2})zdS}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793775678",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, let *S* be the hemisphere $x^{2}+y^{2}+z^{2}=4,$ with $z\\ge 0,$ and evaluate each surface integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}(x^{2}+y^{2})zdS}=16\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "16 pi"
+   }
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y,z)=x\\text{i}+2y\\text{j}-3z\\text{k},$ and *S* is that part of plane $15x-12y+3z=6$ that lies above unit square $0\\le x\\le 1,0\\le y\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793278939",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate ${\\displaystyle \\int {\\displaystyle \\int_{S}\\text{F}\\cdot \\text{N}dS}}$ for vector field **F**, where **N** is an upward pointing normal vector to surface *S.*"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y,z)=x\\text{i}+y\\text{j},$ and *S* is hemisphere $z=\\sqrt{1-x^{2}-y^{2}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794169198",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate ${\\displaystyle \\int {\\displaystyle \\int_{S}\\text{F}\\cdot \\text{N}dS}}$ for vector field **F**, where **N** is an upward pointing normal vector to surface *S.*"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS=\\frac{4\\pi}{3}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{F}(x,y,z)=x^{2}\\text{i}+y^{2}\\text{j}+z^{2}\\text{k},$ and *S* is the portion of plane $z=y+1$ that lies inside cylinder $x^{2}+y^{2}=1.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_202.webp",
+     "alt": "A cylinder and an intersecting plane shown in three-dimensions. S is the portion of the plane z = y + 1 inside the cylinder x^2 + y ^2 = 1.",
+     "width": 406,
+     "height": 417
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793634102",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate ${\\displaystyle \\int {\\displaystyle \\int_{S}\\text{F}\\cdot \\text{N}dS}}$ for vector field **F**, where **N** is an upward pointing normal vector to surface *S.*"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** *S* is surface $z=4-x-2y,\\,\\text{with}\\,z\\ge 0,\\,x\\ge 0,\\,y\\ge 0;\\,\\rho =x.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167791543254",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$m\\approx 13.0639$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "list",
+    "value": "13.0639"
+   }
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** *S* is surface $z=x^{2}+y^{2},\\,\\text{with}\\,z\\le 1;\\,\\rho =z.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793477527",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** *S* is surface $x^{2}+y^{2}+z^{2}=5,\\,\\text{with}\\,z\\ge 1;\\,\\rho =\\theta^{2}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793480985",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$m\\approx 228.5313$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "list",
+    "value": "228.5313"
+   }
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\iint_{S}(y^{2}z\\text{i}+y^{3}\\text{j}+xz\\text{k})\\cdot dS},$ where *S* is the surface of cube $-1\\le x\\le 1,-1\\le y\\le 1,\\text{and}\\,0\\le z\\le 2.$ Assume an outward pointing normal."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793542477",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e291",
+   "number": 291,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate surface integral ${\\displaystyle \\iint_{S}gdS},$ where $g(x,y,z)=xz+2x^{2}-3xy$ and *S* is the portion of plane $2x-3y+z=6$ that lies over unit square *R*: $0\\le x\\le 1,\\,0\\le y\\le 1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794284374",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}gdS}=3\\sqrt{14}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "3 sqrt(14)"
+   }
+  },
+  {
+   "id": "e292",
+   "number": 292,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\iint_{S}(x^{2}+y-z)dS},$ where $S$ is the surface defined parametrically by $\\text{r}(u,v)=(2u+v)\\text{i}+(u-2v)\\text{j}+(u+3v)\\text{k}$ for $0\\le u\\le 1,\\,\\text{and}\\,0\\le v\\le 2.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_203.webp",
+     "alt": "A three-dimensional diagram of the given surface, which appears to be a steeply sloped plane stretching through the (x,y) plane.",
+     "width": 419,
+     "height": 435
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794284316",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e293",
+   "number": 293,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\iint_{S}(x-y^{2}+z)dS},$ where *S* is the surface defined by $\\text{r}(u,v)=u^{2}\\text{i}+v\\text{j}+u\\text{k},\\,0\\le u\\le 1,\\,0\\le v\\le 1.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_204.webp",
+     "alt": "A three-dimensional diagram of the given surface, which appears to be a curve with edges parallel to the y-axis. It increases in x components and decreases in z components the further it is from the y axis.",
+     "width": 449,
+     "height": 436
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167791542840",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}(x-y^{2}+z)}dS\\approx 0.9617$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0.9617"
+   }
+  },
+  {
+   "id": "e294",
+   "number": 294,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate $\\int \\int_{S}(x^{2}+y^{2}-z)dS$ where $S$ is the surface defined by $\\text{r}(u,v)=u\\text{i}-u^{2}\\text{j}+v\\text{k},\\,0\\le u\\le 2,\\,0\\le v\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793442664",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\iint_{S}(x^{2}+y^{2})dS},$ where *S* is the surface of hemisphere $z=\\sqrt{1-x^{2}-y^{2}},$ and above the plane $z=0.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793427585",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}(x^{2}+y^{2})dS}=\\frac{4\\pi}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((4 pi)/3)"
+   }
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\iint_{S}(x^{2}+y^{2}+z^{2})dS},$ where *S* is the portion of plane $z=x+1$ that lies inside cylinder $x^{2}+y^{2}=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793463775",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\iint_{S}x^{2}zdS,}$ where *S* is the portion of cone $z^{2}=x^{2}+y^{2}$ that lies between planes $z=1$ and $z=4.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_205.webp",
+     "alt": "A diagram of the given upward opening cone in three dimensions. The cone is cut by planes z=1 and z=4.",
+     "width": 400,
+     "height": 403
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793298599",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}x^{2}zdS}=\\frac{1023\\pi \\sqrt{2}}{5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((1023 pi sqrt(2))/5)"
+   }
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\iint_{S}(xz/y)dS},$ where *S* is the portion of cylinder $x=y^{2}$ that lies in the first octant between planes $z=0,z=5,y=1,$ and $y=4.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_206.webp",
+     "alt": "A diagram of the given cylinder in three-dimensions. It is cut by the planes z=0, z=5, y=1, and y=4.",
+     "width": 395,
+     "height": 419
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793544845",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e299",
+   "number": 299,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Evaluate ${\\displaystyle \\iint_{S}(z+y)dS},$ where *S* is the part of the graph of $z=\\sqrt{1-x^{2}}$ in the first octant between the *xz*-plane and plane $y=3.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_207.webp",
+     "alt": "A diagram of the given surface in three dimensions in the first octant between the xz-plane and plane y=3. The given graph of z= the square root of (1-x^2) stretches down in a concave down curve from along (0,y,1) to along (1,y,0). It looks like a portion of a horizontal cylinder with base along the xz-plane and height along the y axis.",
+     "width": 409,
+     "height": 438
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794296829",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}(z+y)dS}\\approx 10.1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "10.1"
+   }
+  },
+  {
+   "id": "e300",
+   "number": 300,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\iint_{S}xyzdS}$ if *S* is the part of plane $z=x+y$ that lies over the triangular region in the *xy*-plane with vertices (0, 0, 0), (1, 0, 0), and (0, 2, 0)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793379204",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e301",
+   "number": 301,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the mass of a lamina of density $\\rho (x,y,z)=z$ in the shape of hemisphere $z=(a^{2}-x^{2}-y^{2})^{1/2}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793498738",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$m=\\pi a^{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "m= pi a^3"
+   }
+  },
+  {
+   "id": "e302",
+   "number": 302,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Compute ${\\displaystyle {\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS,}}$ where $\\text{F}(x,y,z)=x\\text{i}-5y\\text{j}+4z\\text{k}$ and **N** is an outward normal vector of *S*, where *S* is the union of two squares $S_{1}:x=0,\\,0\\le y\\le 1,\\,0\\le z\\le 1$ and $S_{2}:z=1,\\,0\\le x\\le 1,\\,0\\le y\\le 1.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_208.webp",
+     "alt": "A diagram in three dimensions. It shows the square formed by the components x=0, 0 <= y <= 1, and 0 <= z <= 1. It also shows the square formed by the components z=1, 0 <= x <= 1, and 0 <= y <= 1.",
+     "width": 399,
+     "height": 439
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793658120",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e303",
+   "number": 303,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Compute ${\\displaystyle {\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS,}}$ where $\\text{F}(x,y,z)=xy\\text{i}+z\\text{j}+(x+y)\\text{k}$ and **N** is an upward pointing normal vector $S$, where *S* is the triangular region of the plane $x+y+z=1$ in the first octant."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794138080",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS=\\frac{13}{24}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e304",
+   "number": 304,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Compute ${\\displaystyle {\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS,}}$ where $\\text{F}(x,y,z)=2yz\\text{i}+(\\tan^{-1}(xz))\\text{j}+e^{xy}\\text{k}$ and **N** is an outward normal vector of *S*, where *S* is the surface of sphere $x^{2}+y^{2}+z^{2}=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793448766",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e305",
+   "number": 305,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Compute ${\\displaystyle {\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS,}}$ where $\\text{F}(x,y,z)=xyz\\text{i}+xyz\\text{j}+xyz\\text{k}$ and **N** is an outward normal vector *S*, where *S* is the surface of the five faces of the unit cube $0\\le x\\le 1,\\,0\\le y\\le 1,\\,0\\le z\\le 1$ missing $z=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794021153",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, approximate the mass of the lamina that has the shape of given surface *S.* Round to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}\\text{F}\\cdot \\text{N}dS=\\frac{3}{4}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e306",
+   "number": 306,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}xy^{2}z^{3}dS};$ *S* is the first-octant portion of plane $2x+3y+4z=12.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793705346",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *yz*-plane."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e307",
+   "number": 307,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}(x^{2}-2y+z)dS;}$ *S* is the portion of the graph of $4x+y=8$ bounded by the coordinate planes and plane $z=6.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794067738",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *yz*-plane."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{8}{\\displaystyle \\int_{0}^{6}\\left(4-3y+\\frac{1}{16}y^{2}+z\\right)\\left(\\frac{1}{4}\\sqrt{17}\\right)dzdy}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e308",
+   "number": 308,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}xy^{2}z^{3}dS};$ *S* is the first-octant portion of plane $2x+3y+4z=12.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794283028",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *xz*-plane"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e309",
+   "number": 309,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}(x^{2}-2y+z)dS;}$ *S* is the portion of the graph of $4x+y=8$ bounded by the coordinate planes and plane $z=6.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793486275",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *xz*-plane"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{2}{\\displaystyle \\int_{0}^{6}[x^{2}-2(8-4x)+z]\\sqrt{17}dzdx}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e310",
+   "number": 310,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate surface integral ${\\displaystyle \\iint_{S}yzdS},$ where *S* is the first-octant part of plane $x+y+z=\\lambda ,$ where $\\lambda$ is a positive constant."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794012929",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *xz*-plane"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e311",
+   "number": 311,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate surface integral ${\\displaystyle \\iint_{S}(x^{2}z+y^{2}z)dS},$ where *S* is hemisphere $x^{2}+y^{2}+z^{2}=a^{2},z\\ge 0.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793611134",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *xz*-plane"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}(x^{2}z+y^{2}z)dS}=\\frac{\\pi a^{5}}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((pi a^5)/2)"
+   }
+  },
+  {
+   "id": "e312",
+   "number": 312,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate surface integral ${\\displaystyle \\iint_{S}zdS},$ where *S* is surface $z=\\sqrt{x^{2}+y^{2}},0\\le z\\le 2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793696600",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *xz*-plane"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e313",
+   "number": 313,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate surface integral ${\\displaystyle \\iint_{S}x^{2}yzdS},$ where *S* is the part of plane $z=1+2x+3y$ that lies above rectangle $0\\le x\\le 3\\,\\text{and}\\,0\\le y\\le 2.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793279308",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *xz*-plane"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}x^{2}yzdS}=171\\sqrt{14}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "171 sqrt(14)"
+   }
+  },
+  {
+   "id": "e314",
+   "number": 314,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate surface integral ${\\displaystyle \\iint_{S}yzdS,}$ where *S* is plane $x+y+z=1$ that lies in the first octant."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794127305",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *xz*-plane"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e315",
+   "number": 315,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate surface integral ${\\displaystyle \\iint_{S}yzdS},$ where *S* is the part of plane $z=y+3$ that lies inside cylinder $x^{2}+y^{2}=1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793570610",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, express the surface integral as an iterated double integral by using a projection on *S* on the *xz*-plane"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}yzdS}=\\frac{\\sqrt{2}\\pi}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((sqrt(2) pi)/4)"
+   }
+  },
+  {
+   "id": "e316",
+   "number": 316,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}\\sqrt{x^{2}+y^{2}+z^{2}}dS},$ where *S* is surface $x^{2}+y^{2}+z^{2}=4,z\\ge 0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793228877",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use geometric reasoning to evaluate the given surface integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e317",
+   "number": 317,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}(x\\text{i}+y\\text{j})\\cdot dS},$ where *S* is surface $x^{2}+y^{2}=4,1\\le z\\le 3,$ oriented with unit normal vectors pointing outward"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793696726",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use geometric reasoning to evaluate the given surface integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iint_{S}(x\\text{i}+y\\text{j})\\cdot dS}=16\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "16 pi"
+   }
+  },
+  {
+   "id": "e318",
+   "number": 318,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{S}(z\\text{k})\\cdot dS},$ where *S* is disc $x^{2}+y^{2}\\le 9$ on plane $z=4,$ oriented with unit normal vectors pointing upward"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793325735",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use geometric reasoning to evaluate the given surface integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e319",
+   "number": 319,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A lamina has the shape of a portion of sphere $x^{2}+y^{2}+z^{2}=a^{2}$ that lies within cone $z=\\sqrt{x^{2}+y^{2}}.$ Let *S* be the spherical shell centered at the origin with radius *a*, and let *C* be the right circular cone with a vertex at the origin and an axis of symmetry that coincides with the *z*-axis. Determine the mass of the lamina if $\\rho (x,y,z)=x^{2}y^{2}z.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_209.webp",
+     "alt": "A diagram in three dimensions. A cone opens upward with point at the origin and an asic of symmetry that coincides with the z-axis. The upper half of a hemisphere with center at the origin opens downward and is cut off by the xy-plane.",
+     "width": 382,
+     "height": 370
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793697714",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use geometric reasoning to evaluate the given surface integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$m=\\frac{\\pi a^{7}}{192}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "m=((pi a^7)/192)"
+   }
+  },
+  {
+   "id": "e320",
+   "number": 320,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A lamina has the shape of a portion of sphere $x^{2}+y^{2}+z^{2}=a^{2}$ that lies within cone $z=\\cot \\varphi_{0}\\sqrt{x^{2}+y^{2}}$ Let *S* be the spherical shell centered at the origin with radius *a*, and let *C* be the right circular cone with a vertex at the origin and an axis of symmetry that coincides with the *z*-axis. Suppose the angle between the sides of the cone and the *z*-axis is $\\phi_{0},\\,\\text{with}\\,0\\le \\phi_{0}<\\frac{\\pi}{2}.$ Determine the mass of that portion of the shape enclosed in the intersection of *S* and *C*. Assume $\\rho (x,y,z)=x^{2}y^{2}z.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_210.webp",
+     "alt": "A diagram in three dimensions. A cone opens upward with point at the origin and an asic of symmetry that coincides with the z-axis. The upper half of a hemisphere with center at the origin opens downward and is cut off by the xy-plane.",
+     "width": 382,
+     "height": 370
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793545832",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use geometric reasoning to evaluate the given surface integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e321",
+   "number": 321,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A paper cup has the shape of an inverted right circular cone of height 6 in. and radius of top 3 in. If the cup is full of water weighing $62.5\\,\\text{lb}/{\\text{ft}}^{3},$ find the total force exerted by the water on the inside surface of the cup."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793254823",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use geometric reasoning to evaluate the given surface integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F\\approx 4.57\\,\\text{lb}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e322",
+   "number": 322,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$T(x,y,z)=100e^{-x-y};$ *S* consists of the faces of cube $|x|\\le 1,|y|\\le 1,|z|\\le 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793442544",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the heat flow vector field for conducting objects is $\\text{F}=-k\\nabla T,\\,\\text{where}\\,T(x,y,z)$ is the temperature in the object and $k>0$ is a constant that depends on the material. Find the outward flux of **F** across the following surfaces *S* for the given temperature distributions and assume $k=1.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e323",
+   "number": 323,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$T(x,y,z)=-\\ln (x^{2}+y^{2}+z^{2});$ *S* is sphere $x^{2}+y^{2}+z^{2}=a^{2}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794267610",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the heat flow vector field for conducting objects is $\\text{F}=-k\\nabla T,\\,\\text{where}\\,T(x,y,z)$ is the temperature in the object and $k>0$ is a constant that depends on the material. Find the outward flux of **F** across the following surfaces *S* for the given temperature distributions and assume $k=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$8\\pi a$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "8 pi a"
+   }
+  },
+  {
+   "id": "e324",
+   "number": 324,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the total flux across *S* with $p=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793569423",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the radial fields $\\text{F}=\\frac{\\langle x,y,z\\rangle}{(x^{2}+y^{2}+z^{2})^{\\frac{p}{2}}}=\\frac{\\text{r}}{\\left||\\text{r}\\right||^{p}},$ where *p* is a real number. Let *S* consist of spheres *A* and *B* centered at the origin with radii $0<a<b.$ The total outward flux across *S* consists of the outward flux across the outer sphere *B* less the flux into *S* across inner sphere *A*."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_211.webp",
+     "alt": "A diagram in three dimensions of two spheres, one contained completely inside the other. Their centers are both at the origin. Arrows point in toward the origin from outside both spheres.",
+     "width": 371,
+     "height": 409
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e325",
+   "number": 325,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that for $p=3$ the flux across *S* is independent of *a* and *b*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793569480",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the radial fields $\\text{F}=\\frac{\\langle x,y,z\\rangle}{(x^{2}+y^{2}+z^{2})^{\\frac{p}{2}}}=\\frac{\\text{r}}{\\left||\\text{r}\\right||^{p}},$ where *p* is a real number. Let *S* consist of spheres *A* and *B* centered at the origin with radii $0<a<b.$ The total outward flux across *S* consists of the outward flux across the outer sphere *B* less the flux into *S* across inner sphere *A*."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_16_06_211.webp",
+     "alt": "A diagram in three dimensions of two spheres, one contained completely inside the other. Their centers are both at the origin. Arrows point in toward the origin from outside both spheres.",
+     "width": 371,
+     "height": 409
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The net flux is zero."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "flux integral",
+   "meaning": "another name for a surface integral of a vector field; the preferred term in physics and engineering"
+  },
+  {
+   "term": "grid curves",
+   "meaning": "curves on a surface that are parallel to grid lines in a coordinate plane"
+  },
+  {
+   "term": "heat flow",
+   "meaning": "a vector field proportional to the negative temperature gradient in an object"
+  },
+  {
+   "term": "mass flux",
+   "meaning": "the rate of mass flow of a fluid per unit area, measured in mass per unit time per unit area"
+  },
+  {
+   "term": "orientation of a surface",
+   "meaning": "if a surface has an “inner” side and an “outer” side, then an orientation is a choice of the inner or the outer side; the surface could also have “upward” and “downward” orientations"
+  },
+  {
+   "term": "parameter domain (parameter space)",
+   "meaning": "the region of the *uv* plane over which the parameters *u* and *v* vary for parameterization $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$"
+  },
+  {
+   "term": "parameterized surface (parametric surface)",
+   "meaning": "a surface given by a description of the form $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉,$ where the parameters *u* and *v* vary over a parameter domain in the *uv*-plane"
+  },
+  {
+   "term": "regular parameterization",
+   "meaning": "parameterization $\\text{r}(u,v)=〈x(u,v),y(u,v),z(u,v)〉$ such that ${\\text{r}}_{u}\\,\\times \\,{\\text{r}}_{v}$ is not zero for any point $(u,v)$ in the parameter domain"
+  },
+  {
+   "term": "surface area",
+   "meaning": "the area of surface *S* given by the surface integral ${\\displaystyle \\int {\\displaystyle \\int_{S}dS}}$"
+  },
+  {
+   "term": "surface integral",
+   "meaning": "an integral of a function over a surface"
+  },
+  {
+   "term": "surface integral of a scalar-valued function",
+   "meaning": "a surface integral in which the integrand is a scalar function"
+  },
+  {
+   "term": "surface integral of a vector field",
+   "meaning": "a surface integral in which the integrand is a vector field"
+  }
+ ]
+}

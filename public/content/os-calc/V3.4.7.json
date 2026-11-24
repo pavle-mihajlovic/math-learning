@@ -1,0 +1,2246 @@
+{
+ "schema": 1,
+ "id": "V3.4.7",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 4,
+ "section": 7,
+ "title": "Maxima/Minima Problems",
+ "chapterTitle": "Differentiation of Functions of Several Variables",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53942",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/4-7-maxima-minima-problems",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §4.7 “Maxima/Minima Problems”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use partial derivatives to locate critical points for a function of two variables.",
+  "Apply a second derivative test to identify a critical point as a local maximum, local minimum, or saddle point for a function of two variables.",
+  "Examine critical points and boundary points to find absolute maximum and minimum values for a function of two variables."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "One of the most useful applications for derivatives of a function of one variable is the determination of maximum and/or minimum values. This application is also important for functions of two or more variables, but as we have seen in earlier sections of this chapter, the introduction of more independent variables leads to more possible outcomes for the calculations. The main ideas of finding critical points and using derivative tests are still valid, but new wrinkles appear when assessing the results."
+    }
+   ],
+   "title": "Maxima/Minima Problems"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For functions of a single variable, we defined critical points as the values of the function when the derivative equals zero or does not exist. For functions of two or more variables, the concept is essentially the same, except for the fact that we are now working with partial derivatives."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $z=f(x,y)$ be a function of two variables that is defined on an open set containing the point $(x_{0},y_{0}).$ The point $(x_{0},y_{0})$ is called a **critical point of a function of two variables** $f$ if one of the two following conditions holds:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$f_{x}(x_{0},y_{0})=f_{y}(x_{0},y_{0})=0$",
+        "Either $f_{x}(x_{0},y_{0})\\,\\text{or}\\,f_{y}(x_{0},y_{0})$ does not exist."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ]
+    }
+   ],
+   "title": "Critical Points"
+  },
+  {
+   "id": "x3",
+   "kind": "example",
+   "label": "Example 4.38",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the critical points of each of the following functions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(x,y)=\\sqrt{4y^{2}-9x^{2}+24y+36x+36}$",
+      "$g(x,y)=x^{2}+2xy-4y^{2}+4x-6y+4$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "First, we calculate $f_{x}(x,y)\\,\\text{and}\\,f_{y}(x,y):$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}f_{x}(x,y) & = & \\frac{1}{2}(-18x+36)(4y^{2}-9x^{2}+24y+36x+36)^{-1/2} \\\\ & = & \\frac{-9x+18}{\\sqrt{4y^{2}-9x^{2}+24y+36x+36}} \\\\ f_{y}(x,y) & = & \\frac{1}{2}(8y+24)(4y^{2}-9x^{2}+24y+36x+36)^{-1/2} \\\\ & = & \\frac{4y+12}{\\sqrt{4y^{2}-9x^{2}+24y+36x+36}}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Next, we set each of these expressions equal to zero:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}\\frac{-9x+18}{\\sqrt{4y^{2}-9x^{2}+24y+36x+36}} & = & 0 \\\\ \\frac{4y+12}{\\sqrt{4y^{2}-9x^{2}+24y+36x+36}} & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Then, multiply each equation by its common denominator:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}-9x+18 & = & 0 \\\\ 4y+12 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, $x=2$ and $y=-3,$ so $(2,-3)$ is a critical point of $f.$\n\nWe must also check for the possibility that the denominator of each partial derivative can equal zero, thus causing the partial derivative not to exist. Since the denominator is the same in each partial derivative, we need only do this once:"
+        },
+        {
+         "type": "math",
+         "tex": "4y^{2}-9x^{2}+24y+36x+36=0."
+        },
+        {
+         "type": "p",
+         "text": "This equation represents a hyperbola. We should also note that the domain of $f$ consists of points satisfying the inequality"
+        },
+        {
+         "type": "math",
+         "tex": "4y^{2}-9x^{2}+24y+36x+36\\ge 0."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, any points on the hyperbola are not only critical points, they are also on the boundary of the domain. To put the hyperbola in standard form, we use the method of completing the square:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}4y^{2}-9x^{2}+24y+36x+36 & = & 0 \\\\ 4y^{2}-9x^{2}+24y+36x & = & -36 \\\\ 4y^{2}+24y-9x^{2}+36x & = & -36 \\\\ 4(y^{2}+6y)-9(x^{2}-4x) & = & -36 \\\\ 4(y^{2}+6y+9)-9(x^{2}-4x+4) & = & -36+36-36 \\\\ 4(y+3)^{2}-9(x-2)^{2} & = & -36.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Dividing both sides by $-36$ puts the equation in standard form:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}\\frac{4(y+3)^{2}}{-36}-\\frac{9(x-2)^{2}}{-36} & = & 1 \\\\ \\frac{(x-2)^{2}}{4}-\\frac{(y+3)^{2}}{9} & = & 1.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Notice that point $(2,-3)$ is the center of the hyperbola."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "First, we calculate $g_{x}(x,y)\\,\\text{and}\\,g_{y}(x,y):$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}g_{x}(x,y) & = & 2x+2y+4 \\\\ g_{y}(x,y) & = & 2x-8y-6.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Next, we set each of these expressions equal to zero, which gives a system of equations in $x\\,\\text{and}\\,y:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}2x+2y+4 & = & 0 \\\\ 2x-8y-6 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Subtracting the second equation from the first gives $10y+10=0,\\,\\text{so}\\,y=-1.$ Substituting this into the first equation gives $2x+2(-1)+4=0,$ so $x=-1.$ Therefore $(-1,-1)$ is a critical point of $g$ (Figure 4.45). There are no points in ${\\mathbb{R}}^{2}$ that make either partial derivative not exist."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_07_006.webp",
+         "alt": "The function g(x, y) = x2 + 2xy – 4y2 + 4x – 6y + 4 is shown with critical point (–1, –1, 5). The critical point is located where the derivative in the x and y directions are both zero.",
+         "caption": "**Figure 4.45** The function $g(x,y)$ has a critical point at $(-1,-1,5).$",
+         "width": 760,
+         "height": 418
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding Critical Points"
+  },
+  {
+   "id": "c4",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.34",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the critical point of the function $f(x,y)=x^{3}+2xy-2x-4y.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(2,-5)$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate $f_{x}(x,y)$ and $f_{y}(x,y),$ then set them equal to zero."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(2, -5)"
+   }
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The main purpose for determining critical points is to locate relative maxima and minima, as in single-variable calculus. When working with a function of one variable, the definition of a local extremum involves finding an interval around the critical point such that the function value is either greater than or less than all the other function values in that interval. When working with a function of two or more variables, we work with an open disk around the point."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $z=f(x,y)$ be a function of two variables that is defined and continuous on an open set containing the point $(x_{0},y_{0}).$ Then *f* has a *local maximum* at $(x_{0},y_{0})$ if"
+      },
+      {
+       "type": "math",
+       "tex": "f(x_{0},y_{0})\\ge f(x,y)"
+      },
+      {
+       "type": "p",
+       "text": "for all points $(x,y)$ within some disk centered at $(x_{0},y_{0}).$ The number $f(x_{0},y_{0})$ is called a *local maximum value*. If the preceding inequality holds for every point $(x,y)$ in the domain of $f,$ then $f$ has a *global maximum* (also called an *absolute maximum*) at $(x_{0},y_{0}).$"
+      },
+      {
+       "type": "p",
+       "text": "The function $f$ has a *local minimum* at $(x_{0},y_{0})$ if"
+      },
+      {
+       "type": "math",
+       "tex": "f(x_{0},y_{0})\\le f(x,y)"
+      },
+      {
+       "type": "p",
+       "text": "for all points $(x,y)$ within some disk centered at $(x_{0},y_{0}).$ The number $f(x_{0},y_{0})$ is called a *local minimum value*. If the preceding inequality holds for every point $(x,y)$ in the domain of $f,$ then $f$ has a *global minimum* (also called an *absolute minimum*) at $(x_{0},y_{0}).$"
+      },
+      {
+       "type": "p",
+       "text": "If $f(x_{0},y_{0})$ is either a local maximum or local minimum value, then it is called a **local extremum** (see the following figure)."
+      }
+     ]
+    }
+   ],
+   "title": "Critical Points (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_07_001.webp",
+     "alt": "The function z = the square root of (16 – x2 – y2) is shown, which is the upper hemisphere of radius 4 with center at the origin. In the xy plane, the circle with radius 4 and center at the origin is highlighted; it has equation x2 + y2 = 16.",
+     "caption": "**Figure 4.46** The graph of $z=\\sqrt{16-x^{2}-y^{2}}$ has a maximum value when $(x,y)=(0,0).$ It attains its minimum value at the boundary of its domain, which is the circle $x^{2}+y^{2}=16.$",
+     "width": 479,
+     "height": 445
+    },
+    {
+     "type": "p",
+     "text": "In Maxima and Minima, we showed that extrema of functions of one variable occur at critical points. The same is true for functions of more than one variable, as stated in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $z=f(x,y)$ be a function of two variables that is defined and continuous on an open set containing the point $(x_{0},y_{0}).$ Suppose $f_{x}$ and $f_{y}$ each exists at $(x_{0},y_{0}).$ If $f$ has a local extremum at $(x_{0},y_{0}),$ then $(x_{0},y_{0})$ is a critical point of $f.$"
+      }
+     ],
+     "title": "Fermat’s Theorem for Functions of Two Variables"
+    }
+   ],
+   "title": "Critical Points (continued)"
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider the function $f(x)=x^{3}.$ This function has a critical point at $x=0,$ since $f'(0)=3(0)^{2}=0.$ However, $f$ does not have an extreme value at $x=0.$ Therefore, the existence of a critical value at $x=x_{0}$ does not guarantee a local extremum at $x=x_{0}.$ The same is true for a function of two or more variables. One way this can happen is at a **saddle point**. An example of a saddle point appears in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_07_002.webp",
+     "alt": "The function z = x2 – y2 is shown, which is roughly saddle looking, with the function achieving maxima along the x and y axes.",
+     "caption": "**Figure 4.47** Graph of the function $z=x^{2}-y^{2}.$ This graph has a saddle point at the origin.",
+     "width": 483,
+     "height": 651
+    },
+    {
+     "type": "p",
+     "text": "In this graph, the origin is a saddle point. This is because the first partial derivatives of $f(x,y)=x^{2}-y^{2}$ are both equal to zero at this point, but it is neither a maximum nor a minimum for the function. Furthermore the vertical trace corresponding to $y=0$ is $z=x^{2}$ (a parabola opening upward), but the vertical trace corresponding to $x=0$ is $z=-y^{2}$ (a parabola opening downward). Therefore, it is both a global maximum for one trace and a global minimum for another."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given the function $z=f(x,y),$ the point $(x_{0},y_{0},f(x_{0},y_{0}))$ is a saddle point if both $f_{x}(x_{0},y_{0})=0$ and $f_{y}(x_{0},y_{0})=0,$ but $f$ does not have a local extremum at $(x_{0},y_{0}).$"
+      }
+     ]
+    }
+   ],
+   "title": "Second Derivative Test"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The second derivative test for a function of one variable provides a method for determining whether an extremum occurs at a critical point of a function. When extending this result to a function of two variables, an issue arises related to the fact that there are, in fact, four different second-order partial derivatives, although equality of mixed partials reduces this to three. The second derivative test for a function of two variables, stated in the following theorem, uses a **discriminant** $D$ that replaces $f''(x_{0})$ in the second derivative test for a function of one variable."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $z=f(x,y)$ be a function of two variables for which the first- and second-order partial derivatives are continuous on some disk containing the point $(x_{0},y_{0}).$ Suppose $f_{x}(x_{0},y_{0})=0$ and $f_{y}(x_{0},y_{0})=0.$ Define the quantity"
+      },
+      {
+       "type": "math",
+       "tex": "D=f_{xx}(x_{0},y_{0})f_{yy}(x_{0},y_{0})-(f_{xy}(x_{0},y_{0}))^{2}."
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $D>0$ and $f_{xx}(x_{0},y_{0})>0,$ then $f$ has a local minimum at $(x_{0},y_{0}).$",
+        "If $D>0$ and $f_{xx}(x_{0},y_{0})<0,$ then $f$ has a local maximum at $(x_{0},y_{0}).$",
+        "If $D<0,$ then $f$ has a saddle point at $(x_{0},y_{0}).$",
+        "If $D=0,$ then the test is inconclusive."
+       ],
+       "ordered": true,
+       "style": "i"
+      },
+      {
+       "type": "p",
+       "text": "See Figure 4.48."
+      }
+     ],
+     "title": "Second Derivative Test"
+    }
+   ],
+   "title": "Second Derivative Test (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_07_007.webp",
+     "alt": "This figure consists of three figures labeled a, b, and c. Figure a has two bulbous mounds pointing down, and the two extrema are listed as the local minima. Figure b has two bulbous mounds pointed up, and the two extrema are listed as the local maxima. Figure c is shaped like a saddle, and in the middle of the saddle, a point is marked as the saddle point.",
+     "caption": "**Figure 4.48** The second derivative test can often determine whether a function of two variables has a local minima (a), a local maxima (b), or a saddle point (c).",
+     "width": 900,
+     "height": 329
+    },
+    {
+     "type": "p",
+     "text": "To apply the second derivative test, it is necessary that we first find the critical points of the function. There are several steps involved in the entire procedure, which are outlined in a problem-solving strategy."
+    }
+   ],
+   "title": "Second Derivative Test (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $z=f(x,y)$ be a function of two variables for which the first- and second-order partial derivatives are continuous on some disk containing the point $(x_{0},y_{0}).$ To apply the second derivative test to find local extrema, use the following steps:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "Determine the critical points $(x_{0},y_{0})$ of the function $f$ where $f_{x}(x_{0},y_{0})=f_{y}(x_{0},y_{0})=0.$ Discard any points where at least one of the partial derivatives does not exist.",
+        "Calculate the discriminant $D=f_{xx}(x_{0},y_{0})f_{yy}(x_{0},y_{0})-(f_{xy}(x_{0},y_{0}))^{2}$ for each critical point of $f.$",
+        "Apply (see above) to determine whether each critical point is a local maximum, local minimum, or saddle point, or whether the theorem is inconclusive."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Using the Second Derivative Test for Functions of Two Variables"
+    }
+   ],
+   "title": "Second Derivative Test (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 4.39",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the critical points for each of the following functions, and use the second derivative test to find the local extrema:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(x,y)=4x^{2}+9y^{2}+8x-36y+24$",
+      "$g(x,y)=\\frac{1}{3}x^{3}+y^{2}+2xy-6x-3y+4$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Step $1$ of the problem-solving strategy involves finding the critical points of $f.$ To do this, we first calculate $f_{x}(x,y)$ and $f_{y}(x,y),$ then set each of them equal to zero:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}f_{x}(x,y) & = & 8x+8 \\\\ f_{y}(x,y) & = & 18y-36.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Setting them equal to zero yields the system of equations"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}8x+8 & = & 0 \\\\ 18y-36 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The solution to this system is $x=-1$ and $y=2.$ Therefore $(-1,2)$ is a critical point of $f.$\n\nStep 2 of the problem-solving strategy involves calculating $D.$ To do this, we first calculate the second partial derivatives of $f:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}f_{xx}(x,y) & = & 8 \\\\ f_{xy}(x,y) & = & 0 \\\\ f_{yy}(x,y) & = & 18.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, $D=f_{xx}(-1,2)f_{yy}(-1,2)-(f_{xy}(-1,2))^{2}=(8)(18)-(0)^{2}=144.$\n\nStep 3 states to check the Second Derivative Test for Functions of Two Variables.. Since $D>0$ and $f_{xx}(-1,2)>0,$ this corresponds to case 1. Therefore, $f$ has a local minimum at $(-1,2)$ as shown in the following figure."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_07_008.webp",
+         "alt": "The function f(x, y) = 4x2 + 9y2 + 8x – 36y + 24 is shown with local minimum at (–1, 2, –16). The shape is a plane curving up on both ends parallel to the y axis.",
+         "caption": "**Figure 4.49** The function $f(x,y)$ has a local minimum at $(-1,2,-16).$",
+         "width": 813,
+         "height": 405
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "For step 1, we first calculate $g_{x}(x,y)$ and $g_{y}(x,y),$ then set each of them equal to zero:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{rrr}g_{x}(x,y) & = & x^{2}+2y-6 \\\\ g_{y}(x,y) & = & 2y+2x-3.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Setting them equal to zero yields the system of equations"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}x^{2}+2y-6 & = & 0 \\\\ 2y+2x-3 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "To solve this system, first solve the second equation for *y.* This gives $y=\\frac{3-2x}{2}.$ Substituting this into the first equation gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}x^{2}+3-2x-6 & = & 0 \\\\ x^{2}-2x-3 & = & 0 \\\\ (x-3)(x+1) & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, $x=-1$ or $x=3.$ Substituting these values into the equation $y=\\frac{3-2x}{2}$ yields the critical points $\\left(-1,\\frac{5}{2}\\right)$ and $\\left(3,-\\frac{3}{2}\\right).$"
+        },
+        {
+         "type": "p",
+         "text": "Step 2 involves calculating the second partial derivatives of $g:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}g_{xx}(x,y) & = & 2x \\\\ g_{xy}(x,y) & = & 2 \\\\ g_{yy}(x,y) & = & 2.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Then, we find a general formula for $D:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}D & =g_{xx}(x_{0},y_{0})g_{yy}(x_{0},y_{0})-(g_{xy}(x_{0},y_{0}))^{2} \\\\ & =(2x_{0})(2)-2^{2} \\\\ & =4x_{0}-4.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Next, we substitute each critical point into this formula:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}D\\left(-1,\\frac{5}{2}\\right) & = & (2(-1))(2)-(2)^{2}=-4-4=-8 \\\\ D\\left(3,-\\frac{3}{2}\\right) & = & (2(3))(2)-(2)^{2}=12-4=8.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "In step 3, we note that, applying the Second Derivative Test for Functions of Two Variables. to point $\\left(-1,\\frac{5}{2}\\right)$ leads to case $3,$ which means that $\\left(-1,\\frac{5}{2}\\right)$ is a saddle point. Applying the theorem to point $\\left(3,-\\frac{3}{2}\\right)$ leads to case 1, which means that $\\left(3,-\\frac{3}{2}\\right)$ corresponds to a local minimum as shown in the following figure."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_07_009.webp",
+         "alt": "The function f(x, y) = (1/3)x3 + y2 + + 2xy – 6x – 3y + 4 is shown with local minimum at (3, –3/2, –29/4) and saddle point at (−1, 5/2, 41/12). The shape is a plane curving up on the corners near (4, 3) and (−2, −2).",
+         "caption": "**Figure 4.50** The function $g(x,y)$ has a local minimum and a saddle point.",
+         "width": 829,
+         "height": 488
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Using the Second Derivative Test"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.35",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the second derivative to find the local extrema of the function"
+    },
+    {
+     "type": "math",
+     "tex": "f(x,y)=x^{3}+2xy-6x-4y^{2}."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{4}{3},\\frac{1}{3}\\right)$ is a saddle point, $\\left(-\\frac{3}{2},-\\frac{3}{8}\\right)$ is a local maximum."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the problem-solving strategy for applying the second derivative test."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When finding global extrema of functions of one variable on a closed interval, we start by checking the critical values over that interval and then evaluate the function at the endpoints of the interval. When working with a function of two variables, the closed interval is replaced by a closed, bounded set. A set is *bounded* if all the points in that set can be contained within a ball (or disk) of finite radius. First, we need to find the critical points inside the set and calculate the corresponding critical values. Then, it is necessary to find the maximum and minimum value of the function on the boundary of the set. When we have all these values, the largest function value corresponds to the global maximum and the smallest function value corresponds to the absolute minimum. First, however, we need to be assured that such values exist. The following theorem does this."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "A continuous function $f(x,y)$ on a closed and bounded set $D$ in the plane attains an absolute maximum value at some point of $D$ and an absolute minimum value at some point of $D.$"
+      }
+     ],
+     "title": "Extreme Value Theorem"
+    },
+    {
+     "type": "p",
+     "text": "Now that we know any continuous function $f$ defined on a closed, bounded set attains its extreme values, we need to know how to find them."
+    }
+   ],
+   "title": "Absolute Maxima and Minima"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Assume $z=f(x,y)$ is a differentiable function of two variables defined on a closed, bounded set $D.$ Then $f$ will attain the absolute maximum value and the absolute minimum value, which are, respectively, the largest and smallest values found among the following:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "The values of $f$ at the critical points of $f$ in $D.$",
+        "The values of $f$ on the boundary of $D.$"
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Finding Extreme Values of a Function of Two Variables"
+    },
+    {
+     "type": "p",
+     "text": "The proof of this theorem is a direct consequence of the extreme value theorem and Fermat’s theorem. In particular, if either extremum is not located on the boundary of $D,$ then it is located at an interior point of $D.$ But an interior point $(x_{0},y_{0})$ of $D$ that’s an absolute extremum is also a local extremum; hence, $(x_{0},y_{0})$ is a critical point of $f$ by Fermat’s theorem. Therefore the only possible values for the global extrema of $f$ on $D$ are the extreme values of $f$ on the interior or boundary of $D.$"
+    }
+   ],
+   "title": "Absolute Maxima and Minima (continued)"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $z=f(x,y)$ be a continuous function of two variables defined on a closed, bounded set $D,$ and assume $f$ is differentiable on $D.$ To find the absolute maximum and minimum values of $f$ on $D,$ do the following:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "Determine the critical points of $f$ in $D.$",
+        "Calculate $f$ at each of these critical points.",
+        "Determine the maximum and minimum values of $f$ on the boundary of its domain.",
+        "The maximum and minimum values of $f$ will occur at one of the values obtained in steps $2\\,\\text{and}\\,3.$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Finding Absolute Maximum and Minimum Values"
+    },
+    {
+     "type": "p",
+     "text": "Finding the maximum and minimum values of $f$ on the boundary of $D$ can be challenging. If the boundary is a rectangle or set of straight lines, then it is possible to parameterize the line segments and determine the maxima on each of these segments, as seen in Example 4.40. The same approach can be used for other shapes such as circles and ellipses."
+    },
+    {
+     "type": "p",
+     "text": "If the boundary of the set $D$ is a more complicated curve defined by a function $g(x,y)=c$ for some constant $c,$ and the first-order partial derivatives of $g$ exist, then the method of Lagrange multipliers can prove useful for determining the extrema of $f$ on the boundary. The method of Lagrange multipliers is introduced in Lagrange Multipliers."
+    }
+   ],
+   "title": "Absolute Maxima and Minima (continued)"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 4.40",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the problem-solving strategy for finding absolute extrema of a function to determine the absolute extrema of each of the following functions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(x,y)=x^{2}-2xy+4y^{2}-4x-2y+24$ on the domain defined by $0\\le x\\le 4$ and $0\\le y\\le 2$",
+      "$g(x,y)=x^{2}+y^{2}+4x-6y$ on the domain defined by $x^{2}+y^{2}\\le 16$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Using the problem-solving strategy, step $1$ involves finding the critical points of $f$ on its domain. Therefore, we first calculate $f_{x}(x,y)$ and $f_{y}(x,y),$ then set them each equal to zero:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}f_{x}(x,y) & = & 2x-2y-4 \\\\ f_{y}(x,y) & = & -2x+8y-2.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Setting them equal to zero yields the system of equations"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}2x-2y-4 & = & 0 \\\\ -2x+8y-2 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The solution to this system is $x=3$ and $y=1.$ Therefore $(3,1)$ is a critical point of $f.$ Calculating $f(3,1)$ gives $f(3,1)=17.$\n\nThe next step involves finding the extrema of $f$ on the boundary of its domain. The boundary of its domain consists of four line segments as shown in the following graph:"
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_07_003.webp",
+         "alt": "A rectangle is drawn in the first quadrant with one corner at the origin, horizontal length 4, and height 2. This rectangle is marked D, and the sides are marked in counterclockwise order from the side overlapping the x axis L1, L2, L3, and L4.",
+         "caption": "**Figure 4.51** Graph of the domain of the function $f(x,y)=x^{2}-2xy+4y^{2}-4x-2y+24.$",
+         "width": 267,
+         "height": 272
+        },
+        {
+         "type": "p",
+         "text": "$L_{1}$ is the line segment connecting $(0,0)$ and $(4,0),$ and it can be parameterized by the equations $x(t)=t,y(t)=0$ for $0\\le t\\le 4.$ Define $g(t)=f(x(t),y(t)).$ This gives $g(t)=t^{2}-4t+24.$ Differentiating *g* leads to $g'(t)=2t-4.$ Therefore, $g$ has a critical value at $t=2,$ which corresponds to the point $(2,0).$ Calculating $f(2,0)$ gives the *z-*value $20.$\n\n$L_{2}$ is the line segment connecting $(4,0)$ and $(4,2),$ and it can be parameterized by the equations $x(t)=4,y(t)=t$ for $0\\le t\\le 2.$ Again, define $g(t)=f(x(t),y(t)).$ This gives $g(t)=4t^{2}-10t+24.$ Then, $g'(t)=8t-10.$ $g$ has a critical value at $t=\\frac{5}{4},$ which corresponds to the point $\\left(4,\\frac{5}{4}\\right).$ Calculating $f\\left(4,\\frac{5}{4}\\right)$ gives the *z-*value $17.75.$\n\n$L_{3}$ is the line segment connecting $(0,2)$ and $(4,2),$ and it can be parameterized by the equations $x(t)=t,y(t)=2$ for $0\\le t\\le 4.$ Again, define $g(t)=f(x(t),y(t)).$ This gives $g(t)=t^{2}-8t+36.$ The critical value corresponds to the point $(4,2).$ So, calculating $f(4,2)$ gives the *z-*value $20.$\n\n$L_{4}$ is the line segment connecting $(0,0)$ and $(0,2),$ and it can be parameterized by the equations $x(t)=0,y(t)=t$ for $0\\le t\\le 2.$ This time, $g(t)=4t^{2}-2t+24$ and the critical value $t=\\frac{1}{4}$ correspond to the point $\\left(0,\\frac{1}{4}\\right).$ Calculating $f\\left(0,\\frac{1}{4}\\right)$ gives the *z-*value $23.75.$\n\nWe also need to find the values of $f(x,y)$ at the corners of its domain. These corners are located at $(0,0),(4,0),(4,2)\\,\\text{and}\\,(0,2):$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccc} \\\\ f(0,0) & = & (0)^{2}-2(0)(0)+4(0)^{2}-4(0)-2(0)+24 & = & 24 \\\\ f(4,0) & = & (4)^{2}-2(4)(0)+4(0)^{2}-4(4)-2(0)+24 & = & 24 \\\\ f(4,2) & = & (4)^{2}-2(4)(2)+4(2)^{2}-4(4)-2(2)+24 & = & 20 \\\\ f(0,2) & = & (0)^{2}-2(0)(2)+4(2)^{2}-4(0)-2(2)+24 & = & 36.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The absolute maximum value is $36,$ which occurs at $(0,2),$ and the global minimum value is $17,$ which occurs at $(3,1)$ as shown in the following figure."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_07_010.webp",
+         "alt": "The function f(x, y) = x2 − 2xy – 4x + 4y2 – 2y + 24 is shown with local minima at (4, 2, 20) and (2, 0, 20) and local maximum at (0, 2, 36). The shape is a plane curving up on the corners significantly near (0, 2) and slightly less near (4, 0).",
+         "caption": "**Figure 4.52** The function $f(x,y)$ has one global minimum and one global maximum over its domain.",
+         "width": 729,
+         "height": 587
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Using the problem-solving strategy, step $1$ involves finding the critical points of $g$ on its domain. Therefore, we first calculate $g_{x}(x,y)$ and $g_{y}(x,y),$ then set them each equal to zero:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}g_{x}(x,y) & = & 2x+4 \\\\ g_{y}(x,y) & = & 2y-6.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Setting them equal to zero yields the system of equations"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}2x+4 & = & 0 \\\\ 2y-6 & = & 0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The solution to this system is $x=-2$ and $y=3.$ Therefore, $(-2,3)$ is a critical point of $g.$ Calculating $g(-2,3),$ we get"
+        },
+        {
+         "type": "math",
+         "tex": "g(-2,3)=(-2)^{2}+3^{2}+4(-2)-6(3)=4+9-8-18=-13."
+        },
+        {
+         "type": "p",
+         "text": "The next step involves finding the extrema of *g* on the boundary of its domain. The boundary of its domain consists of a circle of radius $4$ centered at the origin as shown in the following graph."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_07_004.webp",
+         "alt": "A filled-in circle marked D of radius four with center at the origin.",
+         "caption": "**Figure 4.53** Graph of the domain of the function $g(x,y)=x^{2}+y^{2}+4x-6y.$",
+         "width": 417,
+         "height": 423
+        },
+        {
+         "type": "p",
+         "text": "The boundary of the domain of $g$ can be parameterized using the functions $x(t)=4\\,\\cos \\,t,y(t)=4\\,\\sin \\,t$ for $0\\le t\\le 2\\pi .$ Define $h(t)=g(x(t),y(t)):$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}h(t) & =g(x(t),y(t)) \\\\ & =(4\\,\\cos \\,t)^{2}+(4\\,\\sin \\,t)^{2}+4(4\\,\\cos \\,t)-6(4\\,\\sin \\,t) \\\\ & =16\\cos^{2}\\,t+16\\sin^{2}\\,t+16\\,\\cos \\,t-24\\,\\sin \\,t \\\\ & =16+16\\,\\cos \\,t-24\\,\\sin \\,t.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Setting $h'(t)=0$ leads to"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}-16\\,\\sin \\,t-24\\,\\cos \\,t & = & 0 \\\\ -16\\,\\sin \\,t & = & 24\\,\\cos \\,t \\\\ \\frac{-16\\,\\sin \\,t}{-16\\,\\cos \\,t} & = & \\frac{24\\,\\cos \\,t}{-16\\,\\cos \\,t} \\\\ \\tan \\,t & = & -\\frac{3}{2}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "This equation has two solutions over the interval $0\\le t\\le 2\\pi .$ One is $t=\\pi -\\arctan \\left(\\frac{3}{2}\\right)$ and the other is $t=2\\pi -\\arctan \\left(\\frac{3}{2}\\right).$ For the first angle,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}\\sin \\,t & = & \\sin \\left(\\pi -\\arctan \\left(\\frac{3}{2}\\right)\\right)=\\sin \\left(\\arctan \\left(\\frac{3}{2}\\right)\\right)=\\frac{3\\sqrt{13}}{13} \\\\ \\cos \\,t & = & \\cos \\left(\\pi -\\arctan \\left(\\frac{3}{2}\\right)\\right)=-\\cos \\left(\\arctan \\left(\\frac{3}{2}\\right)\\right)=-\\frac{2\\sqrt{13}}{13}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, $x(t)=4\\,\\cos \\,t=-\\frac{8\\sqrt{13}}{13}$ and $y(t)=4\\,\\sin \\,t=\\frac{12\\sqrt{13}}{13},$ so $\\left(-\\frac{8\\sqrt{13}}{13},\\frac{12\\sqrt{13}}{13}\\right)$ is a critical point on the boundary and"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}g\\left(-\\frac{8\\sqrt{13}}{13},\\frac{12\\sqrt{13}}{13}\\right) & =\\left(-\\frac{8\\sqrt{13}}{13}\\right)^{2}+\\left(\\frac{12\\sqrt{13}}{13}\\right)^{2}+4\\left(-\\frac{8\\sqrt{13}}{13}\\right)-6\\left(\\frac{12\\sqrt{13}}{13}\\right) \\\\ & =\\frac{144}{13}+\\frac{64}{13}-\\frac{32\\sqrt{13}}{13}-\\frac{72\\sqrt{13}}{13} \\\\ & =\\frac{208-104\\sqrt{13}}{13}\\approx -12.844.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "For the second angle,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}\\sin \\,t & = & \\sin \\left(2\\pi -\\arctan \\left(\\frac{3}{2}\\right)\\right)=-\\sin \\left(\\arctan \\left(\\frac{3}{2}\\right)\\right)=-\\frac{3\\sqrt{13}}{13} \\\\ \\cos \\,t & = & \\cos \\left(2\\pi -\\arctan \\left(\\frac{3}{2}\\right)\\right)=\\cos \\left(\\arctan \\left(\\frac{3}{2}\\right)\\right)=\\frac{2\\sqrt{13}}{13}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, $x(t)=4\\,\\cos \\,t=\\frac{8\\sqrt{13}}{13}$ and $y(t)=4\\,\\sin \\,t=-\\frac{12\\sqrt{13}}{13},$ so $\\left(\\frac{8\\sqrt{13}}{13},-\\frac{12\\sqrt{13}}{13}\\right)$ is a critical point on the boundary and"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}g\\left(\\frac{8\\sqrt{13}}{13},-\\frac{12\\sqrt{13}}{13}\\right) & =\\left(\\frac{8\\sqrt{13}}{13}\\right)^{2}+\\left(-\\frac{12\\sqrt{13}}{13}\\right)^{2}+4\\left(\\frac{8\\sqrt{13}}{13}\\right)-6\\left(-\\frac{12\\sqrt{13}}{13}\\right) \\\\ & =\\frac{144}{13}+\\frac{64}{13}+\\frac{32\\sqrt{13}}{13}+\\frac{72\\sqrt{13}}{13} \\\\ & =\\frac{208+104\\sqrt{13}}{13}\\approx 44.844.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The absolute minimum of *g* is $-13,$ which is attained at the point $(-2,3),$ which is an interior point of *D*. The absolute maximum of *g* is approximately equal to 44.844, which is attained at the boundary point $\\left(\\frac{8\\sqrt{13}}{13},-\\frac{12\\sqrt{13}}{13}\\right).$ These are the absolute extrema of *g* on *D* as shown in the following figure."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_07_011.webp",
+         "alt": "The function f(x, y) = x2 + 4x + y2 – 6y is shown with local minimum at (–12/5, 16/5, –64/5) and local maximum at (12/5, −16/5, 224/5). The shape is a plane curving up from near (−4, 4) to (4, −4).",
+         "caption": "**Figure 4.54** The function $f(x,y)$ has a local minimum and a local maximum.",
+         "width": 688,
+         "height": 470
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding Absolute Extrema"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the problem-solving strategy for finding absolute extrema of a function to find the absolute extrema of the function"
+    },
+    {
+     "type": "math",
+     "tex": "f(x,y)=4x^{2}-2xy+6y^{2}-8x+2y+3"
+    },
+    {
+     "type": "p",
+     "text": "on the domain defined by $0\\le x\\le 2$ and $-1\\le y\\le 3.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The absolute minimum occurs at $(1,0):$ $f(1,0)=-1.$"
+     },
+     {
+      "type": "p",
+      "text": "The absolute maximum occurs at $(0,3):$ $f(0,3)=63.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate $f_{x}(x,y)$ and $f_{y}(x,y),$ and set them equal to zero. Then, calculate $f$ for each critical point and find the extrema of $f$ on the boundary of $D.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x18",
+   "kind": "example",
+   "label": "Example 4.41",
+   "problem": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_07_014.webp",
+     "alt": "A basket full of golf balls.",
+     "caption": "**Figure 4.55** (credit: modification of work by oatsy40, Flickr)",
+     "width": 325,
+     "height": 244
+    },
+    {
+     "type": "p",
+     "text": "Pro-$\\text{T}$ company has developed a profit model that depends on the number *x* of golf balls sold per month (measured in thousands), and the number of hours per month of advertising *y*, according to the function"
+    },
+    {
+     "type": "math",
+     "tex": "z=f(x,y)=48x+96y-x^{2}-2xy-9y^{2},"
+    },
+    {
+     "type": "p",
+     "text": "where $z$ is measured in thousands of dollars. The maximum number of golf balls that can be produced and sold is $50,000,$ and the maximum number of hours of advertising that can be purchased is $25.$ Find the values of $x$ and $y$ that maximize profit, and find the maximum profit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using the problem-solving strategy, step $1$ involves finding the critical points of $f$ on its domain. Therefore, we first calculate $f_{x}(x,y)$ and $f_{y}(x,y),$ then set them each equal to zero:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}f_{x}(x,y) & = & 48-2x-2y \\\\ f_{y}(x,y) & = & 96-2x-18y.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Setting them equal to zero yields the system of equations"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}48-2x-2y & = & 0 \\\\ 96-2x-18y & = & 0.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The solution to this system is $x=21$ and $y=3.$ Therefore $(21,3)$ is a critical point of $f.$ Calculating $f(21,3)$ gives $f(21,3)=48(21)+96(3)-21^{2}-2(21)(3)-9(3)^{2}=648.$"
+     },
+     {
+      "type": "p",
+      "text": "The domain of this function is $0\\le x\\le 50$ and $0\\le y\\le 25$ as shown in the following graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_07_005.webp",
+      "alt": "A rectangle is drawn in the first quadrant with one corner at the origin, horizontal length 50, and height 25. This rectangle is marked D, and the sides are marked in counterclockwise order from the side overlapping the x axis L1, L2, L3, and L4.",
+      "caption": "**Figure 4.56** Graph of the domain of the function $f(x,y)=48x+96y-x^{2}-2xy-9y^{2}.$",
+      "width": 307,
+      "height": 310
+     },
+     {
+      "type": "p",
+      "text": "$L_{1}$ is the line segment connecting $(0,0)$ and $(50,0),$ and it can be parameterized by the equations $x(t)=t,y(t)=0$ for $0\\le t\\le 50.$ We then define $g(t)=f(x(t),y(t)):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}g(t) & =f(x(t),y(t)) \\\\ & =f(t,0) \\\\ & =48t+96(0)-t^{2}-2(t)(0)-9(0)^{2} \\\\ & =48t-t^{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Setting $g'(t)=0$ yields the critical point $t=24,$ which corresponds to the point $(24,0)$ in the domain of $f.$ Calculating $f(24,0)$ gives $576.$"
+     },
+     {
+      "type": "p",
+      "text": "$L_{2}$ is the line segment connecting and $(50,25),$ and it can be parameterized by the equations $x(t)=50,y(t)=t$ for $0\\le t\\le 25.$ Once again, we define $g(t)=f(x(t),y(t)):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}g(t) & =f(x(t),y(t)) \\\\ & =f(50,t) \\\\ & =48(50)+96t-50^{2}-2(50)t-9t^{2} \\\\ & =-9t^{2}-4t-100.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This function has a critical point at $t=-\\frac{2}{9},$ which corresponds to the point $\\left(50,-\\frac{2}{9}\\right).$ This point is not in the domain of $f.$"
+     },
+     {
+      "type": "p",
+      "text": "$L_{3}$ is the line segment connecting $(0,25)\\,\\text{and}\\,(50,25),$ and it can be parameterized by the equations $x(t)=t,y(t)=25$ for $0\\le t\\le 50.$ We define $g(t)=f(x(t),y(t)):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}g(t) & =f(x(t),y(t)) \\\\ & =f(t,25) \\\\ & =48t+96(25)-t^{2}-2t(25)-9(25^{2}) \\\\ & =-t^{2}-2t-3225.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This function has a critical point at $t=-1,$ which corresponds to the point $(-1,25),$ which is not in the domain."
+     },
+     {
+      "type": "p",
+      "text": "$L_{4}$ is the line segment connecting $(0,0)\\,\\text{to}\\,(0,25),$ and it can be parameterized by the equations $x(t)=0,y(t)=t$ for $0\\le t\\le 25.$ We define $g(t)=f(x(t),y(t)):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}g(t) & =f(x(t),y(t)) \\\\ & =f(0,t) \\\\ & =48(0)+96t-(0)^{2}-2(0)t-9t^{2} \\\\ & =96t-t^{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This function has a critical point at $t=\\frac{16}{3},$ which corresponds to the point $\\left(0,\\frac{16}{3}\\right),$ which is on the boundary of the domain. Calculating $f\\left(0,\\frac{16}{3}\\right)$ gives $256.$"
+     },
+     {
+      "type": "p",
+      "text": "We also need to find the values of $f(x,y)$ at the corners of its domain. These corners are located at $(0,0),(50,0),(50,25)\\,\\text{and}\\,(0,25):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}f(0,0) & = & 48(0)+96(0)-(0)^{2}-2(0)(0)-9(0)^{2}=0 \\\\ f(50,0) & = & 48(50)+96(0)-(50)^{2}-2(50)(0)-9(0)^{2}=-100 \\\\ f(50,25) & = & 48(50)+96(25)-(50)^{2}-2(50)(25)-9(25)^{2}=-5825 \\\\ f(0,25) & = & 48(0)+96(25)-(0)^{2}-2(0)(25)-9(25)^{2}=-3225.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The maximum critical value is $648,$ which occurs at $(21,3).$ Therefore, a maximum profit of $\\text{\\$}648,000$ is realized when $21,000$ golf balls are sold and $3$ hours of advertising are purchased per month as shown in the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_07_012.webp",
+      "alt": "The function f(x, y) = 48x + 96y – x2 – 2xy – 9y2 is shown with maximum point at (21, 3, 648). The shape is a plane curving from near the origin down to (50, 25).",
+      "caption": "**Figure 4.57** The profit function $f(x,y)$ has a maximum at $(21,3,648).$",
+      "width": 682,
+      "height": 517
+     }
+    ]
+   },
+   "title": "Chapter Opener: Profitable Golf Balls"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "A critical point of the function $f(x,y)$ is any point $(x_{0},y_{0})$ where either $f_{x}(x_{0},y_{0})=f_{y}(x_{0},y_{0})=0,$ or at least one of $f_{x}(x_{0},y_{0})$ and $f_{y}(x_{0},y_{0})$ do not exist.",
+      "A saddle point is a point $(x_{0},y_{0})$ where $f_{x}(x_{0},y_{0})=f_{y}(x_{0},y_{0})=0,$ but $(x_{0},y_{0})$ is neither a maximum nor a minimum at that point.",
+      "To find extrema of functions of two variables, first find the critical points, then calculate the discriminant and apply the second derivative test."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Discriminant**",
+       "$D=f_{xx}(x_{0},y_{0})f_{yy}(x_{0},y_{0})-(f_{xy}(x_{0},y_{0}))^{2}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e310",
+   "number": 310,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=1+x^{2}+y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793941282",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find all critical points."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e311",
+   "number": 311,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=(3x-2)^{2}+(y-4)^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793383328",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find all critical points."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{2}{3},4\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "((2/3), 4)"
+   }
+  },
+  {
+   "id": "e312",
+   "number": 312,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{4}+y^{4}-16xy$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793409799",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find all critical points."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e313",
+   "number": 313,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=15x^{3}-3xy+15y^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793609417",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find all critical points."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(0,0)$ $\\left(\\frac{1}{15},\\frac{1}{15}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"number\",\"value\":\"(0, 0) ((1/15), (1/15))\"} failed (checker cannot read the answer: A comma here is only allowed in points, vectors, intervals and lists)"
+  },
+  {
+   "id": "e314",
+   "number": 314,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sqrt{x^{2}+y^{2}+1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793427482",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the critical points of the function by using algebraic techniques (completing the square) or by examining the form of the equation. Verify your results using the partial derivatives test."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e315",
+   "number": 315,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=-x^{2}-5y^{2}+8x-10y-13$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794140003",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the critical points of the function by using algebraic techniques (completing the square) or by examining the form of the equation. Verify your results using the partial derivatives test."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Maximum at $(4,-1,8)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e316",
+   "number": 316,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+y^{2}+2x-6y+6$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793422629",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the critical points of the function by using algebraic techniques (completing the square) or by examining the form of the equation. Verify your results using the partial derivatives test."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e317",
+   "number": 317,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sqrt{x^{2}+y^{2}}+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793423588",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the critical points of the function by using algebraic techniques (completing the square) or by examining the form of the equation. Verify your results using the partial derivatives test."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Relative minimum at $(0,0,1)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e318",
+   "number": 318,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=-x^{3}+4xy-2y^{2}+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793604530",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e319",
+   "number": 319,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793927459",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The second derivative test fails. Since $x^{2}y^{2}>0$ for all *x* and *y* different from zero, and $x^{2}y^{2}=0$ when either *x* or *y* equals zero (or both), then the absolute minimum occurs at $(0,0).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e320",
+   "number": 320,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}-6x+y^{2}+4y-8$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793938854",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e321",
+   "number": 321,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=2xy+3x+4y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794328278",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f\\left(-2,-\\frac{3}{2}\\right)=-6$ is a saddle point."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e322",
+   "number": 322,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=8xy(x+y)+7$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793502368",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e323",
+   "number": 323,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+4xy+y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793928564",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(0,0)=0;$ $(0,0,0)$ is a saddle point."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e324",
+   "number": 324,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{3}+y^{3}-300x-75y-3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794292448",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e325",
+   "number": 325,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=9-x^{4}y^{4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793420334",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The only critical point(s) are where both $f_{x}=0$ and $f_{y}=0$ and that is $f(0,0)=9$. However, since $f_{xx}f_{xy}-\\left(f_{xy}\\right)^{2}=0$ at the critical point, the Second Derivative Test fails. By graphing, we can see that this point is a local maximum."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e326",
+   "number": 326,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=7x^{2}y+9xy^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793409897",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e327",
+   "number": 327,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=3x^{2}-2xy+y^{2}-8y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793610972",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Relative minimum located at $(2,6).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e328",
+   "number": 328,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=3x^{2}+2xy+y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794292085",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e329",
+   "number": 329,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=y^{2}+xy+3y+2x+3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793363154",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(1,-2)$ is a saddle point."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e330",
+   "number": 330,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+xy+y^{2}-3x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793285227",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e331",
+   "number": 331,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+2y^{2}-x^{2}y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793618199",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(2,1)$ and $(-2,1)$ are saddle points; $(0,0)$ is a relative minimum."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e332",
+   "number": 332,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+y-e^{y}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794095082",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e333",
+   "number": 333,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=e^{-(x^{2}+y^{2}+2x)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793641933",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(-1,0)$ is a relative maximum."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e334",
+   "number": 334,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+xy+y^{2}-x-y+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793501798",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e335",
+   "number": 335,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+10xy+y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793568877",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(0,0)$ is a saddle point."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e336",
+   "number": 336,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=-x^{2}-5y^{2}+10x-30y-62$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793358288",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e337",
+   "number": 337,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=120x+120y-xy-x^{2}-y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793577818",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The relative maximum is at $(40,40).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e338",
+   "number": 338,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=2x^{2}+2xy+y^{2}+2x-3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794160027",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e339",
+   "number": 339,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+x-3xy+y^{3}-5$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793958630",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{1}{4},\\frac{1}{2}\\right)$ is a saddle point and $(1,1)$ is the relative minimum."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e340",
+   "number": 340,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=2xye^{-x^{2}-y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793455562",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e341",
+   "number": 341,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x,y)=ye^{x}-e^{y}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794172444",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine the extreme values and the saddle points. Use a CAS to graph the function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "A saddle point is located at $(0,0).$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_07_201.webp",
+      "alt": "A complicated graph that starts near (1, 1, 1), and decreases significantly along the x and y axes, so much so along the y axis that it is cut off. The rest of the graph stays near 0.",
+      "width": 452,
+      "height": 303
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e342",
+   "number": 342,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x,y)=x\\,\\sin (y)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589599",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine the extreme values and the saddle points. Use a CAS to graph the function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e343",
+   "number": 343,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x,y)=\\sin (x)\\sin (y),x\\in (0,2\\pi ),y\\in (0,2\\pi )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793421227",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine the extreme values and the saddle points. Use a CAS to graph the function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "There is a saddle point at $(\\pi ,\\pi ),$ local maxima at $\\left(\\frac{\\pi}{2},\\frac{\\pi}{2}\\right)\\,\\text{and}\\,\\left(\\frac{3\\pi}{2},\\frac{3\\pi}{2}\\right),$ and local minima at $\\left(\\frac{\\pi}{2},\\frac{3\\pi}{2}\\right)\\,\\text{and}\\,\\left(\\frac{3\\pi}{2},\\frac{\\pi}{2}\\right).$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_07_203.webp",
+      "alt": "A series of hills and holes alternating through a space with amplitude 1.",
+      "width": 411,
+      "height": 328
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e344",
+   "number": 344,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=xy-x-3y;$ $R$ is the triangular region with vertices $(0,0),(0,4),\\,\\text{and}\\,(5,0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793401552",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e345",
+   "number": 345,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the absolute maximum and minimum values of $f(x,y)=x^{2}+y^{2}-2y+1$ on the region $R=\\{(x,y)|x^{2}+y^{2}\\le 4\\}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793423045",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(0,1,0)$ is the absolute minimum and $(0,-2,9)$ is the absolute maximum."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e346",
+   "number": 346,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{3}-3xy-y^{3}$ on $R=\\{(x,y):\\,-2\\le x\\le 2,-2\\le y\\le 2\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793584516",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e347",
+   "number": 347,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\frac{-2y}{x^{2}+y^{2}+1}$ on $R=\\{(x,y):\\,x^{2}+y^{2}\\le 4\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793430995",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "There is an absolute minimum at $(0,1,-1)$ and an absolute maximum at $(0,-1,1).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e348",
+   "number": 348,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find three positive numbers the sum of which is $27,$ such that the sum of their squares is as small as possible."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793495948",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e349",
+   "number": 349,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the points on the surface $x^{2}-yz=5$ that are closest to the origin."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793495983",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(\\sqrt{5},0,0),(-\\sqrt{5},0,0)$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"(sqrt(5), 0, 0), (-sqrt(5), 0, 0)\""
+  },
+  {
+   "id": "e350",
+   "number": 350,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the maximum volume of a rectangular box with three faces in the coordinate planes and a vertex in the first octant on the plane $x+y+z=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222465",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e351",
+   "number": 351,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The sum of the length and the girth (perimeter of a cross-section) of a package carried by a delivery service cannot exceed $108$ in. Find the dimensions of the rectangular package of largest volume that can be sent."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222510",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{18 by 36 by 18 in}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e352",
+   "number": 352,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A cardboard box without a lid is to be made with a volume of $4$ ft$^{\\text{3}}$. Find the dimensions of the box that requires the least amount of cardboard."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793502445",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e353",
+   "number": 353,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the point on the surface $f(x,y)=x^{2}+y^{2}+10$ nearest the plane $x+2y-z=0.$ Identify the point on the plane."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793502481",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{1}{2},1,\\frac{45}{4}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "((1/2), 1, (45/4))"
+   }
+  },
+  {
+   "id": "e354",
+   "number": 354,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the point in the plane $2x-y+2z=16$ that is closest to the origin."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793960050",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e355",
+   "number": 355,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A company manufactures two types of athletic shoes: jogging shoes and cross-trainers. The total revenue from $x$ jogging shoes and $y$ cross-trainers is given by $R(x,y)=-5x^{2}-8y^{2}-2xy+42x+102y,$ where $x$ and $y$ are in thousands of units. Find the values of *x* and *y* to maximize the total revenue."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929637",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=3$ and $y=6$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"x=3, y=6\""
+  },
+  {
+   "id": "e356",
+   "number": 356,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A shipping company handles rectangular boxes provided the sum of the length, width, and height of the box does not exceed $96$ in. Find the dimensions of the box that meets this condition and has the largest volume."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929124",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e357",
+   "number": 357,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the maximum volume of a cylindrical soda can such that the sum of its height and circumference is $120$ cm."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929176",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the absolute extrema of the given function on the indicated closed and bounded set $R.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$V=\\frac{64,000}{\\pi}\\approx 20,372$ cm$^{\\text{3}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "critical point of a function of two variables",
+   "meaning": "the point $(x_{0},y_{0})$ is called a critical point of $f(x,y)$ if one of the two following conditions holds:\n\n\n$f_{x}(x_{0},y_{0})=f_{y}(x_{0},y_{0})=0$\nAt least one of $f_{x}(x_{0},y_{0})$ and $f_{y}(x_{0},y_{0})$ do not exist"
+  },
+  {
+   "term": "discriminant",
+   "meaning": "the discriminant of the function $f(x,y)$ is given by the formula $D=f_{xx}(x_{0},y_{0})f_{yy}(x_{0},y_{0})-(f_{xy}(x_{0},y_{0}))^{2}$"
+  },
+  {
+   "term": "saddle point",
+   "meaning": "given the function $z=f(x,y),$ the point $(x_{0},y_{0},f(x_{0},y_{0}))$ is a saddle point if both $f_{x}(x_{0},y_{0})=0$ and $f_{y}(x_{0},y_{0})=0,$ but $f$ does not have a local extremum at $(x_{0},y_{0})$"
+  }
+ ]
+}

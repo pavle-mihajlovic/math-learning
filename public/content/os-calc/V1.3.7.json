@@ -1,0 +1,2015 @@
+{
+ "schema": 1,
+ "id": "V1.3.7",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 3,
+ "section": 7,
+ "title": "Derivatives of Inverse Functions",
+ "chapterTitle": "Derivatives",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53584",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/3-7-derivatives-of-inverse-functions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §3.7 “Derivatives of Inverse Functions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Calculate the derivative of an inverse function.",
+  "Recognize the derivatives of the standard inverse trigonometric functions."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section we explore the relationship between the derivative of a function and the derivative of its inverse. For functions whose derivatives we already know, we can use this relationship to find derivatives of inverses without having to use the limit definition of the derivative. In particular, we will apply the formula for derivatives of inverse functions to trigonometric functions. This formula may also be used to extend the power rule to rational exponents."
+    }
+   ],
+   "title": "Derivatives of Inverse Functions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We begin by considering a function and its inverse. If $f(x)$ is both invertible and differentiable, it seems reasonable that the inverse of $f(x)$ is also differentiable. Figure 3.27 shows the relationship between a function $f(x)$ and its inverse $f^{-1}(x).$ Look at the point $(a,f^{-1}(a))$ on the graph of $f^{-1}(x)$ having a tangent line with a slope of $(f^{-1})'(a)=\\frac{p}{q}.$ This point corresponds to a point $(f^{-1}(a),a)$ on the graph of $f(x)$ having a tangent line with a slope of $f'(f^{-1}(a))=\\frac{q}{p}.$ Thus, if $f^{-1}(x)$ is differentiable at $a,$ then it must be the case that"
+    },
+    {
+     "type": "math",
+     "tex": "(f^{-1})'(a)=\\frac{1}{f'(f^{-1}(a))}."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_001.webp",
+     "alt": "This graph shows a function f(x) and its inverse f−1(x). These functions are symmetric about the line y = x. The tangent line of the function f(x) at the point (f−1(a), a) and the tangent line of the function f−1(x) at (a, f−1(a)) are also symmetric about the line y = x. Specifically, if the slope of one were p/q, then the slope of the other would be q/p. Lastly, their derivatives are also symmetric about the line y = x.",
+     "caption": "**Figure 3.27** The tangent lines of a function and its inverse are related; so, too, are the derivatives of these functions.",
+     "width": 477,
+     "height": 360
+    },
+    {
+     "type": "p",
+     "text": "We may also derive the formula for the derivative of the inverse by first recalling that $x=f(f^{-1}(x)).$ Then by differentiating both sides of this equation (using the chain rule on the right), we obtain"
+    },
+    {
+     "type": "math",
+     "tex": "1=f'(f^{-1}(x))(f^{-1})'(x)."
+    },
+    {
+     "type": "p",
+     "text": "Solving for $(f^{-1})'(x),$ we obtain"
+    },
+    {
+     "type": "math",
+     "tex": "(f^{-1})'(x)=\\frac{1}{f'(f^{-1}(x))}."
+    }
+   ],
+   "title": "The Derivative of an Inverse Function"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We summarize this result in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f(x)$ be a function that is both invertible and differentiable. Let $y=f^{-1}(x)$ be the inverse of $f(x).$ For all $x$ satisfying $f'(f^{-1}(x))\\ne 0,$"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{dy}{dx}=\\frac{d}{dx}(f^{-1}(x))=(f^{-1})'(x)=\\frac{1}{f'(f^{-1}(x))}."
+      },
+      {
+       "type": "p",
+       "text": "Alternatively, if $y=g(x)$ is the inverse of $f(x),$ then"
+      },
+      {
+       "type": "math",
+       "tex": "g'(x)=\\frac{1}{f'(g(x))}."
+      }
+     ],
+     "title": "Inverse Function Theorem"
+    }
+   ],
+   "title": "The Derivative of an Inverse Function (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 3.60",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the inverse function theorem to find the derivative of $g(x)=\\frac{x+2}{x}.$ Compare the resulting derivative to that obtained by differentiating the function directly."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The inverse of $g(x)=\\frac{x+2}{x}$ is $f(x)=\\frac{2}{x-1}.$ Since $g'(x)=\\frac{1}{f'(g(x))},$ begin by finding $f'(x).$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{-2}{(x-1)^{2}}\\,\\text{and}\\,f'(g(x))=\\frac{-2}{(g(x)-1)^{2}}=\\frac{-2}{\\left(\\frac{x+2}{x}-1\\right)^{2}}=-\\frac{x^{2}}{2}."
+     },
+     {
+      "type": "p",
+      "text": "Finally,"
+     },
+     {
+      "type": "math",
+      "tex": "g'(x)=\\frac{1}{f'(g(x))}=-\\frac{2}{x^{2}}."
+     },
+     {
+      "type": "p",
+      "text": "We can verify that this is the correct derivative by applying the quotient rule to $g(x)$ to obtain"
+     },
+     {
+      "type": "math",
+      "tex": "g'(x)=-\\frac{2}{x^{2}}."
+     }
+    ]
+   },
+   "title": "Applying the Inverse Function Theorem"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.42",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the inverse function theorem to find the derivative of $g(x)=\\frac{1}{x+2}.$ Compare the result obtained by differentiating $g(x)$ directly."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$g'(x)=-\\frac{1}{(x+2)^{2}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the preceding example as a guide."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/((x+2)^2))"
+   }
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 3.61",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the inverse function theorem to find the derivative of $g(x)=\\sqrt[3]{x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The function $g(x)=\\sqrt[3]{x}$ is the inverse of the function $f(x)=x^{3}.$ Since $g'(x)=\\frac{1}{f'(g(x))},$ begin by finding $f'(x).$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=3x^{2}\\,\\text{and}\\,f'(g(x))=3(\\sqrt[3]{x})^{2}=3x^{2/3}."
+     },
+     {
+      "type": "p",
+      "text": "Finally,"
+     },
+     {
+      "type": "math",
+      "tex": "g'(x)=\\frac{1}{3x^{2/3}}=\\frac{1}{3}x^{-2/3}."
+     }
+    ]
+   },
+   "title": "Applying the Inverse Function Theorem"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.43",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $g(x)=\\sqrt[5]{x}$ by applying the inverse function theorem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$g(x)=\\frac{1}{5}x^{-4/5}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "$g(x)$ is the inverse of $f(x)=x^{5}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/5)x^(-4/5)"
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "From the previous example, we see that we can use the inverse function theorem to extend the power rule to exponents of the form $\\frac{1}{n},$ where $n$ is a positive integer. This extension will ultimately allow us to differentiate $x^{q},$ where $q$ is any rational number."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "The power rule may be extended to rational exponents. That is, if $n$ is a positive integer, then"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}(x^{1/n})=\\frac{1}{n}x^{(1/n)-1}."
+      },
+      {
+       "type": "p",
+       "text": "Also, if $n$ is a positive integer and $m$ is an arbitrary integer, then"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}(x^{m/n})=\\frac{m}{n}x^{(m/n)-1}."
+      }
+     ],
+     "title": "Extending the Power Rule to Rational Exponents"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Extending the Power Rule to Rational Exponents is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "The Derivative of an Inverse Function (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now turn our attention to finding derivatives of inverse trigonometric functions. These derivatives will prove invaluable in the study of integration later in this text. The derivatives of inverse trigonometric functions are quite surprising in that their derivatives are actually algebraic functions. Previously, derivatives of algebraic functions have proven to be algebraic functions and derivatives of trigonometric functions have been shown to be trigonometric functions. Here, for the first time, we see that the derivative of a function need not be of the same type as the original function."
+    }
+   ],
+   "title": "Derivatives of Inverse Trigonometric Functions"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 3.63",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the inverse function theorem to find the derivative of $g(x)=\\sin^{-1}x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since for $x$ in the interval $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right],f(x)=\\sin \\,x$ is the inverse of $g(x)=\\sin^{-1}x,$ begin by finding $f'(x).$ Since"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\cos \\,x\\,\\text{and}\\,f'(g(x))=\\cos \\,(\\sin^{-1}x)=\\sqrt{1-x^{2}},"
+     },
+     {
+      "type": "p",
+      "text": "we see that"
+     },
+     {
+      "type": "math",
+      "tex": "g'(x)=\\frac{d}{dx}(\\sin^{-1}x)=\\frac{1}{f'(g(x))}=\\frac{1}{\\sqrt{1-x^{2}}}."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "To see that $\\cos \\,(\\sin^{-1}x)=\\sqrt{1-x^{2}},$ consider the following argument. Set $\\sin^{-1}x=\\theta .$ In this case, $\\sin \\,\\theta =x$ where $-\\frac{\\pi}{2}\\le \\theta \\le \\frac{\\pi}{2}.$ We begin by considering the case where $0<\\theta <\\frac{\\pi}{2}.$ Since $\\theta$ is an acute angle, we may construct a right triangle having acute angle $\\theta ,$ a hypotenuse of length $1$ and the side opposite angle $\\theta$ having length $x.$ From the Pythagorean theorem, the side adjacent to angle $\\theta$ has length $\\sqrt{1-x^{2}}.$ This triangle is shown in Figure 3.28. Using the triangle, we see that $\\cos \\,(\\sin^{-1}x)=\\cos \\,\\theta =\\sqrt{1-x^{2}}.$"
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_03_07_002.webp",
+        "alt": "A right triangle with angle θ, opposite side x, hypotenuse 1, and adjacent side equal to the square root of the quantity (1 – x2).",
+        "caption": "**Figure 3.28** Using a right triangle having acute angle $\\theta ,$ a hypotenuse of length $1,$ and the side opposite angle $\\theta$ having length $x,$ we can see that $\\cos \\,(\\sin^{-1}x)=\\cos \\,\\theta =\\sqrt{1-x^{2}}.$",
+        "width": 325,
+        "height": 157
+       },
+       {
+        "type": "p",
+        "text": "In the case where $-\\frac{\\pi}{2}<\\theta <0,$ we make the observation that $0<-\\theta <\\frac{\\pi}{2}$ and hence"
+       },
+       {
+        "type": "math",
+        "tex": "\\cos \\,(\\sin^{-1}x)=\\cos \\,\\theta =\\cos \\,(-\\theta )=\\sqrt{1-x^{2}}."
+       },
+       {
+        "type": "p",
+        "text": "Now if $\\theta =\\frac{\\pi}{2}$ or $\\theta =-\\frac{\\pi}{2},x=1$ or $x=-1,$ and since in either case $\\cos \\,\\theta =0$ and $\\sqrt{1-x^{2}}=0,$ we have"
+       },
+       {
+        "type": "math",
+        "tex": "\\cos \\,(\\sin^{-1}x)=\\cos \\,\\theta =\\sqrt{1-x^{2}}."
+       },
+       {
+        "type": "p",
+        "text": "Finally, if $\\theta =0$, $x=0$ and $\\cos \\,\\theta =\\sqrt{1-0}=1$."
+       },
+       {
+        "type": "p",
+        "text": "Consequently, in all cases, $\\cos \\,(\\sin^{-1}x)=\\sqrt{1-x^{2}}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Derivative of the Inverse Sine Function"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 3.64",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Apply the chain rule to the formula derived in Example 3.61 to find the derivative of $h(x)=\\sin^{-1}(g(x))$ and use this result to find the derivative of $h(x)=\\sin^{-1}(2x^{3}).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Applying the chain rule to $h(x)=\\sin^{-1}(g(x)),$ we have"
+     },
+     {
+      "type": "math",
+      "tex": "h'(x)=\\frac{1}{\\sqrt{1-(g(x))^{2}}}g'(x)."
+     },
+     {
+      "type": "p",
+      "text": "Now let $g(x)=2x^{3},$ so $g'(x)=6x^{2}.$ Substituting into the previous result, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}h'(x) & =\\frac{1}{\\sqrt{1-4x^{6}}}\\cdot 6x^{2} \\\\ & =\\frac{6x^{2}}{\\sqrt{1-4x^{6}}}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Applying the Chain Rule to the Inverse Sine Function"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.45",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the inverse function theorem to find the derivative of $g(x)=\\tan^{-1}x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$g'(x)=\\frac{1}{1+x^{2}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The inverse of $g(x)$ is $f(x)=\\tan \\,x.$ Use Example 3.61 as a guide."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/(1+x^2))"
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The derivatives of the remaining inverse trigonometric functions may also be found by using the inverse function theorem. These formulas are provided in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "math",
+       "tex": "\\;\\frac{d}{dx}\\,\\sin^{-1}x=\\frac{1}{\\sqrt{1-x^{2}}}"
+      },
+      {
+       "type": "math",
+       "tex": "\\,\\frac{d}{dx}\\,\\cos^{-1}x=\\frac{-1}{\\sqrt{1-x^{2}}}"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}\\,\\tan^{-1}x=\\frac{1}{1+x^{2}}"
+      },
+      {
+       "type": "math",
+       "tex": "\\,\\frac{d}{dx}\\cot^{-1}x=\\frac{-1}{1+x^{2}}"
+      },
+      {
+       "type": "math",
+       "tex": "\\quad \\frac{d}{dx}\\,\\sec^{-1}x=\\frac{1}{|x|\\sqrt{x^{2}-1}}"
+      },
+      {
+       "type": "math",
+       "tex": "\\quad \\frac{d}{dx}\\,\\csc^{-1}x=\\frac{-1}{|x|\\sqrt{x^{2}-1}}"
+      }
+     ],
+     "title": "Derivatives of Inverse Trigonometric Functions"
+    }
+   ],
+   "title": "Derivatives of Inverse Trigonometric Functions (continued)"
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 3.65",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=\\tan^{-1}(x^{2}).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $g(x)=x^{2},$ so $g'(x)=2x.$ Substituting into (see above), we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{1}{1+(x^{2})^{2}}\\cdot (2x)."
+     },
+     {
+      "type": "p",
+      "text": "Simplifying, we have"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{2x}{1+x^{4}}."
+     }
+    ]
+   },
+   "title": "Applying Differentiation Formulas to an Inverse Tangent Function"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 3.66",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $h(x)=x^{2}\\sin^{-1}x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "By applying the product rule, we have"
+     },
+     {
+      "type": "math",
+      "tex": "h'(x)=2x\\,\\sin^{-1}x+\\frac{1}{\\sqrt{1-x^{2}}}\\cdot x^{2}."
+     }
+    ]
+   },
+   "title": "Applying Differentiation Formulas to an Inverse Sine Function"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.46",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $h(x)=\\cos^{-1}(3x-1).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(x)=\\frac{-3}{\\sqrt{6x-9x^{2}}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above). with $g(x)=3x-1$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((-3)/(sqrt(6 x-9 x^2)))"
+   }
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 3.67",
+   "problem": [
+    {
+     "type": "p",
+     "text": "The position of a particle at time $t$ is given by $s(t)=\\tan^{-1}\\left(\\frac{1}{t}\\right)$ for $t\\ge \\frac{1}{2}.$ Find the velocity of the particle at time $t=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Begin by differentiating $s(t)$ in order to find $v(t).$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "v(t)=s'(t)=\\frac{1}{1+\\left(\\frac{1}{t}\\right)^{2}}\\cdot \\frac{-1}{t^{2}}."
+     },
+     {
+      "type": "p",
+      "text": "Simplifying, we have"
+     },
+     {
+      "type": "math",
+      "tex": "v(t)=-\\frac{1}{t^{2}+1}."
+     },
+     {
+      "type": "p",
+      "text": "Thus, $v(1)=-\\frac{1}{2}.$"
+     }
+    ]
+   },
+   "title": "Applying the Inverse Tangent Function"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find an equation of the line tangent to the graph of $f(x)=\\sin^{-1}x$ at $x=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "$f'(0)$ is the slope of the tangent line."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=x"
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The inverse function theorem allows us to compute derivatives of inverse functions without using the limit definition of the derivative.",
+      "We can use the inverse function theorem to develop differentiation formulas for the inverse trigonometric functions."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Inverse function theorem**",
+       "$(f^{-1})'(x)=\\frac{1}{f'(f^{-1}(x))}$ whenever $f'(f^{-1}(x))\\ne 0$ and $f(x)$ is differentiable."
+      ],
+      [
+       "**Power rule with rational exponents**",
+       "$\\frac{d}{dx}(x^{m/n})=\\frac{m}{n}x^{(m/n)-1}.$"
+      ],
+      [
+       "**Derivative of inverse sine function**",
+       "$\\frac{d}{dx}\\,\\sin^{-1}x=\\frac{1}{\\sqrt{1-(x)^{2}}}$"
+      ],
+      [
+       "**Derivative of inverse cosine function**",
+       "$\\frac{d}{dx}\\,\\cos^{-1}x=\\frac{-1}{\\sqrt{1-(x)^{2}}}$"
+      ],
+      [
+       "**Derivative of inverse tangent function**",
+       "$\\frac{d}{dx}\\,\\tan^{-1}x=\\frac{1}{1+(x)^{2}}$"
+      ],
+      [
+       "**Derivative of inverse cotangent function**",
+       "$\\frac{d}{dx}\\,\\cot^{-1}x=\\frac{-1}{1+(x)^{2}}$"
+      ],
+      [
+       "**Derivative of inverse secant function**",
+       "$\\frac{d}{dx}\\,\\sec^{-1}x=\\frac{1}{|x|\\sqrt{(x)^{2}-1}}$"
+      ],
+      [
+       "**Derivative of inverse cosecant function**",
+       "$\\frac{d}{dx}\\,\\csc^{-1}x=\\frac{-1}{|x|\\sqrt{(x)^{2}-1}}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e260",
+   "number": 260,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_201.webp",
+     "alt": "A straight line passing through (0, −3) and (3, 3).",
+     "width": 292,
+     "height": 297
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738869707",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the graph of $y=f(x)$ to"
+    },
+    {
+     "type": "list",
+     "items": [
+      "sketch the graph of $y=f^{-1}(x),$ and",
+      "use part a. to estimate $(f^{-1})'(1).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e261",
+   "number": 261,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_203.webp",
+     "alt": "A curved line starting at (−2, 0) and passing through (−1, 1) and (2, 2).",
+     "width": 292,
+     "height": 297
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739007164",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the graph of $y=f(x)$ to"
+    },
+    {
+     "type": "list",
+     "items": [
+      "sketch the graph of $y=f^{-1}(x),$ and",
+      "use part a. to estimate $(f^{-1})'(1).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_03_07_204.webp",
+      "alt": "A curved line starting at (−3, 0) and passing through (−2, 1) and (1, 2). There is another curved line that is symmetric with this about the line x = y. That is, it starts at (0, −3) and passes through (1, −2) and (2, 1).",
+      "width": 292,
+      "height": 298
+     },
+     {
+      "type": "p",
+      "text": "b. $(f^{-1})'(1)\\sim 2$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e262",
+   "number": 262,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_205.webp",
+     "alt": "A curved line starting at (4, 0) and passing through (0, 1) and (−1, 4).",
+     "width": 292,
+     "height": 297
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739242999",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the graph of $y=f(x)$ to"
+    },
+    {
+     "type": "list",
+     "items": [
+      "sketch the graph of $y=f^{-1}(x),$ and",
+      "use part a. to estimate $(f^{-1})'(1).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e263",
+   "number": 263,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_207.webp",
+     "alt": "A quarter circle starting at (0, 4) and ending at (4, 0).",
+     "width": 292,
+     "height": 297
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739285054",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the graph of $y=f(x)$ to"
+    },
+    {
+     "type": "list",
+     "items": [
+      "sketch the graph of $y=f^{-1}(x),$ and",
+      "use part a. to estimate $(f^{-1})'(1).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_03_07_208.webp",
+      "alt": "A quarter circle starting at (0, 4) and ending at (4, 0).",
+      "width": 292,
+      "height": 297
+     },
+     {
+      "type": "p",
+      "text": "b. $\\begin{array}{c}y'=\\frac{-x}{\\sqrt{16-x^{2}}} \\\\ y'\\left(1\\right)=\\frac{-1}{\\sqrt{16-1}}=\\frac{-1}{\\sqrt{15}}\\end{array}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e264",
+   "number": 264,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=6x-1,x=-2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739210566",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the functions $y=f(x)$ to find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{df}{dx}$ at $x=a$ and",
+      "$x=f^{-1}(y).$",
+      "Then use part b. to find $\\frac{df^{-1}}{dy}$ at $y=f(a).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e265",
+   "number": 265,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2x^{3}-3,x=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739242570",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the functions $y=f(x)$ to find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{df}{dx}$ at $x=a$ and",
+      "$x=f^{-1}(y).$",
+      "Then use part b. to find $\\frac{df^{-1}}{dy}$ at $y=f(a).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 6, b. $x=f^{-1}(y)=\\left(\\frac{y+3}{2}\\right)^{1/3},$ c. $\\frac{1}{6}$"
+     }
+    ]
+   },
+   "notes": "self-check: part b has an unclear kind"
+  },
+  {
+   "id": "e266",
+   "number": 266,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=9-x^{2},0\\le x\\le 3,x=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736659075",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the functions $y=f(x)$ to find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{df}{dx}$ at $x=a$ and",
+      "$x=f^{-1}(y).$",
+      "Then use part b. to find $\\frac{df^{-1}}{dy}$ at $y=f(a).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e267",
+   "number": 267,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sin \\,x,x=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736656049",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the functions $y=f(x)$ to find"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{df}{dx}$ at $x=a$ and",
+      "$x=f^{-1}(y).$",
+      "Then use part b. to find $\\frac{df^{-1}}{dy}$ at $y=f(a).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $1,$ b. $x=f^{-1}(y)=\\sin^{-1}y,$ c. $1$"
+     }
+    ]
+   },
+   "notes": "self-check: part b has an unclear kind"
+  },
+  {
+   "id": "e268",
+   "number": 268,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}+3x+2,x\\ge -\\frac{3}{2},a=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736594107",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, find $(f^{-1})'(a).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{3}+2x+3,a=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739270336",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/5)"
+   }
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x+\\sqrt{x},a=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739299216",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, find $(f^{-1})'(a).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x-\\frac{2}{x},x<0,a=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736658912",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/3)"
+   }
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x+\\sin \\,x,a=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739302105",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, find $(f^{-1})'(a).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\tan \\,x+3x^{2},a=0;0<x<\\pi /2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736655092",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{4}{1+x^{2}},P(2,1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736589272",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the given functions $y=f(x),$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "find the slope of the tangent line to its inverse function $f^{-1}$ at the indicated point $P,$ and",
+      "find an equation of the tangent line to the graph of $f^{-1}$ at the indicated point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{x-4},P(2,8)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736658749",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the given functions $y=f(x),$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "find the slope of the tangent line to its inverse function $f^{-1}$ at the indicated point $P,$ and",
+      "find an equation of the tangent line to the graph of $f^{-1}$ at the indicated point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $4,$ b. $y=4x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "4"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "equation",
+       "value": "y=4 x"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=(x^{3}+1)^{4},P(16,1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739305259",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the given functions $y=f(x),$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "find the slope of the tangent line to its inverse function $f^{-1}$ at the indicated point $P,$ and",
+      "find an equation of the tangent line to the graph of $f^{-1}$ at the indicated point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=-x^{3}-x+2,P(-8,2)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739353343",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the given functions $y=f(x),$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "find the slope of the tangent line to its inverse function $f^{-1}$ at the indicated point $P,$ and",
+      "find an equation of the tangent line to the graph of $f^{-1}$ at the indicated point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $-\\frac{1}{13},$ b. $y=-\\frac{1}{13}x+\\frac{18}{13}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "-(1/13)"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "equation",
+       "value": "y=-(1/13)x+(18/13)"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{5}+3x^{3}-4x-8,P(-8,1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739182410",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the given functions $y=f(x),$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "find the slope of the tangent line to its inverse function $f^{-1}$ at the indicated point $P,$ and",
+      "find an equation of the tangent line to the graph of $f^{-1}$ at the indicated point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sin^{-1}(x^{2})$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736659177",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2x}{\\sqrt{1-x^{4}}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((2 x)/(sqrt(1-x^4)))"
+   }
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\cos^{-1}(\\sqrt{x})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739182424",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sec^{-1}\\left(\\frac{1}{x}\\right)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736658373",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{-1}{\\sqrt{1-x^{2}}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((-1)/(sqrt(1-x^2)))"
+   }
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sqrt{\\csc^{-1}x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736654821",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=(1+\\tan^{-1}x)^{3}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739187768",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{3(1+\\tan^{-1}x)^{2}}{1+x^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((3(1+ tan^(-1) x)^2)/(1+x^2))"
+   }
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\cos^{-1}(2x)\\cdot \\sin^{-1}(2x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736656774",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{1}{\\tan^{-1}(x)}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739188192",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{-1}{(1+x^{2})(\\tan^{-1}x)^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((-1)/((1+x^2)(tan^(-1) x)^2))"
+   }
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sec^{-1}(-x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739097606",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\cot^{-1}\\sqrt{4-x^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736597734",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{x}{(5-x^{2})\\sqrt{4-x^{2}}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(x/((5-x^2)sqrt(4-x^2)))"
+   }
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x\\cdot \\csc^{-1}x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739305610",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(\\pi )=0,f'(\\pi )=-1,a=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736589250",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   }
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(6)=2,f'(6)=\\frac{1}{3},a=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736662496",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e291",
+   "number": 291,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f\\left(\\frac{1}{3}\\right)=-8,f'\\left(\\frac{1}{3}\\right)=2,a=-8$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739273561",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2)"
+   }
+  },
+  {
+   "id": "e292",
+   "number": 292,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(\\sqrt{3})=\\frac{1}{2},f'(\\sqrt{3})=\\frac{2}{3},a=\\frac{1}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736611666",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e293",
+   "number": 293,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(1)=-3,f'(1)=10,a=-3$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736610026",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{10}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/10)"
+   }
+  },
+  {
+   "id": "e294",
+   "number": 294,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(1)=0,f'(1)=-2,a=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739327870",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The position of a moving hockey puck after $t$ seconds is $s(t)=\\tan^{-1}t$ where $s$ is in meters."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the velocity of the hockey puck at any time $t.$",
+      "Find the acceleration of the puck at any time $t.$",
+      "Evaluate a. and b. for $t=2,4,$ and $6$ seconds.",
+      "What conclusion can be drawn from the results in c.?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736655158",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $v(t)=\\frac{1}{1+t^{2}}$ b. $a(t)=\\frac{-2t}{(1+t^{2})^{2}}$ c. $(a)0.2,0.06,0.03;(b)-0.16,-0.028,-0.0088$ d. The hockey puck is decelerating/slowing down at 2, 4, and 6 seconds."
+     }
+    ]
+   },
+   "notes": "self-check: part d is prose"
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A building that is 225 feet tall casts a shadow of various lengths $x$ as the day goes by. An angle of elevation $\\theta$ is formed by lines from the top and bottom of the building to the tip of the shadow, as seen in the following figure. Find the rate of change of the angle of elevation $\\frac{d\\theta}{dx}$ when $x=272$ feet."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_209.webp",
+     "alt": "A building is shown with height 225 ft. A triangle is made with the building height as the opposite side from the angle θ. The adjacent side has length x.",
+     "width": 315,
+     "height": 240
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736597716",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A pole stands 75 feet tall. An angle $\\theta$ is formed when wires of various lengths of $x$ feet are attached from the ground to the top of the pole, as shown in the following figure. Find the rate of change of the angle $\\frac{d\\theta}{dx}$ when a wire of length 90 feet is attached."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_210.webp",
+     "alt": "A flagpole is shown with height 75 ft. A triangle is made with the flagpole height as the opposite side from the angle θ. The hypotenuse has length x.",
+     "width": 257,
+     "height": 268
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739351749",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-0.0168$ radians per foot"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A television camera at ground level is 2000 feet away from the launching pad of a space rocket that is set to take off vertically, as seen in the following figure. The angle of elevation of the camera can be found by $\\theta =\\tan^{-1}\\left(\\frac{x}{2000}\\right),$ where $x$ is the height of the rocket. Find the rate of change of the angle of elevation after launch when the camera and the rocket are 5000 feet apart."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_211.webp",
+     "alt": "A rocket is shown with in the air with the distance from its nose to the ground being x. A triangle is made with the rocket height as the opposite side from the angle θ. The adjacent side has length 2000.",
+     "width": 325,
+     "height": 253
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736593674",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e299",
+   "number": 299,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A local movie theater with a 30-foot-high screen that is 10 feet above a person’s eye level when seated has a viewing angle $\\theta$ (in radians) given by $\\theta =\\cot^{-1}\\frac{x}{40}-\\cot^{-1}\\frac{x}{10},$"
+    },
+    {
+     "type": "p",
+     "text": "where $x$ is the distance in feet away from the movie screen that the person is sitting, as shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_07_212.webp",
+     "alt": "A person is shown with a right triangle coming from their eye (the right angle being on the opposite side from the eye), with height 10 and base x. There is a line drawn from the eye to the top of the screen, which makes an angle θ with the triangle’s hypotenuse. The screen has a height of 30.",
+     "width": 401,
+     "height": 323
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find $\\frac{d\\theta}{dx}.$",
+      "Evaluate $\\frac{d\\theta}{dx}$ for $x=5,10,15,$ and 20.",
+      "Interpret the results in b..",
+      "Evaluate $\\frac{d\\theta}{dx}$ for $x=25,30,35,$ and 40",
+      "Interpret the results in d. At what distance $x$ should the person sit to maximize his or her viewing angle?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736593600",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the given values to find $(f^{-1})'(a).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\frac{d\\theta}{dx}=\\frac{10}{100+x^{2}}-\\frac{40}{1600+x^{2}}$ b. $\\frac{18}{325},\\frac{9}{340},\\frac{42}{4745},0$ c. As a person moves farther away from the screen, the viewing angle is increasing, which implies that as he or she moves farther away, his or her screen vision is widening. d. $-\\frac{54}{12905},-\\frac{3}{500},-\\frac{198}{29945},-\\frac{9}{1360}$ e. As the person moves beyond 20 feet from the screen, the viewing angle is decreasing. The optimal distance the person should stand for maximizing the viewing angle is 20 feet."
+     }
+    ]
+   },
+   "notes": "self-check: part b has an unclear kind"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Extending the Power Rule to Rational Exponents",
+   "statement": [
+    {
+     "type": "p",
+     "text": "The power rule may be extended to rational exponents. That is, if $n$ is a positive integer, then"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(x^{1/n})=\\frac{1}{n}x^{(1/n)-1}."
+    },
+    {
+     "type": "p",
+     "text": "Also, if $n$ is a positive integer and $m$ is an arbitrary integer, then"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(x^{m/n})=\\frac{m}{n}x^{(m/n)-1}."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "The function $g(x)=x^{1/n}$ is the inverse of the function $f(x)=x^{n}.$ Since $g'(x)=\\frac{1}{f'(g(x))},$ begin by finding $f'(x).$ Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "f'(x)=nx^{n-1}\\,\\text{and}\\,f'(g(x))=n(x^{1/n})^{n-1}=nx^{(n-1)/n}."
+    },
+    {
+     "type": "p",
+     "text": "Finally,"
+    },
+    {
+     "type": "math",
+     "tex": "g'(x)=\\frac{1}{nx^{(n-1)/n}}=\\frac{1}{n}x^{(1-n)/n}=\\frac{1}{n}x^{(1/n)-1}."
+    },
+    {
+     "type": "p",
+     "text": "To differentiate $x^{m/n}$ we must rewrite it as $(x^{1/n})^{m}$ and apply the chain rule. Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(x^{m/n})=\\frac{d}{dx}((x^{1/n})^{m})=m(x^{1/n})^{m-1}\\cdot \\frac{1}{n}x^{(1/n)-1}=\\frac{m}{n}x^{(m/n)-1}."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Find an equation of the line tangent to the graph of $y=x^{2/3}$ at $x=8.$"
+    },
+    {
+     "type": "p",
+     "text": "First find $\\frac{dy}{dx}$ and evaluate it at $x=8.$ Since"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=\\frac{2}{3}x^{-1/3}\\,\\text{and}\\,\\frac{dy}{dx}|\\begin{array}{l} \\\\ {}_{x=8}\\end{array}=\\frac{1}{3}"
+    },
+    {
+     "type": "p",
+     "text": "the slope of the tangent line to the graph at $x=8$ is $\\frac{1}{3}.$"
+    },
+    {
+     "type": "p",
+     "text": "Substituting $x=8$ into the original function, we obtain $y=4.$ Thus, the tangent line passes through the point $(8,4).$ Substituting into the point-slope formula for a line, we obtain the tangent line"
+    },
+    {
+     "type": "math",
+     "tex": "y=\\frac{1}{3}x+\\frac{4}{3}."
+    }
+   ],
+   "label": "book"
+  }
+ ]
+}

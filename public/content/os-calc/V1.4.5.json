@@ -1,0 +1,2467 @@
+{
+ "schema": 1,
+ "id": "V1.4.5",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 4,
+ "section": 5,
+ "title": "Derivatives and the Shape of a Graph",
+ "chapterTitle": "Applications of Derivatives",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53613",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/4-5-derivatives-and-the-shape-of-a-graph",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §4.5 “Derivatives and the Shape of a Graph”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Explain how the sign of the first derivative affects the shape of a function’s graph.",
+  "State the first derivative test for critical points.",
+  "Use concavity and inflection points to explain how the sign of the second derivative affects the shape of a function’s graph.",
+  "Explain the concavity test for a function over an open interval.",
+  "Explain the relationship between a function and its first and second derivatives.",
+  "State the second derivative test for local extrema."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Earlier in this chapter we stated that if a function $f$ has a local extremum at a point $c,$ then $c$ must be a critical point of $f.$ However, a function is not guaranteed to have a local extremum at a critical point. For example, $f(x)=x^{3}$ has a critical point at $x=0$ since $f'(x)=3x^{2}$ is zero at $x=0,$ but $f$ does not have a local extremum at $x=0.$ Using the results from the previous section, we are now able to determine whether a critical point of a function actually corresponds to a local extreme value. In this section, we also see how the second derivative provides information about the shape of a graph by describing whether the graph of a function curves upward or curves downward."
+    }
+   ],
+   "title": "Derivatives and the Shape of a Graph"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Corollary $3$ of the Mean Value Theorem showed that if the derivative of a function is positive over an interval $I$ then the function is increasing over $I.$ On the other hand, if the derivative of the function is negative over an interval $I,$ then the function is decreasing over $I$ as shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_001.webp",
+     "alt": "This figure is broken into four figures labeled a, b, c, and d. Figure a shows a function increasing convexly from (a, f(a)) to (b, f(b)). At two points the derivative is taken and it is noted that at both f’ > 0. In other words, f is increasing. Figure b shows a function increasing concavely from (a, f(a)) to (b, f(b)). At two points the derivative is taken and it is noted that at both f’ > 0. In other words, f is increasing. Figure c shows a function decreasing concavely from (a, f(a)) to (b, f(b)). At two points the derivative is taken and it is noted that at both f’ < 0. In other words, f is decreasing. Figure d shows a function decreasing convexly from (a, f(a)) to (b, f(b)). At two points the derivative is taken and it is noted that at both f’ < 0. In other words, f is decreasing.",
+     "caption": "**Figure 4.29** Both functions are increasing over the interval $(a,b).$ At each point $x,$ the derivative $f'(x)>0.$ Both functions are decreasing over the interval $(a,b).$ At each point $x,$ the derivative $f'(x)<0.$",
+     "width": 487,
+     "height": 548
+    }
+   ],
+   "title": "The First Derivative Test"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A continuous function $f$ has a local maximum at point $c$ if and only if $f$ switches from increasing to decreasing at point $c.$ Similarly, $f$ has a local minimum at $c$ if and only if $f$ switches from decreasing to increasing at $c.$ If $f$ is a continuous function over an interval $I$ containing $c$ and differentiable over $I,$ except possibly at $c,$ the only way $f$ can switch from increasing to decreasing (or vice versa) at point $c$ is if $f'$ changes sign as $x$ increases through $c.$ If $f$ is differentiable at $c,$ the only way that $f'$ can change sign as $x$ increases through $c$ is if $f'(c)=0.$ Therefore, for a function $f$ that is continuous over an interval $I$ containing $c$ and differentiable over $I,$ except possibly at $c,$ the only way $f$ can switch from increasing to decreasing (or vice versa) is if $f'(c)=0$ or $f'(c)$ is undefined. Consequently, to locate local extrema for a function $f,$ we look for points $c$ in the domain of $f$ such that $f'(c)=0$ or $f'(c)$ is undefined. Recall that such points are called critical points of $f.$"
+    },
+    {
+     "type": "p",
+     "text": "Note that $f$ need not have local extrema at a critical point. The critical points are candidates for local extrema only. In Figure 4.30, we show that if a continuous function $f$ has a local extremum, it must occur at a critical point, but a function may not have a local extremum at a critical point. We show that if $f$ has a local extremum at a critical point, then the sign of $f'$ switches as $x$ increases through that point."
+    }
+   ],
+   "title": "The First Derivative Test (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_002.webp",
+     "alt": "A function f(x) is graphed. It starts in the second quadrant and increases to x = a, which is too sharp and hence f’(a) is undefined. In this section f’ > 0. Then, f decreases from x = a to x = b (so f’ < 0 here), before increasing at x = b. It is noted that f’(b) = 0. While increasing from x = b to x = c, f’ > 0. The function has an inversion point at c, and it is marked f’(c) = 0. The function increases some more to d (so f’ > 0), which is the global maximum. It is marked that f’(d) = 0. Then the function decreases and it is marked that f’ > 0.",
+     "caption": "**Figure 4.30** The function $f$ has four critical points: $a,b,c,\\,\\text{and}\\,d.$ The function $f$ has local maxima at $a$ and $d,$ and a local minimum at $b.$ The function $f$ does not have a local extremum at $c.$ The sign of $f'$ changes at all local extrema.",
+     "width": 868,
+     "height": 430
+    },
+    {
+     "type": "p",
+     "text": "Using Figure 4.30, we summarize the main results regarding local extrema."
+    },
+    {
+     "type": "list",
+     "items": [
+      "If a continuous function $f$ has a local extremum, it must occur at a critical point $c.$",
+      "The function has a local extremum at the critical point $c$ if and only if the derivative $f'$ switches sign as $x$ increases through $c.$",
+      "Therefore, to test whether a function has a local extremum at a critical point $c,$ we must determine the sign of $f'(x)$ to the left and right of $c.$"
+     ]
+    },
+    {
+     "type": "p",
+     "text": "This result is known as the **first derivative test**."
+    }
+   ],
+   "title": "The First Derivative Test (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose that $f$ is a continuous function over an interval $I$ containing a critical point $c.$ If $f$ is differentiable over $I,$ except possibly at point $c,$ then $f(c)$ satisfies one of the following descriptions:"
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $f'$ changes sign from positive when $x<c$ to negative when $x>c,$ then $f(c)$ is a local maximum of $f.$",
+        "If $f'$ changes sign from negative when $x<c$ to positive when $x>c,$ then $f(c)$ is a local minimum of $f.$",
+        "If $f'$ has the same sign for $x<c$ and $x>c,$ then $f(c)$ is neither a local maximum nor a local minimum of $f.$"
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "First Derivative Test"
+    },
+    {
+     "type": "p",
+     "text": "We can summarize the first derivative test as a strategy for locating local extrema."
+    }
+   ],
+   "title": "The First Derivative Test (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider a function $f$ that is continuous over an interval $I.$"
+      },
+      {
+       "type": "list",
+       "items": [
+        "Find all critical points of $f$ and divide the interval $I$ into smaller intervals using the critical points as endpoints.",
+        "Analyze the sign of $f'$ in each of the subintervals. If $f'$ is continuous over a given subinterval (which is typically the case), then the sign of $f'$ in that subinterval does not change and, therefore, can be determined by choosing an arbitrary test point $x$ in that subinterval and by evaluating the sign of $f'$ at that test point. Use the sign analysis to determine whether $f$ is increasing or decreasing over that interval.\n\n*Note:* If $f'$ is not continuous throughout $I$, then include points of discontinuity along with critical points as endpoints when dividing $I$ into subintervals.",
+        "Use (see above) and the results of step $2$ to determine whether $f$ has a local maximum, a local minimum, or neither at each of the critical points."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Using the First Derivative Test"
+    },
+    {
+     "type": "p",
+     "text": "Now let’s look at how to use this strategy to locate all local extrema for particular functions."
+    }
+   ],
+   "title": "The First Derivative Test (continued)"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 4.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the first derivative test to find the location of all local extrema for $f(x)=x^{3}-3x^{2}-9x-1.$ Use a graphing utility to confirm your results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Step 1. The derivative is $f'(x)=3x^{2}-6x-9.$ To find the critical points, we need to find where $f'(x)=0.$ Factoring the polynomial, we conclude that the critical points must satisfy"
+     },
+     {
+      "type": "math",
+      "tex": "3(x^{2}-2x-3)=3(x-3)(x+1)=0."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the critical points are $x=3,-1.$ Now divide the interval $(-\\infty ,\\infty )$ into the smaller intervals $(-\\infty ,-1),(-1,3)\\,\\text{and}\\,(3,\\infty ).$"
+     },
+     {
+      "type": "p",
+      "text": "Step 2. Since $f'$ is a continuous function, to determine the sign of $f'(x)$ over each subinterval, it suffices to choose a point over each of the intervals $(-\\infty ,-1),(-1,3)\\,\\text{and}\\,(3,\\infty )$ and determine the sign of $f'$ at each of these points. For example, let’s choose $x=-2,x=0,\\,\\text{and}\\,x=4$ as test points."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "$(-\\infty ,-1)$",
+        "$x=-2$",
+        "$(+)(-)(-)=+$",
+        "$f$ is increasing."
+       ],
+       [
+        "$(-1,3)$",
+        "$x=0$",
+        "$(+)(-)(+)=-$",
+        "$f$ is decreasing."
+       ],
+       [
+        "$(3,\\infty )$",
+        "$x=4$",
+        "$(+)(+)(+)=+$",
+        "$f$ is increasing."
+       ]
+      ],
+      "header": [
+       "Interval",
+       "Test Point",
+       "Sign of $f'(x)=3(x-3)(x+1)$ at Test Point",
+       "Conclusion"
+      ]
+     },
+     {
+      "type": "p",
+      "text": "Step 3. Since $f'$ switches sign from positive to negative as $x$ increases through $-1,f$ has a local maximum at $x=-1.$ Since $f'$ switches sign from negative to positive as $x$ increases through $3,f$ has a local minimum at $x=3.$ These analytical results agree with the following graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_04_05_008.webp",
+      "alt": "The function f(x) = x3 – 3x2 – 9x – 1 is graphed. It has a maximum at x = −1 and a minimum at x = 3. The function is increasing before x = −1, decreasing until x = 3, and then increasing after that.",
+      "caption": "**Figure 4.31** The function $f$ has a maximum at $x=-1$ and a minimum at $x=3$",
+      "width": 455,
+      "height": 764
+     }
+    ]
+   },
+   "title": "Using the First Derivative Test to Find Local Extrema"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the first derivative test to locate all local extrema for $f(x)=-x^{3}+\\frac{3}{2}x^{2}+18x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f$ has a local minimum at $-2$ and a local maximum at $3.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find all critical points of $f$ and determine the signs of $f'(x)$ over particular intervals determined by the critical points."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 4.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the first derivative test to find the location of all local extrema for $f(x)=5x^{1/3}-x^{5/3}.$ Use a graphing utility to confirm your results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Step 1. The derivative is"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{5}{3}x^{-2/3}-\\frac{5}{3}x^{2/3}=\\frac{5}{3x^{2/3}}-\\frac{5x^{2/3}}{3}=\\frac{5-5x^{4/3}}{3x^{2/3}}=\\frac{5(1-x^{4/3})}{3x^{2/3}}."
+     },
+     {
+      "type": "p",
+      "text": "The derivative $f'(x)=0$ when $1-x^{4/3}=0.$ Therefore, $f'(x)=0$ at $x=\\text{±}1.$ The derivative $f'(x)$ is undefined at $x=0.$ Therefore, we have three critical points: $x=0,$ $x=1,$ and $x=-1.$ Consequently, divide the interval $(-\\infty ,\\infty )$ into the smaller intervals $(-\\infty ,-1),(-1,0),(0,1),$ and $(1,\\infty ).$"
+     },
+     {
+      "type": "p",
+      "text": "Step 2: Since $f'$ is continuous over each subinterval, it suffices to choose a test point $x$ in each of the intervals from step $1$ and determine the sign of $f'$ at each of these points. The points $x=-2,x=-\\frac{1}{2},x=\\frac{1}{2},\\,\\text{and}\\,x=2$ are test points for these intervals."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "$(-\\infty ,-1)$",
+        "$x=-2$",
+        "$\\frac{(+)(-)}{+}=-$",
+        "$f$ is decreasing."
+       ],
+       [
+        "$(-1,0)$",
+        "$x=-\\frac{1}{2}$",
+        "$\\frac{(+)(+)}{+}=+$",
+        "$f$ is increasing."
+       ],
+       [
+        "$(0,1)$",
+        "$x=\\frac{1}{2}$",
+        "$\\frac{(+)(+)}{+}=+$",
+        "$f$ is increasing."
+       ],
+       [
+        "$(1,\\infty )$",
+        "$x=2$",
+        "$\\frac{(+)(-)}{+}=-$",
+        "$f$ is decreasing."
+       ]
+      ],
+      "header": [
+       "Interval",
+       "Test Point",
+       "Sign of $f'(x)=\\frac{5(1-x^{4/3})}{3x^{2/3}}$ at Test Point",
+       "Conclusion"
+      ]
+     },
+     {
+      "type": "p",
+      "text": "Step 3: Since $f$ is decreasing over the interval $(-\\infty ,-1)$ and increasing over the interval $(-1,0),$ $f$ has a local minimum at $x=-1.$ Since $f$ is increasing over the interval $(-1,0)$ and the interval $(0,1),$ $f$ does not have a local extremum at $x=0.$ Since $f$ is increasing over the interval $(0,1)$ and decreasing over the interval $(1,\\infty ),f$ has a local maximum at $x=1.$ The analytical results agree with the following graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_04_05_009.webp",
+      "alt": "The function f(x) = 5x1/3 – x5/3 is graphed. It decreases to its local minimum at x = −1, increases to x = 1, and then decreases after that.",
+      "caption": "**Figure 4.32** The function *f* has a local minimum at $x=-1$ and a local maximum at $x=1.$",
+      "width": 363,
+      "height": 272
+     }
+    ]
+   },
+   "title": "Using the First Derivative Test"
+  },
+  {
+   "id": "c10",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the first derivative test to find all local extrema for $f(x)=\\sqrt[3]{x-1}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f$ has no local extrema because $f'$ does not change sign at $x=1.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The only critical point of $f$ is $x=1.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now know how to determine where a function is increasing or decreasing. However, there is another issue to consider regarding the shape of the graph of a function. If the graph curves, does it curve upward or curve downward? This notion is called the **concavity** of the function."
+    },
+    {
+     "type": "p",
+     "text": "Figure 4.33(a) shows a function $f$ with a graph that curves upward. As $x$ increases, the slope of the tangent line increases. Thus, since the derivative increases as $x$ increases, $f'$ is an increasing function. We say this function $f$ is concave up. Figure 4.33(b) shows a function $f$ that curves downward. As $x$ increases, the slope of the tangent line decreases. Since the derivative decreases as $x$ increases, $f'$ is a decreasing function. We say this function $f$ is concave down."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ be a function that is differentiable over an open interval $I.$ If $f'$ is increasing over $I,$ we say $f$ is **concave up** over $I.$ If $f'$ is decreasing over $I,$ we say $f$ is **concave down** over $I.$"
+      }
+     ]
+    }
+   ],
+   "title": "Concavity and Points of Inflection"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_010.webp",
+     "alt": "This figure is broken into four figures labeled a, b, c, and d. Figure a shows a function increasing convexly from (a, f(a)) to (b, f(b)). At two points the derivative is taken and both are increasing, but the one taken further to the right is increasing more. It is noted that f’ is increasing and f is concave up. Figure b shows a function increasing concavely from (a, f(a)) to (b, f(b)). At two points the derivative is taken and both are increasing, but the one taken further to the right is increasing less. It is noted that f’ is decreasing and f is concave down. Figure c shows a function decreasing concavely from (a, f(a)) to (b, f(b)). At two points the derivative is taken and both are decreasing, but the one taken further to the right is decreasing less. It is noted that f’ is increasing and f is concave up. Figure d shows a function decreasing convexly from (a, f(a)) to (b, f(b)). At two points the derivative is taken and both are decreasing, but the one taken further to the right is decreasing more. It is noted that f’ is decreasing and f is concave down.",
+     "caption": "**Figure 4.33** (a), (c) Since $f'$ is increasing over the interval $(a,b),$ we say $f$ is concave up over $(a,b).$ (b), (d) Since $f'$ is decreasing over the interval $(a,b),$ we say $f$ is concave down over $(a,b).$",
+     "width": 633,
+     "height": 673
+    }
+   ],
+   "title": "Concavity and Points of Inflection (continued)"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In general, without having the graph of a function $f,$ how can we determine its concavity? By definition, a function $f$ is concave up if $f'$ is increasing. From Corollary $3,$ we know that if $f'$ is a differentiable function, then $f'$ is increasing if its derivative $f''(x)>0.$ Therefore, a function $f$ that is twice differentiable is concave up when $f''(x)>0.$ Similarly, a function $f$ is concave down if $f'$ is decreasing. We know that a differentiable function $f'$ is decreasing if its derivative $f''(x)<0.$ Therefore, a twice-differentiable function $f$ is concave down when $f''(x)<0.$ Applying this logic is known as the **concavity test**."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ be a function that is twice differentiable over an interval $I.$"
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $f''(x)>0$ for all $x\\in I,$ then $f$ is concave up over $I.$",
+        "If $f''(x)<0$ for all $x\\in I,$ then $f$ is concave down over $I.$"
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Test for Concavity"
+    }
+   ],
+   "title": "Concavity and Points of Inflection (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We conclude that we can determine the concavity of a function $f$ by looking at the second derivative of $f.$ In addition, we observe that a function $f$ can switch concavity (Figure 4.34). However, a continuous function can switch concavity only at a point $x$ if $f''(x)=0$ or $f''(x)$ is undefined. Consequently, to determine the intervals where a function $f$ is concave up and concave down, we look for those values of $x$ where $f''(x)=0$ or $f''(x)$ is undefined. When we have determined these points, we divide the domain of $f$ into smaller intervals and determine the sign of $f''$ over each of these smaller intervals. If $f''$ changes sign as we pass through a point $x,$ then $f$ changes concavity. It is important to remember that a function $f$ may not change concavity at a point $x$ even if $f''(x)=0$ or $f''(x)$ is undefined. If, however, $f$ does change concavity at a point $a$ and $f$ is continuous at $a,$ we say the point $(a,f(a))$ is an inflection point of $f.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $f$ is continuous at $a$ and $f$ changes concavity at $a,$ the point $(a,f(a))$ is an **inflection point** of $f.$"
+      }
+     ]
+    }
+   ],
+   "title": "Concavity and Points of Inflection (continued)"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_004.webp",
+     "alt": "A sinusoidal function is shown that has been shifted into the first quadrant. The function starts decreasing, so f’ < 0 and f’’ > 0. The function reaches the local minimum and starts increasing, so f’ > 0 and f’’ > 0. It is noted that the slope is increasing for these two intervals. The function then reaches an inflection point (a, f(a)) and from here the slop is decreasing even though the function continues to increase, so f’ > 0 and f’’ < 0. The function reaches the maximum and then starts decreasing, so f’ < 0 and f’’ < 0.",
+     "caption": "**Figure 4.34** Since $f''(x)>0$ for $x<a,$ the function $f$ is concave up over the interval $(-\\infty ,a).$ Since $f''(x)<0$ for $x>a,$ the function $f$ is concave down over the interval $(a,\\infty ).$ The point $(a,f(a))$ is an inflection point of $f.$",
+     "width": 731,
+     "height": 401
+    }
+   ],
+   "title": "Concavity and Points of Inflection (continued)"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 4.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the function $f(x)=x^{3}-6x^{2}+9x+30,$ determine all intervals where $f$ is concave up and all intervals where $f$ is concave down. List all inflection points for $f.$ Use a graphing utility to confirm your results."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To determine concavity, we need to find the second derivative $f''(x).$ The first derivative is $f'(x)=3x^{2}-12x+9,$ so the second derivative is $f''(x)=6x-12.$ If the function changes concavity, it occurs either when $f''(x)=0$ or $f''(x)$ is undefined. Since $f''$ is defined for all real numbers $x,$ we need only find where $f''(x)=0.$ Solving the equation $6x-12=0,$ we see that $x=2$ is the only place where $f$ could change concavity. We now test points over the intervals $(-\\infty ,2)$ and $(2,\\infty )$ to determine the concavity of $f.$ The points $x=0$ and $x=3$ are test points for these intervals."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "$(-\\infty ,2)$",
+        "$x=0$",
+        "$-$",
+        "$f$ is concave down"
+       ],
+       [
+        "$(2,\\infty )$",
+        "$x=3$",
+        "$+$",
+        "$f$ is concave up."
+       ]
+      ],
+      "header": [
+       "Interval",
+       "Test Point",
+       "Sign of $f''(x)=6x-12$ at Test Point",
+       "Conclusion"
+      ]
+     },
+     {
+      "type": "p",
+      "text": "We conclude that $f$ is concave down over the interval $(-\\infty ,2)$ and concave up over the interval $(2,\\infty ).$ Since $f$ changes concavity at $x=2,$ the point $(2,f(2))=(2,32)$ is an inflection point. Figure 4.35 confirms the analytical results."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_04_05_011.webp",
+      "alt": "The function f(x) = x3 – 6x2 + 9x + 30 is graphed. The inflection point (2, 32) is marked, and it is roughly equidistant from the two local extrema.",
+      "caption": "**Figure 4.35** The given function has a point of inflection at $(2,32)$ where the graph changes concavity.",
+      "width": 379,
+      "height": 385
+     }
+    ]
+   },
+   "title": "Testing for Concavity"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For $f(x)=-x^{3}+\\frac{3}{2}x^{2}+18x,$ find all intervals where $f$ is concave up and all intervals where $f$ is concave down."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f$ is concave up over the interval $\\left(-\\infty ,\\frac{1}{2}\\right)$ and concave down over the interval $\\left(\\frac{1}{2},\\infty \\right)$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find where $f''(x)=0.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now summarize, in Table 4.1, the information that the first and second derivatives of a function $f$ provide about the graph of $f,$ and illustrate this information in Figure 4.36."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "Positive",
+       "Positive",
+       "Increasing",
+       "Concave up"
+      ],
+      [
+       "Positive",
+       "Negative",
+       "Increasing",
+       "Concave down"
+      ],
+      [
+       "Negative",
+       "Positive",
+       "Decreasing",
+       "Concave up"
+      ],
+      [
+       "Negative",
+       "Negative",
+       "Decreasing",
+       "Concave down"
+      ]
+     ],
+     "header": [
+      "Sign of $f'$",
+      "Sign of $f''$",
+      "Is $f$ increasing or decreasing?",
+      "Concavity"
+     ],
+     "caption": "**Table 4.1** What Derivatives Tell Us about Graphs"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_005.webp",
+     "alt": "A function is graphed in the first quadrant. It is broken up into four sections, with the breaks coming at the local minimum, inflection point, and local maximum, respectively. The first section is decreasing and concave up; here, f’ < 0 and f’’ > 0. The second section is increasing and concave up; here, f’ > 0 and f’’ > 0. The third section is increasing and concave down; here, f’ > 0 and f’’ < 0. The fourth section is increasing and concave down; here, f’ < 0 and f’’ < 0.",
+     "caption": "**Figure 4.36** Consider a twice-differentiable function $f$ over an open interval $I.$ If $f'(x)>0$ for all $x\\in I,$ the function is increasing over $I.$ If $f'(x)<0$ for all $x\\in I,$ the function is decreasing over $I.$ If $f''(x)>0$ for all $x\\in I,$ the function is concave up. If $f''(x)<0$ for all $x\\in I,$ the function is concave down on $I.$",
+     "width": 900,
+     "height": 456
+    }
+   ],
+   "title": "Concavity and Points of Inflection (continued)"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The first derivative test provides an analytical tool for finding local extrema, but the second derivative can also be used to locate extreme values. Using the second derivative can sometimes be a simpler method than using the first derivative."
+    },
+    {
+     "type": "p",
+     "text": "We know that if a continuous function has local extrema, it must occur at a critical point. However, a function need not have local extrema at a critical point. Here we examine how the **second derivative test** can be used to determine whether a function has a local extremum at a critical point. Let $f$ be a twice-differentiable function such that $f'(a)=0$ and $f''$ is continuous over an open interval $I$ containing $a.$ Suppose $f''(a)<0.$ Since $f''$ is continuous over $I,$ $f''(x)<0$ for all $x\\in I$ (Figure 4.37). Then, by Corollary $3,$ $f'$ is a decreasing function over $I.$ Since $f'(a)=0,$ we conclude that for all $x\\in I,f'(x)>0$ if $x<a$ and $f'(x)<0$ if $x>a.$ Therefore, by the first derivative test, $f$ has a local maximum at $x=a.$ On the other hand, suppose there exists a point $b$ such that $f'(b)=0$ but $f''(b)>0.$ Since $f''$ is continuous over an open interval $I$ containing $b,$ then $f''(x)>0$ for all $x\\in I$ (Figure 4.37). Then, by Corollary $3,f'$ is an increasing function over $I.$ Since $f'(b)=0,$ we conclude that for all $x\\in I,$ $f'(x)<0$ if $x<b$ and $f'(x)>0$ if $x>b.$ Therefore, by the first derivative test, $f$ has a local minimum at $x=b.$"
+    }
+   ],
+   "title": "The Second Derivative Test"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_006.webp",
+     "alt": "A function f(x) is graphed in the first quadrant with a and b marked on the x-axis. The function is vaguely sinusoidal, increasing first to x = a, then decreasing to x = b, and increasing again. At (a, f(a)), the tangent is marked, and it is noted that f’(a) = 0 and f’’(a) < 0. At (b, f(b)), the tangent is marked, and it is noted f’(b) = 0 and f’’(b) > 0.",
+     "caption": "**Figure 4.37** Consider a twice-differentiable function $f$ such that $f''$ is continuous. Since $f'(a)=0$ and $f''(a)<0,$ there is an interval $I$ containing $a$ such that for all $x$ in $I,$ $f$ is increasing if $x<a$ and $f$ is decreasing if $x>a.$ As a result, $f$ has a local maximum at $x=a.$ Since $f'(b)=0$ and $f''(b)>0,$ there is an interval $I$ containing $b$ such that for all $x$ in $I,$ $f$ is decreasing if $x<b$ and $f$ is increasing if $x>b.$ As a result, $f$ has a local minimum at $x=b.$",
+     "width": 487,
+     "height": 272
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose $f'(c)=0,f''$ is continuous over an interval containing $c.$"
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $f''(c)>0,$ then $f$ has a local minimum at $c.$",
+        "If $f''(c)<0,$ then $f$ has a local maximum at $c.$",
+        "If $f''(c)=0,$ then the test is inconclusive."
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Second Derivative Test"
+    }
+   ],
+   "title": "The Second Derivative Test (continued)"
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Note that for case iii. when $f''(c)=0,$ then $f$ may have a local maximum, local minimum, or neither at $c.$ For example, the functions $f(x)=x^{3},$ $f(x)=x^{4},$ and $f(x)=-x^{4}$ all have critical points at $x=0.$ In each case, the second derivative is zero at $x=0.$ However, the function $f(x)=x^{4}$ has a local minimum at $x=0$ whereas the function $f(x)=-x^{4}$ has a local maximum at $x,$ and the function $f(x)=x^{3}$ does not have a local extremum at $x=0.$"
+    },
+    {
+     "type": "p",
+     "text": "Let’s now look at how to use the second derivative test to determine whether $f$ has a local maximum or local minimum at a critical point $c$ where $f'(c)=0.$"
+    }
+   ],
+   "title": "The Second Derivative Test (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 4.20",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the second derivative to find the location of all local extrema for $f(x)=x^{5}-5x^{3}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To apply the second derivative test, we first need to find critical points $c$ where $f'(c)=0.$ The derivative is $f'(x)=5x^{4}-15x^{2}.$ Therefore, $f'(x)=5x^{4}-15x^{2}=5x^{2}(x^{2}-3)=0$ when $x=0,\\text{±}\\sqrt{3}.$"
+     },
+     {
+      "type": "p",
+      "text": "To determine whether $f$ has local extrema at any of these points, we need to evaluate the sign of $f''$ at these points. The second derivative is"
+     },
+     {
+      "type": "math",
+      "tex": "f''(x)=20x^{3}-30x=10x(2x^{2}-3)."
+     },
+     {
+      "type": "p",
+      "text": "In the following table, we evaluate the second derivative at each of the critical points and use the second derivative test to determine whether $f$ has a local maximum or local minimum at any of these points."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "$-\\sqrt{3}$",
+        "$-30\\sqrt{3}$",
+        "Local maximum"
+       ],
+       [
+        "$0$",
+        "$0$",
+        "Second derivative test is inconclusive"
+       ],
+       [
+        "$\\sqrt{3}$",
+        "$30\\sqrt{3}$",
+        "Local minimum"
+       ]
+      ],
+      "header": [
+       "$x$",
+       "$f''(x)$",
+       "Conclusion"
+      ]
+     },
+     {
+      "type": "p",
+      "text": "By the second derivative test, we conclude that $f$ has a local maximum at $x=-\\sqrt{3}$ and $f$ has a local minimum at $x=\\sqrt{3}.$ The second derivative test is inconclusive at $x=0.$ To determine whether $f$ has local extrema at $x=0,$ we apply the first derivative test. To evaluate the sign of $f'(x)=5x^{2}(x^{2}-3)$ for $x\\in (-\\sqrt{3},0)$ and $x\\in (0,\\sqrt{3}),$ let $x=-1$ and $x=1$ be the two test points. Since $f'(-1)<0$ and $f'(1)<0,$ we conclude that $f$ is decreasing on both intervals and, therefore, $f$ does not have local extrema at $x=0$ as shown in the following graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_04_05_007.webp",
+      "alt": "The function f(x) = x5 – 5x3 is graphed. The function increases to (negative square root of 3, 10), then decreases to an inflection point at 0, continues decreasing to (square root of 3, −10), and then increases.",
+      "caption": "**Figure 4.38** The function $f$ has a local maximum at $x=-\\sqrt{3}$ and a local minimum at $x=\\sqrt{3}$",
+      "width": 900,
+      "height": 459
+     }
+    ]
+   },
+   "title": "Using the Second Derivative Test"
+  },
+  {
+   "id": "c23",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the function $f(x)=x^{3}-\\left(\\frac{3}{2}\\right)x^{2}-18x.$ The points $c=3,-2$ satisfy $f'(c)=0.$ Use the second derivative test to determine whether $f$ has a local maximum or local minimum at those points."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f$ has a local maximum at $-2$ and a local minimum at $3.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "$f''(x)=6x-3$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have now developed the tools we need to determine where a function is increasing and decreasing, as well as acquired an understanding of the basic shape of the graph. In the next section we discuss what happens to a function as $x\\to \\text{±}\\infty .$ At that point, we have enough tools to provide accurate graphs of a large variety of functions."
+    }
+   ],
+   "title": "The Second Derivative Test (continued)"
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "If $c$ is a critical point of $f$ and $f'(x)>0$ for $x<c$ and $f'(x)<0$ for $x>c,$ then $f$ has a local maximum at $c.$",
+      "If $c$ is a critical point of $f$ and $f'(x)<0$ for $x<c$ and $f'(x)>0$ for $x>c,$ then $f$ has a local minimum at $c.$",
+      "If $f''(x)>0$ over an interval $I,$ then $f$ is concave up over $I.$",
+      "If $f''(x)<0$ over an interval $I,$ then $f$ is concave down over $I.$",
+      "If $f'(c)=0$ and $f''(c)>0,$ then $f$ has a local minimum at $c.$",
+      "If $f'(c)=0$ and $f''(c)<0,$ then $f$ has a local maximum at $c.$",
+      "If $f'(c)=0$ and $f''(c)=0,$ then evaluate $f'(x)$ at a test point $x$ to the left of $c$ and a test point $x$ to the right of $c,$ to determine whether $f$ has a local extremum at $c.$"
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e194",
+   "number": 194,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $c$ is a critical point of $f(x),$ when is there no local maximum or minimum at $c?$ Explain."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043390976",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e195",
+   "number": 195,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For the function $y=x^{3},$ is $x=0$ both an inflection point and a local maximum/minimum?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042474277",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "It is not a local maximum/minimum because $f'$ does not change sign"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e196",
+   "number": 196,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For the function $y=x^{3},$ is $x=0$ an inflection point?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043251844",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e197",
+   "number": 197,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Is it possible for a point $c$ to be both an inflection point and a local extremum of a twice differentiable function?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043286677",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "No"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "no"
+   }
+  },
+  {
+   "id": "e198",
+   "number": 198,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Why do you need continuity for the first derivative test? Come up with an example."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043348571",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e199",
+   "number": 199,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain whether a concave-down function has to cross $y=0$ for some value of $x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043348587",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False; for example, $y=\\sqrt{x}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e200",
+   "number": 200,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain whether a polynomial of degree $2$ can have an inflection point."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043327512",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e201",
+   "number": 201,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_201.webp",
+     "alt": "The function f’(x) is graphed. The function starts negative and crosses the x axis at (−2, 0). Then it continues increasing a little before decreasing and crossing the x axis at (−1, 0). It achieves a local minimum at (1, −6) before increasing and crossing the x axis at (2, 0).",
+     "width": 417,
+     "height": 422
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042970465",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where $f$ is increasing or decreasing."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Increasing for $-2<x<-1$ and $x>2;$ decreasing for $x<-2$ and $-1<x<2$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e202",
+   "number": 202,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_202.webp",
+     "alt": "The function f’(x) is graphed. The function starts negative and crosses the x axis at (−2, 0). Then it continues increasing a little before decreasing and touching the x axis at (−1, 0). It then increases a little before decreasing and crossing the x axis at the origin. The function then decreases to a local minimum before increasing, crossing the x-axis at (1, 0), and continuing to increase.",
+     "width": 417,
+     "height": 422
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043428273",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where $f$ is increasing or decreasing."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e203",
+   "number": 203,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_203.webp",
+     "alt": "The function f’(x) is graphed. The function starts negative and touches the x axis at the origin. Then it decreases a little before increasing to cross the x axis at (1, 0) and continuing to increase.",
+     "width": 342,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043395896",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where $f$ is increasing or decreasing."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Decreasing for $x<1,$ increasing for $x>1$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e204",
+   "number": 204,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_204.webp",
+     "alt": "The function f’(x) is graphed. The function starts positive and decreases to touch the x axis at (−1, 0). Then it increases to (0, 4.5) before decreasing to touch the x axis at (1, 0). Then the function increases.",
+     "width": 342,
+     "height": 272
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043281857",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where $f$ is increasing or decreasing."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e205",
+   "number": 205,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_205.webp",
+     "alt": "The function f’(x) is graphed. The function starts at (−2, 0), decreases to (−1.5, −1.5), increases to (−1, 0), and continues increasing before decreasing to the origin. Then the other side is symmetric: that is, the function increases and then decreases to pass through (1, 0). It continues decreasing to (1.5, −1.5), and then increase to (2, 0).",
+     "width": 342,
+     "height": 272
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043183805",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where $f$ is increasing or decreasing."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Decreasing for $-2<x<-1$ and $1<x<2;$ increasing for $-1<x<1$ and $x<-2$ and $x>2$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e206",
+   "number": 206,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_206.webp",
+     "alt": "The function f’(x) is graphed. The function starts at (−2, 0), decreases for a little and then increases to (−1, 0), continues increasing before decreasing to the origin, at which point it increases.",
+     "width": 268,
+     "height": 197
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042373730",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f$ is increasing and decreasing and",
+      "the minima and maxima are located."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e207",
+   "number": 207,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_207.webp",
+     "alt": "The function f’(x) is graphed. The function starts at (−2, 0), increases and then decreases to (−1, 0), decreases and then increases to an inflection point at the origin. Then the function increases and decreases to cross (1, 0). It continues decreasing and then increases to (2, 0).",
+     "width": 342,
+     "height": 272
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042373655",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f$ is increasing and decreasing and",
+      "the minima and maxima are located."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing over $-2<x<-1,0<x<1,x>2,$ decreasing over $x<-2,$ $-1<x<0,1<x<2;$ b. maxima at $x=-1$ and $x=1,$ minima at $x=-2$ and $x=0$ and $x=2$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e208",
+   "number": 208,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_208.webp",
+     "alt": "The function f’(x) is graphed from x = −2 to x = 2. It starts near zero at x = −2, but then increases rapidly and remains positive for the entire length of the graph.",
+     "width": 342,
+     "height": 272
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043323823",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f$ is increasing and decreasing and",
+      "the minima and maxima are located."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e209",
+   "number": 209,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_209.webp",
+     "alt": "The function f’(x) is graphed. The function starts negative and crosses the x axis at the origin, which is an inflection point. Then it continues increasing.",
+     "width": 271,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042331804",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f$ is increasing and decreasing and",
+      "the minima and maxima are located."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing over $x>0,$ decreasing over $x<0;$ b. Minimum at $x=0$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e210",
+   "number": 210,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_210.webp",
+     "alt": "The function f’(x) is graphed. The function starts negative and crosses the x axis at (−1, 0). Then it continues increasing a little before decreasing and touching the x axis at the origin. It increases again and then decreases to (1, 0). Then it increases.",
+     "width": 272,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043108776",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all intervals where"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f$ is increasing and decreasing and",
+      "the minima and maxima are located."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e211",
+   "number": 211,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_211.webp",
+     "alt": "The function f’(x) is graphed. The function is linear and starts negative. It crosses the x axis at the origin.",
+     "width": 192,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043395336",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all inflection points and intervals where $f$ is concave up and concave down."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Concave up on all $x,$ no inflection points"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e212",
+   "number": 212,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_212.webp",
+     "alt": "The function f’(x) is graphed. It is an upward-facing parabola with 0 as its local minimum.",
+     "width": 342,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043312627",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all inflection points and intervals where $f$ is concave up and concave down."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e213",
+   "number": 213,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_213.webp",
+     "alt": "The function f’(x) is graphed. The function resembles the graph of x3: that is, it starts negative and crosses the x axis at the origin. Then it continues increasing.",
+     "width": 271,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043431030",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all inflection points and intervals where $f$ is concave up and concave down."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Concave up on all $x,$ no inflection points"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e214",
+   "number": 214,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_214.webp",
+     "alt": "The function f’(x) is graphed. The function starts negative and crosses the x axis at (−0.5, 0). Then it continues increasing to (0, 1.5) before decreasing and touching the x axis at (1, 0). It then increases.",
+     "width": 267,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043348481",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all inflection points and intervals where $f$ is concave up and concave down."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e215",
+   "number": 215,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_05_215.webp",
+     "alt": "The function f’(x) is graphed. The function starts negative and crosses the x axis at (−1, 0). Then it continues increasing to a local maximum at (0, 1), at which point it decreases and touches the x axis at (1, 0). It then increases.",
+     "width": 342,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042364601",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, analyze the graphs of $f',$ then list all inflection points and intervals where $f$ is concave up and concave down."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Concave up for $x<0$ and $x>1,$ concave down for $0<x<1,$ inflection points at $x=0$ and $x=1$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e216",
+   "number": 216,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)>0,f'(x)>0$ over $x>1,-3<x<0,f'(x)=0$ over $0<x<1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042708286",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, draw a graph that satisfies the given specifications for the domain $x\\epsilon [-3,3].$ The function does not have to be continuous or differentiable."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e217",
+   "number": 217,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f'(x)>0$ over $x>2,-3<x<-1,f'(x)<0$ over $-1<x<2,f''(x)<0$ for all $x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042364310",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, draw a graph that satisfies the given specifications for the domain $x\\epsilon [-3,3].$ The function does not have to be continuous or differentiable."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers will vary"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e218",
+   "number": 218,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f''(x)<0$ over $-1<x<1,f''(x)>0,-3<x<-1,1<x<3,$ local maximum at $x=0,$ local minima at $x=\\text{±}2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042705932",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, draw a graph that satisfies the given specifications for the domain $x\\epsilon [-3,3].$ The function does not have to be continuous or differentiable."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e219",
+   "number": 219,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "There is a local maximum at $x=2,$ local minimum at $x=1,$ and the graph is neither concave up nor concave down."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042333449",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, draw a graph that satisfies the given specifications for the domain $x\\epsilon [-3,3].$ The function does not have to be continuous or differentiable."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers will vary"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e220",
+   "number": 220,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "There are local maxima at $x=\\text{±}1,$ the function is concave up for all $x,$ and the function remains positive for all $x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042418832",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, draw a graph that satisfies the given specifications for the domain $x\\epsilon [-3,3].$ The function does not have to be continuous or differentiable."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e221",
+   "number": 221,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sin \\,x+\\sin^{3}x$ over $-\\pi <x<\\pi$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042709552",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing and",
+      "local minima and maxima of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "If needed, use a calculator to graph the functions, but show your work."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing over $-\\frac{\\pi}{2}<x<\\frac{\\pi}{2},$ decreasing over $x<-\\frac{\\pi}{2},x>\\frac{\\pi}{2}$ b. Local maximum at $x=\\frac{\\pi}{2};$ local minimum at $x=-\\frac{\\pi}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e222",
+   "number": 222,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}+\\cos \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043327552",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing and",
+      "local minima and maxima of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "If needed, use a calculator to graph the functions, but show your work."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e223",
+   "number": 223,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{3}-4x^{2}+x+2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042705948",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a. intervals where $f$ is concave up or concave down, and b. the inflection points of $f.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Concave up for $x>\\frac{4}{3},$ concave down for $x<\\frac{4}{3}$ b. Inflection point at $x=\\frac{4}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e224",
+   "number": 224,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}-6x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043253476",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e225",
+   "number": 225,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{3}-6x^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043430810",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing over $x<0$ and $x>4,$ decreasing over $0<x<4$ b. Maximum at $x=0,$ minimum at $x=4$ c. Concave up for $x>2,$ concave down for $x<2$ d. Infection point at $x=2$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e226",
+   "number": 226,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{4}-6x^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042369583",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e227",
+   "number": 227,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{11}-6x^{10}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042710974",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing over $x<0$ and $x>\\frac{60}{11},$ decreasing over $0<x<\\frac{60}{11}$ b. Minimum at $x=\\frac{60}{11}$, local maximum at x = 0 c. Concave down for $x<\\frac{54}{11},$ concave up for $x>\\frac{54}{11}$ d. Inflection point at $x=\\frac{54}{11}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e228",
+   "number": 228,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x+x^{2}-x^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042327371",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e229",
+   "number": 229,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}+x+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043424018",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing over $x>-\\frac{1}{2},$ decreasing over $x<-\\frac{1}{2}$ b. Minimum at $x=-\\frac{1}{2}$ c. Concave up for all $x$ d. No inflection points"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e230",
+   "number": 230,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{3}+x^{4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042710942",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e231",
+   "number": 231,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\sin (\\pi x)-\\cos (\\pi x)$ over $x=[-1,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043430751",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increases over $-\\frac{1}{4}<x<\\frac{3}{4},$ decreases over $x>\\frac{3}{4}$ and $x<-\\frac{1}{4}$ b. Minimum at $x=-\\frac{1}{4},$ maximum at $x=\\frac{3}{4}$ c. Concave up for $-\\frac{3}{4}<x<\\frac{1}{4},$ concave down for $x<-\\frac{3}{4}$ and $x>\\frac{1}{4}$ d. Inflection points at $x=-\\frac{3}{4},x=\\frac{1}{4}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e232",
+   "number": 232,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=x+\\sin (2x)$ over $x=\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043174067",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e233",
+   "number": 233,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\sin \\,x+\\tan \\,x$ over $\\left(-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042315743",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing for all $x$ b. No local minimum or maximum c. Concave up for $x>0,$ concave down for $x<0$ d. Inflection point at $x=0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e234",
+   "number": 234,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=(x-2)^{2}(x-4)^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042323656",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e235",
+   "number": 235,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\frac{1}{1-x},x\\ne 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042327441",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing for all $x$ where defined b. No local minima or maxima c. Concave up for $x<1;$ concave down for $x>1$ d. No inflection points in domain"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e236",
+   "number": 236,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\frac{\\sin \\,x}{x}$ over $x=$ $[2\\pi ,0)\\cup (0,2\\pi ]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042708214",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e237",
+   "number": 237,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sin (x)e^{x}$ over $x=[-\\pi ,\\pi ]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043395208",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing over $-\\frac{\\pi}{4}<x<\\frac{3\\pi}{4},$ decreasing over $x>\\frac{3\\pi}{4},x<-\\frac{\\pi}{4}$ b. Minimum at $x=-\\frac{\\pi}{4},$ maximum at $x=\\frac{3\\pi}{4}$ c. Concave up for $-\\frac{\\pi}{2}<x<\\frac{\\pi}{2},$ concave down for $x<-\\frac{\\pi}{2},x>\\frac{\\pi}{2}$ d. Infection points at $x=\\text{±}\\frac{\\pi}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e238",
+   "number": 238,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=(\\ln \\,x)\\sqrt{x},x>0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042374784",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e239",
+   "number": 239,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{4}\\sqrt{x}+\\frac{1}{x},x>0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042320285",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Increasing over $x>4,$ decreasing over $0<x<4$ b. Minimum at $x=4$ c. Concave up for $0<x<8\\sqrt[3]{2},$ concave down for $x>8\\sqrt[3]{2}$ d. Inflection point at $x=8\\sqrt[3]{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e240",
+   "number": 240,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{e^{x}}{x},x\\ne 0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042364146",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine"
+    },
+    {
+     "type": "list",
+     "items": [
+      "intervals where $f$ is increasing or decreasing,",
+      "local minima and maxima of $f,$",
+      "intervals where $f$ is concave up and concave down, and",
+      "the inflection points of $f.$ Sketch the curve, then use a calculator to compare your answer. If you cannot determine the exact answer analytically, use a calculator."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e241",
+   "number": 241,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The population is growing more slowly. Here $f$ is the population."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043248713",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, interpret the sentences in terms of $f,f',\\,\\text{and}\\,f''.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f>0,f'>0,f''<0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e242",
+   "number": 242,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A bike accelerates faster, but a car goes faster. Here $f=$ Bike’s position minus Car’s position."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042638526",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, interpret the sentences in terms of $f,f',\\,\\text{and}\\,f''.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e243",
+   "number": 243,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The airplane lands smoothly. Here $f$ is the plane’s altitude."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042708313",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, interpret the sentences in terms of $f,f',\\,\\text{and}\\,f''.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f>0,f'<0,f''>0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e244",
+   "number": 244,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A company tracks labor costs over the course of a year. On July 1, costs are at their peak. Here $f$ represents the cost of labor."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042708364",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, interpret the sentences in terms of $f,f',\\,\\text{and}\\,f''.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e245",
+   "number": 245,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The economy is picking up speed. Here $f$ is a measure of the economy, such as GDP."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043390836",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, interpret the sentences in terms of $f,f',\\,\\text{and}\\,f''.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f>0,f'>0,f''>0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e246",
+   "number": 246,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=0$ for some $1\\le x\\le 3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043219135",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a third-degree polynomial $f(x),$ which has the properties $f'(1)=0,f'(3)=0$ (not applicable to Exercises 249 and 250). Determine whether the following statements are *true or false*. Justify your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e247",
+   "number": 247,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f''(x)=0$ for some $1\\le x\\le 3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043173868",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a third-degree polynomial $f(x),$ which has the properties $f'(1)=0,f'(3)=0$ (not applicable to Exercises 249 and 250). Determine whether the following statements are *true or false*. Justify your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True, by the Mean Value Theorem"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e248",
+   "number": 248,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "There is no absolute maximum at $x=3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042707190",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a third-degree polynomial $f(x),$ which has the properties $f'(1)=0,f'(3)=0$ (not applicable to Exercises 249 and 250). Determine whether the following statements are *true or false*. Justify your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e249",
+   "number": 249,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x)$ has three roots, then it has $1$ inflection point."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042707227",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a third-degree polynomial $f(x),$ which has the properties $f'(1)=0,f'(3)=0$ (not applicable to Exercises 249 and 250). Determine whether the following statements are *true or false*. Justify your answer."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True, examine derivative"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e250",
+   "number": 250,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x)$ has one inflection point, then it has three real roots."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043427346",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a third-degree polynomial $f(x),$ which has the properties $f'(1)=0,f'(3)=0$ (not applicable to Exercises 249 and 250). Determine whether the following statements are *true or false*. Justify your answer."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "concave down",
+   "meaning": "if $f$ is differentiable over an interval $I$ and $f'$ is decreasing over $I,$ then $f$ is concave down over $I$"
+  },
+  {
+   "term": "concave up",
+   "meaning": "if $f$ is differentiable over an interval $I$ and $f'$ is increasing over $I,$ then $f$ is concave up over $I$"
+  },
+  {
+   "term": "concavity",
+   "meaning": "the upward or downward curve of the graph of a function"
+  },
+  {
+   "term": "concavity test",
+   "meaning": "suppose $f$ is twice differentiable over an interval $I;$ if $f''>0$ over $I,$ then $f$ is concave up over $I;$ if $f''<0$ over $I,$ then $f$ is concave down over $I$"
+  },
+  {
+   "term": "first derivative test",
+   "meaning": "let $f$ be a continuous function over an interval $I$ containing a critical point $c$ such that $f$ is differentiable over $I$ except possibly at $c;$ if $f'$ changes sign from positive to negative as $x$ increases through $c,$ then $f$ has a local maximum at $c;$ if $f'$ changes sign from negative to positive as $x$ increases through $c,$ then $f$ has a local minimum at $c;$ if $f'$ does not change sign as $x$ increases through $c,$ then $f$ does not have a local extremum at $c$"
+  },
+  {
+   "term": "inflection point",
+   "meaning": "if $f$ is continuous at $c$ and $f$ changes concavity at $c,$ the point $(c,f(c))$ is an inflection point of $f$"
+  },
+  {
+   "term": "second derivative test",
+   "meaning": "suppose $f'(c)=0$ and $f''$ is continuous over an interval containing $c;$ if $f''(c)>0,$ then $f$ has a local minimum at $c;$ if $f''(c)<0,$ then $f$ has a local maximum at $c;$ if $f''(c)=0,$ then the test is inconclusive"
+  }
+ ]
+}

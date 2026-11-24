@@ -1,0 +1,3240 @@
+{
+ "schema": 1,
+ "id": "V2.5.1",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 5,
+ "section": 1,
+ "title": "Sequences",
+ "chapterTitle": "Sequences and Series",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53758",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/5-1-sequences",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §5.1 “Sequences”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Find the formula for the general term of a sequence.",
+  "Calculate the limit of a sequence if it exists.",
+  "Determine the convergence or divergence of a given sequence."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section, we introduce sequences and define what it means for a sequence to converge or diverge. We show how to find limits of sequences that converge, often by using the properties of limits for functions discussed earlier. We close this section with the Monotone Convergence Theorem, a tool we can use to prove that certain types of sequences converge."
+    }
+   ],
+   "title": "Sequences"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "To work with this new topic, we need some new terms and definitions. First, an infinite sequence is an ordered list of numbers of the form"
+    },
+    {
+     "type": "math",
+     "tex": "a_{1},a_{2},a_{3},\\dots ,a_{n},\\dots \\,."
+    },
+    {
+     "type": "p",
+     "text": "Each of the numbers in the sequence is called a term. The symbol $n$ is called the index variable for the sequence. We use the notation"
+    },
+    {
+     "type": "math",
+     "tex": "{\\{a_{n}\\}}_{n=1}^{\\infty},\\,\\text{or simply}\\,\\{a_{n}\\},"
+    },
+    {
+     "type": "p",
+     "text": "to denote this sequence. A similar notation is used for sets, but a sequence is an ordered list, whereas a set is not ordered. Because a particular number $a_{n}$ exists for each positive integer $n,$ we can also define a sequence as a function whose domain is the set of positive integers."
+    },
+    {
+     "type": "p",
+     "text": "Let’s consider the infinite, ordered list"
+    },
+    {
+     "type": "math",
+     "tex": "2,4,8,16,32,\\dots \\,."
+    },
+    {
+     "type": "p",
+     "text": "This is a sequence in which the first, second, and third terms are given by $a_{1}=2,$ $a_{2}=4,$ and $a_{3}=8.$ You can probably see that the terms in this sequence have the following pattern:"
+    },
+    {
+     "type": "math",
+     "tex": "a_{1}=2^{1},\\,a_{2}=2^{2},\\,a_{3}=2^{3},\\,a_{4}=2^{4},\\,\\text{and}\\,a_{5}=2^{5}."
+    },
+    {
+     "type": "p",
+     "text": "Assuming this pattern continues, we can write the $n\\text{th}$ term in the sequence by the explicit formula $a_{n}=2^{n}.$ Using this notation, we can write this sequence as"
+    },
+    {
+     "type": "math",
+     "tex": "{\\{2^{n}\\}}_{n=1}^{\\infty}\\,\\text{or}\\,\\{2^{n}\\}."
+    }
+   ],
+   "title": "Terminology of Sequences"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Alternatively, we can describe this sequence in a different way. Since each term is twice the previous term, this sequence can be defined recursively by expressing the $n\\text{th}$ term $a_{n}$ in terms of the previous term $a_{n-1}.$ In particular, we can define this sequence as the sequence $\\{a_{n}\\}$ where $a_{1}=2$ and for all $n\\ge 2,$ each term $a_{n}$ is defined by the **recurrence relation**$a_{n}=2a_{n-1}.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "An **infinite sequence**$\\{a_{n}\\}$ is an ordered list of numbers of the form"
+      },
+      {
+       "type": "math",
+       "tex": "a_{1},a_{2},\\dots ,a_{n},\\dots \\,."
+      },
+      {
+       "type": "p",
+       "text": "The subscript $n$ is called the **index variable** of the sequence. Each number $a_{n}$ is a **term** of the sequence. Sometimes sequences are defined by **explicit formulas**, in which case $a_{n}=f(n)$ for some function $f(n)$ defined over the positive integers. In other cases, sequences are defined by using a **recurrence relation**. In a recurrence relation, one term (or more) of the sequence is given explicitly, and subsequent terms are defined in terms of earlier terms in the sequence."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Note that the index does not have to start at $n=1$ but could start with other integers. For example, a sequence given by the explicit formula $a_{n}=f(n)$ could start at $n=0,$ in which case the sequence would be"
+    },
+    {
+     "type": "math",
+     "tex": "a_{0},a_{1},a_{2},\\dots \\,."
+    }
+   ],
+   "title": "Terminology of Sequences (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Similarly, for a sequence defined by a recurrence relation, the term $a_{0}$ may be given explicitly, and the terms $a_{n}$ for $n\\ge 1$ may be defined in terms of $a_{n-1}.$ Since a sequence $\\{a_{n}\\}$ has exactly one value for each positive integer $n,$ it can be described as a function whose domain is the set of positive integers. As a result, it makes sense to discuss the graph of a sequence. The graph of a sequence $\\{a_{n}\\}$ consists of all points $(n,a_{n})$ for all positive integers $n.$ Figure 5.1 shows the graph of $\\{2^{n}\\}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_01_001.webp",
+     "alt": "A graph in quadrant one containing the following points: (1, 2), (2, 4), (3, 8), (4, 16).",
+     "caption": "**Figure 5.1** The plotted points are a graph of the sequence $\\{2^{n}\\}.$",
+     "width": 487,
+     "height": 388
+    },
+    {
+     "type": "p",
+     "text": "Two types of sequences occur often and are given special names: arithmetic sequences and geometric sequences. In an **arithmetic sequence**, the *difference* between every pair of consecutive terms is the same. For example, consider the sequence"
+    },
+    {
+     "type": "math",
+     "tex": "3,7,11,15,19,\\dots \\,."
+    },
+    {
+     "type": "p",
+     "text": "You can see that the difference between every consecutive pair of terms is $4.$ Assuming that this pattern continues, this sequence is an arithmetic sequence. It can be described by using the recurrence relation"
+    },
+    {
+     "type": "math",
+     "tex": "\\{\\begin{array}{c}a_{1}=3 \\\\ a_{n}=a_{n-1}+4\\,\\text{for}\\,n\\ge 2.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Note that"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{l}a_{2}=3+4 \\\\ a_{3}=3+4+4=3+2\\cdot 4 \\\\ a_{4}=3+4+4+4=3+3\\cdot 4.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus the sequence can also be described using the explicit formula"
+    }
+   ],
+   "title": "Terminology of Sequences (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}a_{n} & =3+4(n-1) \\\\ & =4n-1.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "In general, an arithmetic sequence is any sequence of the form $a_{n}=cn+b.$"
+    },
+    {
+     "type": "p",
+     "text": "In a **geometric sequence**, the *ratio* of every pair of consecutive terms is the same. For example, consider the sequence"
+    },
+    {
+     "type": "math",
+     "tex": "2,-\\frac{2}{3},\\frac{2}{9},-\\frac{2}{27},\\frac{2}{81},\\dots \\,."
+    },
+    {
+     "type": "p",
+     "text": "We see that the ratio of any term to the preceding term is $-\\frac{1}{3}.$ Assuming this pattern continues, this sequence is a geometric sequence. It can be defined recursively as"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c} \\\\ a_{1}=2 \\\\ a_{n}=-\\frac{1}{3}\\cdot a_{n-1}\\,\\text{for}\\,n\\ge 2.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Alternatively, since"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c} \\\\ \\\\ a_{2}=-\\frac{1}{3}\\cdot 2 \\\\ a_{3}=\\left(-\\frac{1}{3}\\right)\\left(-\\frac{1}{3}\\right)(2)=\\left(-\\frac{1}{3}\\right)^{2}\\cdot 2 \\\\ a_{4}=\\left(-\\frac{1}{3}\\right)\\left(-\\frac{1}{3}\\right)\\left(-\\frac{1}{3}\\right)(2)=\\left(-\\frac{1}{3}\\right)^{3}\\cdot 2,\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "we see that the sequence can be described by using the explicit formula"
+    },
+    {
+     "type": "math",
+     "tex": "a_{n}=2\\left(-\\frac{1}{3}\\right)^{n-1}."
+    },
+    {
+     "type": "p",
+     "text": "The sequence $\\{2^{n}\\}$ that we discussed earlier is a geometric sequence, where the ratio of any term to the previous term is $2.$ In general, a geometric sequence is any sequence of the form $a_{n}=cr^{n}.$"
+    }
+   ],
+   "title": "Terminology of Sequences (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 5.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, find an explicit formula for the $n\\text{th}$ term of the sequence."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$-\\frac{1}{2},\\frac{2}{3},-\\frac{3}{4},\\frac{4}{5},-\\frac{5}{6},\\dots$",
+      "$\\frac{3}{4},\\frac{9}{7},\\frac{27}{10},\\frac{81}{13},\\frac{243}{16},\\dots$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "First, note that the sequence is alternating from negative to positive. The odd terms in the sequence are negative, and the even terms are positive. Therefore, the $n\\text{th}$ term includes a factor of $(-1)^{n}.$ Next, consider the sequence of numerators $\\{1,2,3,\\dots \\}$ and the sequence of denominators $\\{2,3,4,\\dots \\}.$ We can see that both of these sequences are arithmetic sequences. The $n\\text{th}$ term in the sequence of numerators is $n,$ and the $n\\text{th}$ term in the sequence of denominators is $n+1.$ Therefore, the sequence can be described by the explicit formula"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n}=\\frac{(-1)^{n}n}{n+1}."
+        }
+       ],
+       "The sequence of numerators $3,9,27,81,243,\\dots$ is a geometric sequence. The numerator of the $n\\text{th}$ term is $3^{n}$ The sequence of denominators $4,7,10,13,16,\\dots$ is an arithmetic sequence. The denominator of the $n\\text{th}$ term is $4+3(n-1)=3n+1.$ Therefore, we can describe the sequence by the explicit formula $a_{n}=\\frac{3^{n}}{3n+1}.$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding Explicit Formulas"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find an explicit formula for the $n\\text{th}$ term of the sequence $\\{\\frac{1}{5},-\\frac{1}{7},\\frac{1}{9},-\\frac{1}{11},\\dots \\}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=\\frac{(-1)^{n+1}}{3+2n}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The denominators form an arithmetic sequence."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 5.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following recursively defined sequences, find an explicit formula for the sequence."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$a_{1}=2,$ $a_{n}=-3a_{n-1}$ for $n\\ge 2$",
+      "$a_{1}=\\frac{1}{2},$ $a_{n}=a_{n-1}+\\left(\\frac{1}{2}\\right)^{n}$ for $n\\ge 2$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Writing out the first few terms, we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c}a_{1}=2 \\\\ a_{2}=-3a_{1}=-3(2) \\\\ a_{3}=-3a_{2}=(-3)^{2}2 \\\\ a_{4}=-3a_{3}=(-3)^{3}2.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "In general,"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n}=2(-3)^{n-1}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Write out the first few terms:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c} \\\\ \\\\ a_{1}=\\frac{1}{2} \\\\ a_{2}=a_{1}+\\left(\\frac{1}{2}\\right)^{2}=\\frac{1}{2}+\\frac{1}{4}=\\frac{3}{4} \\\\ a_{3}=a_{2}+\\left(\\frac{1}{2}\\right)^{3}=\\frac{3}{4}+\\frac{1}{8}=\\frac{7}{8} \\\\ a_{4}=a_{3}+\\left(\\frac{1}{2}\\right)^{4}=\\frac{7}{8}+\\frac{1}{16}=\\frac{15}{16}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "From this pattern, we derive the explicit formula"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n}=\\frac{2^{n}-1}{2^{n}}=1-\\frac{1}{2^{n}}."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Defined by Recurrence Relations"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find an explicit formula for the sequence defined recursively such that $a_{1}=-4$ and $a_{n}=a_{n-1}+6.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=6n-10$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "This is an arithmetic sequence."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "6 n-10"
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A fundamental question that arises regarding infinite sequences is the behavior of the terms as $n$ gets larger. Since a sequence is a function defined on the positive integers, it makes sense to discuss the limit of the terms as $n\\to \\infty .$ For example, consider the following four sequences and their different behaviors as $n\\to \\infty$ (see Figure 5.2):"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\{1+3n\\}=\\{4,7,10,13,\\dots \\}.$ The terms $1+3n$ become arbitrarily large as $n\\to \\infty .$ In this case, we say that $1+3n\\to \\infty$ as $n\\to \\infty .$",
+      "$\\left\\{1-\\left(\\frac{1}{2}\\right)^{n}\\right\\}=\\left\\{\\frac{1}{2},\\frac{3}{4},\\frac{7}{8},\\frac{15}{16},\\dots \\right\\}.$ The terms $1-\\left(\\frac{1}{2}\\right)^{n}\\to 1$ as $n\\to \\infty .$",
+      "$\\{(-1)^{n}\\}=\\{-1,1,-1,1,\\dots \\}.$ The terms alternate but do not approach one single value as $n\\to \\infty .$",
+      "$\\left\\{\\frac{(-1)^{n}}{n}\\right\\}=\\left\\{-1,\\frac{1}{2},-\\frac{1}{3},\\frac{1}{4},\\dots \\right\\}.$ The terms alternate for this sequence as well, but $\\frac{(-1)^{n}}{n}\\to 0$ as $n\\to \\infty .$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "title": "Limit of a Sequence"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_01_002.webp",
+     "alt": "Four graphs in quadrants 1 and 4, labeled a through d. The horizontal axis is for the value of n and the vertical axis is for the value of the term a _n. Graph a has points (1, 4), (2, 7), (3, 10), (4, 13), and (5, 16). Graph b has points (1, 1/2), (2, 3/4), (3, 7/8), and (4, 15/16). Graph c has points (1, -1), (2, 1), (3, -1), (4, 1), and (5, -1). Graph d has points (1, -1), (2, 1/2), (3, -1/3), (4, 1/4), and (5, -1/5).",
+     "caption": "**Figure 5.2** (a) The terms in the sequence become arbitrarily large as $n\\to \\infty .$ (b) The terms in the sequence approach $1$ as $n\\to \\infty .$ (c) The terms in the sequence alternate between $1$ and $-1$ as $n\\to \\infty .$ (d) The terms in the sequence alternate between positive and negative values but approach $0$ as $n\\to \\infty .$",
+     "width": 721,
+     "height": 713
+    },
+    {
+     "type": "p",
+     "text": "From these examples, we see several possibilities for the behavior of the terms of a sequence as $n\\to \\infty .$ In two of the sequences, the terms approach a finite number as $n\\to \\infty .$ In the other two sequences, the terms do not. If the terms of a sequence approach a finite number $L$ as $n\\to \\infty ,$ we say that the sequence is a convergent sequence and the real number $L$ is the limit of the sequence. We can give an informal definition here."
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given a sequence $\\{a_{n}\\},$ if the terms $a_{n}$ become arbitrarily close to a finite number $L$ as $n$ becomes sufficiently large, we say $\\{a_{n}\\}$ is a **convergent sequence** and $L$ is the **limit of the sequence**. In this case, we write"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{n\\to \\infty}a_{n}=L."
+      },
+      {
+       "type": "p",
+       "text": "If a sequence $\\{a_{n}\\}$ is not convergent, we say it is a **divergent sequence**."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "From Figure 5.2, we see that the terms in the sequence $\\left\\{1-\\left(\\frac{1}{2}\\right)^{n}\\right\\}$ are becoming arbitrarily close to $1$ as $n$ becomes very large. We conclude that $\\left\\{1-\\left(\\frac{1}{2}\\right)^{n}\\right\\}$ is a convergent sequence and its limit is $1.$ In contrast, from Figure 5.2, we see that the terms in the sequence $1+3n$ are not approaching a finite number as $n$ becomes larger. We say that $\\{1+3n\\}$ is a divergent sequence."
+    },
+    {
+     "type": "p",
+     "text": "In the informal definition for the limit of a sequence, we used the terms “arbitrarily close” and “sufficiently large.” Although these phrases help illustrate the meaning of a converging sequence, they are somewhat vague. To be more precise, we now present the more formal definition of limit for a sequence and show these ideas graphically in Figure 5.3."
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A sequence $\\{a_{n}\\}$ converges to a real number $L$ if for all $\\varepsilon >0,$ there exists an integer $N$ such that $|a_{n}-L|<\\varepsilon$ if $n\\ge N.$ The number $L$ is the limit of the sequence and we write"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{n\\to \\infty}a_{n}=L\\,or\\,a_{n}\\to L."
+      },
+      {
+       "type": "p",
+       "text": "In this case, we say the sequence $\\{a_{n}\\}$ is a convergent sequence. If a sequence does not converge, it is a divergent sequence, and we say the limit does not exist."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "We remark that the convergence or divergence of a sequence $\\{a_{n}\\}$ depends only on what happens to the terms $a_{n}$ as $n\\to \\infty .$ Therefore, if a finite number of terms $b_{1},b_{2},\\dots ,b_{N}$ are placed before $a_{1}$ to create a new sequence"
+    },
+    {
+     "type": "math",
+     "tex": "b_{1},b_{2},\\dots ,b_{N},a_{1},a_{2},\\dots ,"
+    },
+    {
+     "type": "p",
+     "text": "this new sequence will converge if $\\{a_{n}\\}$ converges and diverge if $\\{a_{n}\\}$ diverges. Further, if the sequence $\\{a_{n}\\}$ converges to $L,$ this new sequence will also converge to $L.$"
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_01_003.webp",
+     "alt": "A graph in quadrant 1 with axes labeled n and a_n instead of x and y, respectively. A positive point N is marked on the n axis. From smallest to largest, points L – epsilon, L, and L + epsilon are marked on the a_n axis, with the same interval epsilon between L and the other two. A blue line y = L is drawn, as are red dotted ones for y = L + epsilon and L – epsilon. Points in quadrant 1 are plotted above and below these lines for x < N. However, past N, the points remain inside the lines y = L + epsilon and L – epsilon, converging on L.",
+     "caption": "**Figure 5.3** As $n$ increases, the terms $a_{n}$ become closer to $L.$ For values of $n\\ge N,$ the distance between each point $(n,a_{n})$ and the line $y=L$ is less than $\\varepsilon .$",
+     "width": 731,
+     "height": 425
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As defined above, if a sequence does not converge, it is said to be a divergent sequence. For example, the sequences $\\{1+3n\\}$ and $\\{(-1)^{n}\\}$ shown in Figure 5.3 diverge. However, different sequences can diverge in different ways. The sequence $\\{(-1)^{n}\\}$ diverges because the terms alternate between $1$ and $-1,$ but do not approach one value as $n\\to \\infty .$ On the other hand, the sequence $\\{1+3n\\}$ diverges because the terms $1+3n\\to \\infty$ as $n\\to \\infty .$ We say the sequence $\\{1+3n\\}$ diverges to infinity and write $\\lim_{n\\to \\infty}(1+3n)=\\infty .$ It is important to recognize that this notation does not imply the limit of the sequence $\\{1+3n\\}$ exists. The sequence is, in fact, divergent. Writing that the limit is infinity is intended only to provide more information about why the sequence is divergent. A sequence can also diverge to negative infinity. For example, the sequence $\\{-5n+2\\}$ diverges to negative infinity because $-5n+2\\to -\\infty$ as $n\\to \\infty .$ We write this as $\\lim_{n\\to \\infty}(-5n+2)=\\to -\\infty .$"
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Because a sequence is a function whose domain is the set of positive integers, we can use properties of limits of functions to determine whether a sequence converges. For example, consider a sequence $\\{a_{n}\\}$ and a related function $f$ defined on all positive real numbers such that $f(n)=a_{n}$ for all integers $n\\ge 1.$ Since the domain of the sequence is a subset of the domain of $f,$ if $\\lim_{x\\to \\infty}f(x)$ exists, then the sequence converges and has the same limit. For example, consider the sequence $\\left\\{\\frac{1}{n}\\right\\}$ and the related function $f(x)=\\frac{1}{x}.$ Since the function $f$ defined on all real numbers $x>0$ satisfies $f(x)=\\frac{1}{x}\\to 0$ as $x\\to \\infty ,$ the sequence $\\left\\{\\frac{1}{n}\\right\\}$ must satisfy $\\frac{1}{n}\\to 0$ as $n\\to \\infty .$"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider a sequence $\\{a_{n}\\}$ such that $a_{n}=f(n)$ for all $n\\ge 1.$ If there exists a real number $L$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{x\\to \\infty}f(x)=L,"
+      },
+      {
+       "type": "p",
+       "text": "then $\\{a_{n}\\}$ converges and"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{n\\to \\infty}a_{n}=L."
+      }
+     ],
+     "title": "Limit of a Sequence Defined by a Function"
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We can use this theorem to evaluate $\\lim_{n\\to \\infty}r^{n}$ for $0\\le r\\le 1.$ For example, consider the sequence $\\{(1/2)^{n}\\}$ and the related exponential function $f(x)=(1/2)^{x}.$ Since $\\lim_{x\\to \\infty}(1/2)^{x}=0,$ we conclude that the sequence $\\{(1/2)^{n}\\}$ converges and its limit is $0.$ Similarly, for any real number $r$ such that $0\\le r<1,$ $\\lim_{x\\to \\infty}r^{x}=0,$ and therefore the sequence $\\{r^{n}\\}$ converges. On the other hand, if $r=1,$ then $\\lim_{x\\to \\infty}r^{x}=1,$ and therefore the limit of the sequence $\\{1^{n}\\}$ is $1.$ If $r>1,$ $\\lim_{x\\to \\infty}r^{x}=\\infty ,$ and therefore we cannot apply this theorem. However, in this case, just as the function $r^{x}$ grows without bound as $n\\to \\infty ,$ the terms $r^{n}$ in the sequence become arbitrarily large as $n\\to \\infty ,$ and we conclude that the sequence $\\{r^{n}\\}$ diverges to infinity if $r>1.$"
+    },
+    {
+     "type": "p",
+     "text": "We summarize these results regarding the geometric sequence $\\{r^{n}\\}:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}r^{n}\\to 0\\,\\text{if}\\,0<r<1 \\\\ r^{n}\\to 1\\,\\text{if}\\,r=1 \\\\ r^{n}\\to \\infty \\,\\text{if}\\,r>1.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Later in this section we consider the case when $r<0.$"
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now consider slightly more complicated sequences. For example, consider the sequence $\\{(2/3)^{n}+(1/4)^{n}\\}.$ The terms in this sequence are more complicated than other sequences we have discussed, but luckily the limit of this sequence is determined by the limits of the two sequences $\\{(2/3)^{n}\\}$ and $\\{(1/4)^{n}\\}.$ As we describe in the following algebraic limit laws, since $\\{(2/3)^{n}\\}$ and $\\{1/4)^{n}\\}$ both converge to $0,$ the sequence $\\{(2/3)^{n}+(1/4)^{n}\\}$ converges to $0+0=0.$ Just as we were able to evaluate a limit involving an algebraic combination of functions $f$ and $g$ by looking at the limits of $f$ and $g$ (see Introduction to Limits), we are able to evaluate the limit of a sequence whose terms are algebraic combinations of $a_{n}$ and $b_{n}$ by evaluating the limits of $\\{a_{n}\\}$ and $\\{b_{n}\\}.$"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given sequences $\\{a_{n}\\}$ and $\\{b_{n}\\}$ and any real number $c,$ if there exist constants $A$ and $B$ such that $\\lim_{n\\to \\infty}a_{n}=A$ and $\\lim_{n\\to \\infty}b_{n}=B,$ then"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$\\lim_{n\\to \\infty}c=c$",
+        "$\\lim_{n\\to \\infty}ca_{n}=c\\lim_{n\\to \\infty}a_{n}=cA$",
+        "$\\lim_{n\\to \\infty}(a_{n}\\pm b_{n})=\\lim_{n\\to \\infty}a_{n}\\pm \\lim_{n\\to \\infty}b_{n}=A\\pm B$",
+        "$\\lim_{\\text{n}\\to \\infty}(a_{n}\\cdot b_{n})=(\\lim_{n\\to \\infty}a_{n})\\cdot (\\lim_{n\\to \\infty}b_{n})=A\\cdot B$",
+        "$\\lim_{n\\to \\infty}\\left(\\frac{a_{n}}{b_{n}}\\right)=\\frac{\\lim_{n\\to \\infty}a_{n}}{\\lim_{n\\to \\infty}b_{n}}=\\frac{A}{B},$ provided $B\\ne 0$ and each $b_{n}\\ne 0.$"
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Algebraic Limit Laws"
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "*A proof of Algebraic Limit Laws is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Limit of a Sequence (continued)"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let $\\epsilon >0.$ Since $f$ is continuous at $L,$ there exists $\\delta >0$ such that $|f(x)-f(L)|<\\varepsilon$ if $|x-L|<\\delta .$ Since the sequence $\\{a_{n}\\}$ converges to $L,$ there exists $N$ such that $|a_{n}-L|<\\delta$ for all $n\\ge N.$ Therefore, for all $n\\ge N,$ $|a_{n}-L|<\\delta ,$ which implies $|f(a_{n})-f(L)|<\\varepsilon .$ We conclude that the sequence $\\{f(a_{n})\\}$ converges to $f(L).$"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_01_006.webp",
+     "alt": "A graph in quadrant 1 with points (a_1, f(a_1)), (a_3, f(a_3)), (L, f(L)), (a_4, f(a_4)), and (a_2, f(a_2)) connected by smooth curves.",
+     "caption": "**Figure 5.4** Because $f$ is a continuous function as the inputs $a_{1},a_{2},a_{3},\\dots$ approach $L,$ the outputs $f(a_{1}),f(a_{2}),f(a_{3}),\\dots$ approach $f(L).$",
+     "width": 379,
+     "height": 269
+    }
+   ],
+   "title": "Proof"
+  },
+  {
+   "id": "x21",
+   "kind": "example",
+   "label": "Example 5.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether the sequence $\\{\\cos (3/n^{2})\\}$ converges. If it converges, find its limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since the sequence $\\{3/n^{2}\\}$ converges to $0$ and $\\cos \\,x$ is continuous at $x=0,$ we can conclude that the sequence $\\{\\cos (3/n^{2})\\}$ converges and"
+     },
+     {
+      "type": "math",
+      "tex": "\\lim_{n\\to \\infty}\\cos \\left(\\frac{3}{n^{2}}\\right)=\\cos (0)=1."
+     }
+    ]
+   },
+   "title": "Limits Involving Continuous Functions Defined on Convergent Sequences"
+  },
+  {
+   "id": "c22",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine if the sequence $\\left\\{\\sqrt{\\frac{2n+1}{3n+5}}\\right\\}$ converges. If it converges, find its limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The sequence converges, and its limit is $\\sqrt{2/3}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Consider the sequence $\\left\\{\\frac{2n+1}{3n+5}\\right\\}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Another theorem involving limits of sequences is an extension of the Squeeze Theorem for limits discussed in Introduction to Limits."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider sequences $\\{a_{n}\\},$ $\\{b_{n}\\},$ and $\\{c_{n}\\}.$ Suppose there exists an integer $N$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "a_{n}\\le b_{n}\\le c_{n}\\,\\text{for all}\\,n\\ge N."
+      },
+      {
+       "type": "p",
+       "text": "If there exists a real number $L$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{n\\to \\infty}a_{n}=L=\\lim_{n\\to \\infty}c_{n},"
+      },
+      {
+       "type": "p",
+       "text": "then $\\{b_{n}\\}$ converges and $\\lim_{n\\to \\infty}b_{n}=L$ (Figure 5.5)."
+      }
+     ],
+     "title": "Squeeze Theorem for Sequences"
+    }
+   ],
+   "title": "Proof (continued)"
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "*A proof of Squeeze Theorem for Sequences is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Proof (continued)"
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now turn our attention to one of the most important theorems involving sequences: the Monotone Convergence Theorem. Before stating the theorem, we need to introduce some terminology and motivation. We begin by defining what it means for a sequence to be bounded."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A sequence $\\{a_{n}\\}$ is **bounded above** if there exists a real number $M$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "a_{n}\\le M"
+      },
+      {
+       "type": "p",
+       "text": "for all positive integers $n.$"
+      },
+      {
+       "type": "p",
+       "text": "A sequence $\\{a_{n}\\}$ is **bounded below** if there exists a real number $M$ such that"
+      },
+      {
+       "type": "math",
+       "tex": "M\\le a_{n}"
+      },
+      {
+       "type": "p",
+       "text": "for all positive integers $n.$"
+      },
+      {
+       "type": "p",
+       "text": "A sequence $\\{a_{n}\\}$ is a **bounded sequence** if it is bounded above and bounded below."
+      },
+      {
+       "type": "p",
+       "text": "If a sequence is not bounded, it is an **unbounded sequence**."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "For example, the sequence $\\{1/n\\}$ is bounded above because $1/n\\le 1$ for all positive integers $n.$ It is also bounded below because $1/n\\ge 0$ for all positive integers *n.* Therefore, $\\{1/n\\}$ is a bounded sequence. On the other hand, consider the sequence $\\{2^{n}\\}.$ Because $2^{n}\\ge 2$ for all $n\\ge 1,$ the sequence is bounded below. However, the sequence is not bounded above. Therefore, $\\{2^{n}\\}$ is an unbounded sequence."
+    }
+   ],
+   "title": "Bounded Sequences"
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now discuss the relationship between boundedness and convergence. Suppose a sequence $\\{a_{n}\\}$ is unbounded. Then it is not bounded above, or not bounded below, or both. In either case, there are terms $a_{n}$ that are arbitrarily large in magnitude as $n$ gets larger. As a result, the sequence $\\{a_{n}\\}$ cannot converge. Therefore, being bounded is a necessary condition for a sequence to converge."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If a sequence $\\{a_{n}\\}$ converges, then it is bounded."
+      }
+     ],
+     "title": "Convergent Sequences Are Bounded"
+    },
+    {
+     "type": "p",
+     "text": "Note that a sequence being bounded is not a sufficient condition for a sequence to converge. For example, the sequence $\\{(-1)^{n}\\}$ is bounded, but the sequence diverges because the sequence oscillates between $1$ and $-1$ and never approaches a finite number. We now discuss a sufficient (but not necessary) condition for a bounded sequence to converge."
+    },
+    {
+     "type": "p",
+     "text": "Consider a bounded sequence $\\{a_{n}\\}.$ Suppose the sequence $\\{a_{n}\\}$ is increasing. That is, $a_{1}\\le a_{2}\\le a_{3}\\dots .$ Since the sequence is increasing, the terms are not oscillating. Therefore, there are two possibilities. The sequence could diverge to infinity, or it could converge. However, since the sequence is bounded, it is bounded above and the sequence cannot diverge to infinity. We conclude that $\\{a_{n}\\}$ converges. For example, consider the sequence"
+    },
+    {
+     "type": "math",
+     "tex": "\\left\\{\\frac{1}{2},\\frac{2}{3},\\frac{3}{4},\\frac{4}{5},\\dots \\right\\}."
+    },
+    {
+     "type": "p",
+     "text": "Since this sequence is increasing and bounded above, it converges. Next, consider the sequence"
+    }
+   ],
+   "title": "Bounded Sequences (continued)"
+  },
+  {
+   "id": "r27",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\left\\{2,0,3,0,4,0,1,-\\frac{1}{2},-\\frac{1}{3},-\\frac{1}{4},\\dots \\right\\}."
+    },
+    {
+     "type": "p",
+     "text": "Even though the sequence is not increasing for all values of $n,$ we see that $-1/2<-1/3<-1/4<\\cdots .$ Therefore, starting with the eighth term, $a_{8}=-1/2,$ the sequence is increasing. In this case, we say the sequence is *eventually* increasing. Since the sequence is bounded above, it converges. It is also true that if a sequence is decreasing (or eventually decreasing) and bounded below, it also converges."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A sequence $\\{a_{n}\\}$ is increasing for all $n\\ge n_{0}$ if"
+      },
+      {
+       "type": "math",
+       "tex": "a_{n}\\le a_{n+1}\\,\\text{for all}\\,n\\ge n_{0}."
+      },
+      {
+       "type": "p",
+       "text": "A sequence $\\{a_{n}\\}$ is decreasing for all $n\\ge n_{0}$ if"
+      },
+      {
+       "type": "math",
+       "tex": "a_{n}\\ge a_{n+1}\\,\\text{for all}\\,n\\ge n_{0}."
+      },
+      {
+       "type": "p",
+       "text": "A sequence $\\{a_{n}\\}$ is a **monotone sequence** for all $n\\ge n_{0}$ if it is increasing for all $n\\ge n_{0}$ or decreasing for all $n\\ge n_{0}.$"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "We now have the necessary definitions to state the Monotone Convergence Theorem, which gives a sufficient condition for convergence of a sequence."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $\\{a_{n}\\}$ is a bounded sequence and there exists a positive integer $n_{0}$ such that $\\{a_{n}\\}$ is monotone for all $n\\ge n_{0},$ then $\\{a_{n}\\}$ converges."
+      }
+     ],
+     "title": "Monotone Convergence Theorem"
+    },
+    {
+     "type": "p",
+     "text": "The proof of this theorem is beyond the scope of this text. Instead, we provide a graph to show intuitively why this theorem makes sense (Figure 5.6)."
+    }
+   ],
+   "title": "Bounded Sequences (continued)"
+  },
+  {
+   "id": "r28",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_01_008.webp",
+     "alt": "A graph in quadrant 1 with the x and y axes labeled n and a_n, respectively. A dotted horizontal is drawn from the a_n axis into quadrant 1. Many points are plotted under the dotted line, increasing in a_n value and converging to the dotted line.",
+     "caption": "**Figure 5.6** Since the sequence $\\{a_{n}\\}$ is increasing and bounded above, it must converge.",
+     "width": 456,
+     "height": 233
+    },
+    {
+     "type": "p",
+     "text": "In the following example, we show how the Monotone Convergence Theorem can be used to prove convergence of a sequence."
+    }
+   ],
+   "title": "Bounded Sequences (continued)"
+  },
+  {
+   "id": "x29",
+   "kind": "example",
+   "label": "Example 5.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, use the Monotone Convergence Theorem to show the sequence converges and find its limit."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\left\\{\\frac{4^{n}}{n!}\\right\\}$",
+      [
+       {
+        "type": "p",
+        "text": "$\\{a_{n}\\}$ defined recursively such that"
+       },
+       {
+        "type": "math",
+        "tex": "a_{1}=2\\,\\text{and}\\,a_{n+1}=\\frac{a_{n}}{2}+\\frac{1}{2a_{n}}\\,\\text{for all}\\,n\\ge 2."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Writing out the first few terms, we see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\left\\{\\frac{4^{n}}{n!}\\right\\}=\\left\\{4,8,\\frac{32}{3},\\frac{32}{3},\\frac{128}{15},\\dots \\right\\}."
+        },
+        {
+         "type": "p",
+         "text": "At first, the terms increase. However, after the third term, the terms decrease. In fact, the terms decrease for all $n\\ge 3.$ We can show this as follows."
+        },
+        {
+         "type": "math",
+         "tex": "a_{n+1}=\\frac{4^{n+1}}{(n+1)!}=\\frac{4}{n+1}\\cdot \\frac{4^{n}}{n!}=\\frac{4}{n+1}\\cdot a_{n}\\le a_{n}\\,if\\,n\\ge 3."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, the sequence is decreasing for all $n\\ge 3.$ Further, the sequence is bounded below by $0$ because $4^{n}/n!\\ge 0$ for all positive integers $n.$ Therefore, by the Monotone Convergence Theorem, the sequence converges.\n\nTo find the limit, we use the fact that the sequence converges and let $L=\\lim_{n\\to \\infty}a_{n}.$ Now note this important observation. Consider $\\lim_{n\\to \\infty}a_{n+1}.$ Since"
+        },
+        {
+         "type": "math",
+         "tex": "\\{a_{n+1}\\}=\\{a_{2,}a_{3},a_{4},\\dots \\},"
+        },
+        {
+         "type": "p",
+         "text": "the only difference between the sequences $\\{a_{n+1}\\}$ and $\\{a_{n}\\}$ is that $\\{a_{n+1}\\}$ omits the first term. Since a finite number of terms does not affect the convergence of a sequence,"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}a_{n+1}=\\lim_{n\\to \\infty}a_{n}=L."
+        },
+        {
+         "type": "p",
+         "text": "Combining this fact with the equation"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n+1}=\\frac{4}{n+1}a_{n}"
+        },
+        {
+         "type": "p",
+         "text": "and taking the limit of both sides of the equation"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}a_{n+1}=\\lim_{n\\to \\infty}\\frac{4}{n+1}a_{n},"
+        },
+        {
+         "type": "p",
+         "text": "we can conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "L=0\\cdot L=0."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Writing out the first several terms,"
+        },
+        {
+         "type": "math",
+         "tex": "\\left\\{2,\\frac{5}{4},\\frac{41}{40},\\frac{3281}{3280},\\dots \\right\\}."
+        },
+        {
+         "type": "p",
+         "text": "we can conjecture that the sequence is decreasing and bounded below by $1.$ To show that the sequence is bounded below by $1,$ we can show that"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{a_{n}}{2}+\\frac{1}{2a_{n}}\\ge 1."
+        },
+        {
+         "type": "p",
+         "text": "To show this, first rewrite"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{a_{n}}{2}+\\frac{1}{2a_{n}}=\\frac{a_{n}^{2}+1}{2a_{n}}."
+        },
+        {
+         "type": "p",
+         "text": "Since $a_{1}>0$ and $a_{2}$ is defined as a sum of positive terms, $a_{2}>0.$ Similarly, all terms $a_{n}>0.$ Therefore,"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{a_{n}^{2}+1}{2a_{n}}\\ge 1"
+        },
+        {
+         "type": "p",
+         "text": "if and only if"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n}^{2}+1\\ge 2a_{n}."
+        },
+        {
+         "type": "p",
+         "text": "Rewriting the inequality $a_{n}^{2}+1\\ge 2a_{n}$ as $a_{n}^{2}-2a_{n}+1\\ge 0,$ and using the fact that"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n}^{2}-2a_{n}+1=(a_{n}-1)^{2}\\ge 0"
+        },
+        {
+         "type": "p",
+         "text": "because the square of any real number is nonnegative, we can conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{a_{n}}{2}+\\frac{1}{2a_{n}}\\ge 1."
+        },
+        {
+         "type": "p",
+         "text": "To show that the sequence is decreasing, we must show that $a_{n+1}\\le a_{n}$ for all $n\\ge 1.$ Since $1\\le a_{n}^{2},$ it follows that"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n}^{2}+1\\le 2a_{n}^{2}."
+        },
+        {
+         "type": "p",
+         "text": "Dividing both sides by $2a_{n},$ we obtain"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{a_{n}}{2}+\\frac{1}{2a_{n}}\\le a_{n}."
+        },
+        {
+         "type": "p",
+         "text": "Using the definition of $a_{n+1},$ we conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "a_{n+1}=\\frac{a_{n}}{2}+\\frac{1}{2a_{n}}\\le a_{n}."
+        },
+        {
+         "type": "p",
+         "text": "Since $\\{a_{n}\\}$ is bounded below and decreasing, by the Monotone Convergence Theorem, it converges.\n\nTo find the limit, let $L=\\lim_{n\\to \\infty}a_{n}.$ Then using the recurrence relation and the fact that $\\lim_{n\\to \\infty}a_{n}=\\lim_{n\\to \\infty}a_{n+1},$ we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}a_{n+1}=\\lim_{n\\to \\infty}\\left(\\frac{a_{n}}{2}+\\frac{1}{2a_{n}}\\right),"
+        },
+        {
+         "type": "p",
+         "text": "and therefore"
+        },
+        {
+         "type": "math",
+         "tex": "L=\\frac{L}{2}+\\frac{1}{2L}."
+        },
+        {
+         "type": "p",
+         "text": "Multiplying both sides of this equation by $2L,$ we arrive at the equation"
+        },
+        {
+         "type": "math",
+         "tex": "2L^{2}=L^{2}+1."
+        },
+        {
+         "type": "p",
+         "text": "Solving this equation for $L,$ we conclude that $L^{2}=1,$ which implies $L=\\text{±}1.$ Since all the terms are positive, the limit $L=1.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Using the Monotone Convergence Theorem"
+  },
+  {
+   "id": "c30",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the sequence $\\{a_{n}\\}$ defined recursively such that $a_{1}=1,$ $a_{n}=a_{n-1}/2.$ Use the Monotone Convergence Theorem to show that this sequence converges and find its limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Show the sequence is decreasing and bounded below."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "r31",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "To determine the convergence of a sequence given by an explicit formula $a_{n}=f(n),$ we use the properties of limits for functions.",
+      "If $\\{a_{n}\\}$ and $\\{b_{n}\\}$ are convergent sequences that converge to $A$ and $B,$ respectively, and $c$ is any real number, then the sequence $\\{ca_{n}\\}$ converges to $c\\cdot A,$ the sequences $\\{a_{n}\\pm b_{n}\\}$ converge to $A\\pm B,$ the sequence $\\{a_{n}\\cdot b_{n}\\}$ converges to $A\\cdot B,$ and the sequence $\\{a_{n}/b_{n}\\}$ converges to $A/B,$ provided $B\\ne 0.$",
+      "If a sequence is bounded and monotone, then it converges, but not all convergent sequences are monotone.",
+      "If a sequence is unbounded, it diverges, but not all divergent sequences are unbounded.",
+      "The geometric sequence $\\{r^{n}\\}$ converges if and only if $|r|<1$ or $r=1.$"
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e1",
+   "number": 1,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=1+(-1)^{n}$ for $n\\ge 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739236365",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=0$ if $n$ is odd and $a_{n}=2$ if $n$ is even"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e2",
+   "number": 2,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=n^{2}-1$ for $n\\ge 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736592245",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e3",
+   "number": 3,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{1}=1$ and $a_{n}=a_{n-1}+n$ for $n\\ge 2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736592333",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\{a_{n}\\}=\\{1,3,6,10,15,21,\\dots \\}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e4",
+   "number": 4,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{1}=1,$ $a_{2}=1$ and $a_{n+2}=a_{n}+a_{n+1}$ for $n\\ge 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736728776",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e5",
+   "number": 5,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find an explicit formula for $a_{n}$ where $a_{1}=1$ and $a_{n}=a_{n-1}+n$ for $n\\ge 2.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736728906",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=\\frac{n(n+1)}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((n(n+1))/2)"
+   }
+  },
+  {
+   "id": "e6",
+   "number": 6,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find a formula $a_{n}$ for the $n\\text{th}$ term of the arithmetic sequence whose first term is $a_{1}=1$ such that $a_{n+1}-a_{n}=17$ for $n\\ge 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736720735",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e7",
+   "number": 7,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find a formula $a_{n}$ for the $n\\text{th}$ term of the arithmetic sequence whose first term is $a_{1}=-3$ such that $a_{n+1}-a_{n}=4$ for $n\\ge 1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736659351",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=4n-7$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "4 n-7"
+   }
+  },
+  {
+   "id": "e8",
+   "number": 8,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find a formula $a_{n}$ for the $n\\text{th}$ term of the geometric sequence whose first term is $a_{1}=1$ such that $\\frac{a_{n+1}}{a_{n}}=10$ for $n\\ge 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736659450",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e9",
+   "number": 9,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find a formula $a_{n}$ for the $n\\text{th}$ term of the geometric sequence whose first term is $a_{1}=3$ such that $\\frac{a_{n+1}}{a_{n}}=1/10$ for $n\\ge 1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736725473",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=3.10^{1-n}=30.10^{-n}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"a_n=3.10^(1-n)=30.10^(-n)\""
+  },
+  {
+   "id": "e10",
+   "number": 10,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find an explicit formula for the $n\\text{th}$ term of the sequence whose first several terms are $\\{0,3,8,15,24,35,48,63,80,99,\\dots \\}.$ (*Hint:* First add one to each term.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736725591",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e11",
+   "number": 11,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find an explicit formula for the $n\\text{th}$ term of the sequence satisfying $a_{1}=0$ and $a_{n}=2a_{n-1}+1$ for $n\\ge 2.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736791974",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the first six terms of each of the following sequences, starting with $n=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=2^{n-1}-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2^(n-1)-1"
+   }
+  },
+  {
+   "id": "e12",
+   "number": 12,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\{1,0,-1,0,1,0,-1,0,\\dots \\}$ (*Hint:* Find where $\\sin \\,x$ takes these values)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736792078",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a formula for the general term $a_{n}$ of each of the following sequences."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e13",
+   "number": 13,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\{1,-1/3,1/5,-1/7,\\dots \\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739095131",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a formula for the general term $a_{n}$ of each of the following sequences."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=\\frac{(-1)^{n-1}}{2n-1}$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"expression\",\"value\":\"(((-1)^(n-1))/(2 n-1))\"} failed (checker rejects the answer itself)"
+  },
+  {
+   "id": "e14",
+   "number": 14,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{1}=1$ and $a_{n+1}=-a_{n}$ for $n\\ge 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736851735",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a function $f(n)$ that identifies the $n\\text{th}$ term $a_{n}$ of the following recursively defined sequences, as $a_{n}=f(n).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e15",
+   "number": 15,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{1}=2$ and $a_{n+1}=2a_{n}$ for $n\\ge 1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736851825",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a function $f(n)$ that identifies the $n\\text{th}$ term $a_{n}$ of the following recursively defined sequences, as $a_{n}=f(n).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(n)=2^{n}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2^n"
+   }
+  },
+  {
+   "id": "e16",
+   "number": 16,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{1}=1$ and $a_{n+1}=(n+1)a_{n}$ for $n\\ge 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736736696",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a function $f(n)$ that identifies the $n\\text{th}$ term $a_{n}$ of the following recursively defined sequences, as $a_{n}=f(n).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e17",
+   "number": 17,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{1}=2$ and $a_{n+1}=(n+1)a_{n}/2$ for $n\\ge 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736736783",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a function $f(n)$ that identifies the $n\\text{th}$ term $a_{n}$ of the following recursively defined sequences, as $a_{n}=f(n).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(n)=n!/2^{n-2}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e18",
+   "number": 18,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{1}=1$ and $a_{n+1}=a_{n}/2^{n}$ for $n\\ge 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739369097",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find a function $f(n)$ that identifies the $n\\text{th}$ term $a_{n}$ of the following recursively defined sequences, as $a_{n}=f(n).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e19",
+   "number": 19,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $a_{1}=1,$ $a_{2}=2,$ and for $n\\ge 2,$ $a_{n}=\\frac{1}{2}(a_{n-1}+a_{n-2});$ $N=30$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736605032",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Plot the first $N$ terms of each sequence. State whether the graphical evidence suggests that the sequence converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Terms oscillate above and below $5/3$ and appear to converge to $5/3.$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_09_01_203.webp",
+      "alt": "This is a graph of an oscillating sequence. Terms oscillate above and below 5/3 and seem to converge to 5/3.",
+      "width": 427,
+      "height": 465
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e20",
+   "number": 20,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $a_{1}=1,$ $a_{2}=2,$ $a_{3}=3$ and for $n\\ge 4,$ $a_{n}=\\frac{1}{3}(a_{n-1}+a_{n-2}+a_{n-3}),$ $N=30$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739094746",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Plot the first $N$ terms of each sequence. State whether the graphical evidence suggests that the sequence converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e21",
+   "number": 21,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $a_{1}=1,$ $a_{2}=2,$ and for $n\\ge 3,$ $a_{n}=\\sqrt{a_{n-1}a_{n-2}};$ $N=30$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736644109",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Plot the first $N$ terms of each sequence. State whether the graphical evidence suggests that the sequence converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Terms oscillate above and below $y\\approx 1.57...$ and appear to converge to a limit."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_09_01_205.webp",
+      "alt": "This is a graph of the oscillating sequence. Terms oscillate above and below y = 1.57 and seem to converse to 1.57.",
+      "width": 427,
+      "height": 465
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e22",
+   "number": 22,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $a_{1}=1,$ $a_{2}=2,$ $a_{3}=3,$ and for $n\\ge 4,$ $a_{n}=\\sqrt{a_{n-1}a_{n-2}a_{n-3}};$ $N=30$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736644241",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Plot the first $N$ terms of each sequence. State whether the graphical evidence suggests that the sequence converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e23",
+   "number": 23,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{n\\to \\infty}(3a_{n}-4b_{n})$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739279051",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Suppose that $\\lim_{n\\to \\infty}a_{n}=1,$ $\\lim_{n\\to \\infty}b_{n}=-1,$ and $0<-b_{n}<a_{n}$ for all $n.$ Evaluate each of the following limits, or state that the limit does not exist, or state that there is not enough information to determine whether the limit exists."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$7$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "7"
+   }
+  },
+  {
+   "id": "e24",
+   "number": 24,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{n\\to \\infty}\\left(\\frac{1}{2}b_{n}-\\frac{1}{2}a_{n}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739279101",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Suppose that $\\lim_{n\\to \\infty}a_{n}=1,$ $\\lim_{n\\to \\infty}b_{n}=-1,$ and $0<-b_{n}<a_{n}$ for all $n.$ Evaluate each of the following limits, or state that the limit does not exist, or state that there is not enough information to determine whether the limit exists."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e25",
+   "number": 25,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{n\\to \\infty}\\frac{a_{n}+b_{n}}{a_{n}-b_{n}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739279160",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Suppose that $\\lim_{n\\to \\infty}a_{n}=1,$ $\\lim_{n\\to \\infty}b_{n}=-1,$ and $0<-b_{n}<a_{n}$ for all $n.$ Evaluate each of the following limits, or state that the limit does not exist, or state that there is not enough information to determine whether the limit exists."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e26",
+   "number": 26,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{n\\to \\infty}\\frac{a_{n}-b_{n}}{a_{n}+b_{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736770421",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Suppose that $\\lim_{n\\to \\infty}a_{n}=1,$ $\\lim_{n\\to \\infty}b_{n}=-1,$ and $0<-b_{n}<a_{n}$ for all $n.$ Evaluate each of the following limits, or state that the limit does not exist, or state that there is not enough information to determine whether the limit exists."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e27",
+   "number": 27,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{n^{2}}{2^{n}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736770485",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of each of the following sequences, using L’Hôpital’s rule when appropriate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e28",
+   "number": 28,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{(n-1)^{2}}{(n+1)^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736770518",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of each of the following sequences, using L’Hôpital’s rule when appropriate."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e29",
+   "number": 29,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{\\sqrt{n}}{\\sqrt{n+1}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736770575",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of each of the following sequences, using L’Hôpital’s rule when appropriate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e30",
+   "number": 30,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$n^{1/n}$ (*Hint:* $n^{1/n}=e^{\\frac{1}{n}\\,\\ln \\,n})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738894771",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the limit of each of the following sequences, using L’Hôpital’s rule when appropriate."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e31",
+   "number": 31,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$n/2^{n},$ $n\\ge 2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738894848",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "bounded, decreasing for $n\\ge 2$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e32",
+   "number": 32,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\ln \\left(1+\\frac{1}{n}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738894895",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e33",
+   "number": 33,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin \\,n$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738894931",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "bounded, not monotone"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e34",
+   "number": 34,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cos (n^{2})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736851001",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e35",
+   "number": 35,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$n^{1/n},$ $n\\ge 3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736851032",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "bounded, decreasing"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e36",
+   "number": 36,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$n^{-1/n},$ $n\\ge 3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736851072",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e37",
+   "number": 37,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\tan \\,n$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736851111",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "not monotone, not bounded"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e38",
+   "number": 38,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Determine whether the sequence defined as follows has a limit. If it does, find the limit."
+    },
+    {
+     "type": "p",
+     "text": "$a_{1}=\\sqrt{2},$ $a_{2}=\\sqrt{2\\sqrt{2}},$ $a_{3}=\\sqrt{2\\sqrt{2\\sqrt{2}}}$ etc."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736851133",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Determine whether the sequence defined as follows has a limit. If it does, find the limit."
+    },
+    {
+     "type": "p",
+     "text": "$a_{1}=3,$ $a_{n}=\\sqrt{2a_{n-1}},$ $n=2,3,\\dots .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739255502",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following sequences, whose $n\\text{th}$ terms are indicated, state whether the sequence is bounded and whether it is eventually monotone, increasing, or decreasing."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}$ is decreasing and bounded below by $2.$ The limit $a$ must satisfy $a=\\sqrt{2a}$ so $a=2,$ independent of the initial value."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$n\\,\\sin (1/n)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739255630",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the Squeeze Theorem to find the limit of each of the following sequences."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e41",
+   "number": 41,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{\\cos (1/n)-1}{1/n}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739351869",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the Squeeze Theorem to find the limit of each of the following sequences."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e42",
+   "number": 42,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{n!}{n^{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739351917",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the Squeeze Theorem to find the limit of each of the following sequences."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e43",
+   "number": 43,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\sin \\,n\\,\\sin (1/n)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739352001",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the Squeeze Theorem to find the limit of each of the following sequences."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0:|\\sin \\,x|\\le |x|$ and $|\\sin \\,x|\\le 1$ so $-\\frac{1}{n}\\le a_{n}\\le \\frac{1}{n}).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e44",
+   "number": 44,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $a_{n}=\\sin \\,n$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736692428",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following sequences, plot the first $25$ terms of the sequence and state whether the graphical evidence suggests that the sequence converges or diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e45",
+   "number": 45,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $a_{n}=\\cos \\,n$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736692476",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following sequences, plot the first $25$ terms of the sequence and state whether the graphical evidence suggests that the sequence converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Graph oscillates and suggests no limit."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_09_01_202.webp",
+      "alt": "This is a graph that oscillates between 1 and -1 from 0 to 25 on the x axis. There appears to be no limit.",
+      "width": 441,
+      "height": 422
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e46",
+   "number": 46,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\tan^{-1}(n^{2})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736692528",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the limit of the sequence or show that the sequence diverges. If it converges, find its limit."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e47",
+   "number": 47,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=(2n)^{1/n}-n^{1/n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736776324",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the limit of the sequence or show that the sequence diverges. If it converges, find its limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$n^{1/n}\\to 1$ and $2^{1/n}\\to 1,$ so $a_{n}\\to 0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e48",
+   "number": 48,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{\\ln (n^{2})}{\\ln (2n)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739367079",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the limit of the sequence or show that the sequence diverges. If it converges, find its limit."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e49",
+   "number": 49,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\left(1-\\frac{2}{n}\\right)^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736647158",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the limit of the sequence or show that the sequence diverges. If it converges, find its limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since $(1+1/n)^{n}\\to e,$ one has $(1-2/n)^{n}\\approx (1+k)^{-2k}\\to e^{-2}$ as $k\\to \\infty .$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e50",
+   "number": 50,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\ln \\left(\\frac{n+2}{n^{2}-3}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736647312",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the limit of the sequence or show that the sequence diverges. If it converges, find its limit."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e51",
+   "number": 51,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{2^{n}+3^{n}}{4^{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736768917",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the limit of the sequence or show that the sequence diverges. If it converges, find its limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2^{n}+3^{n}\\le 2\\cdot 3^{n}$ and $3^{n}/4^{n}\\to 0$ as $n\\to \\infty ,$ so $a_{n}\\to 0$ as $n\\to \\infty .$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e52",
+   "number": 52,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{(1000)^{n}}{n!}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739067285",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the limit of the sequence or show that the sequence diverges. If it converges, find its limit."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e53",
+   "number": 53,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{(n!)^{2}}{(2n)!}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739235544",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the limit of the sequence or show that the sequence diverges. If it converges, find its limit."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a_{n+1}}{a_{n}}=n!/(n+1)(n+2)\\cdots \\,(2n)$ $=\\frac{1\\cdot 2\\cdot 3\\cdots n}{(n+1)(n+2)\\cdots \\,(2n)}<1/2^{n}.$ In particular, $a_{n+1}/a_{n}\\le 1/2,$ so $a_{n}\\to 0$ as $n\\to \\infty .$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e54",
+   "number": 54,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=x^{2}-2,$ $x_{0}=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739260381",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e55",
+   "number": 55,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=(x-1)^{2}-2,$ $x_{0}=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739260524",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x_{n+1}=x_{n}-((x_{n}-1)^{2}-2)/2(x_{n}-1);$ $x=1+\\sqrt{2},$ $x\\approx 2.4142,$ $n=5$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e56",
+   "number": 56,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=e^{x}-2,$ $x_{0}=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739265309",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e57",
+   "number": 57,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\ln \\,x-1,$ $x_{0}=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736590163",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x_{n+1}=x_{n}-x_{n}(\\ln (x_{n})-1);$ $x=e,$ $x\\approx 2.7183,$ $n=5$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e58",
+   "number": 58,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Suppose you start with one liter of vinegar and repeatedly remove $0.1\\,\\text{L,}$ replace with water, mix, and repeat."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find a formula for the concentration after $n$ steps.",
+      "After how many steps does the mixture contain less than $10\\text{\\%}$ vinegar?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736791322",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e59",
+   "number": 59,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A lake initially contains $2000$ fish. Suppose that in the absence of predators or other causes of removal, the fish population increases by $6\\text{\\%}$ each month. However, factoring in all causes, $150$ fish are lost each month."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Explain why the fish population after $n$ months is modeled by $P_{n}=1.06P_{n-1}-150$ with $P_{0}=2000.$",
+      "How many fish will be in the pond after one year?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736791494",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Without losses, the population would obey $P_{n}=1.06P_{n-1}.$ The subtraction of $150$ accounts for fish losses. b. After $12$ months, we have $P_{12}\\approx 1494.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e60",
+   "number": 60,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A bank account earns $5\\text{\\%}$ interest compounded monthly. Suppose that $\\text{\\$}1000$ is initially deposited into the account, but that $\\text{\\$}10$ is withdrawn each month."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Show that the amount in the account after $n$ months is $A_{n}=(1+.05/12)A_{n-1}-10;$ $A_{0}=1000.$",
+      "How much money will be in the account after $1$ year?",
+      "Is the amount increasing or decreasing?",
+      "Suppose that instead of $\\text{\\$}10,$ a fixed amount $d$ dollars is withdrawn each month. Find a value of $d$ such that the amount in the account after each month remains $\\text{\\$}1000.$",
+      "What happens if $d$ is greater than this amount?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739249796",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e61",
+   "number": 61,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A student takes out a college loan of $\\text{\\$}10,000$ at an annual percentage rate of $6\\text{\\%},$ compounded monthly."
+    },
+    {
+     "type": "list",
+     "items": [
+      "If the student makes payments of $\\text{\\$}100$ per month, how much does the student owe after $12$ months?",
+      "After how many months will the loan be paid off?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736854831",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The student owes $\\text{\\$}9383$ after $12$ months. b. The loan will be paid in full after $139$ months or eleven and a half years."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e62",
+   "number": 62,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Consider a series combining geometric growth and arithmetic decrease. Let $a_{1}=1.$ Fix $a>1$ and $0<b<a.$ Set $a_{n+1}=a.a_{n}-b.$ Find a formula for $a_{n+1}$ in terms of $a^{n},$ $a,$ and $b$ and a relationship between $a$ and $b$ such that $a_{n}$ converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736841737",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e63",
+   "number": 63,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The binary representation $x=0.b_{1}b_{2}b_{3}...$ of a number $x$ between $0$ and $1$ can be defined as follows. Let $b_{1}=0$ if $x<1/2$ and $b_{1}=1$ if $1/2\\le x<1.$ Let $x_{1}=2x-b_{1}.$ Let $b_{2}=0$ if $x_{1}<1/2$ and $b_{2}=1$ if $1/2\\le x<1.$ Let $x_{2}=2x_{1}-b_{2}$ and in general, $x_{n}=2x_{n-1}-b_{n}$ and $b_{n-1}=0$ if $x_{n}<1/2$ and $b_{n-1}=1$ if $1/2\\le x_{n}<1.$ Find the binary expansion of $1/3.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736790431",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$b_{1}=0,$ $x_{1}=2/3,$ $b_{2}=1,$ $x_{2}=4/3-1=1/3,$ so the pattern repeats, and $1/3=0.010101\\dots .$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e64",
+   "number": 64,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** To find an approximation for $\\pi ,$ set $a_{0}=\\sqrt{2+1},$ $a_{1}=\\sqrt{2+a_{0}},$ and, in general, $a_{n+1}=\\sqrt{2+a_{n}}.$ Finally, set $p_{n}=3.2^{n+1}\\sqrt{2-a_{n}}.$ Find the first ten terms of $p_{n}$ and compare the values to $\\pi .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736845086",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Newton’s method seeks to approximate a solution $f(x)=0$ that starts with an initial approximation $x_{0}$ and successively defines a sequence $x_{n+1}=x_{n}-\\frac{f(x_{n})}{f'(x_{n})}.$ For the given choice of $f$ and $x_{0},$ write out the formula for $x_{n+1}.$ If the sequence appears to converge, give an exact formula for the solution $x,$ then identify the limit $x$ accurate to four decimal places and the smallest $n$ such that $x_{n}$ agrees with $x$ up to four decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e65",
+   "number": 65,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Starting with $K=16,807$ and $M=2,147,483,647,$ using ten different starting values of $a_{1},$ compute sequences of bits $b_{n}$ up to $n=1000,$ and compare their averages to ten such sequences generated by a random bit generator."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739191446",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, assume that you have access to a computer program or Internet source that can generate a list of zeros and ones of any desired length. Pseudorandom number generators (PRNGs) play an important role in simulating random noise in physical systems by creating sequences of zeros and ones that appear like the result of flipping a coin repeatedly. One of the simplest types of PRNGs recursively defines a random-looking sequence of $N$ integers $a_{1},a_{2},\\dots ,a_{N}$ by fixing two special integers $K$ and $M$ and letting $a_{n+1}$ be the remainder after dividing $K.a_{n}$ into $M,$ then creates a bit sequence of zeros and ones whose $n\\text{th}$ term $b_{n}$ is equal to one if $a_{n}$ is odd and equal to zero if $a_{n}$ is even. If the bits $b_{n}$ are pseudorandom, then the behavior of their average $(b_{1}+b_{2}+\\cdots +b_{N})/N$ should be similar to behavior of averages of truly randomly generated bits."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "For the starting values $a_{1}=1,$ $a_{2}=2,\\dots ,$ $a_{1}=10,$ the corresponding bit averages calculated by the method indicated are $0.5220,$ $0.5000,$ $0.4960,$ $0.4870,$ $0.4860,$ $0.4680,$ $0.5130,$ $0.5210,$ $0.5040,$ and $0.4840.$ Here is an example of ten corresponding averages of strings of $1000$ bits generated by a random number generator: $0.4880,$ $0.4870,$ $0.5150,$ $0.5490,$ $0.5130,$ $0.5180,$ $0.4860,$ $0.5030,$ $0.5050,$ $0.4980.$ There is no real pattern in either type of average. The random-number-generated averages range between $0.4860$ and $0.5490,$ a range of $0.0630,$ whereas the calculated PRNG bit averages range between $0.4680$ and $0.5220,$ a range of $0.0540.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e66",
+   "number": 66,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the first $1000$ digits of $\\pi$ using either a computer program or Internet resource. Create a bit sequence $b_{n}$ by letting $b_{n}=1$ if the $n\\text{th}$ digit of $\\pi$ is odd and $b_{n}=0$ if the $n\\text{th}$ digit of $\\pi$ is even. Compute the average value of $b_{n}$ and the average value of $d_{n}=|b_{n+1}-b_{n}|,$ $n=1,...,999.$ Does the sequence $b_{n}$ appear random? Do the differences between successive elements of $b_{n}$ appear random?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739275473",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following two exercises, assume that you have access to a computer program or Internet source that can generate a list of zeros and ones of any desired length. Pseudorandom number generators (PRNGs) play an important role in simulating random noise in physical systems by creating sequences of zeros and ones that appear like the result of flipping a coin repeatedly. One of the simplest types of PRNGs recursively defines a random-looking sequence of $N$ integers $a_{1},a_{2},\\dots ,a_{N}$ by fixing two special integers $K$ and $M$ and letting $a_{n+1}$ be the remainder after dividing $K.a_{n}$ into $M,$ then creates a bit sequence of zeros and ones whose $n\\text{th}$ term $b_{n}$ is equal to one if $a_{n}$ is odd and equal to zero if $a_{n}$ is even. If the bits $b_{n}$ are pseudorandom, then the behavior of their average $(b_{1}+b_{2}+\\cdots +b_{N})/N$ should be similar to behavior of averages of truly randomly generated bits."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Algebraic Limit Laws",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Given sequences $\\{a_{n}\\}$ and $\\{b_{n}\\}$ and any real number $c,$ if there exist constants $A$ and $B$ such that $\\lim_{n\\to \\infty}a_{n}=A$ and $\\lim_{n\\to \\infty}b_{n}=B,$ then"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{n\\to \\infty}c=c$",
+      "$\\lim_{n\\to \\infty}ca_{n}=c\\lim_{n\\to \\infty}a_{n}=cA$",
+      "$\\lim_{n\\to \\infty}(a_{n}\\pm b_{n})=\\lim_{n\\to \\infty}a_{n}\\pm \\lim_{n\\to \\infty}b_{n}=A\\pm B$",
+      "$\\lim_{\\text{n}\\to \\infty}(a_{n}\\cdot b_{n})=(\\lim_{n\\to \\infty}a_{n})\\cdot (\\lim_{n\\to \\infty}b_{n})=A\\cdot B$",
+      "$\\lim_{n\\to \\infty}\\left(\\frac{a_{n}}{b_{n}}\\right)=\\frac{\\lim_{n\\to \\infty}a_{n}}{\\lim_{n\\to \\infty}b_{n}}=\\frac{A}{B},$ provided $B\\ne 0$ and each $b_{n}\\ne 0.$"
+     ],
+     "ordered": true,
+     "style": "i"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "We prove part iii."
+    },
+    {
+     "type": "p",
+     "text": "Let $\\epsilon >0.$ Since $\\lim_{n\\to \\infty}a_{n}=A,$ there exists a constant positive integer $N_{1}$ such that\n$|a_{n}-A|<\\frac{\\varepsilon}{2}$\nfor all $n\\ge N_{1}.$ Since $\\lim_{n\\to \\infty}b_{n}=B,$ there exists a constant $N_{2}$ such that $|b_{n}-B|<\\varepsilon /2$ for all $n\\ge N_{2}.$ Let $N$ be the larger of $N_{1}$ and $N_{2}.$ Therefore, for all $n\\ge N,$"
+    },
+    {
+     "type": "p",
+     "text": "$|(a_{n}+b_{n})-(A+B)|\\le |a_{n}-A|+|b_{n}-B|<\\frac{\\varepsilon}{2}+\\frac{\\varepsilon}{2}=\\varepsilon .$"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "The algebraic limit laws allow us to evaluate limits for many sequences. For example, consider the sequence $\\left\\{\\frac{1}{n^{2}}\\right\\}.$ As shown earlier, $\\lim_{n\\to \\infty}1/n=0.$ Similarly, for any positive integer $k,$ we can conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}\\frac{1}{n^{k}}=0."
+    },
+    {
+     "type": "p",
+     "text": "In the next example, we make use of this fact along with the limit laws to evaluate limits for other sequences."
+    },
+    {
+     "type": "p",
+     "text": "For each of the following sequences, determine whether or not the sequence converges. If it converges, find its limit."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\left\\{5-\\frac{3}{n^{2}}\\right\\}$",
+      "$\\left\\{\\frac{3n^{4}-7n^{2}+5}{6-4n^{4}}\\right\\}$",
+      "$\\left\\{\\frac{2^{n}}{n^{2}}\\right\\}$",
+      "$\\left\\{\\left(1+\\frac{4}{n}\\right)^{n}\\right\\}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "We know that $1/n\\to 0.$ Using this fact, we conclude that"
+       },
+       {
+        "type": "math",
+        "tex": "\\lim_{n\\to \\infty}\\frac{1}{n^{2}}=\\lim_{n\\to \\infty}\\left(\\frac{1}{n}\\right).\\lim_{n\\to \\infty}\\left(\\frac{1}{n}\\right)=0."
+       },
+       {
+        "type": "p",
+        "text": "Therefore,"
+       },
+       {
+        "type": "math",
+        "tex": "\\lim_{n\\to \\infty}\\left(5-\\frac{3}{n^{2}}\\right)=\\lim_{n\\to \\infty}5-3\\lim_{n\\to \\infty}\\frac{1}{n^{2}}=5-3\\cdot 0=5."
+       },
+       {
+        "type": "p",
+        "text": "The sequence converges and its limit is $5.$"
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "By factoring $n^{4}$ out of the numerator and denominator and using the limit laws above, we have"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\lim_{n\\to \\infty}\\frac{3n^{4}-7n^{2}+5}{6-4n^{4}} & =\\lim_{n\\to \\infty}\\frac{3-\\frac{7}{n^{2}}+\\frac{5}{n^{4}}}{\\frac{6}{n^{4}}-4} \\\\ & =\\frac{\\lim_{n\\to \\infty}\\left(3-\\frac{7}{n^{2}}+\\frac{5}{n^{4}}\\right)}{\\lim_{n\\to \\infty}\\left(\\frac{6}{n^{4}}-4\\right)} \\\\ & =\\frac{\\left(\\lim_{n\\to \\infty}(3)-\\lim_{n\\to \\infty}\\frac{7}{n^{2}}+\\lim_{n\\to \\infty}\\frac{5}{n^{4}}\\right)}{\\left(\\lim_{n\\to \\infty}\\frac{6}{n^{4}}-\\lim_{n\\to \\infty}(4)\\right)} \\\\ & =\\frac{\\left(\\lim_{n\\to \\infty}(3)-7\\cdot \\lim_{n\\to \\infty}\\frac{1}{n^{2}}+5\\cdot \\lim_{n\\to \\infty}\\frac{1}{n^{4}}\\right)}{\\left(6\\cdot \\lim_{n\\to \\infty}\\frac{1}{n^{4}}-\\lim_{n\\to \\infty}(4)\\right)} \\\\ & =\\frac{3-7\\cdot 0+5\\cdot 0}{6\\cdot 0-4}=-\\frac{3}{4}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "The sequence converges and its limit is $-3/4.$"
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Consider the related function $f(x)=2^{x}/x^{2}$ defined on all real numbers $x>0.$ Since $2^{x}\\to \\infty$ and $x^{2}\\to \\infty$ as $x\\to \\infty ,$ apply L’Hôpital’s rule and write"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{ccccc}\\lim_{x\\to \\infty}\\frac{2^{x}}{x^{2}} & =\\lim_{x\\to \\infty}\\frac{2^{x}\\ln \\,2}{2x} & & & \\text{Take the derivatives of the numerator and denominator.} \\\\ & =\\lim_{x\\to \\infty}\\frac{2^{x}(\\ln \\,2)^{2}}{2} & & & \\text{Take the derivatives again.} \\\\ & =\\infty . & & & \\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "We conclude that the sequence diverges."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Consider the function $f(x)=\\left(1+\\frac{4}{x}\\right)^{x}$ defined on all real numbers $x>0.$ This function has the indeterminate form $1^{\\infty}$ as $x\\to \\infty .$ Let"
+       },
+       {
+        "type": "math",
+        "tex": "y=\\lim_{x\\to \\infty}\\left(1+\\frac{4}{x}\\right)^{x}."
+       },
+       {
+        "type": "p",
+        "text": "Now taking the natural logarithm of both sides of the equation, we obtain"
+       },
+       {
+        "type": "math",
+        "tex": "\\ln (y)=\\ln \\left[\\lim_{x\\to \\infty}\\left(1+\\frac{4}{x}\\right)^{x}\\right]."
+       },
+       {
+        "type": "p",
+        "text": "Since the function $f(x)=\\ln \\,x$ is continuous on its domain, we can interchange the limit and the natural logarithm. Therefore,"
+       },
+       {
+        "type": "math",
+        "tex": "\\ln (y)=\\lim_{x\\to \\infty}\\left[\\ln \\left(1+\\frac{4}{x}\\right)^{x}\\right]."
+       },
+       {
+        "type": "p",
+        "text": "Using properties of logarithms, we write"
+       },
+       {
+        "type": "math",
+        "tex": "\\lim_{x\\to \\infty}\\left[\\ln \\left(1+\\frac{4}{x}\\right)^{x}\\right]=\\lim_{x\\to \\infty}x\\,\\ln \\left(1+\\frac{4}{x}\\right)."
+       },
+       {
+        "type": "p",
+        "text": "Since the right-hand side of this equation has the indeterminate form $\\infty \\cdot 0,$ rewrite it as a fraction to apply L’Hôpital’s rule. Write"
+       },
+       {
+        "type": "math",
+        "tex": "\\lim_{x\\to \\infty}x\\,\\ln \\left(1+\\frac{4}{x}\\right)=\\lim_{x\\to \\infty}\\frac{\\ln (1+4/x)}{1/x}."
+       },
+       {
+        "type": "p",
+        "text": "Since the right-hand side is now in the indeterminate form $0/0,$ we are able to apply L’Hôpital’s rule. We conclude that"
+       },
+       {
+        "type": "math",
+        "tex": "\\lim_{x\\to \\infty}\\frac{\\ln (1+4/x)}{1/x}=\\lim_{x\\to \\infty}\\frac{4}{1+4/x}=4."
+       },
+       {
+        "type": "p",
+        "text": "Therefore, $\\ln (y)=4$ and $y=e^{4}.$ Therefore, since $\\lim_{x\\to \\infty}\\left(1+\\frac{4}{x}\\right)^{x}=e^{4},$ we can conclude that the sequence $\\left\\{\\left(1+\\frac{4}{n}\\right)^{n}\\right\\}$ converges to $e^{4}.$"
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "Recall that if $f$ is a continuous function at a value $L,$ then $f(x)\\to f(L)$ as $x\\to L.$ This idea applies to sequences as well. Suppose a sequence $a_{n}\\to L,$ and a function $f$ is continuous at $L.$ Then $f(a_{n})\\to f(L).$ This property often enables us to find limits for complicated sequences. For example, consider the sequence $\\sqrt{5-\\frac{3}{n^{2}}}.$ From Example 5.3a. we know the sequence $5-\\frac{3}{n^{2}}\\to 5.$ Since $\\sqrt{x}$ is a continuous function at $x=5,$"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}\\sqrt{5-\\frac{3}{n^{2}}}=\\sqrt{\\lim_{n\\to \\infty}\\left(5-\\frac{3}{n^{2}}\\right)}=\\sqrt{5}."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider a sequence $\\{a_{n}\\}$ and suppose there exists a real number $L$ such that the sequence $\\{a_{n}\\}$ converges to $L.$ Suppose $f$ is a continuous function at $L.$ Then there exists an integer $N$ such that $f$ is defined at all values $a_{n}$ for $n\\ge N,$ and the sequence $\\{f(a_{n})\\}$ converges to $f(L)$ (Figure 5.4)."
+      }
+     ],
+     "title": "Continuous Functions Defined on Convergent Sequences"
+    }
+   ],
+   "label": "book"
+  },
+  {
+   "id": "p2",
+   "title": "Squeeze Theorem for Sequences",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Consider sequences $\\{a_{n}\\},$ $\\{b_{n}\\},$ and $\\{c_{n}\\}.$ Suppose there exists an integer $N$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "a_{n}\\le b_{n}\\le c_{n}\\,\\text{for all}\\,n\\ge N."
+    },
+    {
+     "type": "p",
+     "text": "If there exists a real number $L$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{n\\to \\infty}a_{n}=L=\\lim_{n\\to \\infty}c_{n},"
+    },
+    {
+     "type": "p",
+     "text": "then $\\{b_{n}\\}$ converges and $\\lim_{n\\to \\infty}b_{n}=L$ (Figure 5.5)."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Let $\\varepsilon >0.$ Since the sequence $\\{a_{n}\\}$ converges to $L,$ there exists an integer $N_{1}$ such that $|a_{n}-L|<\\varepsilon$ for all $n\\ge N_{1}.$ Similarly, since $\\{c_{n}\\}$ converges to $L,$ there exists an integer $N_{2}$ such that $|c_{n}-L|<\\varepsilon$ for all $n\\ge N_{2}.$ By assumption, there exists an integer $N$ such that $a_{n}\\le b_{n}\\le c_{n}$ for all $n\\ge N.$ Let $M$ be the largest of $N_{1},N_{2},$ and $N.$ We must show that $|b_{n}-L|<\\varepsilon$ for all $n\\ge M.$ For all $n\\ge M,$"
+    },
+    {
+     "type": "math",
+     "tex": "-\\varepsilon <-|a_{n}-L|\\le a_{n}-L\\le b_{n}-L\\le c_{n}-L\\le |c_{n}-L|<\\varepsilon ."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, $-\\varepsilon <b_{n}-L<\\varepsilon ,$ and we conclude that $|b_{n}-L|<\\varepsilon$ for all $n\\ge M,$ and we conclude that the sequence $\\{b_{n}\\}$ converges to $L.$"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_09_01_007.webp",
+     "alt": "A graph in quadrant 1 with the line y = L and the x axis labeled as the n axis. Points are plotted above and below the line, converging to L as n goes to infinity. Points a_n, b_n, and c_n are plotted at the same n-value. A_n and b_n are above y = L, and c_n is below it.",
+     "caption": "**Figure 5.5** Each term $b_{n}$ satisfies $a_{n}\\le b_{n}\\le c_{n}$ and the sequences $\\{a_{n}\\}$ and $\\{c_{n}\\}$ converge to the same limit, so the sequence $\\{b_{n}\\}$ must converge to the same limit as well.",
+     "width": 437,
+     "height": 266
+    },
+    {
+     "type": "p",
+     "text": "Use the Squeeze Theorem to find the limit of each of the following sequences."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\left\\{\\frac{\\cos \\,n}{n^{2}}\\right\\}$",
+      "$\\left\\{\\left(-\\frac{1}{2}\\right)^{n}\\right\\}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "Since $-1\\le \\cos \\,n\\le 1$ for all integers $n,$ we have"
+       },
+       {
+        "type": "math",
+        "tex": "-\\frac{1}{n^{2}}\\le \\frac{\\cos \\,n}{n^{2}}\\le \\frac{1}{n^{2}}."
+       },
+       {
+        "type": "p",
+        "text": "Since $-1/n^{2}\\to 0$ and $1/n^{2}\\to 0,$ we conclude that $\\cos \\,n/n^{2}\\to 0$ as well."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Since"
+       },
+       {
+        "type": "math",
+        "tex": "-\\frac{1}{2^{n}}\\le \\left(-\\frac{1}{2}\\right)^{n}\\le \\frac{1}{2^{n}}"
+       },
+       {
+        "type": "p",
+        "text": "for all positive integers $n,$ $-1/2^{n}\\to 0$ and $1/2^{n}\\to 0,$ we can conclude that $(-1/2)^{n}\\to 0.$"
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "Using the idea from Example 5.5b. we conclude that $r^{n}\\to 0$ for any real number $r$ such that $-1<r<0.$ If $r<-1,$ the sequence $\\{r^{n}\\}$ diverges because the terms oscillate and become arbitrarily large in magnitude. If $r=-1,$ the sequence $\\{r^{n}\\}=\\{(-1)^{n}\\}$ diverges, as discussed earlier. Here is a summary of the properties for geometric sequences."
+    },
+    {
+     "type": "math",
+     "tex": "r^{n}\\to 0\\,\\text{if}\\,|r|<1"
+    },
+    {
+     "type": "math",
+     "tex": "r^{n}\\to 1\\,\\text{if}\\,r=1"
+    },
+    {
+     "type": "math",
+     "tex": "r^{n}\\to \\infty \\,\\text{if}\\,r>1"
+    },
+    {
+     "type": "math",
+     "tex": "\\{r^{n}\\}\\,\\text{diverges if}\\,r\\le -1"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "arithmetic sequence",
+   "meaning": "a sequence in which the difference between every pair of consecutive terms is the same is called an arithmetic sequence"
+  },
+  {
+   "term": "bounded above",
+   "meaning": "a sequence $\\{a_{n}\\}$ is bounded above if there exists a constant $M$ such that $a_{n}\\le M$ for all positive integers $n$"
+  },
+  {
+   "term": "bounded below",
+   "meaning": "a sequence $\\{a_{n}\\}$ is bounded below if there exists a constant $M$ such that $M\\le a_{n}$ for all positive integers $n$"
+  },
+  {
+   "term": "bounded sequence",
+   "meaning": "a sequence $\\{a_{n}\\}$ is bounded if there exists a constant $M$ such that $|a_{n}|\\le M$ for all positive integers $n$"
+  },
+  {
+   "term": "convergent sequence",
+   "meaning": "a convergent sequence is a sequence $\\{a_{n}\\}$ for which there exists a real number $L$ such that $a_{n}$ is arbitrarily close to $L$ as long as $n$ is sufficiently large"
+  },
+  {
+   "term": "divergent sequence",
+   "meaning": "a sequence that is not convergent is divergent"
+  },
+  {
+   "term": "explicit formula",
+   "meaning": "a sequence may be defined by an explicit formula such that $a_{n}=f(n)$"
+  },
+  {
+   "term": "geometric sequence",
+   "meaning": "a sequence $\\{a_{n}\\}$ in which the ratio $a_{n+1}/a_{n}$ is the same for all positive integers $n$ is called a geometric sequence"
+  },
+  {
+   "term": "index variable",
+   "meaning": "the subscript used to define the terms in a sequence is called the index"
+  },
+  {
+   "term": "limit of a sequence",
+   "meaning": "the real number $L$ to which a sequence converges is called the limit of the sequence"
+  },
+  {
+   "term": "monotone sequence",
+   "meaning": "an increasing or decreasing sequence"
+  },
+  {
+   "term": "recurrence relation",
+   "meaning": "a recurrence relation is a relationship in which a term $a_{n}$ in a sequence is defined in terms of earlier terms in the sequence"
+  },
+  {
+   "term": "sequence",
+   "meaning": "an ordered list of numbers of the form $a_{1},a_{2},a_{3},\\dots$ is a sequence"
+  },
+  {
+   "term": "term",
+   "meaning": "the number $a_{n}$ in the sequence $\\{a_{n}\\}$ is called the $n\\text{th}$ term of the sequence"
+  },
+  {
+   "term": "unbounded sequence",
+   "meaning": "a sequence that is not bounded is called unbounded"
+  }
+ ]
+}

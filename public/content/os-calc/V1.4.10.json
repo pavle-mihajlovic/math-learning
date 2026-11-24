@@ -1,0 +1,3405 @@
+{
+ "schema": 1,
+ "id": "V1.4.10",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 4,
+ "section": 10,
+ "title": "Antiderivatives",
+ "chapterTitle": "Applications of Derivatives",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53621",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §4.10 “Antiderivatives”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Find the general antiderivative of a given function.",
+  "Explain the terms and notation used for an indefinite integral.",
+  "State the power rule for integrals.",
+  "Use antidifferentiation to solve simple initial-value problems."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "At this point, we have seen how to calculate derivatives of many functions and have been introduced to a variety of their applications. We now ask a question that turns this process around: Given a function $f,$ how do we find a function with the derivative $f$ and why would we be interested in such a function?"
+    }
+   ],
+   "title": "Antiderivatives"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We answer the first part of this question by defining antiderivatives. The antiderivative of a function $f$ is a function with a derivative $f.$ Why are we interested in antiderivatives? The need for antiderivatives arises in many situations, and we look at various examples throughout the remainder of the text. Here we examine one specific example that involves rectilinear motion. In our examination in Derivatives of rectilinear motion, we showed that given a position function $s(t)$ of an object, then its velocity function $v(t)$ is the derivative of $s(t)$—that is, $v(t)=s'(t).$ Furthermore, the acceleration $a(t)$ is the derivative of the velocity $v(t)$—that is, $a(t)=v'(t)=s''(t).$ Now suppose we are given an acceleration function $a,$ but not the velocity function $v$ or the position function $s.$ Since $a(t)=v'(t),$ determining the velocity function requires us to find an antiderivative of the acceleration function. Then, since $v(t)=s'(t),$ determining the position function requires us to find an antiderivative of the velocity function. Rectilinear motion is just one case in which the need for antiderivatives arises. We will see many more examples throughout the remainder of the text. For now, let’s look at the terminology and notation for antiderivatives, and determine the antiderivatives for several types of functions. We examine various techniques for finding antiderivatives of more complicated functions later in the text (Introduction to Techniques of Integration)."
+    }
+   ],
+   "title": "Antiderivatives (continued)"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "At this point, we know how to find derivatives of various functions. We now ask the opposite question. Given a function $f,$ how can we find a function with derivative $f?$ If we can find a function $F$ with derivative $f,$ we call $F$ an antiderivative of $f.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A function $F$ is an **antiderivative** of the function $f$ if"
+      },
+      {
+       "type": "math",
+       "tex": "F'(x)=f(x)"
+      },
+      {
+       "type": "p",
+       "text": "for all $x$ in the domain of $f.$"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Consider the function $f(x)=2x.$ Knowing the power rule of differentiation, we conclude that $F(x)=x^{2}$ is an antiderivative of $f$ since $F'(x)=2x.$ Are there any other antiderivatives of $f?$ Yes; since the derivative of any constant $C$ is zero, $x^{2}+C$ is also an antiderivative of $2x.$ Therefore, $x^{2}+5$ and $x^{2}-\\sqrt{2}$ are also antiderivatives. Are there any others that are not of the form $x^{2}+C$ for some constant $C?$ The answer is no. From Corollary $2$ of the Mean Value Theorem, we know that if $F$ and $G$ are differentiable functions such that $F'(x)=G'(x),$ then $F(x)-G(x)=C$ for some constant $C.$ This fact leads to the following important theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $F$ be an antiderivative of $f$ over an interval $I.$ Then,"
+      },
+      {
+       "type": "list",
+       "items": [
+        "for each constant $C,$ the function $F(x)+C$ is also an antiderivative of $f$ over $I;$",
+        "if $G$ is an antiderivative of $f$ over $I,$ there is a constant $C$ for which $G(x)=F(x)+C$ over $I.$"
+       ],
+       "ordered": true,
+       "style": "i"
+      },
+      {
+       "type": "p",
+       "text": "In other words, the most general form of the antiderivative of $f$ over $I$ is $F(x)+C.$"
+      }
+     ],
+     "title": "General Form of an Antiderivative"
+    }
+   ],
+   "title": "The Reverse of Differentiation"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We use this fact and our knowledge of derivatives to find all the antiderivatives for several functions."
+    }
+   ],
+   "title": "The Reverse of Differentiation (continued)"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 4.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, find all antiderivatives."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(x)=3x^{2}$",
+      "$f(x)=\\frac{1}{x}$",
+      "$f(x)=\\cos \\,x$",
+      "$f(x)=e^{x}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Because"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}(x^{3})=3x^{2}"
+        },
+        {
+         "type": "p",
+         "text": "then $F(x)=x^{3}$ is an antiderivative of $3x^{2}.$ Therefore, every antiderivative of $3x^{2}$ is of the form $x^{3}+C$ for some constant $C,$ and every function of the form $x^{3}+C$ is an antiderivative of $3x^{2}.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Let $f(x)=\\ln |x|.$ For $x>0,f(x)=\\ln (x)$ and"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}(\\ln \\,x)=\\frac{1}{x}."
+        },
+        {
+         "type": "p",
+         "text": "For $x<0,f(x)=\\ln (-x)$ and"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}(\\ln (-x))=-\\frac{1}{-x}=\\frac{1}{x}."
+        },
+        {
+         "type": "p",
+         "text": "Therefore,"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}(\\ln |x|)=\\frac{1}{x}."
+        },
+        {
+         "type": "p",
+         "text": "Thus, $F(x)=\\ln |x|$ is an antiderivative of $\\frac{1}{x}.$ Therefore, every antiderivative of $\\frac{1}{x}$ is of the form $\\ln |x|+C$ for some constant $C$ and every function of the form $\\ln |x|+C$ is an antiderivative of $\\frac{1}{x}.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "We have"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}(\\sin \\,x)=\\cos \\,x,"
+        },
+        {
+         "type": "p",
+         "text": "so $F(x)=\\sin \\,x$ is an antiderivative of $\\cos \\,x.$ Therefore, every antiderivative of $\\cos \\,x$ is of the form $\\sin \\,x+C$ for some constant $C$ and every function of the form $\\sin \\,x+C$ is an antiderivative of $\\cos \\,x.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Since"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}(e^{x})=e^{x},"
+        },
+        {
+         "type": "p",
+         "text": "then $F(x)=e^{x}$ is an antiderivative of $e^{x}.$ Therefore, every antiderivative of $e^{x}$ is of the form $e^{x}+C$ for some constant $C$ and every function of the form $e^{x}+C$ is an antiderivative of $e^{x}.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding Antiderivatives"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.49",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find all antiderivatives of $f(x)=\\sin \\,x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\cos \\,x+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "What function has a derivative of $\\sin \\,x?$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- cos x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now look at the formal notation used to represent antiderivatives and examine some of their properties. These properties allow us to find antiderivatives of more complicated functions. Given a function $f,$ we use the notation $f'(x)$ or $\\frac{df}{dx}$ to denote the derivative of $f.$ Here we introduce notation for antiderivatives. If $F$ is an antiderivative of $f,$ we say that $F(x)+C$ is the most general antiderivative of $f$ and write"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int f(x)dx}=F(x)+C."
+    },
+    {
+     "type": "p",
+     "text": "The symbol ${\\displaystyle \\int}$ is called an *integral sign*, and ${\\displaystyle \\int f(x)dx}$ is called the indefinite integral of $f.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given a function $f,$ the **indefinite integral** of $f,$ denoted"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int f(x)dx},"
+      },
+      {
+       "type": "p",
+       "text": "is the most general antiderivative of $f.$ If $F$ is an antiderivative of $f,$ then"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int f(x)dx}=F(x)+C."
+      },
+      {
+       "type": "p",
+       "text": "The expression $f(x)$ is called the *integrand* and the variable $x$ is the *variable of integration*."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Given the terminology introduced in this definition, the act of finding the antiderivatives of a function $f$ is usually referred to as *integrating* $f.$"
+    },
+    {
+     "type": "p",
+     "text": "For a function $f$ and an antiderivative $F,$ the functions $F(x)+C,$ where $C$ is any real number, is often referred to as *the family of antiderivatives of* $f.$ For example, since $x^{2}$ is an antiderivative of $2x$ and any antiderivative of $2x$ is of the form $x^{2}+C,$ we write"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int 2x\\,dx=x^{2}+C}."
+    }
+   ],
+   "title": "Indefinite Integrals"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The collection of all functions of the form $x^{2}+C,$ where $C$ is any real number, is known as the *family of antiderivatives of* $2x.$ Figure 4.84 shows a graph of this family of antiderivatives."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_10_001.webp",
+     "alt": "The graphs for y = x2 + 2, y = x2 + 1, y = x2, y = x2 − 1, and y = x2 − 2 are shown.",
+     "caption": "**Figure 4.84** The family of antiderivatives of $2x$ consists of all functions of the form $x^{2}+C,$ where $C$ is any real number.",
+     "width": 646,
+     "height": 575
+    },
+    {
+     "type": "p",
+     "text": "For some functions, evaluating indefinite integrals follows directly from properties of derivatives. For example, for $n\\ne -1,$"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int x^{n}dx=\\frac{x^{n+1}}{n+1}+C},"
+    },
+    {
+     "type": "p",
+     "text": "which comes directly from"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}\\left(\\frac{x^{n+1}}{n+1}\\right)=(n+1)\\frac{x^{n}}{n+1}=x^{n}."
+    },
+    {
+     "type": "p",
+     "text": "This fact is known as *the power rule for integrals*."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "For $n\\ne -1,$"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int x^{n}dx=\\frac{x^{n+1}}{n+1}+C}."
+      }
+     ],
+     "title": "Power Rule for Integrals"
+    },
+    {
+     "type": "p",
+     "text": "Evaluating indefinite integrals for some other functions is also a straightforward calculation. The following table lists the indefinite integrals for several common functions. A more complete list appears in Appendix A."
+    }
+   ],
+   "title": "Indefinite Integrals (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$\\frac{d}{dx}(k)=0$",
+       "${\\displaystyle \\int kdx={\\displaystyle \\int kx^{0}dx}}=kx+C$"
+      ],
+      [
+       "$\\frac{d}{dx}(x^{n})=nx^{n-1}$",
+       "${\\displaystyle \\int x^{n}dx}=\\frac{x^{n+1}}{n+1}+C$ for $n\\ne -1$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\ln |x|)=\\frac{1}{x}$",
+       "${\\displaystyle \\int \\frac{1}{x}dx=\\ln |x|}+C$"
+      ],
+      [
+       "$\\frac{d}{dx}(e^{x})=e^{x}$",
+       "${\\displaystyle \\int e^{x}dx}=e^{x}+C$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\sin \\,x)=\\cos \\,x$",
+       "${\\displaystyle \\int \\cos \\,x\\,dx=\\sin \\,x+C}$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\cos \\,x)=-\\sin \\,x$",
+       "${\\displaystyle \\int \\sin \\,x\\,dx=-\\cos \\,x+C}$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\tan \\,x)=\\sec^{2}x$",
+       "${\\displaystyle \\int \\sec^{2}x\\,dx=\\tan \\,x+C}$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\csc \\,x)=-\\csc \\,x\\,\\cot \\,x$",
+       "${\\displaystyle \\int \\csc \\,x\\,\\cot \\,x\\,dx=-\\csc \\,x+C}$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\sec \\,x)=\\sec \\,x\\,\\tan \\,x$",
+       "${\\displaystyle \\int \\sec \\,x\\,\\tan \\,x\\,dx=\\sec \\,x+C}$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\cot \\,x)=-\\csc^{2}x$",
+       "${\\displaystyle \\int \\csc^{2}x\\,dx=-\\cot \\,x+C}$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\sin^{-1}x)=\\frac{1}{\\sqrt{1-x^{2}}}$",
+       "${\\displaystyle \\int \\frac{1}{\\sqrt{1-x^{2}}}dx=\\sin^{-1}x+C}$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\tan^{-1}x)=\\frac{1}{1+x^{2}}$",
+       "${\\displaystyle \\int \\frac{1}{1+x^{2}}dx=\\tan^{-1}x+C}$"
+      ],
+      [
+       "$\\frac{d}{dx}(\\sec^{-1}x)=\\frac{1}{x\\sqrt{x^{2}-1}}$",
+       "${\\displaystyle \\int \\frac{1}{x\\sqrt{x^{2}-1}}dx=\\sec^{-1}x+C}$"
+      ]
+     ],
+     "header": [
+      "Differentiation Formula",
+      "Indefinite Integral"
+     ],
+     "caption": "**Table 4.13** Integration Formulas"
+    },
+    {
+     "type": "p",
+     "text": "From the definition of indefinite integral of $f,$ we know"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int f(x)dx=F(x)+C}"
+    }
+   ],
+   "title": "Indefinite Integrals (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "if and only if $F$ is an antiderivative of $f.$ Therefore, when claiming that"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int f(x)dx=F(x)+C}"
+    },
+    {
+     "type": "p",
+     "text": "it is important to check whether this statement is correct by verifying that $F'(x)=f(x).$"
+    }
+   ],
+   "title": "Indefinite Integrals (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 4.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Each of the following statements is of the form ${\\displaystyle \\int f(x)dx=F(x)+C}.$ Verify that each statement is correct by showing that $F'(x)=f(x).$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "${\\displaystyle \\int (x+e^{x})}dx=\\frac{x^{2}}{2}+e^{x}+C$",
+      "${\\displaystyle \\int xe^{x}dx}=xe^{x}-e^{x}+C$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Since"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}\\left(\\frac{x^{2}}{2}+e^{x}+C\\right)=x+e^{x},"
+        },
+        {
+         "type": "p",
+         "text": "the statement"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int (x+e^{x})}dx=\\frac{x^{2}}{2}+e^{x}+C"
+        },
+        {
+         "type": "p",
+         "text": "is correct.\n\nNote that we are verifying an indefinite integral for a sum. Furthermore, $\\frac{x^{2}}{2}$ and $e^{x}$ are antiderivatives of $x$ and $e^{x},$ respectively, and the sum of the antiderivatives is an antiderivative of the sum. We discuss this fact again later in this section."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Using the product rule, we see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}(xe^{x}-e^{x}+C)=e^{x}+xe^{x}-e^{x}=xe^{x}."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, the statement"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int xe^{x}dx}=xe^{x}-e^{x}+C"
+        },
+        {
+         "type": "p",
+         "text": "is correct.\n\nNote that we are verifying an indefinite integral for a product. The antiderivative $xe^{x}-e^{x}$ is not a product of the antiderivatives. Furthermore, the product of antiderivatives, $x^{2}e^{x}/2$ is not an antiderivative of $xe^{x}$ since"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{d}{dx}\\left(\\frac{x^{2}e^{x}}{2}\\right)=xe^{x}+\\frac{x^{2}e^{x}}{2}\\ne xe^{x}."
+        },
+        {
+         "type": "p",
+         "text": "In general, the product of antiderivatives is not an antiderivative of a product."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Verifying an Indefinite Integral"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Verify that ${\\displaystyle \\int x\\,\\cos \\,x\\,dx=x\\,\\sin \\,x+\\cos \\,x+C.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{d}{dx}(x\\,\\sin \\,x+\\cos \\,x+C)=\\sin \\,x+x\\,\\cos \\,x-\\sin \\,x=x\\,\\cos \\,x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate $\\frac{d}{dx}(x\\,\\sin \\,x+\\cos \\,x+C).$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Table 4.13, we listed the indefinite integrals for many elementary functions. Let’s now turn our attention to evaluating indefinite integrals for more complicated functions. For example, consider finding an antiderivative of a sum $f+g.$ In Example 4.51a. we showed that an antiderivative of the sum $x+e^{x}$ is given by the sum $\\left(\\frac{x^{2}}{2}\\right)+e^{x}$—that is, an antiderivative of a sum is given by a sum of antiderivatives. This result was not specific to this example. In general, if $F$ and $G$ are antiderivatives of any functions $f$ and $g,$ respectively, then"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(F(x)+G(x))=F'(x)+G'(x)=f(x)+g(x)."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, $F(x)+G(x)$ is an antiderivative of $f(x)+g(x)$ and we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int (f(x)+g(x))}dx=F(x)+G(x)+C."
+    },
+    {
+     "type": "p",
+     "text": "Similarly,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int (f(x)-g(x))}dx=F(x)-G(x)+C."
+    },
+    {
+     "type": "p",
+     "text": "In addition, consider the task of finding an antiderivative of $kf(x),$ where $k$ is any real number. Since"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(kf(x))=k\\frac{d}{dx}F(x)=kf'(x)"
+    },
+    {
+     "type": "p",
+     "text": "for any real number $k,$ we conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int kf(x)dx}=kF(x)+C."
+    },
+    {
+     "type": "p",
+     "text": "These properties are summarized next."
+    }
+   ],
+   "title": "Indefinite Integrals (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $F$ and $G$ be antiderivatives of $f$ and $g,$ respectively, and let $k$ be any real number."
+      },
+      {
+       "type": "p",
+       "text": "Sums and Differences"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int (f(x)\\text{±}g(x))dx=F(x)\\text{±}G(x)+C}"
+      },
+      {
+       "type": "p",
+       "text": "Constant Multiples"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int kf(x)dx=kF(x)+C}"
+      }
+     ],
+     "title": "Properties of Indefinite Integrals"
+    },
+    {
+     "type": "p",
+     "text": "From this theorem, we can evaluate any integral involving a sum, difference, or constant multiple of functions with antiderivatives that are known. Evaluating integrals involving products, quotients, or compositions is more complicated (see Example 4.51b. for an example involving an antiderivative of a product.) We look at and address integrals involving these more complicated functions in Introduction to Integration. In the next example, we examine how to use this theorem to calculate the indefinite integrals of several functions."
+    }
+   ],
+   "title": "Indefinite Integrals (continued)"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 4.52",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following indefinite integrals:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "${\\displaystyle \\int (5x^{3}-7x^{2}+3x+4)dx}$",
+      "${\\displaystyle \\int \\frac{x^{2}+4\\sqrt[3]{x}}{x}}dx$",
+      "${\\displaystyle \\int \\frac{4}{1+x^{2}}}dx$",
+      "${\\displaystyle \\int \\tan \\,x\\,\\cos \\,x\\,dx}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Using (see above), we can integrate each of the four terms in the integrand separately. We obtain"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int (5x^{3}-7x^{2}+3x+4)dx}={\\displaystyle \\int 5x^{3}dx-}{\\displaystyle \\int 7x^{2}dx}+{\\displaystyle \\int 3x\\,dx}+{\\displaystyle \\int 4dx}."
+        },
+        {
+         "type": "p",
+         "text": "From the second part of (see above), each coefficient can be written in front of the integral sign, which gives"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int 5x^{3}dx-}{\\displaystyle \\int 7x^{2}dx}+{\\displaystyle \\int 3x\\,dx}+{\\displaystyle \\int 4dx}=5{\\displaystyle \\int x^{3}dx-7}{\\displaystyle \\int x^{2}dx}+3{\\displaystyle \\int x\\,dx}+4{\\displaystyle \\int 1dx.}"
+        },
+        {
+         "type": "p",
+         "text": "Using the power rule for integrals, we conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int (5x^{3}-7x^{2}+3x+4)dx}=\\frac{5}{4}x^{4}-\\frac{7}{3}x^{3}+\\frac{3}{2}x^{2}+4x+C."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Rewrite the integrand as"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{x^{2}+4\\sqrt[3]{x}}{x}=\\frac{x^{2}}{x}+\\frac{4\\sqrt[3]{x}}{x}."
+        },
+        {
+         "type": "p",
+         "text": "Then, to evaluate the integral, integrate each of these terms separately. Using the power rule, we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}{\\displaystyle \\int \\left(x+\\frac{4}{x^{2/3}}\\right)}dx & ={\\displaystyle \\int x\\,dx+4}{\\displaystyle \\int x^{-2/3}}dx \\\\ & =\\frac{1}{2}x^{2}+4\\frac{1}{\\left(\\frac{-2}{3}\\right)+1}x^{(-2/3)+1}+C \\\\ & =\\frac{1}{2}x^{2}+12x^{1/3}+C.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Using (see above), write the integral as"
+        },
+        {
+         "type": "math",
+         "tex": "4{\\displaystyle \\int \\frac{1}{1+x^{2}}dx}."
+        },
+        {
+         "type": "p",
+         "text": "Then, use the fact that $\\tan^{-1}(x)$ is an antiderivative of $\\frac{1}{(1+x^{2})}$ to conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int \\frac{4}{1+x^{2}}dx}=4\\,\\tan^{-1}(x)+C."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Rewrite the integrand as"
+        },
+        {
+         "type": "math",
+         "tex": "\\tan \\,x\\,\\cos \\,x=\\frac{\\sin \\,x}{\\cos \\,x}\\,\\cos \\,x=\\sin \\,x."
+        },
+        {
+         "type": "p",
+         "text": "Therefore,"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int \\tan \\,x\\,\\cos \\,x}={\\displaystyle \\int \\sin \\,x}=-\\cos \\,x+C."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Evaluating Indefinite Integrals"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int (4x^{3}-5x^{2}+x-7)dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^{4}-\\frac{5}{3}x^{3}+\\frac{1}{2}x^{2}-7x+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Integrate each term in the integrand separately, making use of the power rule."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x^4-(5/3)x^3+(1/2)x^2-7 x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We look at techniques for integrating a large variety of functions involving products, quotients, and compositions later in the text. Here we turn to one common use for antiderivatives that arises often in many applications: solving differential equations."
+    },
+    {
+     "type": "p",
+     "text": "A *differential equation* is an equation that relates an unknown function and one or more of its derivatives. The equation"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=f(x)"
+    },
+    {
+     "type": "p",
+     "text": "is a simple example of a differential equation. Solving this equation means finding a function $y$ with a derivative $f.$ Therefore, the solutions of (see above) are the antiderivatives of $f.$ If $F$ is one antiderivative of $f,$ every function of the form $y=F(x)+C$ is a solution of that differential equation. For example, the solutions of"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=6x^{2}"
+    },
+    {
+     "type": "p",
+     "text": "are given by"
+    },
+    {
+     "type": "math",
+     "tex": "y={\\displaystyle \\int 6x^{2}dx=2x^{3}+C}."
+    },
+    {
+     "type": "p",
+     "text": "Sometimes we are interested in determining whether a particular solution curve passes through a certain point $(x_{0},y_{0})$—that is, $y(x_{0})=y_{0}.$ The problem of finding a function $y$ that satisfies a differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=f(x)"
+    },
+    {
+     "type": "p",
+     "text": "with the additional condition"
+    },
+    {
+     "type": "math",
+     "tex": "y(x_{0})=y_{0}"
+    },
+    {
+     "type": "p",
+     "text": "is an example of an **initial-value problem**. The condition $y(x_{0})=y_{0}$ is known as an *initial condition*. For example, looking for a function $y$ that satisfies the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=6x^{2}"
+    },
+    {
+     "type": "p",
+     "text": "and the initial condition"
+    },
+    {
+     "type": "math",
+     "tex": "y(1)=5"
+    }
+   ],
+   "title": "Initial-Value Problems"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "is an example of an initial-value problem. Since the solutions of the differential equation are $y=2x^{3}+C,$ to find a function $y$ that also satisfies the initial condition, we need to find $C$ such that $y(1)=2(1)^{3}+C=5.$ From this equation, we see that $C=3,$ and we conclude that $y=2x^{3}+3$ is the solution of this initial-value problem as shown in the following graph."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_10_002.webp",
+     "alt": "The graphs for y = 2x3 + 6, y = 2x3 + 3, y = 2x3, and y = 2x3 − 3 are shown.",
+     "caption": "**Figure 4.85** Some of the solution curves of the differential equation $\\frac{dy}{dx}=6x^{2}$ are displayed. The function $y=2x^{3}+3$ satisfies the differential equation and the initial condition $y(1)=5.$",
+     "width": 641,
+     "height": 497
+    }
+   ],
+   "title": "Initial-Value Problems (continued)"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 4.53",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=\\sin \\,x,y(0)=5."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First we need to solve the differential equation. If $\\frac{dy}{dx}=\\sin \\,x,$ then"
+     },
+     {
+      "type": "math",
+      "tex": "y={\\displaystyle \\int \\sin (x)dx}=-\\cos \\,x+C."
+     },
+     {
+      "type": "p",
+      "text": "Next we need to look for a solution $y$ that satisfies the initial condition. The initial condition $y(0)=5$ means we need a constant $C$ such that $-\\cos \\,x+C=5.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "C=5+\\cos (0)=6."
+     },
+     {
+      "type": "p",
+      "text": "The solution of the initial-value problem is $y=-\\cos \\,x+6.$"
+     }
+    ]
+   },
+   "title": "Solving an Initial-Value Problem"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.52",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the initial value problem $\\frac{dy}{dx}=3x^{-2},y(1)=2.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-\\frac{3}{x}+5$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find all antiderivatives of $f(x)=3x^{-2}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-(3/x)+5"
+   }
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Initial-value problems arise in many applications. Next we consider a problem in which a driver applies the brakes in a car. We are interested in how long it takes for the car to stop. Recall that the velocity function $v(t)$ is the derivative of a position function $s(t),$ and the acceleration $a(t)$ is the derivative of the velocity function. In earlier examples in the text, we could calculate the velocity from the position and then compute the acceleration from the velocity. In the next example we work the other way around. Given an acceleration function, we calculate the velocity function. We then use the velocity function to determine the position function."
+    }
+   ],
+   "title": "Initial-Value Problems (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 4.54",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A car is traveling at the rate of $88$ ft/sec $(60$ mph) when the brakes are applied. The car begins decelerating at a constant rate of $15$ ft/sec$^{\\text{2}}$."
+    },
+    {
+     "type": "list",
+     "items": [
+      "How many seconds elapse before the car stops?",
+      "How far does the car travel during that time?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "First we introduce variables for this problem. Let $t$ be the time (in seconds) after the brakes are first applied. Let $a(t)$ be the acceleration of the car (in feet per seconds squared) at time $t.$ Let $v(t)$ be the velocity of the car (in feet per second) at time $t.$ Let $s(t)$ be the car’s position (in feet) beyond the point where the brakes are applied at time $t.$\n\nThe car is traveling at a rate of $88\\,\\text{ft/sec}.$ Therefore, the initial velocity is $v(0)=88$ ft/sec. Since the car is decelerating, the acceleration is"
+        },
+        {
+         "type": "math",
+         "tex": "a(t)=-15{\\,\\text{ft/s}}^{2}."
+        },
+        {
+         "type": "p",
+         "text": "The acceleration is the derivative of the velocity,"
+        },
+        {
+         "type": "math",
+         "tex": "v'(t)=-15."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, we have an initial-value problem to solve:"
+        },
+        {
+         "type": "math",
+         "tex": "v'(t)=-15,v(0)=88."
+        },
+        {
+         "type": "p",
+         "text": "Integrating, we find that"
+        },
+        {
+         "type": "math",
+         "tex": "v(t)=-15t+C."
+        },
+        {
+         "type": "p",
+         "text": "Since $v(0)=88,C=88.$ Thus, the velocity function is"
+        },
+        {
+         "type": "math",
+         "tex": "v(t)=-15t+88."
+        },
+        {
+         "type": "p",
+         "text": "To find how long it takes for the car to stop, we need to find the time $t$ such that the velocity is zero. Solving $-15t+88=0,$ we obtain $t=\\frac{88}{15}$ sec."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "To find how far the car travels during this time, we need to find the position of the car after $\\frac{88}{15}$ sec. We know the velocity $v(t)$ is the derivative of the position $s(t).$ Consider the initial position to be $s(0)=0.$ Therefore, we need to solve the initial-value problem"
+        },
+        {
+         "type": "math",
+         "tex": "s'(t)=-15t+88,s(0)=0."
+        },
+        {
+         "type": "p",
+         "text": "Integrating, we have"
+        },
+        {
+         "type": "math",
+         "tex": "s(t)=-\\frac{15}{2}t^{2}+88t+C."
+        },
+        {
+         "type": "p",
+         "text": "Since $s(0)=0,$ the constant is $C=0.$ Therefore, the position function is"
+        },
+        {
+         "type": "math",
+         "tex": "s(t)=-\\frac{15}{2}t^{2}+88t."
+        },
+        {
+         "type": "p",
+         "text": "After $t=\\frac{88}{15}$ sec, the position is $s\\left(\\frac{88}{15}\\right)\\approx 258.133$ ft."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Decelerating Car"
+  },
+  {
+   "id": "c23",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.53",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose the car is traveling at the rate of $44$ ft/sec. How long does it take for the car to stop? How far will the car travel?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2.93\\,\\sec ,\\,64.5\\,\\text{ft}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "$v(t)=-15t+44.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "If $F$ is an antiderivative of $f,$ then every antiderivative of $f$ is of the form $F(x)+C$ for some constant $C.$",
+      [
+       {
+        "type": "p",
+        "text": "Solving the initial-value problem"
+       },
+       {
+        "type": "math",
+        "tex": "\\frac{dy}{dx}=f(x),y(x_{0})=y_{0}"
+       },
+       {
+        "type": "p",
+        "text": "requires us first to find the set of antiderivatives of $f$ and then to look for the particular antiderivative that also satisfies the initial condition."
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e465",
+   "number": 465,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$F(x)=5x^{3}+2x^{2}+3x+1,f(x)=15x^{2}+4x+3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042709633",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that $F(x)$ are antiderivatives of $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F'(x)=15x^{2}+4x+3$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e466",
+   "number": 466,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$F(x)=x^{2}+4x+1,f(x)=2x+4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042364150",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that $F(x)$ are antiderivatives of $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e467",
+   "number": 467,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$F(x)=x^{2}e^{x},f(x)=e^{x}(x^{2}+2x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043317346",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that $F(x)$ are antiderivatives of $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F'(x)=2xe^{x}+x^{2}e^{x}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e468",
+   "number": 468,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$F(x)=\\cos \\,x,f(x)=-\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042659411",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that $F(x)$ are antiderivatives of $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e469",
+   "number": 469,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$F(x)=e^{x},f(x)=e^{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042640878",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, show that $F(x)$ are antiderivatives of $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F'(x)=e^{x}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e470",
+   "number": 470,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{x^{2}}+x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042638501",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative of the function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e471",
+   "number": 471,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=e^{x}-3x^{2}+\\sin \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043390814",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative of the function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=e^{x}-x^{3}-\\cos (x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^x-x^3- cos (x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e472",
+   "number": 472,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=e^{x}+3x-x^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042708318",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative of the function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e473",
+   "number": 473,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x-1+4\\,\\sin (2x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042659507",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative of the function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{x^{2}}{2}-x-2\\,\\cos (2x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((x^2)/2)-x-2 cos (2 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e474",
+   "number": 474,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=5x^{4}+4x^{5}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042465686",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e475",
+   "number": 475,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x+12x^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043427405",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{1}{2}x^{2}+4x^{3}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)x^2+4 x^3+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e476",
+   "number": 476,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{\\sqrt{x}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043108281",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e477",
+   "number": 477,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=(\\sqrt{x})^{3}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042657750",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{2}{5}(\\sqrt{x})^{5}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(2/5)(sqrt(x))^5+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e478",
+   "number": 478,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{1/3}+(2x)^{1/3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043219223",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e479",
+   "number": 479,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{x^{1/3}}{x^{2/3}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042707199",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{3}{2}x^{2/3}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(3/2)x^(2/3)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e480",
+   "number": 480,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2\\,\\sin (x)+\\sin (2x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043173829",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e481",
+   "number": 481,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sec^{2}(x)+1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042364505",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=x+\\tan (x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x+ tan (x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e482",
+   "number": 482,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sin \\,x\\,\\cos \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043281579",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e483",
+   "number": 483,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sin^{2}(x)\\cos (x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043281655",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{1}{3}\\sin^{3}(x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3) sin^3 (x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e484",
+   "number": 484,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043424756",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e485",
+   "number": 485,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{2}\\csc^{2}(x)+\\frac{1}{x^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042660274",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=-\\frac{1}{2}\\,\\cot (x)-\\frac{1}{x}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/2) cot (x)-(1/x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e486",
+   "number": 486,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\csc \\,x\\,\\cot \\,x+3x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043173691",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e487",
+   "number": 487,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=4\\,\\csc \\,x\\,\\cot \\,x-\\sec \\,x\\,\\tan \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165043173769",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=-\\sec \\,x-4\\,\\csc \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- sec x-4 csc x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e488",
+   "number": 488,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=8\\,\\sec \\,x(\\sec \\,x-4\\,\\tan \\,x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043252042",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e489",
+   "number": 489,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{2}e^{-4x}+\\sin \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042676267",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the general form for the antiderivative $F(x)$ of each function $f(x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=-\\frac{1}{8}e^{-4x}-\\cos \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/8)e^(-4 x)- cos x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e490",
+   "number": 490,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (-1)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042681091",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e491",
+   "number": 491,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042681137",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\cos \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- cos x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e492",
+   "number": 492,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (4x+\\sqrt{x})dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042681181",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e493",
+   "number": 493,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{3x^{2}+2}{x^{2}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042461202",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3x-\\frac{2}{x}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "3 x-(2/x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e494",
+   "number": 494,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (\\sec \\,x\\,\\tan \\,x+4x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042374847",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e495",
+   "number": 495,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (4\\sqrt{x}+\\sqrt[4]{x})dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042374915",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{8}{3}x^{3/2}+\\frac{4}{5}x^{5/4}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(8/3)x^(3/2)+(4/5)x^(5/4)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e496",
+   "number": 496,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (x^{-1/3}-x^{2/3})}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042327522",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e497",
+   "number": 497,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{14x^{3}+2x+1}{x^{3}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042700339",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$14x-\\frac{2}{x}-\\frac{1}{2x^{2}}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "14 x-(2/x)-(1/(2 x^2))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e498",
+   "number": 498,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (e^{x}+e^{-x})}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042700424",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e499",
+   "number": 499,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f'(x)=x^{-3},f(1)=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042668731",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the initial value problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x)=-\\frac{1}{2x^{2}}+\\frac{3}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(2 x^2))+(3/2)"
+   }
+  },
+  {
+   "id": "e500",
+   "number": 500,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f'(x)=\\sqrt{x}+x^{2},f(0)=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042668819",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the initial value problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e501",
+   "number": 501,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f'(x)=\\cos \\,x+\\sec^{2}(x),f\\left(\\frac{\\pi}{4}\\right)=2+\\frac{\\sqrt{2}}{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042315622",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the initial value problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x)=\\sin \\,x+\\tan \\,x+1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sin x+ tan x+1"
+   }
+  },
+  {
+   "id": "e502",
+   "number": 502,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f'(x)=x^{3}-8x^{2}+16x+1,f(0)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042684192",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the initial value problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e503",
+   "number": 503,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f'(x)=\\frac{2}{x^{2}}-\\frac{x^{2}}{2},f(1)=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042684316",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the initial value problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x)=-\\frac{1}{6}x^{3}-\\frac{2}{x}+\\frac{13}{6}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/6)x^3-(2/x)+(13/6)"
+   }
+  },
+  {
+   "id": "e504",
+   "number": 504,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f''(x)=x^{2}+2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043422439",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e505",
+   "number": 505,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f''(x)=e^{-x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042326003",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary; one possible answer is $f(x)=e^{-x}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e506",
+   "number": 506,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f''(x)=1+x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042326066",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e507",
+   "number": 507,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f\\text{‴}(x)=\\cos \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042326139",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary; one possible answer is $f(x)=-\\sin \\,x$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e508",
+   "number": 508,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f\\text{‴}(x)=8e^{-2x}-\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042667012",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e509",
+   "number": 509,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A car is being driven at a rate of $40$ mph when the brakes are applied. The car decelerates at a constant rate of $10$ ft/sec$^{\\text{2}}$. How long before the car stops?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042667092",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$5.867$ sec"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "5.867"
+   }
+  },
+  {
+   "id": "e510",
+   "number": 510,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "In the preceding problem, calculate how far the car travels in the time it takes to stop."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042667126",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e511",
+   "number": 511,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You are merging onto the freeway, accelerating from rest at a constant rate of $12$ ft/sec$^{\\text{2}}$. How long does it take you to reach merging speed at $60$ mph?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042667147",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$7.333$ sec"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "7.333"
+   }
+  },
+  {
+   "id": "e512",
+   "number": 512,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Based on the previous problem, how far does the car travel to reach merging speed?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042667181",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e513",
+   "number": 513,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A car company wants to ensure its newest model can stop in $8$ sec when traveling at $75$ mph. If we assume constant deceleration, find the value of deceleration that accomplishes this."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042498534",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$13.75$ ft/sec$^{\\text{2}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e514",
+   "number": 514,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A car company wants to ensure its newest model can stop in less than $450$ ft when traveling at $60$ mph. If we assume constant deceleration, find the value of deceleration that accomplishes this."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042498566",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find two possible functions $f$ given the second- or third-order derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e515",
+   "number": 515,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=x^{2}+2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042498620",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivative of the function, assuming $F(0)=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{1}{3}x^{3}+2x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3)x^3+2 x"
+   }
+  },
+  {
+   "id": "e516",
+   "number": 516,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=4x-\\sqrt{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042498693",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivative of the function, assuming $F(0)=0.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e517",
+   "number": 517,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\sin \\,x+2x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042631784",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivative of the function, assuming $F(0)=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=x^{2}-\\cos \\,x+1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x^2- cos x+1"
+   }
+  },
+  {
+   "id": "e518",
+   "number": 518,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=e^{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042631857",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivative of the function, assuming $F(0)=0.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e519",
+   "number": 519,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\frac{1}{(x+1)^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042631917",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivative of the function, assuming $F(0)=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=-\\frac{1}{(x+1)}+1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(x+1))+1"
+   }
+  },
+  {
+   "id": "e520",
+   "number": 520,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=e^{-2x}+3x^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042418126",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the antiderivative of the function, assuming $F(0)=0.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e521",
+   "number": 521,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x)$ is the antiderivative of $v(x),$ then $2f(x)$ is the antiderivative of $2v(x).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042418225",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statement is true or false. Either prove it is true or find a counterexample if it is false."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e522",
+   "number": 522,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x)$ is the antiderivative of $v(x),$ then $f(2x)$ is the antiderivative of $v(2x).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042518934",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statement is true or false. Either prove it is true or find a counterexample if it is false."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e523",
+   "number": 523,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x)$ is the antiderivative of $v(x),$ then $f(x)+1$ is the antiderivative of $v(x)+1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042519011",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statement is true or false. Either prove it is true or find a counterexample if it is false."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e524",
+   "number": 524,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x)$ is the antiderivative of $v(x),$ then $(f(x))^{2}$ is the antiderivative of $(v(x))^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042519090",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine whether the statement is true or false. Either prove it is true or find a counterexample if it is false."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e525",
+   "number": 525,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(-1)=-6$ and $f(1)=2,$ then there exists at least one point $x\\in [-1,1]$ such that $f'(x)=4.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042471237",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample. Assume that $f(x)$ is continuous and differentiable unless stated otherwise."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True, by Mean Value Theorem"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e526",
+   "number": 526,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f'(c)=0,$ there is a maximum or minimum at $x=c.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042471332",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample. Assume that $f(x)$ is continuous and differentiable unless stated otherwise."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e527",
+   "number": 527,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "There is a function such that $f(x)<0,f'(x)>0,$ and $f''(x)<0.$ (A graphical “proof” is acceptable for this answer.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042459445",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample. Assume that $f(x)$ is continuous and differentiable unless stated otherwise."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e528",
+   "number": 528,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "There is a function such that there is both an inflection point and a critical point for some value $x=a.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042459523",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample. Assume that $f(x)$ is continuous and differentiable unless stated otherwise."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e529",
+   "number": 529,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given the graph of $f',$ determine where $f$ is increasing or decreasing."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_10_201.webp",
+     "alt": "The function increases to cross the x-axis at −2, reaches a maximum and then decreases through the origin, reaches a minimum and then increases to a maximum at 2, decreases to a minimum and then increases to pass through the x-axis at 4 and continues increasing.",
+     "width": 416,
+     "height": 235
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042459579",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample. Assume that $f(x)$ is continuous and differentiable unless stated otherwise."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Increasing: $(-2,0)\\cup (4,\\infty ),$ decreasing: $(-\\infty ,-2)\\cup (0,4)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e530",
+   "number": 530,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The graph of $f$ is given below. Draw $f'.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_10_202.webp",
+     "alt": "The function decreases rapidly and reaches a local minimum at −2, then it increases to reach a local maximum at 0, at which point it decreases slowly at first, then stops decreasing near 1, then continues decreasing to reach a minimum at 3, and then increases rapidly.",
+     "width": 416,
+     "height": 273
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042463776",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample. Assume that $f(x)$ is continuous and differentiable unless stated otherwise."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e531",
+   "number": 531,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the linear approximation $L(x)$ to $y=x^{2}+\\tan (\\pi x)$ near $x=\\frac{1}{4}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042463828",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample. Assume that $f(x)$ is continuous and differentiable unless stated otherwise."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$L(x)=\\frac{17}{16}+\\frac{1}{2}(1+4\\pi )\\left(x-\\frac{1}{4}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(17/16)+(1/2)(1+4 pi)(x-(1/4))"
+   }
+  },
+  {
+   "id": "e532",
+   "number": 532,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the differential of $y=x^{2}-5x-6$ and evaluate for $x=2$ with $dx=0.1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042542808",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify your answer with a proof or a counterexample. Assume that $f(x)$ is continuous and differentiable unless stated otherwise."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e533",
+   "number": 533,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x+\\sin^{2}(x)$ over $[0,\\pi ]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042542905",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the critical points and the local and absolute extrema of the following functions on the given interval."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Critical point: $x=\\frac{3\\pi}{4},$ absolute minimum: $x=0,$ absolute maximum: $x=\\pi$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e534",
+   "number": 534,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=3x^{4}-4x^{3}-12x^{2}+6$ over $[-3,3]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042543007",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the critical points and the local and absolute extrema of the following functions on the given interval."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e535",
+   "number": 535,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x(t)=3t^{4}-8t^{3}-18t^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042460396",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine over which intervals the following functions are increasing, decreasing, concave up, and concave down."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Increasing: $(-1,0)\\cup (3,\\infty ),$ decreasing: $(-\\infty ,-1)\\cup (0,3),$ concave up: $\\left(-\\infty ,\\frac{1}{3}(2-\\sqrt{13})\\right)\\cup \\left(\\frac{1}{3}(2+\\sqrt{13}),\\infty \\right),$ concave down: $\\left(\\frac{1}{3}(2-\\sqrt{13}),\\frac{1}{3}(2+\\sqrt{13})\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e536",
+   "number": 536,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x+\\sin (\\pi x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042658582",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine over which intervals the following functions are increasing, decreasing, concave up, and concave down."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e537",
+   "number": 537,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x)=x-\\sqrt{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043217996",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine over which intervals the following functions are increasing, decreasing, concave up, and concave down."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Increasing: $\\left(\\frac{1}{4},\\infty \\right),$ decreasing: $\\left(0,\\frac{1}{4}\\right),$ concave up: $(0,\\infty ),$ concave down: nowhere"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e538",
+   "number": 538,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(\\theta )=\\sin (3\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165043218093",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine over which intervals the following functions are increasing, decreasing, concave up, and concave down."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e539",
+   "number": 539,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to \\infty}\\frac{3x\\sqrt{x^{2}+1}}{\\sqrt{x^{4}-1}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042469790",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following limits."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "3"
+   }
+  },
+  {
+   "id": "e540",
+   "number": 540,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to \\infty}\\cos \\left(\\frac{1}{x}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042711556",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following limits."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e541",
+   "number": 541,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 1}\\frac{x-1}{\\sin (\\pi x)}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042711602",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following limits."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{\\pi}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-(1/pi)"
+   }
+  },
+  {
+   "id": "e542",
+   "number": 542,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to \\infty}(3x)^{1/x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042711663",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following limits."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e543",
+   "number": 543,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{3}+1,x_{0}=0.5$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042711720",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use Newton’s method to find the first two iterations, given the starting point."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x_{1}=-1,x_{2}=-1$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"x_1=-1, x_2=-1\""
+  },
+  {
+   "id": "e544",
+   "number": 544,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{1}{x+1}=\\frac{1}{2},x_{0}=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042711785",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use Newton’s method to find the first two iterations, given the starting point."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e545",
+   "number": 545,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x)=\\sqrt{x}-\\frac{1}{x^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042499557",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the antiderivatives $F(x)$ of the following functions."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F(x)=\\frac{2x^{3/2}}{3}+\\frac{1}{x}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((2 x^(3/2))/3)+(1/x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e546",
+   "number": 546,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2x+6\\,\\cos \\,x,F(\\pi )=\\pi^{2}+2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042499642",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the antiderivatives $F(x)$ of the following functions."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e547",
+   "number": 547,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{1}{x(x+1)^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042711284",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Graph the following functions by hand. Make sure to label the inflection points, critical points, zeros, and asymptotes."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_04_10_204.webp",
+      "alt": "This graph has vertical asymptotes at x = 0 and x = −1. The first part of the function occurs in the third quadrant with a horizontal asymptote at y = 0. The function decreases quickly from near (−5, 0) to near the vertical asymptote (−1, ∞). On the other side of the asymptote, the function is roughly U-shaped and pointed down in the third quadrant between x = −1 and x = 0 with maximum near (−0.4, −6). On the other side of the x = 0 asympotote, the function decreases from its vertical asymptote near (0, ∞) and to approach the horizontal asymptote y = 0.",
+      "width": 416,
+      "height": 272
+     },
+     {
+      "type": "p",
+      "text": "Inflection points: none; critical points: $x=-\\frac{1}{3};$ zeros: none; vertical asymptotes: $x=-1,$ $x=0;$ horizontal asymptote: $y=0$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e548",
+   "number": 548,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x-\\sqrt{4-x^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042711393",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Graph the following functions by hand. Make sure to label the inflection points, critical points, zeros, and asymptotes."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e549",
+   "number": 549,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A car is being compacted into a rectangular solid. The volume is decreasing at a rate of $2$ m$^{\\text{3}}$/sec. The length and width of the compactor are square, but the height is not the same length as the length and width. If the length and width walls move toward each other at a rate of $0.25$ m/sec, find the rate at which the height is changing when the length and width are $2$ m and the height is $1.5$ m."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042711470",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Graph the following functions by hand. Make sure to label the inflection points, critical points, zeros, and asymptotes."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The height is decreasing at a rate of $0.125$ m/sec"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e550",
+   "number": 550,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A rocket is launched into space; its kinetic energy is given by $K(t)=\\left(\\frac{1}{2}\\right)m(t)v(t)^{2},$ where $K$ is the kinetic energy in joules, $m$ is the mass of the rocket in kilograms, and $v$ is the velocity of the rocket in meters/second. Assume the velocity is increasing at a rate of $15$ m/sec$^{\\text{2}}$ and the mass is decreasing at a rate of $10$ kg/sec because the fuel is being burned. At what rate is the rocket’s kinetic energy changing when the mass is $2000$ kg and the velocity is $5000$ m/sec? Give your answer in mega-Joules per second (MJ/s), which is equivalent to $10^{6}$ J/s."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042602906",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Graph the following functions by hand. Make sure to label the inflection points, critical points, zeros, and asymptotes."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e551",
+   "number": 551,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The famous **Regiomontanus’ problem** for angle maximization was proposed during the 15th century. A painting hangs on a wall with the bottom of the painting a distance $a$ feet above eye level, and the top $b$ feet above eye level. What distance $x$ (in feet) from the wall should the viewer stand to maximize the angle subtended by the painting, $\\theta ?$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_04_10_206.webp",
+     "alt": "A point is marked eye level, and from this point a right triangle is made with adjacent side length x and opposite side length a, which is the length from the bottom of the picture to the level of the eye. A second right triangle is made from the point marked eye level, with the adjacent side being x and the other side being length b, which is the height of the picture. The angle between the two hypotenuses is marked θ.",
+     "width": 401,
+     "height": 208
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042603028",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Graph the following functions by hand. Make sure to label the inflection points, critical points, zeros, and asymptotes."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=\\sqrt{ab}$ feet"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e552",
+   "number": 552,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "An airline sells tickets from Tokyo to Detroit for $\\text{\\$}1200.$ There are $500$ seats available and a typical flight books $350$ seats. For every $\\text{\\$}10$ decrease in price, the airline observes an additional five seats sold. What should the fare be to maximize profit? How many passengers would be onboard?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042603099",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Graph the following functions by hand. Make sure to label the inflection points, critical points, zeros, and asymptotes."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "antiderivative",
+   "meaning": "a function $F$ such that $F'(x)=f(x)$ for all $x$ in the domain of $f$ is an antiderivative of $f$"
+  },
+  {
+   "term": "indefinite integral",
+   "meaning": "the most general antiderivative of $f(x)$ is the indefinite integral of $f;$ we use the notation ${\\displaystyle \\int f(x)dx}$ to denote the indefinite integral of $f$"
+  },
+  {
+   "term": "initial value problem",
+   "meaning": "a problem that requires finding a function $y$ that satisfies the differential equation $\\frac{dy}{dx}=f(x)$ together with the initial condition $y(x_{0})=y_{0}$"
+  }
+ ]
+}

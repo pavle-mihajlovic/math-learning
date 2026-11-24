@@ -1,0 +1,2955 @@
+{
+ "schema": 1,
+ "id": "V1.3.9",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 3,
+ "section": 9,
+ "title": "Derivatives of Exponential and Logarithmic Functions",
+ "chapterTitle": "Derivatives",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53586",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/3-9-derivatives-of-exponential-and-logarithmic-functions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §3.9 “Derivatives of Exponential and Logarithmic Functions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Find the derivative of exponential functions.",
+  "Find the derivative of logarithmic functions.",
+  "Use logarithmic differentiation to determine the derivative of a function."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "So far, we have learned how to differentiate a variety of functions, including trigonometric, inverse, and implicit functions. In this section, we explore derivatives of exponential and logarithmic functions. As we discussed in Introduction to Functions and Graphs, exponential functions play an important role in modeling population growth and the decay of radioactive materials. Logarithmic functions can help rescale large quantities and are particularly helpful for rewriting complicated expressions."
+    }
+   ],
+   "title": "Derivatives of Exponential and Logarithmic Functions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Just as when we found the derivatives of other functions, we can find the derivatives of exponential and logarithmic functions using formulas. As we develop these formulas, we need to make certain basic assumptions. The proofs that these assumptions hold are beyond the scope of this course."
+    },
+    {
+     "type": "p",
+     "text": "First of all, we begin with the assumption that the function $B(x)=b^{x},b>0,$ is defined for every real number and is continuous. In previous courses, the values of exponential functions for all rational numbers were defined—beginning with the definition of $b^{n},$ where $n$ is a positive integer—as the product of $b$ multiplied by itself $n$ times. Later, we defined $b^{0}=1,b^{-n}=\\frac{1}{b^{n}},$ for a positive integer $n,$ and $b^{s/t}=(\\sqrt[t]{b})^{s}$ for positive integers $s$ and $t.$ These definitions leave open the question of the value of $b^{r}$ where $r$ is an arbitrary real number. By assuming the *continuity* of $B(x)=b^{x},b>0,$ we may interpret $b^{r}$ as $\\lim_{x\\to r}b^{x}$ where the values of $x$ as we take the limit are rational. For example, we may view $4^{\\pi}$ as the number satisfying"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{l}4^{3}<4^{\\pi}<4^{4},4^{3.1}<4^{\\pi}<4^{3.2},4^{3.14}<4^{\\pi}<4^{3.15}, \\\\ 4^{3.141}<4^{\\pi}<4^{3.142},4^{3.1415}<4^{\\pi}<4^{3.1416},\\dots .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "As we see in the following table, $4^{\\pi}\\approx 77.88.$"
+    }
+   ],
+   "title": "Derivative of the Exponential Function"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$3$",
+       "64",
+       "$3.141593$",
+       "77.8802710486"
+      ],
+      [
+       "$3.1$",
+       "73.5166947198",
+       "$3.1416$",
+       "77.8810268071"
+      ],
+      [
+       "$3.14$",
+       "77.7084726013",
+       "$3.142$",
+       "77.9242251944"
+      ],
+      [
+       "$3.141$",
+       "77.8162741237",
+       "$3.15$",
+       "78.7932424541"
+      ],
+      [
+       "$3.1415$",
+       "77.8702309526",
+       "$3.2$",
+       "84.4485062895"
+      ],
+      [
+       "$3.14159$",
+       "77.8799471543",
+       "$4$",
+       "256"
+      ]
+     ],
+     "header": [
+      "$x$",
+      "$4^{x}$",
+      "$x$",
+      "$4^{x}$"
+     ],
+     "caption": "**Table 3.4** Approximating a Value of $4^{\\pi}$"
+    },
+    {
+     "type": "p",
+     "text": "We also assume that for $B(x)=b^{x},b>0,$ the value $B'(0)$ of the derivative exists. In this section, we show that by making this one additional assumption, it is possible to prove that the function $B(x)$ is differentiable everywhere."
+    },
+    {
+     "type": "p",
+     "text": "We make one final assumption: that there is a unique value of $b>0$ for which $B'(0)=1.$ We define $e$ to be this unique value, as we did in Introduction to Functions and Graphs. Figure 3.32 provides graphs of the functions $y=2^{x},y=3^{x},y=2.7^{x},$ and $y=2.8^{x}.$ A visual estimate of the slopes of the tangent lines to these functions at 0 provides evidence that the value of *e* lies somewhere between 2.7 and 2.8. The function $E(x)=e^{x}$ is called the **natural exponential function**. Its inverse, $L(x)=\\log_{e}x=\\ln \\,x$ is called the **natural logarithmic function**."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_09_001.webp",
+     "alt": "The graphs of 3x, 2.8x, 2.7x, and 2x are shown. In quadrant I, their order from least to greatest is 2x, 2.7x, 2.8x, and 3x. In quadrant II, this order is reversed. All cross the y-axis at (0, 1).",
+     "caption": "**Figure 3.32** The graph of $E(x)=e^{x}$ is between $y=2^{x}$ and $y=3^{x}.$",
+     "width": 731,
+     "height": 592
+    }
+   ],
+   "title": "Derivative of the Exponential Function (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For a better estimate of $e,$ we may construct a table of estimates of $B'(0)$ for functions of the form $B(x)=b^{x}.$ Before doing this, recall that"
+    },
+    {
+     "type": "math",
+     "tex": "B'(0)=\\lim_{x\\to 0}\\frac{b^{x}-b^{0}}{x-0}=\\lim_{x\\to 0}\\frac{b^{x}-1}{x}\\approx \\frac{b^{x}-1}{x}"
+    },
+    {
+     "type": "p",
+     "text": "for values of $x$ very close to zero. For our estimates, we choose $x=0.00001$ and $x=-0.00001$ to obtain the estimate"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{b^{-0.00001}-1}{-0.00001}<B'(0)<\\frac{b^{0.00001}-1}{0.00001}."
+    },
+    {
+     "type": "p",
+     "text": "See the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$2$",
+       "$0.693145<B'(0)<0.69315$",
+       "$2.7183$",
+       "$1.000002<B'(0)<1.000012$"
+      ],
+      [
+       "$2.7$",
+       "$0.993247<B'(0)<0.993257$",
+       "$2.719$",
+       "$1.000259<B'(0)<1.000269$"
+      ],
+      [
+       "$2.71$",
+       "$0.996944<B'(0)<0.996954$",
+       "$2.72$",
+       "$1.000627<B'(0)<1.000637$"
+      ],
+      [
+       "$2.718$",
+       "$0.999891<B'(0)<0.999901$",
+       "$2.8$",
+       "$1.029614<B'(0)<1.029625$"
+      ],
+      [
+       "$2.7182$",
+       "$0.999965<B'(0)<0.999975$",
+       "$3$",
+       "$1.098606<B'(0)<1.098618$"
+      ]
+     ],
+     "header": [
+      "$b$",
+      "$\\frac{b^{-0.00001}-1}{-0.00001}<B'(0)<\\frac{b^{0.00001}-1}{0.00001}$",
+      "$b$",
+      "$\\frac{b^{-0.00001}-1}{-0.00001}<B'(0)<\\frac{b^{0.00001}-1}{0.00001}$"
+     ],
+     "caption": "**Table 3.5** Estimating a Value of $e$"
+    },
+    {
+     "type": "p",
+     "text": "The evidence from the table suggests that $2.7182<e<2.7183.$"
+    },
+    {
+     "type": "p",
+     "text": "The graph of $E(x)=e^{x}$ together with the line $y=x+1$ are shown in Figure 3.33. This line is tangent to the graph of $E(x)=e^{x}$ at $x=0.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_09_002.webp",
+     "alt": "Graph of the function ex along with its tangent at (0, 1), x + 1.",
+     "caption": "**Figure 3.33** The tangent line to $E(x)=e^{x}$ at $x=0$ has slope 1.",
+     "width": 487,
+     "height": 248
+    }
+   ],
+   "title": "Derivative of the Exponential Function (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we have laid out our basic assumptions, we begin our investigation by exploring the derivative of $B(x)=b^{x},b>0.$ Recall that we have assumed that $B'(0)$ exists. By applying the limit definition to the derivative we conclude that"
+    },
+    {
+     "type": "math",
+     "tex": "B'(0)=\\lim_{h\\to 0}\\frac{b^{0+h}-b^{0}}{h}=\\lim_{h\\to 0}\\frac{b^{h}-1}{h}."
+    },
+    {
+     "type": "p",
+     "text": "Turning to $B'(x),$ we obtain the following."
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccccc}B'(x) & =\\lim_{h\\to 0}\\frac{b^{x+h}-b^{x}}{h} & & & \\text{Apply the limit definition of the derivative.} \\\\ & =\\lim_{h\\to 0}\\frac{b^{x}b^{h}-b^{x}}{h} & & & \\text{Note that}\\,b^{x+h}=b^{x}b^{h}. \\\\ & =\\lim_{h\\to 0}\\frac{b^{x}(b^{h}-1)}{h} & & & \\text{Factor out}\\,b^{x}. \\\\ & =b^{x}\\lim_{h\\to 0}\\frac{b^{h}-1}{h} & & & \\text{Apply a property of limits.} \\\\ & =b^{x}B'(0) & & & \\text{Use}\\,B'(0)=\\lim_{h\\to 0}\\frac{b^{0+h}-b^{0}}{h}=\\lim_{h\\to 0}\\frac{b^{h}-1}{h}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "We see that on the basis of the assumption that $B(x)=b^{x}$ is differentiable at $0,B(x)$ is not only differentiable everywhere, but its derivative is"
+    },
+    {
+     "type": "math",
+     "tex": "B'(x)=b^{x}B'(0)."
+    },
+    {
+     "type": "p",
+     "text": "For $E(x)=e^{x},E'(0)=1.$ Thus, we have $E'(x)=e^{x}.$ (The value of $B'(0)$ for an arbitrary function of the form $B(x)=b^{x},b>0,$ will be derived later.)"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $E(x)=e^{x}$ be the natural exponential function. Then"
+      },
+      {
+       "type": "math",
+       "tex": "E'(x)=e^{x}."
+      },
+      {
+       "type": "p",
+       "text": "In general,"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}(e^{g(x)})=e^{g(x)}g'(x)."
+      }
+     ],
+     "title": "Derivative of the Natural Exponential Function"
+    }
+   ],
+   "title": "Derivative of the Exponential Function (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 3.74",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=e^{\\tan (2x)}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using the derivative formula and the chain rule,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}f'(x) & =e^{\\tan \\,(2x)}\\frac{d}{dx}(\\tan \\,(2x)) \\\\ & =e^{\\tan (2x)}\\sec^{2}(2x)\\cdot 2.\\end{array}"
+     }
+    ]
+   },
+   "title": "Derivative of an Exponential Function"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 3.75",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $y=\\frac{e^{x^{2}}}{x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use the derivative of the natural exponential function, the quotient rule, and the chain rule."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccc}y' & =\\frac{(e^{x^{2}}\\cdot 2)x\\cdot x-1\\cdot e^{x^{2}}}{x^{2}} & & & \\text{Apply the quotient rule.} \\\\ & =\\frac{e^{x^{2}}(2x^{2}-1)}{x^{2}} & & & \\text{Simplify.}\\end{array}"
+     }
+    ]
+   },
+   "title": "Combining Differentiation Rules"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $h(x)=xe^{2x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(x)=e^{2x}+2xe^{2x}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Don’t forget to use the product rule."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^(2 x)+2 x e^(2 x)"
+   }
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 3.76",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A colony of mosquitoes has an initial population of 1000. After $t$ days, the population is given by $A(t)=1000e^{0.3t}.$ Show that the ratio of the rate of change of the population, $A'(t),$ to the population, $A(t)$ is constant."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First find $A'(t).$ By using the chain rule, we have $A'(t)=300e^{0.3t}.$ Thus, the ratio of the rate of change of the population to the population is given by"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{A'(t)}{A(t)}=\\frac{300e^{0.3t}}{1000e^{0.3t}}=0.3."
+     },
+     {
+      "type": "p",
+      "text": "The ratio of the rate of change of the population to the population is the constant 0.3."
+     }
+    ]
+   },
+   "title": "Applying the Natural Exponential Function"
+  },
+  {
+   "id": "c10",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "If $A(t)=1000e^{0.3t}$ describes the mosquito population after $t$ days, as in the preceding example, what is the rate of change of $A(t)$ after 4 days?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "996"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find $A'(4).$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "996"
+   }
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we have the derivative of the natural exponential function, we can use implicit differentiation to find the derivative of its inverse, the natural logarithmic function."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $x>0$ and $y=\\ln \\,x,$ then"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{dy}{dx}=\\frac{1}{x}."
+      },
+      {
+       "type": "p",
+       "text": "More generally, let $g(x)$ be a differentiable function. For all values of $x$ for which $g(x)>0,$ the derivative of $h(x)=\\ln \\,(g(x))$ is given by"
+      },
+      {
+       "type": "math",
+       "tex": "h'(x)=\\frac{1}{g(x)}g'(x)."
+      }
+     ],
+     "title": "The Derivative of the Natural Logarithmic Function"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of The Derivative of the Natural Logarithmic Function is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Derivative of the Logarithmic Function"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If $y=\\log_{b}x,$ then $b^{y}=x.$ It follows that $\\ln \\,(b^{y})=\\ln \\,x.$ Thus $y\\,\\ln \\,b=\\ln \\,x.$ Solving for $y,$ we have $y=\\frac{\\ln \\,x}{\\ln \\,b}.$ Differentiating and keeping in mind that $\\ln \\,b$ is a constant, we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=\\frac{1}{x\\,\\ln \\,b}."
+    },
+    {
+     "type": "p",
+     "text": "The derivative in (see above) now follows from the chain rule."
+    },
+    {
+     "type": "p",
+     "text": "If $y=b^{x},$ then $\\ln \\,y=x\\,\\ln \\,b.$ Using implicit differentiation, again keeping in mind that $\\ln \\,b$ is constant, it follows that $\\frac{1}{y}\\,\\frac{dy}{dx}=\\ln \\,b.$ Solving for $\\frac{dy}{dx}$ and substituting $y=b^{x},$ we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=y\\,\\ln \\,b=b^{x}\\ln \\,b."
+    },
+    {
+     "type": "p",
+     "text": "The more general derivative ((see above)) follows from the chain rule."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    }
+   ],
+   "title": "Proof"
+  },
+  {
+   "id": "x13",
+   "kind": "example",
+   "label": "Example 3.79",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $h(x)=\\frac{3^{x}}{3^{x}+2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use the quotient rule and (see above)."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccc}h'(x) & =\\frac{3^{x}\\,\\ln \\,3(3^{x}+2)-3^{x}\\,\\ln \\,3(3^{x})}{(3^{x}+2)^{2}} & & & \\text{Apply the quotient rule.} \\\\ & =\\frac{2\\cdot 3^{x}\\,\\ln \\,3}{(3^{x}+2)^{2}} & & & \\text{Simplify.}\\end{array}"
+     }
+    ]
+   },
+   "title": "Applying Derivative Formulas"
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 3.80",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the slope of the line tangent to the graph of $y=\\log_{2}(3x+1)$ at $x=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To find the slope, we must evaluate $\\frac{dy}{dx}$ at $x=1.$ Using (see above), we see that"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{dy}{dx}=\\frac{3}{(3x+1)\\,\\ln \\,2}."
+     },
+     {
+      "type": "p",
+      "text": "By evaluating the derivative at $x=1,$ we see that the tangent line has slope"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{dy}{dx}|\\begin{array}{l} \\\\ {}_{x=1}\\end{array}=\\frac{3}{4\\,\\ln \\,2}=\\frac{3}{\\,\\ln \\,16}."
+     }
+    ]
+   },
+   "title": "Finding the Slope of a Tangent Line"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.53",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the slope for the line tangent to $y=3^{x}$ at $x=2.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$9\\,\\ln \\,(3)$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Evaluate the derivative at $x=2.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "9 ln (3)"
+   }
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "At this point, we can take derivatives of functions of the form $y=(g(x))^{n}$ for certain values of $n,$ as well as functions of the form $y=b^{g(x)},$ where $b>0$ and $b\\ne 1.$ Unfortunately, we still do not know the derivatives of functions such as $y=x^{x}$ or $y=x^{\\pi}.$ These functions require a technique called **logarithmic differentiation**, which allows us to differentiate any function of the form $h(x)=g(x)^{f(x)}.$ It can also be used to convert a very complex differentiation problem into a simpler one, such as finding the derivative of $y=\\frac{x\\sqrt{2x+1}}{e^{x}\\sin^{3}x}.$ We outline this technique in the following problem-solving strategy."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "To differentiate $y=h(x)$ using logarithmic differentiation, take the natural logarithm of both sides of the equation to obtain $\\ln \\,y=\\ln \\,(h(x)).$",
+        "Use properties of logarithms to expand $\\ln \\,(h(x))$ as much as possible.",
+        "Differentiate both sides of the equation. On the left we will have $\\frac{1}{y}\\,\\frac{dy}{dx}.$",
+        "Multiply both sides of the equation by $y$ to solve for $\\frac{dy}{dx}.$",
+        "Replace $y$ by $h(x).$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Using Logarithmic Differentiation"
+    }
+   ],
+   "title": "Logarithmic Differentiation"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 3.81",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $y=(2x^{4}+1)^{\\tan \\,x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use logarithmic differentiation to find this derivative."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccccc}\\ln \\,y & = & \\ln (2x^{4}+1)^{\\tan \\,x} & & & \\text{Step 1. Take the natural logarithm of both sides.} \\\\ \\ln \\,y & = & \\tan \\,x\\,\\ln \\,(2x^{4}+1) & & & \\text{Step 2. Expand using properties of logarithms.} \\\\ \\frac{1}{y}\\,\\frac{dy}{dx} & = & \\sec^{2}x\\,\\ln \\,(2x^{4}+1)+\\frac{8x^{3}}{2x^{4}+1}\\cdot \\tan \\,x & & & \\begin{array}{c}\\text{Step 3. Differentiate both sides. Use the} \\\\ \\text{product rule on the right.}\\end{array} \\\\ \\frac{dy}{dx} & = & y\\cdot \\left(\\sec^{2}x\\,\\ln \\,(2x^{4}+1)+\\frac{8x^{3}}{2x^{4}+1}\\cdot \\tan \\,x\\right) & & & \\text{Step 4. Multiply by}\\,y\\,\\text{on both sides.} \\\\ \\frac{dy}{dx} & = & (2x^{4}+1)^{\\tan \\,x}\\left(\\sec^{2}x\\,\\ln \\,(2x^{4}+1)+\\frac{8x^{3}}{2x^{4}+1}\\cdot \\tan \\,x\\right) & & & \\text{Step 5. Substitute}\\,y=(2x^{4}+1)^{\\tan \\,x}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Using Logarithmic Differentiation"
+  },
+  {
+   "id": "x18",
+   "kind": "example",
+   "label": "Example 3.82",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $y=\\frac{x\\sqrt{2x+1}}{e^{x}\\sin^{3}x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This problem really makes use of the properties of logarithms and the differentiation rules given in this chapter."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccccc}\\ln \\,y & = & \\ln \\,\\frac{x\\sqrt{2x+1}}{e^{x}\\sin^{3}x} & & & \\text{Step 1. Take the natural logarithm of both sides.} \\\\ \\ln \\,y & = & \\ln \\,x+\\frac{1}{2}\\,\\ln \\,(2x+1)-x\\,\\ln \\,e-3\\,\\ln \\,\\sin \\,x & & & \\text{Step 2. Expand using properties of logarithms.} \\\\ \\frac{1}{y}\\,\\frac{dy}{dx} & = & \\frac{1}{x}+\\frac{1}{2x+1}-1-3\\frac{\\cos \\,x}{\\sin \\,x} & & & \\text{Step 3. Differentiate both sides.} \\\\ \\frac{dy}{dx} & = & y\\left(\\frac{1}{x}+\\frac{1}{2x+1}-1-3\\,\\cot \\,x\\right) & & & \\text{Step 4. Multiply by}\\,y\\,\\text{on both sides.} \\\\ \\frac{dy}{dx} & = & \\frac{x\\sqrt{2x+1}}{e^{x}\\sin^{3}x}\\left(\\frac{1}{x}+\\frac{1}{2x+1}-1-3\\,\\cot \\,x\\right) & & & \\text{Step 5. Substitute}\\,y=\\frac{x\\sqrt{2x+1}}{e^{x}\\sin^{3}x}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Using Logarithmic Differentiation"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 3.83",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $y=x^{r}$ where $r$ is an arbitrary real number."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The process is the same as in Example 3.82, though with fewer complications."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccccc}\\ln \\,y & = & \\ln x^{r} & & & \\text{Step 1. Take the natural logarithm of both sides.} \\\\ \\ln \\,y & = & r\\,\\ln \\,x & & & \\text{Step 2. Expand using properties of logarithms.} \\\\ \\frac{1}{y}\\,\\frac{dy}{dx} & = & r\\frac{1}{x} & & & \\text{Step 3. Differentiate both sides.} \\\\ \\frac{dy}{dx} & = & y\\frac{r}{x} & & & \\text{Step 4. Multiply by}\\,y\\,\\text{on both sides.} \\\\ \\frac{dy}{dx} & = & x^{r}\\frac{r}{x} & & & \\text{Step 5. Substitute}\\,y=x^{r}. \\\\ \\frac{dy}{dx} & = & rx^{r-1} & & & \\text{Simplify.}\\end{array}"
+     }
+    ]
+   },
+   "title": "Extending the Power Rule"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.54",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use logarithmic differentiation to find the derivative of $y=x^{x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=x^{x}(1+\\ln \\,x)$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the problem solving strategy."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x^x(1+ ln x)"
+   }
+  },
+  {
+   "id": "c21",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.55",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $y=(\\tan \\,x)^{\\pi}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=\\pi (\\tan \\,x)^{\\pi -1}\\sec^{2}x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the result from Example 3.83."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "pi (tan x)^(pi -1) sec^2 x"
+   }
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "On the basis of the assumption that the exponential function $y=b^{x},b>0$ is continuous everywhere and differentiable at 0, this function is differentiable everywhere and there is a formula for its derivative.",
+      "We can use a formula to find the derivative of $y=\\ln \\,x,$ and the relationship $\\log_{b}x=\\frac{\\ln \\,x}{\\ln \\,b}$ allows us to extend our differentiation formulas to include logarithms with arbitrary bases.",
+      "Logarithmic differentiation allows us to differentiate functions of the form $y=g(x)^{f(x)}$ or very complex functions by taking the natural logarithm of both sides and exploiting the properties of logarithms before differentiating."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Derivative of the natural exponential function**",
+       "$\\frac{d}{dx}(e^{g(x)})=e^{g(x)}g'(x)$"
+      ],
+      [
+       "**Derivative of the natural logarithmic function**",
+       "$\\frac{d}{dx}(\\ln \\,g(x))=\\frac{1}{g(x)}g'(x)$"
+      ],
+      [
+       "**Derivative of the general exponential function**",
+       "$\\frac{d}{dx}(b^{g(x)})=b^{g(x)}g'(x)\\,\\ln \\,b$"
+      ],
+      [
+       "**Derivative of the general logarithmic function**",
+       "$\\frac{d}{dx}(\\log_{b}g(x))=\\frac{g'(x)}{g(x)\\,\\ln \\,b}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e331",
+   "number": 331,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}e^{x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738235136",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2xe^{x}+x^{2}e^{x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 x e^x+x^2 e^x"
+   }
+  },
+  {
+   "id": "e332",
+   "number": 332,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{e^{-x}}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738235199",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e333",
+   "number": 333,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=e^{x^{3}\\ln \\,x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738085451",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{x^{3}\\ln \\,x}(3x^{2}\\ln \\,x+x^{2})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^(x^3 ln x)(3 x^2 ln x+x^2)"
+   }
+  },
+  {
+   "id": "e334",
+   "number": 334,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{e^{2x}+2x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738085543",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e335",
+   "number": 335,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738240382",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{4}{(e^{x}+e^{-x})^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(4/((e^x+e^(-x))^2))"
+   }
+  },
+  {
+   "id": "e336",
+   "number": 336,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{10^{x}}{\\ln \\,10}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738240478",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e337",
+   "number": 337,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2^{4x}+4x^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738071335",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2^{4x+2}\\cdot \\ln \\,2+8x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2^(4 x+2)* ln 2+8 x"
+   }
+  },
+  {
+   "id": "e338",
+   "number": 338,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=3^{\\sin \\,3\\text{x}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738071412",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e339",
+   "number": 339,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{\\pi}\\cdot \\pi^{x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738039846",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\pi x^{\\pi -1}\\cdot \\pi^{x}+x^{\\pi}\\cdot \\pi^{x}\\ln \\,\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "pi x^(pi -1)*pi^x+x^pi*pi^x ln pi"
+   }
+  },
+  {
+   "id": "e340",
+   "number": 340,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\ln \\,(4x^{3}+x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738039931",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e341",
+   "number": 341,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\ln \\sqrt{5x-7}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737904496",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{5}{2(5x-7)}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(5/(2(5 x-7)))"
+   }
+  },
+  {
+   "id": "e342",
+   "number": 342,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}\\ln \\,9x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737904560",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e343",
+   "number": 343,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\log \\,(\\sec \\,x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737904626",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\tan \\,x}{\\ln \\,10}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((tan x)/(ln 10))"
+   }
+  },
+  {
+   "id": "e344",
+   "number": 344,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\log_{7}(6x^{4}+3)^{5}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738054394",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e345",
+   "number": 345,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=2^{x}\\cdot \\log_{3}7^{x^{2}-4}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738054489",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $f'(x)$ for each function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2^{x}\\cdot \\ln \\,2\\cdot \\log_{3}7^{x^{2}-4}+2^{x}\\cdot \\frac{2x\\,\\ln \\,7}{\\ln \\,3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2^x* ln 2* log_3 7^(x^2-4)+2^x*((2 x ln 7)/(ln 3))"
+   }
+  },
+  {
+   "id": "e346",
+   "number": 346,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{\\sqrt{x}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738199906",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e347",
+   "number": 347,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=(\\sin \\,2x)^{4x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738199977",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(\\sin \\,2x)^{4x}[4\\cdot \\ln \\,(\\sin \\,2x)+8x\\cdot \\cot \\,2x]$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(sin 2 x)^(4 x)[4* ln (sin 2 x)+8 x* cot 2 x]"
+   }
+  },
+  {
+   "id": "e348",
+   "number": 348,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=(\\ln \\,x)^{\\ln \\,x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738092208",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e349",
+   "number": 349,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{\\log_{2}x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738092313",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^{\\log_{2}x}\\cdot \\frac{2\\,\\ln \\,x}{x\\,\\ln \\,2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x^(log_2 x)*((2 ln x)/(x ln 2))"
+   }
+  },
+  {
+   "id": "e350",
+   "number": 350,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=(x^{2}-1)^{\\ln \\,x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738092392",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e351",
+   "number": 351,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{\\cot \\,x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738039194",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^{\\cot \\,x}\\cdot \\left[-\\csc^{2}x\\cdot \\ln \\,x+\\frac{\\cot \\,x}{x}\\right]$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x^(cot x)*[- csc^2 x* ln x+((cot x)/x)]"
+   }
+  },
+  {
+   "id": "e352",
+   "number": 352,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{x+11}{\\sqrt[3]{x^{2}-4}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738039285",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e353",
+   "number": 353,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{-1/2}(x^{2}+3)^{2/3}(3x-4)^{4}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738094022",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^{-1/2}(x^{2}+3)^{2/3}(3x-4)^{4}\\cdot \\left[\\frac{-1}{2x}+\\frac{4x}{3(x^{2}+3)}+\\frac{12}{3x-4}\\right]$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x^(-1/2)(x^2+3)^(2/3)(3 x-4)^4*[((-1)/(2 x))+((4 x)/(3(x^2+3)))+(12/(3 x-4))]"
+   }
+  },
+  {
+   "id": "e354",
+   "number": 354,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find an equation of the tangent line to the graph of $f(x)=4xe^{(x^{2}-1)}$ at the point where"
+    },
+    {
+     "type": "p",
+     "text": "$x=-1.$ Graph both the function and the tangent line."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738209953",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e355",
+   "number": 355,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find an equation of the line that is normal to the graph of $f(x)=x\\cdot 5^{x}$ at the point where $x=1.$ Graph both the function and the normal line."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738210057",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_03_09_202.webp",
+      "alt": "The function starts at (−3, 0), decreases slightly and then increases through the origin and increases to (1.25, 10). There is a straight line marked T(x) with slope −1/(5 + 5 ln 5) and y intercept 5 + 1/(5 + 5 ln 5).",
+      "width": 325,
+      "height": 283
+     },
+     {
+      "type": "p",
+      "text": "$y=\\frac{-1}{5+5\\,\\ln \\,5}x+\\left(5+\\frac{1}{5+5\\,\\ln \\,5}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e356",
+   "number": 356,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find an equation of the tangent line to the graph of $x^{3}-x\\,\\ln \\,y+y^{3}=2x+5$ at the point (2, 1). (*Hint*: Use implicit differentiation to find $\\frac{dy}{dx}.)$ Graph both the curve and the tangent line."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738080322",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e357",
+   "number": 357,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Consider the function $y=x^{1/x}$ for $x>0.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine the points on the graph where the tangent line is horizontal.",
+      "Determine the points on the graph where $y'>0$ and those where $y'<0.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738094644",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x=e\\sim 2.718$ b. $y'>0\\text{on}(0,e);y'<0\\text{on}(e,\\infty )$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e358",
+   "number": 358,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The formula $I(t)=\\frac{\\sin \\,t}{e^{t}}$ is the formula for a decaying alternating current."
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "Complete the following table with the appropriate values."
+       },
+       {
+        "type": "table",
+        "rows": [
+         [
+          "0",
+          "(i)"
+         ],
+         [
+          "$\\frac{\\pi}{2}$",
+          "(ii)"
+         ],
+         [
+          "$\\pi$",
+          "(iii)"
+         ],
+         [
+          "$\\frac{3\\pi}{2}$",
+          "(iv)"
+         ],
+         [
+          "$2\\pi$",
+          "(v)"
+         ],
+         [
+          "$\\frac{5\\pi}{2}$",
+          "(vi)"
+         ],
+         [
+          "$3\\pi$",
+          "(vii)"
+         ],
+         [
+          "$\\frac{7\\pi}{2}$",
+          "(viii)"
+         ],
+         [
+          "$4\\pi$",
+          "(ix)"
+         ]
+        ],
+        "header": [
+         "$t$",
+         "$\\frac{\\sin \\,t}{e^{t}}$"
+        ]
+       }
+      ],
+      "Using only the values in the table, determine where the tangent line to the graph of $I(t)$ is horizontal."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738094772",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e359",
+   "number": 359,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The population of Toledo, Ohio, in 2000 was approximately 500,000. Assume the population is increasing at a rate of 5% per year."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the exponential function that relates the total population as a function of $t.$",
+      "Use a. to determine the rate at which the population is increasing in $t$ years.",
+      "Use b. to determine the rate at which the population is increasing in 10 years."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738229480",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $P=500,000(1.05)^{t}$ individuals b. $P'(t)=24395\\cdot (1.05)^{t}$ individuals per year c. $39,737$ individuals per year"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e360",
+   "number": 360,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** An isotope of the element erbium has a half-life of approximately 12 hours. Initially there are 9 grams of the isotope present."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the exponential function that relates the amount of substance remaining as a function of $t,$ measured in hours.",
+      "Use a. to determine the rate at which the substance is decaying in $t$ hours.",
+      "Use b. to determine the rate of decay at $t=4$ hours."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738229590",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e361",
+   "number": 361,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The number of cases of influenza in New York City from the beginning of 1960 to the beginning of 1964 is modeled by the function"
+    },
+    {
+     "type": "p",
+     "text": "$N(t)=5.3e^{0.093t^{2}-0.87t},(0\\le t\\le 4),$\nwhere $N(t)$ gives the number of cases (in thousands) and *t* is measured in years, with $t=0$ corresponding to the beginning of 1960."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Show work that evaluates $N(0)$ and $N(4).$ Briefly describe what these values indicate about the disease in New York City.",
+      "Show work that evaluates $N'(0)$ and $N'(3).$ Briefly describe what these values indicate about the disease in New York City."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738220789",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. At the beginning of 1960 there were 5.3 thousand cases of the disease in New York City. At the beginning of 1964 there were approximately 723 cases of the disease in the United States. b. At the beginning of 1960 the number of cases of the disease was decreasing at rate of $-4.611$ thousand per year; at the beginning of 1963, the number of cases of the disease was decreasing at a rate of $-0.2808$ thousand per year."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e362",
+   "number": 362,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The *relative rate of change* of a differentiable function $y=f(x)$ is given by $\\frac{100\\cdot f'(x)}{f(x)}\\text{\\%}.$ One model for population growth is a Gompertz growth function, given by $P(x)=ae^{-b\\cdot e^{-cx}}$ where $a,b,$ and $c$ are constants."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the relative rate of change formula for the generic Gompertz function.",
+      "Use a. to find the relative rate of change of a population in $x=20$ months when $a=204,b=0.0198,$ and $c=0.15.$",
+      "Briefly interpret what the result of b. means."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737922901",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e363",
+   "number": 363,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Using a computer program or a calculator, fit a growth curve to the data of the form $p=ab^{t}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738066609",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the population of New York City from 1790 to 1860, given in the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0",
+       "33,131"
+      ],
+      [
+       "10",
+       "60,515"
+      ],
+      [
+       "20",
+       "96,373"
+      ],
+      [
+       "30",
+       "123,706"
+      ],
+      [
+       "40",
+       "202,300"
+      ],
+      [
+       "50",
+       "312,710"
+      ],
+      [
+       "60",
+       "515,547"
+      ],
+      [
+       "70",
+       "813,669"
+      ]
+     ],
+     "header": [
+      "Years since 1790",
+      "Population"
+     ],
+     "caption": "New York City Population Over Time Source: http://en.wikipedia.org/wiki/Largest_cities_in_the_United_States\n_by_population_by_decade."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$p=35741(1.045)^{t}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "p=35741(1.045)^t"
+   }
+  },
+  {
+   "id": "e364",
+   "number": 364,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Using the exponential best fit for the data, write a table containing the derivatives evaluated at each year."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738066665",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the population of New York City from 1790 to 1860, given in the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0",
+       "33,131"
+      ],
+      [
+       "10",
+       "60,515"
+      ],
+      [
+       "20",
+       "96,373"
+      ],
+      [
+       "30",
+       "123,706"
+      ],
+      [
+       "40",
+       "202,300"
+      ],
+      [
+       "50",
+       "312,710"
+      ],
+      [
+       "60",
+       "515,547"
+      ],
+      [
+       "70",
+       "813,669"
+      ]
+     ],
+     "header": [
+      "Years since 1790",
+      "Population"
+     ],
+     "caption": "New York City Population Over Time Source: http://en.wikipedia.org/wiki/Largest_cities_in_the_United_States\n_by_population_by_decade."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e365",
+   "number": 365,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Using the exponential best fit for the data, write a table containing the second derivatives evaluated at each year."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738071156",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the population of New York City from 1790 to 1860, given in the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0",
+       "33,131"
+      ],
+      [
+       "10",
+       "60,515"
+      ],
+      [
+       "20",
+       "96,373"
+      ],
+      [
+       "30",
+       "123,706"
+      ],
+      [
+       "40",
+       "202,300"
+      ],
+      [
+       "50",
+       "312,710"
+      ],
+      [
+       "60",
+       "515,547"
+      ],
+      [
+       "70",
+       "813,669"
+      ]
+     ],
+     "header": [
+      "Years since 1790",
+      "Population"
+     ],
+     "caption": "New York City Population Over Time Source: http://en.wikipedia.org/wiki/Largest_cities_in_the_United_States\n_by_population_by_decade."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "table",
+      "rows": [
+       [
+        "0",
+        "69.25"
+       ],
+       [
+        "10",
+        "107.5"
+       ],
+       [
+        "20",
+        "167.0"
+       ],
+       [
+        "30",
+        "259.4"
+       ],
+       [
+        "40",
+        "402.8"
+       ],
+       [
+        "50",
+        "625.5"
+       ],
+       [
+        "60",
+        "971.4"
+       ],
+       [
+        "70",
+        "1508.5"
+       ]
+      ],
+      "header": [
+       "Years since 1790",
+       "$P''$"
+      ]
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e366",
+   "number": 366,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Using the tables of first and second derivatives and the best fit, answer the following questions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Will the model be accurate in predicting the future population of New York City? Why or why not?",
+      "Estimate the population in 2010. Was the prediction correct from a.?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738040664",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the population of New York City from 1790 to 1860, given in the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0",
+       "33,131"
+      ],
+      [
+       "10",
+       "60,515"
+      ],
+      [
+       "20",
+       "96,373"
+      ],
+      [
+       "30",
+       "123,706"
+      ],
+      [
+       "40",
+       "202,300"
+      ],
+      [
+       "50",
+       "312,710"
+      ],
+      [
+       "60",
+       "515,547"
+      ],
+      [
+       "70",
+       "813,669"
+      ]
+     ],
+     "header": [
+      "Years since 1790",
+      "Population"
+     ],
+     "caption": "New York City Population Over Time Source: http://en.wikipedia.org/wiki/Largest_cities_in_the_United_States\n_by_population_by_decade."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e367",
+   "number": 367,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Every function has a derivative."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738040717",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify the answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e368",
+   "number": 368,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A continuous function has a continuous derivative."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738040733",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify the answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e369",
+   "number": 369,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A continuous function has a derivative."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738040749",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify the answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e370",
+   "number": 370,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If a function is differentiable, it is continuous."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738040765",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False*? Justify the answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e371",
+   "number": 371,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{x+4}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738040784",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit definition of the derivative to exactly evaluate the derivative."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2\\sqrt{x+4}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/(2 sqrt(x+4)))"
+   }
+  },
+  {
+   "id": "e372",
+   "number": 372,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{3}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738230342",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the limit definition of the derivative to exactly evaluate the derivative."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e373",
+   "number": 373,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=3x^{3}-\\frac{4}{x^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738230392",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivatives of the following functions."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$9x^{2}+\\frac{8}{x^{3}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "9 x^2+(8/(x^3))"
+   }
+  },
+  {
+   "id": "e374",
+   "number": 374,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=(4-x^{2})^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738230460",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivatives of the following functions."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e375",
+   "number": 375,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=e^{\\sin \\,x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738230535",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivatives of the following functions."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{\\sin \\,x}\\cos \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^(sin x) cos x"
+   }
+  },
+  {
+   "id": "e376",
+   "number": 376,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\ln \\,(x+2)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738191916",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivatives of the following functions."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e377",
+   "number": 377,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}\\cos \\,x+x\\,\\tan \\,(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738191971",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivatives of the following functions."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x\\,\\sec^{2}(x)+2x\\,\\cos \\,(x)+\\tan \\,(x)-x^{2}\\sin \\,(x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x sec^2 (x)+2 x cos (x)+ tan (x)-x^2 sin (x)"
+   }
+  },
+  {
+   "id": "e378",
+   "number": 378,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{3x^{2}+2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738192095",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivatives of the following functions."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e379",
+   "number": 379,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{x}{4}\\,\\sin^{-1}(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738082288",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivatives of the following functions."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}\\left(\\frac{x}{\\sqrt{1-x^{2}}}+\\sin^{-1}(x)\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/4)((x/(sqrt(1-x^2)))+ sin^(-1) (x))"
+   }
+  },
+  {
+   "id": "e380",
+   "number": 380,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}y=(y+2)+xy\\,\\sin \\,(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738082383",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivatives of the following functions."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e381",
+   "number": 381,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "First derivative of $y=x\\,\\ln \\,(x)\\,\\cos \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738239323",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the following derivatives of various orders."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cos \\,x\\cdot (\\ln \\,x+1)-x\\,\\ln \\,(x)\\,\\sin \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "cos x*(ln x+1)-x ln (x) sin x"
+   }
+  },
+  {
+   "id": "e382",
+   "number": 382,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Third derivative of $y=(3x+2)^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738239420",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the following derivatives of various orders."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e383",
+   "number": 383,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Second derivative of $y=4^{x}+x^{2}\\sin \\,(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738239462",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the following derivatives of various orders."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4^{x}(\\ln \\,4)^{2}+2\\,\\sin \\,x+4x\\,\\cos \\,x-x^{2}\\sin \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "4^x(ln 4)^2+2 sin x+4 x cos x-x^2 sin x"
+   }
+  },
+  {
+   "id": "e384",
+   "number": 384,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\cos^{-1}(x)+x$ at $x=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738226411",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find an equation of the tangent line to the following equations at the specified point."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e385",
+   "number": 385,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x+e^{x}-\\frac{1}{x}$ at $x=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738226472",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find an equation of the tangent line to the following equations at the specified point."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T=(2+e)x-2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "T=(2+e)x-2"
+   }
+  },
+  {
+   "id": "e386",
+   "number": 386,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_09_204.webp",
+     "alt": "The function begins at (−3, 0.5) and decreases to a local minimum at (−2.3, −2). Then the function increases through (−1.5, 0) and slows its increase through (0, 2). It then slowly increases to a local maximum at (2.3, 6) before decreasing to (3, 3).",
+     "width": 267,
+     "height": 196
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738226547",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Draw the derivative for the following graphs."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e387",
+   "number": 387,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_09_206.webp",
+     "alt": "The function decreases linearly from (−1, 4) to the origin, at which point it increases as x2, passing through (1, 1) and (2, 4).",
+     "width": 192,
+     "height": 272
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738226588",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Draw the derivative for the following graphs."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_03_09_207.webp",
+      "alt": "The function is the straight line y = −4 until x = 0, at which point it becomes a straight line starting at the origin with slope 2. There is no value assigned for this function at x = 0.",
+      "width": 192,
+      "height": 197
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e388",
+   "number": 388,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find and graph the derivative. What is the physical meaning?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738138040",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following questions concern the water level in Ocean City, New Jersey, in January, which can be approximated by $w(t)=1.9+2.9\\,\\cos \\,\\left(\\frac{\\pi}{6}t\\right),$ where *t* is measured in hours after midnight, and the height is measured in feet."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e389",
+   "number": 389,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find $w'(3).$ What is the physical meaning of this value?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738138102",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following questions concern the water level in Ocean City, New Jersey, in January, which can be approximated by $w(t)=1.9+2.9\\,\\cos \\,\\left(\\frac{\\pi}{6}t\\right),$ where *t* is measured in hours after midnight, and the height is measured in feet."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$w'(3)=-\\frac{2.9\\pi}{6}.$ At 3 a.m. the tide is decreasing at a rate of 1.518 ft/hr."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e390",
+   "number": 390,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Using the table, estimate the derivative of the wind speed at hour 39. What is the physical meaning?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738074859",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following questions consider the wind speeds of Hurricane Katrina, which affected New Orleans, Louisiana, in August 2005. The data are displayed in a table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1",
+       "45"
+      ],
+      [
+       "5",
+       "75"
+      ],
+      [
+       "11",
+       "100"
+      ],
+      [
+       "29",
+       "115"
+      ],
+      [
+       "49",
+       "145"
+      ],
+      [
+       "58",
+       "175"
+      ],
+      [
+       "73",
+       "155"
+      ],
+      [
+       "81",
+       "125"
+      ],
+      [
+       "85",
+       "95"
+      ],
+      [
+       "107",
+       "35"
+      ]
+     ],
+     "header": [
+      "Hours after Midnight, August 26",
+      "Wind Speed (mph)"
+     ],
+     "caption": "Wind Speeds of Hurricane Katrina Source: http://news.nationalgeographic.com/news/2005/09/0914_050914_katrina_timeline.html."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e391",
+   "number": 391,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Estimate the derivative of the wind speed at hour 83. What is the physical meaning?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738074887",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following questions consider the wind speeds of Hurricane Katrina, which affected New Orleans, Louisiana, in August 2005. The data are displayed in a table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1",
+       "45"
+      ],
+      [
+       "5",
+       "75"
+      ],
+      [
+       "11",
+       "100"
+      ],
+      [
+       "29",
+       "115"
+      ],
+      [
+       "49",
+       "145"
+      ],
+      [
+       "58",
+       "175"
+      ],
+      [
+       "73",
+       "155"
+      ],
+      [
+       "81",
+       "125"
+      ],
+      [
+       "85",
+       "95"
+      ],
+      [
+       "107",
+       "35"
+      ]
+     ],
+     "header": [
+      "Hours after Midnight, August 26",
+      "Wind Speed (mph)"
+     ],
+     "caption": "Wind Speeds of Hurricane Katrina Source: http://news.nationalgeographic.com/news/2005/09/0914_050914_katrina_timeline.html."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-7.5.$ The wind speed is decreasing at a rate of 7.5 mph/hr"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "The Derivative of the Natural Logarithmic Function",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If $x>0$ and $y=\\ln \\,x,$ then"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=\\frac{1}{x}."
+    },
+    {
+     "type": "p",
+     "text": "More generally, let $g(x)$ be a differentiable function. For all values of $x$ for which $g(x)>0,$ the derivative of $h(x)=\\ln \\,(g(x))$ is given by"
+    },
+    {
+     "type": "math",
+     "tex": "h'(x)=\\frac{1}{g(x)}g'(x)."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "If $x>0$ and $y=\\ln \\,x,$ then $e^{y}=x.$ Differentiating both sides of this equation results in the equation"
+    },
+    {
+     "type": "math",
+     "tex": "e^{y}\\frac{dy}{dx}=1."
+    },
+    {
+     "type": "p",
+     "text": "Solving for $\\frac{dy}{dx}$ yields"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=\\frac{1}{e^{y}}."
+    },
+    {
+     "type": "p",
+     "text": "Finally, we substitute $x=e^{y}$ to obtain"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=\\frac{1}{x}."
+    },
+    {
+     "type": "p",
+     "text": "We may also derive this result by applying the inverse function theorem, as follows. Since $y=g(x)=\\ln \\,x$ is the inverse of $f(x)=e^{x},$ by applying the inverse function theorem we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=\\frac{1}{f'(g(x))}=\\frac{1}{e^{\\ln \\,x}}=\\frac{1}{x}."
+    },
+    {
+     "type": "p",
+     "text": "Using this result and applying the chain rule to $h(x)=\\ln \\,(g(x))$ yields"
+    },
+    {
+     "type": "math",
+     "tex": "h'(x)=\\frac{1}{g(x)}g'(x)."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "The graph of $y=\\ln \\,x$ and its derivative $\\frac{dy}{dx}=\\frac{1}{x}$ are shown in Figure 3.34."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_09_003.webp",
+     "alt": "Graph of the function ln x along with its derivative 1/x. The function ln x is increasing on (0, + ∞). Its derivative is decreasing but greater than 0 on (0, + ∞).",
+     "caption": "**Figure 3.34** $\\text{The function}\\,y=\\ln \\,x$ is increasing on $(0,+\\infty ).$ Its derivative $y'=\\frac{1}{x}$ is greater than zero on $(0,+\\infty ).$",
+     "width": 487,
+     "height": 209
+    },
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=\\ln \\,(x^{3}+3x-4).$"
+    },
+    {
+     "type": "p",
+     "text": "Use (see above) directly."
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccccc}f'(x) & =\\frac{1}{x^{3}+3x-4}\\cdot (3x^{2}+3) & & & \\text{Use}\\,g(x)=x^{3}+3x-4\\,\\text{in}\\,h'(x)=\\frac{1}{g(x)}g'(x). \\\\ & =\\frac{3x^{2}+3}{x^{3}+3x-4} & & & \\text{Rewrite.}\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=\\ln \\,\\left(\\frac{x^{2}\\sin \\,x}{2x+1}\\right).$"
+    },
+    {
+     "type": "p",
+     "text": "At first glance, taking this derivative appears rather complicated. However, by using the properties of logarithms prior to finding the derivative, we can make the problem much simpler."
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cccccc}f(x) & = & \\ln \\,\\left(\\frac{x^{2}\\sin \\,x}{2x+1}\\right)=2\\,\\ln \\,x+\\ln \\,(\\sin \\,x)-\\ln \\,(2x+1) & & & \\text{Apply properties of logarithms.} \\\\ f'(x) & = & \\frac{2}{x}+\\cot \\,x-\\frac{2}{2x+1} & & & \\text{Apply sum rule and}\\,h'(x)=\\frac{1}{g(x)}g'(x).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Now that we can differentiate the natural logarithmic function, we can use this result to find the derivatives of $y=log_{b}x$ and $y=b^{x}$ for $b>0,b\\ne 1.$"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $b>0,b\\ne 1,$ and let $g(x)$ be a differentiable function."
+      },
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "p",
+          "text": "If, $y=\\log_{b}x,$ then"
+         },
+         {
+          "type": "math",
+          "tex": "\\frac{dy}{dx}=\\frac{1}{x\\,\\ln \\,b}."
+         },
+         {
+          "type": "p",
+          "text": "More generally, if $h(x)=\\log_{b}(g(x)),$ then for all values of *x* for which $g(x)>0,$"
+         },
+         {
+          "type": "math",
+          "tex": "h'(x)=\\frac{g'(x)}{g(x)\\,\\ln \\,b}."
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "If $y=b^{x},$ then"
+         },
+         {
+          "type": "math",
+          "tex": "\\frac{dy}{dx}=b^{x}\\ln \\,b."
+         },
+         {
+          "type": "p",
+          "text": "More generally, if $h(x)=b^{g(x)},$ then"
+         },
+         {
+          "type": "math",
+          "tex": "h'(x)=b^{g(x)}g'(x)\\,\\ln \\,b."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Derivatives of General Exponential and Logarithmic Functions"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "logarithmic differentiation",
+   "meaning": "is a technique that allows us to differentiate a function by first taking the natural logarithm of both sides of an equation, applying properties of logarithms to simplify the equation, and differentiating implicitly"
+  }
+ ]
+}

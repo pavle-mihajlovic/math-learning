@@ -1,0 +1,2943 @@
+{
+ "schema": 1,
+ "id": "V2.5.6",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 5,
+ "section": 6,
+ "title": "Ratio and Root Tests",
+ "chapterTitle": "Sequences and Series",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53747",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/5-6-ratio-and-root-tests",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §5.6 “Ratio and Root Tests”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Use the ratio test to determine absolute convergence of a series.",
+  "Use the root test to determine absolute convergence of a series.",
+  "Describe a strategy for testing the convergence of a given series."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section, we prove the last two series convergence tests: the ratio test and the root test. These tests are particularly nice because they do not require us to find a comparable series. The ratio test will be especially useful in the discussion of power series in the next chapter."
+    },
+    {
+     "type": "p",
+     "text": "Throughout this chapter, we have seen that no single convergence test works for all series. Therefore, at the end of this section we discuss a strategy for choosing which convergence test to use for a given series."
+    }
+   ],
+   "title": "Ratio and Root Tests"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider a series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}.$ From our earlier discussion and examples, we know that $\\lim_{n\\to \\infty}a_{n}=0$ is not a sufficient condition for the series to converge. Not only do we need $a_{n}\\to 0,$ but we need $a_{n}\\to 0$ quickly enough. For example, consider the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n$ and the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{2}.$ We know that $1/n\\to 0$ and $1/n^{2}\\to 0.$ However, only the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{2}$ converges. The series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n$ diverges because the terms in the sequence $\\{1/n\\}$ do not approach zero fast enough as $n\\to \\infty .$ Here we introduce the **ratio test**, which provides a way of measuring how fast the terms of a series approach zero."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $\\sum_{n=1}^{\\infty}a_{n}$ be a series with nonzero terms. Let"
+      },
+      {
+       "type": "math",
+       "tex": "\\rho =\\lim_{n\\to \\infty}\\left|\\frac{a_{n+1}}{a_{n}}\\right|."
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $0\\le \\rho <1,$ then $\\sum_{n=1}^{\\infty}a_{n}$ converges absolutely.",
+        "If $\\rho >1$ or $\\rho =\\infty ,$ then $\\sum_{n=1}^{\\infty}a_{n}$ diverges.",
+        "If $\\rho =1,$ the test does not provide any information."
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Ratio Test"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Ratio Test is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Ratio Test"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The approach of the **root test** is similar to that of the ratio test. Consider a series $\\sum_{n=1}^{\\infty}a_{n}$ such that $\\lim_{n\\to \\infty}\\sqrt[n]{|a_{n}|}=\\rho$ for some real number $\\rho .$ Then for $N$ sufficiently large, $|a_{N}|\\approx \\rho^{N}.$ Therefore, we can approximate ${\\displaystyle \\sum_{n=N}^{\\infty}|}a_{n}|$ by writing"
+    },
+    {
+     "type": "math",
+     "tex": "|a_{N}|+|a_{N+1}|+|a_{N+2}|+\\cdots \\approx \\rho^{N}+\\rho^{N+1}+\\rho^{N+2}+\\cdots ."
+    },
+    {
+     "type": "p",
+     "text": "The expression on the right-hand side is a geometric series. As in the ratio test, the series $\\sum_{n=1}^{\\infty}a_{n}$ converges absolutely if $0\\le \\rho <1$ and the series diverges if $\\rho \\ge 1.$ If $\\rho =1,$ the test does not provide any information. For example, for any *p*-series, ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n^{p},$ we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\rho =\\lim_{n\\to \\infty}\\sqrt[n]{\\left|\\frac{1}{n^{p}}\\right|}=\\lim_{n\\to \\infty}\\frac{1}{n^{p/n}}."
+    },
+    {
+     "type": "p",
+     "text": "To evaluate this limit, we use the natural logarithm function. Doing so, we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\ln \\,\\rho =\\ln \\left(\\lim_{n\\to \\infty}\\frac{1}{n^{p/n}}\\right)=\\lim_{n\\to \\infty}\\ln \\left(\\frac{1}{n}\\right)^{p/n}=\\lim_{n\\to \\infty}\\frac{p}{n}\\cdot \\ln \\left(\\frac{1}{n}\\right)=\\lim_{n\\to \\infty}\\frac{p\\,\\ln (1/n)}{n}."
+    },
+    {
+     "type": "p",
+     "text": "Using L’Hôpital’s rule, it follows that $\\ln \\,\\rho =0,$ and therefore $\\rho =1$ for all $p.$ However, we know that the *p*-series only converges if $p>1$ and diverges if $p<1.$"
+    }
+   ],
+   "title": "Root Test"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider the series $\\sum_{n=1}^{\\infty}a_{n}.$ Let"
+      },
+      {
+       "type": "math",
+       "tex": "\\rho =\\lim_{n\\to \\infty}\\sqrt[n]{|a_{n}|}."
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $0\\le \\rho <1,$ then $\\sum_{n=1}^{\\infty}a_{n}$ converges absolutely.",
+        "If $\\rho >1$ or $\\rho =\\infty ,$ then $\\sum_{n=1}^{\\infty}a_{n}$ diverges.",
+        "If $\\rho =1,$ the test does not provide any information."
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Root Test"
+    },
+    {
+     "type": "p",
+     "text": "The root test is useful for series whose terms involve exponentials. In particular, for a series whose terms $a_{n}$ satisfy $|a_{n}|=b_{n}^{n},$ then $\\sqrt[n]{|a_{n}|}=b_{n}$ and we need only evaluate $\\lim_{n\\to \\infty}b_{n}.$"
+    }
+   ],
+   "title": "Root Test (continued)"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 5.24",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following series, use the root test to determine whether the series converges or diverges."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}\\frac{(n^{2}+3n)^{n}}{(4n^{2}+5)^{n}}$",
+      "$\\sum_{n=2}^{\\infty}\\frac{n^{n}}{(\\ln (n))^{n}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "To apply the root test, we compute"
+        },
+        {
+         "type": "math",
+         "tex": "\\rho =\\lim_{n\\to \\infty}\\sqrt[n]{(n^{2}+3n)^{n}/(4n^{2}+5)^{n}}=\\lim_{n\\to \\infty}\\frac{n^{2}+3n}{4n^{2}+5}=\\frac{1}{4}."
+        },
+        {
+         "type": "p",
+         "text": "Since $\\rho <1,$ the series converges absolutely."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "We have"
+        },
+        {
+         "type": "math",
+         "tex": "\\rho =\\lim_{n\\to \\infty}\\sqrt[n]{n^{n}/(\\ln \\,n)^{n}}=\\lim_{n\\to \\infty}\\frac{n}{\\ln \\,n}=\\infty \\,\\text{by L’Hôpital’s rule}."
+        },
+        {
+         "type": "p",
+         "text": "Since $\\rho =\\infty ,$ the series diverges."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Using the Root Test"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.22",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether the series $\\sum_{n=1}^{\\infty}1/n^{n}$ converges or diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The series converges."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Evaluate $\\lim_{n\\to \\infty}\\sqrt[n]{1/n^{n}}$ using L’Hôpital’s rule."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "At this point, we have a long list of convergence tests. However, not all tests can be used for all series. When given a series, we must determine which test is the best to use. Here is a strategy for finding the best test to apply."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider a series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}.$ In the steps below, we outline a strategy for determining whether the series converges."
+      },
+      {
+       "type": "list",
+       "items": [
+        "Is ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ a familiar series? For example, is it the harmonic series (which diverges) or the alternating harmonic series (which converges)? Is it a $p-\\text{series}$ or geometric series? If so, check the power $p$ or the ratio $r$ to determine if the series converges.",
+        "Is it an alternating series? Are we interested in absolute convergence or just convergence? If we are just interested in whether the series converges, apply the alternating series test. If we are interested in absolute convergence, proceed to step $3,$ considering the series of absolute values ${\\displaystyle \\sum_{n=1}^{\\infty}|}a_{n}|.$",
+        "Is the series similar to a $p-\\text{series}$ or geometric series? If so, try the comparison test or limit comparison test.",
+        "Do the terms in the series contain a factorial or power? If the terms are powers such that $a_{n}=b_{n}^{n},$ try the root test first. Otherwise, try the ratio test first.",
+        "Use the divergence test. If this test does not provide any information, try the integral test."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Choosing a Convergence Test for a Series"
+    }
+   ],
+   "title": "Choosing a Convergence Test"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 5.25",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following series, determine which convergence test is the best to use and explain why. Then determine if the series converges or diverges. If the series is an alternating series, determine whether it converges absolutely, converges conditionally, or diverges."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}\\frac{n^{2}+2n}{n^{3}+3n^{2}+1}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}(3n+1)}{n!}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{e^{n}}{n^{3}}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{3^{n}}{(n+1)^{n}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Step 1. The series is not a $p-\\text{series}$ or geometric series.\n\nStep 2. The series is not alternating.\n\nStep 3. For large values of $n,$ we approximate the series by the expression"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{n^{2}+2n}{n^{3}+3n^{2}+1}\\approx \\frac{n^{2}}{n^{3}}=\\frac{1}{n}."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, it seems reasonable to apply the comparison test or limit comparison test using the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n.$ Using the limit comparison test, we see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{(n^{2}+2n)/(n^{3}+3n^{2}+1)}{1/n}=\\lim_{n\\to \\infty}\\frac{n^{3}+2n^{2}}{n^{3}+3n^{2}+1}=1."
+        },
+        {
+         "type": "p",
+         "text": "Since the series ${\\displaystyle \\sum_{n=1}^{\\infty}1}/n$ diverges, this series diverges as well."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Step 1.The series is not a familiar series.\n\nStep 2. The series is alternating. Since we are interested in absolute convergence, consider the series"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}\\frac{3n}{(n+1)!}}."
+        },
+        {
+         "type": "p",
+         "text": "Step 3. The series is not similar to a *p*-series or geometric series.\n\nStep 4. Since each term contains a factorial, apply the ratio test. We see that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{(3(n+1))/(n+1)!}{(3n+1)/n!}=\\lim_{n\\to \\infty}\\frac{3n+3}{(n+1)!}\\cdot \\frac{n!}{3n+1}=\\lim_{n\\to \\infty}\\frac{3n+3}{(n+1)(3n+1)}=0."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, this series converges, and we conclude that the original series converges absolutely, and thus converges."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Step 1. The series is not a familiar series.\n\nStep 2. It is not an alternating series.\n\nStep 3. There is no obvious series with which to compare this series.\n\nStep 4. There is no factorial. There is a power, but it is not an ideal situation for the root test.\n\nStep 5. To apply the divergence test, we calculate that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\frac{e^{n}}{n^{3}}=\\infty ."
+        },
+        {
+         "type": "p",
+         "text": "Therefore, by the divergence test, the series diverges."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Step 1. This series is not a familiar series.\n\nStep 2. It is not an alternating series.\n\nStep 3. There is no obvious series with which to compare this series.\n\nStep 4. Since each term is a power of $n,$ we can apply the root test. Since"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{n\\to \\infty}\\sqrt[n]{\\left(\\frac{3}{n+1}\\right)^{n}}=\\lim_{n\\to \\infty}\\frac{3}{n+1}=0,"
+        },
+        {
+         "type": "p",
+         "text": "by the root test, we conclude that the series converges."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Using Convergence Tests"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.23",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the series $\\sum_{n=1}^{\\infty}\\frac{2^{n}}{3^{n}+n},$ determine which convergence test is the best to use and explain why."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The comparison test because $2^{n}/(3^{n}+n)<2^{n}/3^{n}$ for all positive integers $n.$ The limit comparison test could also be used."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The series is similar to the geometric series $\\sum_{n=1}^{\\infty}\\left(\\frac{2}{3}\\right)^{n}.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Table 5.3, we summarize the convergence tests and when each can be applied. Note that while the comparison test, limit comparison test, and integral test require the series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ to have nonnegative terms, if ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ has negative terms, these tests can be applied to ${\\displaystyle \\sum_{n=1}^{\\infty}|}a_{n}|$ to test for absolute convergence."
+    }
+   ],
+   "title": "Choosing a Convergence Test (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Divergence Test**\n\nFor any series $\\sum_{n=1}^{\\infty}a_{n},$ evaluate $\\lim_{n\\to \\infty}a_{n}.$",
+       "If $\\lim_{n\\to \\infty}a_{n}=0,$ the test is inconclusive.",
+       "This test cannot prove convergence of a series."
+      ],
+      [
+       "If $\\lim_{n\\to \\infty}a_{n}\\ne 0,$ the series diverges."
+      ],
+      [
+       "**Geometric Series**\n\n$\\sum_{n=1}^{\\infty}ar^{n-1}$",
+       "If $|r|<1,$ the series converges to\n\n$a/(1-r).$",
+       "Any geometric series can be reindexed to be written in the form $a+ar+ar^{2}+\\cdots ,$ where $a$ is the initial term and $r$ is the ratio."
+      ],
+      [
+       "If $|r|\\ge 1,$ the series diverges."
+      ],
+      [
+       "**p-Series**\n\n$\\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}$",
+       "If $p>1,$ the series converges.",
+       "For $p=1,$ we have the harmonic series $\\sum_{n=1}^{\\infty}1/n.$"
+      ],
+      [
+       "If $p\\le 1,$ the series diverges."
+      ],
+      [
+       "**Comparison Test**\n\nFor $\\sum_{n=1}^{\\infty}a_{n}$ with nonnegative terms, compare with a known series $\\sum_{n=1}^{\\infty}b_{n}.$",
+       "If $a_{n}\\le b_{n}$ for all $n\\ge N$ and $\\sum_{n=1}^{\\infty}b_{n}$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges.",
+       "Typically used for a series similar to a geometric or $p$-series. It can sometimes be difficult to find an appropriate series."
+      ],
+      [
+       "If $a_{n}\\ge b_{n}$ for all $n\\ge N$ and $\\sum_{n=1}^{\\infty}b_{n}$ diverges, then $\\sum_{n=1}^{\\infty}a_{n}$ diverges."
+      ],
+      [
+       "**Limit Comparison Test**\n\nFor $\\sum_{n=1}^{\\infty}a_{n}$ with positive terms, compare with a series $\\sum_{n=1}^{\\infty}b_{n}$ by evaluating\n\n$L=\\lim_{n\\to \\infty}\\frac{a_{n}}{b_{n}}.$",
+       "If $L$ is a real number and $L\\ne 0,$ then $\\sum_{n=1}^{\\infty}a_{n}$ and $\\sum_{n=1}^{\\infty}b_{n}$ both converge or both diverge.",
+       "Typically used for a series similar to a geometric or $p$-series. Often easier to apply than the comparison test."
+      ],
+      [
+       "If $L=0$ and $\\sum_{n=1}^{\\infty}b_{n}$ converges, then $\\sum_{n=1}^{\\infty}a_{n}$ converges."
+      ],
+      [
+       "If $L=\\infty$ and $\\sum_{n=1}^{\\infty}b_{n}$ diverges, then $\\sum_{n=1}^{\\infty}a_{n}$ diverges."
+      ],
+      [
+       "**Integral Test**\n\nIf there exists a positive, continuous, decreasing function $f$ such that $a_{n}=f(n)$ for all $n\\ge N,$ evaluate ${\\displaystyle \\int_{N}^{\\infty}f(x)dx}.$",
+       "${\\displaystyle \\int_{N}^{\\infty}f(x)dx}$ and $\\sum_{n=1}^{\\infty}a_{n}$ both converge or both diverge.",
+       "Limited to those series for which the corresponding function $f$ can be easily integrated."
+      ],
+      [
+       "**Alternating Series**\n\n$\\sum_{n=1}^{\\infty}(-1)^{n+1}b_{n}\\,\\text{or}\\,\\sum_{n=1}^{\\infty}(-1)^{n}b_{n}$",
+       "If $b_{n+1}\\le b_{n}$ for all $n\\ge 1$ and $b_{n}\\to 0,$ then the series converges.",
+       "Only applies to alternating series."
+      ],
+      [
+       "**Ratio Test**\n\nFor any series $\\sum_{n=1}^{\\infty}a_{n}$ with nonzero terms, let\n\n$\\rho =\\lim_{n\\to \\infty}\\left|\\frac{a_{n+1}}{a_{n}}\\right|.$",
+       "If $0\\le \\rho <1,$ the series converges absolutely.",
+       "Often used for series involving factorials or exponentials."
+      ],
+      [
+       "If $\\rho >1\\,\\text{or}\\,\\rho =\\infty ,$ the series diverges."
+      ],
+      [
+       "If $\\rho =1,$ the test is inconclusive."
+      ],
+      [
+       "**Root Test**\n\nFor any series $\\sum_{n=1}^{\\infty}a_{n},$ let\n\n$\\rho =\\lim_{n\\to \\infty}\\sqrt[n]{|a_{n}|}.$",
+       "If $0\\le \\rho <1,$ the series converges absolutely.",
+       "Often used for series where $|a_{n}|=b_{n}^{n}.$"
+      ],
+      [
+       "If $\\rho >1\\,\\text{or}\\,\\rho =\\infty ,$ the series diverges."
+      ],
+      [
+       "If $\\rho =1,$ the test is inconclusive."
+      ]
+     ],
+     "header": [
+      "Series or Test",
+      "Conclusions",
+      "Comments"
+     ],
+     "caption": "**Table 5.3** Summary of Convergence Tests"
+    }
+   ],
+   "title": "Choosing a Convergence Test (continued)"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "For the ratio test, we consider"
+       },
+       {
+        "type": "math",
+        "tex": "\\rho =\\lim_{n\\to \\infty}\\left|\\frac{a_{n+1}}{a_{n}}\\right|."
+       },
+       {
+        "type": "p",
+        "text": "If $\\rho <1,$ the series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges absolutely. If $\\rho >1,$ the series diverges. If $\\rho =1,$ the test does not provide any information. This test is useful for series whose terms involve factorials."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "For the root test, we consider"
+       },
+       {
+        "type": "math",
+        "tex": "\\rho =\\lim_{n\\to \\infty}\\sqrt[n]{|a_{n}|}."
+       },
+       {
+        "type": "p",
+        "text": "If $\\rho <1,$ the series ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges absolutely. If $\\rho >1,$ the series diverges. If $\\rho =1,$ the test does not provide any information. The root test is useful for series whose terms involve powers."
+       }
+      ],
+      "For a series that is similar to a geometric series or $p-\\text{series,}$ consider one of the comparison tests."
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e317",
+   "number": 317,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=1/n!$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736790226",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n+1}/a_{n}\\to 0.$ Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e318",
+   "number": 318,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=10^{n}/n!$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736790287",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e319",
+   "number": 319,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=n^{2}/2^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736694683",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a_{n+1}}{a_{n}}=\\frac{1}{2}\\left(\\frac{n+1}{n}\\right)^{2}\\to 1/2<1.$ Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e320",
+   "number": 320,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=n^{10}/2^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736634939",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e321",
+   "number": 321,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(n!)^{3}}{(3n)!}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736635046",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a_{n+1}}{a_{n}}\\to 1/27<1.$ Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e322",
+   "number": 322,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{2^{3n}(n!)^{3}}{(3n)!}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739133220",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e323",
+   "number": 323,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(2n)!}{n^{2n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736726552",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a_{n+1}}{a_{n}}\\to 4/e^{2}<1.$ Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e324",
+   "number": 324,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(2n)!}{(2n)^{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736767071",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e325",
+   "number": 325,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{n!}{(n/e)^{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736767170",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a_{n+1}}{a_{n}}\\to 1.$ Ratio test is inconclusive."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e326",
+   "number": 326,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(2n)!}{(n/e)^{2n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739335670",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e327",
+   "number": 327,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(2^{n}n!)^{2}}{(2n)^{2n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739335773",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is given in the following problems. State if the ratio test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a_{n}}{a_{n+1}}\\to 1/e^{2}.$ Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e328",
+   "number": 328,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\left(\\frac{k-1}{2k+3}\\right)^{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738993856",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e329",
+   "number": 329,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\left(\\frac{2k^{2}-1}{k^{2}+3}\\right)^{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739213893",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(a_{k})^{1/k}\\to 2>1.$ Diverges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e330",
+   "number": 330,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{(\\ln \\,n)^{2n}}{n^{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739213991",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e331",
+   "number": 331,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=n/2^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736790041",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(a_{n})^{1/n}\\to 1/2<1.$ Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e332",
+   "number": 332,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=n/e^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739110665",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e333",
+   "number": 333,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\frac{k^{e}}{e^{k}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739110741",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(a_{k})^{1/k}\\to 1/e<1.$ Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e334",
+   "number": 334,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\frac{\\pi^{k}}{k^{\\pi}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739110820",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e335",
+   "number": 335,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\left(\\frac{1}{e}+\\frac{1}{n}\\right)^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739195739",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}^{1/n}=\\frac{1}{e}+\\frac{1}{n}\\to \\frac{1}{e}<1.$ Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e336",
+   "number": 336,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\frac{1}{(1+\\ln \\,k)^{k}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739195833",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root test to determine whether $\\sum_{n=1}^{\\infty}a_{n}$ converges, where $a_{n}$ is as follows."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e337",
+   "number": 337,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{(\\ln (1+\\ln \\,n))^{n}}{(\\ln \\,n)^{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739341419",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For this exercise, let n start at 2."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}^{1/n}=\\frac{(\\ln (1+\\ln \\,n))}{(\\ln \\,n)}\\to 0$ by L’Hôpital’s rule. Converges."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e338",
+   "number": 338,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\frac{k!}{1\\cdot 3\\cdot 5\\cdots (2k-1)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736708187",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use either the ratio test or the root test as appropriate to determine whether the series ${\\displaystyle \\sum_{k=1}^{\\infty}a_{k}}$ with given terms $a_{k}$ converges, or state if the test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e339",
+   "number": 339,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\frac{2\\cdot 4\\cdot 6\\cdots 2k}{(2k)!}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736842898",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use either the ratio test or the root test as appropriate to determine whether the series ${\\displaystyle \\sum_{k=1}^{\\infty}a_{k}}$ with given terms $a_{k}$ converges, or state if the test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a_{k+1}}{a_{k}}=\\frac{1}{2k+1}\\to 0.$ Converges by ratio test."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e340",
+   "number": 340,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\frac{1\\cdot 4\\cdot 7\\cdots (3k-2)}{3^{k}k!}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736843002",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use either the ratio test or the root test as appropriate to determine whether the series ${\\displaystyle \\sum_{k=1}^{\\infty}a_{k}}$ with given terms $a_{k}$ converges, or state if the test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e341",
+   "number": 341,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\left(1-\\frac{1}{n}\\right)^{n^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736705902",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use either the ratio test or the root test as appropriate to determine whether the series ${\\displaystyle \\sum_{k=1}^{\\infty}a_{k}}$ with given terms $a_{k}$ converges, or state if the test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(a_{n})^{1/n}\\to 1/e.$ Converges by root test."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e342",
+   "number": 342,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\left(\\frac{1}{k+1}+\\frac{1}{k+2}+\\cdots +\\frac{1}{2k}\\right)^{k}$ (*Hint:* Compare $a_{k}^{1/k}$ to ${\\displaystyle \\int_{k}^{2k}\\frac{dt}{t}}.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736705989",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use either the ratio test or the root test as appropriate to determine whether the series ${\\displaystyle \\sum_{k=1}^{\\infty}a_{k}}$ with given terms $a_{k}$ converges, or state if the test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e343",
+   "number": 343,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\left(\\frac{1}{k+1}+\\frac{1}{k+2}+\\cdots +\\frac{1}{3k}\\right)^{k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736703046",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use either the ratio test or the root test as appropriate to determine whether the series ${\\displaystyle \\sum_{k=1}^{\\infty}a_{k}}$ with given terms $a_{k}$ converges, or state if the test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{k}^{1/k}\\to \\ln (3)>1.$ Diverges by root test."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e344",
+   "number": 344,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=(n^{1/n}-1)^{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739202356",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use either the ratio test or the root test as appropriate to determine whether the series ${\\displaystyle \\sum_{k=1}^{\\infty}a_{k}}$ with given terms $a_{k}$ converges, or state if the test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e345",
+   "number": 345,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{3^{n^{2}}}{2^{n^{3}}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739344170",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges, or state if the ratio test is inconclusive."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a_{n+1}}{a_{n}}=$ $\\frac{3^{2n+1}}{2^{3n^{2}+3n+1}}\\to 0.$ Converge."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e346",
+   "number": 346,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{2^{n^{2}}}{n^{n}n!}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739344299",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the ratio test to determine whether ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges, or state if the ratio test is inconclusive."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e347",
+   "number": 347,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=1/x_{n}^{n}$ where $x_{n+1}=\\frac{1}{2}x_{n}+\\frac{1}{x_{n}},$ $x_{1}=1$ (*Hint:* Find limit of $\\{x_{n}\\}.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736857058",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Use the root and limit comparison tests to determine whether ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges by root test and limit comparison test since $x_{n}\\to \\sqrt{2}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e348",
+   "number": 348,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(n+1)}{n^{3}+n^{2}+n+1}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739344739",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e349",
+   "number": 349,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}(n+1)}{n^{3}+3n^{2}+3n+1}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739236292",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Converges absolutely by limit comparison with $p-\\text{series,}$ $p=2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges absolutely|absolutely convergent|absolutely|converges absolutely"
+   }
+  },
+  {
+   "id": "e350",
+   "number": 350,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(n+1)^{2}}{n^{3}+(1.1)^{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739236405",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e351",
+   "number": 351,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(n-1)^{n}}{(n+1)^{n}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736627530",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{n\\to \\infty}a_{n}=1/e^{2}\\ne 0.$ Series diverges."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "e352",
+   "number": 352,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\left(1+\\frac{1}{n^{2}}\\right)^{n}$ (*Hint:* $\\left(1+\\frac{1}{n^{2}}\\right)^{n^{2}}\\approx e.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736592251",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e353",
+   "number": 353,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=1/2^{\\sin^{2}k}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736592374",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Terms do not tend to zero: $a_{k}\\ge 1/2,$ since $\\sin^{2}x\\le 1.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e354",
+   "number": 354,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=2^{-\\sin (1/k)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736728788",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e355",
+   "number": 355,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=1/\\left(\\begin{array}{c}n+2 \\\\ n\\end{array}\\right)$ where $\\left(\\begin{array}{c}n \\\\ k\\end{array}\\right)=\\frac{n!}{k!(n-k)!}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736728883",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{n}=\\frac{2}{(n+1)(n+2)},$ which converges by comparison with $p-\\text{series}$ for $p=2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e356",
+   "number": 356,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=1/\\left(\\begin{array}{l}2k \\\\ k\\end{array}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736720771",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e357",
+   "number": 357,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=2^{k}/\\left(\\begin{array}{l}3k \\\\ k\\end{array}\\right)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736659407",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{k}=\\frac{2^{k}1\\cdot 2\\cdots k}{(2k+1)(2k+2)\\cdots 3k}\\le (2/3)^{k}$ converges by comparison with geometric series."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e358",
+   "number": 358,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\left(\\frac{k}{k+\\ln \\,k}\\right)^{k}$ (*Hint:* $a_{k}=\\left(1+\\frac{\\ln \\,k}{k}\\right)^{-(k/\\ln \\,k)\\ln \\,k}\\approx e^{-\\ln \\,k}.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736725468",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e359",
+   "number": 359,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{k}=\\left(\\frac{k}{k+\\ln \\,k}\\right)^{2k}$ (*Hint:* $a_{k}=\\left(1+\\frac{\\ln \\,k}{k}\\right)^{-(k/\\ln \\,k)\\,\\ln \\,k^{2}}.)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736791905",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use an appropriate test to determine whether the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{k}\\approx e^{-\\ln \\,k^{2}}=1/k^{2}.$ Series converges by limit comparison with $p-\\text{series,}$ $p=2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e360",
+   "number": 360,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{k=1}^{\\infty}\\frac{k}{2^{k}}}$ (*Hint:* Take $a_{k}=k$ and $b_{k}=2^{1-k}.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739095193",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series converge by the ratio test. Use summation by parts, ${\\displaystyle \\sum_{k=1}^{n}a_{k}}(b_{k+1}-b_{k})=[a_{n+1}b_{n+1}-a_{1}b_{1}]-{\\displaystyle \\sum_{k=1}^{n}b_{k+1}}(a_{k+1}-a_{k}),$ to find the sum of the given series."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e361",
+   "number": 361,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{k=1}^{\\infty}\\frac{k}{c^{k}}},$ where $c>1$ (*Hint:* Take $a_{k}=k$ and $b_{k}=c^{1-k}/(c-1).)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736736662",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series converge by the ratio test. Use summation by parts, ${\\displaystyle \\sum_{k=1}^{n}a_{k}}(b_{k+1}-b_{k})=[a_{n+1}b_{n+1}-a_{1}b_{1}]-{\\displaystyle \\sum_{k=1}^{n}b_{k+1}}(a_{k+1}-a_{k}),$ to find the sum of the given series."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "If $b_{k}=c^{1-k}/(c-1)$ and $a_{k}=k,$ then $b_{k+1}-b_{k}=-c^{-k}$ and ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{k}{c^{k}}}=a_{1}b_{1}+\\frac{1}{c-1}{\\displaystyle \\sum_{k=1}^{\\infty}c^{-k}}=\\frac{c}{(c-1)^{2}}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e362",
+   "number": 362,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{n^{2}}{2^{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739369179",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series converge by the ratio test. Use summation by parts, ${\\displaystyle \\sum_{k=1}^{n}a_{k}}(b_{k+1}-b_{k})=[a_{n+1}b_{n+1}-a_{1}b_{1}]-{\\displaystyle \\sum_{k=1}^{n}b_{k+1}}(a_{k+1}-a_{k}),$ to find the sum of the given series."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e363",
+   "number": 363,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(n+1)^{2}}{2^{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736604959",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following series converge by the ratio test. Use summation by parts, ${\\displaystyle \\sum_{k=1}^{n}a_{k}}(b_{k+1}-b_{k})=[a_{n+1}b_{n+1}-a_{1}b_{1}]-{\\displaystyle \\sum_{k=1}^{n}b_{k+1}}(a_{k+1}-a_{k}),$ to find the sum of the given series."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$6+4+1=11$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"equation\",\"value\":\"6+4+1=11\"} failed (checker rejects the answer itself)"
+  },
+  {
+   "id": "e364",
+   "number": 364,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{k=1}^{\\infty}\\frac{x^{k}}{k^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736605060",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e365",
+   "number": 365,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{k=1}^{\\infty}\\frac{x^{2k}}{k^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736605120",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$|x|\\le 1$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"set\",\"value\":\"|x|<=1\"} failed (checker cannot read the answer: Unexpected \"<=\" here)"
+  },
+  {
+   "id": "e366",
+   "number": 366,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{k=1}^{\\infty}\\frac{x^{2k}}{3^{k}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739094744",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e367",
+   "number": 367,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{k=1}^{\\infty}\\frac{x^{k}}{k!}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739094808",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$|x|<\\infty$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"set\",\"value\":\"|x|< inf\"} failed (checker cannot read the answer: Unexpected \"<\" here)"
+  },
+  {
+   "id": "e368",
+   "number": 368,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Does there exist a number $p$ such that ${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{2^{n}}{n^{p}}}$ converges?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739094867",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e369",
+   "number": 369,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $0<r<1.$ For which real numbers $p$ does ${\\displaystyle \\sum_{n=1}^{\\infty}n^{p}}r^{n}$ converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736644108",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "All real numbers $p$ by the ratio test."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e370",
+   "number": 370,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $\\lim_{n\\to \\infty}|\\frac{a_{n+1}}{a_{n}}|=p.$ For which values of $p$ must ${\\displaystyle \\sum_{n=1}^{\\infty}2^{n}}a_{n}$ converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736644178",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e371",
+   "number": 371,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $\\lim_{n\\to \\infty}|\\frac{a_{n+1}}{a_{n}}|=p.$ For which values of $r>0$ is ${\\displaystyle \\sum_{n=1}^{\\infty}r^{n}}a_{n}$ guaranteed to converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736662279",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$r<1/p$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"set\",\"value\":\"r<1/p\"} failed (checker cannot read the answer: Interval endpoints must be numbers (found p))"
+  },
+  {
+   "id": "e372",
+   "number": 372,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $|\\frac{a_{n+1}}{a_{n}}|\\le (n+1)^{p}$ for all $n=1,2,\\dots$ where $p$ is a fixed real number. For which values of $p$ is ${\\displaystyle \\sum_{n=1}^{\\infty}n}!\\,a_{n}$ guaranteed to converge?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736662394",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e373",
+   "number": 373,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For which values of $r>0,$ if any, does ${\\displaystyle \\sum_{n=1}^{\\infty}r^{\\sqrt{n}}}$ converge? (*Hint:* ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}={\\displaystyle \\sum_{k=1}^{\\infty}{\\displaystyle \\sum_{n=k^{2}}^{(k+1)^{2}-1}a_{n}}}.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739279096",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0<r<1.$ Note that the ratio and root tests are inconclusive. Using the hint, there are $2k$ terms $r^{\\sqrt{n}}$ for $k^{2}\\le n<(k+1)^{2},$ and for $r<1$ each term is at least $r^{k}.$ Thus, ${\\displaystyle \\sum_{n=1}^{\\infty}r^{\\sqrt{n}}}={\\displaystyle \\sum_{k=1}^{\\infty}{\\displaystyle \\sum_{n=k^{2}}^{(k+1)^{2}-1}r^{\\sqrt{n}}}}$ $\\ge {\\displaystyle \\sum_{k=1}^{\\infty}2}kr^{k},$ which converges by the ratio test for $r<1.$ For $r\\ge 1$ the series diverges by the divergence test."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e374",
+   "number": 374,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose that $|\\frac{a_{n+2}}{a_{n}}|\\le r<1$ for all $n.$ Can you conclude that ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738894848",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e375",
+   "number": 375,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $a_{n}=2^{-[n/2]}$ where $[x]$ is the greatest integer less than or equal to $x.$ Determine whether ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges and justify your answer."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736851103",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The *k*th term of each of the following series has a factor $x^{k}.$ Find the range of $x$ for which the ratio test implies that the series converges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "One has $a_{1}=1,$ $a_{2}=a_{3}=1/2,\\dots \\,a_{2n}=a_{2n+1}=1/2^{n}.$ The ratio test does not apply because $a_{n+1}/a_{n}=1$ if $n$ is even. However, $a_{n+2}/a_{n}=1/2,$ so the series converges according to the previous exercise. Of course, the series is just a duplicated geometric series."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e376",
+   "number": 376,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $a_{n}=\\frac{1}{4}\\,\\frac{3}{6}\\,\\frac{5}{8}\\cdots \\frac{2n-1}{2n+2}=\\frac{1\\cdot 3\\cdot 5\\cdots (2n-1)}{2^{n}(n+1)!}.$ Explain why the ratio test cannot determine convergence of ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}.$ Use the fact that $1-1/(4k)$ is increasing $k$ to estimate $\\lim_{n\\to \\infty}\\frac{a_{2n}}{a_{n}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739255529",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following *advanced* exercises use a generalized ratio test to determine convergence of some series that arise in particular applications when tests in this chapter, including the ratio and root test, are not powerful enough to determine their convergence. The test states that if $\\lim_{n\\to \\infty}\\frac{a_{2n}}{a_{n}}<1/2,$ then ${\\displaystyle \\sum a_{n}}$ converges, while if $\\lim_{n\\to \\infty}\\frac{a_{2n+1}}{a_{n}}>1/2,$ then ${\\displaystyle \\sum a_{n}}$ diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e377",
+   "number": 377,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $a_{n}=\\frac{1}{1+x}\\,\\frac{2}{2+x}\\cdots \\frac{n}{n+x}\\,\\frac{1}{n}=\\frac{(n-1)!}{(1+x)(2+x)\\cdots (n+x)}.$ Show that $a_{2n}/a_{n}\\le e^{-x/2}/2.$ For which $x>0$ does the generalized ratio test imply convergence of ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}\\text{?}$ (*Hint:* Write $2a_{2n}/a_{n}$ as a product of $n$ factors each smaller than $1/(1+x/(2n)).)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736776280",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following *advanced* exercises use a generalized ratio test to determine convergence of some series that arise in particular applications when tests in this chapter, including the ratio and root test, are not powerful enough to determine their convergence. The test states that if $\\lim_{n\\to \\infty}\\frac{a_{2n}}{a_{n}}<1/2,$ then ${\\displaystyle \\sum a_{n}}$ converges, while if $\\lim_{n\\to \\infty}\\frac{a_{2n+1}}{a_{n}}>1/2,$ then ${\\displaystyle \\sum a_{n}}$ diverges."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a_{2n}/a_{n}=\\frac{1}{2}\\cdot \\frac{n+1}{n+1+x}\\,\\frac{n+2}{n+2+x}\\cdots \\frac{2n}{2n+x}.$ The inverse of the $k\\text{th}$ factor is $(n+k+x)/(n+k)>1+x/(2n)$ so the product is less than $(1+x/(2n))^{-n}\\approx e^{-x/2}.$ Thus for $x>0,$ $\\frac{a_{2n}}{a_{n}}\\le \\frac{1}{2}e^{-x/2}.$ The series converges for $x>0.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e378",
+   "number": 378,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $a_{n}=\\frac{n^{\\ln \\,n}}{(\\ln \\,n)^{n}}.$ Show that $\\frac{a_{2n}}{a_{n}}\\to 0$ as $n\\to \\infty .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736768824",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following *advanced* exercises use a generalized ratio test to determine convergence of some series that arise in particular applications when tests in this chapter, including the ratio and root test, are not powerful enough to determine their convergence. The test states that if $\\lim_{n\\to \\infty}\\frac{a_{2n}}{a_{n}}<1/2,$ then ${\\displaystyle \\sum a_{n}}$ converges, while if $\\lim_{n\\to \\infty}\\frac{a_{2n+1}}{a_{n}}>1/2,$ then ${\\displaystyle \\sum a_{n}}$ diverges."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e379",
+   "number": 379,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $\\lim_{n\\to \\infty}a_{n}=0,$ then ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739352667",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "false"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e380",
+   "number": 380,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $\\lim_{n\\to \\infty}a_{n}\\ne 0,$ then ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ diverges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739260400",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e381",
+   "number": 381,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If ${\\displaystyle \\sum_{n=1}^{\\infty}|a_{n}|}$ converges, then ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739260470",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "true"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e382",
+   "number": 382,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If ${\\displaystyle \\sum_{n=1}^{\\infty}2^{n}a_{n}}$ converges, then ${\\displaystyle \\sum_{n=1}^{\\infty}(-2)^{n}a_{n}}$ converges."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739260544",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e383",
+   "number": 383,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{3+n^{2}}{1-n}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739265235",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the sequence bounded, monotone, and convergent or divergent? If it is convergent, find the limit."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "unbounded, not monotone, divergent"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "e384",
+   "number": 384,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\ln \\left(\\frac{1}{n}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739265280",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the sequence bounded, monotone, and convergent or divergent? If it is convergent, find the limit."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e385",
+   "number": 385,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{\\ln (n+1)}{\\sqrt{n+1}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739265320",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the sequence bounded, monotone, and convergent or divergent? If it is convergent, find the limit."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "bounded, monotone, convergent, $0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges|convergent|converge"
+   }
+  },
+  {
+   "id": "e386",
+   "number": 386,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{2^{n+1}}{5^{n}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736590095",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the sequence bounded, monotone, and convergent or divergent? If it is convergent, find the limit."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e387",
+   "number": 387,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$a_{n}=\\frac{\\ln (\\cos \\,n)}{n}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736590143",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the sequence bounded, monotone, and convergent or divergent? If it is convergent, find the limit."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "unbounded, not monotone, divergent"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges|divergent|diverge"
+   }
+  },
+  {
+   "id": "e388",
+   "number": 388,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{n^{2}+5n+4}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736590189",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent?"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e389",
+   "number": 389,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\ln \\left(\\frac{n+1}{n}\\right)}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736590242",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent?"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "diverges"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "diverges"
+   }
+  },
+  {
+   "id": "e390",
+   "number": 390,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{2^{n}}{n^{4}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739249672",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent?"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e391",
+   "number": 391,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{e^{n}}{n!}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739249720",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent?"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "converges"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges"
+   }
+  },
+  {
+   "id": "e392",
+   "number": 392,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}n^{-(n+1/n)}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739249766",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent?"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e393",
+   "number": 393,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-1)^{n}}{\\sqrt{n}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739249827",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent? If convergent, is it absolutely convergent?"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "converges, but not absolutely"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges absolutely|absolutely convergent|absolutely|converges absolutely"
+   }
+  },
+  {
+   "id": "e394",
+   "number": 394,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-1)^{n}n!}{3^{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736841685",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent? If convergent, is it absolutely convergent?"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e395",
+   "number": 395,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-1)^{n}n!}{n^{n}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736841745",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent? If convergent, is it absolutely convergent?"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "converges absolutely"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges absolutely"
+   }
+  },
+  {
+   "id": "e396",
+   "number": 396,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\sin \\left(\\frac{n\\pi}{2}\\right)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736841804",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent? If convergent, is it absolutely convergent?"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e397",
+   "number": 397,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\cos (\\pi n)e^{-n}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736841855",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Is the series convergent or divergent? If convergent, is it absolutely convergent?"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "converges absolutely"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "converges absolutely"
+   }
+  },
+  {
+   "id": "e398",
+   "number": 398,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{2^{n+4}}{7^{n}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736854679",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e399",
+   "number": 399,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{1}{(n+1)(n+2)}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736854740",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2)"
+   }
+  },
+  {
+   "id": "e400",
+   "number": 400,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A legend from India tells that a mathematician invented chess for a king. The king enjoyed the game so much he allowed the mathematician to demand any payment. The mathematician asked for one grain of rice for the first square on the chessboard, two grains of rice for the second square on the chessboard, four grains of rice for the third square on the chessboard, and so on. Find an exact expression for the total payment (in grains of rice) requested by the mathematician. Assuming there are $30,000$ grains of rice in $1$ pound, and $2000$ pounds in $1$ ton, how many tons of rice did the mathematician attempt to receive?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736854814",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e401",
+   "number": 401,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find $\\lim_{n\\to \\infty}x_{n}$ if $b>1,$ $b<1,$ and $b=1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736840855",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider a simple population model of the housefly, which can be exhibited by the recursive formula $x_{n+1}=bx_{n},$ where $x_{n}$ is the population of houseflies at generation $n,$ and $b$ is the average number of offspring per housefly who survive to the next generation. Assume a starting population $x_{0}.$"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\infty ,$ $0,$ $x_{0}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "list",
+    "value": "inf, 0, x_0"
+   }
+  },
+  {
+   "id": "e402",
+   "number": 402,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find an expression for $S_{n}={\\displaystyle \\sum_{i=0}^{n}x_{i}}$ in terms of $b$ and $x_{0}.$ What does it physically represent?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736840945",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider a simple population model of the housefly, which can be exhibited by the recursive formula $x_{n+1}=bx_{n},$ where $x_{n}$ is the population of houseflies at generation $n,$ and $b$ is the average number of offspring per housefly who survive to the next generation. Assume a starting population $x_{0}.$"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e403",
+   "number": 403,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $b=\\frac{3}{4}$ and $x_{0}=100,$ find $S_{10}$ and $\\lim_{n\\to \\infty}S_{n}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736790422",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider a simple population model of the housefly, which can be exhibited by the recursive formula $x_{n+1}=bx_{n},$ where $x_{n}$ is the population of houseflies at generation $n,$ and $b$ is the average number of offspring per housefly who survive to the next generation. Assume a starting population $x_{0}.$"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$S_{10}\\approx 383,$ $\\lim_{n\\to \\infty}S_{n}=400$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e404",
+   "number": 404,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For what values of $b$ will the series converge and diverge? What does the series converge to?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736790536",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider a simple population model of the housefly, which can be exhibited by the recursive formula $x_{n+1}=bx_{n},$ where $x_{n}$ is the population of houseflies at generation $n,$ and $b$ is the average number of offspring per housefly who survive to the next generation. Assume a starting population $x_{0}.$"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Ratio Test",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Let $\\sum_{n=1}^{\\infty}a_{n}$ be a series with nonzero terms. Let"
+    },
+    {
+     "type": "math",
+     "tex": "\\rho =\\lim_{n\\to \\infty}\\left|\\frac{a_{n+1}}{a_{n}}\\right|."
+    },
+    {
+     "type": "list",
+     "items": [
+      "If $0\\le \\rho <1,$ then $\\sum_{n=1}^{\\infty}a_{n}$ converges absolutely.",
+      "If $\\rho >1$ or $\\rho =\\infty ,$ then $\\sum_{n=1}^{\\infty}a_{n}$ diverges.",
+      "If $\\rho =1,$ the test does not provide any information."
+     ],
+     "ordered": true,
+     "style": "i"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Let ${\\displaystyle \\sum_{n=1}^{\\infty}a_{n}}$ be a series with nonzero terms."
+    },
+    {
+     "type": "p",
+     "text": "We begin with the proof of part i. In this case, $\\rho =\\lim_{n\\to \\infty}\\left|\\frac{a_{n+1}}{a_{n}}\\right|<1.$ Since $0\\le \\rho <1,$ there exists $R$ such that $0\\le \\rho <R<1.$ Let $\\varepsilon =R-\\rho >0.$ By the definition of limit of a sequence, there exists some integer $N$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "\\left|\\left|\\frac{a_{n+1}}{a_{n}}\\right|-\\rho \\right|<\\varepsilon \\,\\text{for all}\\,n\\ge N."
+    },
+    {
+     "type": "p",
+     "text": "Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "\\left|\\frac{a_{n+1}}{a_{n}}\\right|<\\rho +\\varepsilon =R\\,\\text{for all}\\,n\\ge N"
+    },
+    {
+     "type": "p",
+     "text": "and, thus,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{l}|a_{N+1}|<R|a_{N}| \\\\ |a_{N+2}|<R|a_{N+1}|<R^{2}|a_{N}| \\\\ |a_{N+3}|<R|a_{N+2}|<R^{2}|a_{N+1}|<R^{3}|a_{N}| \\\\ |a_{N+4}|<R|a_{N+3}|<R^{2}|a_{N+2}|<R^{3}|a_{N+1}|<R^{4}|a_{N}| \\\\ \\vdots .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Since $R<1,$ the geometric series"
+    },
+    {
+     "type": "math",
+     "tex": "R|a_{N}|+R^{2}|a_{N}|+R^{3}|a_{N}|+\\cdots"
+    },
+    {
+     "type": "p",
+     "text": "converges. Given the inequalities above, we can apply the comparison test and conclude that the series"
+    },
+    {
+     "type": "math",
+     "tex": "|a_{N+1}|+|a_{N+2}|+|a_{N+3}|+|a_{N+4}|+\\cdots"
+    },
+    {
+     "type": "p",
+     "text": "converges. Therefore, since"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\sum_{n=1}^{\\infty}|}a_{n}|={\\displaystyle \\sum_{n=1}^{N}|}a_{n}|+{\\displaystyle \\sum_{n=N+1}^{\\infty}|}a_{n}|"
+    },
+    {
+     "type": "p",
+     "text": "where ${\\displaystyle \\sum_{n=1}^{N}|}a_{n}|$ is a finite sum and ${\\displaystyle \\sum_{n=N+1}^{\\infty}|}a_{n}|$ converges, we conclude that ${\\displaystyle \\sum_{n=1}^{\\infty}|}a_{n}|$ converges."
+    },
+    {
+     "type": "p",
+     "text": "For part ii."
+    },
+    {
+     "type": "p",
+     "text": "Now suppose $\\rho =\\left|\\frac{a_{n+1}}{a_{n}}\\right|>1$."
+    },
+    {
+     "type": "p",
+     "text": "There exists some $N$ such that $\\left|\\frac{a_{n+1}}{a_{n}}\\right|>1$ for all $n\\ge N$."
+    },
+    {
+     "type": "p",
+     "text": "Then $\\left|a_{n-}\\right|>\\left|a_{n}\\right|$."
+    },
+    {
+     "type": "p",
+     "text": "Now because $\\left|a_{n-}\\right|>\\left|a_{n}\\right|$ for all $n\\ge N$, we know that $\\left|a_{n}\\right|\\ne 0$."
+    },
+    {
+     "type": "p",
+     "text": "It follows that $\\left|a_{n}\\right|\\ne 0$."
+    },
+    {
+     "type": "p",
+     "text": "By the divergence test, the series $\\sum_{n=1}^{\\infty}a_{n}$ diverges."
+    },
+    {
+     "type": "math",
+     "tex": "|a_{N+1}|+|a_{N+2}|+|a_{N+3}|+\\cdots"
+    },
+    {
+     "type": "p",
+     "text": "diverges, and therefore the series ${\\displaystyle \\sum_{n=1}^{\\infty}|}a_{n}|$ diverges."
+    },
+    {
+     "type": "p",
+     "text": "For part iii. we show that the test does not provide any information if $\\rho =1$ by considering the $p-\\text{series}$ $\\sum_{n=1}^{\\infty}1/n^{p}.$ For any real number $p,$"
+    },
+    {
+     "type": "math",
+     "tex": "\\rho =\\lim_{n\\to \\infty}\\frac{1/(n+1)^{p}}{1/n^{p}}=\\lim_{n\\to \\infty}\\frac{n^{p}}{(n+1)^{p}}=1."
+    },
+    {
+     "type": "p",
+     "text": "However, we know that if $p\\le 1,$ the $p-\\text{series}$ $\\sum_{n=1}^{\\infty}1/n^{p}$ diverges, whereas $\\sum_{n=1}^{\\infty}1/n^{p}$ converges if $p>1.$"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "The ratio test is particularly useful for series whose terms contain factorials or exponentials, where the ratio of terms simplifies the expression. The ratio test is convenient because it does not require us to find a comparative series. The drawback is that the test sometimes does not provide any information regarding convergence."
+    },
+    {
+     "type": "p",
+     "text": "For each of the following series, use the ratio test to determine whether the series converges or diverges."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sum_{n=1}^{\\infty}\\frac{2^{n}}{n!}$",
+      "$\\sum_{n=1}^{\\infty}\\frac{n^{n}}{n!}$",
+      "${\\displaystyle \\sum_{n=1}^{\\infty}\\frac{(-1)^{n}(n!)^{2}}{(2n)!}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "From the ratio test, we can see that"
+       },
+       {
+        "type": "math",
+        "tex": "\\rho =\\lim_{n\\to \\infty}\\frac{2^{n+1}/(n+1)!}{2^{n}/n!}=\\lim_{n\\to \\infty}\\frac{2^{n+1}}{(n+1)!}\\cdot \\frac{n!}{2^{n}}."
+       },
+       {
+        "type": "p",
+        "text": "Since $(n+1)!=(n+1)\\cdot n!,$"
+       },
+       {
+        "type": "math",
+        "tex": "\\rho =\\lim_{n\\to \\infty}\\frac{2}{n+1}=0."
+       },
+       {
+        "type": "p",
+        "text": "Since $\\rho <1,$ the series converges."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "We can see that"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\rho & =\\lim_{n\\to \\infty}\\frac{(n+1)^{n+1}/(n+1)!}{n^{n}/n!} \\\\ & =\\lim_{n\\to \\infty}\\frac{(n+1)^{n+1}}{(n+1)!}\\cdot \\frac{n!}{n^{n}} \\\\ & =\\lim_{n\\to \\infty}\\left(\\frac{n+1}{n}\\right)^{n}=\\lim_{n\\to \\infty}\\left(1+\\frac{1}{n}\\right)^{n}=e.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Since $\\rho >1,$ the series diverges."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Since"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\left|\\frac{(-1)^{n+1}((n+1)!)^{2}/(2(n+1))!}{(-1)^{n}(n!)^{2}/(2n)!}\\right| & =\\frac{(n+1)!(n+1)!}{(2n+2)!}\\cdot \\frac{(2n)!}{n!n!} \\\\ & =\\frac{(n+1)(n+1)}{(2n+2)(2n+1)}\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "we see that"
+       },
+       {
+        "type": "math",
+        "tex": "\\rho =\\lim_{n\\to \\infty}\\frac{(n+1)(n+1)}{(2n+2)(2n+1)}=\\frac{1}{4}."
+       },
+       {
+        "type": "p",
+        "text": "Since $\\rho <1,$ the series converges."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "ratio test",
+   "meaning": "for a series $\\sum_{n=1}^{\\infty}a_{n}$ with nonzero terms, let $\\rho =\\lim_{n\\to \\infty}|a_{n+1}/a_{n}|;$ if $0\\le \\rho <1,$ the series converges absolutely; if $\\rho >1,$ the series diverges; if $\\rho =1,$ the test is inconclusive"
+  },
+  {
+   "term": "root test",
+   "meaning": "for a series $\\sum_{n=1}^{\\infty}a_{n},$ let $\\rho =\\lim_{n\\to \\infty}\\sqrt[n]{|a_{n}|};$ if $0\\le \\rho <1,$ the series converges absolutely; if $\\rho >1,$ the series diverges; if $\\rho =1,$ the test is inconclusive"
+  }
+ ]
+}

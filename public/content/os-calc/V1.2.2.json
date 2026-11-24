@@ -1,0 +1,3698 @@
+{
+ "schema": 1,
+ "id": "V1.2.2",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 2,
+ "section": 2,
+ "title": "The Limit of a Function",
+ "chapterTitle": "Limits",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53491",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/2-2-the-limit-of-a-function",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §2.2 “The Limit of a Function”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Using correct notation, describe the limit of a function.",
+  "Use a table of values to estimate the limit of a function or to identify when the limit does not exist.",
+  "Use a graph to estimate the limit of a function or to identify when the limit does not exist.",
+  "Define one-sided limits and provide examples.",
+  "Explain the relationship between one-sided and two-sided limits.",
+  "Using correct notation, describe an infinite limit.",
+  "Define a vertical asymptote."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The concept of a limit or limiting process, essential to the understanding of calculus, has been around for thousands of years. In fact, early mathematicians used a limiting process to obtain better and better approximations of areas of circles. Yet, the formal definition of a limit—as we know and understand it today—did not appear until the late 19th century. We therefore begin our quest to understand limits, as our mathematical ancestors did, by using an intuitive approach. At the end of this chapter, armed with a conceptual understanding of limits, we examine the formal definition of a limit."
+    },
+    {
+     "type": "p",
+     "text": "We begin our exploration of limits by taking a look at the graphs of the functions"
+    },
+    {
+     "type": "math",
+     "tex": "f(x)=\\frac{x^{2}-4}{x-2},\\,g(x)=\\frac{|x-2|}{x-2},\\,\\text{and}\\,h(x)=\\frac{1}{(x-2)^{2}},"
+    },
+    {
+     "type": "p",
+     "text": "which are shown in Figure 2.11. In particular, let’s focus our attention on the behavior of each graph at and around $x=2.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_001.webp",
+     "alt": "Three graphs of functions.  The first is f(s) = (x^2 – 4) / (x-2), which is a line of slope, x intercept (-2,0), and open circle at (2,4). The second is g(x) = |x – 2 | / (x-2), which contains two lines: x=1 for x>2 and x= -1 for x < 2. There are open circles at both endpoints (2, 1) and (-2, 1). The third is h(x) = 1 / (x-2)^2, in which the function curves asymptotically towards y=0 and x=2 in quadrants one and two.",
+     "caption": "**Figure 2.11** These graphs show the behavior of three different functions around $x=2.$",
+     "width": 900,
+     "height": 401
+    }
+   ],
+   "title": "The Limit of a Function"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Each of the three functions is undefined at $x=2,$ but if we make this statement and no other, we give a very incomplete picture of how each function behaves in the vicinity of $x=2.$ To express the behavior of each graph in the vicinity of 2 more completely, we need to introduce the concept of a limit."
+    }
+   ],
+   "title": "The Limit of a Function (continued)"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let’s first take a closer look at how the function $f(x)=(x^{2}-4)/(x-2)$ behaves around $x=2$ in Figure 2.11. As the values of *x* approach 2 from either side of 2, the values of $y=f(x)$ approach 4. Mathematically, we say that the limit of $f(x)$ as *x* approaches 2 is 4. Symbolically, we express this limit as"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{x\\to 2}f(x)=4."
+    },
+    {
+     "type": "p",
+     "text": "From this very brief informal look at one limit, let’s start to develop an **intuitive definition of the limit**. We can think of the limit of a function at a number *a* as being the one real number *L* that the functional values approach as the *x*-values approach *a,* provided such a real number *L* exists. Stated more carefully, we have the following definition:"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f(x)$ be a function defined at all values in an open interval containing *a*, with the possible exception of *a* itself, and let *L* be a real number. If *all* values of the function $f(x)$ approach the real number *L* as the values of $x(\\ne a)$ approach the number *a*, then we say that the limit of $f(x)$ as *x* approaches *a* is *L*. (More succinct, as *x* gets closer to *a*, $f(x)$ gets closer and stays close to *L*.) Symbolically, we express this idea as"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{x\\to a}f(x)=L."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "We can estimate limits by constructing tables of functional values and by looking at their graphs. This process is described in the following Problem-Solving Strategy."
+    }
+   ],
+   "title": "Intuitive Definition of a Limit"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "p",
+          "text": "To evaluate $\\lim_{x\\to a}f(x),$ we begin by completing a table of functional values. We should choose two sets of *x*-values—one set of values approaching *a* and less than *a*, and another set of values approaching *a* and greater than *a*. Table 2.1 demonstrates what your tables might look like."
+         },
+         {
+          "type": "table",
+          "rows": [
+           [
+            "$a-0.1$",
+            "$f(a-0.1)$",
+            "",
+            "$a+0.1$",
+            "$f(a+0.1)$"
+           ],
+           [
+            "$a-0.01$",
+            "$f(a-0.01)$",
+            "$a+0.01$",
+            "$f(a+0.01)$"
+           ],
+           [
+            "$a-0.001$",
+            "$f(a-0.001)$",
+            "$a+0.001$",
+            "$f(a+0.001)$"
+           ],
+           [
+            "$a-0.0001$",
+            "$f(a-0.0001)$",
+            "$a+0.0001$",
+            "$f(a+0.0001)$"
+           ],
+           [
+            "Use additional values as necessary.",
+            "Use additional values as necessary."
+           ]
+          ],
+          "header": [
+           "*x*",
+           "$f(x)$",
+           "",
+           "*x*",
+           "$f(x)$"
+          ],
+          "caption": "**Table 2.1** Table of Functional Values for $\\lim_{x\\to a}f(x)$"
+         }
+        ],
+        "Next, let’s look at the values in each of the $f(x)$ columns and determine whether the values seem to be approaching a single value as we move down each column. In our columns, we look at the sequence $f(a-0.1),f(a-0.01),f(a-0.001).,f(a-0.0001),$ and so on, and $f(a+0.1),f(a+0.01),f(a+0.001),f(a+0.0001),$ and so on. (*Note*: Although we have chosen the *x*-values $a\\pm 0.1,a\\pm 0.01,a\\pm 0.001,a\\pm 0.0001,$ and so forth, and these values will probably work nearly every time, on very rare occasions we may need to modify our choices.)",
+        "If both columns approach a common *y*-value *L*, we state $\\lim_{x\\to a}f(x)=L.$ We can use the following strategy to confirm the result obtained from the table or as an alternative method for estimating a limit.",
+        "Using a graphing calculator or computer software that allows us to graph functions, we can plot the function $f(x),$ making sure the functional values of $f(x)$ for *x*-values near *a* are in our window. We can use the trace feature to move along the graph of the function and watch the *y*-value readout as the *x*-values approach *a*. If the *y*-values approach *L* as our *x*-values approach *a* from both directions, then $\\lim_{x\\to a}f(x)=L.$ We may need to zoom in on our graph and repeat this process several times."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Evaluating a Limit Using a Table of Functional Values"
+    }
+   ],
+   "title": "Intuitive Definition of a Limit (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We apply this Problem-Solving Strategy to compute a limit in Example 2.4."
+    }
+   ],
+   "title": "Intuitive Definition of a Limit (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 2.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate $\\lim_{x\\to 0}\\frac{\\sin \\,x}{x}$ using a table of functional values."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have calculated the values of $f(x)=(\\sin \\,x)/x$ for the values of *x* listed in Table 2.2."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "−0.1",
+        "0.998334166468",
+        "",
+        "0.1",
+        "0.998334166468"
+       ],
+       [
+        "−0.01",
+        "0.999983333417",
+        "0.01",
+        "0.999983333417"
+       ],
+       [
+        "−0.001",
+        "0.999999833333",
+        "0.001",
+        "0.999999833333"
+       ],
+       [
+        "−0.0001",
+        "0.999999998333",
+        "0.0001",
+        "0.999999998333"
+       ]
+      ],
+      "header": [
+       "*x*",
+       "$\\frac{\\sin \\,x}{x}$",
+       "",
+       "*x*",
+       "$\\frac{\\sin \\,x}{x}$"
+      ],
+      "caption": "**Table 2.2** Table of Functional Values for $\\lim_{x\\to 0}\\frac{\\sin \\,x}{x}$"
+     },
+     {
+      "type": "p",
+      "text": "*Note*: The values in this table were obtained using a calculator and using all the places given in the calculator output."
+     },
+     {
+      "type": "p",
+      "text": "As we read down each $\\frac{(\\sin \\,x)}{x}$ column, we see that the values in each column appear to be approaching one. Thus, it is fairly reasonable to conclude that $\\lim_{x\\to 0}\\frac{\\sin \\,x}{x}=1.$ A calculator or computer-generated graph of $f(x)=\\frac{(\\sin \\,x)}{x}$ would be similar to that shown in Figure 2.12, and it confirms our estimate."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_003.webp",
+      "alt": "A graph of f(x) = sin(x)/x over the interval [-6, 6]. The curving function has a y intercept at x=0 and x intercepts at y=pi and y=-pi.",
+      "caption": "**Figure 2.12** The graph of $f(x)=(\\sin \\,x)/x$ confirms the estimate from Table 2.2.",
+      "width": 487,
+      "height": 312
+     }
+    ]
+   },
+   "title": "Evaluating a Limit Using a Table of Functional Values 1"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 2.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate $\\lim_{x\\to 4}\\frac{\\sqrt{x}-2}{x-4}$ using a table of functional values."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "As before, we use a table—in this case, Table 2.3—to list the values of the function for the given values of *x*."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "3.9",
+        "0.251582341869",
+        "",
+        "4.1",
+        "0.248456731317"
+       ],
+       [
+        "3.99",
+        "0.25015644562",
+        "4.01",
+        "0.24984394501"
+       ],
+       [
+        "3.999",
+        "0.250015627",
+        "4.001",
+        "0.249984377"
+       ],
+       [
+        "3.9999",
+        "0.250001563",
+        "4.0001",
+        "0.249998438"
+       ],
+       [
+        "3.99999",
+        "0.25000016",
+        "4.00001",
+        "0.24999984"
+       ]
+      ],
+      "header": [
+       "*x*",
+       "$\\frac{\\sqrt{x}-2}{x-4}$",
+       "",
+       "*x*",
+       "$\\frac{\\sqrt{x}-2}{x-4}$"
+      ],
+      "caption": "**Table 2.3** Table of Functional Values for $\\lim_{x\\to 4}\\frac{\\sqrt{x}-2}{x-4}$"
+     },
+     {
+      "type": "p",
+      "text": "After inspecting this table, we see that the functional values less than 4 appear to be decreasing toward 0.25 whereas the functional values greater than 4 appear to be increasing toward 0.25. We conclude that $\\lim_{x\\to 4}\\frac{\\sqrt{x}-2}{x-4}=0.25.$ We confirm this estimate using the graph of $f(x)=\\frac{\\sqrt{x}-2}{x-4}$ shown in Figure 2.13."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_004.webp",
+      "alt": "A graph of the function f(x) = (sqrt(x) – 2 ) / (x-4) over the interval [0,8]. There is an open circle on the function at x=4. The function curves asymptotically towards the x axis and y axis in quadrant one.",
+      "caption": "**Figure 2.13** The graph of $f(x)=\\frac{\\sqrt{x}-2}{x-4}$ confirms the estimate from Table 2.3.",
+      "width": 487,
+      "height": 283
+     }
+    ]
+   },
+   "title": "Evaluating a Limit Using a Table of Functional Values 2"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Estimate $\\lim_{x\\to 1}\\frac{\\frac{1}{x}-1}{x-1}$ using a table of functional values. Use a graph to confirm your estimate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{x\\to 1}\\frac{\\frac{1}{x}-1}{x-1}=-1$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use 0.9, 0.99, 0.999, 0.9999, 0.99999 and 1.1, 1.01, 1.001, 1.0001, 1.00001 as your table values."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "At this point, we see from Example 2.4 and Example 2.5 that it may be just as easy, if not easier, to estimate a limit of a function by inspecting its graph as it is to estimate the limit by using a table of functional values. In Example 2.6, we evaluate a limit exclusively by looking at a graph rather than by using a table of functional values."
+    }
+   ],
+   "title": "Intuitive Definition of a Limit (continued)"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 2.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For $g(x)$ shown in Figure 2.14, evaluate $\\lim_{x\\to -1}g(x).$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_006.webp",
+     "alt": "The graph of a generic curving function g(x). In quadrant two, there is an open circle on the function at (-1,3) and a closed circle one unit up at (-1, 4).",
+     "caption": "**Figure 2.14** The graph of $g(x)$ includes one value not on a smooth curve.",
+     "width": 487,
+     "height": 390
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Despite the fact that $g(-1)=4,$ as the *x*-values approach −1 from either side, the $g(x)$ values approach 3. Therefore, $\\lim_{x\\to -1}g(x)=3.$ Note that we can determine this limit without even knowing the algebraic expression of the function."
+     }
+    ]
+   },
+   "title": "Evaluating a Limit Using a Graph"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Based on Example 2.6, we make the following observation: It is possible for the limit of a function to exist at a point, and for the function to be defined at this point, but the limit of the function and the value of the function at the point may be different."
+    }
+   ],
+   "title": "Intuitive Definition of a Limit (continued)"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the graph of $h(x)$ in Figure 2.15 to evaluate $\\lim_{x\\to 2}h(x),$ if possible."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_007.webp",
+     "alt": "A graph of the function h(x), which is a parabola graphed over [-2.5, 5]. There is an open circle where the vertex should be at the point (2,-1).",
+     "caption": "**Figure 2.15**",
+     "width": 487,
+     "height": 431
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{x\\to 2}h(x)=-1.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "What *y*-value does the function approach as the *x*-values approach 2?"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Looking at a table of functional values or looking at the graph of a function provides us with useful insight into the value of the limit of a function at a given point. However, these techniques rely too much on guesswork. We eventually need to develop alternative methods of evaluating limits. These new methods are more algebraic in nature and we explore them in the next section; however, at this point we introduce two special limits that are foundational to the techniques to come."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *a* be a real number and *c* be a constant."
+      },
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "math",
+          "tex": "\\lim_{x\\to a}x=a"
+         }
+        ],
+        [
+         {
+          "type": "math",
+          "tex": "\\lim_{x\\to a}c=c"
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Two Important Limits"
+    },
+    {
+     "type": "p",
+     "text": "We can make the following observations about these two limits."
+    },
+    {
+     "type": "list",
+     "items": [
+      "For the first limit, observe that as *x* approaches *a*, so does $f(x),$ because $f(x)=x.$ Consequently, $\\lim_{x\\to a}x=a.$",
+      "For the second limit, consider Table 2.4."
+     ],
+     "ordered": true,
+     "style": "i"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$a-0.1$",
+       "*c*",
+       "",
+       "$a+0.1$",
+       "*c*"
+      ],
+      [
+       "$a-0.01$",
+       "*c*",
+       "$a+0.01$",
+       "*c*"
+      ],
+      [
+       "$a-0.001$",
+       "*c*",
+       "$a+0.001$",
+       "*c*"
+      ],
+      [
+       "$a-0.0001$",
+       "*c*",
+       "$a+0.0001$",
+       "*c*"
+      ]
+     ],
+     "header": [
+      "*x*",
+      "$f(x)=c$",
+      "",
+      "*x*",
+      "$f(x)=c$"
+     ],
+     "caption": "**Table 2.4** Table of Functional Values for $\\lim_{x\\to a}c=c$"
+    },
+    {
+     "type": "p",
+     "text": "Observe that for all values of *x* (regardless of whether they are approaching *a*), the values $f(x)$ remain constant at *c*. We have no choice but to conclude $\\lim_{x\\to a}c=c.$"
+    }
+   ],
+   "title": "Intuitive Definition of a Limit (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As we consider the limit in the next example, keep in mind that for the limit of a function to exist at a point, the functional values must approach a single real-number value at that point. If the functional values do not approach a single value, then the limit does not exist."
+    }
+   ],
+   "title": "The Existence of a Limit"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 2.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate $\\lim_{x\\to 0}\\sin \\,(1/\\text{x})$ using a table of values."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Table 2.5 lists values for the function $\\sin (1/x)$ for the given values of *x*."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "−0.1",
+        "0.544021110889",
+        "",
+        "0.1",
+        "−0.544021110889"
+       ],
+       [
+        "−0.01",
+        "0.50636564111",
+        "0.01",
+        "−0.50636564111"
+       ],
+       [
+        "−0.001",
+        "−0.8268795405312",
+        "0.001",
+        "0.826879540532"
+       ],
+       [
+        "−0.0001",
+        "0.305614388888",
+        "0.0001",
+        "−0.305614388888"
+       ],
+       [
+        "−0.00001",
+        "−0.035748797987",
+        "0.00001",
+        "0.035748797987"
+       ],
+       [
+        "−0.000001",
+        "0.349993504187",
+        "0.000001",
+        "−0.349993504187"
+       ]
+      ],
+      "header": [
+       "*x*",
+       "$\\sin \\left(\\frac{1}{x}\\right)$",
+       "",
+       "*x*",
+       "$\\sin \\left(\\frac{1}{x}\\right)$"
+      ],
+      "caption": "**Table 2.5** Table of Functional Values for $\\lim_{x\\to 0}\\sin \\,\\left(\\frac{1}{x}\\right)$"
+     },
+     {
+      "type": "p",
+      "text": "After examining the table of functional values, we can see that the *y*-values do not seem to approach any one single value. It appears the limit does not exist. Before drawing this conclusion, let’s take a more systematic approach. Take the following sequence of *x*-values approaching 0:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{2}{\\pi},\\frac{2}{3\\pi},\\frac{2}{5\\pi},\\frac{2}{7\\pi},\\frac{2}{9\\pi},\\frac{2}{11\\pi},\\dots ."
+     },
+     {
+      "type": "p",
+      "text": "The corresponding *y*-values are"
+     },
+     {
+      "type": "math",
+      "tex": "1,-1,1,-1,1,-1,\\dots ."
+     },
+     {
+      "type": "p",
+      "text": "At this point we can indeed conclude that $\\lim_{x\\to 0}\\sin \\,(1/\\text{x})$ does not exist. (Mathematicians frequently abbreviate “does not exist” as DNE. Thus, we would write $\\lim_{x\\to 0}\\sin \\,(1/\\text{x})$ DNE.) The graph of $f(x)=\\sin \\,(1/x)$ is shown in Figure 2.16 and it gives a clearer picture of the behavior of $\\sin (1/x)$ as *x* approaches 0. You can see that $\\sin (1/\\text{x})$ oscillates ever more wildly between −1 and 1 as *x* approaches 0."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_008.webp",
+      "alt": "The graph of the function f(x) = sin(1/x), which oscillates rapidly between -1 and 1 as x approaches 0. The oscillations are less frequent as the function moves away from 0 on the x axis.",
+      "caption": "**Figure 2.16** The graph of $f(x)=\\sin (1/x)$ oscillates rapidly between −1 and 1 as *x* approaches 0.",
+      "width": 487,
+      "height": 358
+     }
+    ]
+   },
+   "title": "Evaluating a Limit That Fails to Exist"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use a table of functional values to evaluate $\\lim_{x\\to 2}\\frac{|x^{2}-4|}{x-2},$ if possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{x\\to 2}\\frac{|x^{2}-4|}{x-2}$ does not exist."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use *x*-values 1.9, 1.99, 1.999, 1.9999, 1.9999 and 2.1, 2.01, 2.001, 2.0001, 2.00001 in your table."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Sometimes indicating that the limit of a function fails to exist at a point does not provide us with enough information about the behavior of the function at that particular point. To see this, we now revisit the function $g(x)=|x-2|/(x-2)$ introduced at the beginning of the section (see Figure 2.11(b)). As we pick values of *x* close to 2, $g(x)$ does not approach a single value, so the limit as *x* approaches 2 does not exist—that is, $\\lim_{x\\to 2}g(x)$ DNE. However, this statement alone does not give us a complete picture of the behavior of the function around the *x*-value 2. To provide a more accurate description, we introduce the idea of a **one-sided limit**. For all values to the left of 2 (or *the negative side of* 2), $g(x)=-1.$ Thus, as *x* approaches 2 from the left, $g(x)$ approaches −1. Mathematically, we say that the limit as *x* approaches 2 from the left is −1. Symbolically, we express this idea as"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{x\\to 2^{-}}g(x)=-1."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, as *x* approaches 2 from the right (or *from the positive side*), $g(x)$ approaches 1. Symbolically, we express this idea as"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{x\\to 2^{+}}g(x)=1."
+    },
+    {
+     "type": "p",
+     "text": "We can now present an informal definition of one-sided limits."
+    }
+   ],
+   "title": "One-Sided Limits"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "We define two types of **one-sided limits**."
+      },
+      {
+       "type": "p",
+       "text": "*Limit from the left:* Let $f(x)$ be a function defined at all values in an open interval of the form (*c*, *a*), and let *L* be a real number. If the values of the function $f(x)$ approach the real number *L* as the values of *x* (where $x<\\text{a})$ approach the number *a*, then we say that *L* is the limit of $f(x)$ as *x* approaches a from the left. Symbolically, we express this idea as"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{x\\to a^{-}}f(x)=L."
+      },
+      {
+       "type": "p",
+       "text": "*Limit from the right:* Let $f(x)$ be a function defined at all values in an open interval of the form $(a,c),$ and let *L* be a real number. If the values of the function $f(x)$ approach the real number L as the values of *x* (where $x>\\text{a})$ approach the number *a*, then we say that *L* is the limit of $f(x)$ as *x* approaches *a* from the right. Symbolically, we express this idea as"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{x\\to a^{+}}f(x)=L."
+      }
+     ]
+    }
+   ],
+   "title": "One-Sided Limits (continued)"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 2.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the function $f(x)=\\{\\begin{array}{ll}x+1 & \\text{if}\\,x<2 \\\\ x^{2}-4 & \\text{if}\\,x\\ge 2\\end{array},$ evaluate each of the following limits."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{x\\to 2^{-}}f(x)$",
+      "$\\lim_{x\\to 2^{+}}f(x)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We can use tables of functional values again Table 2.6. Observe that for values of *x* less than 2, we use $f(x)=x+1$ and for values of *x* greater than 2, we use $f(x)=x^{2}-4.$"
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "1.9",
+        "2.9",
+        "",
+        "2.1",
+        "0.41"
+       ],
+       [
+        "1.99",
+        "2.99",
+        "2.01",
+        "0.0401"
+       ],
+       [
+        "1.999",
+        "2.999",
+        "2.001",
+        "0.004001"
+       ],
+       [
+        "1.9999",
+        "2.9999",
+        "2.0001",
+        "0.00040001"
+       ],
+       [
+        "1.99999",
+        "2.99999",
+        "2.00001",
+        "0.0000400001"
+       ]
+      ],
+      "header": [
+       "*x*",
+       "$f(x)=x+1$",
+       "",
+       "*x*",
+       "$f(x)=x^{2}-4$"
+      ],
+      "caption": "**Table 2.6** Table of Functional Values for $f(x)=\\{\\begin{array}{l}x+1\\,\\text{if}\\,x<2 \\\\ x^{2}-4\\,\\text{if}\\,x\\ge 2\\end{array}$"
+     },
+     {
+      "type": "p",
+      "text": "Based on this table, we can conclude that a. $\\lim_{x\\to 2^{-}}f(x)=3$ and b. $\\lim_{x\\to 2^{+}}f(x)=0.$ Therefore, the (two-sided) limit of $f(x)$ does not exist at $x=2.$ Figure 2.17 shows a graph of $f(x)$ and reinforces our conclusion about these limits."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_010.webp",
+      "alt": "The graph of the given piecewise function. The first piece is f(x) = x+1 if x < 2. The second piece is x^2 – 4 if x >= 2. The first piece is a line with x intercept at (-1, 0) and y intercept at (0,1). There is an open circle at (2,3), where the endpoint would be. The second piece is the right half of a parabola opening upward. The vertex at (2,0) is a solid circle.",
+      "caption": "**Figure 2.17** The graph of $f(x)=\\{\\begin{array}{c}x+1\\,\\text{if}\\,x<2 \\\\ x^{2}-4\\,\\text{if}\\,x\\ge 2\\end{array}$ has a break at $x=2.$",
+      "width": 487,
+      "height": 431
+     }
+    ]
+   },
+   "title": "Evaluating One-Sided Limits"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use a table of functional values to estimate the following limits, if possible."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{x\\to 2^{-}}\\frac{|x^{2}-4|}{x-2}$",
+      "$\\lim_{x\\to 2^{+}}\\frac{|x^{2}-4|}{x-2}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\lim_{x\\to 2^{-}}\\frac{|x^{2}-4|}{x-2}=-4;$ b. $\\lim_{x\\to 2^{+}}\\frac{|x^{2}-4|}{x-2}=4$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "list",
+        "items": [
+         "Use *x*-values 1.9, 1.99, 1.999, 1.9999, 1.9999 to estimate $\\lim_{x\\to 2^{-}}\\frac{|x^{2}-4|}{x-2}.$",
+         "Use *x*-values 2.1, 2.01, 2.001, 2.0001, 2.00001 to estimate $\\lim_{x\\to 2^{+}}\\frac{|x^{2}-4|}{x-2}.$\n\n(These tables are available from a previous Checkpoint problem.)"
+        ],
+        "ordered": true,
+        "style": "a"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "-4"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "4"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let us now consider the relationship between the limit of a function at a point and the limits from the right and left at that point. It seems clear that if the limit from the right and the limit from the left have a common value, then that common value is the limit of the function at that point. Similarly, if the limit from the left and the limit from the right take on different values, the limit of the function does not exist. These conclusions are summarized in (see above)."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f(x)$ be a function defined at all values in an open interval containing *a*, with the possible exception of *a* itself, and let *L* be a real number. Then,"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{x\\to a}f(x)=L\\,\\text{if and only if}\\,\\lim_{x\\to a^{-}}f(x)=L\\,\\text{and}\\,\\lim_{x\\to a^{+}}f(x)=L."
+      }
+     ],
+     "title": "Relating One-Sided and Two-Sided Limits"
+    }
+   ],
+   "title": "One-Sided Limits (continued)"
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Evaluating the limit of a function at a point or evaluating the limit of a function from the right and left at a point helps us to characterize the behavior of a function around a given value. As we shall see, we can also describe the behavior of functions that do not have finite limits."
+    },
+    {
+     "type": "p",
+     "text": "We now turn our attention to $h(x)=1/(x-2)^{2},$ the third and final function introduced at the beginning of this section (see Figure 2.11(c)). From its graph we see that as the values of *x* approach 2, the values of $h(x)=1/(x-2)^{2}$ become larger and larger and, in fact, become infinite. Mathematically, we say that the limit of $h(x)$ as *x* approaches 2 is positive infinity. Symbolically, we express this idea as"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{x\\to 2}h(x)=+\\infty ."
+    },
+    {
+     "type": "p",
+     "text": "More generally, we define **infinite limits** as follows:"
+    }
+   ],
+   "title": "Infinite Limits"
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "We define three types of **infinite limits**."
+      },
+      {
+       "type": "p",
+       "text": "*Infinite limits from the left:* Let $f(x)$ be a function defined at all values in an open interval of the form $(b,a).$"
+      },
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "p",
+          "text": "If the values of $f(x)$ increase without bound as the values of *x* (where $x<\\text{a})$ approach the number *a*, then we say that the limit as *x* approaches *a* from the left is positive infinity and we write"
+         },
+         {
+          "type": "math",
+          "tex": "\\lim_{x\\to a^{-}}f(x)=+\\infty ."
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "If the values of $f(x)$ decrease without bound as the values of *x* (where $x<\\text{a})$ approach the number *a*, then we say that the limit as *x* approaches *a* from the left is negative infinity and we write"
+         },
+         {
+          "type": "math",
+          "tex": "\\lim_{x\\to a^{-}}f(x)=-\\infty ."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      },
+      {
+       "type": "p",
+       "text": "*Infinite limits from the right*: Let $f(x)$ be a function defined at all values in an open interval of the form $(a,c).$"
+      },
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "p",
+          "text": "If the values of $f(x)$ increase without bound as the values of *x* (where $x>\\text{a})$ approach the number *a*, then we say that the limit as *x* approaches *a* from the right is positive infinity and we write"
+         },
+         {
+          "type": "math",
+          "tex": "\\lim_{x\\to a^{+}}f(x)=+\\infty ."
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "If the values of $f(x)$ decrease without bound as the values of *x* (where $x>\\text{a})$ approach the number *a*, then we say that the limit as *x* approaches *a* from the right is negative infinity and we write"
+         },
+         {
+          "type": "math",
+          "tex": "\\lim_{x\\to a^{+}}f(x)=-\\infty ."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      },
+      {
+       "type": "p",
+       "text": "*Two-sided infinite limit:* Let $f(x)$ be defined for all $x\\ne a$ in an open interval containing *a*."
+      },
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "p",
+          "text": "If the values of $f(x)$ increase without bound as the values of *x* (where $x\\ne \\text{a})$ approach the number *a*, then we say that the limit as *x* approaches *a* is positive infinity and we write"
+         },
+         {
+          "type": "math",
+          "tex": "\\lim_{x\\to a}f(x)=+\\infty ."
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "If the values of $f(x)$ decrease without bound as the values of *x* (where $x\\ne \\text{a})$ approach the number *a*, then we say that the limit as *x* approaches *a* is negative infinity and we write"
+         },
+         {
+          "type": "math",
+          "tex": "\\lim_{x\\to a}f(x)=-\\infty ."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ]
+    }
+   ],
+   "title": "Infinite Limits (continued)"
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "It is important to understand that when we write statements such as $\\lim_{x\\to a}f(x)=+\\infty$ or $\\lim_{x\\to a}f(x)=-\\infty$ we are describing the behavior of the function, as we have just defined it. We are not asserting that a limit exists. For the limit of a function $f(x)$ to exist at *a*, it must approach a real number *L* as *x* approaches *a*. That said, if, for example, $\\lim_{x\\to a}f(x)=+\\infty ,$ we always write $\\lim_{x\\to a}f(x)=+\\infty$ rather than $\\lim_{x\\to a}f(x)$ DNE."
+    }
+   ],
+   "title": "Infinite Limits (continued)"
+  },
+  {
+   "id": "x25",
+   "kind": "example",
+   "label": "Example 2.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following limits, if possible. Use a table of functional values and graph $f(x)=1/x$ to confirm your conclusion."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{x\\to 0^{-}}\\frac{1}{x}$",
+      "$\\lim_{x\\to 0^{+}}\\frac{1}{x}$",
+      "$\\lim_{x\\to 0}\\frac{1}{x}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Begin by constructing a table of functional values."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "−0.1",
+        "−10",
+        "",
+        "0.1",
+        "10"
+       ],
+       [
+        "−0.01",
+        "−100",
+        "0.01",
+        "100"
+       ],
+       [
+        "−0.001",
+        "−1000",
+        "0.001",
+        "1000"
+       ],
+       [
+        "−0.0001",
+        "−10,000",
+        "0.0001",
+        "10,000"
+       ],
+       [
+        "−0.00001",
+        "−100,000",
+        "0.00001",
+        "100,000"
+       ],
+       [
+        "−0.000001",
+        "−1,000,000",
+        "0.000001",
+        "1,000,000"
+       ]
+      ],
+      "header": [
+       "*x*",
+       "$\\frac{1}{x}$",
+       "",
+       "*x*",
+       "$\\frac{1}{x}$"
+      ],
+      "caption": "**Table 2.7** Table of Functional Values for $f(x)=\\frac{1}{x}$"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "The values of $1/x$ decrease without bound as *x* approaches 0 from the left. We conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{x\\to 0^{-}}\\frac{1}{x}=-\\infty ."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The values of $1/x$ increase without bound as *x* approaches 0 from the right. We conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{x\\to 0^{+}}\\frac{1}{x}=+\\infty ."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Since $\\lim_{x\\to 0^{-}}\\frac{1}{x}=-\\infty$ and $\\lim_{x\\to 0^{+}}\\frac{1}{x}=+\\infty$ have different values, we conclude that"
+        },
+        {
+         "type": "math",
+         "tex": "\\lim_{x\\to 0}\\frac{1}{x}\\,\\text{DNE.}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "p",
+      "text": "The graph of $f(x)=1/x$ in Figure 2.18 confirms these conclusions."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_012.webp",
+      "alt": "The graph of the function f(x) = 1/x. The function curves asymptotically towards x=0 and y=0 in quadrants one and three.",
+      "caption": "**Figure 2.18** The graph of $f(x)=1/x$ confirms that the limit as *x* approaches 0 does not exist.",
+      "width": 325,
+      "height": 427
+     }
+    ]
+   },
+   "title": "Recognizing an Infinite Limit"
+  },
+  {
+   "id": "c26",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following limits, if possible. Use a table of functional values and graph $f(x)=1/x^{2}$ to confirm your conclusion."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{x\\to 0^{-}}\\frac{1}{x^{2}}$",
+      "$\\lim_{x\\to 0^{+}}\\frac{1}{x^{2}}$",
+      "$\\lim_{x\\to 0}\\frac{1}{x^{2}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\lim_{x\\to 0^{-}}\\frac{1}{x^{2}}=+\\infty ;$ b. $\\lim_{x\\to 0^{+}}\\frac{1}{x^{2}}=+\\infty ;$ c. $\\lim_{x\\to 0}\\frac{1}{x^{2}}=+\\infty$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the procedures from Example 2.9."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "number",
+       "value": "+ inf"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "+ inf"
+      }
+     },
+     {
+      "label": "c",
+      "answer": {
+       "kind": "number",
+       "value": "+ inf"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "r27",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "It is useful to point out that functions of the form $f(x)=1/(x-a)^{n},$ where *n* is a positive integer, have infinite limits as *x* approaches *a* from either the left or right (Figure 2.19). These limits are summarized in (see above)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_014.webp",
+     "alt": "Two graphs side by side of f(x) = 1 / (x-a)^n. The first graph shows the case where n is an odd positive integer, and the second shows the case where n is an even positive integer. In the first, the graph has two segments. Each curve asymptotically towards the x axis, also known as y=0, and x=a. The segment to the left of x=a is below the x axis, and the segment to the right of x=a is above the x axis. In the second graph, both segments are above the x axis.",
+     "caption": "**Figure 2.19** The function $f(x)=1/(x-a)^{n}$ has infinite limits at *a*.",
+     "width": 731,
+     "height": 427
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If *n* is a positive even integer, then"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{x\\to a}\\frac{1}{(x-a)^{n}}=+\\infty ."
+      },
+      {
+       "type": "p",
+       "text": "If *n* is a positive odd integer, then"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{x\\to a^{+}}\\frac{1}{(x-a)^{n}}=+\\infty"
+      },
+      {
+       "type": "p",
+       "text": "and"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{x\\to a^{-}}\\frac{1}{(x-a)^{n}}=-\\infty ."
+      }
+     ],
+     "title": "Infinite Limits from Positive Integers"
+    }
+   ],
+   "title": "Infinite Limits (continued)"
+  },
+  {
+   "id": "r28",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We should also point out that in the graphs of $f(x)=1/(x-a)^{n},$ points on the graph having *x*-coordinates very near to *a* are very close to the vertical line $x=a.$ That is, as *x* approaches *a*, the points on the graph of $f(x)$ are closer to the line $x=a.$ The line $x=a$ is called a **vertical asymptote** of the graph. We formally define a vertical asymptote as follows:"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f(x)$ be a function. If any of the following conditions hold, then the line $x=a$ is a **vertical asymptote** of $f(x).$"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{ccc}\\lim_{x\\to a^{-}}f(x) & = & +\\infty \\,\\text{or}\\,-\\infty \\\\ \\lim_{x\\to a^{+}}f(x) & = & +\\infty \\,\\text{or}\\,-\\infty \\\\ & \\,\\text{or} & \\\\ \\lim_{x\\to a}f(x) & = & +\\infty \\,\\text{or}\\,-\\infty\\end{array}"
+      }
+     ]
+    }
+   ],
+   "title": "Infinite Limits (continued)"
+  },
+  {
+   "id": "x29",
+   "kind": "example",
+   "label": "Example 2.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following limits using (see above). Identify any vertical asymptotes of the function $f(x)=1/(x+3)^{4}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{x\\to {-3}^{-}}\\frac{1}{(x+3)^{4}}$",
+      "$\\lim_{x\\to {-3}^{+}}\\frac{1}{(x+3)^{4}}$",
+      "$\\lim_{x\\to -3}\\frac{1}{(x+3)^{4}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We can use (see above) directly."
+     },
+     {
+      "type": "list",
+      "items": [
+       "$\\lim_{x\\to {-3}^{-}}\\frac{1}{(x+3)^{4}}=+\\infty$",
+       "$\\lim_{x\\to {-3}^{+}}\\frac{1}{(x+3)^{4}}=+\\infty$",
+       "$\\lim_{x\\to -3}\\frac{1}{(x+3)^{4}}=+\\infty$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "p",
+      "text": "The function $f(x)=1/(x+3)^{4}$ has a vertical asymptote of $x=-3.$"
+     }
+    ]
+   },
+   "title": "Finding a Vertical Asymptote"
+  },
+  {
+   "id": "c30",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following limits. Identify any vertical asymptotes of the function $f(x)=\\frac{1}{(x-2)^{3}}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{x\\to 2^{-}}\\frac{1}{(x-2)^{3}}$",
+      "$\\lim_{x\\to 2^{+}}\\frac{1}{(x-2)^{3}}$",
+      "$\\lim_{x\\to 2}\\frac{1}{(x-2)^{3}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\lim_{x\\to 2^{-}}\\frac{1}{(x-2)^{3}}=-\\infty ;$ b. $\\lim_{x\\to 2^{+}}\\frac{1}{(x-2)^{3}}=+\\infty ;$ c. $\\lim_{x\\to 2}\\frac{1}{(x-2)^{3}}$ DNE. The line $x=2$ is the vertical asymptote of $f(x)=1/(x-2)^{3}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r31",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the next example we put our knowledge of various types of limits to use to analyze the behavior of a function at several different points."
+    }
+   ],
+   "title": "Infinite Limits (continued)"
+  },
+  {
+   "id": "x32",
+   "kind": "example",
+   "label": "Example 2.11",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the graph of $f(x)$ in Figure 2.20 to determine each of the following values:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\lim_{x\\to {-4}^{-}}f(x);\\lim_{x\\to {-4}^{+}}f(x);\\lim_{x\\to -4}f(x);f(-4)$",
+      "$\\lim_{x\\to {-2}^{-}}f(x);\\lim_{x\\to {-2}^{+}}f(x);\\lim_{x\\to -2}f(x);f(-2)$",
+      "$\\lim_{x\\to 1^{-}}f(x);\\lim_{x\\to 1^{+}}f(x);\\lim_{x\\to 1}f(x);f(1)$",
+      "$\\lim_{x\\to 3^{-}}f(x);\\lim_{x\\to 3^{+}}f(x);\\lim_{x\\to 3}f(x);f(3)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_015.webp",
+     "alt": "The graph of a function f(x) described by the above limits and values. There is a smooth curve for values below x=-2; at (-2, 3), there is an open circle. There is a smooth curve between (-2, 1] with a closed circle at (1,6). There is an open circle at (1,3), and a smooth curve stretching from there down asymptotically to negative infinity along x=3. The function also curves asymptotically along x=3 on the other side, also stretching to negative infinity. The function then changes concavity in the first quadrant around y=4.5 and continues up.",
+     "caption": "**Figure 2.20** The graph shows $f(x).$",
+     "width": 342,
+     "height": 347
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using (see above) and the graph for reference, we arrive at the following values:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "$\\lim_{x\\to {-4}^{-}}f(x)=0;\\lim_{x\\to {-4}^{+}}f(x)=0;\\lim_{x\\to -4}f(x)=0;f(-4)=0$",
+       "$\\lim_{x\\to {-2}^{-}}f(x)=3.;\\lim_{x\\to {-2}^{+}}f(x)=3;\\lim_{x\\to -2}f(x)=3;f(-2)$ is undefined",
+       "$\\lim_{x\\to 1^{-}}f(x)=6;\\lim_{x\\to 1^{+}}f(x)=3;\\lim_{x\\to 1}f(x)$ DNE; $f(1)=6$",
+       "$\\lim_{x\\to 3^{-}}f(x)=-\\infty ;\\lim_{x\\to 3^{+}}f(x)=-\\infty ;\\lim_{x\\to 3}f(x)=-\\infty ;f(3)$ is undefined"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Behavior of a Function at Different Points"
+  },
+  {
+   "id": "c33",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate $\\lim_{x\\to 1}f(x)$ for $f(x)$ shown here:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_016.webp",
+     "alt": "A graph of a piecewise function. The first segment curves from the third quadrant to the first, crossing through the second quadrant. Where the endpoint would be in the first quadrant is an open circle. The second segment starts at a closed circle a few units below the open circle. It curves down from quadrant one to quadrant four.",
+     "width": 488,
+     "height": 350
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Does not exist."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Compare the limit from the right with the limit from the left."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "DNE"
+   }
+  },
+  {
+   "id": "x34",
+   "kind": "example",
+   "label": "Example 2.12",
+   "problem": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_018.webp",
+     "alt": "A picture of a futuristic spaceship speeding through deep space.",
+     "caption": "**Figure 2.21** (credit: NASA)",
+     "width": 325,
+     "height": 244
+    },
+    {
+     "type": "p",
+     "text": "In the chapter opener we mentioned briefly how Albert Einstein showed that a limit exists to how fast any object can travel. Given Einstein’s equation for the mass of a moving object, what is the value of this bound?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Our starting point is Einstein’s equation for the mass of a moving object,"
+     },
+     {
+      "type": "math",
+      "tex": "m=\\frac{m_{0}}{\\sqrt{1-\\frac{v^{2}}{c^{2}}}},"
+     },
+     {
+      "type": "p",
+      "text": "where $m_{0}$ is the object’s mass at rest, *v* is its speed, and *c* is the speed of light. To see how the mass changes at high speeds, we can graph the ratio of masses $m/m_{0}$ as a function of the ratio of speeds, $v/c$ (Figure 2.22)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_017.webp",
+      "alt": "A graph showing the ratio of masses as a function of the ratio of speed in Einstein’s equation for the mass of a moving object. The x axis is the ratio of the speeds, v/c. The y axis is the ratio of the masses, m/m0. The equation of the function is m = m0 / sqrt(1 –  v2 / c2 ). The graph is only in quadrant 1. It starts at (0,1) and curves up gently until about 0.8, where it increases seemingly exponentially; there is a vertical asymptote at v/c (or x) = 1.",
+      "caption": "**Figure 2.22** This graph shows the ratio of masses as a function of the ratio of speeds in Einstein’s equation for the mass of a moving object.",
+      "width": 325,
+      "height": 263
+     },
+     {
+      "type": "p",
+      "text": "We can see that as the ratio of speeds approaches 1—that is, as the speed of the object approaches the speed of light—the ratio of masses increases without bound. In other words, the function has a vertical asymptote at $v/c=1.$ We can try a few values of this ratio to test this idea."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "0.99",
+        "0.1411",
+        "7.089"
+       ],
+       [
+        "0.999",
+        "0.0447",
+        "22.37"
+       ],
+       [
+        "0.9999",
+        "0.0141",
+        "70.71"
+       ]
+      ],
+      "header": [
+       "$\\frac{v}{c}$",
+       "$\\sqrt{1-\\frac{v^{2}}{c^{2}}}$",
+       "$\\frac{m}{m_{0}}$"
+      ],
+      "caption": "**Table 2.8** Ratio of Masses and Speeds for a Moving Object"
+     },
+     {
+      "type": "p",
+      "text": "Thus, according to Table 2.8, if an object with mass 100 kg is traveling at 0.9999*c*, its mass becomes 7071 kg. Since no object can have an infinite mass, we conclude that no object can travel at or more than the speed of light."
+     }
+    ]
+   },
+   "title": "Chapter Opener: Einstein’s Equation"
+  },
+  {
+   "id": "r35",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "A table of values or graph may be used to estimate a limit.",
+      "If the limit of a function at a point does not exist, it is still possible that the limits from the left and right at that point may exist.",
+      "If the limits of a function from the left and right exist and are equal, then the limit of the function is that common value.",
+      "We may use limits to describe infinite behavior of a function at a point."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r36",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Intuitive Definition of the Limit**",
+       "$\\lim_{x\\to a}f(x)=L$"
+      ],
+      [
+       "**Two Important Limits**",
+       "$\\lim_{x\\to a}x=a\\quad \\lim_{x\\to a}c=c$"
+      ],
+      [
+       "**One-Sided Limits**",
+       "$\\lim_{x\\to a^{-}}f(x)=L\\quad \\lim_{x\\to a^{+}}f(x)=L$"
+      ],
+      [
+       "**Infinite Limits from the Left**",
+       "$\\lim_{x\\to a^{-}}f(x)=+\\infty \\quad \\lim_{x\\to a^{-}}f(x)=-\\infty$"
+      ],
+      [
+       "**Infinite Limits from the Right**",
+       "$\\lim_{x\\to a^{+}}f(x)=+\\infty \\quad \\lim_{x\\to a^{+}}f(x)=-\\infty$"
+      ],
+      [
+       "**Two-Sided Infinite Limits**",
+       "$\\lim_{x\\to a}f(x)=+\\infty :\\lim_{x\\to a^{-}}f(x)=+\\infty$ and $\\lim_{x\\to a^{+}}f(x)=+\\infty$\n\n$\\lim_{x\\to a}f(x)=-\\infty :\\lim_{x\\to a^{-}}f(x)=-\\infty$ and $\\lim_{x\\to a^{+}}f(x)=-\\infty$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e30",
+   "number": 30,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Complete the following table for the function. Round your solutions to four decimal places."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0.9",
+       "a.",
+       "",
+       "1.1",
+       "e."
+      ],
+      [
+       "0.99",
+       "b.",
+       "1.01",
+       "f."
+      ],
+      [
+       "0.999",
+       "c.",
+       "1.001",
+       "g."
+      ],
+      [
+       "0.9999",
+       "d.",
+       "1.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "$f(x)$",
+      "",
+      "*x*",
+      "$f(x)$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571655731",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=\\frac{x^{2}-1}{|x-1|}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e31",
+   "number": 31,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "What do your results in the preceding exercise indicate about the two-sided limit $\\lim_{x\\to 1}f(x)?$ Explain your response."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571657429",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=\\frac{x^{2}-1}{|x-1|}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{x\\to 1}f(x)$ does not exist because $\\lim_{x\\to 1^{-}}f(x)=-2\\ne \\lim_{x\\to 1^{+}}f(x)=2.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e32",
+   "number": 32,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Make a table showing the values of *f* for $x=-0.01,-0.001,-0.0001,-0.00001$ and for $x=0.01,0.001,0.0001,0.00001.$ Round your solutions to five decimal places."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−0.01",
+       "a.",
+       "",
+       "0.01",
+       "e."
+      ],
+      [
+       "−0.001",
+       "b.",
+       "0.001",
+       "f."
+      ],
+      [
+       "−0.0001",
+       "c.",
+       "0.0001",
+       "g."
+      ],
+      [
+       "−0.00001",
+       "d.",
+       "0.00001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "$f(x)$",
+      "",
+      "*x*",
+      "$f(x)$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572482622",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=(1+x)^{1/x}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e33",
+   "number": 33,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "What does the table of values in the preceding exercise indicate about the function $f(x)=(1+x)^{1/x}?$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571654941",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=(1+x)^{1/x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{x\\to 0}(1+x)^{1/x}=2.7183$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2.7183"
+   }
+  },
+  {
+   "id": "e34",
+   "number": 34,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "To which mathematical constant does the limit in the preceding exercise appear to be getting closer?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572403244",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=(1+x)^{1/x}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e35",
+   "number": 35,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\lim_{x\\to 0}\\frac{\\sin \\,2x}{x};\\,\\pm 0.1,\\pm 0.01,\\pm 0.001,\\pm .0001$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−0.1",
+       "a.",
+       "",
+       "0.1",
+       "e."
+      ],
+      [
+       "−0.01",
+       "b.",
+       "0.01",
+       "f."
+      ],
+      [
+       "−0.001",
+       "c.",
+       "0.001",
+       "g."
+      ],
+      [
+       "−0.0001",
+       "d.",
+       "0.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "$\\frac{\\sin \\,2x}{x}$",
+      "",
+      "*x*",
+      "$\\frac{\\sin \\,2x}{x}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572403273",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the given values to set up a table to evaluate the limits. Round your solutions to eight decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 1.98669331; b. 1.99986667; c. 1.99999867; d. 1.99999999; e. 1.98669331; f. 1.99986667; g. 1.99999867; h. 1.99999999; $\\lim_{x\\to 0}\\frac{\\sin \\,2x}{x}=2$"
+     }
+    ]
+   },
+   "notes": "self-check: part h is not plain math"
+  },
+  {
+   "id": "e36",
+   "number": 36,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $\\lim_{x\\to 0}\\frac{\\sin \\,3x}{x}$ ±0.1, ±0.01, ±0.001, ±0.0001"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−0.1",
+       "a.",
+       "",
+       "0.1",
+       "e."
+      ],
+      [
+       "−0.01",
+       "b.",
+       "0.01",
+       "f."
+      ],
+      [
+       "−0.001",
+       "c.",
+       "0.001",
+       "g."
+      ],
+      [
+       "−0.0001",
+       "d.",
+       "0.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*X*",
+      "$\\frac{\\sin \\,3x}{x}$",
+      "",
+      "*x*",
+      "$\\frac{\\sin \\,3x}{x}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571586250",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the given values to set up a table to evaluate the limits. Round your solutions to eight decimal places."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e37",
+   "number": 37,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding two exercises to conjecture (guess) the value of the following limit: $\\lim_{x\\to 0}\\frac{\\sin \\,ax}{x}$ for *a*, a positive real value."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572499827",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the given values to set up a table to evaluate the limits. Round your solutions to eight decimal places."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{x\\to 0}\\frac{\\sin \\,ax}{x}=a$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "a"
+   }
+  },
+  {
+   "id": "e38",
+   "number": 38,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2}\\frac{x^{2}-4}{x^{2}+x-6}$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1.9",
+       "a.",
+       "",
+       "2.1",
+       "e."
+      ],
+      [
+       "1.99",
+       "b.",
+       "",
+       "2.01",
+       "f."
+      ],
+      [
+       "1.999",
+       "c.",
+       "",
+       "2.001",
+       "g."
+      ],
+      [
+       "1.9999",
+       "d.",
+       "",
+       "2.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "$\\frac{x^{2}-4}{x^{2}+x-6}$",
+      "",
+      "*x*",
+      "$\\frac{x^{2}-4}{x^{2}+x-6}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572499914",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** In the following exercises, set up a table of values to find the indicated limit. Round to eight digits."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 1}(1-2x)$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0.9",
+       "a.",
+       "",
+       "1.1",
+       "e."
+      ],
+      [
+       "0.99",
+       "b.",
+       "1.01",
+       "f."
+      ],
+      [
+       "0.999",
+       "c.",
+       "1.001",
+       "g."
+      ],
+      [
+       "0.9999",
+       "d.",
+       "1.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "$1-2x$",
+      "",
+      "*x*",
+      "$1-2x$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572232003",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** In the following exercises, set up a table of values to find the indicated limit. Round to eight digits."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. −0.80000000; b. −0.98000000; c. −0.99800000; d. −0.99980000; e. −1.2000000; f. −1.0200000; g. −1.0020000; h. −1.0002000; $\\lim_{x\\to 1}(1-2x)=-1$"
+     }
+    ]
+   },
+   "notes": "self-check: part h is not plain math"
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0}\\frac{5}{1-e^{1/x}}$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−0.1",
+       "a.",
+       "",
+       "0.1",
+       "e."
+      ],
+      [
+       "−0.01",
+       "b.",
+       "0.01",
+       "f."
+      ],
+      [
+       "−0.001",
+       "c.",
+       "0.001",
+       "g."
+      ],
+      [
+       "−0.0001",
+       "d.",
+       "0.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "$\\frac{5}{1-e^{1/x}}$",
+      "",
+      "*x*",
+      "$\\frac{5}{1-e^{1/x}}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571600063",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** In the following exercises, set up a table of values to find the indicated limit. Round to eight digits."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e41",
+   "number": 41,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{z\\to 0}\\frac{z-1}{z^{2}(z+3)}$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−0.1",
+       "a.",
+       "",
+       "0.1",
+       "e."
+      ],
+      [
+       "−0.01",
+       "b.",
+       "0.01",
+       "f."
+      ],
+      [
+       "−0.001",
+       "c.",
+       "0.001",
+       "g."
+      ],
+      [
+       "−0.0001",
+       "d.",
+       "0.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*z*",
+      "$\\frac{z-1}{z^{2}(z+3)}$",
+      "",
+      "*z*",
+      "$\\frac{z-1}{z^{2}(z+3)}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571599593",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** In the following exercises, set up a table of values to find the indicated limit. Round to eight digits."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. −37.931934; b. −3377.9264; c. −333,777.93; d. −33,337,778; e. −29.032258; f. −3289.0365; g. −332,889.04; h. −33,328,889 $\\lim_{x\\to 0}\\frac{z-1}{z^{2}(z+3)}=-\\infty$"
+     }
+    ]
+   },
+   "notes": "self-check: part h is not plain math"
+  },
+  {
+   "id": "e42",
+   "number": 42,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{t\\to 0^{+}}\\frac{\\cos \\,t}{t}$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0.1",
+       "a."
+      ],
+      [
+       "0.01",
+       "b."
+      ],
+      [
+       "0.001",
+       "c."
+      ],
+      [
+       "0.0001",
+       "d."
+      ]
+     ],
+     "header": [
+      "*t*",
+      "$\\frac{\\cos \\,t}{t}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571653910",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** In the following exercises, set up a table of values to find the indicated limit. Round to eight digits."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e43",
+   "number": 43,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2}\\frac{1-\\frac{2}{x}}{x^{2}-4}$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1.9",
+       "a.",
+       "",
+       "2.1",
+       "e."
+      ],
+      [
+       "1.99",
+       "b.",
+       "2.01",
+       "f."
+      ],
+      [
+       "1.999",
+       "c.",
+       "2.001",
+       "g."
+      ],
+      [
+       "1.9999",
+       "d.",
+       "2.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "$\\frac{1-\\frac{2}{x}}{x^{2}-4}$",
+      "",
+      "*x*",
+      "$\\frac{1-\\frac{2}{x}}{x^{2}-4}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572174644",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** In the following exercises, set up a table of values to find the indicated limit. Round to eight digits."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 0.13495277; b. 0.12594300; c. 0.12509381; d. 0.12500938; e. 0.11614402; f. 0.12406794; g. 0.12490631; h. 0.12499063; $∴\\lim_{x\\to 2}\\frac{1-\\frac{2}{x}}{x^{2}-4}=0.1250=\\frac{1}{8}$"
+     }
+    ]
+   },
+   "notes": "self-check: part h is not plain math"
+  },
+  {
+   "id": "e44",
+   "number": 44,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{\\theta \\to 0}\\sin \\,\\left(\\frac{\\pi}{\\theta}\\right)$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−0.1",
+       "a.",
+       "",
+       "0.1",
+       "e."
+      ],
+      [
+       "−0.01",
+       "b.",
+       "0.01",
+       "f."
+      ],
+      [
+       "−0.001",
+       "c.",
+       "0.001",
+       "g."
+      ],
+      [
+       "−0.0001",
+       "d.",
+       "0.0001",
+       "h."
+      ]
+     ],
+     "header": [
+      "*θ*",
+      "$\\sin \\,\\left(\\frac{\\pi}{\\theta}\\right)$",
+      "",
+      "*θ*",
+      "$\\sin \\,\\left(\\frac{\\pi}{\\theta}\\right)$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571610933",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** In the following exercises, set up a table of values and round to eight significant digits. Based on the table of values, make a guess about what the limit is. Then, use a calculator to graph the function and determine the limit. Was the conjecture correct? If not, why does the method of tables fail?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e45",
+   "number": 45,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{\\alpha \\to 0^{+}}\\frac{1}{\\alpha}\\,\\cos \\,\\left(\\frac{\\pi}{\\alpha}\\right)$"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "0.1",
+       "a."
+      ],
+      [
+       "0.01",
+       "b."
+      ],
+      [
+       "0.001",
+       "c."
+      ],
+      [
+       "0.0001",
+       "d."
+      ]
+     ],
+     "header": [
+      "$\\alpha$",
+      "$\\frac{1}{\\alpha}\\,\\cos \\,\\left(\\frac{\\pi}{\\alpha}\\right)$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572480427",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "**[T]** In the following exercises, set up a table of values and round to eight significant digits. Based on the table of values, make a guess about what the limit is. Then, use a calculator to graph the function and determine the limit. Was the conjecture correct? If not, why does the method of tables fail?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 10.00000; b. 100.00000; c. 1000.0000; d. 10,000.000; Guess: $\\lim_{\\alpha \\to 0^{+}}\\frac{1}{\\alpha}\\,\\cos \\,\\left(\\frac{\\pi}{\\alpha}\\right)=\\infty ,$ actual: DNE"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_214.webp",
+      "alt": "A graph of the function (1/alpha) * cos (pi / alpha), which oscillates gently until the interval [-.2, .2], where it oscillates rapidly, going to infinity and negative infinity as it approaches the y axis.",
+      "width": 417,
+      "height": 348
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e46",
+   "number": 46,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 10}f(x)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572243290",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider the graph of the function $y=f(x)$ shown here. Which of the statements about $y=f(x)$ are true and which are false? Explain why a statement is false."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_201.webp",
+     "alt": "A graph of a piecewise function with three segments and a point. The first segment is a curve opening upward with vertex at (-8, -6). This vertex is an open circle, and there is a closed circle instead at (-8, -3).  The segment ends at (-2,3), where there is a closed circle. The second segment stretches up asymptotically to infinity along x=-2, changes direction to increasing at about (0,1.25), increases until about (2.25, 3), and decreases until (6,2), where there is an open circle. The last segment starts at (6,5), increases slightly, and then decreases into quadrant four, crossing the x axis at (10,0). All of the changes in direction are smooth curves.",
+     "width": 487,
+     "height": 573
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e47",
+   "number": 47,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to {-2}^{+}}f(x)=3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572243335",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider the graph of the function $y=f(x)$ shown here. Which of the statements about $y=f(x)$ are true and which are false? Explain why a statement is false."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_201.webp",
+     "alt": "A graph of a piecewise function with three segments and a point. The first segment is a curve opening upward with vertex at (-8, -6). This vertex is an open circle, and there is a closed circle instead at (-8, -3).  The segment ends at (-2,3), where there is a closed circle. The second segment stretches up asymptotically to infinity along x=-2, changes direction to increasing at about (0,1.25), increases until about (2.25, 3), and decreases until (6,2), where there is an open circle. The last segment starts at (6,5), increases slightly, and then decreases into quadrant four, crossing the x axis at (10,0). All of the changes in direction are smooth curves.",
+     "width": 487,
+     "height": 573
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False; $\\lim_{x\\to {-2}^{+}}f(x)=+\\infty$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e48",
+   "number": 48,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to -8}f(x)=f(-8)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572217395",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider the graph of the function $y=f(x)$ shown here. Which of the statements about $y=f(x)$ are true and which are false? Explain why a statement is false."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_201.webp",
+     "alt": "A graph of a piecewise function with three segments and a point. The first segment is a curve opening upward with vertex at (-8, -6). This vertex is an open circle, and there is a closed circle instead at (-8, -3).  The segment ends at (-2,3), where there is a closed circle. The second segment stretches up asymptotically to infinity along x=-2, changes direction to increasing at about (0,1.25), increases until about (2.25, 3), and decreases until (6,2), where there is an open circle. The last segment starts at (6,5), increases slightly, and then decreases into quadrant four, crossing the x axis at (10,0). All of the changes in direction are smooth curves.",
+     "width": 487,
+     "height": 573
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e49",
+   "number": 49,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 6}f(x)=5$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572217503",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, consider the graph of the function $y=f(x)$ shown here. Which of the statements about $y=f(x)$ are true and which are false? Explain why a statement is false."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_201.webp",
+     "alt": "A graph of a piecewise function with three segments and a point. The first segment is a curve opening upward with vertex at (-8, -6). This vertex is an open circle, and there is a closed circle instead at (-8, -3).  The segment ends at (-2,3), where there is a closed circle. The second segment stretches up asymptotically to infinity along x=-2, changes direction to increasing at about (0,1.25), increases until about (2.25, 3), and decreases until (6,2), where there is an open circle. The last segment starts at (6,5), increases slightly, and then decreases into quadrant four, crossing the x axis at (10,0). All of the changes in direction are smooth curves.",
+     "width": 487,
+     "height": 573
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False; $\\lim_{x\\to 6}f(x)$ DNE since $\\lim_{x\\to 6^{-}}f(x)=2$ and $\\lim_{x\\to 6^{+}}f(x)=5.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e50",
+   "number": 50,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 1^{-}}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572549107",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the following graph of the function $y=f(x)$ to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_202.webp",
+     "alt": "A graph of a piecewise function with two segments. The first segment exists for x <=1, and the second segment exists for x > 1. The first segment is linear with a slope of 1 and goes through the origin. Its endpoint is a closed circle at (1,1). The second segment is also linear with a slope of -1. It begins with the open circle at (1,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e51",
+   "number": 51,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 1^{+}}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572549151",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the following graph of the function $y=f(x)$ to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_202.webp",
+     "alt": "A graph of a piecewise function with two segments. The first segment exists for x <=1, and the second segment exists for x > 1. The first segment is linear with a slope of 1 and goes through the origin. Its endpoint is a closed circle at (1,1). The second segment is also linear with a slope of -1. It begins with the open circle at (1,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "2"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   }
+  },
+  {
+   "id": "e52",
+   "number": 52,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 1}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572540767",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the following graph of the function $y=f(x)$ to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_202.webp",
+     "alt": "A graph of a piecewise function with two segments. The first segment exists for x <=1, and the second segment exists for x > 1. The first segment is linear with a slope of 1 and goes through the origin. Its endpoint is a closed circle at (1,1). The second segment is also linear with a slope of -1. It begins with the open circle at (1,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e53",
+   "number": 53,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572540807",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the following graph of the function $y=f(x)$ to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_202.webp",
+     "alt": "A graph of a piecewise function with two segments. The first segment exists for x <=1, and the second segment exists for x > 1. The first segment is linear with a slope of 1 and goes through the origin. Its endpoint is a closed circle at (1,1). The second segment is also linear with a slope of -1. It begins with the open circle at (1,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "1"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e54",
+   "number": 54,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572540848",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the following graph of the function $y=f(x)$ to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_202.webp",
+     "alt": "A graph of a piecewise function with two segments. The first segment exists for x <=1, and the second segment exists for x > 1. The first segment is linear with a slope of 1 and goes through the origin. Its endpoint is a closed circle at (1,1). The second segment is also linear with a slope of -1. It begins with the open circle at (1,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e55",
+   "number": 55,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0^{-}}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572540909",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_203.webp",
+     "alt": "A graph of a piecewise function with two segments. The first is a linear function for x < 0. There is an open circle at (0,1), and its slope is -1. The second segment is the right half of a parabola opening upward. Its vertex is a closed circle at (0, -4), and it goes through the point (2,0).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "1"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e56",
+   "number": 56,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0^{+}}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571563288",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_203.webp",
+     "alt": "A graph of a piecewise function with two segments. The first is a linear function for x < 0. There is an open circle at (0,1), and its slope is -1. The second segment is the right half of a parabola opening upward. Its vertex is a closed circle at (0, -4), and it goes through the point (2,0).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e57",
+   "number": 57,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571563331",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_203.webp",
+     "alt": "A graph of a piecewise function with two segments. The first is a linear function for x < 0. There is an open circle at (0,1), and its slope is -1. The second segment is the right half of a parabola opening upward. Its vertex is a closed circle at (0, -4), and it goes through the point (2,0).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "DNE"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "DNE"
+   }
+  },
+  {
+   "id": "e58",
+   "number": 58,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571563372",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_203.webp",
+     "alt": "A graph of a piecewise function with two segments. The first is a linear function for x < 0. There is an open circle at (0,1), and its slope is -1. The second segment is the right half of a parabola opening upward. Its vertex is a closed circle at (0, -4), and it goes through the point (2,0).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e59",
+   "number": 59,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to {-2}^{-}}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571563448",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_204.webp",
+     "alt": "A graph of a piecewise function with three segments, all linear. The first exists for x < -2, has a slope of 1, and ends at the open circle at (-2, 0). The second exists over the interval [-2, 2], has a slope of -1, goes through the origin, and has closed circles at its endpoints (-2, 2) and (2,-2). The third exists for x>2, has a slope of 1, and begins at the open circle (2,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e60",
+   "number": 60,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to {-2}^{+}}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572624069",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_204.webp",
+     "alt": "A graph of a piecewise function with three segments, all linear. The first exists for x < -2, has a slope of 1, and ends at the open circle at (-2, 0). The second exists over the interval [-2, 2], has a slope of -1, goes through the origin, and has closed circles at its endpoints (-2, 2) and (2,-2). The third exists for x>2, has a slope of 1, and begins at the open circle (2,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e61",
+   "number": 61,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to -2}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572624115",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_204.webp",
+     "alt": "A graph of a piecewise function with three segments, all linear. The first exists for x < -2, has a slope of 1, and ends at the open circle at (-2, 0). The second exists over the interval [-2, 2], has a slope of -1, goes through the origin, and has closed circles at its endpoints (-2, 2) and (2,-2). The third exists for x>2, has a slope of 1, and begins at the open circle (2,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "DNE"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "DNE"
+   }
+  },
+  {
+   "id": "e62",
+   "number": 62,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2^{-}}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572624157",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_204.webp",
+     "alt": "A graph of a piecewise function with three segments, all linear. The first exists for x < -2, has a slope of 1, and ends at the open circle at (-2, 0). The second exists over the interval [-2, 2], has a slope of -1, goes through the origin, and has closed circles at its endpoints (-2, 2) and (2,-2). The third exists for x>2, has a slope of 1, and begins at the open circle (2,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e63",
+   "number": 63,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2^{+}}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572624201",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_204.webp",
+     "alt": "A graph of a piecewise function with three segments, all linear. The first exists for x < -2, has a slope of 1, and ends at the open circle at (-2, 0). The second exists over the interval [-2, 2], has a slope of -1, goes through the origin, and has closed circles at its endpoints (-2, 2) and (2,-2). The third exists for x>2, has a slope of 1, and begins at the open circle (2,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "2"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   }
+  },
+  {
+   "id": "e64",
+   "number": 64,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572624244",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_204.webp",
+     "alt": "A graph of a piecewise function with three segments, all linear. The first exists for x < -2, has a slope of 1, and ends at the open circle at (-2, 0). The second exists over the interval [-2, 2], has a slope of -1, goes through the origin, and has closed circles at its endpoints (-2, 2) and (2,-2). The third exists for x>2, has a slope of 1, and begins at the open circle (2,2).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e65",
+   "number": 65,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0^{-}}g(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572380953",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=g(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_205.webp",
+     "alt": "A graph of a piecewise function with two segments. The first exists for x>=0 and is the left half of an upward opening parabola with vertex at the closed circle (0,3). The second exists for x>0 and is the right half of a downward opening parabola with vertex at the open circle (0,0).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "3"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "3"
+   }
+  },
+  {
+   "id": "e66",
+   "number": 66,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0^{+}}g(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572380997",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=g(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_205.webp",
+     "alt": "A graph of a piecewise function with two segments. The first exists for x>=0 and is the left half of an upward opening parabola with vertex at the closed circle (0,3). The second exists for x>0 and is the right half of a downward opening parabola with vertex at the open circle (0,0).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e67",
+   "number": 67,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0}g(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572381041",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=g(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_205.webp",
+     "alt": "A graph of a piecewise function with two segments. The first exists for x>=0 and is the left half of an upward opening parabola with vertex at the closed circle (0,3). The second exists for x>0 and is the right half of a downward opening parabola with vertex at the open circle (0,0).",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "DNE"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "DNE"
+   }
+  },
+  {
+   "id": "e68",
+   "number": 68,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0^{-}}h(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572372618",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=h(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_206.webp",
+     "alt": "A graph of a function with two curves approaching 0 from quadrant 1 and quadrant 3. The curve in quadrant one appears to be the top half of a parabola opening to the right of the y axis along the x axis with vertex at the origin. The curve in quadrant three appears to be the left half of a parabola opening downward with vertex at the origin.",
+     "width": 423,
+     "height": 431
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e69",
+   "number": 69,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0^{+}}h(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572372662",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=h(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_206.webp",
+     "alt": "A graph of a function with two curves approaching 0 from quadrant 1 and quadrant 3. The curve in quadrant one appears to be the top half of a parabola opening to the right of the y axis along the x axis with vertex at the origin. The curve in quadrant three appears to be the left half of a parabola opening downward with vertex at the origin.",
+     "width": 423,
+     "height": 431
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e70",
+   "number": 70,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0}h(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572372705",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=h(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_206.webp",
+     "alt": "A graph of a function with two curves approaching 0 from quadrant 1 and quadrant 3. The curve in quadrant one appears to be the top half of a parabola opening to the right of the y axis along the x axis with vertex at the origin. The curve in quadrant three appears to be the left half of a parabola opening downward with vertex at the origin.",
+     "width": 423,
+     "height": 431
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e71",
+   "number": 71,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0^{-}}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572372780",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_207.webp",
+     "alt": "A graph with a curve and a point. The point is a closed circle at (0,-2). The curve is part of an upward opening parabola with vertex at (1,-1). It exists for x > 0, and there is a closed circle at the origin.",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "−2"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-2"
+   }
+  },
+  {
+   "id": "e72",
+   "number": 72,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0^{+}}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572267940",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_207.webp",
+     "alt": "A graph with a curve and a point. The point is a closed circle at (0,-2). The curve is part of an upward opening parabola with vertex at (1,-1). It exists for x > 0, and there is a closed circle at the origin.",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e73",
+   "number": 73,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 0}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572267983",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_207.webp",
+     "alt": "A graph with a curve and a point. The point is a closed circle at (0,-2). The curve is part of an upward opening parabola with vertex at (1,-1). It exists for x > 0, and there is a closed circle at the origin.",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "DNE"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "DNE"
+   }
+  },
+  {
+   "id": "e74",
+   "number": 74,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 1}f(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572268024",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_207.webp",
+     "alt": "A graph with a curve and a point. The point is a closed circle at (0,-2). The curve is part of an upward opening parabola with vertex at (1,-1). It exists for x > 0, and there is a closed circle at the origin.",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e75",
+   "number": 75,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2}f(x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572268064",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the graph of the function $y=f(x)$ shown here to find the values, if possible. Estimate when necessary."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_207.webp",
+     "alt": "A graph with a curve and a point. The point is a closed circle at (0,-2). The curve is part of an upward opening parabola with vertex at (1,-1). It exists for x > 0, and there is a closed circle at the origin.",
+     "width": 417,
+     "height": 424
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e76",
+   "number": 76,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\lim_{x\\to 2}f(x)=1,\\lim_{x\\to 4^{-}}f(x)=3,\\lim_{x\\to 4^{+}}f(x)=6,f(4)$ is not defined."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572268108",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, sketch the graph of a function with the given properties."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e77",
+   "number": 77,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$Asx\\to -\\infty ,f(x)\\to 0,\\lim_{x\\to {-1}^{-}}f(x)=-\\infty ,$ $\\lim_{x\\to {-1}^{+}}f(x)=\\infty ,\\lim_{x\\to 0}f(x)=f(0),f(0)=1,Asx\\to \\infty ,f(x)\\to -\\infty$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572219513",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, sketch the graph of a function with the given properties."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_209.webp",
+      "alt": "A graph of a piecewise function with two segments. The first segment is in quadrant three and asymptotically goes to negative infinity along the y axis and 0 along the x axis. The second segment consists of two curves. The first appears to be the left half of an upward opening parabola with vertex at (0,1). The second appears to be the right half of a downward opening parabola with vertex at (0,1) as well.",
+      "width": 731,
+      "height": 425
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e78",
+   "number": 78,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$Asx\\to -\\infty ,f(x)\\to 2,\\lim_{x\\to 3^{-}}f(x)=-\\infty ,$ $\\lim_{x\\to 3^{+}}f(x)=\\infty ,Asx\\to \\infty ,f(x)\\to 2,f(0)=\\frac{-1}{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572435026",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, sketch the graph of a function with the given properties."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e79",
+   "number": 79,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$Asx\\to -\\infty ,f(x)\\to 2,\\lim_{x\\to -2}f(x)=-\\infty ,$ $Asx\\to \\infty ,f(x)\\to 2,f(0)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572590126",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, sketch the graph of a function with the given properties."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_02_211.webp",
+      "alt": "A graph containing two curves. The first goes to 2 asymptotically along y=2 and to negative infinity along x = -2. The second goes to negative infinity along x=-2 and to 2 along y=2.",
+      "width": 423,
+      "height": 431
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e80",
+   "number": 80,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$Asx\\to -\\infty ,f(x)\\to 0,\\lim_{x\\to {-1}^{-}}f(x)=\\infty ,\\lim_{x\\to {-1}^{+}}f(x)=-\\infty ,$ $f(0)=-1,\\lim_{x\\to 1^{-}}f(x)=-\\infty ,\\lim_{x\\to 1^{+}}f(x)=\\infty ,Asx\\to \\infty ,f(x)\\to 0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572552638",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, sketch the graph of a function with the given properties."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e81",
+   "number": 81,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Shock waves arise in many physical applications, ranging from supernovas to detonation waves. A graph of the density of a shock wave with respect to distance, *x*, is shown here. We are mainly interested in the location of the front of the shock, labeled $x_{\\text{SF}}$ in the diagram."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_02_215.webp",
+     "alt": "A graph in quadrant one of the density of a shockwave with three labeled points: p1 and p2 on the y axis, with p1 > p2, and xsf on the x axis. It consists of y= p1 from 0 to xsf, x = xsf from y= p1 to y=p2, and y=p2 for values greater than or equal to xsf.",
+     "width": 269,
+     "height": 209
+    },
+    {
+     "type": "list",
+     "items": [
+      "Evaluate $\\lim_{x\\to x_{SF}{}^{+}}\\rho (x).$",
+      "Evaluate $\\lim_{x\\to x_{SF}{}^{-}}\\rho (x).$",
+      "Evaluate $\\lim_{x\\to x_{SF}}\\rho (x).$ Explain the physical meanings behind your answers."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572128792",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, sketch the graph of a function with the given properties."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\rho_{2}$ b. $\\rho_{1}$ c. DNE unless $\\rho_{1}=\\rho_{2}.$ As you approach $x_{\\text{SF}}$ from the left, you are in the high-density area of the shock. When you approach from the right, you have not experienced the “shock” yet and are at a lower density."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e82",
+   "number": 82,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A track coach uses a camera with a fast shutter to estimate the position of a runner with respect to time. A table of the values of position of the athlete versus time is given here, where *x* is the position in meters of the runner and *t* is time in seconds. What is $\\lim_{t\\to 2}x(t)?$ What does it mean physically?"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1.75",
+       "4.5"
+      ],
+      [
+       "1.95",
+       "6.1"
+      ],
+      [
+       "1.99",
+       "6.42"
+      ],
+      [
+       "2.01",
+       "6.58"
+      ],
+      [
+       "2.05",
+       "6.9"
+      ],
+      [
+       "2.25",
+       "8.5"
+      ]
+     ],
+     "header": [
+      "*t* **(sec)**",
+      "*x* **(m)**"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572478118",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, sketch the graph of a function with the given properties."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "infinite limit",
+   "meaning": "A function has an infinite limit at a point *a* if it either increases or decreases without bound as it approaches *a*"
+  },
+  {
+   "term": "intuitive definition of the limit",
+   "meaning": "If all values of the function $f(x)$ approach the real number *L* as the values of $x(\\ne a)$ approach *a*, $f(x)$ approaches *L*"
+  },
+  {
+   "term": "one-sided limit",
+   "meaning": "A one-sided limit of a function is a limit taken from either the left or the right"
+  },
+  {
+   "term": "vertical asymptote",
+   "meaning": "A function has a vertical asymptote at $x=a$ if the limit as *x* approaches *a* from the right or left is infinite"
+  }
+ ]
+}

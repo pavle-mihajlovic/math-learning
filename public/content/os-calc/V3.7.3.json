@@ -1,0 +1,1778 @@
+{
+ "schema": 1,
+ "id": "V3.7.3",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 7,
+ "section": 3,
+ "title": "Applications",
+ "chapterTitle": "Second-Order Differential Equations",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m54044",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/7-3-applications",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §7.3 “Applications”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Solve a second-order differential equation representing simple harmonic motion.",
+  "Solve a second-order differential equation representing damped simple harmonic motion.",
+  "Solve a second-order differential equation representing forced simple harmonic motion.",
+  "Solve a second-order differential equation representing charge and current in an RLC series circuit."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We saw in the chapter introduction that second-order linear differential equations are used to model many situations in physics and engineering. In this section, we look at how this works for systems of an object with mass attached to a vertical spring and an electric circuit containing a resistor, an inductor, and a capacitor connected in series. Models such as these can be used to approximate other more complicated situations; for example, bonds between atoms or molecules are often modeled as springs that vibrate, as described by these same differential equations."
+    }
+   ],
+   "title": "Applications"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider a mass suspended from a spring attached to a rigid support. (This is commonly called a **spring-mass system**.) Gravity is pulling the mass downward and the restoring force of the spring is pulling the mass upward. As shown in Figure 7.1, when these two forces are equal, the mass is said to be at the equilibrium position. If the mass is displaced from equilibrium, it oscillates up and down. This behavior can be modeled by a second-order constant-coefficient differential equation."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_001.webp",
+     "alt": "This figure has three images of springs. The first image is a vertical spring in its natural position with length L attached at the top to a fixed point. The second image shows a vertical spring with a mass m attached to the spring, stretching the spring distance s from L. The spring is in equilibrium. The third image is a vertical spring with mass m attached where the spring is in motion, distance x from equilibrium L + s.",
+     "caption": "**Figure 7.1** A spring in its natural position (a), at equilibrium with a mass *m* attached (b), and in oscillatory motion (c).",
+     "width": 731,
+     "height": 435
+    },
+    {
+     "type": "p",
+     "text": "Let $x(t)$ denote the displacement of the mass from equilibrium. Note that for spring-mass systems of this type, it is customary to adopt the convention that down is positive. Thus, a positive displacement indicates the mass is *below* the equilibrium point, whereas a negative displacement indicates the mass is *above* equilibrium. Displacement is usually given in feet in the English system or meters in the metric system."
+    }
+   ],
+   "title": "Simple Harmonic Motion"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider the forces acting on the mass. The force of gravity is given by $mg.$ In the English system, mass is in slugs and the acceleration resulting from gravity is in feet per second squared. The acceleration resulting from gravity is constant, so in the English system, $g=32$ ft/sec$^{\\text{2}}$. Recall that 1 slug-foot/sec$^{\\text{2}}$ is a pound, so the expression *mg* can be expressed in pounds. Metric system units are kilograms for mass and m/sec$^{\\text{2}}$ for gravitational acceleration. In the metric system, we have $g=9.8$ m/sec$^{\\text{2}}$."
+    },
+    {
+     "type": "p",
+     "text": "According to **Hooke’s law**, the restoring force of the spring is proportional to the displacement and acts in the opposite direction from the displacement, so the restoring force is given by $-k(s+x).$ The spring constant is given in pounds per foot in the English system and in newtons per meter in the metric system."
+    },
+    {
+     "type": "p",
+     "text": "Now, by Newton’s second law, the sum of the forces on the system (gravity plus the restoring force) is equal to mass times acceleration, so we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}mx'' & =-k(s+x)+mg \\\\ & =-ks-kx+mg.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "However, by the way we have defined our equilibrium position, $mg=ks,$ the differential equation becomes"
+    },
+    {
+     "type": "math",
+     "tex": "mx''+kx=0."
+    },
+    {
+     "type": "p",
+     "text": "It is convenient to rearrange this equation and introduce a new variable, called the **angular frequency**, $\\omega .$ Letting $\\omega =\\sqrt{k/m},$ we can write the equation as"
+    },
+    {
+     "type": "math",
+     "tex": "x''+\\omega^{2}x=0."
+    },
+    {
+     "type": "p",
+     "text": "This differential equation has the general solution"
+    },
+    {
+     "type": "math",
+     "tex": "x(t)=c_{1}\\cos \\,\\omega t+c_{2}\\sin \\,\\omega t,"
+    }
+   ],
+   "title": "Simple Harmonic Motion (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "which gives the position of the mass at any point in time. The motion of the mass is called **simple harmonic motion**. The period of this motion (the time it takes to complete one oscillation) is $T=\\frac{2\\pi}{\\omega}$ and the frequency is $f=\\frac{1}{T}=\\frac{\\omega}{2\\pi}$ (Figure 7.2)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_002.webp",
+     "alt": "This figure is the graph of f(t) = sin 2t. It is a periodic, oscillating graph. The period of the graph is represented with a line pointing from one peak to the next. It is labeled with the period  T = 2π/ω.",
+     "caption": "**Figure 7.2** A graph of vertical displacement versus time for simple harmonic motion.",
+     "width": 900,
+     "height": 546
+    }
+   ],
+   "title": "Simple Harmonic Motion (continued)"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 7.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Assume an object weighing 2 lb stretches a spring 6 in. Find the equation of motion if the spring is released from the equilibrium position with an upward velocity of 16 ft/sec. What is the period of the motion?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We first need to find the spring constant. We have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}mg & = & ks \\\\ 2 & = & k\\left(\\frac{1}{2}\\right) \\\\ k & = & 4.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "We also know that weight *W* equals the product of mass *m* and the acceleration due to gravity *g*. In English units, the acceleration due to gravity is 32 ft/sec$^{\\text{2}}$."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}W & = & mg \\\\ 2 & = & m(32) \\\\ m & = & \\frac{1}{16}\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus, the differential equation representing this system is"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{1}{16}x''+4x=0."
+     },
+     {
+      "type": "p",
+      "text": "Multiplying through by 16, we get $x''+64x=0,$ which can also be written in the form $x''+(8^{2})x=0.$ This equation has the general solution"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=c_{1}\\cos \\,(8t)+c_{2}\\sin \\,(8t)."
+     },
+     {
+      "type": "p",
+      "text": "The mass was released from the equilibrium position, so $x(0)=0,$ and it had an initial upward velocity of 16 ft/sec, so $x'(0)=-16.$ Applying these initial conditions to solve for $c_{1}$ and $c_{2}.$ gives"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=-2\\,\\sin \\,8t."
+     },
+     {
+      "type": "p",
+      "text": "The period of this motion is $\\frac{2\\pi}{8}=\\frac{\\pi}{4}$ sec."
+     }
+    ]
+   },
+   "title": "Simple Harmonic Motion"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A 200-g mass stretches a spring 5 cm. Find the equation of motion of the mass if it is released from rest from a position 10 cm below the equilibrium position. What is the frequency of this motion?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)=0.1\\,\\cos \\,(14t)$ (in meters); frequency is $\\frac{14}{2\\pi}$ Hz."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First find the spring constant."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Writing the general solution in the form $x(t)=c_{1}\\cos \\,(\\omega t)+c_{2}\\sin \\,(\\omega t)$ has some advantages. It is easy to see the link between the differential equation and the solution, and the period and frequency of motion are evident. This form of the function tells us very little about the amplitude of the motion, however. In some situations, we may prefer to write the solution in the form"
+    },
+    {
+     "type": "math",
+     "tex": "x(t)=A\\,\\sin \\,(\\omega t+\\phi )."
+    },
+    {
+     "type": "p",
+     "text": "Although the link to the differential equation is not as explicit in this case, the period and frequency of motion are still evident. Furthermore, the amplitude of the motion, *A*, is obvious in this form of the function. The constant $\\phi$ is called a *phase shift* and has the effect of shifting the graph of the function to the left or right."
+    },
+    {
+     "type": "p",
+     "text": "To convert the solution to this form, we want to find the values of *A* and $\\phi$ such that"
+    },
+    {
+     "type": "math",
+     "tex": "c_{1}\\cos \\,(\\omega t)+c_{2}\\sin \\,(\\omega t)=A\\,\\sin \\,(\\omega t+\\phi )."
+    },
+    {
+     "type": "p",
+     "text": "We first apply the trigonometric identity"
+    },
+    {
+     "type": "math",
+     "tex": "\\sin (\\alpha +\\beta )=\\sin \\,\\alpha \\,\\cos \\,\\beta +\\cos \\,\\alpha \\,\\sin \\,\\beta"
+    },
+    {
+     "type": "p",
+     "text": "to get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}c_{1}\\cos \\,(\\omega t)+c_{2}\\sin \\,(\\omega t) & =A(\\sin \\,(\\omega t)\\,\\cos \\,\\phi +\\cos \\,(\\omega t)\\,\\sin \\,\\phi ) \\\\ & =A\\,\\sin \\,\\phi (\\cos \\,(\\omega t))+A\\,\\cos \\,\\phi (\\sin \\,(\\omega t)).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "c_{1}=A\\,\\sin \\,\\phi \\,\\text{and}\\,c_{2}=A\\,\\cos \\,\\phi ."
+    }
+   ],
+   "title": "Simple Harmonic Motion (continued)"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If we square both of these equations and add them together, we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}c_{1}^{2}+c_{2}^{2} & =A^{2}\\sin^{2}\\phi +A^{2}\\cos^{2}\\phi \\\\ & =A^{2}(\\sin^{2}\\phi +\\cos^{2}\\phi ) \\\\ & =A^{2}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "A=\\sqrt{c_{1}^{2}+c_{2}^{2}}."
+    },
+    {
+     "type": "p",
+     "text": "Now, to find $\\phi ,$ go back to the equations for $c_{1}$ and $c_{2},$ but this time, divide the first equation by the second equation to get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{c_{1}}{c_{2}} & =\\frac{A\\,\\sin \\,\\phi}{A\\,\\cos \\,\\phi} \\\\ & =\\tan \\,\\phi .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Then,"
+    },
+    {
+     "type": "math",
+     "tex": "\\tan \\,\\phi =\\frac{c_{1}}{c_{2}}."
+    },
+    {
+     "type": "p",
+     "text": "We summarize this finding in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "The function $x(t)=c_{1}\\cos \\,(\\omega t)+c_{2}\\sin \\,(\\omega t)$ can be written in the form $x(t)=A\\,\\sin \\,(\\omega t+\\phi ),$ where $A=\\sqrt{c_{1}^{2}+c_{2}^{2}}$ and $\\tan \\,\\phi =\\frac{c_{1}}{c_{2}}.$"
+      }
+     ],
+     "title": "Solution to the Equation for Simple Harmonic Motion"
+    },
+    {
+     "type": "p",
+     "text": "Note that when using the formula $\\tan \\,\\phi =\\frac{c_{1}}{c_{2}}$ to find $\\phi ,$ we must take care to ensure $\\phi$ is in the right quadrant (Figure 7.3)."
+    }
+   ],
+   "title": "Simple Harmonic Motion (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_015.webp",
+     "alt": "This figure is the graph of f(t) = sin 2t. It is a periodic, oscillating graph. The period of the graph is represented with a line pointing from one peak to the next. It is labeled with the period T = 2π/ω. The graph has a phase shift of ϕ/ω so that the sine curve has the value zero to the left of the origin.",
+     "caption": "**Figure 7.3** A graph of vertical displacement versus time for simple harmonic motion with a phase change.",
+     "width": 604,
+     "height": 422
+    }
+   ],
+   "title": "Simple Harmonic Motion (continued)"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 7.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Express the following functions in the form $A\\,\\sin \\,(\\omega t+\\phi ).$ What is the frequency of motion? The amplitude?"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$x(t)=2\\,\\cos \\,(3t)+\\sin \\,(3t)$",
+      "$x(t)=3\\,\\cos \\,(2t)-2\\,\\sin \\,(2t)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "We have"
+        },
+        {
+         "type": "math",
+         "tex": "A=\\sqrt{c_{1}^{2}+c_{2}^{2}}=\\sqrt{2^{2}+1^{2}}=\\sqrt{5}"
+        },
+        {
+         "type": "p",
+         "text": "and"
+        },
+        {
+         "type": "math",
+         "tex": "\\tan \\,\\phi =\\frac{c_{1}}{c_{2}}=\\frac{2}{1}=2."
+        },
+        {
+         "type": "p",
+         "text": "Note that both $c_{1}$ and $c_{2}$ are positive, so $\\phi$ is in the first quadrant. Thus,"
+        },
+        {
+         "type": "math",
+         "tex": "\\phi \\approx 1.107\\,\\text{rad,}"
+        },
+        {
+         "type": "p",
+         "text": "so we have"
+        },
+        {
+         "type": "math",
+         "tex": "x(t)=2\\,\\cos \\,(3t)+\\sin \\,(3t)=\\sqrt{5}\\sin \\,(3t+1.107)."
+        },
+        {
+         "type": "p",
+         "text": "The frequency is $\\frac{\\omega}{2\\pi}=\\frac{3}{2\\pi}\\approx 0.477.$ The amplitude is $\\sqrt{5}.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "We have"
+        },
+        {
+         "type": "math",
+         "tex": "A=\\sqrt{c_{1}^{2}+c_{2}^{2}}=\\sqrt{3^{2}+2^{2}}=\\sqrt{13}"
+        },
+        {
+         "type": "p",
+         "text": "and"
+        },
+        {
+         "type": "math",
+         "tex": "\\tan \\,\\phi =\\frac{c_{1}}{c_{2}}=\\frac{3}{-2}=-\\frac{3}{2}."
+        },
+        {
+         "type": "p",
+         "text": "Note that $c_{1}$ is positive but $c_{2}$ is negative, so $\\phi$ is in the fourth quadrant. Thus,"
+        },
+        {
+         "type": "math",
+         "tex": "\\phi \\approx -0.983\\,\\text{rad,}"
+        },
+        {
+         "type": "p",
+         "text": "so we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}x(t) & =3\\,\\cos \\,(2t)-2\\,\\sin \\,(2t) \\\\ & =\\sqrt{13}\\sin \\,(2t-0.983).\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The frequency is $\\frac{\\omega}{2\\pi}=\\frac{2}{2\\pi}\\approx 0.318.$ The amplitude is $\\sqrt{13}.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Expressing the Solution with a Phase Shift"
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Express the function $x(t)=\\cos \\,(4t)+4\\,\\sin \\,(4t)$ in the form $A\\,\\sin \\,(\\omega t+\\phi ).$ What is the frequency of motion? The amplitude?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)=\\sqrt{17}\\sin \\,(4t+0.245),$ $\\text{frequency}=\\frac{4}{2\\pi}\\approx 0.637,$ $A=\\sqrt{17}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the process from the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "With the model just described, the motion of the mass continues indefinitely. Clearly, this doesn’t happen in the real world. In the real world, there is almost always some friction in the system, which causes the oscillations to die off slowly—an effect called *damping*. So now let’s look at how to incorporate that damping force into our differential equation."
+    },
+    {
+     "type": "p",
+     "text": "Physical spring-mass systems almost always have some damping as a result of friction, air resistance, or a physical damper, called a *dashpot* (a pneumatic cylinder; see Figure 7.4)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_013.webp",
+     "alt": "This figure is a pneumatic cylinder. The cylinder is clear, and the piston can be seen.",
+     "caption": "**Figure 7.4** A dashpot is a pneumatic cylinder that dampens the motion of an oscillating system.",
+     "width": 400,
+     "height": 400
+    },
+    {
+     "type": "p",
+     "text": "Because damping is primarily a friction force, we assume it is proportional to the velocity of the mass and acts in the opposite direction. So the damping force is given by $-bx'$ for some constant $b>0.$ Again applying Newton’s second law, the differential equation becomes"
+    },
+    {
+     "type": "math",
+     "tex": "mx''+bx'+kx=0."
+    },
+    {
+     "type": "p",
+     "text": "Then the associated characteristic equation is"
+    },
+    {
+     "type": "math",
+     "tex": "m\\lambda^{2}+b\\lambda +k=0."
+    },
+    {
+     "type": "p",
+     "text": "Applying the quadratic formula, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\lambda =\\frac{-b\\pm \\sqrt{b^{2}-4mk}}{2m}."
+    },
+    {
+     "type": "p",
+     "text": "Just as in Second-Order Linear Equations we consider three cases, based on whether the characteristic equation has distinct real roots, a repeated real root, or complex conjugate roots."
+    }
+   ],
+   "title": "Damped Vibrations"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this case, we say the system is **overdamped**. The general solution has the form"
+    },
+    {
+     "type": "math",
+     "tex": "x(t)=c_{1}e^{\\lambda_{1}t}+c_{2}e^{\\lambda_{2}t},"
+    },
+    {
+     "type": "p",
+     "text": "where both $\\lambda_{1}$ and $\\lambda_{2}$ are less than zero. Because the exponents are negative, the displacement decays to zero over time, usually quite quickly. Overdamped systems do not oscillate (no more than one change of direction), but simply move back toward the equilibrium position. Figure 7.5 shows what typical overdamped behavior looks like."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_003.webp",
+     "alt": "This figure has two graphs labeled (a) and (b). The first graph is a decreasing curve with the horizontal axis as a horizontal asymptote. The second graph initially is a decreasing function but becomes increasing below the horizontal axis. Then, the horizontal axis is also a horizontal asymptote.",
+     "caption": "**Figure 7.5** Behavior of an overdamped spring-mass system, with no change in direction (a) and only one change in direction (b).",
+     "width": 875,
+     "height": 386
+    }
+   ],
+   "title": "Case 1: $b^{2}>4mk$"
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 7.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A 16-lb mass is attached to a 10-ft spring. When the mass comes to rest in the equilibrium position, the spring measures 15 ft 4 in. The system is immersed in a medium that imparts a damping force equal to $\\frac{5}{2}$ times the instantaneous velocity of the mass. Find the equation of motion if the mass is pushed upward from the equilibrium position with an initial upward velocity of 5 ft/sec. What is the position of the mass after 10 sec? Its velocity?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The mass stretches the spring 5 ft 4 in., or $\\frac{16}{3}$ ft. Thus, $16=\\left(\\frac{16}{3}\\right)k,$ so $k=3.$ We also have $m=\\frac{16}{32}=\\frac{1}{2},$ so the differential equation is"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{1}{2}x''+\\frac{5}{2}x'+3x=0."
+     },
+     {
+      "type": "p",
+      "text": "Multiplying through by 2 gives $x''+5x'+6x=0,$ which has the general solution"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=c_{1}e^{-2t}+c_{2}e^{-3t}."
+     },
+     {
+      "type": "p",
+      "text": "Applying the initial conditions, $x(0)=0$ and $x'(0)=-5,$ we get"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=-5e^{-2t}+5e^{-3t}."
+     },
+     {
+      "type": "p",
+      "text": "After 10 sec the mass is at position"
+     },
+     {
+      "type": "math",
+      "tex": "x(10)=-5e^{-20}+5e^{-30}\\approx -1.0305\\,\\times \\,10^{-8}\\approx 0,"
+     },
+     {
+      "type": "p",
+      "text": "so it is, effectively, at the equilibrium position. We have $x'(t)=10e^{-2t}-15e^{-3t},$ so after 10 sec the mass is moving at a velocity of"
+     },
+     {
+      "type": "math",
+      "tex": "x'(10)=10e^{-20}-15e^{-30}\\approx 2.061\\,\\times \\,10^{-8}\\approx 0."
+     },
+     {
+      "type": "p",
+      "text": "After only 10 sec, the mass is barely moving."
+     }
+    ]
+   },
+   "title": "Overdamped Spring-Mass System"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A 2-kg mass is attached to a spring with spring constant 24 N/m. The system is then immersed in a medium imparting a damping force equal to 16 times the instantaneous velocity of the mass. Find the equation of motion if it is released from rest at a point 40 cm below equilibrium."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)=0.6e^{-2t}-0.2e^{-6t}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the process from the previous example."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "0.6 e^(-2 t)-0.2 e^(-6 t)"
+   }
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this case, we say the system is *critically damped*. The general solution has the form"
+    },
+    {
+     "type": "math",
+     "tex": "x(t)=c_{1}e^{\\lambda_{1}t}+c_{2}te^{\\lambda_{1}t},"
+    },
+    {
+     "type": "p",
+     "text": "where $\\lambda_{1}$ is less than zero. The motion of a critically damped system is very similar to that of an overdamped system. It does not oscillate. However, with a critically damped system, if the damping is reduced even a little, oscillatory behavior results. From a practical perspective, physical systems are almost always either overdamped or underdamped (case 3, which we consider next). It is impossible to fine-tune the characteristics of a physical system so that $b^{2}$ and $4mk$ are exactly equal. Figure 7.6 shows what typical critically damped behavior looks like."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_004.webp",
+     "alt": "This figure has two graphs labeled (a) and (b). The first graph is in the first quadrant and is a decreasing curve with the horizontal axis as a horizontal asymptote. The second graph initially is a decreasing function but becomes increasing below the horizontal axis. Then, the horizontal axis is also a horizontal asymptote.",
+     "caption": "**Figure 7.6** Behavior of a critically damped spring-mass system. The system graphed in part (a) has more damping than the system graphed in part (b).",
+     "width": 875,
+     "height": 386
+    }
+   ],
+   "title": "Case 2: $b^{2}=4mk$"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 7.20",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A 1-kg mass stretches a spring 20 cm. The system is attached to a dashpot that imparts a damping force equal to 14 times the instantaneous velocity of the mass. Find the equation of motion if the mass is released from equilibrium with an upward velocity of 3 m/sec."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have $mg=1(9.8)=0.2k,$ so $k=49.$ Then, the differential equation is"
+     },
+     {
+      "type": "math",
+      "tex": "x''+14x'+49x=0,"
+     },
+     {
+      "type": "p",
+      "text": "which has general solution"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=c_{1}e^{-7t}+c_{2}te^{-7t}."
+     },
+     {
+      "type": "p",
+      "text": "Applying the initial conditions $x(0)=0$ and $x'(0)=-3$ gives"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=-3te^{-7t}."
+     }
+    ]
+   },
+   "title": "Critically Damped Spring-Mass System"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A 1-lb weight stretches a spring 6 in., and the system is attached to a dashpot that imparts a damping force equal to half the instantaneous velocity of the mass. Find the equation of motion if the mass is released from rest at a point 6 in. below equilibrium."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)=\\frac{1}{2}e^{-8t}+4te^{-8t}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First find the spring constant."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)e^(-8 t)+4 t e^(-8 t)"
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this case, we say the system is *underdamped*. The general solution has the form"
+    },
+    {
+     "type": "math",
+     "tex": "x(t)=e^{\\alpha t}(c_{1}\\cos \\,(\\beta t)+c_{2}\\sin \\,(\\beta t)),"
+    },
+    {
+     "type": "p",
+     "text": "where $\\alpha$ is less than zero. Underdamped systems do oscillate because of the sine and cosine terms in the solution. However, the exponential term dominates eventually, so the amplitude of the oscillations decreases over time. Figure 7.7 shows what typical underdamped behavior looks like."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_005.webp",
+     "alt": "This figure is an oscillating graph where the amplitude is decreasing. There are red dashed curves at the peaks of the amplitudes showing the pattern of a decreasing amplitude. As t increases, the horizontal axis becomes a horizontal asymptote.",
+     "caption": "**Figure 7.7** Behavior of an underdamped spring-mass system.",
+     "width": 667,
+     "height": 359
+    },
+    {
+     "type": "p",
+     "text": "Note that for all damped systems, $\\lim_{t\\to \\infty}x(t)=0.$ The system always approaches the equilibrium position over time."
+    }
+   ],
+   "title": "Case 3: $b^{2}<4mk$"
+  },
+  {
+   "id": "x20",
+   "kind": "example",
+   "label": "Example 7.21",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A 16-lb weight stretches a spring 3.2 ft. Assume the damping force on the system is equal to the instantaneous velocity of the mass. Find the equation of motion if the mass is released from rest at a point 9 in. below equilibrium."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have $k=\\frac{16}{3.2}=5$ and $m=\\frac{16}{32}=\\frac{1}{2},$ so the differential equation is"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{1}{2}x''+x'+5x=0,\\,\\text{or}\\,x''+2x'+10x=0."
+     },
+     {
+      "type": "p",
+      "text": "This equation has the general solution"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=e^{-t}(c_{1}\\cos \\,(3t)+c_{2}\\sin \\,(3t))."
+     },
+     {
+      "type": "p",
+      "text": "Applying the initial conditions, $x(0)=\\frac{3}{4}$ and $x'(0)=0,$ we get"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=e^{-t}\\left(\\frac{3}{4}\\,\\cos \\,(3t)+\\frac{1}{4}\\,\\sin \\,(3t)\\right)."
+     }
+    ]
+   },
+   "title": "Underdamped Spring-Mass System"
+  },
+  {
+   "id": "c21",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.19",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A 1-kg mass stretches a spring 49 cm. The system is immersed in a medium that imparts a damping force equal to four times the instantaneous velocity of the mass. Find the equation of motion if the mass is released from rest at a point 24 cm above equilibrium."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)=-0.24e^{-2t}\\cos \\,(4t)-0.12e^{-2t}\\sin \\,(4t)$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First find the spring constant."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-0.24 e^(-2 t) cos (4 t)-0.12 e^(-2 t) sin (4 t)"
+   }
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 7.22",
+   "problem": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_017.webp",
+     "alt": "This picture is a shock absorber on a motorcycle.",
+     "caption": "**Figure 7.8** (credit: modification of work by nSeika, Flickr)",
+     "width": 325,
+     "height": 512
+    },
+    {
+     "type": "p",
+     "text": "For motocross riders, the suspension systems on their motorcycles are very important. The off-road courses on which they ride often include jumps, and losing control of the motorcycle when they land could cost them the race."
+    },
+    {
+     "type": "p",
+     "text": "This suspension system can be modeled as a damped spring-mass system. We define our frame of reference with respect to the frame of the motorcycle. Assume the end of the shock absorber attached to the motorcycle frame is fixed. Then, the “mass” in our spring-mass system is the motorcycle wheel. We measure the position of the wheel with respect to the motorcycle frame. This may seem counterintuitive, since, in many cases, it is actually the motorcycle frame that moves, but this frame of reference preserves the development of the differential equation that was done earlier. As with earlier development, we define the downward direction to be positive."
+    },
+    {
+     "type": "p",
+     "text": "When the motorcycle is lifted by its frame, the wheel hangs freely and the spring is uncompressed. This is the spring’s natural position. When the motorcycle is placed on the ground and the rider mounts the motorcycle, the spring compresses and the system is in the equilibrium position (Figure 7.9)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_014.webp",
+     "alt": "This figure has two springs attached above at a fixed point. The first spring is labeled, “Natural Position,” and has an uncompressed spring hanging vertically. The second spring is labeled, “Equilibrium Position,” and has a compressed spring hanging vertically. The vertical difference between the two springs is labeled, “s.”",
+     "caption": "**Figure 7.9** We can use a spring-mass system to model a motorcycle suspension.",
+     "width": 664,
+     "height": 383
+    },
+    {
+     "type": "p",
+     "text": "This system can be modeled using the same differential equation we used before:"
+    },
+    {
+     "type": "math",
+     "tex": "mx''+bx'+kx=0."
+    },
+    {
+     "type": "p",
+     "text": "A motocross motorcycle weighs 204 lb, and we assume a rider weight of 180 lb. When the rider mounts the motorcycle, the suspension compresses 4 in., then comes to rest at equilibrium. The suspension system provides damping equal to 240 times the instantaneous vertical velocity of the motorcycle (and rider)."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Set up the differential equation that models the behavior of the motorcycle suspension system.",
+      "We are interested in what happens when the motorcycle lands after taking a jump. Let time $t=0$ denote the time when the motorcycle first contacts the ground. If the motorcycle hits the ground with a velocity of 10 ft/sec downward, find the equation of motion of the motorcycle after the jump.",
+      "Graph the equation of motion over the first second after the motorcycle hits the ground."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "We have defined equilibrium to be the point where $mg=ks,$ so we have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}mg & = & ks \\\\ 384 & = & k\\left(\\frac{1}{3}\\right) \\\\ k & = & 1152.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "We also have"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}W & = & mg \\\\ 384 & = & m(32) \\\\ m & = & 12.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, the differential equation that models the behavior of the motorcycle suspension is"
+        },
+        {
+         "type": "math",
+         "tex": "12x''+240x'+1152x=0."
+        },
+        {
+         "type": "p",
+         "text": "Dividing through by 12, we get"
+        },
+        {
+         "type": "math",
+         "tex": "x''+20x'+96x=0."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The differential equation found in part a. has the general solution"
+        },
+        {
+         "type": "math",
+         "tex": "x(t)=c_{1}e^{-8t}+c_{2}e^{-12t}."
+        },
+        {
+         "type": "p",
+         "text": "Now, to determine our initial conditions, we consider the position and velocity of the motorcycle wheel when the wheel first contacts the ground. Since the motorcycle was in the air prior to contacting the ground, the wheel was hanging freely and the spring was uncompressed. Therefore the wheel is 4 in. $\\left(\\frac{1}{3}\\,\\text{ft}\\right)$ below the equilibrium position (with respect to the motorcycle frame), and we have $x(0)=\\frac{1}{3}.$ According to the problem statement, the motorcycle has a velocity of 10 ft/sec downward when the motorcycle contacts the ground, so $x'(0)=10.$ Applying these initial conditions, we get $c_{1}=\\frac{7}{2}$ and $c_{2}=-\\left(\\frac{19}{6}\\right),$ so the equation of motion is"
+        },
+        {
+         "type": "math",
+         "tex": "x(t)=\\frac{7}{2}e^{-8t}-\\frac{19}{6}e^{-12t}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The graph is shown in Figure 7.10."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_17_03_012.webp",
+         "alt": "This figure is the graph of the function f(x) = 7/2e^−8t −19/6e^−12t.  The vertical axis is scaled in increments of 0.05, and the horizontal axis is labeled, “t.” It is scaled in increments of tenths. The graph intersects the horizontal axis increasing, reaches a maximum, then decreases. The horizontal axis is a horizontal asymptote.",
+         "caption": "**Figure 7.10** Graph of the equation of motion over a time of one second.",
+         "width": 684,
+         "height": 422
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Chapter Opener: Modeling a Motorcycle Suspension System"
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The last case we consider is when an external force acts on the system. In the case of the motorcycle suspension system, for example, the bumps in the road act as an external force acting on the system. Another example is a spring hanging from a support; if the support is set in motion, that motion would be considered an external force on the system. We model these forced systems with the nonhomogeneous differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "mx''+bx'+kx=f(t),"
+    },
+    {
+     "type": "p",
+     "text": "where the external force is represented by the $f(t)$ term. As we saw in Nonhomogeneous Linear Equations, differential equations such as this have solutions of the form"
+    },
+    {
+     "type": "math",
+     "tex": "x(t)=c_{1}x_{1}(t)+c_{2}x_{2}(t)+x_{p}(t),"
+    },
+    {
+     "type": "p",
+     "text": "where $c_{1}x_{1}(t)+c_{2}x_{2}(t)$ is the general solution to the complementary equation and $x_{p}(t)$ is a particular solution to the nonhomogeneous equation. If the system is damped, $\\lim_{t\\to \\infty}c_{1}x_{1}(t)+c_{2}x_{2}(t)=0.$ Since these terms do not affect the long-term behavior of the system, we call this part of the solution the **transient solution****.** The long-term behavior of the system is determined by $x_{p}(t),$ so we call this part of the solution the **steady-state solution**."
+    }
+   ],
+   "title": "Forced Vibrations"
+  },
+  {
+   "id": "x24",
+   "kind": "example",
+   "label": "Example 7.23",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A mass of 1 slug stretches a spring 2 ft and comes to rest at equilibrium. The system is attached to a dashpot that imparts a damping force equal to eight times the instantaneous velocity of the mass. Find the equation of motion if an external force equal to $f(t)=8\\,\\sin \\,(4t)$ is applied to the system beginning at time $t=0.$ What is the transient solution? What is the steady-state solution?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have $mg=1(32)=2k,$ so $k=16$ and the differential equation is"
+     },
+     {
+      "type": "math",
+      "tex": "x''+8x'+16x=8\\,\\sin \\,(4t)."
+     },
+     {
+      "type": "p",
+      "text": "The general solution to the complementary equation is"
+     },
+     {
+      "type": "math",
+      "tex": "c_{1}e^{-4t}+c_{2}te^{-4t}."
+     },
+     {
+      "type": "p",
+      "text": "Assuming a particular solution of the form $x_{p}(t)=A\\,\\cos \\,(4t)+B\\,\\sin \\,(4t)$ and using the method of undetermined coefficients, we find $x_{p}(t)=-\\frac{1}{4}\\,\\cos \\,(4t),$ so"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=c_{1}e^{-4t}+c_{2}te^{-4t}-\\frac{1}{4}\\,\\cos \\,(4t)."
+     },
+     {
+      "type": "p",
+      "text": "At $t=0,$ the mass is at rest in the equilibrium position, so $x(0)=x'(0)=0.$ Applying these initial conditions to solve for $c_{1}$ and $c_{2},$ we get"
+     },
+     {
+      "type": "math",
+      "tex": "x(t)=\\frac{1}{4}e^{-4t}+te^{-4t}-\\frac{1}{4}\\,\\cos \\,(4t)."
+     },
+     {
+      "type": "p",
+      "text": "The transient solution is $\\frac{1}{4}e^{-4t}+te^{-4t}.$ The steady-state solution is $-\\frac{1}{4}\\,\\cos \\,(4t).$"
+     }
+    ]
+   },
+   "title": "Forced Vibrations"
+  },
+  {
+   "id": "c25",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.20",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A mass of 2 kg is attached to a spring with constant 32 N/m and comes to rest in the equilibrium position. Beginning at time $t=0,$ an external force equal to$f(t)=68e^{-2t}\\cos \\,(4t)$ is applied to the system. Find the equation of motion if there is no damping. What is the transient solution? What is the steady-state solution?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)=-\\frac{1}{2}\\,\\cos \\,(4t)+\\frac{9}{4}\\,\\sin \\,(4t)+\\frac{1}{2}e^{-2t}\\cos \\,(4t)-2e^{-2t}\\sin \\,(4t)$\n\n$\\text{Transient solution:}\\,\\frac{1}{2}e^{-2t}\\cos \\,(4t)-2e^{-2t}\\sin \\,(4t)$\n\n$\\text{Steady-state solution:}\\,-\\frac{1}{2}\\,\\cos \\,(4t)+\\frac{9}{4}\\,\\sin \\,(4t)$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find the particular solution *before* applying the initial conditions."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider an electrical circuit containing a resistor, an inductor, and a capacitor, as shown in Figure 7.9. Such a circuit is called an **RLC series circuit**. *RLC* circuits are used in many electronic systems, most notably as tuners in AM/FM radios. The tuning knob varies the capacitance of the capacitor, which in turn tunes the radio. Such circuits can be modeled by second-order, constant-coefficient differential equations."
+    },
+    {
+     "type": "p",
+     "text": "Let $I(t)$ denote the current in the *RLC* circuit and $q(t)$ denote the charge on the capacitor. Furthermore, let *L* denote inductance in henrys (H), *R* denote resistance in ohms $(\\text{Ω}),$ and *C* denote capacitance in farads (F). Last, let $E(t)$ denote electric potential in volts (V)."
+    },
+    {
+     "type": "p",
+     "text": "Kirchhoff’s voltage rule states that the sum of the voltage drops around any closed loop must be zero. So, we need to consider the voltage drops across the inductor (denoted $E_{L}$), the resistor (denoted $E_{R}$), and the capacitor (denoted $E_{C}$). Because the *RLC* circuit shown in Figure 7.9 includes a voltage source, $E(t),$ which adds voltage to the circuit, we have $E_{L}+E_{R}+E_{C}=E(t).$"
+    },
+    {
+     "type": "p",
+     "text": "We present the formulas below without further development. Those of you interested in the derivation of these formulas should consult a physics text. Using Faraday’s law and Lenz’s law, the voltage drop across an inductor can be shown to be proportional to the instantaneous rate of change of current, with proportionality constant *L*. Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "E_{L}=L\\frac{dI}{dt}."
+    }
+   ],
+   "title": "The *RLC* Series Circuit"
+  },
+  {
+   "id": "r27",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Next, according to Ohm’s law, the voltage drop across a resistor is proportional to the current passing through the resistor, with proportionality constant *R*. Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "E_{R}=RI."
+    },
+    {
+     "type": "p",
+     "text": "Last, the voltage drop across a capacitor is proportional to the charge, *q*, on the capacitor, with proportionality constant $1/C.$ Thus,"
+    },
+    {
+     "type": "math",
+     "tex": "E_{C}=\\frac{1}{C}q."
+    },
+    {
+     "type": "p",
+     "text": "Adding these terms together, we get"
+    },
+    {
+     "type": "math",
+     "tex": "L\\frac{dI}{dt}+RI+\\frac{1}{C}q=E(t)."
+    },
+    {
+     "type": "p",
+     "text": "Noting that $I=(dq)/(dt),$ this becomes"
+    },
+    {
+     "type": "math",
+     "tex": "L\\frac{d^{2}q}{dt^{2}}+R\\frac{dq}{dt}+\\frac{1}{C}q=E(t)."
+    },
+    {
+     "type": "p",
+     "text": "Mathematically, this system is analogous to the spring-mass systems we have been examining in this section."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_17_03_010.webp",
+     "alt": "This figure is a diagram of a circuit. It has broken lines at the bottom labeled C. On the left side there is an open circle labeled E. The top has diagonal lines labeled R. The right side has little bumps labeled L.",
+     "caption": "**Figure 7.12** An *RLC* series circuit can be modeled by the same differential equation as a mass-spring system.",
+     "width": 325,
+     "height": 232
+    }
+   ],
+   "title": "The *RLC* Series Circuit (continued)"
+  },
+  {
+   "id": "x28",
+   "kind": "example",
+   "label": "Example 7.24",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the charge on the capacitor in an *RLC* series circuit where $L=5/3$ H, $R=10\\text{Ω},$ $C=1/30$ F, and $E(t)=300$ V. Assume the initial charge on the capacitor is 0 C and the initial current is 9 A. What happens to the charge on the capacitor over time?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc} \\\\ \\\\ L\\frac{d^{2}q}{dt^{2}}+R\\frac{dq}{dt}+\\frac{1}{C}q & = & E(t) \\\\ \\frac{5}{3}\\,\\frac{d^{2}q}{dt^{2}}+10\\frac{dq}{dt}+30q & = & 300 \\\\ \\frac{d^{2}q}{dt^{2}}+6\\frac{dq}{dt}+18q & = & 180.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The general solution to the complementary equation is"
+     },
+     {
+      "type": "math",
+      "tex": "e^{-3t}(c_{1}\\cos \\,(3t)+c_{2}\\sin \\,(3t))."
+     },
+     {
+      "type": "p",
+      "text": "Assume a particular solution of the form $q_{p}=A,$ where $A$ is a constant. Using the method of undetermined coefficients, we find $A=10.$ So,"
+     },
+     {
+      "type": "math",
+      "tex": "q(t)=e^{-3t}(c_{1}\\cos \\,(3t)+c_{2}\\sin \\,(3t))+10."
+     },
+     {
+      "type": "p",
+      "text": "Applying the initial conditions $q(0)=0$ and $i(0)=((dq)/(dt))(0)=9,$ we find $c_{1}=-10$ and $c_{2}=-7.$ So the charge on the capacitor is"
+     },
+     {
+      "type": "math",
+      "tex": "q(t)=-10e^{-3t}\\cos \\,(3t)-7e^{-3t}\\sin \\,(3t)+10."
+     },
+     {
+      "type": "p",
+      "text": "Looking closely at this function, we see the first two terms will decay over time (as a result of the negative exponent in the exponential function). Therefore, the capacitor eventually approaches a steady-state charge of 10 C."
+     }
+    ]
+   },
+   "title": "The *RLC* Series Circuit"
+  },
+  {
+   "id": "c29",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.21",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the charge on the capacitor in an *RLC* series circuit where $L=1/5$ H, $R=2/5\\text{Ω},$ $C=1/2$ F, and $E(t)=50$ V. Assume the initial charge on the capacitor is 0 C and the initial current is 4 A."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$q(t)=-25e^{-t}\\cos \\,(3t)-7e^{-t}\\sin \\,(3t)+25$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Remember, $E_{L}=L((dI)/(dt)).$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-25 e^(-t) cos (3 t)-7 e^(-t) sin (3 t)+25"
+   }
+  },
+  {
+   "id": "r30",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Second-order constant-coefficient differential equations can be used to model spring-mass systems.",
+      [
+       {
+        "type": "p",
+        "text": "An examination of the forces on a spring-mass system results in a differential equation of the form"
+       },
+       {
+        "type": "math",
+        "tex": "mx''+bx'+kx=f(t),"
+       },
+       {
+        "type": "p",
+        "text": "where $m$ represents the mass, $b$ is the coefficient of the damping force, $k$ is the spring constant, and $f(t)$ represents any net external forces on the system."
+       }
+      ],
+      "If $b=0,$ there is no damping force acting on the system, and simple harmonic motion results. If $b\\ne 0,$ the behavior of the system depends on whether $b^{2}-4mk>0,$ $b^{2}-4mk=0,$ or $b^{2}-4mk<0.$",
+      "If $b^{2}-4mk>0,$ the system is overdamped and does not exhibit oscillatory behavior.",
+      "If $b^{2}-4mk=0,$ the system is critically damped. It does not exhibit oscillatory behavior, but any slight reduction in the damping would result in oscillatory behavior.",
+      "If $b^{2}-4mk<0,$ the system is underdamped. It exhibits oscillatory behavior, but the amplitude of the oscillations decreases over time.",
+      "If $f(t)\\ne 0,$ the solution to the differential equation is the sum of a transient solution and a steady-state solution. The steady-state solution governs the long-term behavior of the system.",
+      [
+       {
+        "type": "p",
+        "text": "The charge on the capacitor in an *RLC* series circuit can also be modeled with a second-order constant-coefficient differential equation of the form"
+       },
+       {
+        "type": "math",
+        "tex": "L\\frac{d^{2}q}{dt^{2}}+R\\frac{dq}{dt}+\\frac{1}{C}q=E(t),"
+       },
+       {
+        "type": "p",
+        "text": "where *L* is the inductance, *R* is the resistance, *C* is the capacitance, and $E(t)$ is the voltage source."
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r31",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Equation of simple harmonic motion**",
+       "$x''+\\omega^{2}x=0$"
+      ],
+      [
+       "**Solution for simple harmonic motion**",
+       "$x(t)=c_{1}\\cos \\,(\\omega t)+c_{2}\\sin \\,(\\omega t)$"
+      ],
+      [
+       "**Alternative form of solution for SHM**",
+       "$x(t)=A\\,\\sin \\,(\\omega t+\\phi )$"
+      ],
+      [
+       "**Forced harmonic motion**",
+       "$mx''+bx'+kx=f(t)$"
+      ],
+      [
+       "**Charge in a** **RLC** **series circuit**",
+       "$L\\frac{d^{2}q}{dt^{2}}+R\\frac{dq}{dt}+\\frac{1}{C}q=E(t)$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e86",
+   "number": 86,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A mass weighing 4 lb stretches a spring 8 in. Find the equation of motion if the spring is released from the equilibrium position with a downward velocity of 12 ft/sec. What is the period and frequency of the motion?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571079342",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e87",
+   "number": 87,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A mass weighing 2 lb stretches a spring 2 ft. Find the equation of motion if the spring is released from 2 in. below the equilibrium position with an upward velocity of 8 ft/sec. What is the period and frequency of the motion?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571412194",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x''+16x=0,$ $x(t)=\\frac{1}{6}\\,\\cos \\,(4t)-2\\,\\sin \\,(4t),$ period $=\\frac{\\pi}{2}\\,\\sec ,$ frequency $=\\frac{2}{\\pi}\\,\\text{Hz}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e88",
+   "number": 88,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A 100-g mass stretches a spring 0.1 m. Find the equation of motion of the mass if it is released from rest from a position 20 cm below the equilibrium position. What is the frequency of this motion?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571214796",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e89",
+   "number": 89,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A 400-g mass stretches a spring 5 cm. Find the equation of motion of the mass if it is released from rest from a position 15 cm below the equilibrium position. What is the frequency of this motion?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571098284",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x''+196x=0,$ $x(t)=0.15\\,\\cos \\,(14t),$ period $=\\frac{\\pi}{7}\\,\\sec ,$ frequency $=\\frac{7}{\\pi}\\,\\text{Hz}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e90",
+   "number": 90,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A block has a mass of 9 kg and is attached to a vertical spring with a spring constant of 0.25 N/m. The block is stretched 0.75 m below its equilibrium position and released."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the position function $x(t)$ of the block.",
+      "Find the period and frequency of the vibration.",
+      "Sketch a graph of $x(t).$",
+      "At what time does the block first pass through the equilibrium position?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571138041",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e91",
+   "number": 91,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A block has a mass of 5 kg and is attached to a vertical spring with a spring constant of 20 N/m. The block is released from the equilibrium position with a downward velocity of 10 m/sec."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the position function $x(t)$ of the block.",
+      "Find the period and frequency of the vibration.",
+      "Sketch a graph of $x(t).$",
+      "At what time does the block first pass through the equilibrium position?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571369053",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x(t)=5\\,\\sin \\,(2t)$\nb. period $=\\pi \\,\\sec ,$ frequency $=\\frac{1}{\\pi}\\,\\text{Hz}$\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_17_03_202.webp",
+      "alt": "This figure is the graph of a function. It is a periodic function with consistent amplitude. The horizontal axis is labeled in increments of 1. The vertical axis is labeled in increments of 1.5.",
+      "width": 351,
+      "height": 353
+     },
+     {
+      "type": "p",
+      "text": "d. $t=\\frac{\\pi}{2}\\,\\sec$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e92",
+   "number": 92,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A 1-kg mass is attached to a vertical spring with a spring constant of 21 N/m. The resistance in the spring-mass system is equal to 10 times the instantaneous velocity of the mass."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the equation of motion if the mass is released from a position 2 m below its equilibrium position with a downward velocity of 2 m/sec.",
+      "Graph the solution and determine whether the motion is overdamped, critically damped, or underdamped."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571066174",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e93",
+   "number": 93,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "An 800-lb weight (25 slugs) is attached to a vertical spring with a spring constant of 226 lb/ft. The system is immersed in a medium that imparts a damping force equal to 10 times the instantaneous velocity of the mass."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the equation of motion if it is released from a position 20 ft below its equilibrium position with a downward velocity of 41 ft/sec.",
+      "Graph the solution and determine whether the motion is overdamped, critically damped, or underdamped."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573739195",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x(t)=e^{-t/5}(20\\,\\cos \\,(3t)+15\\,\\sin \\,(3t))$\nb. underdamped"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e94",
+   "number": 94,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A 9-kg mass is attached to a vertical spring with a spring constant of 16 N/m. The system is immersed in a medium that imparts a damping force equal to 24 times the instantaneous velocity of the mass."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the equation of motion if it is released from its equilibrium position with an upward velocity of 4 m/sec.",
+      "Graph the solution and determine whether the motion is overdamped, critically damped, or underdamped."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571041530",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e95",
+   "number": 95,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A 1-kg mass stretches a spring 61.25 cm. The resistance in the spring-mass system is equal to eight times the instantaneous velocity of the mass."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the equation of motion if the mass is released from a position 5 m below its equilibrium position with an upward velocity of 10 m/sec.",
+      "Determine whether the motion is overdamped, critically damped, or underdamped."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571021686",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x(t)=e^{-4t}(-5\\cos 11.866t-0.834\\sin 11.866t)$\nb. underdamped"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e96",
+   "number": 96,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A 32-lb weight (1 slug) stretches a vertical spring 128 in. The resistance in the spring-mass system is equal to four times the instantaneous velocity of the mass."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the equation of motion if it is released from its equilibrium position with a downward velocity of 12 ft/sec.",
+      "Determine whether the motion is overdamped, critically damped, or underdamped."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571041443",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e97",
+   "number": 97,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A 64-lb weight is attached to a vertical spring with a spring constant of 4.625 lb/ft. The resistance in the spring-mass system is equal to the instantaneous velocity. The weight is set in motion from a position 1 ft below its equilibrium position with an upward velocity of 2 ft/sec. Is the mass above or below the equilibrium position at the end of $\\pi$ sec? By what distance?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571227151",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(\\pi )=\\frac{7e^{-\\pi /4}}{6}$ ft below"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e98",
+   "number": 98,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A mass that weighs 8 lb stretches a spring 6 inches. The system is acted on by an external force of $8\\,\\sin \\,8t$ lb. If the mass is pulled down 3 inches and then released, determine the position of the mass at any time."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571302938",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e99",
+   "number": 99,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A mass that weighs 6 lb stretches a spring 3 in. The system is acted on by an external force of $8\\,\\sin \\,(4t)$ lb. If the mass is pulled down 1 inch and then released, determine the position of the mass at any time."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571027428",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)=\\frac{1}{2}\\,\\cos \\,(8\\sqrt{2}t)-\\frac{4\\sqrt{2}}{21}\\sin \\left(8\\sqrt{2}\\mathrm{t}\\right)+\\frac{8}{21}\\sin \\left(8\\sqrt{2}\\mathrm{t}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2) cos (8 sqrt(2)t)-((4 sqrt(2))/21) sin (8 sqrt(2)t)+(8/21) sin (8 sqrt(2)t)"
+   }
+  },
+  {
+   "id": "e100",
+   "number": 100,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the charge on the capacitor in an *RLC* series circuit where $L=40$ H, $R=30\\text{Ω},$ $C=1/200$ F, and $E(t)=200$ V. Assume the initial charge on the capacitor is 7 C and the initial current is 0 A."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573541683",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e101",
+   "number": 101,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the charge on the capacitor in an *RLC* series circuit where $L=2$ H, $R=24\\text{Ω},$ $C=0.005$ F, and $E(t)=12\\,\\sin \\,10t$ V. Assume the initial charge on the capacitor is 0.001 C and the initial current is 0 A."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573535625",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$q(t)=e^{-6t}(0.051\\,\\cos \\,(8t)+0.03825\\,\\sin \\,(8t))-\\frac{1}{20}\\,\\cos \\,(10t)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^(-6 t)(0.051 cos (8 t)+0.03825 sin (8 t))-(1/20) cos (10 t)"
+   }
+  },
+  {
+   "id": "e102",
+   "number": 102,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A series circuit consists of a device where $L=1$ H, $R=20\\text{Ω},$ $C=0.002$ F, and $E(t)=12$ V. If the initial charge and current are both zero, find the charge and current at time *t*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571322031",
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e103",
+   "number": 103,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A series circuit consists of a device where $L=\\frac{1}{2}$ H, $R=10\\text{Ω},$ $C=\\frac{1}{50}$ F, and $E(t)=250$ V. If the initial charge on the capacitor is 0 C and the initial current is 18 A, find the charge and current at time *t*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571146379",
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$q(t)=e^{-10t}(-32t-5)+5,\\,\\,I(t)=2e^{-10t}(160t+9)$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"q(t)=e^(-10 t)(-32 t-5)+5, I(t)=2 e^(-10 t)(160 t+9)\""
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "RLC series circuit",
+   "meaning": "a complete electrical path consisting of a resistor, an inductor, and a capacitor; a second-order, constant-coefficient differential equation can be used to model the charge on the capacitor in an *RLC* series circuit"
+  },
+  {
+   "term": "simple harmonic motion",
+   "meaning": "motion described by the equation $x(t)=c_{1}\\cos \\,(\\omega t)+c_{2}\\sin \\,(\\omega t),$ as exhibited by an undamped spring-mass system in which the mass continues to oscillate indefinitely"
+  },
+  {
+   "term": "steady-state solution",
+   "meaning": "a solution to a nonhomogeneous differential equation related to the forcing function; in the long term, the solution approaches the steady-state solution"
+  }
+ ]
+}

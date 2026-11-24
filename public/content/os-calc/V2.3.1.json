@@ -1,0 +1,2483 @@
+{
+ "schema": 1,
+ "id": "V2.3.1",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 3,
+ "section": 1,
+ "title": "Integration by Parts",
+ "chapterTitle": "Techniques of Integration",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53656",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/3-1-integration-by-parts",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §3.1 “Integration by Parts”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Recognize when to use integration by parts.",
+  "Use the integration-by-parts formula to solve integration problems.",
+  "Use the integration-by-parts formula for definite integrals."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "By now we have a fairly thorough procedure for how to evaluate many basic integrals. However, although we can integrate ${\\displaystyle \\int x\\,\\sin (x^{2})dx}$ by using the substitution, $u=x^{2},$ something as simple looking as ${\\displaystyle \\int x\\,\\sin \\,x\\,dx}$ defies us. Many students want to know whether there is a product rule for integration. There isn’t, but there is a technique based on the product rule for differentiation that allows us to exchange one integral for another. We call this technique **integration by parts**."
+    }
+   ],
+   "title": "Integration by Parts"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If, $h(x)=f(x)g(x),$ then by using the product rule, we obtain $h'(x)=f'(x)g(x)+g'(x)f(x).$ Although at first it may seem counterproductive, let’s now integrate both sides of this equation: ${\\displaystyle \\int h'(x)dx={\\displaystyle \\int (g(x)f'(x)+f(x)g'(x))dx.}}$"
+    },
+    {
+     "type": "p",
+     "text": "This gives us"
+    },
+    {
+     "type": "math",
+     "tex": "h(x)=f(x)g(x)={\\displaystyle \\int g(x)f'(x)dx+{\\displaystyle \\int f(x)g'(x)dx.}}"
+    },
+    {
+     "type": "p",
+     "text": "Now we solve for ${\\displaystyle \\int f(x)g'(x)dx:}$"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int f(x)g'(x)dx=f(x)g(x)-{\\displaystyle \\int g(x)f'(x)dx.}}"
+    },
+    {
+     "type": "p",
+     "text": "By making the substitutions $u=f(x)$ and $v=g(x),$ which in turn make $du=f'(x)dx$ and $dv=g'(x)dx,$ we have the more compact form"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int u\\,dv=uv-}{\\displaystyle \\int v\\,du.}"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $u=f(x)$ and $v=g(x)$ be functions with continuous derivatives. Then, the integration-by-parts formula for the integral involving these two functions is:"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int u\\,dv=uv-{\\displaystyle \\int v\\,du}}."
+      }
+     ],
+     "title": "Integration by Parts"
+    },
+    {
+     "type": "p",
+     "text": "The advantage of using the integration-by-parts formula is that we can use it to exchange one integral for another, possibly easier, integral. The following example illustrates its use."
+    }
+   ],
+   "title": "The Integration-by-Parts Formula"
+  },
+  {
+   "id": "x3",
+   "kind": "example",
+   "label": "Example 3.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use integration by parts with $u=x$ and $dv=\\sin \\,x\\,dx$ to evaluate ${\\displaystyle \\int x\\,\\sin \\,x\\,dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "By choosing $u=x,$ we have $du=1dx.$ Since $dv=\\sin \\,x\\,dx,$ we get $v={\\displaystyle \\int \\sin \\,x\\,dx=-\\cos \\,x.}$ It is handy to keep track of these values as follows:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccccc}u & = & x & & dv & = & \\sin \\,x\\,dx \\\\ du & = & 1dx & & v & = & {\\displaystyle \\int \\sin \\,x\\,dx=-\\cos \\,x.}\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Applying the integration-by-parts formula results in"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc}{\\displaystyle \\int x\\,\\sin \\,x\\,dx} & =(x)(-\\cos \\,x)-{\\displaystyle \\int (-\\cos \\,x)(1dx)} & & \\text{Substitute}. \\\\ & =-x\\,\\cos \\,x+{\\displaystyle \\int \\cos \\,x\\,dx} & & \\text{Simplify}. \\\\ & =-x\\,\\cos \\,x+\\sin \\,x+C. & & \\text{Use}\\,{\\displaystyle \\int \\cos \\,x\\,dx=\\sin \\,x+C.}\\end{array}"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "At this point, there are probably a few items that need clarification. First of all, you may be curious about what would have happened if we had chosen $u=\\sin \\,x$ and $dv=x.$ If we had done so, then we would have $du=\\cos \\,x\\mathrm{dx}$ and $v=\\frac{1}{2}x^{2}.$ Thus, after applying integration by parts, we have ${\\displaystyle \\int}^{\\text{​}}x\\,\\sin \\,x\\,dx=\\frac{1}{2}x^{2}\\sin \\,x-{\\displaystyle \\int}^{\\text{​}}\\frac{1}{2}x^{2}\\cos \\,x\\,dx.$ Unfortunately, with the new integral, we are in no better position than before. It is important to keep in mind that when we apply integration by parts, we may need to try several choices for $u$ and $dv$ before finding a choice that works."
+       },
+       {
+        "type": "p",
+        "text": "Second, you may wonder why, when we find $v={\\displaystyle \\int}^{\\text{​}}\\sin \\,x\\,dx=-\\cos \\,x,$ we do not use $v=-\\cos \\,x+K.$ To see that it makes no difference, we can rework the problem using $v=-\\cos \\,x+K:$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}{\\displaystyle \\int}^{\\,}x\\,\\sin \\,x\\,dx & =(x)(-\\cos \\,x+K)-{\\displaystyle \\int}^{\\,}(-\\cos \\,x+K)(1dx) \\\\ & =-x\\,\\cos \\,x+Kx+{\\displaystyle \\int}^{\\,}\\cos \\,x\\,dx-{\\displaystyle \\int}^{\\,}Kdx \\\\ & =-x\\,\\cos \\,x\\,+Kx+\\sin \\,x-Kx+C \\\\ & =-x\\,\\cos \\,x+\\sin \\,x+C.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "As you can see, it makes no difference in the final solution."
+       },
+       {
+        "type": "p",
+        "text": "Last, we can check to make sure that our antiderivative is correct by differentiating $-x\\,\\cos \\,x+\\sin \\,x+C:$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\frac{d}{dx}(-x\\,\\cos \\,x+\\sin \\,x+C) & =(-1)\\cos \\,x+(-x)(-\\sin \\,x)+\\cos \\,x \\\\ & =x\\,\\sin \\,x.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Therefore, the antiderivative checks out."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Using Integration by Parts"
+  },
+  {
+   "id": "c4",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}^{\\text{​}}xe^{2x}dx$ using the integration-by-parts formula with $u=x$ and $dv=e^{2x}dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int}^{\\text{​}}xe^{2x}dx=\\frac{1}{2}xe^{2x}-\\frac{1}{4}e^{2x}+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find $du$ and $v,$ and use the previous example as a guide."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)x e^(2 x)-(1/4)e^(2 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The natural question to ask at this point is: How do we know how to choose $u$ and $dv?$ Sometimes it is a matter of trial and error; however, the acronym LIATE can often help to take some of the guesswork out of our choices. This acronym stands for **L**ogarithmic Functions, **I**nverse Trigonometric Functions, **A**lgebraic Functions, **T**rigonometric Functions, and **E**xponential Functions. This mnemonic serves as an aid in determining an appropriate choice for $u.$"
+    },
+    {
+     "type": "p",
+     "text": "The type of function in the integral that appears first in the list should be our first choice of $u.$ For example, if an integral contains a **logarithmic function** and an **algebraic function**, we should choose $u$ to be the logarithmic function, because L comes before A in LIATE. The integral in Example 3.1 has a trigonometric function $(\\sin \\,x)$ and an algebraic function $(x).$ Because A comes before T in LIATE, we chose $u$ to be the algebraic function. When we have chosen $u,$ $dv$ is selected to be the remaining part of the function to be integrated, together with $dx.$"
+    }
+   ],
+   "title": "The Integration-by-Parts Formula (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Why does this mnemonic work? Remember that whatever we pick to be $dv$ must be something we can integrate. Since we do not have integration formulas that allow us to integrate simple logarithmic functions and inverse trigonometric functions, it makes sense that they should not be chosen as values for $dv.$ Consequently, they should be at the head of the list as choices for $u.$ Thus, we put LI at the beginning of the mnemonic. (We could just as easily have started with IL, since these two types of functions won’t appear together in an integration-by-parts problem.) The exponential and trigonometric functions are at the end of our list because they are fairly easy to integrate and make good choices for $dv.$ Thus, we have TE at the end of our mnemonic. (We could just as easily have used ET at the end, since when these types of functions appear together it usually doesn’t really matter which one is $u$ and which one is $dv.)$ Algebraic functions are generally easy both to integrate and to differentiate, and they come in the middle of the mnemonic."
+    }
+   ],
+   "title": "The Integration-by-Parts Formula (continued)"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 3.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int \\frac{\\ln \\,x}{x^{3}}dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Begin by rewriting the integral:"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\frac{\\ln \\,x}{x^{3}}dx}={\\displaystyle \\int}^{\\text{​}}x^{-3}\\ln \\,x\\,dx."
+     },
+     {
+      "type": "p",
+      "text": "Since this integral contains the algebraic function $x^{-3}$ and the logarithmic function $\\ln \\,x,$ choose $u=\\ln \\,x,$ since L comes before A in LIATE. After we have chosen $u=\\ln \\,x,$ we must choose $dv=x^{-3}dx.$"
+     },
+     {
+      "type": "p",
+      "text": "Next, since $u=\\ln \\,x,$ we have $du=\\frac{1}{x}dx.$ Also, $v={\\displaystyle \\int}^{\\text{​}}x^{-3}dx=-\\frac{1}{2}x^{-2}.$ Summarizing,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccccc}u & = & \\ln \\,x & & dv & = & x^{-3}dx \\\\ du & = & \\frac{1}{x}dx & & v & = & {\\displaystyle \\int}^{\\text{​}}x^{-3}dx=-\\frac{1}{2}x^{-2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Substituting into the integration-by-parts formula ((see above)) gives"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccc}{\\displaystyle \\int \\frac{\\ln \\,x}{x^{3}}dx} & ={\\displaystyle \\int}^{\\text{​}}x^{-3}\\ln \\,x\\,dx=\\left(\\ln \\,x)(-\\,\\frac{1}{2}x^{-2}\\right)-{\\displaystyle \\int}^{\\text{​}}\\left(-\\,\\frac{1}{2}x^{-2}\\right)(\\frac{1}{x}dx) & & & \\\\ & =-\\frac{1}{2}x^{-2}\\ln \\,x+{\\displaystyle \\int}^{\\text{​}}\\frac{1}{2}x^{-3}dx & & & \\text{Simplify}. \\\\ & =-\\frac{1}{2}x^{-2}\\ln \\,x-\\frac{1}{4}x^{-2}+C & & & \\text{Integrate}. \\\\ & =-\\frac{1}{2x^{2}}\\ln \\,x-\\frac{1}{4x^{2}}+C. & & & \\text{Rewrite with positive integers.}\\end{array}"
+     }
+    ]
+   },
+   "title": "Using Integration by Parts"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}^{\\text{​}}x\\,\\ln \\,x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}x^{2}\\ln \\,x-\\frac{1}{4}x^{2}+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use $u=\\ln \\,x$ and $dv=x\\,dx.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)x^2 ln x-(1/4)x^2+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In some cases, as in the next two examples, it may be necessary to apply integration by parts more than once."
+    }
+   ],
+   "title": "The Integration-by-Parts Formula (continued)"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 3.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}^{\\text{​}}x^{2}e^{3x}dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using LIATE, choose $u=x^{2}$ and $dv=e^{3x}dx.$ Thus, $du=2x\\,dx$ and $v={\\displaystyle \\int e^{3x}dx=\\left(\\frac{1}{3}\\right)e^{3x}}.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccccc}u & = & x^{2} & & dv & = & e^{3x}dx \\\\ du & = & 2x\\,dx & & v & = & {\\displaystyle \\int e^{3x}dx=\\frac{1}{3}e^{3x}}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Substituting into (see above) produces"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int x^{2}e^{3x}dx}=\\frac{1}{3}x^{2}e^{3x}-{\\displaystyle \\int \\frac{2}{3}xe^{3x}dx}."
+     },
+     {
+      "type": "p",
+      "text": "We still cannot integrate ${\\displaystyle \\int \\frac{2}{3}xe^{3x}dx}$ directly, but the integral now has a lower power on $x.$ We can evaluate this new integral by using integration by parts again. To do this, choose $u=x$ and $dv=\\frac{2}{3}e^{3x}dx.$ Thus, $du=dx$ and $v={\\displaystyle \\int \\left(\\frac{2}{3}\\right)e^{3x}dx=\\left(\\frac{2}{9}\\right)e^{3x}}.$ Now we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccccc}u & = & x & & dv & = & \\frac{2}{3}e^{3x}dx \\\\ du & = & dx & & v & = & {\\displaystyle \\int \\frac{2}{3}e^{3x}dx=\\frac{2}{9}e^{3x}}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Substituting back into the previous equation yields"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int}^{\\text{​}}x^{2}e^{3x}dx=\\frac{1}{3}x^{2}e^{3x}-\\left(\\frac{2}{9}xe^{3x}-{\\displaystyle \\int}^{\\text{​}}\\frac{2}{9}e^{3x}dx\\right)."
+     },
+     {
+      "type": "p",
+      "text": "After evaluating the last integral and simplifying, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int x^{2}e^{3x}dx}=\\frac{1}{3}x^{2}e^{3x}-\\frac{2}{9}xe^{3x}+\\frac{2}{27}e^{3x}+C."
+     }
+    ]
+   },
+   "title": "Applying Integration by Parts More Than Once"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 3.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}^{\\text{​}}t^{3}e^{t^{2}}dt.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "If we use a strict interpretation of the mnemonic LIATE to make our choice of $u,$ we end up with $u=t^{3}$ and $dv=e^{t^{2}}dt.$ Unfortunately, this choice won’t work because we are unable to evaluate ${\\displaystyle \\int}^{\\text{​}}e^{t^{2}}dt.$ However, since we can evaluate ${\\displaystyle \\int}^{\\text{​}}te^{t^{2}}dt,$ we can try choosing $u=t^{2}$ and $dv=te^{t^{2}}dt.$ With these choices we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccccc}u & = & t^{2} & & dv & = & te^{t^{2}}dt \\\\ du & = & 2t\\,dt & & v & = & {\\displaystyle \\int}^{\\text{​}}te^{t^{2}}dt=\\frac{1}{2}e^{t^{2}}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int}^{\\,}t^{3}e^{t^{2}}dt & =\\frac{1}{2}t^{2}e^{t^{2}}-{\\displaystyle \\int \\frac{1}{2}e^{t^{2}}2tdt} \\\\ & =\\frac{1}{2}t^{2}e^{t^{2}}-\\frac{1}{2}e^{t^{2}}+C.\\end{array}"
+     }
+    ]
+   },
+   "title": "Applying Integration by Parts When LIATE Doesn’t Quite Work"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 3.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This integral appears to have only one function—namely, $\\sin (\\ln \\,x)$ —however, we can always use the constant function 1 as the other function. In this example, let’s choose $u=\\sin (\\ln \\,x)$ and $dv=1dx.$ (The decision to use $u=\\sin (\\ln \\,x)$ is easy. We can’t choose $dv=\\,\\sin (\\ln \\,x)dx$ because if we could integrate it, we wouldn’t be using integration by parts in the first place!) Consequently, $du=(1/x)\\cos (\\ln \\,x)dx$ and $v={\\displaystyle \\int}^{\\text{​}}1dx=x.$ After applying integration by parts to the integral and simplifying, we have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx=x\\,\\sin (\\ln \\,x)-{\\displaystyle \\int}^{\\text{​}}\\cos (\\ln \\,x)dx."
+     },
+     {
+      "type": "p",
+      "text": "Unfortunately, this process leaves us with a new integral that is very similar to the original. However, let’s see what happens when we apply integration by parts again. This time let’s choose $u=\\cos (\\ln \\,x)$ and $dv=1dx,$ making $du=-(1/x)\\sin (\\ln \\,x)dx$ and $v={\\displaystyle \\int}^{\\text{​}}1dx=x.$ Substituting, we have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx=x\\,\\sin (\\ln \\,x)-\\left(x\\,\\cos (\\ln \\,x)-{\\displaystyle \\int}^{\\text{​}}-\\sin (\\ln \\,x)dx\\right)."
+     },
+     {
+      "type": "p",
+      "text": "After simplifying, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx=x\\,\\sin (\\ln \\,x)-x\\,\\cos (\\ln \\,x)-{\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx."
+     },
+     {
+      "type": "p",
+      "text": "The last integral is now the same as the original. It may seem that we have simply gone in a circle, but now we can actually evaluate the integral. To see how to do this more clearly, substitute $I={\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx.$ Thus, the equation becomes"
+     },
+     {
+      "type": "math",
+      "tex": "I=x\\,\\sin (\\ln \\,x)-x\\,\\cos (\\ln \\,x)-I."
+     },
+     {
+      "type": "p",
+      "text": "First, add $I$ to both sides of the equation to obtain"
+     },
+     {
+      "type": "math",
+      "tex": "2I=x\\,\\sin (\\ln \\,x)-x\\,\\cos (\\ln \\,x)."
+     },
+     {
+      "type": "p",
+      "text": "Next, divide by 2:"
+     },
+     {
+      "type": "math",
+      "tex": "I=\\frac{1}{2}x\\,\\sin (\\ln \\,x)-\\frac{1}{2}x\\,\\cos (\\ln \\,x)."
+     },
+     {
+      "type": "p",
+      "text": "Substituting $I={\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx$ again, we have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx=\\frac{1}{2}x\\,\\sin (\\ln \\,x)-\\frac{1}{2}x\\,\\cos (\\ln \\,x)."
+     },
+     {
+      "type": "p",
+      "text": "From this we see that $(1/2)x\\,\\sin (\\ln \\,x)-(1/2)x\\,\\cos (\\ln \\,x)$ is an antiderivative of $\\sin (\\ln \\,x)dx.$ For the most general antiderivative, add $+C:$"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int}^{\\text{​}}\\sin (\\ln \\,x)dx=\\frac{1}{2}x\\,\\sin (\\ln \\,x)-\\frac{1}{2}x\\,\\cos (\\ln \\,x)+C."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "If this method feels a little strange at first, we can check the answer by differentiation:"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{c}\\frac{d}{dx}\\left(\\frac{1}{2}x\\,\\sin (\\ln \\,x)-\\frac{1}{2}x\\,\\cos (\\ln \\,x)\\right) \\\\ \\\\ =\\frac{1}{2}(\\sin (\\ln \\,x))+\\cos (\\ln \\,x)\\cdot \\frac{1}{x}\\cdot \\frac{1}{2}x-\\left(\\frac{1}{2}\\cos (\\ln \\,x)-\\sin (\\ln \\,x)\\cdot \\frac{1}{x}\\cdot \\frac{1}{2}x\\right) \\\\ =\\sin (\\ln \\,x).\\end{array}"
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Applying Integration by Parts More Than Once"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int}^{\\text{​}}x^{2}\\sin \\,x\\,dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-x^{2}\\cos \\,x+2x\\,\\sin \\,x+2\\,\\cos \\,x+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "This is similar to Example 3.3."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-x^2 cos x+2 x sin x+2 cos x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we have used integration by parts successfully to evaluate **indefinite integrals**, we turn our attention to definite integrals. The integration technique is really the same, only we add a step to evaluate the integral at the upper and lower limits of integration."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $u=f(x)$ and $v=g(x)$ be functions with continuous derivatives on $[a,b].$ Then"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int_{a}^{b}u\\,dv}=uv|_{a}^{b}-{\\displaystyle \\int_{a}^{b}v\\,du}."
+      }
+     ],
+     "title": "Integration by Parts for Definite Integrals"
+    }
+   ],
+   "title": "Integration by Parts for Definite Integrals"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 3.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the area of the region bounded above by the graph of $y=\\tan^{-1}x$ and below by the $x$-axis over the interval $[0,1].$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This region is shown in Figure 3.1. To find the area, we must evaluate $\\int_{0}^{1}\\tan^{-1}x\\,dx.$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_07_01_001.webp",
+      "alt": "This figure is the graph of the inverse tangent function. It is an increasing function that passes through the origin. In the first quadrant there is a shaded region under the graph, above the x-axis. The shaded area is bounded to the right at x = 1.",
+      "caption": "**Figure 3.1** To find the area of the shaded region, we have to use integration by parts.",
+      "width": 342,
+      "height": 347
+     },
+     {
+      "type": "p",
+      "text": "For this integral, let’s choose $u=\\tan^{-1}x$ and $dv=dx,$ thereby making $du=\\frac{1}{x^{2}+1}dx$ and $v=x.$ After applying the integration-by-parts formula ((see above)) we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{Area}=x\\,\\tan^{-1}x|_{0}^{1}-{\\displaystyle \\int_{0}^{1}\\frac{x}{x^{2}+1}dx.}"
+     },
+     {
+      "type": "p",
+      "text": "Use *u*-substitution to obtain"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{0}^{1}\\frac{x}{x^{2}+1}dx=\\frac{1}{2}\\ln |x^{2}+1|_{0}^{1}.}"
+     },
+     {
+      "type": "p",
+      "text": "Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{Area}=x\\,\\tan^{-1}x{\\displaystyle |}_{0}^{1}-\\frac{1}{2}\\ln |x^{2}+1||_{0}^{1}=\\frac{\\pi}{4}-\\frac{1}{2}\\ln \\,2."
+     },
+     {
+      "type": "p",
+      "text": "At this point it might not be a bad idea to do a “reality check” on the reasonableness of our solution. Since $\\frac{\\pi}{4}-\\frac{1}{2}\\ln \\,2\\approx 0.4388,$ and from Figure 3.1 we expect our area to be slightly less than 0.5, this solution appears to be reasonable."
+     }
+    ]
+   },
+   "title": "Finding the Area of a Region"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 3.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the volume of the solid obtained by revolving the region bounded by the graph of $f(x)=e^{-x},$ the *x*-axis, the *y*-axis, and the line $x=1$ about the *y*-axis."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The best option to solving this problem is to use the shell method. Begin by sketching the region to be revolved, along with a typical rectangle (see the following graph)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_07_01_002.webp",
+      "alt": "This figure is the graph of the function e^-x. It is an increasing function on the left side of the y-axis and decreasing on the right side of the y-axis. The curve also comes to a point on the y-axis at y=1. Under the curve there is a shaded rectangle in the first quadrant. There is also a cylinder under the graph, formed by revolving the rectangle around the y-axis.",
+      "caption": "**Figure 3.2** We can use the shell method to find a volume of revolution.",
+      "width": 731,
+      "height": 272
+     },
+     {
+      "type": "p",
+      "text": "To find the volume using shells, we must evaluate $2\\pi {\\displaystyle \\int_{0}^{1}xe^{-x}dx}.$ To do this, let $u=x$ and $dv=e^{-x}.$ These choices lead to $du=dx$ and $v={\\displaystyle \\int}^{\\text{​}}e^{-x}=-e^{-x}.$ Substituting into (see above), we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc}\\text{Volume} & =2\\pi \\int_{0}^{1}xe^{-x}dx=2\\pi (-xe^{-x}|_{0}^{1}+\\int_{0}^{1}e^{-x}dx) & & \\text{Use integration by parts}. \\\\ & =-2\\pi xe^{-x}|_{0}^{1}-2\\pi e^{-x}|_{0}^{1} & & \\text{Evaluate}\\,\\int_{0}^{1}e^{-x}dx=-e^{-x}|_{0}^{1}. \\\\ & =2\\pi -\\frac{4\\pi}{e}. & & \\text{Evaluate and simplify}.\\end{array}"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "Again, it is a good idea to check the reasonableness of our solution. We observe that the solid has a volume slightly less than that of a cylinder of radius $1$ and height of $1/e$ added to the volume of a cone of base radius $1$ and height of $1-\\frac{1}{e}.$ Consequently, the solid should have a volume a bit less than"
+       },
+       {
+        "type": "math",
+        "tex": "\\pi (1)^{2}\\frac{1}{e}+\\left(\\frac{\\pi}{3}\\right)(1)^{2}\\left(1-\\frac{1}{e}\\right)=\\frac{2\\pi}{3e}+\\frac{\\pi}{3}\\approx 1.8177."
+       },
+       {
+        "type": "p",
+        "text": "Since $2\\pi -\\frac{4\\pi}{e}\\approx 1.6603,$ we see that our calculated volume is reasonable."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Finding a Volume of Revolution"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{0}^{\\pi /2}x\\,\\cos \\,x\\,dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{2}-1$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above) with $u=x$ and $dv=\\cos \\,x\\,dx.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/2)-1"
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The integration-by-parts formula allows the exchange of one integral for another, possibly easier, integral.",
+      "Integration by parts applies to both definite and indefinite integrals."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Integration by parts formula**",
+       "${\\displaystyle \\int u\\,dv=uv-{\\displaystyle \\int v\\,du}}$"
+      ],
+      [
+       "**Integration by parts for definite integrals**",
+       "${\\displaystyle \\int_{a}^{b}u\\,dv}=uv|_{a}^{b}-{\\displaystyle \\int_{a}^{b}v\\,du}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e1",
+   "number": 1,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{3}e^{2x}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040642447",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In using the technique of integration by parts, you must carefully choose which expression is *u.* For each of the following problems, use the guidelines in this section to choose *u.* Do **not** evaluate the integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=x^{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "u=x^3"
+   }
+  },
+  {
+   "id": "e2",
+   "number": 2,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{3}\\ln (x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040642500",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In using the technique of integration by parts, you must carefully choose which expression is *u.* For each of the following problems, use the guidelines in this section to choose *u.* Do **not** evaluate the integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e3",
+   "number": 3,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int y^{3}\\cos \\,ydy}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040642565",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In using the technique of integration by parts, you must carefully choose which expression is *u.* For each of the following problems, use the guidelines in this section to choose *u.* Do **not** evaluate the integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=y^{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "u=y^3"
+   }
+  },
+  {
+   "id": "e4",
+   "number": 4,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}\\arctan \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041787435",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In using the technique of integration by parts, you must carefully choose which expression is *u.* For each of the following problems, use the guidelines in this section to choose *u.* Do **not** evaluate the integrals."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e5",
+   "number": 5,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{3x}\\sin (2x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041787483",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In using the technique of integration by parts, you must carefully choose which expression is *u.* For each of the following problems, use the guidelines in this section to choose *u.* Do **not** evaluate the integrals."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=\\sin (2x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "u= sin (2 x)"
+   }
+  },
+  {
+   "id": "e6",
+   "number": 6,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int v\\,\\sin \\,vdv}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041787559",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e7",
+   "number": 7,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\ln \\,x\\,dx}$ (*Hint:* ${\\displaystyle \\int \\ln \\,x\\,dx}$ is equivalent to ${\\displaystyle \\int 1\\cdot \\ln (x)dx}.)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041787622",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-x+x\\,\\ln \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-x+x ln x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e8",
+   "number": 8,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\cos \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041848579",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e9",
+   "number": 9,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\tan^{-1}x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041848632",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x\\,\\tan^{-1}x-\\frac{1}{2}\\ln (1+x^{2})+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x tan^(-1) x-(1/2) ln (1+x^2)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e10",
+   "number": 10,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}}e^{x}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041848718",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e11",
+   "number": 11,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\sin (2x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042279525",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}x\\,\\cos (2x)+\\frac{1}{4}\\sin (2x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/2)x cos (2 x)+(1/4) sin (2 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e12",
+   "number": 12,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int xe^{4x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042279619",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e13",
+   "number": 13,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int xe^{-x}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042279694",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{-x}(-1-x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e^(-x)(-1-x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e14",
+   "number": 14,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\cos \\,3x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040739127",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e15",
+   "number": 15,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}}\\cos \\,x\\,dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040739210",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2x\\,\\cos \\,x+(-2+x^{2})\\sin \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 x cos x+(-2+x^2) sin x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e16",
+   "number": 16,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\ln \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040739285",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e17",
+   "number": 17,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\ln (2x+1)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042106390",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}(1+2x)(-1+\\ln (1+2x))+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)(1+2 x)(-1+ ln (1+2 x))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e18",
+   "number": 18,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}e^{4x}}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042106492",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e19",
+   "number": 19,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{x}\\sin \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040696935",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}e^{x}(-\\cos \\,x+\\sin \\,x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)e^x(- cos x+ sin x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e20",
+   "number": 20,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int e^{x}\\cos \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040697008",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e21",
+   "number": 21,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int xe^{-x^{2}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040697080",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{e^{-x^{2}}}{2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-((e^(-x^2))/2)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e22",
+   "number": 22,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}e^{-x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040697146",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e23",
+   "number": 23,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin (\\ln (2x))dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042110324",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}x\\,\\cos [\\ln (2x)]+\\frac{1}{2}x\\,\\sin [\\ln (2x)]+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/2)x cos [ ln (2 x)]+(1/2)x sin [ ln (2 x)]+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e24",
+   "number": 24,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int cos(\\ln \\,x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042110449",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e25",
+   "number": 25,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int (\\ln \\,x)^{2}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042071182",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2x-2x\\,\\ln \\,x+x(\\ln \\,x)^{2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 x-2 x ln x+x(ln x)^2+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e26",
+   "number": 26,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\ln (x^{2})dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042071268",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e27",
+   "number": 27,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}\\ln \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042071342",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(-\\,\\frac{x^{3}}{9}+\\frac{1}{3}x^{3}\\ln \\,x\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(- ((x^3)/9)+(1/3)x^3 ln x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e28",
+   "number": 28,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\sin^{-1}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042230055",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e29",
+   "number": 29,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cos^{-1}(2x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042230128",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2}\\sqrt{1-4x^{2}}+x\\,\\cos^{-1}(2x)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/2)sqrt(1-4 x^2)+x cos^(-1) (2 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e30",
+   "number": 30,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\arctan \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042273608",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e31",
+   "number": 31,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}\\sin \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042273684",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-(-2+x^{2})\\cos \\,x+2x\\,\\sin \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(-2+x^2) cos x+2 x sin x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e32",
+   "number": 32,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{3}\\cos \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042273760",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e33",
+   "number": 33,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{3}\\sin \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042233474",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-x(-6+x^{2})\\cos \\,x+3(-2+x^{2})\\sin \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-x(-6+x^2) cos x+3(-2+x^2) sin x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e34",
+   "number": 34,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{3}e^{x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042233567",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e35",
+   "number": 35,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\sec^{-1}x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165042233649",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}x\\left(-\\sqrt{1-\\frac{1}{x^{2}}}+x\\cdot \\sec^{-1}x\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)x(-sqrt(1-(1/(x^2)))+x* sec^(-1) x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e36",
+   "number": 36,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\sec^{2}x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040754517",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e37",
+   "number": 37,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\cosh \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040754583",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the integral by using the simplest method. Not all problems require integration by parts."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\cosh \\,x+x\\,\\sinh \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- cosh x+x sinh x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e38",
+   "number": 38,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1/e}^{1}\\ln \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040754641",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}xe^{-2x}dx}$ (Express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040754696",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}-\\frac{3}{4{\\text{e}}^{2}}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}e^{\\sqrt{x}}dx(\\text{let}\\,u=\\sqrt{x})}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042231980",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e41",
+   "number": 41,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{e}\\ln (x^{2})dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042232041",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "2"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e42",
+   "number": 42,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}x\\,\\cos \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042232091",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e43",
+   "number": 43,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-\\pi}^{\\pi}x\\,\\sin \\,x\\,dx}$ (Express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042232131",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\pi$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e44",
+   "number": 44,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{3}\\ln (x^{2}+1)dx}$ (Express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041917951",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e45",
+   "number": 45,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /2}x^{2}\\sin \\,x\\,dx}$ (Express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041918039",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-2+\\pi$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e46",
+   "number": 46,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}x5^{x}dx}$ (Express the answer using five significant digits.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165041918098",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e47",
+   "number": 47,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int \\cos \\,x\\,\\ln (\\sin \\,x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165041918142",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Compute the definite integrals. Use a graphing utility to confirm your answers."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\sin (x)+\\ln [\\sin (x)]\\sin \\,x+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- sin (x)+ ln [ sin (x)] sin x+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e48",
+   "number": 48,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{n}e^{x}dx=x^{n}e^{x}-n{\\displaystyle \\int x^{n-1}e^{x}dx}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040756812",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Derive the following formulas using the technique of integration by parts. Assume that *n* is a positive integer. These formulas are called *reduction formulas* because the exponent in the *x* term has been reduced by one in each case. The second integral is simpler than the original integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e49",
+   "number": 49,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{n}\\cos \\,x\\,dx}=x^{n}\\sin \\,x-n{\\displaystyle \\int x^{n-1}\\sin \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040756896",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Derive the following formulas using the technique of integration by parts. Assume that *n* is a positive integer. These formulas are called *reduction formulas* because the exponent in the *x* term has been reduced by one in each case. The second integral is simpler than the original integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers vary"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e50",
+   "number": 50,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{n}\\sin \\,x\\,dx}=\\underset{\\_\\_\\_\\_\\_\\_}{}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040722179",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Derive the following formulas using the technique of integration by parts. Assume that *n* is a positive integer. These formulas are called *reduction formulas* because the exponent in the *x* term has been reduced by one in each case. The second integral is simpler than the original integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e51",
+   "number": 51,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Integrate ${\\displaystyle \\int 2x\\sqrt{2x-3}}dx$ using two methods:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Using parts, letting $dv=\\sqrt{2x-3}\\,dx$",
+      "Substitution, letting $u=2x-3$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040722280",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Derive the following formulas using the technique of integration by parts. Assume that *n* is a positive integer. These formulas are called *reduction formulas* because the exponent in the *x* term has been reduced by one in each case. The second integral is simpler than the original integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\frac{2}{5}(1+x)(-3+2x)^{3/2}+C$ b. $\\frac{2}{5}(1+x)(-3+2x)^{3/2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "expression",
+       "value": "(2/5)(1+x)(-3+2 x)^(3/2)+C",
+       "constant": true
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "expression",
+       "value": "(2/5)(1+x)(-3+2 x)^(3/2)+C",
+       "constant": true
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e52",
+   "number": 52,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\ln \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042276367",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether you would use integration by parts to evaluate the integral. If so, identify *u* and *dv*. If not, describe the technique used to perform the integration without actually doing the problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e53",
+   "number": 53,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\ln^{2}x}{x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042276432",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether you would use integration by parts to evaluate the integral. If so, identify *u* and *dv*. If not, describe the technique used to perform the integration without actually doing the problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Do not use integration by parts. Choose *u* to be $\\ln \\,x,$ and the integral is of the form ${\\displaystyle \\int u^{2}du}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e54",
+   "number": 54,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int xe^{x}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042276512",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether you would use integration by parts to evaluate the integral. If so, identify *u* and *dv*. If not, describe the technique used to perform the integration without actually doing the problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e55",
+   "number": 55,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int xe^{x^{2}-3}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040741668",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether you would use integration by parts to evaluate the integral. If so, identify *u* and *dv*. If not, describe the technique used to perform the integration without actually doing the problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Do not use integration by parts. Let $u=x^{2}-3,$ and the integral can be put into the form ${\\displaystyle \\int e^{u}du}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e56",
+   "number": 56,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}\\sin \\,x\\,dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040741753",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether you would use integration by parts to evaluate the integral. If so, identify *u* and *dv*. If not, describe the technique used to perform the integration without actually doing the problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e57",
+   "number": 57,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x^{2}\\sin (3x^{3}+2)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040741825",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "State whether you would use integration by parts to evaluate the integral. If so, identify *u* and *dv*. If not, describe the technique used to perform the integration without actually doing the problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Do not use integration by parts. Choose *u* to be $u=3x^{3}+2$ and the integral can be put into the form ${\\displaystyle \\int \\sin (u)du}.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e58",
+   "number": 58,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=2xe^{-x}$ (Approximate answer to four decimal places.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042271731",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Sketch the region bounded above by the curve, the *x*-axis, and $x=1,$ and find the area of the region. Provide the exact form or round answers to the number of places indicated."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e59",
+   "number": 59,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{-x}\\sin (\\pi x)$ (Approximate answer to five decimal places.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042271779",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Sketch the region bounded above by the curve, the *x*-axis, and $x=1,$ and find the area of the region. Provide the exact form or round answers to the number of places indicated."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The area under graph is 0.39535."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_07_01_202.webp",
+      "alt": "This figure is the graph of y=e^-x sin(pi*x). The curve begins in the third quadrant at x=0.5, increases through the origin, reaches a high point between 0.5 and 0.75, then decreases, passing through x=1.",
+      "width": 325,
+      "height": 266
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e60",
+   "number": 60,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sin \\,x,y=0,x=2\\pi ,x=3\\pi$ about the y-axis (Express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165042271843",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e61",
+   "number": 61,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{-x}$ $y=0,x=-1x=0;$ about $x=1$ (Express the answer in exact form.)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040671747",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\pi e$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2 pi e"
+   }
+  },
+  {
+   "id": "e62",
+   "number": 62,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A particle moving along a straight line has a velocity of $v(t)=t^{2}e^{-t}$ after *t* sec. How far does it travel in the first 2 sec? (Assume the units are in feet and express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040671820",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e63",
+   "number": 63,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area under the graph of $y=\\sec^{3}x$ from $x=0\\,\\text{to}\\,x=1.$ (Round the answer to two significant digits.)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040671890",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "2.05"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2.05"
+   }
+  },
+  {
+   "id": "e64",
+   "number": 64,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area between $y=(x-2)e^{x}$ and the *x-*axis from $x=2$ to $x=5.$ (Express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040671943",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e65",
+   "number": 65,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area of the region enclosed by the curve $y=x\\,\\cos \\,x$ and the *x*-axis for"
+    },
+    {
+     "type": "p",
+     "text": "$\\frac{11\\pi}{2}\\le x\\le \\frac{13\\pi}{2}.$ (Express the answer in exact form.)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040665848",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$12\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "12 pi"
+   }
+  },
+  {
+   "id": "e66",
+   "number": 66,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume of the solid generated by revolving the region bounded by the curve $y=\\ln \\,x,$ the *x*-axis, and the vertical line $x=e^{2}$ about the *x*-axis. (Express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040665920",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e67",
+   "number": 67,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume of the solid generated by revolving the region bounded by the curve $y=4\\,\\cos \\,x$ and the *x*-axis, $\\frac{\\pi}{2}\\le x\\le \\frac{3\\pi}{2},$ about the *x*-axis. (Express the answer in exact form.)"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1165040665996",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$8\\pi^{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "8 pi^2"
+   }
+  },
+  {
+   "id": "e68",
+   "number": 68,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume of the solid generated by revolving the region in the first quadrant bounded by $y=e^{x}$ and the *x*-axis, from $x=0$ to $x=\\ln (7),$ about the *y-*axis. (Express the answer in exact form.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1165040639268",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the volume generated by rotating the region bounded by the given curves about the specified line. Express the answers in exact form or approximate to the number of decimal places indicated."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "integration by parts",
+   "meaning": "a technique of integration that allows the exchange of one integral for another using the formula ${\\displaystyle \\int}^{\\text{​}}u\\,dv=uv-{\\displaystyle \\int}^{\\text{​}}v\\,du$"
+  }
+ ]
+}

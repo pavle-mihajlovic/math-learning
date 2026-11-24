@@ -19,7 +19,7 @@ Every unit with full worked solutions also gets the book's own worked examples.
 
 | Stage | Book | Units | Source |
 |---|---|---|---|
-| 1 | OpenStax *Calculus* Vol 1–3 (Calc I–III, starts with a precalculus review) | 110 sections, about 6,300 exercises | Free CC-BY source files ([openstax/osbooks-calculus-bundle](https://github.com/openstax/osbooks-calculus-bundle)), no PDF needed |
+| 1 | OpenStax *Calculus* Vol 1–3 (Calc I–III, starts with a precalculus review) | 110 sections, about 6,300 exercises | Free CC BY-NC-SA 4.0 source files ([openstax/osbooks-calculus-bundle](https://github.com/openstax/osbooks-calculus-bundle)), no PDF needed |
 | 2 | Linear algebra: Hefferon *Linear Algebra* | about 30 sections (mapped in task U-LA) | Free, full answer manual |
 | 3 | Proofs: Hammack *Book of Proof* | about 30 sections (U-BOP) | Free, odd solutions |
 | 4 | **Spivak *Calculus***, every chapter | 30 chapters (below) | Your copy (PDF or photos) + Spivak's *Answer Book* |

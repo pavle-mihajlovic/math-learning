@@ -1,0 +1,2029 @@
+{
+ "schema": 1,
+ "id": "V3.4.5",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 4,
+ "section": 5,
+ "title": "The Chain Rule",
+ "chapterTitle": "Differentiation of Functions of Several Variables",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53938",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/4-5-the-chain-rule",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §4.5 “The Chain Rule”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "State the chain rules for one or two independent variables.",
+  "Use tree diagrams as an aid to understanding the chain rule for several independent and intermediate variables.",
+  "Perform implicit differentiation of a function of two or more variables."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In single-variable calculus, we found that one of the most useful differentiation rules is the chain rule, which allows us to find the derivative of the composition of two functions. The same thing is true for multivariable calculus, but this time we have to deal with more than one form of the chain rule. In this section, we study extensions of the chain rule and learn how to take derivatives of compositions of functions of more than one variable."
+    }
+   ],
+   "title": "The Chain Rule"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall that the chain rule for the derivative of a composite of two functions can be written in the form"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(f(g(x)))=f'(g(x))g'(x)."
+    },
+    {
+     "type": "p",
+     "text": "In this equation, both $f(x)$ and $g(x)$ are functions of one variable. Now suppose that $f$ is a function of two variables and $g$ is a function of one variable. Or perhaps they are both functions of two variables, or even more. How would we calculate the derivative in these cases? The following theorem gives us the answer for the case of one independent variable."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose that $x=g(t)$ and $y=h(t)$ are differentiable functions of $t$ and $z=f(x,y)$ is a differentiable function of $x\\,\\text{and}\\,y.$ Then $z=f(x(t),y(t))$ is a differentiable function of $t$ and"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{dz}{dt}=\\frac{\\partial z}{\\partial x}\\cdot \\frac{dx}{dt}+\\frac{\\partial z}{\\partial y}\\cdot \\frac{dy}{dt},"
+      },
+      {
+       "type": "p",
+       "text": "where the ordinary derivatives are evaluated at $t$ and the partial derivatives are evaluated at $(x,y).$"
+      }
+     ],
+     "title": "Chain Rule for One Independent Variable"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Chain Rule for One Independent Variable is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Chain Rules for One or Two Independent Variables"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we’ve see how to extend the original chain rule to functions of two variables, it is natural to ask: Can we extend the rule to more than two variables? The answer is yes, as the **generalized chain rule** states."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $w=f(x_{1},x_{2},\\dots ,\\,x_{m})$ be a differentiable function of $m$ independent variables, and for each $i\\in \\{1,\\dots ,\\,m\\},$ let $x_{i}=x_{i}(t_{1},t_{2},\\dots ,\\,t_{n})$ be a differentiable function of $n$ independent variables. Then"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{\\partial w}{\\partial t_{j}}=\\frac{\\partial w}{\\partial x_{1}}\\,\\frac{\\partial x_{1}}{\\partial t_{j}}+\\frac{\\partial w}{\\partial x_{2}}\\,\\frac{\\partial x_{2}}{\\partial t_{j}}+\\cdots +\\frac{\\partial w}{\\partial x_{m}}\\,\\frac{\\partial x_{m}}{\\partial t_{j}}"
+      },
+      {
+       "type": "p",
+       "text": "for any $j\\in \\{1,2,\\dots ,\\,n\\}.$"
+      }
+     ],
+     "title": "Generalized Chain Rule"
+    },
+    {
+     "type": "p",
+     "text": "In the next example we calculate the derivative of a function of three independent variables in which each of the three variables is dependent on two other variables."
+    }
+   ],
+   "title": "The Generalized Chain Rule"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 4.28",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate $\\partial w/\\partial u$ and $\\partial w/\\partial v$ using the following functions:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc} \\\\ w & = & f(x,y,z)=3x^{2}-2xy+4z^{2} \\\\ x & = & x(u,v)=e^{u}\\sin \\,v \\\\ y & = & y(u,v)=e^{u}\\cos \\,v \\\\ z & = & z(u,v)=e^{u}.\\end{array}"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The formulas for $\\partial w/\\partial u$ and $\\partial w/\\partial v$ are"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c}\\frac{\\partial w}{\\partial u}=\\frac{\\partial w}{\\partial x}\\cdot \\frac{\\partial x}{\\partial u}+\\frac{\\partial w}{\\partial y}\\cdot \\frac{\\partial y}{\\partial u}+\\frac{\\partial w}{\\partial z}\\cdot \\frac{\\partial z}{\\partial u} \\\\ \\frac{\\partial w}{\\partial v}=\\frac{\\partial w}{\\partial x}\\cdot \\frac{\\partial x}{\\partial v}+\\frac{\\partial w}{\\partial y}\\cdot \\frac{\\partial y}{\\partial v}+\\frac{\\partial w}{\\partial z}\\cdot \\frac{\\partial z}{\\partial v}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, there are nine different partial derivatives that need to be calculated and substituted. We need to calculate each of them:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccccccccccc}\\frac{\\partial w}{\\partial x} & = & 6x-2y & & & \\frac{\\partial w}{\\partial y} & = & -2x & & & \\frac{\\partial w}{\\partial z} & = & 8z \\\\ \\frac{\\partial x}{\\partial u} & = & e^{u}\\sin \\,v & & & \\frac{\\partial y}{\\partial u} & = & e^{u}\\cos \\,v & & & \\frac{\\partial z}{\\partial u} & = & e^{u} \\\\ \\frac{\\partial x}{\\partial v} & = & e^{u}\\cos \\,v & & & \\frac{\\partial y}{\\partial v} & = & -e^{u}\\sin \\,v & & & \\frac{\\partial z}{\\partial v} & = & 0.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Now, we substitute each of them into the first formula to calculate $\\partial w/\\partial u:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\frac{\\partial w}{\\partial u} & =\\frac{\\partial w}{\\partial x}\\cdot \\frac{\\partial x}{\\partial u}+\\frac{\\partial w}{\\partial y}\\cdot \\frac{\\partial y}{\\partial u}+\\frac{\\partial w}{\\partial z}\\cdot \\frac{\\partial z}{\\partial u} \\\\ & =(6x-2y)e^{u}\\sin \\,v-2xe^{u}\\cos \\,v+8ze^{u},\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "then substitute $x(u,v)=e^{u}\\sin \\,v,y(u,v)=e^{u}\\cos \\,v,$ and $z(u,v)=e^{u}$ into this equation:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\frac{\\partial w}{\\partial u} & =(6x-2y)e^{u}\\sin \\,v-2xe^{u}\\cos \\,v+8ze^{u} \\\\ & =(6e^{u}\\sin \\,v-2e^{u}\\cos \\,v)e^{u}\\sin \\,v-2(e^{u}\\sin \\,v)e^{u}\\cos \\,v+8e^{2u} \\\\ & =6e^{2u}\\sin^{2}v-4e^{2u}\\sin \\,v\\,\\cos \\,v+8e^{2u} \\\\ & =2e^{2u}(3\\,\\sin^{2}v-2\\,\\sin \\,v\\,\\cos \\,v+4).\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Next, we calculate $\\partial w/\\partial v:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\frac{\\partial w}{\\partial v} & =\\frac{\\partial w}{\\partial x}\\cdot \\frac{\\partial x}{\\partial v}+\\frac{\\partial w}{\\partial y}\\cdot \\frac{\\partial y}{\\partial v}+\\frac{\\partial w}{\\partial z}\\cdot \\frac{\\partial z}{\\partial v} \\\\ & =(6x-2y)e^{u}\\cos \\,v-2x(-e^{u}\\sin \\,v)+8z(0),\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "then we substitute $x(u,v)=e^{u}\\sin \\,v,y(u,v)=e^{u}\\cos \\,v,$ and $z(u,v)=e^{u}$ into this equation:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}\\frac{\\partial w}{\\partial v} & =(6x-2y)e^{u}\\cos \\,v-2x(-e^{u}\\sin \\,v) \\\\ & =(6e^{u}\\sin \\,v-2e^{u}\\cos \\,v)e^{u}\\cos \\,v+2(e^{u}\\sin \\,v)(e^{u}\\sin \\,v) \\\\ & =2e^{2u}\\sin^{2}v+6e^{2u}\\sin \\,v\\,\\cos \\,v-2e^{2u}\\cos^{2}v \\\\ & =2e^{2u}(v+3\\sin \\sin v\\cos \\cos v-v).\\end{array}"
+     }
+    ]
+   },
+   "title": "Using the Generalized Chain Rule"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.25",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate $\\partial w/\\partial u$ and $\\partial w/\\partial v$ given the following functions:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc} \\\\ \\\\ w & = & f(x,y,z)=\\frac{x+2y-4z}{2x-y+3z} \\\\ x & = & x(u,v)=e^{2u}\\cos \\,3v \\\\ y & = & y(u,v)=e^{2u}\\sin \\,3v \\\\ z & = & z(u,v)=e^{2u}.\\end{array}"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\begin{array}{c}\\frac{\\partial w}{\\partial u}=0 \\\\ \\frac{\\partial w}{\\partial v}=\\frac{15-33\\,\\sin \\,3v+6\\,\\cos \\,3v}{(3+2\\,\\cos \\,3v-\\sin \\,3v)^{2}}\\end{array}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate nine partial derivatives, then use the same formulas from Example 4.28."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 4.29",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Create a tree diagram for the case when"
+    },
+    {
+     "type": "math",
+     "tex": "w=f(x,y,z),x=x(t,u,v),y=y(t,u,v),z=z(t,u,v)"
+    },
+    {
+     "type": "p",
+     "text": "and write out the formulas for the three partial derivatives of $w.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Starting from the left, the function $f$ has three independent variables: $x,y,\\text{and}\\,z.$ Therefore, three branches must be emanating from the first node. Each of these three branches also has three branches, for each of the variables $t,u,\\,\\text{and}\\,v.$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_05_003.webp",
+      "alt": "A diagram that starts with w = f(x, y, z). Along the first branch, it is written ∂w/∂x, then x = x(t, u, v), at which point it breaks into another three subbranches: the first subbranch says t and then ∂w/∂x ∂x/∂t; the second subbranch says u and then ∂w/∂x ∂x/∂u; and the third subbranch says v and then ∂w/∂x ∂x/∂v. Along the second branch, it is written ∂w/∂y, then y = y(t, u, v), at which point it breaks into another three subbranches: the first subbranch says t and then ∂w/∂y ∂y/∂t; the second subbranch says u and then ∂w/∂y ∂y/∂u; and the third subbranch says v and then ∂w/∂y ∂y/∂v. Along the third branch, it is written ∂w/∂z, then z = z(t, u, v), at which point it breaks into another three subbranches: the first subbranch says t and then ∂w/∂z ∂z/∂t; the second subbranch says u and then ∂w/∂z ∂z/∂u; and the third subbranch says v and then ∂w/∂z ∂z/∂v.",
+      "caption": "**Figure 4.35** Tree diagram for a function of three variables, each of which is a function of three independent variables.",
+      "width": 587,
+      "height": 551
+     },
+     {
+      "type": "p",
+      "text": "The three formulas are"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c}\\frac{\\partial w}{\\partial t}=\\frac{\\partial w}{\\partial x}\\,\\frac{\\partial x}{\\partial t}+\\frac{\\partial w}{\\partial y}\\,\\frac{\\partial y}{\\partial t}+\\frac{\\partial w}{\\partial z}\\,\\frac{\\partial z}{\\partial t} \\\\ \\frac{\\partial w}{\\partial u}=\\frac{\\partial w}{\\partial x}\\,\\frac{\\partial x}{\\partial u}+\\frac{\\partial w}{\\partial y}\\,\\frac{\\partial y}{\\partial u}+\\frac{\\partial w}{\\partial z}\\,\\frac{\\partial z}{\\partial u} \\\\ \\frac{\\partial w}{\\partial v}=\\frac{\\partial w}{\\partial x}\\,\\frac{\\partial x}{\\partial v}+\\frac{\\partial w}{\\partial y}\\,\\frac{\\partial y}{\\partial v}+\\frac{\\partial w}{\\partial z}\\,\\frac{\\partial z}{\\partial v}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Drawing a Tree Diagram"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.26",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Create a tree diagram for the case when"
+    },
+    {
+     "type": "math",
+     "tex": "w=f(x,y),x=x(t,u,v),y=y(t,u,v)"
+    },
+    {
+     "type": "p",
+     "text": "and write out the formulas for the three partial derivatives of $w.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\begin{array}{c}\\frac{\\partial w}{\\partial t}=\\frac{\\partial w}{\\partial x}\\,\\frac{\\partial x}{\\partial t}+\\frac{\\partial w}{\\partial y}\\,\\frac{\\partial y}{\\partial t} \\\\ \\frac{\\partial w}{\\partial u}=\\frac{\\partial w}{\\partial x}\\,\\frac{\\partial x}{\\partial u}+\\frac{\\partial w}{\\partial y}\\,\\frac{\\partial y}{\\partial u} \\\\ \\frac{\\partial w}{\\partial v}=\\frac{\\partial w}{\\partial x}\\,\\frac{\\partial x}{\\partial v}+\\frac{\\partial w}{\\partial y}\\,\\frac{\\partial y}{\\partial v}\\end{array}$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_05_004.webp",
+      "alt": "A diagram that starts with w = f(x, y). Along the first branch, it is written ∂w/∂x, then x = x(t, u, v), at which point it breaks into another three subbranches: the first subbranch says t and then ∂w/∂x ∂x/∂t; the second subbranch says u and then ∂w/∂x ∂x/∂u; and the third subbranch says v and then ∂w/∂x ∂x/∂v. Along the second branch, it is written ∂w/∂y, then y = y(t, u, v), at which point it breaks into another three subbranches: the first subbranch says t and then ∂w/∂y ∂y/∂t; the second subbranch says u and then ∂w/∂y ∂y/∂u; and the third subbranch says v and then ∂w/∂y ∂y/∂v.",
+      "width": 437,
+      "height": 328
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Determine the number of branches that emanate from each node in the tree."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall from Implicit Differentiation that **implicit differentiation** provides a method for finding $dy/dx$ when $y$ is defined implicitly as a function of $x.$ The method involves differentiating both sides of the equation defining the function with respect to $x,$ then solving for $dy/dx.$ Partial derivatives provide an alternative to this method."
+    },
+    {
+     "type": "p",
+     "text": "Consider the ellipse defined by the equation $x^{2}+3y^{2}+4y-4=0$ as follows."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_05_005.webp",
+     "alt": "An ellipse with center near (0, –0.7), major axis horizontal and of length roughly 4.5, and minor axis of length roughly 3.",
+     "caption": "**Figure 4.36** Graph of the ellipse defined by $x^{2}+3y^{2}+4y-4=0.$",
+     "width": 331,
+     "height": 272
+    },
+    {
+     "type": "p",
+     "text": "This equation implicitly defines $y$ as a function of $x.$ As such, we can find the derivative $dy/dx$ using the method of implicit differentiation:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\frac{d}{dx}(x^{2}+3y^{2}+4y-4) & = & \\frac{d}{dx}(0) \\\\ 2x+6y\\frac{dy}{dx}+4\\frac{dy}{dx} & = & 0 \\\\ (6y+4)\\frac{dy}{dx} & = & -2x \\\\ \\frac{dy}{dx} & = & -\\frac{x}{3y+2}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "We can also define a function $z=f(x,y)$ by using the left-hand side of the equation defining the ellipse. Then $f(x,y)=x^{2}+3y^{2}+4y-4.$ The ellipse $x^{2}+3y^{2}+4y-4=0$ can then be described by the equation $f(x,y)=0.$ Using this function and the following theorem gives us an alternative approach to calculating $dy/dx.$"
+    }
+   ],
+   "title": "Implicit Differentiation"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose the function $z=f(x,y)$ defines $y$ implicitly as a function $y=g(x)$ of $x$ via the equation $f(x,y)=0.$ Then"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{dy}{dx}=-\\frac{\\partial f/\\partial x}{\\partial f/\\partial y}"
+      },
+      {
+       "type": "p",
+       "text": "provided $f_{y}(x,y)\\ne 0.$"
+      },
+      {
+       "type": "p",
+       "text": "If the equation $f(x,y,z)=0$ defines $z$ implicitly as a differentiable function of $x\\,\\text{and}\\,y,$ then"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{\\partial z}{\\partial x}=-\\frac{\\partial f/\\partial x}{\\partial f/\\partial z}\\quad \\text{and}\\quad \\frac{\\partial z}{\\partial y}=-\\frac{\\partial f/\\partial y}{\\partial f/\\partial z}"
+      },
+      {
+       "type": "p",
+       "text": "as long as $f_{z}(x,y,z)\\ne 0.$"
+      }
+     ],
+     "title": "Implicit Differentiation of a Function of Two or More Variables"
+    },
+    {
+     "type": "p",
+     "text": "(see above) is a direct consequence of (see above). In particular, if we assume that $y$ is defined implicitly as a function of $x$ via the equation $f(x,y)=0,$ we can apply the chain rule to find $dy/dx:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\frac{d}{dx}f(x,y) & = & \\frac{d}{dx}(0) \\\\ \\frac{\\partial f}{\\partial x}\\cdot \\frac{dx}{dx}+\\frac{\\partial f}{\\partial y}\\cdot \\frac{dy}{dx} & = & 0 \\\\ \\frac{\\partial f}{\\partial x}+\\frac{\\partial f}{\\partial y}\\cdot \\frac{dy}{dx} & = & 0.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Solving this equation for $dy/dx$ gives (see above). (see above) can be derived in a similar fashion."
+    },
+    {
+     "type": "p",
+     "text": "Let’s now return to the problem that we started before the previous theorem. Using (see above) and the function $f(x,y)=x^{2}+3y^{2}+4y-4,$ we obtain"
+    }
+   ],
+   "title": "Implicit Differentiation (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}\\frac{\\partial f}{\\partial x}=2x \\\\ \\frac{\\partial f}{\\partial y}=6y+4.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Then (see above) gives"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dy}{dx}=-\\frac{\\partial f/\\partial x}{\\partial f/\\partial y}=-\\frac{2x}{6y+4}=-\\frac{x}{3y+2},"
+    },
+    {
+     "type": "p",
+     "text": "which is the same result obtained by the earlier use of implicit differentiation."
+    }
+   ],
+   "title": "Implicit Differentiation (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 4.30",
+   "problem": [
+    {
+     "type": "list",
+     "items": [
+      "Calculate $dy/dx$ if $y$ is defined implicitly as a function of $x$ via the equation $3x^{2}-2xy+y^{2}+4x-6y-11=0.$ What is the equation of the tangent line to the graph of this curve at point $(2,1)?$",
+      "Calculate $\\partial z/\\partial x$ and $\\partial z/\\partial y,$ given $x^{2}e^{y}-yze^{x}=0.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Set $f(x,y)=3x^{2}-2xy+y^{2}+4x-6y-11=0,$ then calculate $f_{x}$ and $f_{y}:$ $\\begin{array}{c}f_{x}=6x-2y+4 \\\\ f_{y}=-2x+2y-6.\\end{array}$\n\nThe derivative is given by"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{dy}{dx}=-\\frac{\\partial f/\\partial x}{\\partial f/\\partial y}=-\\frac{6x-2y+4}{-2x+2y-6}=\\frac{3x-y+2}{x-y+3}."
+        },
+        {
+         "type": "p",
+         "text": "The slope of the tangent line at point $(2,1)$ is given by"
+        },
+        {
+         "type": "math",
+         "tex": "\\frac{dy}{dx}|_{(x,y)=(2,1)}=\\frac{3(2)-1+2}{2-1+3}=\\frac{7}{4}."
+        },
+        {
+         "type": "p",
+         "text": "To find an equation of the tangent line, we use the point-slope form (Figure 4.37):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}y-y_{0} & = & m(x-x_{0}) \\\\ y-1 & = & \\frac{7}{4}(x-2) \\\\ y & = & \\frac{7}{4}x-\\frac{7}{2}+1 \\\\ y & = & \\frac{7}{4}x-\\frac{5}{2}.\\end{array}"
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_14_05_006.webp",
+         "alt": "A rotated ellipse with equation 3x2 – 2xy + y2 + 4x – 6y – 11 = 0 and with tangent at (2, 1). The equation for the tangent is given by y = 7/4 x – 5/2. The ellipse’s major axis is parallel to the tangent line.",
+         "caption": "**Figure 4.37** Graph of the rotated ellipse defined by $3x^{2}-2xy+y^{2}+4x-6y-11=0.$",
+         "width": 492,
+         "height": 497
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "We have $f(x,y,z)=x^{2}e^{y}-yze^{x}.$ Therefore,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c}\\frac{\\partial f}{\\partial x}=2xe^{y}-yze^{x} \\\\ \\frac{\\partial f}{\\partial y}=x^{2}e^{y}-ze^{x} \\\\ \\frac{\\partial f}{\\partial z}=-ye^{x}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Using (see above),"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{cc}\\frac{\\partial z}{\\partial x} & =-\\frac{\\partial f/\\partial x}{\\partial f/\\partial z} \\\\ & =-\\frac{2xe^{y}-yze^{x}}{-ye^{x}} \\\\ & =\\frac{2xe^{y}-yze^{x}}{ye^{x}}\\end{array} & & & \\text{and} & & & \\begin{array}{cc}\\frac{\\partial z}{\\partial y} & =-\\frac{\\partial f/\\partial y}{\\partial f/\\partial z} \\\\ & =-\\frac{x^{2}e^{y}-ze^{x}}{-ye^{x}} \\\\ & =\\frac{x^{2}e^{y}-ze^{x}}{ye^{x}}.\\end{array}\\end{array}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Implicit Differentiation by Partial Derivatives"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.27",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find $dy/dx$ if $y$ is defined implicitly as a function of $x$ by the equation $x^{2}+xy-y^{2}+7x-3y-26=0.$ What is the equation of the tangent line to the graph of this curve at point $(3,-2)?$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=\\frac{2x+y+7}{2y-x+3}|_{(3,-2)}=\\frac{2(3)+(-2)+7}{2(-2)-(3)+3}=-\\frac{11}{4}$\n\nEquation of the tangent line: $y=-\\frac{11}{4}x+\\frac{25}{4}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate $\\partial f/dx$ and $\\partial f/dy,$ then use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The chain rule for functions of more than one variable involves the partial derivatives with respect to all the independent variables.",
+      "Tree diagrams are useful for deriving formulas for the chain rule for functions of more than one variable, where each independent variable also depends on other variables."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Chain rule, one independent variable**",
+       "$\\frac{dz}{dt}=\\frac{\\partial z}{\\partial x}\\cdot \\frac{dx}{dt}+\\frac{\\partial z}{\\partial y}\\cdot \\frac{dy}{dt}$"
+      ],
+      [
+       "**Chain rule, two independent variables**",
+       "$\\frac{dz}{du}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial u}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial u}$\n\n$\\frac{dz}{dv}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial v}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial v}$"
+      ],
+      [
+       "**Generalized chain rule**",
+       "$\\frac{\\partial w}{\\partial t_{j}}=\\frac{\\partial w}{\\partial x_{1}}\\,\\frac{\\partial x_{1}}{\\partial t_{j}}+\\frac{\\partial w}{\\partial x_{2}}\\,\\frac{\\partial x_{1}}{\\partial t_{j}}+\\cdots +\\frac{\\partial w}{\\partial x_{m}}\\,\\frac{\\partial x_{m}}{\\partial t_{j}}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e215",
+   "number": 215,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $w(x,y,z)=xy\\,\\cos \\,z,$ where $x=t,y=t^{2},$ and $z=\\arcsin \\,t.$ Find $\\frac{dw}{dt}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793510314",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the information provided to solve the problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dw}{dt}=\\frac{3t^{2}-4t^{4}}{\\sqrt{1-t^{2}}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((3 t^2-4 t^4)/(sqrt(1-t^2)))"
+   }
+  },
+  {
+   "id": "e216",
+   "number": 216,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $w(t,v)=e^{tv}$ where $t=r+s$ and $v=rs.$ Find $\\frac{\\partial w}{\\partial r}$ and $\\frac{\\partial w}{\\partial s}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794204844",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the information provided to solve the problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e217",
+   "number": 217,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $w=5x^{2}+2y^{2},x=-3s+t,$ and $y=s-4t,$ find $\\frac{\\partial w}{\\partial s}$ and $\\frac{\\partial w}{\\partial t}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793952838",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the information provided to solve the problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\partial w}{\\partial s}=94s-46t,$ $\\frac{\\partial w}{\\partial t}=-46s+74t$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e218",
+   "number": 218,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $w=xy^{2},x=5\\,\\cos (2t),$ and $y=5\\,\\sin (2t),$ find $\\frac{dw}{dt}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794051796",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the information provided to solve the problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e219",
+   "number": 219,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x,y)=xy,x=r\\,\\cos \\,\\theta ,$ and $y=r\\,\\sin \\,\\theta ,$ find $\\frac{\\partial f}{\\partial r}$ and express the answer in terms of $r$ and $\\theta .$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793267247",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the information provided to solve the problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\partial f}{\\partial r}=r\\,\\sin (2\\theta )$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "r sin (2 theta )"
+   }
+  },
+  {
+   "id": "e220",
+   "number": 220,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Suppose $f(x,y)=x+y,$ where $x=r\\,\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta .$ Find $\\frac{\\partial f}{\\partial \\theta}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793639806",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the information provided to solve the problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e221",
+   "number": 221,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+y^{2},$ $x=t,y=t^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794176177",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{df}{dt}=2t+4t^{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 t+4 t^3"
+   }
+  },
+  {
+   "id": "e222",
+   "number": 222,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sqrt{x^{2}+y^{2}},y=t^{2},x=t$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793957140",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e223",
+   "number": 223,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=xy,x=1-\\sqrt{t},y=1+\\sqrt{t}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793618049",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{df}{dt}=-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   }
+  },
+  {
+   "id": "e224",
+   "number": 224,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\frac{x}{y},x=e^{t},y=2e^{t}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793479995",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e225",
+   "number": 225,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\ln (x+y),$ $x=e^{t},y=e^{t}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793419012",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{df}{dt}=1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e226",
+   "number": 226,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{4},$ $x=t,y=t$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793978793",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e227",
+   "number": 227,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $w(x,y,z)=x^{2}+y^{2}+z^{2},$ $x=\\cos \\,t,y=\\sin \\,t,$ and $z=e^{t}.$ Express $w$ as a function of $t$ and find $\\frac{dw}{dt}$ directly. Then, find $\\frac{dw}{dt}$ using the chain rule."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794212884",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dw}{dt}=2e^{2t}$ in both cases"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e228",
+   "number": 228,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $z=x^{2}y,$ where $x=t^{2}$ and $y=t^{3}.$ Find $\\frac{dz}{dt}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793263205",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e229",
+   "number": 229,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $u=e^{x}\\sin \\,y,$ where $x=-ln2t$ and $y=\\pi t.$ Find $\\frac{du}{dt}$ when $x=\\ln \\,2$ and $y=\\frac{\\pi}{4}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794226521",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{df}{dt}$ using the chain rule and direct substitution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{du}{dt}=\\sqrt{2}(\\pi -4)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(2)(pi -4)"
+   }
+  },
+  {
+   "id": "e230",
+   "number": 230,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin (6x)+\\tan (8y)+5=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299615",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e231",
+   "number": 231,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{3}+y^{2}x-3=0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793617968",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=-\\frac{3x^{2}+y^{2}}{2xy}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-((3 x^2+y^2)/(2 x y))"
+   }
+  },
+  {
+   "id": "e232",
+   "number": 232,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin (x+y)+\\cos (x-y)=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589374",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e233",
+   "number": 233,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}-2xy+y^{4}=4$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793280708",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=\\frac{y-x}{-x+2y^{3}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((y-x)/(-x+2 y^3))"
+   }
+  },
+  {
+   "id": "e234",
+   "number": 234,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$xe^{y}+ye^{x}-2x^{2}y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793252283",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e235",
+   "number": 235,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2/3}+y^{2/3}=a^{2/3}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793498214",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=-\\sqrt[3]{\\frac{y}{x}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-root((y/x), 3)"
+   }
+  },
+  {
+   "id": "e236",
+   "number": 236,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x\\,\\cos (xy)+y\\,\\cos \\,x=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793424370",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e237",
+   "number": 237,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$e^{xy}+ye^{y}=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793393729",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=-\\frac{ye^{xy}}{xe^{xy}+e^{y}(1+y)}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-((y e^(x y))/(x e^(x y)+e^y(1+y)))"
+   }
+  },
+  {
+   "id": "e238",
+   "number": 238,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{2}y^{3}+\\cos \\,y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793925836",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e239",
+   "number": 239,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find $\\frac{dz}{dt}$ using the chain rule where $z=3x^{2}y^{3},x=t^{4},$ and $y=t^{2}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793450523",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dz}{dt}=42t^{13}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "42 t^13"
+   }
+  },
+  {
+   "id": "e240",
+   "number": 240,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $z=3\\,\\cos \\,x-\\sin (xy),x=\\frac{1}{t},$ and $y=3t.$ Find $\\frac{dz}{dt}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589648",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e241",
+   "number": 241,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $z=e^{1-xy},x=t^{1/3},$ and $y=t^{3}.$ Find $\\frac{dz}{dt}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794137106",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dz}{dt}=-\\frac{10}{3}t^{7/3}\\,\\times \\,e^{1-t^{10/3}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(10/3)t^(7/3) * e^(1-t^(10/3))"
+   }
+  },
+  {
+   "id": "e242",
+   "number": 242,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find $\\frac{dz}{dt}$ by the chain rule where $z=\\cosh^{2}(xy),x=\\frac{1}{2}t,$ and $y=e^{t}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793642024",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e243",
+   "number": 243,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $z=\\frac{x}{y},x=2\\,\\cos \\,u,$ and $y=3\\,\\sin \\,v.$ Find $\\frac{\\partial z}{\\partial u}$ and $\\frac{\\partial z}{\\partial v}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793607615",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\partial z}{\\partial u}=\\frac{-2\\,\\sin \\,u}{3\\,\\sin \\,v}$ and $\\frac{\\partial z}{\\partial v}=\\frac{-2\\,\\cos \\,u\\,\\cos \\,v}{3\\,\\sin^{2}v}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e244",
+   "number": 244,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $z=e^{x^{2}y},$ where $x=\\sqrt{uv}$ and $y=\\frac{1}{v}.$ Find $\\frac{\\partial z}{\\partial u}$ and $\\frac{\\partial z}{\\partial v}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793373659",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e245",
+   "number": 245,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $z=xye^{x/y},$ $x=r\\,\\cos \\,\\theta ,$ and $y=r\\,\\sin \\,\\theta ,$ find $\\frac{\\partial z}{\\partial r}$ and $\\frac{\\partial z}{\\partial \\theta}$ when $r=2$ and $\\theta =\\frac{\\pi}{6}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794201107",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\partial z}{\\partial r}=\\sqrt{3}e^{\\sqrt{3}},$ $\\frac{\\partial z}{\\partial \\theta}=(2-4\\sqrt{3})e^{\\sqrt{3}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e246",
+   "number": 246,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find $\\frac{\\partial w}{\\partial s}$ if $w=4x+y^{2}+z^{3},x=e^{rs^{2}},y=\\ln \\left(\\frac{r+s}{t}\\right),$ and $z=rst^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794293262",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e247",
+   "number": 247,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $w=\\sin (xyz),x=1-3t,y=e^{1-t},$ and $z=4t,$ find $\\frac{\\partial w}{\\partial t}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794177140",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ using partial derivatives."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\partial w}{\\partial t}=\\left(-12te^{1-t}\\cos \\left((1-3t)e^{1-t}(-4t)\\right)+4t(1-3t)e^{1-t}\\cos \\left((1-3t)e^{1-t}(-4t)\\right)-4(1-3t)e^{1-t}\\cos \\left((1-3t)e^{1-t}(-4t)\\right)\\right.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e248",
+   "number": 248,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=3x^{2}+y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793452785",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e249",
+   "number": 249,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sqrt{x^{2}+y^{2}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794213127",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(tx,ty)=\\sqrt{t^{2}x^{2}+t^{2}y^{2}}=t^{1}f(x,y),$ $\\frac{\\partial f}{\\partial y}=x\\frac{1}{2}(x^{2}+y^{2})^{-1/2}\\,\\times \\,2x+y\\frac{1}{2}(x^{2}+y^{2})^{-1/2}\\,\\times \\,2y=1f(x,y)$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e250",
+   "number": 250,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}y-2y^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793636384",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e251",
+   "number": 251,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The volume of a right circular cylinder is given by $V(x,y)=\\pi x^{2}y,$ where $x$ is the radius of the cylinder and *y* is the cylinder height. Suppose $x$ and $y$ are functions of $t$ given by $x=\\frac{1}{2}t$ and $y=\\frac{1}{3}t$ so that $x\\,\\text{and}\\,y$ are both increasing with time. How fast is the volume increasing when $x=2$ and $y=\\frac{4}{3}?$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793992274",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$V'=4\\pi$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e252",
+   "number": 252,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The pressure $P$ of a gas is related to the volume and temperature by the formula $PV=kT,$ where temperature is expressed in kelvins. Express the pressure of the gas as a function of both $V$ and $T.$ Find $\\frac{dP}{dt}$ when $k=1,$ $\\frac{dV}{dt}=2$ cm$^{\\text{3}}$/min, $\\frac{dT}{dt}=\\frac{1}{2}$ K/min, $V=20$ cm$^{\\text{3}}$, and $T=20\\text{°}\\text{F}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793498830",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e253",
+   "number": 253,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The radius of a right circular cone is increasing at $3$ cm/min whereas the height of the cone is decreasing at $2$ cm/min. Find the rate of change of the volume of the cone when the radius is $13$ cm and the height is $18$ cm."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793544558",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dV}{dt}=\\frac{1066\\pi}{3}{\\text{cm}}^{3}/\\min$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e254",
+   "number": 254,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The volume of a frustum of a cone is given by the formula $V=\\frac{1}{3}\\pi z(x^{2}+y^{2}+xy),$ where $x$ is the radius of the smaller circle, $y$ is the radius of the larger circle, and $z$ is the height of the frustum (see figure). Find the rate of change of the volume of this frustum when $x=10\\,\\text{in}.,\\,y=12\\,\\text{in.,}\\,\\text{and}\\,z=18\\,\\text{in}.$ if $\\frac{dz}{dt}=-5,\\frac{dx}{dt}=1,\\frac{dy}{dt}=1$ (all in/min)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_05_201.webp",
+     "alt": "A conical frustum (that is, a cone with the pointy end cut off) with height x, larger radius y, and smaller radius x.",
+     "width": 260,
+     "height": 183
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793358512",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e255",
+   "number": 255,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A closed box is in the shape of a rectangular solid with dimensions $x,y,\\,\\text{and}\\,z.$ (Dimensions are in inches.) Suppose each dimension is changing at the rate of $0.5$ in./min. Find the rate of change of the total surface area of the box when $x=2\\,\\text{in}.,\\,y=3\\,\\text{in.,}\\,\\text{and}\\,z=1\\,\\text{in}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793503445",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dA}{dt}=12\\,\\text{in}.^{2}/\\min$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e256",
+   "number": 256,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The total resistance in a circuit that has three individual resistances represented by $x,y,$ and $z$ is given by the formula $R(x,y,z)=\\frac{xyz}{yz+xz+xy}.$ Suppose at a given time the $x$ resistance is $100\\text{Ω},$ the *y* resistance is $200\\text{Ω},$ and the $z$ resistance is $300\\text{Ω}.$ Also, suppose the $x$ resistance is changing at a rate of $2\\text{Ω}/\\min ,$ the $y$ resistance is changing at the rate of $1\\text{Ω}/\\min ,$ and the $z$ resistance has no change. Find the rate of change of the total resistance in this circuit at this time."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793449663",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e257",
+   "number": 257,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The temperature $T$ at a point $(x,y)$ is $T(x,y)$ and is measured using the Celsius scale. A fly crawls so that its position after $t$ seconds is given by $x=\\sqrt{1+t}$ and $y=2+\\frac{1}{3}t,$ where $x\\,\\text{and}\\,y$ are measured in centimeters. The temperature function satisfies $T_{x}(2,3)=4$ and $T_{y}(2,3)=3.$ How fast is the temperature increasing on the fly’s path after $3$ sec?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793887463",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\text{°}\\text{C/sec}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e258",
+   "number": 258,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The $x\\,\\text{and}\\,y$ components of a fluid moving in two dimensions are given by the following functions: $u(x,y)=2y$ and $v(x,y)=-2x;$ $x\\ge 0;y\\ge 0.$ The speed of the fluid at the point $(x,y)$ is $s(x,y)=\\sqrt{u(x,y)^{2}+v(x,y)^{2}}.$ Find $\\frac{\\partial s}{\\partial x}$ and $\\frac{\\partial s}{\\partial y}$ using the chain rule."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793435670",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e259",
+   "number": 259,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $u=u(x,y,z),$ where $x=x(w,t),y=y(w,t),z=z(w,t),w=w(r,s),\\text{and}\\,t=t(r,s).$ Use a tree diagram and the chain rule to find an expression for $\\frac{\\partial u}{\\partial r}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793638236",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use this information: A function $f(x,y)$ is said to be homogeneous of degree $n$ if $f(tx,ty)=t^{n}f(x,y).$ For all **homogeneous functions** of degree $n,$ the following equation is true: $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$ Show that the given function is homogeneous and verify that $x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}=nf(x,y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\begin{array}{cc}\\frac{\\partial u}{\\partial r} & =\\frac{\\partial u}{\\partial x}\\left(\\frac{\\partial x}{\\partial w}\\,\\frac{\\partial w}{\\partial r}+\\frac{\\partial x}{\\partial t}\\,\\frac{\\partial t}{\\partial r}\\right)+\\frac{\\partial u}{\\partial y}\\left(\\frac{\\partial y}{\\partial w}\\,\\frac{\\partial w}{\\partial r}+\\frac{\\partial y}{\\partial t}\\,\\frac{\\partial t}{\\partial r}\\right) \\\\ & \\;+\\frac{\\partial u}{\\partial z}\\left(\\frac{\\partial z}{\\partial w}\\,\\frac{\\partial w}{\\partial r}+\\frac{\\partial z}{\\partial t}\\,\\frac{\\partial t}{\\partial r}\\right)\\end{array}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Chain Rule for One Independent Variable",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Suppose that $x=g(t)$ and $y=h(t)$ are differentiable functions of $t$ and $z=f(x,y)$ is a differentiable function of $x\\,\\text{and}\\,y.$ Then $z=f(x(t),y(t))$ is a differentiable function of $t$ and"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dz}{dt}=\\frac{\\partial z}{\\partial x}\\cdot \\frac{dx}{dt}+\\frac{\\partial z}{\\partial y}\\cdot \\frac{dy}{dt},"
+    },
+    {
+     "type": "p",
+     "text": "where the ordinary derivatives are evaluated at $t$ and the partial derivatives are evaluated at $(x,y).$"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "The proof of this theorem uses the definition of differentiability of a function of two variables. Suppose that *f* is differentiable at the point $P(x_{0},y_{0}),$ where $x_{0}=g(t_{0})$ and $y_{0}=h(t_{0})$ for a fixed value of $t_{0}.$ We wish to prove that $z=f(x(t),y(t))$ is differentiable at $t=t_{0}$ and that (see above) holds at that point as well."
+    },
+    {
+     "type": "p",
+     "text": "Since $f$ is differentiable at $P,$ we know that"
+    },
+    {
+     "type": "math",
+     "tex": "z(t)=f(x,y)=f(x_{0},y_{0})+f_{x}(x_{0},y_{0})(x-x_{0})+f_{y}(x_{0},y_{0})(y-y_{0})+E(x,y),"
+    },
+    {
+     "type": "p",
+     "text": "where $\\lim_{(x,y)\\to (x_{0},y_{0})}\\frac{E(x,y)}{\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}}=0.$ We then subtract $z_{0}=f(x_{0},y_{0})$ from both sides of this equation:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}z(t)-z(t_{0}) & =f(x(t),y(t))-f(x(t_{0}),y(t_{0})) \\\\ & =f_{x}(x_{0},y_{0})(x(t)-x(t_{0}))+f_{y}(x_{0},y_{0})(y(t)-y(t_{0}))+E(x(t),y(t)).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Next, we divide both sides by $t-t_{0}:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{z(t)-z(t_{0})}{t-t_{0}}=f_{x}(x_{0},y_{0})\\left(\\frac{x(t)-x(t_{0})}{t-t_{0}}\\right)+f_{y}(x_{0},y_{0})\\left(\\frac{y(t)-y(t_{0})}{t-t_{0}}\\right)+\\frac{E(x(t),y(t))}{t-t_{0}}."
+    },
+    {
+     "type": "p",
+     "text": "Then we take the limit as $t$ approaches $t_{0}:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\lim_{t\\to t_{0}}\\frac{z(t)-z(t_{0})}{t-t_{0}} & =f_{x}(x_{0},y_{0})\\lim_{t\\to t_{0}}\\left(\\frac{x(t)-x(t_{0})}{t-t_{0}}\\right)+f_{y}(x_{0},y_{0})\\lim_{t\\to t_{0}}\\left(\\frac{y(t)-y(t_{0})}{t-t_{0}}\\right) \\\\ & \\;+\\lim_{t\\to t_{0}}\\frac{E(x(t),y(t))}{t-t_{0}}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "The left-hand side of this equation is equal to $dz/dt,$ which leads to"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{dz}{dt}=f_{x}(x_{0},y_{0})\\frac{dx}{dt}+f_{y}(x_{0},y_{0})\\frac{dy}{dt}+\\lim_{t\\to t_{0}}\\frac{E(x(t),y(t))}{t-t_{0}}."
+    },
+    {
+     "type": "p",
+     "text": "The last term can be rewritten as"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\lim_{t\\to t_{0}}\\frac{E(x(t),y(t))}{t-t_{0}} & =\\lim_{t\\to t_{0}}\\left(\\frac{E(x,y)}{\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}}\\,\\frac{\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}}{t-t_{0}}\\right) \\\\ & =\\lim_{t\\to t_{0}}\\left(\\frac{E(x,y)}{\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}}\\right)\\lim_{t\\to t_{0}}\\left(\\frac{\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}}{t-t_{0}}\\right).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "As $t$ approaches $t_{0},$ $(x(t),y(t))$ approaches $(x(t_{0}),y(t_{0})),$ so we can rewrite the last product as"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{(x,y)\\to (x_{0},y_{0})}\\left(\\frac{E(x,y)}{\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}}\\right)\\lim_{(x,y)\\to (x_{0},y_{0})}\\left(\\frac{\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}}{t-t_{0}}\\right)."
+    },
+    {
+     "type": "p",
+     "text": "Since the first limit is equal to zero, we need only show that the second limit is finite:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\lim_{(x,y)\\to (x_{0},y_{0})}\\left(\\frac{\\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}}{t-t_{0}}\\right) & =\\lim_{(x,y)\\to (x_{0},y_{0})}\\left(\\sqrt{\\frac{(x-x_{0})^{2}+(y-y_{0})^{2}}{(t-t_{0})^{2}}}\\right) \\\\ & =\\lim_{(x,y)\\to (x_{0},y_{0})}\\left(\\sqrt{\\left(\\frac{x-x_{0}}{t-t_{0}}\\right)^{2}+\\left(\\frac{y-y_{0}}{t-t_{0}}\\right)^{2}}\\right) \\\\ & =\\sqrt{\\left(\\lim_{(x,y)\\to (x_{0},y_{0})}\\left(\\frac{x-x_{0}}{t-t_{0}}\\right)\\right)^{2}+\\left(\\lim_{(x,y)\\to (x_{0},y_{0})}\\left(\\frac{y-y_{0}}{t-t_{0}}\\right)\\right)^{2}}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Since $x(t)$ and $y(t)$ are both differentiable functions of $t,$ both limits inside the last radical exist. Therefore, this value is finite. This proves the chain rule at $t=t_{0};$ the rest of the theorem follows from the assumption that all functions are differentiable over their entire domains."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Closer examination of (see above) reveals an interesting pattern. The first term in the equation is $\\frac{\\partial f}{\\partial x}\\cdot \\frac{dx}{dt}$ and the second term is $\\frac{\\partial f}{\\partial y}\\cdot \\frac{dy}{dt}.$ Recall that when multiplying fractions, cancelation can be used. If we treat these derivatives as fractions, then each product “simplifies” to something resembling $\\partial f/dt.$ The variables $x\\,\\text{and}\\,y$ that disappear in this simplification are often called **intermediate variables**: they are independent variables for the function $f,$ but are dependent variables for the variable $t.$ Two terms appear on the right-hand side of the formula, and $f$ is a function of two variables. This pattern works with functions of more than two variables as well, as we see later in this section."
+    },
+    {
+     "type": "p",
+     "text": "Calculate $dz/dt$ for each of the following functions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$z=f(x,y)=4x^{2}+3y^{2},x=x(t)=\\sin \\,t,y=y(t)=\\cos \\,t$",
+      "$z=f(x,y)=\\sqrt{x^{2}-y^{2}},x=x(t)=e^{2t},y=y(t)=e^{-t}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "To use the chain rule, we need four quantities—$\\partial z/\\partial x,\\partial z/\\partial y,dx/dt,$ and $dy/dt:$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cccc}\\frac{\\partial z}{\\partial x}=8x & & & \\frac{\\partial z}{\\partial y}=6y \\\\ \\frac{dx}{dt}=\\cos \\,t & & & \\frac{dy}{dt}=-\\sin \\,t\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Now, we substitute each of these into (see above):"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\frac{dz}{dt} & =\\frac{\\partial z}{\\partial x}\\cdot \\frac{dx}{dt}+\\frac{\\partial z}{\\partial y}\\cdot \\frac{dy}{dt} \\\\ & =(8x)(\\cos \\,t)+(6y)(-\\sin \\,t) \\\\ & =8x\\,\\cos \\,t-6y\\,\\sin \\,t.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "This answer has three variables in it. To reduce it to one variable, use the fact that $x(t)=\\sin \\,t\\,\\text{and}\\,y(t)=\\cos \\,t.$ We obtain"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\frac{dz}{dt} & =8x\\,\\cos \\,t-6y\\,\\sin \\,t \\\\ & =8(\\sin \\,t)\\cos \\,t-6(\\cos \\,t)\\sin \\,t \\\\ & =2\\,\\sin \\,t\\,\\cos \\,t.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "This derivative can also be calculated by first substituting $x(t)$ and $y(t)$ into $f(x,y),$ then differentiating with respect to $t:$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}z & =f(x,y) \\\\ & =f(x(t),y(t)) \\\\ & =4(x(t))^{2}+3(y(t))^{2} \\\\ & =4\\sin^{2}t+3\\cos^{2}t.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Then"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\frac{dz}{dt} & =2(4\\,\\sin \\,t)(\\cos \\,t)+2(3\\,\\cos \\,t)(-\\sin \\,t) \\\\ & =8\\,\\sin \\,t\\,\\cos \\,t-6\\,\\sin \\,t\\,\\cos \\,t \\\\ & =2\\,\\sin \\,t\\,\\cos \\,t,\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "which is the same solution. However, it may not always be this easy to differentiate in this form."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "To use the chain rule, we again need four quantities—$\\partial z/\\partial x,\\partial z/dy,dx/dt,$ and $dy/dt:$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cccc}\\frac{\\partial z}{\\partial x}=\\frac{x}{\\sqrt{x^{2}-y^{2}}} & & & \\frac{\\partial z}{\\partial y}=\\frac{-y}{\\sqrt{x^{2}-y^{2}}} \\\\ \\frac{dx}{dt}=2e^{2t} & & & \\frac{dy}{dt}=-e^{-t}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "We substitute each of these into (see above):"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\frac{dz}{dt} & =\\frac{\\partial z}{\\partial x}\\cdot \\frac{dx}{dt}+\\frac{\\partial z}{\\partial y}\\cdot \\frac{dy}{dt} \\\\ & =\\left(\\frac{x}{\\sqrt{x^{2}-y^{2}}}\\right)(2e^{2t})+\\left(\\frac{-y}{\\sqrt{x^{2}-y^{2}}}\\right)(-e^{-t}) \\\\ & =\\frac{2xe^{2t}+ye^{-t}}{\\sqrt{x^{2}-y^{2}}}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "To reduce this to one variable, we use the fact that $x(t)=e^{2t}$ and $y(t)=e^{-t}.$ Therefore,"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\frac{dz}{dt} & =\\frac{2xe^{2t}+ye^{-t}}{\\sqrt{x^{2}-y^{2}}} \\\\ & =\\frac{2(e^{2t})e^{2t}+(e^{-t})e^{-t}}{\\sqrt{e^{4t}-e^{-2t}}} \\\\ & =\\frac{2e^{4t}+e^{-2t}}{\\sqrt{e^{4t}-e^{-2t}}}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "To eliminate negative exponents, we multiply the top by $e^{2t}$ and the bottom by $\\sqrt{e^{4t}}:$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\frac{dz}{dt} & =\\frac{2e^{4t}+e^{-2t}}{\\sqrt{e^{4t}-e^{-2t}}}\\cdot \\frac{e^{2t}}{\\sqrt{e^{4t}}} \\\\ & =\\frac{2e^{6t}+1}{\\sqrt{e^{8t}-e^{2t}}} \\\\ & =\\frac{2e^{6t}+1}{\\sqrt{e^{2t}(e^{6t}-1)}} \\\\ & =\\frac{2e^{6t}+1}{e^{t}\\sqrt{e^{6t}-1}}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Again, this derivative can also be calculated by first substituting $x(t)$ and $y(t)$ into $f(x,y),$ then differentiating with respect to $t:$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}z & =f(x,y) \\\\ & =f(x(t),y(t)) \\\\ & =\\sqrt{(x(t))^{2}-(y(t))^{2}} \\\\ & =\\sqrt{e^{4t}-e^{-2t}} \\\\ & =(e^{4t}-e^{-2t})^{1/2}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Then"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\frac{dz}{dt} & =\\frac{1}{2}(e^{4t}-e^{-2t})^{-1/2}(4e^{4t}+2e^{-2t}) \\\\ & =\\frac{2e^{4t}+e^{-2t}}{\\sqrt{e^{4t}-e^{-2t}}}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "This is the same solution."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "It is often useful to create a visual representation of (see above) for the chain rule. This is called a **tree diagram** for the chain rule for functions of one variable and it provides a way to remember the formula (Figure 4.33). This diagram can be expanded for functions of more than one variable, as we shall see very shortly."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_05_001.webp",
+     "alt": "A diagram that starts with z = f(x, y). Along the first branch, it is written ∂z/∂x, then x = x(t), then dx/dt, then t, and finally it says ∂z/∂x dx/dt. Along the other branch, it is written ∂z/∂y, then y = y(t), then dy/dt, then t, and finally it says ∂z/∂y dy/dt.",
+     "caption": "**Figure 4.33** Tree diagram for the case $\\frac{dz}{dt}=\\frac{\\partial z}{\\partial x}\\cdot \\frac{dx}{dt}+\\frac{\\partial z}{\\partial y}\\cdot \\frac{dy}{dt}.$",
+     "width": 455,
+     "height": 291
+    },
+    {
+     "type": "p",
+     "text": "In this diagram, the leftmost corner corresponds to $z=f(x,y).$ Since $f$ has two **independent variables**, there are two lines coming from this corner. The upper branch corresponds to the variable $x$ and the lower branch corresponds to the variable $y.$ Since each of these variables is then dependent on one variable $t,$ one branch then comes from $x$ and one branch comes from $y.$ Last, each of the branches on the far right has a label that represents the path traveled to reach that branch. The top branch is reached by following the $x$ branch, then the $t$ branch; therefore, it is labeled $(\\partial z/\\partial x)\\,\\times \\,(dx/dt).$ The bottom branch is similar: first the $y$ branch, then the $t$ branch. This branch is labeled $(\\partial z/\\partial y)\\,\\times \\,(dy/dt).$ To get the formula for $dz/dt,$ add all the terms that appear on the rightmost side of the diagram. This gives us (see above)."
+    },
+    {
+     "type": "p",
+     "text": "In (see above), $z=f(x,y)$ is a function of $x\\,\\text{and}\\,y,$ and both $x=g(u,v)$ and $y=h(u,v)$ are functions of the independent variables $u\\,\\text{and}\\,v.$"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose $x=g(u,v)$ and $y=h(u,v)$ are differentiable functions of $u$ and $v,$ and $z=f(x,y)$ is a differentiable function of $x\\,\\text{and}\\,y.$ Then, $z=f(g(u,v),h(u,v))$ is a differentiable function of $u\\,\\text{and}\\,v,$ and"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{\\partial z}{\\partial u}=\\frac{\\partial z}{\\partial x}\\,\\frac{\\partial x}{\\partial u}+\\frac{\\partial z}{\\partial y}\\,\\frac{\\partial y}{\\partial u}"
+      },
+      {
+       "type": "p",
+       "text": "and"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{\\partial z}{\\partial v}=\\frac{\\partial z}{\\partial x}\\,\\frac{\\partial x}{\\partial v}+\\frac{\\partial z}{\\partial y}\\,\\frac{\\partial y}{\\partial v}."
+      }
+     ],
+     "title": "Chain Rule for Two Independent Variables"
+    },
+    {
+     "type": "p",
+     "text": "We can draw a tree diagram for each of these formulas as well as follows."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_05_002.webp",
+     "alt": "A diagram that starts with z = f(x, y). Along the first branch, it is written ∂z/∂x, then x = g(u, v), at which point it breaks into another two branches: the first subbranch says ∂x/∂u, then u, and finally it says ∂z/∂x ∂x/∂u; the second subbranch says ∂x/∂v, then v, and finally it says ∂z/∂x ∂x/∂v. Along the other branch, it is written ∂z/∂y, then y = h(u, v), at which point it breaks into another two branches: the first subbranch says ∂y/∂u, then u, and finally it says ∂z/∂y ∂y/∂u; the second subbranch says ∂y/∂v, then v, and finally it says ∂z/∂y ∂y/∂v.",
+     "caption": "**Figure 4.34** Tree diagram for $\\frac{\\partial z}{\\partial u}=\\frac{\\partial z}{\\partial x}\\cdot \\frac{\\partial x}{\\partial u}+\\frac{\\partial z}{\\partial y}\\cdot \\frac{\\partial y}{\\partial u}$ and $\\frac{\\partial z}{\\partial v}=\\frac{\\partial z}{\\partial x}\\cdot \\frac{\\partial x}{\\partial v}+\\frac{\\partial z}{\\partial y}\\cdot \\frac{\\partial y}{\\partial v}.$",
+     "width": 428,
+     "height": 336
+    },
+    {
+     "type": "p",
+     "text": "To derive the formula for $\\partial z/\\partial u,$ start from the left side of the diagram, then follow only the branches that end with $u$ and add the terms that appear at the end of those branches. For the formula for $\\partial z/\\partial v,$ follow only the branches that end with $v$ and add the terms that appear at the end of those branches."
+    },
+    {
+     "type": "p",
+     "text": "There is an important difference between these two chain rule theorems. In (see above), the left-hand side of the formula for the derivative is not a partial derivative, but in (see above) it is. The reason is that, in (see above), $z$ is ultimately a function of $t$ alone, whereas in (see above), $z$ is a function of both $u\\,\\text{and}\\,v.$"
+    },
+    {
+     "type": "p",
+     "text": "Calculate $\\partial z/\\partial u$ and $\\partial z/\\partial v$ using the following functions:"
+    },
+    {
+     "type": "math",
+     "tex": "z=f(x,y)=3x^{2}-2xy+y^{2},x=x(u,v)=3u+2v,y=y(u,v)=4u-v."
+    },
+    {
+     "type": "p",
+     "text": "To implement the chain rule for two variables, we need six partial derivatives—$\\partial z/\\partial x,\\partial z/\\partial y,\\partial x/\\partial u,\\partial x/\\partial v,\\partial y/\\partial u,$ and $\\partial y/\\partial v:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cccc}\\frac{\\partial z}{\\partial x}=6x-2y & & & \\frac{\\partial z}{\\partial y}=-2x+2y \\\\ \\frac{\\partial x}{\\partial u}=3 & & & \\frac{\\partial x}{\\partial v}=2 \\\\ \\frac{\\partial y}{\\partial u}=4 & & & \\frac{\\partial y}{\\partial v}=-1.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "To find $\\partial z/\\partial u,$ we use (see above):"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{\\partial z}{\\partial u} & =\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial u}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial u} \\\\ & =3(6x-2y)+4(-2x+2y) \\\\ & =10x+2y.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Next, we substitute $x(u,v)=3u+2v$ and $y(u,v)=4u-v:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{\\partial z}{\\partial u} & =10x+2y \\\\ & =10(3u+2v)+2(4u-v) \\\\ & =38u+18v.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "To find $\\partial z/\\partial v,$ we use (see above):"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{\\partial z}{\\partial v} & =\\frac{\\partial z}{\\partial x}\\,\\frac{\\partial x}{\\partial v}+\\frac{\\partial z}{\\partial y}\\,\\frac{\\partial y}{\\partial v} \\\\ & =2(6x-2y)+(-1)(-2x+2y) \\\\ & =14x-6y.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Then we substitute $x(u,v)=3u+2v$ and $y(u,v)=4u-v:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{\\partial z}{\\partial v} & =14x-6y \\\\ & =14(3u+2v)-6(4u-v) \\\\ & =18u+34v.\\end{array}"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "generalized chain rule",
+   "meaning": "the chain rule extended to functions of more than one independent variable, in which each independent variable may depend on one or more other variables"
+  },
+  {
+   "term": "intermediate variable",
+   "meaning": "given a composition of functions (e.g., $f(x(t),y(t))),$ the intermediate variables are the variables that are independent in the outer function but dependent on other variables as well; in the function $f(x(t),y(t)),$ the variables $x\\,\\text{and}\\,y$ are examples of intermediate variables"
+  },
+  {
+   "term": "tree diagram",
+   "meaning": "illustrates and derives formulas for the generalized chain rule, in which each independent variable is accounted for"
+  }
+ ]
+}

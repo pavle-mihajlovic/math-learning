@@ -1,0 +1,2317 @@
+{
+ "schema": 1,
+ "id": "V3.4.6",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 4,
+ "section": 6,
+ "title": "Directional Derivatives and the Gradient",
+ "chapterTitle": "Differentiation of Functions of Several Variables",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53940",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/4-6-directional-derivatives-and-the-gradient",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §4.6 “Directional Derivatives and the Gradient”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Determine the directional derivative in a given direction for a function of two variables.",
+  "Determine the gradient vector of a given real-valued function.",
+  "Explain the significance of the gradient vector with regard to direction of change along a surface.",
+  "Use the gradient to find the tangent to a level curve of a given function.",
+  "Calculate directional derivatives and gradients in three dimensions."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Partial Derivatives we introduced the partial derivative. A function $z=f(x,y)$ has two partial derivatives: $\\partial z/\\partial x$ and $\\partial z/\\partial y.$ These derivatives correspond to each of the independent variables and can be interpreted as instantaneous rates of change (that is, as slopes of a tangent line). For example, $\\partial z/\\partial x$ represents the slope of a tangent line passing through a given point on the surface defined by $z=f(x,y),$ assuming the tangent line is parallel to the *x*-axis. Similarly, $\\partial z/\\partial y$ represents the slope of the tangent line parallel to the $y\\text{-axis.}$ Now we consider the possibility of a tangent line parallel to neither axis."
+    }
+   ],
+   "title": "Directional Derivatives and the Gradient"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We start with the graph of a surface defined by the equation $z=f(x,y).$ Given a point $(a,b)$ in the domain of $f,$ we choose a direction to travel from that point. We measure the direction using an angle $\\theta ,$ which is measured counterclockwise in the *x*, *y*-plane, starting at zero from the positive *x*-axis (Figure 4.38). The distance we travel is $h$ and the direction we travel is given by the unit vector $u=(\\cos \\,\\theta )i+(\\sin \\,\\theta )j.$ Therefore, the *z*-coordinate of the second point on the graph is given by $z=f(a+h\\,\\cos \\,\\theta ,b+h\\,\\sin \\,\\theta ).$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_06_001.webp",
+     "alt": "A shape in xyz space with point (a, b, f(a, b)). From the point, there is an arrow that represents the directional derivative. On the xy plane, the point (a, b) is marked and an angle of size θ is made between the projection of the directional derivative onto the plane and a line parallel to the x axis.",
+     "caption": "**Figure 4.38** Finding the directional derivative at a point on the graph of $z=f(x,y).$ The slope of the blue arrow on the graph indicates the value of the directional derivative at that point.",
+     "width": 728,
+     "height": 621
+    },
+    {
+     "type": "p",
+     "text": "We can calculate the slope of the secant line by dividing the difference in $z\\text{-values}$ by the length of the line segment connecting the two points in the domain. The length of the line segment is $h.$ Therefore, the slope of the secant line is"
+    },
+    {
+     "type": "math",
+     "tex": "m_{\\sec}=\\frac{f(a+h\\,\\cos \\,\\theta ,b+h\\,\\sin \\,\\theta )-f(a,b)}{h}."
+    },
+    {
+     "type": "p",
+     "text": "To find the slope of the tangent line in the same direction, we take the limit as $h$ approaches zero."
+    }
+   ],
+   "title": "Directional Derivatives"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose $z=f(x,y)$ is a function of two variables with a domain of $D.$ Let $(a,b)\\in D$ and define $\\text{u}=\\cos \\,\\theta i+\\sin \\,\\theta j.$ Then the **directional derivative** of $f$ in the direction of $u$ is given by"
+      },
+      {
+       "type": "math",
+       "tex": "D_{u}f(a,b)=\\lim_{h\\to 0}\\frac{f(a+h\\,\\cos \\,\\theta ,b+h\\,\\sin \\,\\theta )-f(a,b)}{h},"
+      },
+      {
+       "type": "p",
+       "text": "provided the limit exists."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "(see above) provides a formal definition of the directional derivative that can be used in many cases to calculate a directional derivative."
+    }
+   ],
+   "title": "Directional Derivatives (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 4.31",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $\\theta =\\arccos (3/5).$ Find the directional derivative $D_{u}f(x,y)$ of $f(x,y)=x^{2}-xy+3y^{2}$ in the direction of $\\text{u}=(\\cos \\,\\theta )i+(\\sin \\,\\theta )j.$ What is $D_{u}f(-1,2)?$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First of all, since $\\cos \\,\\theta =3/5$ and $\\theta$ is acute, this implies"
+     },
+     {
+      "type": "math",
+      "tex": "\\sin \\,\\theta =\\sqrt{1-\\left(\\frac{3}{5}\\right)^{2}}=\\sqrt{\\frac{16}{25}}=\\frac{4}{5}."
+     },
+     {
+      "type": "p",
+      "text": "Using $f(x,y)=x^{2}-xy+3y^{2},$ we first calculate $f(x+h\\,\\cos \\,\\theta ,y+h\\,\\sin \\,\\theta ):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}f(x+h\\,\\cos \\,\\theta ,y+h\\,\\sin \\,\\theta ) & =(x+h\\,\\cos \\,\\theta )^{2}-(x+h\\,\\cos \\,\\theta )(y+h\\,\\sin \\,\\theta )+3(y+h\\,\\sin \\,\\theta )^{2} \\\\ & =x^{2}+2xh\\,\\cos \\,\\theta +h^{2}\\cos^{2}\\theta -xy-xh\\,\\sin \\,\\theta -yh\\,\\cos \\,\\theta \\\\ & \\;{\\text{−h}}^{2}\\sin \\,\\theta \\,\\cos \\,\\theta +3y^{2}+6yh\\,\\sin \\,\\theta +3h^{2}\\sin^{2}\\theta \\\\ & =x^{2}+2xh\\left(\\frac{3}{5}\\right)+\\frac{9h^{2}}{25}-xy-\\frac{4xh}{5}-\\frac{3yh}{5}-\\frac{12h^{2}}{25}+3y^{2} \\\\ & \\;+6yh\\left(\\frac{4}{5}\\right)+3h^{2}\\left(\\frac{16}{25}\\right) \\\\ & =x^{2}-xy+3y^{2}+\\frac{2xh}{5}+\\frac{9h^{2}}{5}+\\frac{21yh}{5}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "We substitute this expression into (see above):"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}D_{u}f(a,b) & =\\lim_{h\\to 0}\\frac{f(a+h\\,\\cos \\,\\theta ,b+h\\,\\sin \\,\\theta )-f(a,b)}{h} \\\\ & =\\lim_{h\\to 0}\\frac{\\left(x^{2}-xy+3y^{2}+\\frac{2xh}{5}+\\frac{9h^{2}}{5}+\\frac{21yh}{5}\\right)-(x^{2}-xy+3y^{2})}{h} \\\\ & =\\lim_{h\\to 0}\\frac{\\frac{2xh}{5}+\\frac{9h^{2}}{5}+\\frac{21yh}{5}}{h} \\\\ & =\\lim_{h\\to 0}\\frac{2x}{5}+\\frac{9h}{5}+\\frac{21y}{5} \\\\ & =\\frac{2x+21y}{5}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "To calculate $D_{u}f(-1,2),$ we substitute $x=-1$ and $y=2$ into this answer:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}D_{u}f(-1,2) & =\\frac{2(-1)+21(2)}{5} \\\\ & =\\frac{-2+42}{5} \\\\ & =8.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "(See the following figure.)"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_06_006.webp",
+      "alt": "The shape f(x, y) = x2 – xy + 3y2 in xyz space with tangent plane at point (–1, 2, 15). There are two arrows from the point, one seemingly along the surface of the shape and the other in a direction on the plane. The one that corresponds to the plane is marked u = 3/5 i + 4/5 j.",
+      "caption": "**Figure 4.39** Finding the directional derivative in a given direction $u$ at a given point on a surface. The plane is tangent to the surface at the given point $(-1,2,15).$",
+      "width": 773,
+      "height": 541
+     }
+    ]
+   },
+   "title": "Finding a Directional Derivative from the Definition"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Another approach to calculating a directional derivative involves partial derivatives, as outlined in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $z=f(x,y)$ be a function of two variables $x\\,\\text{and}\\,y,$ and assume that $f_{x}$ and $f_{y}$ exist and $f(x,y)$ is differentiable everywhere. Then the directional derivative of $f$ in the direction of $\\text{u}=\\cos \\,\\theta \\text{i}+\\sin \\,\\theta \\text{j}$ is given by"
+      },
+      {
+       "type": "math",
+       "tex": "D_{u}f(x,y)=f_{x}(x,y)\\cos \\,\\theta +f_{y}(x,y)\\sin \\,\\theta ."
+      }
+     ],
+     "title": "Directional Derivative of a Function of Two Variables"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Directional Derivative of a Function of Two Variables is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Directional Derivatives (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The right-hand side of (see above) is equal to $f_{x}(x,y)\\cos \\,\\theta +f_{y}(x,y)\\sin \\,\\theta ,$ which can be written as the dot product of two vectors. Define the first vector as $\\nabla f(x,y)=f_{x}(x,y)\\text{i}+f_{y}(x,y)\\text{j}$ and the second vector as $u=(\\cos \\,\\theta )i+(\\sin \\,\\theta )j.$ Then the right-hand side of the equation can be written as the dot product of these two vectors:"
+    },
+    {
+     "type": "math",
+     "tex": "D_{u}f(x,y)=\\nabla f(x,y)\\cdot u."
+    },
+    {
+     "type": "p",
+     "text": "The first vector in (see above) has a special name: the gradient of the function $f.$ The symbol $\\nabla$ is called *nabla* and the vector $\\nabla f$ is read $\\text{“del}\\,f\\text{.”}$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $z=f(x,y)$ be a function of $x\\,\\text{and}\\,y$ such that $f_{x}$ and $f_{y}$ exist. The vector $\\nabla f(x,y)$ is called the **gradient** of $f$ and is defined as"
+      },
+      {
+       "type": "math",
+       "tex": "\\nabla f(x,y)=f_{x}(x,y)i+f_{y}(x,y)j."
+      },
+      {
+       "type": "p",
+       "text": "The vector $\\nabla f(x,y)$ is also written as $\\text{“grad}\\,f\\text{.”}$"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "If the vector that is given for the direction of the derivative is not a unit vector, then it is only necessary to divide by the norm of the vector. For example, if we wished to find the directional derivative of the function in Example 4.32 in the direction of the vector $〈-5,12〉,$ we would first divide by its magnitude to get $u.$ This gives us $u=〈-(5/13),12/13〉.$ Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}D_{u}f(x,y) & =\\nabla f(x,y)\\cdot u \\\\ & =-\\frac{5}{13}\\left(2x-\\frac{77}{12}y\\right)+\\frac{12}{13}(-x+6y) \\\\ & =-\\frac{22}{13}x+\\frac{17}{13}y.\\end{array}"
+    }
+   ],
+   "title": "Gradient"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 4.33",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the gradient $\\nabla f(x,y)$ of each of the following functions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(x,y)=x^{2}-xy+3y^{2}$",
+      "$f(x,y)=\\sin \\,3x\\,\\cos \\,3y$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "For both parts a. and b., we first calculate the partial derivatives $f_{x}$ and $f_{y},$ then use (see above)."
+     },
+     {
+      "type": "list",
+      "items": [
+       "$\\begin{array}{ccc}f_{x}(x,y) & = & 2x-y\\,\\text{and}\\,f_{y}(x,y)=-x+6y,\\,\\text{so} \\\\ \\nabla f(x,y) & = & f_{x}(x,y)i+f_{y}(x,y)j \\\\ & = & (2x-y)i+(-x+6y)j.\\end{array}$",
+       "$\\begin{array}{ccc}f_{x}(x,y) & = & 3\\,\\cos \\,3x\\,\\cos \\,3y\\,\\text{and}\\,f_{y}(x,y)=-3\\,\\sin \\,3x\\,\\sin \\,3y,\\,\\text{so} \\\\ \\nabla f(x,y) & = & f_{x}(x,y)i+f_{y}(x,y)j \\\\ & = & (3\\,\\cos \\,3x\\,\\cos \\,3y)i-(3\\,\\sin \\,3x\\,\\sin \\,3y)j.\\end{array}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding Gradients"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.29",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the gradient $\\nabla f(x,y)$ of $f(x,y)=(x^{2}-3y^{2})/(2x+y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\nabla f(x,y)=\\frac{2x^{2}+2xy+6y^{2}}{(2x+y)^{2}}i-\\frac{x^{2}+12xy+3y^{2}}{(2x+y)^{2}}j$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate the partial derivatives, then use (see above)."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "((2 x^2+2 x y+6 y^2)/((2 x+y)^2))i-((x^2+12 x y+3 y^2)/((2 x+y)^2))j"
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The gradient has some important properties. We have already seen one formula that uses the gradient: the formula for the directional derivative. Recall from The Dot Product that if the angle between two vectors $a$ and $b$ is $\\varphi ,$ then $a\\cdot \\text{b}=\\| a\\| \\| \\text{b}\\| \\cos \\,\\varphi .$ Therefore, if the angle between $\\nabla f(x_{0},y_{0})$ and $u=(\\cos \\,\\theta )i+(\\sin \\,\\theta )j$ is $\\varphi ,$ we have"
+    },
+    {
+     "type": "math",
+     "tex": "D_{u}f(x_{0},y_{0})=\\nabla f(x_{0},y_{0})\\cdot u=\\| \\nabla f(x_{0},y_{0})\\| \\| u\\| \\cos \\,\\varphi =\\| \\nabla f(x_{0},y_{0})\\| \\cos \\,\\varphi ."
+    },
+    {
+     "type": "p",
+     "text": "The $\\| u\\|$ disappears because $u$ is a unit vector. Therefore, the directional derivative is equal to the magnitude of the gradient evaluated at $(x_{0},y_{0})$ multiplied by $\\cos \\,\\varphi .$ Recall that $\\cos \\,\\varphi$ ranges from $-1$ to $1.$ If $\\varphi =0,$ then $\\cos \\,\\varphi =1$ and $\\nabla f(x_{0},y_{0})$ and $u$ both point in the same direction. If $\\varphi =\\pi ,$ then $\\cos \\,\\varphi =-1$ and $\\nabla f(x_{0},y_{0})$ and $u$ point in opposite directions. In the first case, the value of $D_{\\text{u}}f(x_{0},y_{0})$ is maximized; in the second case, the value of $D_{\\text{u}}f(x_{0},y_{0})$ is minimized. If $\\nabla f(x_{0},y_{0})=0,$ then $D_{u}f(x_{0},y_{0})=\\nabla f(x_{0},y_{0})\\cdot u=0$ for any vector $u.$ These three cases are outlined in the following theorem."
+    }
+   ],
+   "title": "Gradient (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose the function $z=f(x,y)$ is differentiable at $(x_{0},y_{0})$ (Figure 4.40)."
+      },
+      {
+       "type": "list",
+       "items": [
+        "If $\\nabla f(x_{0},y_{0})=0,$ then $D_{u}f(x_{0},y_{0})=0$ for any unit vector $u.$",
+        "If $\\nabla f(x_{0},y_{0})\\ne 0,$ then $D_{u}f(x_{0},y_{0})$ is maximized when $u$ points in the same direction as $\\nabla f(x_{0},y_{0}).$ The maximum value of $D_{u}f(x_{0},y_{0})$ is $\\| \\nabla f(x_{0},y_{0})\\| .$",
+        "If $\\nabla f(x_{0},y_{0})\\ne 0,$ then $D_{u}f(x_{0},y_{0})$ is minimized when $u$ points in the opposite direction from $\\nabla f(x_{0},y_{0}).$ The minimum value of $D_{u}f(x_{0},y_{0})$ is $-\\| \\nabla f(x_{0},y_{0})\\| .$"
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Properties of the Gradient"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_06_007.webp",
+     "alt": "An upward facing paraboloid in xyz space with point P0 (x0, y0, z0). From this point, there are arrows going up, down, and around the paraboloid. On the xy plane, the point (x0, y0) is marked, and the corresponding arrows are drawn onto the plane: the down arrow corresponds to −∇f (most rapid decrease in f), the up arrow corresponds to ∇f (most rapid increase in f), and the arrows around correspond to no change in f. The up/down arrows are perpendicular to the around arrows in their projection on the plane.",
+     "caption": "**Figure 4.40** The gradient indicates the maximum and minimum values of the directional derivative at a point.",
+     "width": 607,
+     "height": 588
+    }
+   ],
+   "title": "Gradient (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 4.34",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the direction for which the directional derivative of $f(x,y)=3x^{2}-4xy+2y^{2}$ at $(-2,3)$ is a maximum. What is the maximum value?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The maximum value of the directional derivative occurs when $\\nabla f$ and the unit vector point in the same direction. Therefore, we start by calculating $\\nabla f(x,y):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}f_{x}(x,y) & = & 6x-4y\\,\\text{and}\\,f_{y}(x,y)=-4x+4y,\\,\\text{so} \\\\ \\nabla f(x,y) & = & f_{x}(x,y)i+f_{y}(x,y)j=(6x-4y)i+(-4x+4y)j.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Next, we evaluate the gradient at $(-2,3):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\nabla f(-2,3)=(6(-2)-4(3))i+(-4(-2)+4(3))j=-24i+20j."
+     },
+     {
+      "type": "p",
+      "text": "We need to find a unit vector that points in the same direction as $\\nabla f(-2,3),$ so the next step is to divide $\\nabla f(-2,3)$ by its magnitude, which is $\\sqrt{(-24)^{2}+(20)^{2}}=\\sqrt{976}=4\\sqrt{61}.$ Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{\\nabla f(-2,3)}{\\| \\nabla f(-2,3)\\|}=\\frac{-24}{4\\sqrt{61}}i+\\frac{20}{4\\sqrt{61}}j=\\frac{-6\\sqrt{61}}{61}i+\\frac{5\\sqrt{61}}{61}j."
+     },
+     {
+      "type": "p",
+      "text": "This is the unit vector that points in the same direction as $\\nabla f(-2,3).$ To find the angle corresponding to this unit vector, we solve the equations"
+     },
+     {
+      "type": "math",
+      "tex": "\\cos \\,\\theta =\\frac{-6\\sqrt{61}}{61}\\,\\text{and}\\,\\sin \\,\\theta =\\frac{5\\sqrt{61}}{61}"
+     },
+     {
+      "type": "p",
+      "text": "for $\\theta .$ Since cosine is negative and sine is positive, the angle must be in the second quadrant. Therefore, $\\theta =\\pi -\\arcsin ((5\\sqrt{61})/61)\\approx 2.45\\,\\text{rad.}$"
+     },
+     {
+      "type": "p",
+      "text": "The maximum value of the directional derivative at $(-2,3)$ is $\\| \\nabla f(-2,3)\\| =4\\sqrt{61}$ (see the following figure)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_06_008.webp",
+      "alt": "An upward facing paraboloid f(x, y) = 3x2 – 4xy + 2y2 with tangent plane at the point (–2, 3, 54). The tangent plane has equation z = –24x + 20y – 54.",
+      "caption": "**Figure 4.41** The maximum value of the directional derivative at $(-2,3)$ is in the direction of the gradient.",
+      "width": 523,
+      "height": 340
+     }
+    ]
+   },
+   "title": "Finding a Maximum Directional Derivative"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.30",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the direction for which the directional derivative of $g(x,y)=4x-xy+2y^{2}$ at $(-2,3)$ is a maximum. What is the maximum value?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The gradient of $g$ at $(-2,3)$ is $\\nabla g(-2,3)=i+14j.$ The unit vector that points in the same direction as $\\nabla g(-2,3)$ is $\\frac{\\nabla g(-2,3)}{\\| \\nabla g(-2,3)\\|}=\\frac{1}{\\sqrt{197}}i+\\frac{14}{\\sqrt{197}}j=\\frac{\\sqrt{197}}{197}i+\\frac{14\\sqrt{197}}{197}j,$ which gives an angle of $\\theta =\\arcsin ((14\\sqrt{197})/197)\\approx 1.499\\,\\text{rad}.$ The maximum value of the directional derivative is $\\| \\nabla g(-2,3)\\| =\\sqrt{197}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Evaluate the gradient of $g$ at point $(-2,3).$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Figure 4.42 shows a portion of the graph of the function $f(x,y)=3+\\sin \\,x\\,\\sin \\,y.$ Given a point $(a,b)$ in the domain of $f,$ the maximum value of the gradient at that point is given by $\\| \\nabla f(a,b)\\| .$ This would equal the rate of greatest ascent if the surface represented a topographical map. If we went in the opposite direction, it would be the rate of greatest descent."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_06_002.webp",
+     "alt": "An surface in xyz space with point at f(a, b). There is an arrow in the direction of greatest descent.",
+     "caption": "**Figure 4.42** A typical surface in ${\\mathbb{R}}^{3}.$ Given a point on the surface, the directional derivative can be calculated using the gradient.",
+     "width": 724,
+     "height": 637
+    },
+    {
+     "type": "p",
+     "text": "When using a topographical map, the steepest slope is always in the direction where the contour lines are closest together (see Figure 4.43). This is analogous to the contour map of a function, assuming the level curves are obtained for equally spaced values throughout the range of that function."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_14_06_003.webp",
+     "alt": "Two crossing dashed lines that pass through the origin and a series of curved lines approaching the crosses dashed lines as if they are asymptotes.",
+     "caption": "**Figure 4.43** Contour map for the function $f(x,y)=x^{2}-y^{2}$ using level values between $-5$ and $5.$",
+     "width": 267,
+     "height": 272
+    }
+   ],
+   "title": "Gradient (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall that if a curve is defined parametrically by the function pair $(x(t),y(t)),$ then the vector $x'(t)i+y'(t)j$ is tangent to the curve for every value of $t$ in the domain. Now let’s assume $z=f(x,y)$ is a differentiable function of $x\\,\\text{and}\\,y,$ and $(x_{0},y_{0})$ is in its domain. Let’s suppose further that $x_{0}=x(t_{0})$ and $y_{0}=y(t_{0})$ for some value of $t,$ and consider the level curve $f(x,y)=k.$ Define $g(t)=f(x(t),y(t))$ and calculate $g'(t)$ on the level curve. By the chain Rule,"
+    },
+    {
+     "type": "math",
+     "tex": "g'(t)=f_{x}(x(t),y(t))x'(t)+f_{y}(x(t),y(t))y'(t)."
+    },
+    {
+     "type": "p",
+     "text": "But $g'(t)=0$ because $g(t)=k$ for all $t.$ Therefore, on the one hand,"
+    },
+    {
+     "type": "math",
+     "tex": "f_{x}(x(t),y(t))x'(t)+f_{y}(x(t),y(t))y'(t)=0;"
+    },
+    {
+     "type": "p",
+     "text": "on the other hand,"
+    },
+    {
+     "type": "math",
+     "tex": "f_{x}(x(t),y(t))x'(t)+f_{y}(x(t),y(t))y'(t)=\\nabla f(x,y)\\cdot 〈x'(t),y'(t)〉."
+    },
+    {
+     "type": "p",
+     "text": "Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "\\nabla f(x,y)\\cdot 〈x'(t),y'(t)〉=0."
+    },
+    {
+     "type": "p",
+     "text": "Thus, the dot product of these vectors is equal to zero, which implies they are orthogonal. However, the second vector is tangent to the level curve, which implies the gradient must be normal to the level curve, which gives rise to the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose the function $z=f(x,y)$ has continuous first-order partial derivatives in an open disk centered at a point $(x_{0},y_{0}).$ If $\\nabla f(x_{0},y_{0})\\ne 0,$ then $\\nabla f(x_{0},y_{0})$ is normal to the level curve of $f$ at $(x_{0},y_{0}).$"
+      }
+     ],
+     "title": "Gradient Is Normal to the Level Curve"
+    }
+   ],
+   "title": "Gradients and Level Curves"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We can use this theorem to find tangent and normal vectors to level curves of a function."
+    }
+   ],
+   "title": "Gradients and Level Curves (continued)"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 4.35",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the function $f(x,y)=2x^{2}-3xy+8y^{2}+2x-4y+4,$ find a tangent vector to the level curve at point $(-2,1).$ Graph the level curve corresponding to $f(x,y)=18$ and draw in $\\nabla f(-2,1)$ and a tangent vector."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First, we must calculate $\\nabla f(x,y):$"
+     },
+     {
+      "type": "math",
+      "tex": "f_{x}(x,y)=4x-3y+2\\,\\text{and}\\,f_{y}=-3x+16y-4\\,\\text{so}\\,\\nabla f(x,y)=(4x-3y+2)i+(-3x+16y-4)j."
+     },
+     {
+      "type": "p",
+      "text": "Next, we evaluate $\\nabla f(x,y)$ at $(-2,1):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\nabla f(-2,1)=(4(-2)-3(1)+2)i+(-3(-2)+16(1)-4)j=-9i+18j."
+     },
+     {
+      "type": "p",
+      "text": "This vector is orthogonal to the curve at point $(-2,1).$ We can obtain a tangent vector by reversing the components and multiplying either one by $-1.$ Thus, for example, $-18i-9j$ is a tangent vector (see the following graph)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_06_004.webp",
+      "alt": "A rotated ellipse with equation f(x, y) = 10. At the point (–2, 1) on the ellipse, there are drawn two arrows, one tangent vector and one normal vector. The normal vector is marked ∇f(–2, 1) and is perpendicular to the tangent vector.",
+      "caption": "**Figure 4.44** A rotated ellipse with equation f(x, y) = 18. At the point (–2, 1) on the ellipse, there are drawn two arrows, one tangent vector and one normal vector. The normal vector is marked ∇f(–2, 1) and is perpendicular to the tangent vector. Note that the tangent vector is drawn much shorter than it actually is to fit in the figure. The direction is correct, however.",
+      "width": 304,
+      "height": 272
+     }
+    ]
+   },
+   "title": "Finding Tangents to Level Curves"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.31",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the function $f(x,y)=x^{2}-2xy+5y^{2}+3x-2y+4,$ find the tangent to the level curve at point $(1,1).$ Draw the graph of the level curve corresponding to $f(x,y)=9$ and draw $\\nabla f(1,1)$ and a tangent vector."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\nabla f(x,y)=(2x-2y+3)i+(-2x+10y-2)j$\n\n$\\nabla f(1,1)=3i+6j$\n\nTangent vector: $6i-3j$ or $-6i+3j$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_06_005.webp",
+      "alt": "A rotated ellipse with equation f(x, y) = 8. At the point (1, 1) on the ellipse, there are drawn two arrows, one tangent vector and one normal vector. The normal vector is marked ∇f(1, 1) and is perpendicular to the tangent vector.",
+      "width": 342,
+      "height": 347
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate the gradient at point $(1,1).$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The definition of a gradient can be extended to functions of more than two variables."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $w=f(x,y,z)$ be a function of three variables such that $f_{x},f_{y},\\text{and}\\,f_{z}$ exist. The vector $\\nabla f(x,y,z)$ is called the gradient of $f$ and is defined as"
+      },
+      {
+       "type": "math",
+       "tex": "\\nabla f(x,y,z)=f_{x}(x,y,z)i+f_{y}(x,y,z)j+f_{z}(x,y,z)k."
+      },
+      {
+       "type": "p",
+       "text": "$\\nabla f(x,y,z)$ can also be written as $\\text{grad}\\,f(x,y,z).$"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Calculating the gradient of a function in three variables is very similar to calculating the gradient of a function in two variables. First, we calculate the partial derivatives $f_{x},f_{y},$ and $f_{z},$ and then we use Checkpoint 4.10."
+    }
+   ],
+   "title": "Three-Dimensional Gradients and Directional Derivatives"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 4.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the gradient $\\nabla f(x,y,z)$ of each of the following functions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f(x,y,z)=5x^{2}-2xy+y^{2}-4yz+z^{2}+3xz$",
+      "$f(x,y,z)=e^{-2z}\\sin \\,2x\\,\\cos \\,2y$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "For both parts a. and b., we first calculate the partial derivatives $f_{x},f_{y},$ and $f_{z},$ then use Checkpoint 4.10."
+     },
+     {
+      "type": "list",
+      "items": [
+       "$\\begin{array}{ccc}f_{x}(x,y,z) & = & 10x-2y+3z,\\,f_{y}(x,y,z)=-2x+2y-4z\\,\\text{and}\\,f_{z}(x,y,z)=3x-4y+2z,\\,\\text{so} \\\\ \\nabla f(x,y,z) & = & f_{x}(x,y,z)\\mathbf{i}+f_{y}(x,y,z)\\mathbf{j}+f_{z}(x,y,z)\\mathbf{k} \\\\ & = & (10x-2y+3z)\\mathbf{i}+(-2x+2y-4z)\\mathbf{j}+(3x-4y+2z)\\mathbf{k}.\\end{array}$",
+       "$\\begin{array}{ccc}f_{x}(x,y,z) & = & 2e^{-2z}\\cos \\,2x\\,\\cos \\,2y,\\,f_{y}(x,y,z)=-2e^{-2z}\\sin \\,2x\\,\\sin \\,2y\\,\\text{and} \\\\ f_{z}(x,y,z) & = & -2e^{-2z}\\sin \\,2x\\,\\cos \\,2y,\\,\\text{so} \\\\ \\nabla f(x,y,z) & = & f_{x}(x,y,z)\\mathbf{i}+f_{y}(x,y,z)\\mathbf{j}+f_{z}(x,y,z)\\mathbf{k} \\\\ & = & (2e^{-2z}\\cos \\,2x\\,\\cos \\,2y)\\mathbf{i}+(-2e^{-2z}\\sin 2x\\sin 2y)\\mathbf{j}+(-2{\\mathrm{e}}^{-2\\mathrm{z}}\\sin 2\\mathrm{x}\\cos 2\\mathrm{y})\\mathbf{k} \\\\ & = & 2e^{-2z}(\\cos \\,2x\\,\\cos \\,2y\\,\\text{i}-\\sin \\,2x\\,\\sin \\,2y\\,\\text{j}-\\sin \\,2x\\,\\cos \\,2y\\,\\text{k}).\\end{array}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding Gradients in Three Dimensions"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.32",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the gradient $\\nabla f(x,y,z)$ of $f(x,y,z)=\\frac{x^{2}-3y^{2}+z^{2}}{2x+y-4z}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\begin{array}{cc}\\nabla f(x,y,z) & =\\frac{2x^{2}+2xy+6y^{2}-8xz-2z^{2}}{(2x+y-4z)^{2}}i-\\frac{x^{2}+12xy+3y^{2}-24yz+z^{2}}{(2x+y-4z)^{2}}j \\\\ & +\\frac{4x^{2}-12y^{2}-4z^{2}+4xz+2yz}{(2x+y-4z)^{2}}k.\\end{array}$"
+     }
+    ]
+   }
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The directional derivative can also be generalized to functions of three variables. To determine a direction in three dimensions, a vector with three components is needed. This vector is a unit vector, and the components of the unit vector are called **directional cosines**. Given a three-dimensional unit vector $u$ in standard form (i.e., the initial point is at the origin), this vector forms three different angles with the positive $x-,y-,$ and *z-*axes. Let’s call these angles $\\alpha ,\\beta ,$ and $\\gamma .$ Then the directional cosines are given by $\\cos \\,\\alpha ,\\cos \\,\\beta ,$ and $\\cos \\,\\gamma .$ These are the components of the unit vector $u;$ since $u$ is a unit vector, it is true that $\\cos^{2}\\alpha +\\cos^{2}\\beta +\\cos^{2}\\gamma =1.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose $w=f(x,y,z)$ is a function of three variables with a domain of $D.$ Let $(x_{0},y_{0},z_{0})\\in D$ and let $\\text{u}=\\cos \\,\\alpha i+\\cos \\,\\beta j+\\cos \\,\\gamma k$ be a unit vector. Then, the directional derivative of $f$ in the direction of $u$ is given by"
+      },
+      {
+       "type": "math",
+       "tex": "D_{u}f(x_{0},y_{0},z_{0})=\\lim_{t\\to 0}\\frac{f(x_{0}+t\\,\\cos \\,\\alpha ,y_{0}+t\\,\\cos \\,\\beta ,z_{0}+t\\,\\cos \\,\\gamma )-f(x_{0},y_{0},z_{0})}{t},"
+      },
+      {
+       "type": "p",
+       "text": "provided the limit exists."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "We can calculate the directional derivative of a function of three variables by using the gradient, leading to a formula that is analogous to (see above)."
+    }
+   ],
+   "title": "Three-Dimensional Gradients and Directional Derivatives (continued)"
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f(x,y,z)$ be a differentiable function of three variables and let $u=\\cos \\,\\alpha i+\\cos \\,\\beta j+\\cos \\,\\gamma k$ be a unit vector. Then, the directional derivative of $f$ in the direction of $u$ is given by"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{cc}D_{u}f(x,y,z) & =\\nabla f(x,y,z)\\cdot u \\\\ & =f_{x}(x,y,z)\\cos \\,\\alpha +f_{y}(x,y,z)\\cos \\,\\beta +f_{z}(x,y,z)\\cos \\,\\gamma .\\end{array}"
+      }
+     ],
+     "title": "Directional Derivative of a Function of Three Variables"
+    },
+    {
+     "type": "p",
+     "text": "The three angles $\\alpha ,\\beta ,\\,\\text{and}\\,\\gamma$ determine the unit vector $u.$ In practice, we can use an arbitrary (nonunit) vector, then divide by its magnitude to obtain a unit vector in the desired direction."
+    }
+   ],
+   "title": "Three-Dimensional Gradients and Directional Derivatives (continued)"
+  },
+  {
+   "id": "x23",
+   "kind": "example",
+   "label": "Example 4.37",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate $D_{u}f(1,-2,3)$ in the direction of $\\text{v}=-i+2j+2k$ for the function"
+    },
+    {
+     "type": "math",
+     "tex": "f(x,y,z)=5x^{2}-2xy+y^{2}-4yz+z^{2}+3xz."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First, we find the magnitude of $v:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\| v\\| =\\sqrt{(-1)^{2}+(2)^{2}+(2)^{2}}=3."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, $\\frac{v}{\\| v\\|}=\\frac{-i+2j+2k}{3}=-\\frac{1}{3}i+\\frac{2}{3}j+\\frac{2}{3}k$ is a unit vector in the direction of $v,$ so $\\cos \\,\\alpha =-\\frac{1}{3},\\cos \\,\\beta =\\frac{2}{3},\\,\\text{and}\\,\\cos \\,\\gamma =\\frac{2}{3}.$ Next, we calculate the partial derivatives of $f:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}f_{x}(x,y,z) & = & 10x-2y+3z \\\\ f_{y}(x,y,z) & = & -2x+2y-4z \\\\ f_{z}(x,y,z) & = & -4y+2z+3x,\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "then substitute them into (see above):"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}D_{u}f(x,y,z) & =f_{x}(x,y,z)\\cos \\,\\alpha +f_{y}(x,y,z)\\cos \\,\\beta +f_{z}(x,y,z)\\cos \\,\\gamma \\\\ & =(10x-2y+3z)\\left(-\\frac{1}{3}\\right)+(-2x+2y-4z)\\left(\\frac{2}{3}\\right)+(-4y+2z+3x)\\left(\\frac{2}{3}\\right) \\\\ & =-\\frac{10x}{3}+\\frac{2y}{3}-\\frac{3z}{3}-\\frac{4x}{3}+\\frac{4y}{3}-\\frac{8z}{3}-\\frac{8y}{3}+\\frac{4z}{3}+\\frac{6x}{3} \\\\ & =-\\frac{8x}{3}-\\frac{2y}{3}-\\frac{7z}{3}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Last, to find $D_{u}f(1,-2,3),$ we substitute $x=1,y=-2,\\,\\text{and}\\,z=3:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}D_{u}f(1,-2,3) & =-\\frac{8(1)}{3}-\\frac{2(-2)}{3}-\\frac{7(3)}{3} \\\\ & =-\\frac{8}{3}+\\frac{4}{3}-\\frac{21}{3} \\\\ & =-\\frac{25}{3}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding a Directional Derivative in Three Dimensions"
+  },
+  {
+   "id": "c24",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.33",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate $D_{u}f(x,y,z)$ and $D_{u}f(0,-2,5)$ in the direction of $\\text{v}=-3i+12j-4k$ for the function $f(x,y,z)=3x^{2}+xy-2y^{2}+4yz-z^{2}+2xz.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\begin{array}{ccc}D_{u}f(x,y,z) & = & -\\frac{3}{13}(6x+y+2z)+\\frac{12}{13}(x-4y+4z)-\\frac{4}{13}(2x+4y-2z) \\\\ D_{u}f(0,-2,5) & = & \\frac{384}{13}\\end{array}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First, divide $v$ by its magnitude, calculate the partial derivatives of $f,$ then use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "A directional derivative represents a rate of change of a function in any given direction.",
+      "The gradient can be used in a formula to calculate the directional derivative.",
+      "The gradient indicates the direction of greatest change of a function of more than one variable."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**directional derivative (two dimensions)**",
+       "$D_{u}f(a,b)=\\lim_{h\\to 0}\\frac{f(a+h\\,\\cos \\,\\theta ,b+h\\,\\sin \\,\\theta )-f(a,b)}{h}$\n\nor\n\n$D_{u}f(x,y)=f_{x}(x,y)\\cos \\,\\theta +f_{y}(x,y)\\sin \\,\\theta$"
+      ],
+      [
+       "**gradient (two dimensions)**",
+       "$\\nabla f(x,y)=f_{x}(x,y)i+f_{y}(x,y)j$"
+      ],
+      [
+       "**gradient (three dimensions)**",
+       "$\\nabla f(x,y,z)=f_{x}(x,y,z)i+f_{y}(x,y,z)j+f_{z}(x,y,z)k$"
+      ],
+      [
+       "**directional derivative (three dimensions)**",
+       "$\\begin{array}{cc}D_{u}f(x,y,z) & =\\nabla f(x,y,z)\\cdot u \\\\ & =f_{x}(x,y,z)\\cos \\,\\alpha +f_{y}(x,y,z)\\cos \\,\\beta +f_{x}(x,y,z)\\cos \\,\\gamma\\end{array}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e260",
+   "number": 260,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=5-2x^{2}-\\frac{1}{2}y^{2}$ at point $P(3,4)$ in the direction of $\\text{u}=\\left(\\cos \\,\\frac{\\pi}{4}\\right)i+\\left(\\sin \\,\\frac{\\pi}{4}\\right)j$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793514661",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative using the limit definition only."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e261",
+   "number": 261,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=y^{2}\\cos (2x)$ at point $P\\left(\\frac{\\pi}{3},2\\right)$ in the direction of $\\text{u}=\\left(\\cos \\,\\frac{\\pi}{4}\\right)i+\\left(\\sin \\,\\frac{\\pi}{4}\\right)j$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793299629",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative using the limit definition only."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-2\\sqrt{6}-\\sqrt{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-2 sqrt(6)-sqrt(2)"
+   }
+  },
+  {
+   "id": "e262",
+   "number": 262,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the directional derivative of $f(x,y)=y^{2}\\sin (2x)$ at point $P\\left(\\frac{\\pi}{4},2\\right)$ in the direction of $u=5i+12j.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793940634",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative using the limit definition only."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e263",
+   "number": 263,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=xy,$ $P(0,-2),$ $v=\\frac{1}{2}i+\\frac{\\sqrt{3}}{2}j$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794162856",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   }
+  },
+  {
+   "id": "e264",
+   "number": 264,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$h(x,y)=e^{x}\\sin \\,y,P\\left(1,\\frac{\\pi}{2}\\right),v=-i$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793219334",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e265",
+   "number": 265,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$h(x,y,z)=xyz,P(2,1,1),v=2i+j-k$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793416709",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2}{\\sqrt{6}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(2/(sqrt(6)))"
+   }
+  },
+  {
+   "id": "e266",
+   "number": 266,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=xy,P(1,1),u=〈\\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2}〉$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793616173",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e267",
+   "number": 267,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}-y^{2},\\begin{array}{cc}u=〈\\frac{\\sqrt{3}}{2},\\frac{1}{2}〉, & P(1,0)\\end{array}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793957299",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(3)"
+   }
+  },
+  {
+   "id": "e268",
+   "number": 268,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=3x+4y+7,\\begin{array}{cc}u=〈\\frac{3}{5},\\frac{4}{5}〉, & P\\left(0,\\frac{\\pi}{2}\\right)\\end{array}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793393705",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\begin{array}{ccc}f(x,y)=e^{x}\\cos \\,y, & u=〈0,1〉, & P=\\left(0,\\frac{\\pi}{2}\\right)\\end{array}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793504938",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-1.0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1.0"
+   }
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\begin{array}{ccc}f(x,y)=y^{10}, & u=〈0,-1〉, & P=(1,-1)\\end{array}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793443100",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\ln (x^{2}+y^{2}),\\begin{array}{cc}u=〈\\frac{3}{5},\\frac{4}{5}〉, & P(1,2)\\end{array}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794137106",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{22}{25}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(22/25)"
+   }
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}y,\\begin{array}{cc}P(-5,5), & v=3i-4j\\end{array}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589749",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=y^{2}+xz,\\begin{array}{cc}P(1,2,2), & v=〈2,-1,2〉\\end{array}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793629442",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $u$ or $v$ as appropriate."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(2/3)"
+   }
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+2y^{2},\\theta =\\frac{\\pi}{6}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793373621",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function in the direction of the unit vector $u=\\cos \\,\\theta i+\\sin \\,\\theta j.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\frac{y}{x+2y},\\theta =-\\frac{\\pi}{4}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793940059",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function in the direction of the unit vector $u=\\cos \\,\\theta i+\\sin \\,\\theta j.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{-\\sqrt{2}(x+y)}{2(x+2y)^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((-sqrt(2)(x+y))/(2(x+2 y)^2))"
+   }
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\cos (3x+y),\\theta =\\frac{\\pi}{4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794295798",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function in the direction of the unit vector $u=\\cos \\,\\theta i+\\sin \\,\\theta j.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$w(x,y)=ye^{x},\\theta =\\frac{\\pi}{3}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793937380",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function in the direction of the unit vector $u=\\cos \\,\\theta i+\\sin \\,\\theta j.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{e^{x}(y+\\sqrt{3})}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((e^x(y+sqrt(3)))/2)"
+   }
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\begin{array}{cc}f(x,y)=x\\,\\arctan (y), & \\theta =\\frac{\\pi}{2}\\end{array}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793374792",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function in the direction of the unit vector $u=\\cos \\,\\theta i+\\sin \\,\\theta j.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\begin{array}{cc}f(x,y)=\\ln (x+2y), & \\theta =\\frac{\\pi}{3}\\end{array}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793453307",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function in the direction of the unit vector $u=\\cos \\,\\theta i+\\sin \\,\\theta j.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1+2\\sqrt{3}}{2(x+2y)}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((1+2 sqrt(3))/(2(x+2 y)))"
+   }
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the gradient of $f(x,y)=\\frac{14-x^{2}-y^{2}}{3}.$ Then, find the gradient at point $P(1,2).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793617804",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the gradient of $f(x,y,z)=xy+yz+xz$ at point $P(1,2,3).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793628292",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$〈5,4,3〉$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the gradient of $f(x,y,z)$ at $P$ and the directional derivative in the direction of $u:$ $f(x,y,z)=\\ln (x^{2}+2y^{2}+3z^{2}),\\begin{array}{cc}P(2,1,4), & u=\\frac{-3}{13}i-\\frac{4}{13}j-\\frac{12}{13}k\\end{array}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222299",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=4x^{5}y^{2}z^{3},\\begin{array}{cc}P(2,-1,1), & u=\\frac{1}{3}i+\\frac{2}{3}j-\\frac{2}{3}k\\end{array}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793387139",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-320$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-320"
+   }
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+3y^{2},\\begin{array}{cc}P(1,1), & Q(4,5)\\end{array}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793941188",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $Q.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=\\frac{y}{x+z},\\begin{array}{cc}P(2,1,-1), & Q(-1,2,0)\\end{array}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793638095",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the directional derivative of the function at point $P$ in the direction of $Q.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{3}{\\sqrt{11}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(3/(sqrt(11)))"
+   }
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=-7x+2y,\\begin{array}{cc}P(2,-4), & u=4i-3j\\end{array}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794327665",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function at $P$ in the direction of $u.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\ln (5x+4y),\\begin{array}{cc}P(3,9), & u=6i+8j\\end{array}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793277646",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function at $P$ in the direction of $u.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{31}{255}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(31/255)"
+   }
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology to sketch the level curve of $f(x,y)=4x-2y+3$ that passes through $P(1,2)$ and draw the gradient vector at $P.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793950096",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function at $P$ in the direction of $u.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology to sketch the level curve of $f(x,y)=x^{2}+4y^{2}$ that passes through $P(-2,0)$ and draw the gradient vector at $P.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793638293",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function at $P$ in the direction of $u.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_14_06_202.webp",
+      "alt": "The top of half of an ellipse centered at the origin with major axis horizontal and of length 4 and minor axis 2. The point (–2, 0) is marked, and there is an arrow pointing out from it to the left marked –4i.",
+      "width": 345,
+      "height": 347
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=xy^{2}-yx^{2},P(-1,1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794296471",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient vector at the indicated point."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e291",
+   "number": 291,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=xe^{y}-\\ln (x),P(3,0)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793586296",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient vector at the indicated point."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2}{3}i+3j$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(2/3)i+3 j"
+   }
+  },
+  {
+   "id": "e292",
+   "number": 292,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=xy-\\ln (z),P(2,-2,2)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793252262",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient vector at the indicated point."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e293",
+   "number": 293,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=x\\sqrt{y^{2}+z^{2}},P(-2,-1,-1)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794137009",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the gradient vector at the indicated point."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{2}i+\\sqrt{2}j+\\sqrt{2}k$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "sqrt(2)i+sqrt(2)j+sqrt(2)k"
+   }
+  },
+  {
+   "id": "e294",
+   "number": 294,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{2}+xy+y^{2}$ at point $(-5,-4)$ in the direction the function increases most rapidly"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793219250",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=e^{xy}$ at point $(6,7)$ in the direction the function increases most rapidly"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793268124",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1.6(10^{19})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1.6(10^19)"
+   }
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\arctan \\left(\\frac{y}{x}\\right)$ at point $(-9,9)$ in the direction the function increases most rapidly"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793449672",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=\\ln (xy+yz+zx)$ at point $(-9,-18,-27)$ in the direction the function increases most rapidly"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793930170",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{5\\sqrt{2}}{99}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((5 sqrt(2))/99)"
+   }
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=\\frac{x}{y}+\\frac{y}{z}+\\frac{z}{x}$ at point $(5,-5,5)$ in the direction the function increases most rapidly"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793887451",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative of the function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e299",
+   "number": 299,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=xe^{-y},$ $(1,0)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929056",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the maximum rate of change of $f$ at the given point and the direction in which it occurs."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{2},〈1,-1〉$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e300",
+   "number": 300,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sqrt{x^{2}+2y},$ $(4,10)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794076114",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the maximum rate of change of $f$ at the given point and the direction in which it occurs."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e301",
+   "number": 301,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\cos (3x+2y),\\left(\\frac{\\pi}{6},-\\frac{\\pi}{8}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794293188",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the maximum rate of change of $f$ at the given point and the direction in which it occurs."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{\\frac{13}{2}},〈-3,-2〉$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e302",
+   "number": 302,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The level surface $f(x,y,z)=12$ for $f(x,y,z)=4x^{2}-2y^{2}+z^{2}$ at point $(2,2,2).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793409845",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find equations of"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the tangent plane and",
+      "the normal line to the given surface at the given point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e303",
+   "number": 303,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=xy+yz+xz=3$ at point $(1,1,1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793941435",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find equations of"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the tangent plane and",
+      "the normal line to the given surface at the given point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x+y+z=3,$ b. $x-1=y-1=z-1$"
+     }
+    ]
+   },
+   "notes": "self-check: part b has an unclear kind"
+  },
+  {
+   "id": "e304",
+   "number": 304,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=xyz=6$ at point $(1,2,3)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794049156",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find equations of"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the tangent plane and",
+      "the normal line to the given surface at the given point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e305",
+   "number": 305,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=xe^{y}\\cos \\,z-z=1$ at point $(1,0,0)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929431",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find equations of"
+    },
+    {
+     "type": "list",
+     "items": [
+      "the tangent plane and",
+      "the normal line to the given surface at the given point."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x+y-z=1,$ b. $x-1=y=-z$"
+     }
+    ]
+   },
+   "notes": "self-check: part b has an unclear kind"
+  },
+  {
+   "id": "e306",
+   "number": 306,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The temperature $T$ in a metal sphere is inversely proportional to the distance from the center of the sphere (the origin: $(0,0,0)).$ The temperature at point $(1,2,2)$ is $120\\text{°}\\text{C}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the rate of change of the temperature at point $(1,2,2)$ in the direction toward point $(2,1,3).$",
+      "Show that, at any point in the sphere, the direction of greatest increase in temperature is given by a vector that points toward the origin."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793638838",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e307",
+   "number": 307,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The **electrical potential** (voltage) in a certain region of space is given by the function $V(x,y,z)=5x^{2}-3xy+xyz.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the rate of change of the voltage at point $(3,4,5)$ in the direction of the vector $〈1,1,-1〉.$",
+      "In which direction does the voltage change most rapidly at point $(3,4,5)?$",
+      "What is the maximum rate of change of the voltage at point $(3,4,5)?$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793433537",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\frac{32}{\\sqrt{3}},$ b. $〈38,6,12〉,$ c. $2\\sqrt{406}$"
+     }
+    ]
+   },
+   "notes": "self-check: part b is not plain math"
+  },
+  {
+   "id": "e308",
+   "number": 308,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If the electric potential at a point $(x,y)$ in the *xy*-plane is $V(x,y)=e^{-2x}\\cos (2y),$ then the electric intensity vector at $(x,y)$ is $E=-\\nabla V(x,y).$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the electric intensity vector at $\\left(\\frac{\\pi}{4},0\\right).$",
+      "Show that, at each point in the plane, the electric potential decreases most rapidly in the direction of the vector $E.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794200557",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e309",
+   "number": 309,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "In two dimensions, the motion of an ideal fluid is governed by a velocity potential $\\varphi .$ The velocity components of the fluid $u$ in the *x-*direction and $v$ in the *y*-direction, are given by $〈u,v〉=\\nabla \\varphi .$ Find the velocity components associated with the velocity potential $\\varphi (x,y)=\\sin \\,\\pi x\\,\\sin \\,2\\pi y.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793992374",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, solve the problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$〈u,v〉=〈\\pi \\,\\cos (\\pi x)\\sin (2\\pi y),2\\pi \\,\\sin (\\pi x)\\cos (2\\pi y)〉$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Directional Derivative of a Function of Two Variables",
+   "statement": [
+    {
+     "type": "p",
+     "text": "Let $z=f(x,y)$ be a function of two variables $x\\,\\text{and}\\,y,$ and assume that $f_{x}$ and $f_{y}$ exist and $f(x,y)$ is differentiable everywhere. Then the directional derivative of $f$ in the direction of $\\text{u}=\\cos \\,\\theta \\text{i}+\\sin \\,\\theta \\text{j}$ is given by"
+    },
+    {
+     "type": "math",
+     "tex": "D_{u}f(x,y)=f_{x}(x,y)\\cos \\,\\theta +f_{y}(x,y)\\sin \\,\\theta ."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "(see above) states that the directional derivative of *f* in the direction of $u=\\cos \\,\\theta i+\\sin \\,\\theta j$ is given by"
+    },
+    {
+     "type": "math",
+     "tex": "D_{u}f(a,b)=\\lim_{t\\to 0}\\frac{f(a+t\\,\\cos \\,\\theta ,b+t\\,\\sin \\,\\theta )-f(a,b)}{t}."
+    },
+    {
+     "type": "p",
+     "text": "Let $x=a+t\\,\\cos \\,\\theta$ and $y=b+t\\,\\sin \\,\\theta ,$ and define $g(t)=f(x,y).$ Since $f_{x}$ and $f_{y}$ both exist, and therefore $f$ is differentiable, we can use the chain rule for functions of two variables to calculate $g'(t):$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}g'(t) & =\\frac{\\partial \\text{f}}{\\partial \\text{x}}\\,\\frac{dx}{dt}+\\frac{\\partial \\text{f}}{\\partial \\text{y}}\\,\\frac{dy}{dt} \\\\ & =f_{x}(x,y)\\cos \\,\\theta +f_{y}(x,y)\\sin \\,\\theta .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "If $t=0,$ then $x=x_{0}(=a)$ and $y=y_{0}(=b),$ so"
+    },
+    {
+     "type": "math",
+     "tex": "g'(0)=f_{x}(x_{0},y_{0})\\cos \\,\\theta +f_{y}(x_{0},y_{0})\\sin \\,\\theta ."
+    },
+    {
+     "type": "p",
+     "text": "By the definition of $g'(t),$ it is also true that"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}g'(0) & =\\lim_{t\\to 0}\\frac{g(t)-g(0)}{t} \\\\ & =\\lim_{t\\to 0}\\frac{f(x_{0}+t\\,\\cos \\,\\theta ,y_{0}+t\\,\\sin \\,\\theta )-f(x_{0},y_{0})}{t}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Therefore, $D_{u}f(x_{0},y_{0})=f_{x}(x,y)\\cos \\,\\theta +f_{y}(x,y)\\sin \\,\\theta .$"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Let $\\theta =\\arccos (3/5).$ Find the directional derivative $D_{u}f(x,y)$ of $f(x,y)=x^{2}-xy+3y^{2}$ in the direction of $u=(\\cos \\,\\theta )i+(\\sin \\,\\theta )j.$ What is $D_{u}f(-1,2)?$"
+    },
+    {
+     "type": "p",
+     "text": "First, we must calculate the partial derivatives of $f:$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}f_{x}=2x-y \\\\ f_{y}=-x+6y,\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Then we use (see above) with $\\theta =\\arccos (3/5):$"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}D_{u}f(x,y) & =f_{x}(x,y)\\cos \\,\\theta +f_{y}(x,y)\\sin \\,\\theta \\\\ & =(2x-y)\\frac{3}{5}+(-x+6y)\\frac{4}{5} \\\\ & =\\frac{6x}{5}-\\frac{3y}{5}-\\frac{4x}{5}+\\frac{24y}{5} \\\\ & =\\frac{2x+21y}{5}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "To calculate $D_{u}f(-1,2),$ let $x=-1$ and $y=2:$"
+    },
+    {
+     "type": "math",
+     "tex": "D_{u}f(-1,2)=\\frac{2(-1)+21(2)}{5}=\\frac{-2+42}{5}=8."
+    },
+    {
+     "type": "p",
+     "text": "This is the same answer obtained in Example 4.31."
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "directional derivative",
+   "meaning": "the derivative of a function in the direction of a given unit vector"
+  },
+  {
+   "term": "gradient",
+   "meaning": "the gradient of the function $f(x,y)$ is defined to be $\\nabla f(x,y)=(\\partial f/\\partial x)i+(\\partial f/\\partial y)j,$ which can be generalized to a function of any number of independent variables"
+  }
+ ]
+}

@@ -1,0 +1,2429 @@
+{
+ "schema": 1,
+ "id": "V2.4.1",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 4,
+ "section": 1,
+ "title": "Basics of Differential Equations",
+ "chapterTitle": "Introduction to Differential Equations",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53697",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/4-1-basics-of-differential-equations",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §4.1 “Basics of Differential Equations”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Identify the order of a differential equation.",
+  "Explain what is meant by a solution to a differential equation.",
+  "Distinguish between the general solution and a particular solution of a differential equation.",
+  "Identify an initial-value problem.",
+  "Identify whether a given function is a solution to a differential equation or an initial-value problem."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Calculus is the mathematics of change, and rates of change are expressed by derivatives. Thus, one of the most common ways to use calculus is to set up an equation containing an unknown function $y=f(x)$ and its derivative, known as a *differential equation*. Solving such equations often provides information about how quantities change and frequently provides insight into how and why the changes occur."
+    },
+    {
+     "type": "p",
+     "text": "Techniques for solving differential equations can take many different forms, including direct solution, use of graphs, or computer calculations. We introduce the main ideas in this chapter and describe them in a little more detail later in the course. In this section we study what differential equations are, how to verify their solutions, some methods that are used for solving them, and some examples of common and useful equations."
+    }
+   ],
+   "title": "Basics of Differential Equations"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider the equation $y'=3x^{2},$ which is an example of a differential equation because it includes a derivative. There is a relationship between the variables $x$ and $y:\\,y$ is an unknown function of $x.$ Furthermore, the left-hand side of the equation is the derivative of $y.$ Therefore we can interpret this equation as follows: Start with some function $y=f(x)$ and take its derivative. The answer must be equal to $3x^{2}.$ What function has a derivative that is equal to $3x^{2}?$ One such function is $y=x^{3},$ so this function is considered a **solution to a differential equation**."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A **differential equation** is an equation involving an unknown function $y=f(x)$ and one or more of its derivatives. A solution to a differential equation is a function $y=f(x)$ that satisfies the differential equation when $f$ and its derivatives are substituted into the equation."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Some examples of differential equations and their solutions appear in Table 4.1."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "$y'=2x$",
+       "$y=x^{2}$"
+      ],
+      [
+       "$y'+3y=6x+11$",
+       "$y=e^{-3x}+2x+3$"
+      ],
+      [
+       "$y''-3y'+2y=24e^{-2x}$",
+       "$y=3e^{x}-4e^{2x}+2e^{-2x}$"
+      ]
+     ],
+     "header": [
+      "Equation",
+      "Solution"
+     ],
+     "caption": "**Table 4.1** Examples of Differential Equations and Their Solutions"
+    },
+    {
+     "type": "p",
+     "text": "Note that a solution to a differential equation is not necessarily unique, primarily because the derivative of a constant is zero. For example, $y=x^{2}+4$ is also a solution to the first differential equation in Table 4.1. We will return to this idea a little bit later in this section. For now, let’s focus on what it means for a function to be a solution to a differential equation."
+    }
+   ],
+   "title": "General Differential Equations"
+  },
+  {
+   "id": "x3",
+   "kind": "example",
+   "label": "Example 4.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Verify that the function $y=e^{-3x}+2x+3$ is a solution to the differential equation $y'+3y=6x+11.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To verify the solution, we first calculate $y'$ using the chain rule for derivatives. This gives $y'=-3e^{-3x}+2.$ Next we substitute $y$ and $y'$ into the left-hand side of the differential equation:"
+     },
+     {
+      "type": "math",
+      "tex": "(-3e^{-3x}+2)+3(e^{-3x}+2x+3)."
+     },
+     {
+      "type": "p",
+      "text": "The resulting expression can be simplified by first distributing to eliminate the parentheses, giving"
+     },
+     {
+      "type": "math",
+      "tex": "-3e^{-3x}+2+3e^{-3x}+6x+9."
+     },
+     {
+      "type": "p",
+      "text": "Combining like terms leads to the expression $6x+11,$ which is equal to the right-hand side of the differential equation. This result verifies that $y=e^{-3x}+2x+3$ is a solution of the differential equation."
+     }
+    ]
+   },
+   "title": "Verifying Solutions of Differential Equations"
+  },
+  {
+   "id": "c4",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Verify that $y=2e^{3x}-2x-2$ is a solution to the differential equation $y'-3y=6x+4.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First calculate $y'$ then substitute both $y'$ and $y$ into the left-hand side."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "It is convenient to define characteristics of differential equations that make it easier to talk about them and categorize them. The most basic characteristic of a differential equation is its order."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **order of a differential equation** is the highest order of any derivative of the unknown function that appears in the equation."
+      }
+     ]
+    }
+   ],
+   "title": "General Differential Equations (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 4.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "What is the order of each of the following differential equations?"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y'-4y=x^{2}-3x+4$",
+      "$x^{2}y\\text{‴}-3xy''+xy'-3y=\\sin \\,x$",
+      "$\\frac{4}{x}y^{(4)}-\\frac{6}{x^{2}}y''+\\frac{12}{x^{4}}y=x^{3}-3x^{2}+4x-12$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "The highest derivative in the equation is $y',$ so the order is $1.$",
+       "The highest derivative in the equation is $y\\text{‴},$ so the order is $3.$",
+       "The highest derivative in the equation is $y^{(4)},$ so the order is $4.$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Identifying the Order of a Differential Equation"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "What is the order of the following differential equation?"
+    },
+    {
+     "type": "math",
+     "tex": "(x^{4}-3x)y^{(5)}-(3x^{2}+1)y'+3y=\\sin \\,x\\,\\cos \\,x"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$5$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "What is the highest derivative in the equation?"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "5"
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We already noted that the differential equation $y'=2x$ has at least two solutions: $y=x^{2}$ and $y=x^{2}+4.$ The only difference between these two solutions is the last term, which is a constant. What if the last term is a different constant? Will this expression still be a solution to the differential equation? In fact, any function of the form $y=x^{2}+C,$ where $C$ represents any constant, is a solution as well. The reason is that the derivative of $x^{2}+C$ is $2x,$ regardless of the value of $C.$ It can be shown that any solution of this differential equation must be of the form $y=x^{2}+C.$ This is an example of a **general solution** to a differential equation. A graph of some of these solutions is given in Figure 4.1. (*Note*: in this graph we used even integer values for $C$ ranging between $-4$ and $4.$ In fact, there is no restriction on the value of $C;$ it can be an integer or not.)"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_08_01_001.webp",
+     "alt": "A graph of a family of solutions to the differential equation y’ = 2 x, which are of the form y = x ^ 2 + C. Parabolas are drawn for values of C: -4, -2, 0, 2, and 4.",
+     "caption": "**Figure 4.1** Family of solutions to the differential equation $y'=2x.$",
+     "width": 325,
+     "height": 331
+    },
+    {
+     "type": "p",
+     "text": "In this example, we are free to choose any solution we wish; for example, $y=x^{2}-3$ is a member of the family of solutions to this differential equation. This is called a **particular solution** to the differential equation. A particular solution can often be uniquely identified if we are given additional information about the problem."
+    }
+   ],
+   "title": "General and Particular Solutions"
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 4.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $y'=2x$ passing through the point $(2,7).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Any function of the form $y=x^{2}+C$ is a solution to this differential equation. To determine the value of $C,$ we substitute the values $x=2$ and $y=7$ into this equation and solve for $C:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ \\\\ y=x^{2}+C \\\\ 7=2^{2}+C=4+C \\\\ C=3.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore the particular solution passing through the point $(2,7)$ is $y=x^{2}+3.$"
+     }
+    ]
+   },
+   "title": "Finding a Particular Solution"
+  },
+  {
+   "id": "c10",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "y'=4x+3"
+    },
+    {
+     "type": "p",
+     "text": "passing through the point $(1,7),$ given that $y=2x^{2}+3x+C$ is a general solution to the differential equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=2x^{2}+3x+2$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First substitute $x=1$ and $y=7$ into the equation, then solve for $C.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=2 x^2+3 x+2"
+   }
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Usually a given differential equation has an infinite number of solutions, so it is natural to ask which one we want to use. To choose one solution, more information is needed. Some specific information that can be useful is an **initial value**, which is an ordered pair that is used to find a particular solution."
+    },
+    {
+     "type": "p",
+     "text": "A differential equation together with one or more initial values is called an **initial-value problem**. The general rule is that the number of initial values needed for an initial-value problem is equal to the order of the differential equation. For example, if we have the differential equation $y'=2x,$ then $y(3)=7$ is an initial value, and when taken together, these equations form an initial-value problem. The differential equation $y''-3y'+2y=4e^{x}$ is second order, so we need two initial values. With initial-value problems of order greater than one, the same value should be used for the independent variable. An example of initial values for this second-order equation would be $y(0)=2$ and $y'(0)=-1.$ These two initial values together with the differential equation form an initial-value problem. These problems are so named because often the independent variable in the unknown function is $t,$ which represents time. Thus, a value of $t=0$ represents the beginning of the problem."
+    }
+   ],
+   "title": "Initial-Value Problems"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 4.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Verify that the function $y=2e^{-2t}+e^{t}$ is a solution to the initial-value problem"
+    },
+    {
+     "type": "math",
+     "tex": "y'+2y=3e^{t},\\quad y(0)=3."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "For a function to satisfy an initial-value problem, it must satisfy both the differential equation and the initial condition. To show that $y$ satisfies the differential equation, we start by calculating $y'.$ This gives $y'=-4e^{-2t}+e^{t}.$ Next we substitute both $y$ and $y'$ into the left-hand side of the differential equation and simplify:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}y'+2y & =(-4e^{-2t}+e^{t})+2(2e^{-2t}+e^{t}) \\\\ & =-4e^{-2t}+e^{t}+4e^{-2t}+2e^{t} \\\\ & =3e^{t}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This is equal to the right-hand side of the differential equation, so $y=2e^{-2t}+e^{t}$ solves the differential equation. Next we calculate $y(0):$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}y(0) & =2e^{-2(0)}+e^{0} \\\\ & =2+1 \\\\ & =3.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This result verifies the initial value. Therefore the given function satisfies the initial-value problem."
+     }
+    ]
+   },
+   "title": "Verifying a Solution to an Initial-Value Problem"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Verify that $y=3e^{2t}+4\\,\\sin \\,t$ is a solution to the initial-value problem"
+    },
+    {
+     "type": "math",
+     "tex": "y'-2y=4\\,\\cos \\,t-8\\,\\sin \\,t,\\quad y(0)=3."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First verify that $y$ solves the differential equation. Then check the initial value."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Example 4.4, the initial-value problem consisted of two parts. The first part was the differential equation $y'+2y=3e^{t},$ and the second part was the initial value $y(0)=3.$ These two equations together formed the initial-value problem."
+    },
+    {
+     "type": "p",
+     "text": "The same is true in general. An initial-value problem consists of two parts: the differential equation and the initial condition. The differential equation has a family of solutions, and the initial condition determines the value of $C.$ The family of solutions to the differential equation in Example 4.4 is given by $y=2e^{-2t}+Ce^{t}.$ This family of solutions is shown in Figure 4.2, with the particular solution $y=2e^{-2t}+e^{t}$ labeled."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_08_01_002.webp",
+     "alt": "A graph of a family of solutions to the differential equation y’ + 2 y = 3 e ^ t, which are of the form y = 2 e ^ (-2 t) + C e ^ t. The versions with C = 1, 0.5, and -0.2 are shown, among others not labeled. For all values of C, the function increases rapidly for t < 0 as t goes to negative infinity. For C > 0, the function changes direction and increases in a gentle curve as t goes to infinity. Larger values of C have a tighter curve closer to the y axis and at a higher y value. For C = 0, the function goes to 0 as t goes to infinity. For C < 0, the function continues to decrease as t goes to infinity.",
+     "caption": "**Figure 4.2** A family of solutions to the differential equation $y'+2y=3e^{t}.$ The particular solution $y=2e^{-2t}+e^{t}$ is labeled.",
+     "width": 325,
+     "height": 332
+    }
+   ],
+   "title": "Initial-Value Problems (continued)"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 4.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problem:"
+    },
+    {
+     "type": "math",
+     "tex": "y'=3e^{x}+x^{2}-4,\\quad y(0)=5."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The first step in solving this initial-value problem is to find a general family of solutions. To do this, we find an antiderivative of both sides of the differential equation"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int y'dx}={\\displaystyle \\int (3e^{x}+x^{2}-4)\\,dx},"
+     },
+     {
+      "type": "p",
+      "text": "namely,"
+     },
+     {
+      "type": "math",
+      "tex": "y+C_{1}=3e^{x}+\\frac{1}{3}x^{3}-4x+C_{2}."
+     },
+     {
+      "type": "p",
+      "text": "We are able to integrate both sides because the *y* term appears by itself. Notice that there are two integration constants: $C_{1}$ and $C_{2}.$ Solving (see above) for $y$ gives"
+     },
+     {
+      "type": "math",
+      "tex": "y=3e^{x}+\\frac{1}{3}x^{3}-4x+C_{2}-C_{1}."
+     },
+     {
+      "type": "p",
+      "text": "Because $C_{1}$ and $C_{2}$ are both constants, $C_{2}-C_{1}$ is also a constant. We can therefore define $C=C_{2}-C_{1},$ which leads to the equation"
+     },
+     {
+      "type": "math",
+      "tex": "y=3e^{x}+\\frac{1}{3}x^{3}-4x+C."
+     },
+     {
+      "type": "p",
+      "text": "Next we determine the value of $C.$ To do this, we substitute $x=0$ and $y=5$ into (see above) and solve for $C:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc} \\\\ 5 & = & 3e^{0}+\\frac{1}{3}0^{3}-4(0)+C \\\\ 5 & = & 3+C \\\\ C & = & 2.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Now we substitute the value $C=2$ into (see above). The solution to the initial-value problem is $y=3e^{x}+\\frac{1}{3}x^{3}-4x+2.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "The difference between a general solution and a particular solution is that a general solution involves a family of functions, either explicitly or implicitly defined, of the independent variable. The initial value or values determine which particular solution in the family of solutions satisfies the desired conditions."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Solving an Initial-value Problem"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem"
+    },
+    {
+     "type": "math",
+     "tex": "y'=x^{2}-4x+3-6e^{x},\\quad y(0)=8."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{1}{3}x^{3}-2x^{2}+3x-6e^{x}+14$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First take the antiderivative of both sides of the differential equation. Then substitute $x=0$ and $y=8$ into the resulting equation and solve for $C.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=(1/3)x^3-2 x^2+3 x-6 e^x+14"
+   }
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In physics and engineering applications, we often consider the forces acting upon an object, and use this information to understand the resulting motion that may occur. For example, if we start with an object at Earth’s surface, the primary force acting upon that object is gravity. Physicists and engineers can use this information, along with **Newton’s second law of motion** (in equation form $F=ma,$ where $F$ represents force, $m$ represents mass, and $a$ represents acceleration), to derive an equation that can be solved."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_08_01_003.webp",
+     "alt": "A picture of a baseball with an arrow underneath it pointing down. The arrow is labeled g = -9.8 m/sec ^ 2.",
+     "caption": "**Figure 4.3** For a baseball falling in air, the only force acting on it is gravity (neglecting air resistance).",
+     "width": 325,
+     "height": 212
+    },
+    {
+     "type": "p",
+     "text": "In Figure 4.3 we assume that the only force acting on a baseball is the force of gravity. This assumption ignores air resistance. (The force due to air resistance is considered in a later discussion.) The acceleration due to gravity at Earth’s surface, $g,$ is approximately $9.8{\\,\\text{m/s}}^{2}.$ We introduce a frame of reference, where Earth’s surface is at a height of 0 meters. Let $v(t)$ represent the velocity of the object in meters per second. If $v(t)>0,$ the ball is rising, and if $v(t)<0,$ the ball is falling (Figure 4.4)."
+    }
+   ],
+   "title": "Initial-Value Problems (continued)"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_08_01_004.webp",
+     "alt": "A picture of a baseball with an arrow above it pointing up and an arrow below it pointing down. The arrow pointing up is labeled v(t) > 0, and the arrow pointing down is labeled v(t) < 0.",
+     "caption": "**Figure 4.4** Possible velocities for the rising/falling baseball.",
+     "width": 325,
+     "height": 352
+    },
+    {
+     "type": "p",
+     "text": "Our goal is to solve for the velocity $v(t)$ at any time $t.$ To do this, we set up an initial-value problem. Suppose the mass of the ball is $m,$ where $m$ is measured in kilograms. We use Newton’s second law, which states that the force acting on an object is equal to its mass times its acceleration $(F=ma).$ Acceleration is the derivative of velocity, so $a(t)=v'(t).$ Therefore the force acting on the baseball is given by $F=m\\,v'(t).$ However, this force must be equal to the force of gravity acting on the object, which (again using Newton’s second law) is given by $F_{g}=-mg,$ since this force acts in a downward direction. Therefore we obtain the equation $F=F_{g},$ which becomes $m\\,v'(t)=-mg.$ Dividing both sides of the equation by $m$ gives the equation"
+    },
+    {
+     "type": "math",
+     "tex": "v'(t)=-g."
+    },
+    {
+     "type": "p",
+     "text": "Notice that this differential equation remains the same regardless of the mass of the object."
+    },
+    {
+     "type": "p",
+     "text": "We now need an initial value. Because we are solving for velocity, it makes sense in the context of the problem to assume that we know the **initial velocity**, or the velocity at time $t=0.$ This is denoted by $v(0)=v_{0}.$"
+    }
+   ],
+   "title": "Initial-Value Problems (continued)"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 4.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A baseball is thrown upward from a height of $3$ meters above Earth’s surface with an initial velocity of $10\\,\\text{m/s},$ and the only force acting on it is gravity. The ball has a mass of $0.15\\,\\text{kg}$."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the velocity $v(t)$ of the baseball at time $t.$",
+      "What is its velocity after $2$ seconds?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "From the preceding discussion, the differential equation that applies in this situation is"
+        },
+        {
+         "type": "math",
+         "tex": "v'(t)=-g,"
+        },
+        {
+         "type": "p",
+         "text": "where $g=9.8{\\,\\text{m/s}}^{2}.$ The initial condition is $v(0)=v_{0},$ where $v_{0}=10\\,\\text{m/s}.$ Therefore the initial-value problem is $v'(t)=-9.8{\\,\\text{m/s}}^{2},v(0)=10\\,\\text{m/s}.$\n\nThe first step in solving this initial-value problem is to take the antiderivative of both sides of the differential equation. This gives"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}{\\displaystyle \\int v'(t)\\,dt} & = & {\\displaystyle \\int -9.8dt} \\\\ v(t) & = & -9.8t+C.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The next step is to solve for $C.$ To do this, substitute $t=0$ and $v(0)=10:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}v(t) & = & -9.8t+C \\\\ v(0) & = & -9.8(0)+C \\\\ 10 & = & C.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore $C=10$ and the velocity function is given by $v(t)=-9.8t+10.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "To find the velocity after $2$ seconds, substitute $t=2$ into $v(t).$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}v(t) & = & -9.8t+10 \\\\ v(2) & = & -9.8(2)+10 \\\\ v(2) & = & -9.6.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The units of velocity are meters per second. Since the answer is negative, the object is falling at a speed of $9.6\\,\\text{m/s}.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Velocity of a Moving Baseball"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 4.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose a rock falls from rest from a height of $100$ meters and the only force acting on it is gravity. Find an equation for the velocity $v(t)$ as a function of time, measured in meters per second."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v(t)=-9.8t$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "What is the initial velocity of the rock? Use this with the differential equation in Example 4.6 to form an initial-value problem, then solve for $v(t).$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-9.8 t"
+   }
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A natural question to ask after solving this type of problem is how high the object will be above Earth’s surface at a given point in time. Let $s(t)$ denote the height above Earth’s surface of the object, measured in meters. Because velocity is the derivative of position (in this case height), this assumption gives the equation $s'(t)=v(t).$ An initial value is necessary; in this case the initial height of the object works well. Let the initial height be given by the equation $s(0)=s_{0}.$ Together these assumptions give the initial-value problem"
+    },
+    {
+     "type": "math",
+     "tex": "s'(t)=v(t),\\quad s(0)=s_{0}."
+    },
+    {
+     "type": "p",
+     "text": "If the velocity function is known, then it is possible to solve for the position function as well."
+    }
+   ],
+   "title": "Initial-Value Problems (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 4.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A baseball is thrown upward from a height of $3$ meters above Earth’s surface with an initial velocity of $10\\,\\text{m/s},$ and the only force acting on it is gravity. The ball has a mass of $0.15$ kilogram."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the position $s(t)$ of the baseball at time $t.$",
+      "What is its height after $2$ seconds?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "We already know the velocity function for this problem is $v(t)=-9.8t+10.$ The initial height of the baseball is $3$ meters, so $s_{0}=3.$ Therefore the initial-value problem for this example is\n\nTo solve the initial-value problem, we first find the antiderivatives:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}{\\displaystyle \\int s'(t)\\,dt} & = & {\\displaystyle \\int -9.8t+10dt} \\\\ s(t) & = & -4.9t^{2}+10t+C.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Next we substitute $t=0$ and solve for $C:$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}s(t) & = & -4.9t^{2}+10t+C \\\\ s(0) & = & -4.9(0)^{2}+10(0)+C \\\\ 3 & = & C.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore the position function is $s(t)=-4.9t^{2}+10t+3.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The height of the baseball after $2\\,\\text{s}$ is given by $s(2):$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}s(2) & =-4.9(2)^{2}+10(2)+3 \\\\ & =-4.9(4)+23 \\\\ & =3.4.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore the baseball is $3.4$ meters above Earth’s surface after $2$ seconds. It is worth noting that the mass of the ball cancelled out completely in the process of solving the problem."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Height of a Moving Baseball"
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "A differential equation is an equation involving a function $y=f(x)$ and one or more of its derivatives. A solution is a function $y=f(x)$ that satisfies the differential equation when $f$ and its derivatives are substituted into the equation.",
+      "The order of a differential equation is the highest order of any derivative of the unknown function that appears in the equation.",
+      "A differential equation coupled with an initial value is called an initial-value problem. To solve an initial-value problem, first find the general solution to the differential equation, then determine the value of the constant. Initial-value problems have many applications in science and engineering."
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e1",
+   "number": 1,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'+y=3y^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573512394",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the order of the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e2",
+   "number": 2,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(y')^{2}=y'+2y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571429903",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the order of the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e3",
+   "number": 3,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y\\text{‴}+y''y'=3x^{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571429907",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the order of the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "3"
+   }
+  },
+  {
+   "id": "e4",
+   "number": 4,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=y''+3t^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573604151",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the order of the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e5",
+   "number": 5,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=t$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571169530",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the order of the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e6",
+   "number": 6,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dx}+\\frac{d^{2}y}{dx^{2}}=3x^{4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571448841",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the order of the following differential equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e7",
+   "number": 7,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\left(\\frac{dy}{dt}\\right)^{2}+8\\frac{dy}{dt}+3y=4t$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571027308",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Determine the order of the following differential equations."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e8",
+   "number": 8,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{x^{3}}{3}$ solves $y'=x^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573591938",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e9",
+   "number": 9,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=2e^{-x}+x-1$ solves $y'=x-y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573608042",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e10",
+   "number": 10,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{3x}-\\frac{e^{x}}{2}$ solves $y'=3y+e^{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571095386",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e11",
+   "number": 11,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{1}{1-x}$ solves $y'=y^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571431595",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e12",
+   "number": 12,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{x^{2}/2}$ solves $y'=xy$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573726216",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e13",
+   "number": 13,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=4+\\ln \\,x$ solves $xy'=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573514703",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e14",
+   "number": 14,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=3-x+x\\,\\ln \\,x$ solves $y'=\\ln \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571298240",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e15",
+   "number": 15,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=2e^{x}-x-1$ solves $y'=y+x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571080766",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e16",
+   "number": 16,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{x}+\\frac{\\sin \\,x}{2}-\\frac{\\cos \\,x}{2}$ solves $y'=\\cos \\,x+y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573520552",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e17",
+   "number": 17,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\pi e^{-\\cos \\,x}$ solves $y'=y\\,\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571235292",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify that the following functions are solutions to the given differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e18",
+   "number": 18,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $y'=4x^{2}$ that passes through $(-3,-30),$ given that $y=C+\\frac{4x^{3}}{3}$ is a general solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170570999458",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e19",
+   "number": 19,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $y'=3x^{3}$ that passes through $(1,4.75),$ given that $y=C+\\frac{3x^{4}}{4}$ is a general solution."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573756900",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=4+\\frac{3x^{4}}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=4+((3 x^4)/4)"
+   }
+  },
+  {
+   "id": "e20",
+   "number": 20,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $y'=3x^{2}y$ that passes through $(0,12),$ given that $y=Ce^{x^{3}}$ is a general solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571048929",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e21",
+   "number": 21,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $y'=2xy$ that passes through $\\left(0,\\frac{1}{2}\\right),$ given that $y=Ce^{x^{2}}$ is a general solution."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571346530",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{1}{2}e^{x^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=(1/2)e^(x^2)"
+   }
+  },
+  {
+   "id": "e22",
+   "number": 22,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $y'=(2xy)^{2}$ that passes through $\\left(1,-\\frac{1}{2}\\right),$ given that $y=-\\frac{3}{C+4x^{3}}$ is a general solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573544254",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e23",
+   "number": 23,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $y'x^{2}=y$ that passes through $\\left(1,\\frac{2}{e}\\right),$ given that $y=Ce^{-1/x}$ is a general solution."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573604115",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=2e^{-1/x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=2 e^(-1/x)"
+   }
+  },
+  {
+   "id": "e24",
+   "number": 24,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $8\\frac{dx}{dt}=-2\\,\\cos (2t)-\\cos (4t)$ that passes through $(\\pi ,\\pi ),$ given that $x=C-\\frac{1}{8}\\sin (2t)-\\frac{1}{32}\\sin (4t)$ is a general solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571227052",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e25",
+   "number": 25,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $\\frac{du}{dt}=\\tan \\,u$ that passes through $\\left(1,\\frac{\\pi}{2}\\right),$ given that $u=\\sin^{-1}(e^{C+t})$ is a general solution."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571041493",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=\\sin^{-1}(e^{-1+t})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "u= sin^(-1) (e^(-1+t))"
+   }
+  },
+  {
+   "id": "e26",
+   "number": 26,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $\\frac{dy}{dt}=e^{(t+y)}$ that passes through $(1,0),$ given that $y=-\\ln (C-e^{t})$ is a general solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571158455",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e27",
+   "number": 27,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the particular solution to the differential equation $y'(1-x^{2})=1+y$ that passes through $(0,-2),$ given that $y=C\\frac{\\sqrt{x+1}}{\\sqrt{1-x}}-1$ is a general solution."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571105977",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Verify the following general solutions and find the particular solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-\\frac{\\sqrt{x+1}}{\\sqrt{1-x}}-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-((sqrt(x+1))/(sqrt(1-x)))-1"
+   }
+  },
+  {
+   "id": "e28",
+   "number": 28,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=3x+e^{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571474496",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e29",
+   "number": 29,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=\\ln \\,x+\\tan \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571080687",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=C-x+x\\,\\ln \\,x-\\ln (\\cos \\,x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C-x+x ln x- ln (cos x)"
+   }
+  },
+  {
+   "id": "e30",
+   "number": 30,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=\\sin \\,xe^{\\cos \\,x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571346878",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e31",
+   "number": 31,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=4^{x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573622381",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=C+\\frac{4^{x}}{\\ln (4)}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C+((4^x)/(ln (4)))"
+   }
+  },
+  {
+   "id": "e32",
+   "number": 32,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=\\sin^{-1}(2x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170570993127",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e33",
+   "number": 33,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=2t\\sqrt{t^{2}+16}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571167972",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{2}{3}\\sqrt{t^{2}+16}(t^{2}+16)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=(2/3)sqrt(t^2+16)(t^2+16)+C"
+   }
+  },
+  {
+   "id": "e34",
+   "number": 34,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x'=\\coth \\,t+\\ln \\,t+3t^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571334902",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e35",
+   "number": 35,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x'=t\\sqrt{4+t}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571096316",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=\\frac{2}{15}\\sqrt{4+t}(3t^{2}+4t-32)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "x=(2/15)sqrt(4+t)(3 t^2+4 t-32)+C"
+   }
+  },
+  {
+   "id": "e36",
+   "number": 36,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573737687",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e37",
+   "number": 37,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y'=\\frac{y}{x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573529236",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the general solution to the differential equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=Cx$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=C x"
+   }
+  },
+  {
+   "id": "e38",
+   "number": 38,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=2t$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571231964",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y(0)=1$ and $y(0)=-1.$ Draw both solutions on the same graph."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=-t$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573727022",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y(0)=1$ and $y(0)=-1.$ Draw both solutions on the same graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=1-\\frac{t^{2}}{2},y=-\\frac{t^{2}}{2}-1$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=2y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571299351",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y(0)=1$ and $y(0)=-1.$ Draw both solutions on the same graph."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e41",
+   "number": 41,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=-y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571332689",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y(0)=1$ and $y(0)=-1.$ Draw both solutions on the same graph."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=e^{-t},y=-e^{-t}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e42",
+   "number": 42,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573762581",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y(0)=1$ and $y(0)=-1.$ Draw both solutions on the same graph."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e43",
+   "number": 43,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=4t$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573628757",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y_{0}=10.$ At what time does $y$ increase to $100$ or drop to $1?$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=2(t^{2}+5),t=3\\sqrt{5}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"y=2(t^2+5), t=3 sqrt(5)\""
+  },
+  {
+   "id": "e44",
+   "number": 44,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=4y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571346238",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y_{0}=10.$ At what time does $y$ increase to $100$ or drop to $1?$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e45",
+   "number": 45,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=-2y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571332630",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y_{0}=10.$ At what time does $y$ increase to $100$ or drop to $1?$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=10e^{-2t},t=-\\frac{1}{2}\\,\\ln \\,\\left(\\frac{1}{10}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"y=10 e^(-2 t), t=-(1/2) ln ((1/10))\""
+  },
+  {
+   "id": "e46",
+   "number": 46,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=e^{4t}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571210835",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y_{0}=10.$ At what time does $y$ increase to $100$ or drop to $1?$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e47",
+   "number": 47,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{dy}{dt}=e^{-4t}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573519515",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problems starting from $y_{0}=10.$ At what time does $y$ increase to $100$ or drop to $1?$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{1}{4}(41-e^{-4t}),$ never"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e48",
+   "number": 48,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y'=y(x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573491844",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e49",
+   "number": 49,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $xy'=y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573491900",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Solution changes from increasing to decreasing at $y(0)=0$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e50",
+   "number": 50,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y'=t^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571248426",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e51",
+   "number": 51,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y'=x+y$ (*Hint:* $y=Ce^{x}-x-1$ is the general solution)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571143237",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Solution changes from increasing to decreasing at $y(0)=0$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e52",
+   "number": 52,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y'=x\\,\\ln \\,x+\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571260225",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e53",
+   "number": 53,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the general solution to describe the velocity of a ball of mass $1\\,\\text{lb}$ that is thrown upward at a rate $a$ ft/sec."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571260273",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v(t)=-32t+a$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-32 t+a"
+   }
+  },
+  {
+   "id": "e54",
+   "number": 54,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "In the preceding problem, if the initial velocity of the ball thrown into the air is $a=25$ ft/s, write the particular solution to the velocity of the ball. Solve to find the time when the ball hits the ground."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573514657",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e55",
+   "number": 55,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "You throw two objects with differing masses $m_{1}$ and $m_{2}$ upward into the air with the same initial velocity $a$ ft/s. What is the difference in their velocity after $1$ second?"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571097477",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$0$ ft/s"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e56",
+   "number": 56,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** You throw a ball of mass $1$ kilogram upward with a velocity of $a=25$ m/s on Mars, where the acceleration of gravity is $g=-3.711$ m/s$^{\\text{2}}$. Use your calculator to approximate how much longer the ball is in the air on Mars than on Earth, where $g=-9.8m/s^{2}$."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571097522",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e57",
+   "number": 57,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** For the previous problem, use your calculator to approximate how much higher the ball went on Mars, where $g=-9.8m/s^{2}$."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571041164",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$52.354$ meters"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "52.354"
+   }
+  },
+  {
+   "id": "e58",
+   "number": 58,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A car on the freeway accelerates according to $a=15\\,\\cos (\\pi t),$ where $t$ is measured in hours. Set up and solve the differential equation to determine the velocity of the car if it has an initial speed of $50$ mph. After $40$ minutes of driving, what is the driver’s velocity?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571041188",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e59",
+   "number": 59,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** For the car in the preceding problem, find the expression for the distance the car has traveled in time $t,$ assuming an initial distance of $0.$ How long does it take the car to travel $100$ miles? Round your answer to hours and minutes."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571335736",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=50t-\\frac{15}{\\pi^{2}}\\cos (\\pi t)+\\frac{3}{\\pi^{2}},2$ hours $1$ minute"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e60",
+   "number": 60,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** For the previous problem, find the total distance traveled in the first hour."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571027388",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e61",
+   "number": 61,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Substitute $y=Be^{3t}$ into $y'-y=8e^{3t}$ to find a particular solution."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571027411",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=4e^{3t}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=4 e^(3 t)"
+   }
+  },
+  {
+   "id": "e62",
+   "number": 62,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Substitute $y=a\\,\\cos (2t)+b\\,\\sin (2t)$ into $y'+y=4\\,\\sin (2t)$ to find a particular solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571244226",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e63",
+   "number": 63,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Substitute $y=a+bt+ct^{2}$ into $y'+y=1+t^{2}$ to find a particular solution."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573715282",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=3-2t+t^{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=3-2 t+t^2"
+   }
+  },
+  {
+   "id": "e64",
+   "number": 64,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Substitute $y=ae^{t}\\cos \\,t+be^{t}\\sin \\,t$ into $y'=2e^{t}\\cos \\,t$ to find a particular solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573718799",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e65",
+   "number": 65,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Solve $y'=e^{kt}$ with the initial condition $y(0)=0$ and solve $y'=1$ with the same initial condition. As $k$ approaches $0,$ what do you notice?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571277917",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Recall that a family of solutions includes solutions to a differential equation that differ by a constant. For the following problems, use your calculator to graph a family of solutions to the given differential equation. Use initial conditions from $y(t=0)=-10$ to $y(t=0)=10$ increasing by $2.$ Is there some critical point where the behavior of the solution begins to change?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{1}{k}(e^{kt}-1)$ and $y=x$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"y=(1/k)(e^(k t)-1), y=x\""
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "differential equation",
+   "meaning": "an equation involving a function $y=y(x)$ and one or more of its derivatives"
+  },
+  {
+   "term": "general solution (or family of solutions)",
+   "meaning": "the entire set of solutions to a given differential equation"
+  },
+  {
+   "term": "initial value(s)",
+   "meaning": "a value or set of values that a solution of a differential equation satisfies for a fixed value of the independent variable"
+  },
+  {
+   "term": "initial velocity",
+   "meaning": "the velocity at time $t=0$"
+  },
+  {
+   "term": "initial-value problem",
+   "meaning": "a differential equation together with an initial value or values"
+  },
+  {
+   "term": "order of a differential equation",
+   "meaning": "the highest order of any derivative of the unknown function that appears in the equation"
+  },
+  {
+   "term": "particular solution",
+   "meaning": "member of a family of solutions to a differential equation that satisfies a particular initial condition"
+  },
+  {
+   "term": "solution to a differential equation",
+   "meaning": "a function $y=f(x)$ that satisfies a given differential equation"
+  }
+ ]
+}

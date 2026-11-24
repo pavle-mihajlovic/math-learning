@@ -1,0 +1,3863 @@
+{
+ "schema": 1,
+ "id": "V3.5.7",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 5,
+ "section": 7,
+ "title": "Change of Variables in Multiple Integrals",
+ "chapterTitle": "Multiple Integration",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53970",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/5-7-change-of-variables-in-multiple-integrals",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §5.7 “Change of Variables in Multiple Integrals”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Determine the image of a region under a given transformation of variables.",
+  "Compute the Jacobian of a given transformation.",
+  "Evaluate a double integral using a change of variables.",
+  "Evaluate a triple integral using a change of variables."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall from Substitution Rule the method of integration by substitution. When evaluating an integral such as ${\\displaystyle \\int_{2}^{3}x(x^{2}-4)^{5}dx,}$ we substitute $u=g(x)=x^{2}-4.$ Then $du=2x\\,dx$ or $x\\,dx=\\frac{1}{2}du$ and the limits change to $u=g(2)=2^{2}-4=0$ and $u=g(3)=9-4=5.$ Thus the integral becomes ${\\displaystyle \\int_{0}^{5}\\frac{1}{2}u^{5}du}$ and this integral is much simpler to evaluate. In other words, when solving integration problems, we make appropriate substitutions to obtain an integral that becomes much simpler than the original integral."
+    },
+    {
+     "type": "p",
+     "text": "We also used this idea when we transformed double integrals in rectangular coordinates to polar coordinates and transformed triple integrals in rectangular coordinates to cylindrical or spherical coordinates to make the computations simpler. More generally,"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{a}^{b}f(x)dx=}{\\displaystyle \\int_{c}^{d}f(g(u))}g'(u)du,"
+    },
+    {
+     "type": "p",
+     "text": "Where $x=g(u),dx=g'(u)du,$ and $u=c$ and $u=d$ satisfy $c=g^{-1}(a)$ and $d=g^{-1}(b).$"
+    },
+    {
+     "type": "p",
+     "text": "A similar result occurs in double integrals when we substitute $x=h(r,\\theta )=r\\,\\cos \\,\\theta ,$ $y=g(r,\\theta )=r\\,\\sin \\,\\theta ,$ and $dA=dx\\,dy=r\\,dr\\,d\\theta .$ Then we get"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{R}f(x,y)}dA={\\displaystyle \\iint_{S}f(r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta )r\\,dr\\,d\\theta}"
+    },
+    {
+     "type": "p",
+     "text": "where the domain $R$ is replaced by the domain $S$ in polar coordinates. Generally, the function that we use to change the variables to make the integration simpler is called a **transformation** or mapping."
+    }
+   ],
+   "title": "Change of Variables in Multiple Integrals"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "A **planar transformation** $T$ is a function that transforms a region $G$ in one plane into a region $R$ in another plane by a change of variables. Both $G$ and $R$ are subsets of ${\\mathbb{R}}^{2}.$ For example, Figure 5.70 shows a region $G$ in the $uv\\text{-plane}$ transformed into a region $R$ in the $xy\\text{-plane}$ by the change of variables $x=g(u,v)$ and $y=h(u,v),$ or sometimes we write $x=x(u,v)$ and $y=y(u,v).$ We shall typically assume that each of these functions has continuous first partial derivatives, which means $g_{u},g_{v},h_{u},$ and $h_{v}$ exist and are also continuous. The need for this requirement will become clear soon."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_001.webp",
+     "alt": "On the left-hand side of this figure, there is a region G with point (u, v) given in the Cartesian u v-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with x = g(u, v) and y = h(u, v). On the right-hand side of this figure there is a region R with point (x, y) given in the Cartesian xy- plane.",
+     "caption": "**Figure 5.70** The transformation of a region $G$ in the $uv\\text{-plane}$ into a region $R$ in the $xy\\text{-plane}.$",
+     "width": 715,
+     "height": 273
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A transformation $T:\\,G\\to R,$ defined as $T(u,v)=(x,y),$ is said to be a **one-to-one transformation** if no two points map to the same image point."
+      }
+     ]
+    }
+   ],
+   "title": "Planar Transformations"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "To show that $T$ is a one-to-one transformation, we assume $T(u_{1},v_{1})=T(u_{2},v_{2})$ and show that as a consequence we obtain $(u_{1},v_{1})=(u_{2},v_{2}).$ If the transformation $T$ is one-to-one in the domain $G,$ then the inverse $T^{-1}$ exists with the domain $R$ such that $T^{-1}\\circ T$ and $T\\circ T^{-1}$ are identity functions."
+    },
+    {
+     "type": "p",
+     "text": "Figure 5.70 shows the mapping $T(u,v)=(x,y)$ where $x$ and $y$ are related to $u$ and $v$ by the equations $x=g(u,v)$ and $y=h(u,v).$ The region $G$ is the domain of $T$ and the region $R$ is the range of $T,$ also known as the *image* of $G$ under the transformation $T.$"
+    }
+   ],
+   "title": "Planar Transformations (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 5.65",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose a transformation $T$ is defined as $T(r,\\theta )=(x,y)$ where $x=r\\,\\cos \\,\\theta ,y=r\\,\\sin \\,\\theta .$ Find the image of the polar rectangle $G=\\{(r,\\theta )|0<r\\le 1,0\\le \\theta \\le \\pi /2\\}$ in the $r\\theta \\text{-plane}$ to a region $R$ in the $xy\\text{-plane}.$ Show that $T$ is a one-to-one transformation in $G$ and find $T^{-1}(x,y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since $r$ varies from 0 to 1 in the $r\\theta \\text{-plane},$ we have a circular disc of radius 0 to 1 in the $xy\\text{-plane}.$ Because $\\theta$ varies from 0 to $\\pi /2$ in the $r\\theta \\text{-plane},$ we end up getting a quarter circle of radius $1$ in the first quadrant of the $xy\\text{-plane}$ (Figure 5.71). Hence $R$ is a quarter circle bounded by $x^{2}+y^{2}=1$ in the first quadrant."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_002.webp",
+      "alt": "On the left-hand side of this figure, there is a rectangle G with a marked subrectangle given in the first quadrant of the Cartesian r theta-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with x = r cos theta and y = r sin theta. On the right-hand side of this figure there is a quarter circle R with a marked subannulus (analogous to the rectangle in the other graph) given in the Cartesian x y-plane.",
+      "caption": "**Figure 5.71** A rectangle in the $r\\theta \\text{-plane}$ is mapped into a quarter circle in the $xy\\text{-plane}.$",
+      "width": 715,
+      "height": 276
+     },
+     {
+      "type": "p",
+      "text": "In order to show that $T$ is a one-to-one transformation, assume $T(r_{1},\\theta_{1})=T(r_{2},\\theta_{2})$ and show as a consequence that $(r_{1},\\theta_{1})=(r_{2},\\theta_{2}).$ In this case, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}T(r_{1},\\theta_{1}) & = & T(r_{2},\\theta_{2}), \\\\ (x_{1},y_{1}) & = & (x_{2},y_{2}), \\\\ (r_{1}\\cos \\,\\theta_{1},r_{1}\\sin \\,\\theta_{1}) & = & (r_{2}\\cos \\,\\theta_{2},r_{2}\\sin \\,\\theta_{2}), \\\\ r_{1}\\cos \\,\\theta_{1} & = & r_{2}\\cos \\,\\theta_{2} \\\\ r_{1}\\sin \\,\\theta_{1} & = & r_{2}\\sin \\,\\theta_{2}\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Dividing, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}\\frac{r_{1}\\cos \\,\\theta_{1}}{r_{1}\\sin \\,\\theta_{1}} & = & \\frac{r_{2}\\cos \\,\\theta_{2}}{r_{2}\\sin \\,\\theta_{2}} \\\\ \\frac{\\cos \\,\\theta_{1}}{\\sin \\,\\theta_{1}} & = & \\frac{\\cos \\,\\theta_{2}}{\\sin \\,\\theta_{2}} \\\\ \\cot \\,\\theta_{1} & = & \\cot \\,\\theta_{2} \\\\ \\theta_{1} & = & \\theta_{2}\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "since the cotangent function is one-one function in the interval $0\\le \\theta \\le \\pi /2.$ Also, since $0<r\\le 1,$ we have $r_{1}=r_{2},\\theta_{1}=\\theta_{2}.$ Therefore, $(r_{1},\\theta_{1})=(r_{2},\\theta_{2})$ and $T$ is a one-to-one transformation from $G$ into $R.$"
+     },
+     {
+      "type": "p",
+      "text": "To find $T^{-1}(x,y)$ solve for $r,\\theta$ in terms of $x,y.$ We already know that $r^{2}=x^{2}+y^{2}$ and $\\tan \\,\\theta =\\frac{y}{x}.$ Thus $T^{-1}(x,y)=(r,\\theta )$ is defined as $r=\\sqrt{x^{2}+y^{2}}$ and $\\theta =\\tan^{-1}\\left(\\frac{y}{x}\\right).$"
+     }
+    ]
+   },
+   "title": "Determining How the Transformation Works"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 5.66",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let the transformation $T$ be defined by $T(u,v)=(x,y)$ where $x=u^{2}-v^{2}$ and $y=uv.$ Find the image of the triangle in the $uv\\text{-plane}$ with vertices $(0,0),(0,1),$ and $(1,1).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The triangle and its image are shown in Figure 5.72. To understand how the sides of the triangle transform, call the side that joins $(0,0)$ and $(0,1)$ side $A,$ the side that joins $(0,0)$ and $(1,1)$ side $B,$ and the side that joins $(1,1)$ and $(0,1)$ side $C.$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_003.webp",
+      "alt": "On the left-hand side of this figure, there is a triangular region given in the Cartesian uv-plane with boundaries A, B, and C represented by the v axis, the line u = v, and the line v = 1, respectively. Then there is an arrow from this graph to the right-hand side of the figure marked with x = u squared minus v squared and y = u v. On the right-hand side of this figure there is a complex region given in the Cartesian x y-plane with boundaries A’, B’, and C’ given by the x axis, y axis, and a line curving from (negative 1, 0) through (0, 1), namely x = y squared minus 1, respectively.",
+      "caption": "**Figure 5.72** A triangular region in the $uv\\text{-plane}$ is transformed into an image in the $xy\\text{-plane}.$",
+      "width": 899,
+      "height": 348
+     },
+     {
+      "type": "p",
+      "text": "For the side $A:\\,u=0,0\\le v\\le 1$ transforms to $x=-v^{2},y=0$ so this is the side $A'$ that joins $(-1,0)$ and $(0,0).$"
+     },
+     {
+      "type": "p",
+      "text": "For the side $B:\\,u=v,0\\le u\\le 1$ transforms to $x=0,y=u^{2}$ so this is the side $B'$ that joins $(0,0)$ and $(0,1).$"
+     },
+     {
+      "type": "p",
+      "text": "For the side $C:\\,0\\le u\\le 1,v=1$ transforms to $x=u^{2}-1,y=u$ (hence $x=y^{2}-1)$ so this is the side $C'$ that makes the upper half of the parabolic arc joining $(-1,0)$ and $(0,1).$"
+     },
+     {
+      "type": "p",
+      "text": "All the points in the entire region of the triangle in the $uv\\text{-plane}$ are mapped inside the parabolic region in the $xy\\text{-plane}.$"
+     }
+    ]
+   },
+   "title": "Finding the Image under $T$"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.43",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let a transformation $T$ be defined as $T(u,v)=(x,y)$ where $x=u+v,y=3v.$ Find the image of the rectangle $G=\\{(u,v):\\,0\\le u\\le 1,0\\le v\\le 2\\}$ from the $uv\\text{-plane}$ after the transformation into a region $R$ in the $xy\\text{-plane}.$ Show that $T$ is a one-to-one transformation and find $T^{-1}(x,y).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T^{-1}(x,y)=(u,v)$ where $u=\\frac{3x-y}{3}$ and $v=\\frac{y}{3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps of Example 5.65."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall that we mentioned near the beginning of this section that each of the component functions must have continuous first partial derivatives, which means that $g_{u},g_{v},h_{u},$ and $h_{v}$ exist and are also continuous. A transformation that has this property is called a $C^{1}$ transformation (here $C$ denotes continuous). Let $T(u,v)=(g(u,v),h(u,v)),$ where $x=g(u,v)$ and $y=h(u,v),$ be a one-to-one $C^{1}$ transformation. We want to see how it transforms a small rectangular region $S,$ $\\text{Δ}u$ units by $\\text{Δ}v$ units, in the $uv\\text{-plane}$ (see the following figure)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_004.webp",
+     "alt": "On the left-hand side of this figure, there is a region S with lower right corner point (u sub 0, v sub 0), height Delta v, and length Delta u given in the Cartesian u v-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with T. On the right-hand side of this figure there is a region R with point (x sub 0, y sub 0) given in the Cartesian x y-plane with sides r(u, v sub 0) along the bottom and r(u sub 0, v) along the left.",
+     "caption": "**Figure 5.73** A small rectangle $S$ in the $uv\\text{-plane}$ is transformed into a region $R$ in the $xy\\text{-plane}.$",
+     "width": 765,
+     "height": 251
+    },
+    {
+     "type": "p",
+     "text": "Since $x=g(u,v)$ and $y=h(u,v),$ we have the position vector $r(u,v)=g(u,v)i+h(u,v)j$ of the image of the point $(u,v).$ Suppose that $(u_{0},v_{0})$ is the coordinate of the point at the lower left corner that mapped to $(x_{0},y_{0})=T(u_{0},v_{0}).$ The line $v=v_{0}$ maps to the image curve with vector function $\\text{r}(u,v_{0}),$ and the tangent vector at $(x_{0},y_{0})$ to the image curve is"
+    }
+   ],
+   "title": "Jacobians"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "r_{u}=g_{u}(u_{0},v_{0})i+h_{u}(u_{0},v_{0})j=\\frac{\\partial x}{\\partial u}i+\\frac{\\partial y}{\\partial u}j."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, the line $u=u_{0}$ maps to the image curve with vector function $r(u_{0},v),$ and the tangent vector at $(x_{0},y_{0})$ to the image curve is"
+    },
+    {
+     "type": "math",
+     "tex": "r_{v}=g_{v}(u_{0},v_{0})i+h_{v}(u_{0},v_{0})j=\\frac{\\partial x}{\\partial v}i+\\frac{\\partial y}{\\partial v}j."
+    },
+    {
+     "type": "p",
+     "text": "Now, note that"
+    },
+    {
+     "type": "math",
+     "tex": "r_{u}=\\lim_{\\text{Δ}u\\to 0}\\frac{r(u_{0}+\\text{Δ}u,v_{0})-r(u_{0},v_{0})}{\\text{Δ}u}\\,\\text{so}\\,r(u_{0}+\\text{Δ}u,v_{0})-r(u_{0},v_{0})\\approx \\text{Δ}ur_{u}."
+    },
+    {
+     "type": "p",
+     "text": "Similarly,"
+    },
+    {
+     "type": "math",
+     "tex": "r_{v}=\\lim_{\\text{Δ}v\\to 0}\\frac{r(u_{0},v_{0}+\\text{Δ}v)-r(u_{0},v_{0})}{\\text{Δ}v}\\,\\text{so}\\,r(u_{0},v_{0}+\\text{Δ}v)-r(u_{0},v_{0})\\approx \\text{Δ}vr_{v}."
+    },
+    {
+     "type": "p",
+     "text": "This allows us to estimate the area $\\text{Δ}A$ of the image $R$ by finding the area of the parallelogram formed by the sides $\\text{Δ}vr_{v}$ and $\\text{Δ}ur_{u}.$ By using the cross product of these two vectors by adding the **k** component as $0,$ the area $\\text{Δ}A$ of the image $R$ (refer to The Cross Product) is approximately $||\\text{Δ}{\\mathrm{ur}}_{u}\\,\\times \\,\\text{Δ}{\\mathrm{vr}}_{v}||=||r_{u}\\,\\times \\,r_{v}||\\text{Δ}u\\text{Δ}v.$ In determinant form, the cross product is"
+    }
+   ],
+   "title": "Jacobians (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "r_{u}\\,\\times \\,r_{v}=\\left|\\begin{array}{ccccc}i & & j & & k \\\\ \\frac{\\partial x}{\\partial u} & & \\frac{\\partial y}{\\partial u} & & 0 \\\\ \\frac{\\partial x}{\\partial v} & & \\frac{\\partial y}{\\partial v} & & 0\\end{array}\\right|=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial y}{\\partial u} \\\\ \\frac{\\partial x}{\\partial v} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|k=\\left(\\frac{\\partial x}{\\partial u}\\,\\frac{\\partial y}{\\partial v}-\\frac{\\partial x}{\\partial v}\\,\\frac{\\partial y}{\\partial u}\\right)k."
+    },
+    {
+     "type": "p",
+     "text": "Since $||k||=1,$ we have $\\text{Δ}A\\approx ||r_{u}\\,\\times \\,r_{v}||\\text{Δ}u\\text{Δ}v=\\left(\\frac{\\partial x}{\\partial u}\\,\\frac{\\partial y}{\\partial v}-\\frac{\\partial x}{\\partial v}\\,\\frac{\\partial y}{\\partial u}\\right)\\text{Δ}u\\text{Δ}v.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **Jacobian** of the $C^{1}$ transformation $T(u,v)=(g(u,v),h(u,v))$ is denoted by $J(u,v)$ and is defined by the $2\\,\\times \\,2$ determinant"
+      },
+      {
+       "type": "math",
+       "tex": "J(u,v)=\\left|\\frac{\\partial (x,y)}{\\partial (u,v)}\\right|=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial y}{\\partial u} \\\\ \\frac{\\partial x}{\\partial v} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|=\\left(\\frac{\\partial x}{\\partial u}\\,\\frac{\\partial y}{\\partial v}-\\frac{\\partial x}{\\partial v}\\,\\frac{\\partial y}{\\partial u}\\right)."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Using the definition, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{Δ}A\\approx J(u,v)\\text{Δ}u\\text{Δ}v=\\left|\\frac{\\partial (x,y)}{\\partial (u,v)}\\right|\\text{Δ}u\\text{Δ}v."
+    }
+   ],
+   "title": "Jacobians (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Note that the Jacobian is frequently denoted simply by"
+    },
+    {
+     "type": "math",
+     "tex": "J(u,v)=\\frac{\\partial (x,y)}{\\partial (u,v)}."
+    },
+    {
+     "type": "p",
+     "text": "Note also that"
+    },
+    {
+     "type": "math",
+     "tex": "\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial y}{\\partial u} \\\\ \\frac{\\partial x}{\\partial v} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|=\\left(\\frac{\\partial x}{\\partial u}\\,\\frac{\\partial y}{\\partial v}-\\frac{\\partial x}{\\partial v}\\,\\frac{\\partial y}{\\partial u}\\right)=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial x}{\\partial v} \\\\ \\frac{\\partial y}{\\partial u} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|."
+    },
+    {
+     "type": "p",
+     "text": "Hence the notation $J(u,v)=\\frac{\\partial (x,y)}{\\partial (u,v)}$ suggests that we can write the Jacobian determinant with partials of $x$ in the first row and partials of $y$ in the second row."
+    }
+   ],
+   "title": "Jacobians (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 5.67",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the Jacobian of the transformation given in Example 5.65."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The transformation in the example is $T(r,\\theta )=(r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta )$ where $x=r\\,\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta .$ Thus the Jacobian is"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}J(r,\\theta ) & =\\frac{\\partial (x,y)}{\\partial (r,\\theta )}=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial r} & & \\frac{\\partial x}{\\partial \\theta} \\\\ \\frac{\\partial y}{\\partial r} & & \\frac{\\partial y}{\\partial \\theta}\\end{array}\\right|=\\left|\\begin{array}{lll}\\cos \\,\\theta & & -r\\,\\sin \\,\\theta \\\\ \\sin \\,\\theta & & r\\,\\cos \\,\\theta\\end{array}\\right| \\\\ & =r\\,\\cos^{2}\\theta +r\\,\\sin^{2}\\theta =r(\\cos^{2}\\theta +\\sin^{2}\\theta )=r.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Jacobian"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 5.68",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the Jacobian of the transformation given in Example 5.66."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The transformation in the example is $T(u,v)=(u^{2}-v^{2},uv)$ where $x=u^{2}-v^{2}$ and $y=uv.$ Thus the Jacobian is"
+     },
+     {
+      "type": "math",
+      "tex": "J(u,v)=\\frac{\\partial (x,y)}{\\partial (u,v)}=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial x}{\\partial v} \\\\ \\frac{\\partial y}{\\partial u} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|=\\left|\\begin{array}{lll}2u & & v \\\\ -2v & & u\\end{array}\\right|=2u^{2}+2v^{2}."
+     }
+    ]
+   },
+   "title": "Finding the Jacobian"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.44",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the Jacobian of the transformation: $T(u,v)=(u+v,2v).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$J(u,v)=\\frac{\\partial (x,y)}{\\partial (u,v)}=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial x}{\\partial v} \\\\ \\frac{\\partial y}{\\partial u} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|=\\left|\\begin{array}{lll}1 & & 1 \\\\ 0 & & 2\\end{array}\\right|=2$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps in the previous two examples."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   }
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have already seen that, under the change of variables $T(u,v)=(x,y)$ where $x=g(u,v)$ and $y=h(u,v),$ a small region $\\text{Δ}A$ in the $xy\\text{-plane}$ is related to the area formed by the product $\\text{Δ}u\\text{Δ}v$ in the $uv\\text{-plane}$ by the approximation"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{Δ}A\\approx J(u,v)\\text{Δ}u,\\text{Δ}v."
+    },
+    {
+     "type": "p",
+     "text": "Now let’s go back to the definition of double integral for a minute:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{R}f(x,y)dA=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij},y_{ij})}}}\\text{Δ}A."
+    },
+    {
+     "type": "p",
+     "text": "Referring to Figure 5.74, observe that we divided the region $S$ in the $uv\\text{-plane}$ into small subrectangles $S_{ij}$ and we let the subrectangles $R_{ij}$ in the $xy\\text{-plane}$ be the images of $S_{ij}$ under the transformation $T(u,v)=(x,y).$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_005.webp",
+     "alt": "On the left-hand side of this figure, there is a rectangle S with an inscribed red oval and a subrectangle with lower right corner point (u sub ij, v sub ij), height Delta v, and length Delta u given in the Cartesian u v-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with T. On the right-hand side of this figure there is a region R with inscribed (deformed) red oval and a subrectangle R sub ij with corner point (x sub ij, y sub ij) given in the Cartesian x y-plane. The subrectangle is blown up and shown with vectors pointing along the edge from the corner point.",
+     "caption": "**Figure 5.74** The subrectangles $S_{ij}$ in the $uv\\text{-plane}$ transform into subrectangles $R_{ij}$ in the $xy\\text{-plane}.$",
+     "width": 765,
+     "height": 321
+    }
+   ],
+   "title": "Change of Variables for Double Integrals"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Then the double integral becomes"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{R}f(x,y)dA=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij},y_{ij})}}}\\text{Δ}A=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(g(u_{ij},v_{ij}),h(u_{ij},v_{ij}))}}|J(u_{ij},v_{ij})|\\text{Δ}u\\text{Δ}v."
+    },
+    {
+     "type": "p",
+     "text": "Notice this is exactly the double Riemann sum for the integral"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{S}f(g(u,v),h(u,v))}\\left|\\frac{\\partial (x,y)}{\\partial (u,v)}\\right|du\\,dv."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $T(u,v)=(x,y)$ where $x=g(u,v)$ and $y=h(u,v)$ be a one-to-one $C^{1}$ transformation, with a nonzero Jacobian on the interior of the region $S$ in the $uv\\text{-plane;}$ it maps $S$ into the region $R$ in the $xy\\text{-plane}.$ If $f$ is continuous on $R,$ then"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\iint_{R}f(x,y)}dA={\\displaystyle \\iint_{S}f(g(u,v),h(u,v))}\\left|\\frac{\\partial (x,y)}{\\partial (u,v)}\\right|du\\,dv."
+      }
+     ],
+     "title": "Change of Variables for Double Integrals"
+    },
+    {
+     "type": "p",
+     "text": "With this theorem for double integrals, we can change the variables from $(x,y)$ to $(u,v)$ in a double integral simply by replacing"
+    },
+    {
+     "type": "math",
+     "tex": "dA=dx\\,dy=\\left|\\frac{\\partial (x,y)}{\\partial (u,v)}\\right|du\\,dv"
+    },
+    {
+     "type": "p",
+     "text": "when we use the substitutions $x=g(u,v)$ and $y=h(u,v)$ and then change the limits of integration accordingly. This change of variables often makes any computations much simpler."
+    }
+   ],
+   "title": "Change of Variables for Double Integrals (continued)"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 5.69",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the integral"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{\\sqrt{2x-x^{2}}}\\sqrt{x^{2}+y^{2}}\\,dy\\,dx}}."
+    },
+    {
+     "type": "p",
+     "text": "Use the change of variables $x=r\\,\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta ,$ and find the resulting integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First we need to find the region of integration. This region is bounded below by $y=0$ and above by $y=\\sqrt{2x-x^{2}}$ (see the following figure)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_006.webp",
+      "alt": "A semicircle in the first quadrant of the xy plane with radius 1 and center (1, 0). The equation for this curve is given as y = the square root of (2x minus x squared)",
+      "caption": "**Figure 5.75** Changing a region from rectangular to polar coordinates.",
+      "width": 290,
+      "height": 234
+     },
+     {
+      "type": "p",
+      "text": "Squaring and collecting terms, we find that the region is the upper half of the circle $x^{2}+y^{2}-2x=0,$ that is, $y^{2}+(x-1)^{2}=1.$ In polar coordinates, the circle is $r=2\\,\\cos \\,\\theta$ so the region of integration in polar coordinates is bounded by $0\\le r\\le 2\\cos \\,\\theta$ and $0\\le \\theta \\le \\frac{\\pi}{2}.$"
+     },
+     {
+      "type": "p",
+      "text": "The Jacobian is $J(r,\\theta )=r,$ as shown in Example 5.67. Since $r\\ge 0,$ we have $|J(r,\\theta )|=r.$"
+     },
+     {
+      "type": "p",
+      "text": "The integrand $\\sqrt{x^{2}+y^{2}}$ changes to $r$ in polar coordinates, so the double iterated integral is"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{\\sqrt{2x-x^{2}}}\\sqrt{x^{2}+y^{2}}}}dy\\,dx={\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{2\\,\\cos \\,\\theta}r|J(r,\\theta )|}}dr\\,d\\theta ={\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{2\\,\\cos \\,\\theta}r^{2}}}dr\\,d\\theta ."
+     }
+    ]
+   },
+   "title": "Changing Variables from Rectangular to Polar Coordinates"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.45",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Considering the integral ${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{\\sqrt{1-x^{2}}}(x^{2}+y^{2})}}dy\\,dx,$ use the change of variables $x=r\\,\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta ,$ and find the resulting integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{1}r^{3}dr\\,d\\theta}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps in the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Notice in the next example that the region over which we are to integrate may suggest a suitable transformation for the integration. This is a common and important situation."
+    }
+   ],
+   "title": "Change of Variables for Double Integrals (continued)"
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 5.70",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the integral ${\\displaystyle \\iint_{R}(x-y)}dy\\,dx,$ where $R$ is the parallelogram joining the points $(1,2),$ $(3,4),(4,3),$ and $(6,5)$ (Figure 5.76). Make appropriate changes of variables, and write the resulting integral."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_007.webp",
+     "alt": "A parallelogram R with corners (1, 2), (3, 4), (6, 5), and (4, 3).",
+     "caption": "**Figure 5.76** The region of integration for the given integral.",
+     "width": 328,
+     "height": 272
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First, we need to understand the region over which we are to integrate. The sides of the parallelogram are $x-y+1=0,x-y-1=0,$ $x-3y+5=0,\\text{and}\\,x-3y+9=0$ (Figure 5.77). Another way to look at them is $x-y=-1,x-y=1,$ $x-3y=-5,$ and $x-3y=-9.$"
+     },
+     {
+      "type": "p",
+      "text": "Clearly the parallelogram is bounded by the lines $y=x+1,y=x-1,y=\\frac{1}{3}(x+5),$ and $y=\\frac{1}{3}(x+9).$"
+     },
+     {
+      "type": "p",
+      "text": "Notice that if we were to make $u=x-y$ and $v=x-3y,$ then the limits on the integral would be $-1\\le u\\le 1$ and $-9\\le v\\le -5.$"
+     },
+     {
+      "type": "p",
+      "text": "To solve for $x$ and $y,$ we multiply the first equation by $3$ and subtract the second equation, $3u-v=(3x-3y)-(x-3y)=2x.$ Then we have $x=\\frac{3u-v}{2}.$ Moreover, if we simply subtract the second equation from the first, we get $u-v=(x-y)-(x-3y)=2y$ and $y=\\frac{u-v}{2}.$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_008.webp",
+      "alt": "A parallelogram R with corners (1, 2), (3, 4), (6, 5), and (4, 3) formed by the lines y = x + 1, y = x minus 1, y = (x + 9)/3, and y = (x + 5)/3.",
+      "caption": "**Figure 5.77** A parallelogram in the $xy\\text{-plane}$ that we want to transform by a change in variables.",
+      "width": 652,
+      "height": 384
+     },
+     {
+      "type": "p",
+      "text": "Thus, we can choose the transformation"
+     },
+     {
+      "type": "math",
+      "tex": "T(u,v)=\\left(\\frac{3u-v}{2},\\frac{u-v}{2}\\right)"
+     },
+     {
+      "type": "p",
+      "text": "and compute the Jacobian $J(u,v).$ We have"
+     },
+     {
+      "type": "math",
+      "tex": "J(u,v)=\\frac{\\partial (x,y)}{\\partial (u,v)}=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial x}{\\partial v} \\\\ \\frac{\\partial y}{\\partial u} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|=\\left|\\begin{array}{lll}3/2 & & -1/2 \\\\ 1/2 & & -1/2\\end{array}\\right|=-\\frac{3}{4}+\\frac{1}{4}=-\\frac{1}{2}."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, $|J(u,v)|=\\frac{1}{2}.$ Also, the original integrand becomes"
+     },
+     {
+      "type": "math",
+      "tex": "x-y=\\frac{1}{2}[3u-v-u+v]=\\frac{1}{2}[3u-u]=\\frac{1}{2}[2u]=u."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, by the use of the transformation $T,$ the integral changes to"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\iint_{R}(x-y)dy\\,dx={\\displaystyle \\int_{-9}^{-5}\\,{\\displaystyle \\int_{-1}^{1}J(u,v)u\\,du\\,dv={\\displaystyle \\int_{-9}^{-5}\\,{\\displaystyle \\int_{-1}^{1}\\left(\\frac{1}{2}\\right)}}}}}u\\,du\\,dv,"
+     },
+     {
+      "type": "p",
+      "text": "which is much simpler to compute. In fact, it is easily found to be zero. And this is just one example of why we transform integrals like this."
+     }
+    ]
+   },
+   "title": "Changing Variables"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.46",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Make appropriate changes of variables in the integral ${\\displaystyle \\iint_{R}\\frac{4}{(x-y)^{2}}}dy\\,dx,$ where $R$ is the trapezoid bounded by the lines $x-y=2,x-y=4,x=0,\\text{and}\\,y=0.$ Write the resulting integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x=\\frac{1}{2}(v+u)$ and $y=\\frac{1}{2}(v-u)$ and ${\\displaystyle \\int_{2}^{4}\\,{\\displaystyle \\int_{\\mathrm{−u}}^{u}\\frac{4}{u^{2}}\\left(\\frac{1}{2}\\right)}}dv\\,du.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps in the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We are ready to give a problem-solving strategy for change of variables."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Sketch the region given by the problem in the $xy\\text{-plane}$ and then write the equations of the curves that form the boundary.",
+        "Depending on the region or the integrand, choose the transformations $x=g(u,v)$ and $y=h(u,v).$",
+        "Determine the new limits of integration in the $uv\\text{-plane}.$",
+        "Find the Jacobian $J(u,v).$",
+        "In the integrand, replace the variables to obtain the new integrand.",
+        "Replace $dy\\,dx$ or $dx\\,dy,$ whichever occurs, by $J(u,v)du\\,dv.$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Change of Variables"
+    },
+    {
+     "type": "p",
+     "text": "In the next example, we find a substitution that makes the integrand much simpler to compute."
+    }
+   ],
+   "title": "Change of Variables for Double Integrals (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 5.71",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Using the change of variables $u=x-y$ and $v=x+y,$ evaluate the integral"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iint_{R}(x-y)e^{x^{2}-y^{2}}dA},"
+    },
+    {
+     "type": "p",
+     "text": "where $R$ is the region bounded by the lines $x+y=1$ and $x+y=3$ and the curves $x^{2}-y^{2}=-1$ and $x^{2}-y^{2}=1$ (see the first region in Figure 5.78)."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "As before, first find the region $R$ and picture the transformation so it becomes easier to obtain the limits of integration after the transformations are made (Figure 5.78)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_009.webp",
+      "alt": "On the left-hand side of this figure, there is a complex region R in the Cartesian x y-plane bounded by x squared minus y squared = negative 1, x squared minus y squared = 1, x + y = 3, and x + y = 1. Then there is an arrow from this graph to the right-hand side of the figure marked with x = (u + v)/2 and y = (v minus u)/2. On the right-hand side of this figure there is a simpler region S in the Cartesian u v-plane bounded by u v = negative 1, u v = 1, v = 1, and v = 3.",
+      "caption": "**Figure 5.78** Transforming the region $R$ into the region $S$ to simplify the computation of an integral.",
+      "width": 796,
+      "height": 255
+     },
+     {
+      "type": "p",
+      "text": "Given $u=x-y$ and $v=x+y,$ we have $x=\\frac{u+v}{2}$ and $y=\\frac{v-u}{2}$ and hence the transformation to use is $T(u,v)=\\left(\\frac{u+v}{2},\\frac{v-u}{2}\\right).$ The lines $x+y=1$ and $x+y=3$ become $v=1$ and $v=3,$ respectively. The curves $x^{2}-y^{2}=1$ and $x^{2}-y^{2}=-1$ become $uv=1$ and $uv=-1,$ respectively."
+     },
+     {
+      "type": "p",
+      "text": "Thus we can describe the region $S$ (see the second region Figure 5.78) as"
+     },
+     {
+      "type": "math",
+      "tex": "S=\\left\\{(u,v)|1\\le v\\le 3,\\frac{-1}{v}\\le u\\le \\frac{1}{v}\\right\\}."
+     },
+     {
+      "type": "p",
+      "text": "The Jacobian for this transformation is"
+     },
+     {
+      "type": "math",
+      "tex": "J(u,v)=\\frac{\\partial (x,y)}{\\partial (u,v)}=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial x}{\\partial v} \\\\ \\frac{\\partial y}{\\partial u} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|=\\left|\\begin{array}{lll}1/2 & & -1/2 \\\\ 1/2 & & 1/2\\end{array}\\right|=\\frac{1}{2}."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, by using the transformation $T,$ the integral changes to"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\iint_{R}(x-y)}e^{x^{2}-y^{2}}dA=\\frac{1}{2}{\\displaystyle \\int_{1}^{3}\\,{\\displaystyle \\int_{-1/v}^{1/v}ue^{uv}du\\,dv}}."
+     },
+     {
+      "type": "p",
+      "text": "Doing the evaluation, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{1}{2}{\\displaystyle \\int_{1}^{3}\\,{\\displaystyle \\int_{-1/v}^{1/v}ue^{uv}du\\,dv}}=\\frac{2}{3e}\\approx 0.245."
+     }
+    ]
+   },
+   "title": "Evaluating an Integral"
+  },
+  {
+   "id": "c23",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Using the substitutions $x=v$ and $y=\\sqrt{u+v},$ evaluate the integral ${\\displaystyle \\iint_{R}y\\,\\sin (y^{2}-x)}dA$ where $R$ is the region bounded by the lines $y=\\sqrt{x},x=2,\\text{and}\\,y=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}(\\sin \\,2-2)$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Sketch a picture and find the limits of integration."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2)(sin 2-2)"
+   }
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Changing variables in triple integrals works in exactly the same way. Cylindrical and spherical coordinate substitutions are special cases of this method, which we demonstrate here."
+    },
+    {
+     "type": "p",
+     "text": "Suppose that $G$ is a region in $uvw\\text{-space}$ and is mapped to $D$ in $xyz\\text{-space}$ (Figure 5.79) by a one-to-one $C^{1}$ transformation $T(u,v,w)=(x,y,z)$ where $x=g(u,v,w),$ $y=h(u,v,w),$ and $z=k(u,v,w).$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_010.webp",
+     "alt": "On the left-hand side of this figure, there is a region G in u v w space. Then there is an arrow from this graph to the right-hand side of the figure marked with x = g(u, v, w), y = h(u, v, w), and z = k(u, v, w). On the right-hand side of this figure there is a region D in xyz space.",
+     "caption": "**Figure 5.79** A region $G$ in $uvw\\text{-space}$ mapped to a region $D$ in $xyz\\text{-space}.$",
+     "width": 900,
+     "height": 339
+    },
+    {
+     "type": "p",
+     "text": "Then any function $F(x,y,z)$ defined on $D$ can be thought of as another function $H(u,v,w)$ that is defined on $G:$"
+    },
+    {
+     "type": "math",
+     "tex": "F(x,y,z)=F(g(u,v,w),h(u,v,w),k(u,v,w))=H(u,v,w)."
+    },
+    {
+     "type": "p",
+     "text": "Now we need to define the Jacobian for three variables."
+    }
+   ],
+   "title": "Change of Variables for Triple Integrals"
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The Jacobian determinant $J(u,v,w)$ in three variables is defined as follows:"
+      },
+      {
+       "type": "math",
+       "tex": "J(u,v,w)=\\left|\\begin{array}{ccccc}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial y}{\\partial u} & & \\frac{\\partial z}{\\partial u} \\\\ \\frac{\\partial x}{\\partial v} & & \\frac{\\partial y}{\\partial v} & & \\frac{\\partial z}{\\partial v} \\\\ \\frac{\\partial x}{\\partial w} & & \\frac{\\partial y}{\\partial w} & & \\frac{\\partial z}{\\partial w}\\end{array}\\right|."
+      },
+      {
+       "type": "p",
+       "text": "This is also the same as"
+      },
+      {
+       "type": "math",
+       "tex": "J(u,v,w)=\\left|\\begin{array}{ccccc}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial x}{\\partial v} & & \\frac{\\partial x}{\\partial w} \\\\ \\frac{\\partial y}{\\partial u} & & \\frac{\\partial y}{\\partial v} & & \\frac{\\partial y}{\\partial w} \\\\ \\frac{\\partial z}{\\partial u} & & \\frac{\\partial z}{\\partial v} & & \\frac{\\partial z}{\\partial w}\\end{array}\\right|."
+      },
+      {
+       "type": "p",
+       "text": "The Jacobian can also be simply denoted as $\\frac{\\partial (x,y,z)}{\\partial (u,v,w)}.$"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "With the transformations and the Jacobian for three variables, we are ready to establish the theorem that describes change of variables for triple integrals."
+    }
+   ],
+   "title": "Change of Variables for Triple Integrals (continued)"
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $T(u,v,w)=(x,y,z)$ where $x=g(u,v,w),y=h(u,v,w),$ and $z=k(u,v,w),$ be a one-to-one $C^{1}$ transformation, with a nonzero Jacobian, that maps the region $G$ in the $uvw\\text{-space}$ into the region $R$ in the $xyz\\text{-space}.$ As in the two-dimensional case, if $F$ is continuous on $R,$ then"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{cc}{\\displaystyle \\iiint_{R}F(x,y,z)dV} & ={\\displaystyle \\iiint_{G}F(g(u,v,w),h(u,v,w),k(u,v,w))\\left|\\frac{\\partial (x,y,z)}{\\partial (u,v,w)}\\right|}du\\,dv\\,dw \\\\ & ={\\displaystyle \\iiint_{G}H(u,v,w)}|J(u,v,w)|du\\,dv\\,dw.\\end{array}"
+      }
+     ],
+     "title": "Change of Variables for Triple Integrals"
+    },
+    {
+     "type": "p",
+     "text": "Let us now see how changes in triple integrals for cylindrical and spherical coordinates are affected by this theorem. We expect to obtain the same formulas as in Triple Integrals in Cylindrical and Spherical Coordinates."
+    }
+   ],
+   "title": "Change of Variables for Triple Integrals (continued)"
+  },
+  {
+   "id": "x27",
+   "kind": "example",
+   "label": "Example 5.72",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Derive the formula in triple integrals for"
+    },
+    {
+     "type": "list",
+     "items": [
+      "cylindrical and",
+      "spherical coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "For cylindrical coordinates, the transformation is $T(r,\\theta ,z)=(x,y,z)$ from the Cartesian $r\\theta z\\text{-plane}$ to the Cartesian $xyz\\text{-plane}$ (Figure 5.80). Here $x=r\\,\\cos \\,\\theta ,$ $y=r\\,\\sin \\,\\theta ,$ and $z=z.$ The Jacobian for the transformation is"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}J(r,\\theta ,z) & =\\frac{\\partial (x,y,z)}{\\partial (r,\\theta ,z)}=\\left|\\begin{array}{lllll}\\frac{\\partial x}{\\partial r} & & \\frac{\\partial x}{\\partial \\theta} & & \\frac{\\partial x}{\\partial z} \\\\ \\frac{\\partial y}{\\partial r} & & \\frac{\\partial y}{\\partial \\theta} & & \\frac{\\partial y}{\\partial z} \\\\ \\frac{\\partial z}{\\partial r} & & \\frac{\\partial z}{\\partial \\theta} & & \\frac{\\partial z}{\\partial z}\\end{array}\\right| \\\\ & =\\left|\\begin{array}{lllll}\\cos \\,\\theta & & -r\\,\\sin \\,\\theta & & 0 \\\\ \\sin \\,\\theta & & r\\,\\cos \\,\\theta & & 0 \\\\ 0 & & 0 & & 1\\end{array}\\right|=r\\,\\cos^{2}\\theta +r\\,\\sin^{2}\\theta =r(\\cos^{2}\\theta +\\sin^{2}\\theta )=r.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "We know that $r\\ge 0,$ so $|J(r,\\theta ,z)|=r.$ Then the triple integral is"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\iiint_{D}f(x,y,z)dV={\\displaystyle \\iiint_{G}f(r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta ,z)}}r\\,dr\\,d\\theta \\,dz."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_15_07_011.webp",
+         "alt": "On the left-hand side of this figure, there is a cube G with sides parallel to the coordinate axes in cylindrical coordinate space. Then there is an arrow from this graph to the right-hand side of the figure marked with x = r cos theta, y = r sin theta, and z = z. On the right-hand side of this figure there is a region D in x y z space that is a thick annulus. The top is labeled z = constant, the flat vertical side is labeled theta = constant, and the outermost side is labeled r = constant.",
+         "caption": "**Figure 5.80** The transformation from rectangular coordinates to cylindrical coordinates can be treated as a change of variables from region $G$ in $r\\theta z\\text{-space}$ to region $D$ in $xyz\\text{-space}.$",
+         "width": 898,
+         "height": 391
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "For spherical coordinates, the transformation is $T(\\rho ,\\theta ,\\varphi )=(x,y,z)$ from the Cartesian $p\\theta \\varphi \\text{-plane}$ to the Cartesian $xyz\\text{-plane}$ (Figure 5.81). Here $x=\\rho \\,\\sin \\,\\varphi \\,\\cos \\,\\theta ,$ $y=\\rho \\,\\sin \\,\\varphi \\,\\sin \\,\\theta ,$ and $z=\\rho \\,\\cos \\,\\varphi .$ The Jacobian for the transformation is"
+        },
+        {
+         "type": "math",
+         "tex": "J(\\rho ,\\theta ,\\varphi )=\\frac{\\partial (x,y,z)}{\\partial (\\rho ,\\theta ,\\varphi )}=\\left|\\begin{array}{lllll}\\frac{\\partial x}{\\partial \\rho} & & \\frac{\\partial x}{\\partial \\theta} & & \\frac{\\partial x}{\\partial \\varphi} \\\\ \\frac{\\partial y}{\\partial \\rho} & & \\frac{\\partial y}{\\partial \\theta} & & \\frac{\\partial y}{\\partial \\varphi} \\\\ \\frac{\\partial z}{\\partial \\rho} & & \\frac{\\partial z}{\\partial \\theta} & & \\frac{\\partial z}{\\partial \\varphi}\\end{array}\\right|=\\left|\\begin{array}{lllll}\\sin \\,\\varphi \\,\\cos \\,\\theta & & \\rho \\,\\sin \\,\\varphi \\,\\sin \\,\\theta & & \\rho \\,\\cos \\,\\varphi \\,\\cos \\,\\theta \\\\ \\sin \\,\\varphi \\,\\sin \\,\\theta & & \\rho \\,\\sin \\,\\varphi \\,\\cos \\,\\theta & & \\rho \\,\\cos \\,\\varphi \\,\\sin \\,\\theta \\\\ \\cos \\,\\phi & & 0 & & -\\rho \\,\\sin \\,\\varphi\\end{array}\\right|."
+        },
+        {
+         "type": "p",
+         "text": "Expanding the determinant with respect to the third row:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c} \\\\ \\\\ =\\cos \\,\\varphi \\left|\\begin{array}{lll}-\\rho \\,\\sin \\,\\varphi \\,\\sin \\,\\theta & & \\rho \\,\\cos \\,\\varphi \\,\\cos \\,\\theta \\\\ \\rho \\,\\sin \\,\\varphi \\,\\sin \\,\\theta & & \\rho \\,\\cos \\,\\varphi \\,\\sin \\,\\theta\\end{array}\\right|-\\rho \\,\\sin \\,\\varphi \\left|\\begin{array}{lll}\\sin \\,\\varphi \\,\\cos \\,\\theta & & -\\rho \\,\\sin \\,\\varphi \\,\\sin \\,\\theta \\\\ \\sin \\,\\varphi \\,\\sin \\,\\theta & & \\rho \\,\\sin \\,\\varphi \\,\\cos \\,\\theta\\end{array}\\right| \\\\ =\\cos \\,\\varphi (-\\rho^{2}\\sin \\,\\varphi \\,\\cos \\,\\varphi \\,\\sin^{2}\\theta -\\rho^{2}\\sin \\,\\varphi \\,\\cos \\,\\varphi \\,\\cos^{2}\\theta ) \\\\ \\quad -\\rho \\,\\sin \\,\\varphi (\\rho \\,\\sin^{2}\\varphi \\,\\cos^{2}\\theta +\\rho \\,\\sin^{2}\\varphi \\,\\sin^{2}\\theta ) \\\\ =-\\rho^{2}\\sin \\,\\varphi \\,\\cos^{2}\\varphi (\\sin^{2}\\theta +\\cos^{2}\\theta )-\\rho^{2}\\sin \\,\\varphi \\,\\sin^{2}\\varphi (\\sin^{2}\\theta +\\cos^{2}\\theta ) \\\\ =-\\rho^{2}\\sin \\,\\varphi \\,\\cos^{2}\\varphi -\\rho^{2}\\sin \\,\\varphi \\,\\sin^{2}\\varphi \\\\ =-\\rho^{2}\\sin \\,\\varphi (\\cos^{2}\\varphi +\\sin^{2}\\varphi )=-\\rho^{2}\\sin \\,\\varphi .\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Since $0\\le \\varphi \\le \\pi ,$ we must have $\\sin \\,\\varphi \\ge 0.$ Thus $|J(\\rho ,\\theta ,\\varphi )|=|-\\rho^{2}\\sin \\,\\varphi |=\\rho^{2}\\sin \\,\\varphi .$"
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_15_07_012.webp",
+         "alt": "On the left-hand side of this figure, there is a cube G with sides parallel to the coordinate axes in rho phi theta space. Then there is an arrow from this graph to the right-hand side of the figure marked with x = rho sin phi cos theta, y = rho sin phi sin theta, and z = rho cos phi. On the right-hand side of this figure there is a region D in xyz space that is a thick annulus and has the point (x, y, z) shown as being equal to (rho, phi, theta). The top is labeled phi = constant, the flat vertical side is labeled theta = constant, and the outermost side is labeled rho = constant.",
+         "caption": "**Figure 5.81** The transformation from rectangular coordinates to spherical coordinates can be treated as a change of variables from region $G$ in $\\rho \\theta \\varphi \\text{-space}$ to region $D$ in $xyz\\text{-space}.$",
+         "width": 895,
+         "height": 391
+        },
+        {
+         "type": "p",
+         "text": "Then the triple integral becomes"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\iiint_{D}f(x,y,z)}dV={\\displaystyle \\iiint_{G}f(\\rho \\,\\sin \\,\\varphi \\,\\cos \\,\\theta ,\\rho \\,\\sin \\,\\varphi \\,\\sin \\,\\theta ,\\rho \\,\\cos \\,\\varphi )}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta ."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Obtaining Formulas in Triple Integrals for Cylindrical and Spherical Coordinates"
+  },
+  {
+   "id": "r28",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let’s try another example with a different substitution."
+    }
+   ],
+   "title": "Change of Variables for Triple Integrals (continued)"
+  },
+  {
+   "id": "x29",
+   "kind": "example",
+   "label": "Example 5.73",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the triple integral"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{0}^{3}\\,{\\displaystyle \\int_{0}^{4}\\,{\\displaystyle \\int_{y/2}^{(y/2)+1}\\left(x+\\frac{z}{3}\\right)}}}dx\\,dy\\,dz"
+    },
+    {
+     "type": "p",
+     "text": "in $xyz\\text{-space}$ by using the transformation"
+    },
+    {
+     "type": "math",
+     "tex": "u=(2x-y)/2,v=y/2,\\text{and}\\,w=z/3."
+    },
+    {
+     "type": "p",
+     "text": "Then integrate over an appropriate region in $uvw\\text{-space}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "As before, some kind of sketch of the region $G$ in $xyz\\text{-space}$ over which we have to perform the integration can help identify the region $D$ in $uvw\\text{-space}$ (Figure 5.82). Clearly $G$ in $xyz\\text{-space}$ is bounded by the planes $x=y/2,x=(y/2)+1,y=0,$ $y=4,$ $z=0,\\text{and}\\,z=4.$ We also know that we have to use $u=(2x-y)/2,v=y/2,\\text{and}\\,w=z/3$ for the transformations. We need to solve for $x,y,\\text{and}\\,z.$ Here we find that $x=u+v,$ $y=2v,$ and $z=3w.$"
+     },
+     {
+      "type": "p",
+      "text": "Using elementary algebra, we can find the corresponding surfaces for the region $G$ and the limits of integration in $uvw\\text{-space}.$ It is convenient to list these equations in a table."
+     },
+     {
+      "type": "table",
+      "rows": [
+       [
+        "$x=y/2$",
+        "$u+v=2v/2=v$",
+        "$u=0$"
+       ],
+       [
+        "$x=y/2$",
+        "$u+v=(2v/2)+1=v+1$",
+        "$u=1$"
+       ],
+       [
+        "$y=0$",
+        "$2v=0$",
+        "$v=0$"
+       ],
+       [
+        "$y=4$",
+        "$2v=4$",
+        "$v=2$"
+       ],
+       [
+        "$z=0$",
+        "$3w=0$",
+        "$w=0$"
+       ],
+       [
+        "$z=3$",
+        "$3w=3$",
+        "$w=1$"
+       ]
+      ],
+      "header": [
+       "Equations in $xyz$ for the region $D$",
+       "Corresponding equations in $uvw$ for the region $G$",
+       "Limits for the integration in $uvw$"
+      ]
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_013.webp",
+      "alt": "On the left-hand side of this figure, there is a box G with sides 1, 2, and 1 along the u, v, and w axes, respectively. Then there is an arrow from this graph to the right-hand side of the figure marked with x = u + v, y = 2v, and z = 3w. On the right-hand side of this figure there is a region D in xyz space that is a rotated box with sides 1, 4, and 3 along the x, y, and z axes. The rear plane is marked x = y/2 or y = 2x. The front plane is marked x = y/2 + 1 or y = 2x minus 2.",
+      "caption": "**Figure 5.82** The region $G$ in $uvw\\text{-space}$ is transformed to region $D$ in $xyz\\text{-space}.$",
+      "width": 894,
+      "height": 435
+     },
+     {
+      "type": "p",
+      "text": "Now we can calculate the Jacobian for the transformation:"
+     },
+     {
+      "type": "math",
+      "tex": "J(u,v,w)=\\left|\\begin{array}{ccccc}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial x}{\\partial v} & & \\frac{\\partial x}{\\partial w} \\\\ \\frac{\\partial y}{\\partial u} & & \\frac{\\partial y}{\\partial v} & & \\frac{\\partial y}{\\partial w} \\\\ \\frac{\\partial z}{\\partial u} & & \\frac{\\partial z}{\\partial v} & & \\frac{\\partial z}{\\partial w}\\end{array}\\right|=\\left|\\begin{array}{ccccc}1 & & 1 & & 0 \\\\ 0 & & 2 & & 0 \\\\ 0 & & 0 & & 3\\end{array}\\right|=6."
+     },
+     {
+      "type": "p",
+      "text": "The function to be integrated becomes"
+     },
+     {
+      "type": "math",
+      "tex": "f(x,y,z)=x+\\frac{z}{3}=u+v+\\frac{3w}{3}=u+v+w."
+     },
+     {
+      "type": "p",
+      "text": "We are now ready to put everything together and complete the problem."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ \\\\ \\quad {\\displaystyle \\int_{0}^{3}\\,{\\displaystyle \\int_{0}^{4}\\,{\\displaystyle \\int_{y/2}^{(y/2)+1}\\left(x+\\frac{z}{3}\\right)}}}dx\\,dy\\,dz \\\\ \\\\ ={\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{1}(u+v+w)}}}|J(u,v,w)|du\\,dv\\,dw={\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{1}(u+v+w)}}}|6|du\\,dv\\,dw \\\\ =6{\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{1}(u+v+w)}}}du\\,dv\\,dw=6{\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{2}\\left[\\frac{u^{2}}{2}+vu+wu\\right]}}_{0}^{1}dv\\,dw \\\\ =6{\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{2}\\left(\\frac{1}{2}+v+w\\right)}}dv\\,dw=6{\\displaystyle \\int_{0}^{1}\\left[\\frac{1}{2}v+\\frac{v^{2}}{2}+wv\\right]}_{0}^{2}dw \\\\ =6{\\displaystyle \\int_{0}^{1}(3+2w)}dw=6[3w+w^{2}]_{0}^{1}=24.\\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating a Triple Integral with a Change of Variables"
+  },
+  {
+   "id": "c30",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.48",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $D$ be the region in $xyz\\text{-space}$ defined by $1\\le x\\le 2,0\\le xy\\le 2,\\text{and}\\,0\\le z\\le 1.$"
+    },
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\iiint_{D}(x^{2}y+3xyz)}dx\\,dy\\,dz$ by using the transformation $u=x,v=xy,$ and $w=3z.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{3}\\,{\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{1}^{2}\\left(\\frac{v}{3}+\\frac{vw}{3u}\\right)}}}du\\,dv\\,dw=2+\\ln \\,8$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Make a table for each surface of the regions and decide on the limits, as shown in the example."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2+ ln 8"
+   }
+  },
+  {
+   "id": "r31",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "A transformation $T$ is a function that transforms a region $G$ in one plane (space) into a region $R$ in another plane (space) by a change of variables.",
+      "A transformation $T:G\\to R$ defined as $T(u,v)=(x,y)$ $(\\text{or}\\,T(u,v,w)=(x,y,z))$ is said to be a one-to-one transformation if no two points map to the same image point.",
+      "If $f$ is continuous on $R,$ then ${\\displaystyle \\iint_{R}f(x,y)}dA={\\displaystyle \\iint_{S}f(g(u,v),h(u,v))}\\left|\\frac{\\partial (x,y)}{\\partial (u,v)}\\right|du\\,dv.$",
+      [
+       {
+        "type": "p",
+        "text": "If $F$ is continuous on $R,$ then"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}{\\displaystyle \\iiint_{R}F(x,y,z)}dV & ={\\displaystyle \\iiint_{G}F(g(u,v,w),h(u,v,w),k(u,v,w))}\\left|\\frac{\\partial (x,y,z)}{\\partial (u,v,w)}\\right|du\\,dv\\,dw \\\\ & ={\\displaystyle \\iiint_{G}H(u,v,w)}|J(u,v,w)|du\\,dv\\,dw.\\end{array}"
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e356",
+   "number": 356,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=2u,y=3v$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793376177",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $T:S\\to R,T(u,v)=(x,y)$ on the region $S=\\{(u,v)|0\\le u\\le 1,0\\le v\\le 1\\}$ bounded by the unit square is given, where $R\\subset {\\mathbb{R}}^{2}$ is the image of $S$ under $T.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Justify that the function $T$ is a $C^{1}$ transformation.",
+      "Find the images of the vertices of the unit square $S$ through the function $T.$",
+      "Determine the image $R$ of the unit square $S$ and graph it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e357",
+   "number": 357,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=\\frac{u}{2},y=\\frac{v}{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793641960",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $T:S\\to R,T(u,v)=(x,y)$ on the region $S=\\{(u,v)|0\\le u\\le 1,0\\le v\\le 1\\}$ bounded by the unit square is given, where $R\\subset {\\mathbb{R}}^{2}$ is the image of $S$ under $T.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Justify that the function $T$ is a $C^{1}$ transformation.",
+      "Find the images of the vertices of the unit square $S$ through the function $T.$",
+      "Determine the image $R$ of the unit square $S$ and graph it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $T(u,v)=(g(u,v),h(u,v)),x=g(u,v)=\\frac{u}{2}$ and $y=h(u,v)=\\frac{v}{3}.$ The functions $g$ and $h$ are continuous and differentiable, and the partial derivatives $g_{u}(u,v)=\\frac{1}{2},$ $g_{v}(u,v)=0,h_{u}(u,v)=0\\,\\text{and}\\,h_{v}(u,v)=\\frac{1}{3}$ are continuous on $S;$ b. $T(0,0)=(0,0),$ $T(1,0)=\\left(\\frac{1}{2},0\\right),T(0,1)=\\left(0,\\frac{1}{3}\\right),$ and $T(1,1)=\\left(\\frac{1}{2},\\frac{1}{3}\\right);$ c. $R$ is the rectangle of vertices $(0,0),\\left(\\frac{1}{2},0\\right),\\left(\\frac{1}{2},\\frac{1}{3}\\right),\\text{and}\\,\\left(0,\\frac{1}{3}\\right)$ in the $xy\\text{-plane;}$ the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_202.webp",
+      "alt": "A rectangle with one corner at the origin, horizontal length 0.5, and vertical height 0.34.",
+      "width": 432,
+      "height": 353
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e358",
+   "number": 358,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u-v,y=u+v$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793479287",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $T:S\\to R,T(u,v)=(x,y)$ on the region $S=\\{(u,v)|0\\le u\\le 1,0\\le v\\le 1\\}$ bounded by the unit square is given, where $R\\subset {\\mathbb{R}}^{2}$ is the image of $S$ under $T.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Justify that the function $T$ is a $C^{1}$ transformation.",
+      "Find the images of the vertices of the unit square $S$ through the function $T.$",
+      "Determine the image $R$ of the unit square $S$ and graph it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e359",
+   "number": 359,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=2u-v,y=u+2v$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793499037",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $T:S\\to R,T(u,v)=(x,y)$ on the region $S=\\{(u,v)|0\\le u\\le 1,0\\le v\\le 1\\}$ bounded by the unit square is given, where $R\\subset {\\mathbb{R}}^{2}$ is the image of $S$ under $T.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Justify that the function $T$ is a $C^{1}$ transformation.",
+      "Find the images of the vertices of the unit square $S$ through the function $T.$",
+      "Determine the image $R$ of the unit square $S$ and graph it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $T(u,v)=(g(u,v),h(u,v)),x=g(u,v)=2u-v,$ and $y=h(u,v)=u+2v.$ The functions $g$ and $h$ are continuous and differentiable, and the partial derivatives $g_{u}(u,v)=2,$ $g_{v}(u,v)=-1,$ $h_{u}(u,v)=1,$ and $h_{v}(u,v)=2$ are continuous on $S;$ b. $T(0,0)=(0,0),$ $T(1,0)=(2,1),$ $T(0,1)=(-1,2),$ and $T(1,1)=(1,3);$ c. $R$ is the sqaure of vertices $(0,0),(2,1),(1,3),\\text{and}\\,(-1,2)$ in the $xy\\text{-plane;}$ see the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_204.webp",
+      "alt": "A square of side length square root of 5 with one corner at the origin and another at (2, 1).",
+      "width": 342,
+      "height": 278
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e360",
+   "number": 360,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u^{2},y=v^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793626899",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $T:S\\to R,T(u,v)=(x,y)$ on the region $S=\\{(u,v)|0\\le u\\le 1,0\\le v\\le 1\\}$ bounded by the unit square is given, where $R\\subset {\\mathbb{R}}^{2}$ is the image of $S$ under $T.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Justify that the function $T$ is a $C^{1}$ transformation.",
+      "Find the images of the vertices of the unit square $S$ through the function $T.$",
+      "Determine the image $R$ of the unit square $S$ and graph it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e361",
+   "number": 361,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u^{3},y=v^{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793221652",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $T:S\\to R,T(u,v)=(x,y)$ on the region $S=\\{(u,v)|0\\le u\\le 1,0\\le v\\le 1\\}$ bounded by the unit square is given, where $R\\subset {\\mathbb{R}}^{2}$ is the image of $S$ under $T.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Justify that the function $T$ is a $C^{1}$ transformation.",
+      "Find the images of the vertices of the unit square $S$ through the function $T.$",
+      "Determine the image $R$ of the unit square $S$ and graph it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $T(u,v)=(g(u,v),h(u,v)),x=g(u,v)=u^{3},$ and $y=h(u,v)=v^{3}.$ The functions $g$ and $h$ are continuous and differentiable, and the partial derivatives $g_{u}(u,v)=3u^{2},$ $g_{v}(u,v)=0,$ $h_{u}(u,v)=0,$ and $h_{v}(u,v)=3v^{2}$ are continuous on $S;$ b. $T(0,0)=(0,0),$ $T(1,0)=(1,0),$ $T(0,1)=(0,1),$ and $T(1,1)=(1,1);$ c. $R$ is the unit square in the $xy\\text{-plane;}$ see the following figure."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_205.webp",
+      "alt": "A Cartesian coordinate graph with axes ranging from 0 to 1 on both x (horizontal) and y (vertical) axes, displaying an empty plot area with no data or functions presented.",
+      "width": 427,
+      "height": 428
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e362",
+   "number": 362,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u^{2},y=v^{2},\\text{where}\\,S$ is the rectangle of vertices $(-1,0),(1,0),(1,1),\\text{and}\\,(-1,1).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929658",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, determine whether the transformations $T:S\\to R$ are one-to-one or not."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e363",
+   "number": 363,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u^{4},y=u^{2}+v,\\text{where}\\,S$ is the triangle of vertices $(-2,0),(2,0),\\text{and}\\,(0,2).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793959325",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, determine whether the transformations $T:S\\to R$ are one-to-one or not."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T$ is not one-to-one: two points of $S$ have the same image. Indeed, $T(-2,0)=T(2,0)=(16,4).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e364",
+   "number": 364,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=2u,y=3v,\\text{where}\\,S$ is the square of vertices $(-1,1),(-1,-1),(1,-1),\\text{and}\\,(1,1).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793500466",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, determine whether the transformations $T:S\\to R$ are one-to-one or not."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e365",
+   "number": 365,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$T(u,v)=(2u-v,u),$ where $S$ is the triangle of vertices $(-1,1),(-1,-1),\\text{and}\\,(1,-1).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793952112",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, determine whether the transformations $T:S\\to R$ are one-to-one or not."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T$ is one-to-one: We argue by contradiction. $T(u_{1},v_{1})=T(u_{2},v_{2})$ implies $2u_{1}-v_{1}=2u_{2}-v_{2}$ and $u_{1}=u_{2}.$ Thus, $u_{1}=u_{2}$ and $v_{1}=v_{2}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e366",
+   "number": 366,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u+v+w,y=u+v,z=w,$ where $S=R={\\mathbb{R}}^{3}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793911904",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, determine whether the transformations $T:S\\to R$ are one-to-one or not."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e367",
+   "number": 367,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u^{2}+v+w,y=u^{2}+v,z=w,$ where $S=R={\\mathbb{R}}^{3}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793221738",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, determine whether the transformations $T:S\\to R$ are one-to-one or not."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T$ is not one-to-one: $T(1,v,w)=(-1,v,w)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e368",
+   "number": 368,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=4u,y=5v,$ where $S=R={\\mathbb{R}}^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793957821",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformations $T:S\\to R$ are one-to-one. Find their related inverse transformations $T^{-1}:R\\to S.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e369",
+   "number": 369,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u+2v,y=-u+v,$ where $S=R={\\mathbb{R}}^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793547357",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformations $T:S\\to R$ are one-to-one. Find their related inverse transformations $T^{-1}:R\\to S.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=\\frac{x-2y}{3},v=\\frac{x+y}{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"u=((x-2 y)/3), v=((x+y)/3)\""
+  },
+  {
+   "id": "e370",
+   "number": 370,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=e^{2u+v},y=e^{u-v},$ where $S={\\mathbb{R}}^{2}$ and $R=\\{(x,y)|x>0,y>0\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793939825",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformations $T:S\\to R$ are one-to-one. Find their related inverse transformations $T^{-1}:R\\to S.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e371",
+   "number": 371,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=\\ln \\,u,y=\\ln (uv),$ where $S=\\{(u,v)|u>0,v>0\\}$ and $R={\\mathbb{R}}^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222519",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformations $T:S\\to R$ are one-to-one. Find their related inverse transformations $T^{-1}:R\\to S.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=e^{x},v=e^{-x+y}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"u=e^x, v=e^(-x+y)\""
+  },
+  {
+   "id": "e372",
+   "number": 372,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u+v+w,y=3v,z=2w,$ where $S=R={\\mathbb{R}}^{3}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793478889",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformations $T:S\\to R$ are one-to-one. Find their related inverse transformations $T^{-1}:R\\to S.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e373",
+   "number": 373,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u+v,y=v+w,z=u+w,$ where $S=R={\\mathbb{R}}^{3}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793569298",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformations $T:S\\to R$ are one-to-one. Find their related inverse transformations $T^{-1}:R\\to S.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$u=\\frac{x-y+z}{2},v=\\frac{x+y-z}{2},w=\\frac{-x+y+z}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"u=((x-y+z)/2), v=((x+y-z)/2), w=((-x+y+z)/2)\""
+  },
+  {
+   "id": "e374",
+   "number": 374,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=au,y=bv,R=\\{(x,y)|x^{2}+y^{2}\\le a^{2}b^{2}\\},$ where $a,b>0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793375440",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformation $T:S\\to R,T(u,v)=(x,y)$ and the region $R\\subset {\\mathbb{R}}^{2}$ are given. Find the region $S\\subset {\\mathbb{R}}^{2}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e375",
+   "number": 375,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=au,y=bv,R=\\left\\{(x,y)|\\frac{x^{2}}{a^{2}}+\\frac{y^{2}}{b^{2}}\\le 1\\right\\},$ where $a,b>0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793383430",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformation $T:S\\to R,T(u,v)=(x,y)$ and the region $R\\subset {\\mathbb{R}}^{2}$ are given. Find the region $S\\subset {\\mathbb{R}}^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$S=\\{(u,v)|u^{2}+v^{2}\\le 1\\}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"S={(u, v)|u^2+v^2<=1}\""
+  },
+  {
+   "id": "e376",
+   "number": 376,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=\\frac{u}{a},y=\\frac{v}{b},z=\\frac{w}{c},$ $R=\\{(x,y)|x^{2}+y^{2}+z^{2}\\le 1\\},$ where $a,b,c>0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793593486",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformation $T:S\\to R,T(u,v)=(x,y)$ and the region $R\\subset {\\mathbb{R}}^{2}$ are given. Find the region $S\\subset {\\mathbb{R}}^{2}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e377",
+   "number": 377,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=au,y=bv,z=cw,R=\\left\\{(x,y)|\\frac{x^{2}}{a^{2}}-\\frac{y^{2}}{b^{2}}-\\frac{z^{2}}{c^{2}}\\le 1,z>0\\right\\},$ where $a,b,c>0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793395450",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the transformation $T:S\\to R,T(u,v)=(x,y)$ and the region $R\\subset {\\mathbb{R}}^{2}$ are given. Find the region $S\\subset {\\mathbb{R}}^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$R=\\{(u,v,w)|u^{2}-v^{2}-w^{2}\\le 1,w>0\\}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"R={(u, v, w)|u^2-v^2-w^2<=1, w>0}\""
+  },
+  {
+   "id": "e378",
+   "number": 378,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u+2v,y=-u+v$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794171549",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e379",
+   "number": 379,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=\\frac{u^{3}}{2},y=\\frac{v}{u^{2}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794210484",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{3}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(3/2)"
+   }
+  },
+  {
+   "id": "e380",
+   "number": 380,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=e^{2u-v},y=e^{u+v}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794210538",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e381",
+   "number": 381,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=ue^{v},y=e^{-v}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793943788",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   }
+  },
+  {
+   "id": "e382",
+   "number": 382,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u\\,\\cos (e^{v}),y=u\\,\\sin (e^{v})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794324495",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e383",
+   "number": 383,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=v\\,\\sin (u^{2}),y=v\\,\\cos (u^{2})$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793571528",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2uv$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 u v"
+   }
+  },
+  {
+   "id": "e384",
+   "number": 384,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u\\,\\cosh \\,v,y=u\\,\\sinh \\,v,z=w$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793571595",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e385",
+   "number": 385,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=v\\,\\cosh \\left(\\frac{1}{u}\\right),y=v\\,\\sinh \\left(\\frac{1}{u}\\right),z=u+w^{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793925194",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2vw}{u^{2}}\\text{or}\\frac{2w\\left(u+w^{2}\\right)}{u^{2}}$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"((2 v w)/(u^2)), ((2 w(u+w^2))/(u^2))\""
+  },
+  {
+   "id": "e386",
+   "number": 386,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u+v,y=v+w,z=u$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793589827",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e387",
+   "number": 387,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x=u-v,y=u+v,z=u+v+w$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793639924",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   }
+  },
+  {
+   "id": "e388",
+   "number": 388,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The triangular region $R$ with the vertices $(0,0),(1,1),\\text{and}\\,(1,2)$ is shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_206.webp",
+     "alt": "A triangle with corners at the origin, (1, 1), and (1, 2).",
+     "width": 427,
+     "height": 353
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find a transformation $T:S\\to R,$ $T(u,v)=(x,y)=(au+bv,cu+dv),$ where $a,b,c,$ and $d$ are real numbers with $ad-bc\\ne 0$ such that $T^{-1}(0,0)=(0,0),T^{-1}(1,1)=(1,0),$ and $T^{-1}(1,2)=(0,1).$",
+      "Use the transformation $T$ to find the area $A(R)$ of the region $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793638385",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e389",
+   "number": 389,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The triangular region $R$ with the vertices $(0,0),(2,0),\\text{and}\\,(1,3)$ is shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_207.webp",
+     "alt": "A triangle with corners at the origin, (2, 0), and (1, 3).",
+     "width": 188,
+     "height": 278
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find a transformation $T:S\\to R,$ $T(u,v)=(x,y)=(au+bv,cu+dv),$ where $a,b,c$ and $d$ are real numbers with $ad-bc\\ne 0$ such that $T^{-1}(0,0)=(0,0),$ $T^{-1}(2,0)=(1,0),$ and $T^{-1}(1,3)=(0,1).$",
+      "Use the transformation $T$ to find the area $A(R)$ of the region $R.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793245905",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the Jacobian $J$ of the transformation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $T(u,v)=(2u+v,3v);$ b. The area of $R$ is\n$A(R)={\\displaystyle \\int_{0}^{3}\\,{\\displaystyle \\int_{y/3}^{(6-y)/3}dx\\,dy=}}{\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{1-u}\\left|\\frac{\\partial (x,y)}{\\partial (u,v)}\\right|dv\\,du=}}{\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{1-u}6dv\\,du=}}3.$"
+     }
+    ]
+   },
+   "notes": "self-check: part b is not plain math"
+  },
+  {
+   "id": "e390",
+   "number": 390,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}(y-x)}dA$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794296804",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=y-x,v=y,$ to evaluate the integrals on the parallelogram $R$ of vertices $(0,0),(1,0),(2,1),\\text{and}\\,(1,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_208.webp",
+     "alt": "A rhombus with corners at the origin, (1, 0), (1, 1), and (2, 1).",
+     "width": 353,
+     "height": 428
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e391",
+   "number": 391,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}(y^{2}-xy)}dA$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794296858",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=y-x,v=y,$ to evaluate the integrals on the parallelogram $R$ of vertices $(0,0),(1,0),(2,1),\\text{and}\\,(1,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_208.webp",
+     "alt": "A rhombus with corners at the origin, (1, 0), (1, 1), and (2, 1).",
+     "width": 353,
+     "height": 428
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-(1/4)"
+   }
+  },
+  {
+   "id": "e392",
+   "number": 392,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}e^{x+y}dA}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793432395",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $y-x=u,x+y=v$ to evaluate the integrals on the square $R$ determined by the lines $y=x,y=-x+2,y=x+2,$ and $y=-x$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_209.webp",
+     "alt": "A square with side lengths square root of 2 rotated 45 degrees with one corner at the origin and another at (1, 1).",
+     "width": 342,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e393",
+   "number": 393,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}\\sin (x-y)}dA$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794336010",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $y-x=u,x+y=v$ to evaluate the integrals on the square $R$ determined by the lines $y=x,y=-x+2,y=x+2,$ and $y=-x$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_209.webp",
+     "alt": "A square with side lengths square root of 2 rotated 45 degrees with one corner at the origin and another at (1, 1).",
+     "width": 342,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-1+\\cos \\,2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1+ cos 2"
+   }
+  },
+  {
+   "id": "e394",
+   "number": 394,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}\\sqrt{x^{2}+25y^{2}}\\,dA}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794246463",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $x=u,5y=v$ to evaluate the integrals on the region $R$ bounded by the ellipse $x^{2}+25y^{2}=1$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_210.webp",
+     "alt": "An ellipse with center at the origin, major axis 2, and minor 0.4.",
+     "width": 417,
+     "height": 197
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e395",
+   "number": 395,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}(x^{2}+25y^{2})}^{2}dA$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793498573",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $x=u,5y=v$ to evaluate the integrals on the region $R$ bounded by the ellipse $x^{2}+25y^{2}=1$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_210.webp",
+     "alt": "An ellipse with center at the origin, major axis 2, and minor 0.4.",
+     "width": 417,
+     "height": 197
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{15}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/15)"
+   }
+  },
+  {
+   "id": "e396",
+   "number": 396,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}(x^{2}-2xy+y^{2})e^{x+y}dA}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794122118",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e397",
+   "number": 397,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}(x^{3}+3x^{2}y+3xy^{2}+y^{3})}dA$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793378253",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{31}{5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(31/5)"
+   }
+  },
+  {
+   "id": "e398",
+   "number": 398,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The circular annulus sector $R$ bounded by the circles $4x^{2}+4y^{2}=1$ and $9x^{2}+9y^{2}=64,$ the line $x=y\\sqrt{3},$ and the $y\\text{-axis}$ is shown in the following figure. Find a transformation $T$ from a rectangular region $S$ in the $r\\theta \\text{-plane}$ to the region $R$ in the $xy\\text{-plane.}$ Graph $S.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_212.webp",
+     "alt": "In the first quadrant, a section of an annulus described by an inner radius of 0.5, outer radius slightly more than 2.5, and center the origin. There is a line dividing this annulus that comes from approximately a 30 degree angle. The portion corresponding to 60 degrees is shaded.",
+     "width": 277,
+     "height": 278
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794067796",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e399",
+   "number": 399,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid $R$ bounded by the circular cylinder $x^{2}+y^{2}=9$ and the planes $z=0,z=1,$ $x=0,\\text{and}\\,y=0$ is shown in the following figure. Find a transformation $T$ from a cylindrical box $S$ in $r\\theta z\\text{-space}$ to the solid $R$ in $xyz\\text{-space}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_214.webp",
+     "alt": "A quarter of a cylinder with height 1 and radius 3. The center axis is the z axis.",
+     "width": 423,
+     "height": 425
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793417070",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T(r,\\theta ,z)=(r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta ,z);S=[0,3]\\,\\times \\,\\left[0,\\frac{\\pi}{2}\\right]\\,\\times \\,[0,1]$ in the $r\\theta z\\text{-space}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e400",
+   "number": 400,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that ${\\displaystyle \\iint_{R}f\\left(\\sqrt{\\frac{x^{2}}{3}+\\frac{y^{2}}{3}}\\right)}dA=2\\pi \\sqrt{15}{\\displaystyle \\int_{0}^{1}f(\\rho )}\\rho \\,d\\rho ,$ where $f$ is a continuous function on $[0,1]$ and $R$ is the region bounded by the ellipse $5x^{2}+3y^{2}=15.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793580534",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e401",
+   "number": 401,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that ${\\displaystyle \\iiint_{R}f(\\sqrt{16x^{2}+4y^{2}+z^{2}})}dV=\\frac{\\pi}{2}{\\displaystyle \\int_{0}^{1}f(\\rho )}\\rho^{2}d\\rho ,$ where $f$ is a continuous function on $[0,1]$ and $R$ is the region bounded by the ellipsoid $16x^{2}+4y^{2}+z^{2}=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793593581",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e402",
+   "number": 402,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the area of the region bounded by the curves $xy=1,xy=3,y=2x,$ and $y=3x$ by using the transformation $u=xy$ and $v=\\frac{y}{x}.$ Use a computer algebra system (CAS) to graph the boundary curves of the region $R.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793933569",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e403",
+   "number": 403,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the area of the region bounded by the curves $xy=2,xy=3,y=x,$ and $y=2x$ by using the transformation $u=xy$ and $v=\\frac{y}{x}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793619897",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The area of the region is $\\frac{\\ln 2}{2}.$ A graph of the region is:"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_216.webp",
+      "alt": "Four lines are drawn, namely, y = 3, y = 2, y = 3/(x squared), and y = 2/(x squared). The lines y = 3 and y = 2 are parallel to each other. The lines y = 3/(x squared) and y = 2/(x squared) are curves that run somewhat parallel to each other.",
+      "width": 344,
+      "height": 278
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e404",
+   "number": 404,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate the triple integral ${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{1}^{2}\\,{\\displaystyle \\int_{z}^{z+1}(y+1)dx\\,dy\\,dz}}}$ by using the transformation $u=x-z,$ $v=3y,\\text{and}\\,w=\\frac{z}{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793298354",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e405",
+   "number": 405,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Evaluate the triple integral ${\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{4}^{6}\\,{\\displaystyle \\int_{3z}^{3z+2}(5-4y)dx\\,dz\\,dy}}}$ by using the transformation $u=x-3z,v=4y,\\text{and}\\,w=z.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794284310",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$8$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "8"
+   }
+  },
+  {
+   "id": "e406",
+   "number": 406,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A transformation $T:{\\mathbb{R}}^{2}\\to {\\mathbb{R}}^{2},T(u,v)=(x,y)$ of the form $x=au+bv,y=cu+dv,$ where $a,b,c,\\text{and}\\,d$ are real numbers, is called linear. Show that a linear transformation for which $ad-bc\\ne 0$ maps parallelograms to parallelograms."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793512093",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e407",
+   "number": 407,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The transformation $T_{\\theta}:{\\mathbb{R}}^{2}\\to {\\mathbb{R}}^{2},T_{\\theta}(u,v)=(x,y),$ where $x=u\\,\\cos \\,\\theta -v\\,\\sin \\,\\theta ,$ $y=u\\,\\sin \\,\\theta +v\\,\\cos \\,\\theta ,$ is called a rotation of angle $\\theta .$ Show that the inverse transformation of $T_{\\theta}$ satisfies $T_{\\theta}{}^{-1}=T_{-\\theta},$ where $T_{-\\theta}$ is the rotation of angle $-\\theta .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793711532",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e408",
+   "number": 408,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use the results of the previous exercise to find the region $S$ in the $uv\\text{-plane}$ whose image through a rotation of angle $\\frac{\\pi}{4}$ is the region $R$ enclosed by the ellipse $x^{2}+4y^{2}=1.$ Use a CAS to answer the following questions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Graph the region $S.$",
+      "Evaluate the integral ${\\displaystyle \\iint_{S}e^{-2uv}du\\,dv}.$ Round your answer to two decimal places."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794145446",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e409",
+   "number": 409,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The transformations $T_{i}:{\\mathbb{R}}^{2}\\to {\\mathbb{R}}^{2},$ $i=1,\\dots ,\\,4,$ defined by $T_{1}(u,v)=(u,-v),$ $T_{2}(u,v)=(-u,v),T_{3}(u,v)=(-u,-v),$ and $T_{4}(u,v)=(v,u)$ are called reflections about the $x\\text{-axis},y\\text{-axis},$ origin, and the line $y=x,$ respectively."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the image of the region $S=\\{(u,v)|u^{2}+v^{2}-2u-4v+1\\le 0\\}$ in the $xy\\text{-plane}$ through the transformation $T_{1}\\circ T_{2}\\circ T_{3}\\circ T_{4}.$",
+      "Use a CAS to graph the image of $S.$",
+      "Evaluate the integral ${\\displaystyle \\iint_{S}\\sin (u^{2})du\\,dv}$ by using a CAS. Round your answer to two decimal places."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794212705",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $R=\\{(x,y)|y^{2}+x^{2}-2y-4x+1\\le 0\\};$ b. $R$ is graphed in the following figure;"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_218.webp",
+      "alt": "A circle with radius 2 and center (2, 1).",
+      "width": 366,
+      "height": 347
+     },
+     {
+      "type": "p",
+      "text": "c. $3.16$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e410",
+   "number": 410,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The transformation $T_{k,1,1}:{\\mathbb{R}}^{3}\\to {\\mathbb{R}}^{3},T_{k,1,1}(u,v,w)=(x,y,z)$ of the form $x=ku,$ $y=v,z=w,$ where $k\\ne 1$ is a positive real number, is called a stretch if $k>1$ and a compression if $0<k<1$ in the $x\\text{-direction}.$ Use a CAS to evaluate the integral ${\\displaystyle \\iiint_{S}e^{-(4x^{2}+9y^{2}+25z^{2})}}dx\\,dy\\,dz$ on the solid $S=\\{(x,y,z)|4x^{2}+9y^{2}+25z^{2}\\le 1\\}$ by considering the compression $T_{2,3,5}(u,v,w)=(x,y,z)$ defined by $x=\\frac{u}{2},y=\\frac{v}{3},$ and $z=\\frac{w}{5}.$ Round your answer to four decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794327565",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e411",
+   "number": 411,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The transformation $T_{a,0}:{\\mathbb{R}}^{2}\\to {\\mathbb{R}}^{2},T_{a,0}(u,v)=(u+av,v),$ where $a\\ne 0$ is a real number, is called a shear in the $x\\text{-direction}.$ The transformation, $T_{0,b}:{\\mathbb{R}}^{2}\\to {\\mathbb{R}}^{2},T_{0,b}(u,v)=(u,bu+v),$ where $b\\ne 0$ is a real number, is called a shear in the $y\\text{-direction}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find transformations $T_{0,2}\\circ T_{3,0}.$",
+      "Find the image $R$ of the trapezoidal region $S$ bounded by $u=0,v=0,v=1,$ and $v=2-u$ through the transformation $T_{0,2}\\circ T_{3,0}.$",
+      "Use a CAS to graph the image $R$ in the $xy\\text{-plane}.$",
+      "Find the area of the region $R$ by using the area of region $S.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793616559",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $T_{0,2}\\circ T_{3,0}(u,v)=(u+3v,2u+7v);$ b. The image $R$ is the quadrilateral of vertices $(0,0),(3,7),(2,4),\\text{and}\\,(4,9);$ c. $S$ is graphed in the following figure;"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_07_219.webp",
+      "alt": "A four-sided figure with points the origin, (2, 4), (4, 9), and (3, 7).",
+      "width": 340,
+      "height": 391
+     },
+     {
+      "type": "p",
+      "text": "d. $\\frac{3}{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e412",
+   "number": 412,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the transformation, $x=au,y=av,z=cw$ and spherical coordinates to show that the volume of a region bounded by the spheroid $\\frac{x^{2}+y^{2}}{a^{2}}+\\frac{z^{2}}{c^{2}}=1$ is $\\frac{4\\pi a^{2}c}{3}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793423680",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e413",
+   "number": 413,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume of a football whose shape is a spheroid $\\frac{x^{2}+y^{2}}{a^{2}}+\\frac{z^{2}}{c^{2}}=1$ whose length from tip to tip is $11$ inches and circumference at the center is $22$ inches. Round your answer to two decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793460743",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2662}{3\\pi}≃282.45{\\,\\text{in}}^{3}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e414",
+   "number": 414,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Lamé ovals (or superellipses) are plane curves of equations $\\left(\\frac{x}{a}\\right)^{n}+\\left(\\frac{y}{b}\\right)^{n}=1,$ where *a*, *b*, and *n* are positive real numbers."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Use a CAS to graph the regions $R$ bounded by Lamé ovals for $a=1,b=2,n=4$ and $n=6,$ respectively.",
+      [
+       {
+        "type": "p",
+        "text": "Find the transformations that map the region $R$ bounded by the Lamé oval $x^{4}+y^{4}=1,$ also called a squircle and graphed in the following figure, into the unit disk."
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_15_07_220.webp",
+        "alt": "A square of side length 2 with rounded corners.",
+        "width": 342,
+        "height": 348
+       }
+      ],
+      "Use a CAS to find an approximation of the area $A(R)$ of the region $R$ bounded by $x^{4}+y^{4}=1.$ Round your answer to two decimal places."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793485997",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e415",
+   "number": 415,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Lamé ovals have been consistently used by designers and architects. For instance, Gerald Robinson, a Canadian architect, has designed a parking garage in a shopping center in Peterborough, Ontario, in the shape of a superellipse of the equation $\\left(\\frac{x}{a}\\right)^{n}+\\left(\\frac{y}{b}\\right)^{n}=1$ with $\\frac{a}{b}=\\frac{9}{7}$ and $n=e.$ Use a CAS to find an approximation of the area of the parking garage in the case $a=900$ yards, $b=700$ yards, and $n=2.72$."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793325881",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the transformation $u=x+y,v=x-y$ to evaluate the integrals on the trapezoidal region $R$ determined by the points $(1,0),(2,0),(0,2),\\text{and}\\,(0,1)$ shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_07_211.webp",
+     "alt": "A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0).",
+     "width": 352,
+     "height": 353
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$A(R)=2,177,216{\\text{yd}}^{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e416",
+   "number": 416,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{a}^{b}\\,{\\displaystyle \\int_{c}^{d}f(x,y)dy\\,dx}=}{\\displaystyle \\int_{c}^{d}\\,{\\displaystyle \\int_{a}^{b}f(x,y)dy\\,dx}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794126897",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e417",
+   "number": 417,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Fubini’s theorem can be extended to three dimensions, as long as $f$ is continuous in all variables."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793480224",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e418",
+   "number": 418,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The integral ${\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{r}^{1}dz\\,dr\\,d\\theta}}}$ represents the volume of a right cone."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793502517",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e419",
+   "number": 419,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The Jacobian of the transformation $x=u^{2}-2v,y=3v-2uv$ is given by $-4u^{2}+6u+4v.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793502590",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False?* Justify your answer with a proof or a counterexample."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e420",
+   "number": 420,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{R}(5x^{3}y^{2}-y^{2})}dA,R=\\{(x,y)|0\\le x\\le 2,1\\le y\\le 4\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793590372",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e421",
+   "number": 421,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{D}\\frac{y}{3x^{2}+1}}dA,D=\\{(x,y)|0\\le x\\le 1,-x\\le y\\le x\\}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793354965",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e422",
+   "number": 422,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iint_{D}\\sin (x^{2}+y^{2})}dA$ where $D$ is a disk of radius $2$ centered at the origin"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794247567",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e423",
+   "number": 423,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{y}^{1}xye^{x^{2}}dx\\,dy}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793940982",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/4)"
+   }
+  },
+  {
+   "id": "e424",
+   "number": 424,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-1}^{1}\\,{\\displaystyle \\int_{0}^{z}\\,{\\displaystyle \\int_{0}^{x-z}6dy\\,dx\\,dz}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793941053",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e425",
+   "number": 425,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\iiint_{R}3y\\,dV},$ where $R=\\{(x,y,z)|0\\le x\\le 1,0\\le y\\le x,0\\le z\\le \\sqrt{9-y^{2}}\\}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793479942",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "1.475"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1.475"
+   }
+  },
+  {
+   "id": "e426",
+   "number": 426,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{r}^{1}r\\,dz\\,d\\theta \\,dr}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793570628",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e427",
+   "number": 427,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{1}^{3}\\rho^{2}\\sin (\\varphi )d\\rho \\,d\\varphi \\,d\\theta}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794212251",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{52}{3}\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(52/3) pi"
+   }
+  },
+  {
+   "id": "e428",
+   "number": 428,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{-\\sqrt{1-x^{2}}}^{\\sqrt{1-x^{2}}}\\,{\\displaystyle \\int_{-\\sqrt{1-x^{2}-y^{2}}}^{\\sqrt{1-x^{2}-y^{2}}}dz}\\,dy\\,dx}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793582904",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e429",
+   "number": 429,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The area of region enclosed by one petal of $r=\\cos (4\\theta ).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793586900",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the specified area or volume."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{16}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/16)"
+   }
+  },
+  {
+   "id": "e430",
+   "number": 430,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The volume of the solid that lies between the paraboloid $z=2x^{2}+2y^{2}$ and the plane $z=8.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793586945",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the specified area or volume."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e431",
+   "number": 431,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The volume of the solid bounded by the cylinder $x^{2}+y^{2}=16$ and from $z=1$ and $z+x=2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793358443",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the specified area or volume."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$16\\pi \\approx 50.265$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"equation\",\"value\":\"16 pi =50.265\"} failed (checker rejects the answer itself)"
+  },
+  {
+   "id": "e432",
+   "number": 432,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The volume of the intersection between two spheres of radius 1, the top whose center is $(0,0,0.25)$ and the bottom, which is centered at $(0,0,0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793395516",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the specified area or volume."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e433",
+   "number": 433,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\rho (x,y)=xy$ on the circle with radius $1$ in the first quadrant only."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794211067",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the center of mass of the region."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{8}{15},\\frac{8}{15}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "((8/15), (8/15))"
+   }
+  },
+  {
+   "id": "e434",
+   "number": 434,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\rho (x,y)=(y+1)\\sqrt{x}$ in the region bounded by $y=e^{x},$ $y=0,$ and $x=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794211135",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the center of mass of the region."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e435",
+   "number": 435,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\rho (x,y,z)=z$ on the inverted cone with radius $2$ and height $2.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793629364",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the center of mass of the region."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(0,0,\\frac{4}{5}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(0, 0, (4/5))"
+   }
+  },
+  {
+   "id": "e436",
+   "number": 436,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The volume an ice cream cone that is given by the solid above $z=\\sqrt{(x^{2}+y^{2})}$ and below $z^{2}+x^{2}+y^{2}=z.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793750843",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following problems, find the center of mass of the region."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e437",
+   "number": 437,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If the compacted trash used to build Mount Holly on average has a density $400{\\,\\text{lb/ft}}^{3},$ find the amount of work required to build the mountain."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793419225",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems examine Mount Holly in the state of Michigan. Mount Holly is a landfill that was converted into a ski resort. The shape of Mount Holly can be approximated by a right circular cone of height $1100$ ft and radius $6000$ ft."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1.452\\pi \\,\\times \\,10^{15}$ ft-lb"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1.452 pi * 10^15"
+   }
+  },
+  {
+   "id": "e438",
+   "number": 438,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "In reality, it is very likely that the trash at the bottom of Mount Holly has become more compacted with all the weight of the above trash. Consider a density function with respect to height: the density at the top of the mountain is still density $400{\\,\\text{lb/ft}}^{3}$ and the density increases. Every $100$ feet deeper, the density doubles. What is the total weight of Mount Holly?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793419280",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems examine Mount Holly in the state of Michigan. Mount Holly is a landfill that was converted into a ski resort. The shape of Mount Holly can be approximated by a right circular cone of height $1100$ ft and radius $6000$ ft."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e439",
+   "number": 439,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The temperature of Earth’s layers is exhibited in the table below. Use your calculator to fit a polynomial of degree $3$ to the temperature along the radius of the Earth. Then find the average temperature of Earth. (*Hint*: begin at $0$ in the inner core and increase outward toward the surface)"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "Rocky Crust",
+       "0 to 40",
+       "0"
+      ],
+      [
+       "Upper Mantle",
+       "40 to 150",
+       "870"
+      ],
+      [
+       "Mantle",
+       "400 to 650",
+       "870"
+      ],
+      [
+       "Inner Mantel",
+       "650 to 2700",
+       "870"
+      ],
+      [
+       "Molten Outer Core",
+       "2890 to 5150",
+       "4300"
+      ],
+      [
+       "Inner Core",
+       "5150 to 6378",
+       "7200"
+      ]
+     ],
+     "header": [
+      "Layer",
+      "Depth from center (km)",
+      "Temperature $\\text{°}C$"
+     ],
+     "caption": "Source: http://www.enchantedlearning.com/subjects/astronomy/planets/earth/Inside.shtml"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793632985",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the temperature and density of Earth’s layers."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-1.238\\,\\times \\,10^{-7}x^{3}+0.001196x^{2}-3.666x+7208;$ average temperature approximately $2800^{\\text{°}}C$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e440",
+   "number": 440,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The density of Earth’s layers is displayed in the table below. Using your calculator or a computer program, find the best-fit quadratic equation to the density. Using this equation, find the total mass of Earth."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "Inner Core",
+       "$0$",
+       "$12.95$"
+      ],
+      [
+       "Outer Core",
+       "$1228$",
+       "$11.05$"
+      ],
+      [
+       "Mantle",
+       "$3488$",
+       "$5.00$"
+      ],
+      [
+       "Upper Mantle",
+       "$6338$",
+       "$3.90$"
+      ],
+      [
+       "Crust",
+       "$6378$",
+       "$2.55$"
+      ]
+     ],
+     "header": [
+      "Layer",
+      "Depth from center (km)",
+      "Density (g/cm3)"
+     ],
+     "caption": "Source: http://hyperphysics.phy-astr.gsu.edu/hbase/geophys/earthstruct.html"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793429885",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the temperature and density of Earth’s layers."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e441",
+   "number": 441,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume when you revolve the region around the $x\\text{-axis.}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793628266",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems concern the Theorem of Pappus (see Moments and Centers of Mass for a refresher), a method for calculating volume using centroids. Assuming a region $R,$ when you revolve around the $x\\text{-axis}$ the volume is given by $V_{x}=2\\pi A\\overset{-}{\\left|y\\right|},$ and when you revolve around the $\\text{y-axis}$ the volume is given by $V_{y}=2\\pi A\\left|\\overset{-}{x}\\right|,$ where $A$ is the area of $R.$ Consider the region bounded by $x^{2}+y^{2}=1$ and above $y=x+1.$"
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/3)"
+   }
+  },
+  {
+   "id": "e442",
+   "number": 442,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume when you revolve the region around the $y\\text{-axis.}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222566",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems concern the Theorem of Pappus (see Moments and Centers of Mass for a refresher), a method for calculating volume using centroids. Assuming a region $R,$ when you revolve around the $x\\text{-axis}$ the volume is given by $V_{x}=2\\pi A\\overset{-}{\\left|y\\right|},$ and when you revolve around the $\\text{y-axis}$ the volume is given by $V_{y}=2\\pi A\\left|\\overset{-}{x}\\right|,$ where $A$ is the area of $R.$ Consider the region bounded by $x^{2}+y^{2}=1$ and above $y=x+1.$"
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "Jacobian",
+   "meaning": "the Jacobian $J(u,v)$ in two variables is a $2\\,\\times \\,2$ determinant:\n\n$J(u,v)=\\left|\\begin{array}{lll}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial y}{\\partial u} \\\\ \\frac{\\partial x}{\\partial v} & & \\frac{\\partial y}{\\partial v}\\end{array}\\right|;$\n\nthe Jacobian $J(u,v,w)$ in three variables is a $3\\,\\times \\,3$ determinant:\n\n$J(u,v,w)=\\left|\\begin{array}{ccccc}\\frac{\\partial x}{\\partial u} & & \\frac{\\partial y}{\\partial u} & & \\frac{\\partial z}{\\partial u} \\\\ \\frac{\\partial x}{\\partial v} & & \\frac{\\partial y}{\\partial v} & & \\frac{\\partial z}{\\partial v} \\\\ \\frac{\\partial x}{\\partial w} & & \\frac{\\partial y}{\\partial w} & & \\frac{\\partial z}{\\partial w}\\end{array}\\right|$"
+  },
+  {
+   "term": "one-to-one transformation",
+   "meaning": "a transformation $T:G\\to R$ defined as $T(u,v)=(x,y)$ is said to be one-to-one if no two points map to the same image point"
+  },
+  {
+   "term": "planar transformation",
+   "meaning": "a function $T$ that transforms a region $G$ in one plane into a region $R$ in another plane by a change of variables"
+  },
+  {
+   "term": "transformation",
+   "meaning": "a function that transforms a region $G$ in one plane into a region $R$ in another plane by a change of variables"
+  }
+ ]
+}

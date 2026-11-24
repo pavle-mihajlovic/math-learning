@@ -1,0 +1,2960 @@
+{
+ "schema": 1,
+ "id": "V3.5.5",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 5,
+ "section": 5,
+ "title": "Triple Integrals in Cylindrical and Spherical Coordinates",
+ "chapterTitle": "Multiple Integration",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53967",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/5-5-triple-integrals-in-cylindrical-and-spherical-coordinates",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §5.5 “Triple Integrals in Cylindrical and Spherical Coordinates”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Evaluate a triple integral by changing to cylindrical coordinates.",
+  "Evaluate a triple integral by changing to spherical coordinates."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Earlier in this chapter we showed how to convert a double integral in rectangular coordinates into a double integral in polar coordinates in order to deal more conveniently with problems involving circular symmetry. A similar situation occurs with triple integrals, but here we need to distinguish between cylindrical symmetry and spherical symmetry. In this section we convert triple integrals in rectangular coordinates into a triple integral in either cylindrical or spherical coordinates."
+    },
+    {
+     "type": "p",
+     "text": "Also recall the chapter opener, which showed the opera house l’Hemisphèric in Valencia, Spain. It has four sections with one of the sections being a theater in a five-story-high sphere (ball) under an oval roof as long as a football field. Inside is an IMAX screen that changes the sphere into a planetarium with a sky full of $9000$ twinkling stars. Using triple integrals in spherical coordinates, we can find the volumes of different geometric shapes like these."
+    }
+   ],
+   "title": "Triple Integrals in Cylindrical and Spherical Coordinates"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As we have seen earlier, in two-dimensional space ${\\mathbb{R}}^{2},$ a point with rectangular coordinates $(x,y)$ can be identified with $(r,\\theta )$ in polar coordinates and vice versa, where $x=r\\,\\cos \\,\\theta ,$ $y=r\\,\\sin \\,\\theta ,$ $r^{2}=x^{2}+y^{2}$ and $\\tan \\,\\theta =\\left(\\frac{y}{x}\\right)$ are the relationships between the variables."
+    },
+    {
+     "type": "p",
+     "text": "In three-dimensional space ${\\mathbb{R}}^{3},$ a point with rectangular coordinates $(x,y,z)$ can be identified with cylindrical coordinates $(r,\\theta ,z)$ and vice versa. We can use these same conversion relationships, adding $z$ as the vertical distance to the point from the $xy$-plane as shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_001.webp",
+     "alt": "In xyz space, a point is shown (x, y, z). There is also a depiction of it in polar coordinates as (r, theta, z).",
+     "caption": "**Figure 5.49** Cylindrical coordinates are similar to polar coordinates with a vertical $z$ coordinate added.",
+     "width": 391,
+     "height": 391
+    },
+    {
+     "type": "p",
+     "text": "To convert from rectangular to cylindrical coordinates, we use the conversion $x=r\\,\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta .$ To convert from cylindrical to rectangular coordinates, we use $r^{2}=x^{2}+y^{2}$ and $\\tan \\theta =\\frac{y}{x}.$ The $z$-coordinate remains the same in both cases."
+    }
+   ],
+   "title": "Review of Cylindrical Coordinates"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the two-dimensional plane with a rectangular coordinate system, when we say $x=k$ (constant) we mean an unbounded vertical line parallel to the $y$-axis and when $y=l$ (constant) we mean an unbounded horizontal line parallel to the $x$-axis. With the polar coordinate system, when we say $r=c$ (constant), we mean a circle of radius $c$ units and when $\\theta =\\alpha$ (constant) we mean an infinite ray making an angle $\\alpha$ with the positive $x$-axis."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, in three-dimensional space with rectangular coordinates $(x,y,z),$ the equations $x=k,y=l,$ and $z=m,$ where $k,l,$ and\n$m$ are constants, represent unbounded planes parallel to the $yz$-plane, $xz$-plane and $xy$-plane, respectively. With cylindrical coordinates\n$(r,\\theta ,z),$ by $r=c,\\theta =\\alpha ,$ and $z=m,$ where $c,\\alpha ,$ and $m$ are constants, we mean an unbounded vertical cylinder with the $z$-axis as its radial axis; a plane making a constant angle $\\alpha$ with the $xz$-plane; and an unbounded horizontal plane parallel to the $xy$-plane, respectively. This means that the circular cylinder $x^{2}+y^{2}=c^{2}$ in rectangular coordinates can be represented simply as $r=c$ in cylindrical coordinates. (Refer to Cylindrical and Spherical Coordinates for more review.)"
+    }
+   ],
+   "title": "Review of Cylindrical Coordinates (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Triple integrals can often be more readily evaluated by using cylindrical coordinates instead of rectangular coordinates. Some common equations of surfaces in rectangular coordinates along with corresponding equations in cylindrical coordinates are listed in Table 5.1. These equations will become handy as we proceed with solving problems using triple integrals."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "Rectangular",
+       "$x^{2}+y^{2}=c^{2}$",
+       "$z^{2}=c^{2}(x^{2}+y^{2})$",
+       "$x^{2}+y^{2}+z^{2}=c^{2}$",
+       "$z=c(x^{2}+y^{2})$"
+      ],
+      [
+       "Cylindrical",
+       "$r=c$",
+       "$z=cr$",
+       "$r^{2}+z^{2}=c^{2}$",
+       "$z=cr^{2}$"
+      ]
+     ],
+     "header": [
+      "",
+      "Circular cylinder",
+      "Circular cone",
+      "Sphere",
+      "Paraboloid"
+     ],
+     "caption": "**Table 5.1** Equations of Some Common Shapes"
+    },
+    {
+     "type": "p",
+     "text": "As before, we start with the simplest bounded region $B$ in ${\\mathbb{R}}^{3},$ to describe in cylindrical coordinates, in the form of a cylindrical box, $B=\\{(r,\\theta ,z)|a\\le r\\le b,\\alpha \\le \\theta \\le \\beta ,c\\le z\\le d\\}$ (Figure 5.50). Suppose we divide each interval into $l,m\\,\\text{and}\\,n$ subdivisions such that $\\text{Δ}r=\\frac{b-a}{l},\\text{Δ}\\theta =\\frac{\\beta -\\alpha}{m},$ and $\\text{Δ}z=\\frac{d-c}{n}.$ Then we can state the following definition for a triple integral in cylindrical coordinates."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_002.webp",
+     "alt": "In cylindrical box is shown with its projection onto the polar coordinate plane with inner radius a, outer radius b, and sides defined by theta = alpha and beta. The cylindrical box B starts at height c and goes to height d with the rest of the values the same as the projection onto the plane.",
+     "caption": "**Figure 5.50** A cylindrical box $B$ described by cylindrical coordinates.",
+     "width": 390,
+     "height": 440
+    }
+   ],
+   "title": "Integration in Cylindrical Coordinates"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Consider the cylindrical box (expressed in cylindrical coordinates)"
+      },
+      {
+       "type": "math",
+       "tex": "B=\\{(r,\\theta ,z)|a\\le r\\le b,\\alpha \\le \\theta \\le \\beta ,c\\le z\\le d\\}."
+      },
+      {
+       "type": "p",
+       "text": "If the function $f(r,\\theta ,z)$ is continuous on $B$ and if $\\left(r_{ijk}^{*},\\theta_{ijk}^{*},z_{ijk}^{*}\\right)$ is any sample point in the cylindrical subbox $B_{ijk}=[r_{i-1},r_{i}]\\,\\times \\,[\\theta_{j-1},\\theta_{j}]\\,\\times \\,[z_{k-1},z_{k}]$ (Figure 5.50), then we can define the **triple integral in cylindrical coordinates** as the limit of a triple Riemann sum, provided the following limit exists:"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{l,m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{l}{\\displaystyle \\sum_{j=1}^{m}{\\displaystyle \\sum_{k=1}^{n}f(r_{ijk}^{*},\\theta_{ijk}^{*},z_{ijk}^{*})r_{ijk}^{*}\\text{Δ}r\\text{Δ}\\theta \\text{Δ}z}}}."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Note that if $g(x,y,z)$ is the function in rectangular coordinates and the box $B$ is expressed in rectangular coordinates, then the triple integral ${\\displaystyle \\iiint_{B}g(x,y,z)dV}$ is equal to the triple integral ${\\displaystyle \\iiint_{B}g(r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta ,z)r\\,dr\\,d\\theta \\,dz}$ and we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iiint_{B}g(x,y,z)dV}={\\displaystyle \\iiint_{B}g(r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta ,z)r\\,dr\\,d\\theta \\,dz}={\\displaystyle \\iiint_{B}f(r,\\theta ,z)r\\,dr\\,d\\theta \\,dz}."
+    }
+   ],
+   "title": "Integration in Cylindrical Coordinates (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As mentioned in the preceding section, all the properties of a double integral work well in triple integrals, whether in rectangular coordinates or cylindrical coordinates. They also hold for iterated integrals. To reiterate, in cylindrical coordinates, Fubini’s theorem takes the following form:"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose that $g(x,y,z)$ is continuous on a portion of a circular cylinder $B,$ which when described in cylindrical coordinates looks like $B=\\{(r,\\theta ,z)|a\\le r\\le b,\\alpha \\le \\theta \\le \\beta ,c\\le z\\le d\\}.$"
+      },
+      {
+       "type": "p",
+       "text": "Then $g(x,y,z)=g(r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta ,z)=f(r,\\theta ,z)$ and"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\iiint_{B}g(x,y,z)dV={\\displaystyle \\int_{c}^{d}\\,{\\displaystyle \\int_{\\alpha}^{\\beta}\\,{\\displaystyle \\int_{a}^{b}f(r,\\theta ,z)}}}}r\\,dr\\,d\\theta \\,dz."
+      }
+     ],
+     "title": "Fubini’s Theorem in Cylindrical Coordinates"
+    },
+    {
+     "type": "p",
+     "text": "The iterated integral may be replaced equivalently by any one of the other five iterated integrals obtained by integrating with respect to the three variables in other orders."
+    },
+    {
+     "type": "p",
+     "text": "Cylindrical coordinate systems work well for solids that are symmetric around an axis, such as cylinders and cones. Let us look at some examples before we define the triple integral in cylindrical coordinates on general cylindrical regions."
+    }
+   ],
+   "title": "Integration in Cylindrical Coordinates (continued)"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 5.43",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the triple integral ${\\displaystyle \\iiint_{B}(zr\\,\\sin \\,\\theta )}r\\,dr\\,d\\theta \\,dz$ where the cylindrical box $B$ is $B=\\{(r,\\theta ,z)|0\\le r\\le 2,0\\le \\theta \\le \\pi /2,0\\le z\\le 4\\}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "As stated in Fubini’s theorem, we can write the triple integral as the iterated integral"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\iiint_{B}(zr\\,\\sin \\,\\theta )}r\\,dr\\,d\\theta \\,dz={\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi /2}{\\displaystyle \\int_{r=0}^{r=2}{\\displaystyle \\int_{z=0}^{z=4}(zr\\,\\sin \\,\\theta )}}}r\\,dz\\,dr\\,d\\theta ."
+     },
+     {
+      "type": "p",
+      "text": "The evaluation of the iterated integral is straightforward. Each variable in the integral is independent of the others, so we can integrate each variable separately and multiply the results together. This makes the computation much easier:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{c} \\\\ \\\\ \\\\ \\\\ \\quad {\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi /2}{\\displaystyle \\int_{r=0}^{r=2}{\\displaystyle \\int_{z=0}^{z=4}(zr\\,\\sin \\,\\theta )}}}r\\,dz\\,dr\\,d\\theta \\\\ =\\left({\\displaystyle \\int_{0}^{\\pi /2}\\sin \\,\\theta \\,d\\theta}\\right)\\left({\\displaystyle \\int_{0}^{2}r^{2}dr}\\right)\\left({\\displaystyle \\int_{0}^{4}z\\,dz}\\right)=\\left(-\\cos \\,\\theta |_{0}^{\\pi /2}\\right)\\left(\\frac{r^{3}}{3}|_{0}^{2}\\right)\\left(\\frac{z^{2}}{2}|_{0}^{4}\\right)=\\frac{64}{3}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating a Triple Integral over a Cylindrical Box"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.27",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the triple integral $\\int_{\\theta =0}^{\\theta =\\pi}\\,\\int_{r=0}^{r=1}\\,\\int_{z=0}^{z=4}(rz\\,\\sin \\,\\theta )rdzdrd\\theta .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{16}{3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the same steps as in the previous example."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(16/3)"
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If the cylindrical region over which we have to integrate is a general solid, we look at the projections onto the coordinate planes. Hence the triple integral of a continuous function $f(r,\\theta ,z)$ over a general solid region $E=\\{(r,\\theta ,z)|(r,\\theta )\\in D,u_{1}(r,\\theta )\\le z\\le u_{2}(r,\\theta )\\}$ in ${\\mathbb{R}}^{3},$ where $D$ is the projection of $E$ onto the $r\\theta$-plane, is"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iiint_{E}f(r,\\theta ,z)r\\,dr\\,d\\theta \\,dz={\\displaystyle \\iint_{D}\\left[{\\displaystyle \\int_{u_{1}(r,\\theta )}^{u_{2}(r,\\theta )}f(r,\\theta ,z)dz}\\right]}}r\\,dr\\,d\\theta ."
+    },
+    {
+     "type": "p",
+     "text": "In particular, if $D=\\{(r,\\theta )|g_{1}(\\theta )\\le r\\le g_{2}(\\theta ),\\alpha \\le \\theta \\le \\beta \\},$ then we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iiint_{E}f(r,\\theta ,z)}r\\,dr\\,d\\theta ={\\displaystyle \\int_{\\theta =\\alpha}^{\\theta =\\beta}\\,{\\displaystyle \\int_{r=g_{1}(\\theta )}^{r=g_{2}(\\theta )}\\,{\\displaystyle \\int_{z=u_{1}(r,\\theta )}^{z=u_{2}(r,\\theta )}f(r,\\theta ,z)}}}r\\,dz\\,dr\\,d\\theta ."
+    },
+    {
+     "type": "p",
+     "text": "Similar formulas exist for projections onto the other coordinate planes. We can use polar coordinates in those planes if necessary."
+    }
+   ],
+   "title": "Integration in Cylindrical Coordinates (continued)"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 5.44",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the region $E$ inside the right circular cylinder with equation $r=2\\,\\sin \\,\\theta ,$ bounded below by the $r\\theta$-plane and bounded above by the sphere with radius $4$ centered at the origin (Figure 5.51). Set up a triple integral over this region with a function $f(r,\\theta ,z)$ in cylindrical coordinates."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_003.webp",
+     "alt": "In polar coordinate space, a sphere of radius 4 is shown with equation r squared + z squared = 16 and center being the origin. There is also a cylinder described by r = 2 sin theta inside the sphere.",
+     "caption": "**Figure 5.51** Setting up a triple integral in cylindrical coordinates over a cylindrical region.",
+     "width": 485,
+     "height": 399
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First, identify that the equation for the sphere is $r^{2}+z^{2}=16.$ We can see that the limits for $z$ are from $0$ to $z=\\sqrt{16-r^{2}}.$ Then the limits for $r$ are from $0$ to $r=2\\,\\sin \\,\\theta .$ Finally, the limits for $\\theta$ are from $0$ to $\\pi .$ Hence the region is"
+     },
+     {
+      "type": "math",
+      "tex": "E=\\{(r,\\theta ,z)|0\\le \\theta \\le \\pi ,0\\le r\\le 2\\,\\sin \\,\\theta ,0\\le z\\le \\sqrt{16-r^{2}}\\}."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the triple integral is"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\iiint_{E}f(r,\\theta ,z)}r\\,dz\\,dr\\,d\\theta ={\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi}\\,{\\displaystyle \\int_{r=0}^{r=2\\,\\sin \\,\\theta}\\,{\\displaystyle \\int_{z=0}^{z=\\sqrt{16-r^{2}}}f(r,\\theta ,z)}}}r\\,dz\\,dr\\,d\\theta ."
+     }
+    ]
+   },
+   "title": "Setting up a Triple Integral in Cylindrical Coordinates over a General Region"
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.28",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the region $E$ inside the right circular cylinder with equation $r=2\\,\\sin \\,\\theta ,$ bounded below by the $r\\theta$-plane and bounded above by $z=4-y.$ Set up a triple integral with a function $f(r,\\theta ,z)$ in cylindrical coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\iiint_{E}f(r,\\theta ,z)}r\\,dz\\,dr\\,d\\theta ={\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi}\\,{\\displaystyle \\int_{r=0}^{r=2\\,\\sin \\,\\theta}\\,{\\displaystyle \\int_{z=0}^{z=4-r\\,\\sin \\,\\theta}f(r,\\theta ,z)r\\,dz\\,dr\\,d\\theta}}}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Analyze the region, and draw a sketch."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 5.45",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $E$ be the region bounded below by the cone $z=\\sqrt{x^{2}+y^{2}}$ and above by the paraboloid $z=2-x^{2}-y^{2}.$ (Figure 5.52). Set up a triple integral in cylindrical coordinates to find the volume of the region, using the following orders of integration:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$dz\\,dr\\,d\\theta$",
+      [
+       {
+        "type": "p",
+        "text": "$dr\\,dz\\,d\\theta .$"
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_15_05_004.webp",
+        "alt": "A paraboloid with equation z = 2 minus x squared minus y squared opening down, and within it, a cone with equation z = the square root of (x squared + y squared) pointing down.",
+        "caption": "**Figure 5.52** Setting up a triple integral in cylindrical coordinates over a conical region.",
+        "width": 524,
+        "height": 340
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "The cone is of radius 1 where it meets the paraboloid. Since $z=2-x^{2}-y^{2}=2-r^{2}$ and $z=\\sqrt{x^{2}+y^{2}}=r$ (assuming $r$ is nonnegative), we have $2-r^{2}=r.$ Solving, we have $r^{2}+r-2=(r+2)(r-1)=0.$ Since $r\\ge 0,$ we have $r=1.$ Therefore $z=1.$ So the intersection of these two surfaces is a circle of radius $1$ in the plane $z=1.$ The cone is the lower bound for $z$ and the paraboloid is the upper bound. The projection of the region onto the $xy$-plane is the circle of radius $1$ centered at the origin.\n\nThus, we can describe the region as"
+        },
+        {
+         "type": "math",
+         "tex": "E=\\{(r,\\theta ,z)|0\\le \\theta \\le 2\\pi ,0\\le r\\le 1,r\\le z\\le 2-r^{2}\\}."
+        },
+        {
+         "type": "p",
+         "text": "Hence the integral for the volume is"
+        },
+        {
+         "type": "math",
+         "tex": "V={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{r=0}^{r=1}\\,{\\displaystyle \\int_{z=r}^{z=2-r^{2}}r\\,dz\\,dr\\,d\\theta}}}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "We can also write the cone surface as $r=z$ and the paraboloid as $r^{2}=2-z.$ The lower bound for $r$ is zero, but the upper bound is sometimes the cone and the other times it is the paraboloid. The plane $z=1$ divides the region into two regions. Then the region can be described as"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}E & =\\{(r,\\theta ,z)|0\\le \\theta \\le 2\\pi ,0\\le z\\le 1,0\\le r\\le z\\} \\\\ & \\cup \\{(r,\\theta ,z)|0\\le \\theta \\le 2\\pi ,1\\le z\\le 2,0\\le r\\le \\sqrt{2-z}\\}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Now the integral for the volume becomes"
+        },
+        {
+         "type": "math",
+         "tex": "V={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{z=0}^{z=1}\\,{\\displaystyle \\int_{r=0}^{r=z}r\\,dr\\,dz\\,d\\theta +}}}{\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{z=1}^{z=2}\\,{\\displaystyle \\int_{r=0}^{r=\\sqrt{2-z}}r\\,dr\\,dz\\,d\\theta}}}."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Setting up a Triple Integral in Two Ways"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.29",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Redo the previous example with the order of integration $d\\theta \\,dz\\,dr.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$E=\\{(r,\\theta ,z)|0\\le \\theta \\le 2\\pi ,0\\le z\\le 1,z\\le r\\le 2-z^{2}\\}$ and $V={\\displaystyle \\int_{r=0}^{r=1}\\,{\\displaystyle \\int_{z=r}^{z=2-r^{2}}\\,{\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}r\\,d\\theta \\,dz\\,dr}}}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Note that $\\theta$ is independent of $r$ and $z.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 5.46",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let *E* be the region bounded below by the $r\\theta$-plane, above by the sphere $x^{2}+y^{2}+z^{2}=4,$ and on the sides by the cylinder $x^{2}+y^{2}=1$ (Figure 5.53). Set up a triple integral in cylindrical coordinates to find the volume of the region using the following orders of integration, and in each case find the volume and check that the answers are the same:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$dz\\,dr\\,d\\theta$",
+      [
+       {
+        "type": "p",
+        "text": "$dr\\,dz\\,d\\theta .$"
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_15_05_005.webp",
+        "alt": "A hemisphere with equation x squared + y squared + z squared = 4 in the upper half plane, and within it, a cylinder with equation x squared + y squared = 1.",
+        "caption": "**Figure 5.53** Finding a cylindrical volume with a triple integral in cylindrical coordinates.",
+        "width": 478,
+        "height": 393
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Note that the equation for the sphere is"
+        },
+        {
+         "type": "math",
+         "tex": "x^{2}+y^{2}+z^{2}=4\\,\\text{or}\\,r^{2}+z^{2}=4"
+        },
+        {
+         "type": "p",
+         "text": "and the equation for the cylinder is"
+        },
+        {
+         "type": "math",
+         "tex": "x^{2}+y^{2}=1\\,\\text{or}\\,r^{2}=1."
+        },
+        {
+         "type": "p",
+         "text": "Thus, we have for the region $E$"
+        },
+        {
+         "type": "math",
+         "tex": "E=\\{(r,\\theta ,z)|0\\le z\\le \\sqrt{4-r^{2}},0\\le r\\le 1,0\\le \\theta \\le 2\\pi \\}"
+        },
+        {
+         "type": "p",
+         "text": "Hence the integral for the volume is"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}V(E) & ={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{r=0}^{r=1}\\,{\\displaystyle \\int_{z=0}^{z=\\sqrt{4-r^{2}}}r\\,dz\\,dr\\,d\\theta}}} \\\\ & ={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{r=0}^{r=1}\\left[rz|_{z=0}^{z=\\sqrt{4-r^{2}}}\\right]}}dr\\,d\\theta ={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{r=0}^{r=1}(r\\sqrt{4-r^{2}})}}dr\\,d\\theta \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\left(\\frac{8}{3}-\\sqrt{3}\\right)d\\theta =2\\pi \\left(\\frac{8}{3}-\\sqrt{3}\\right)}\\,\\text{cubic units}.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Since the sphere is $x^{2}+y^{2}+z^{2}=4,$ which is $r^{2}+z^{2}=4,$ and the cylinder is $x^{2}+y^{2}=1,$ which is $r^{2}=1,$ we have $1+z^{2}=4,$ that is, $z^{2}=3.$ Thus we have two regions, since the sphere and the cylinder intersect at $(1,\\sqrt{3})$ in the $rz$-plane"
+        },
+        {
+         "type": "math",
+         "tex": "E_{1}=\\{(r,\\theta ,z)|0\\le r\\le \\sqrt{4-z^{2}},\\sqrt{3}\\le z\\le 2,0\\le \\theta \\le 2\\pi \\}"
+        },
+        {
+         "type": "p",
+         "text": "and"
+        },
+        {
+         "type": "math",
+         "tex": "E_{2}=\\{(r,\\theta ,z)|0\\le r\\le 1,0\\le z\\le \\sqrt{3},0\\le \\theta \\le 2\\pi \\}."
+        },
+        {
+         "type": "p",
+         "text": "Hence the integral for the volume is"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}V(E) & ={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{z=\\sqrt{3}}^{z=2}\\,{\\displaystyle \\int_{r=0}^{r=\\sqrt{4-r^{2}}}r\\,dr\\,dz\\,d\\theta}}}+{\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{z=0}^{z=\\sqrt{3}}\\,{\\displaystyle \\int_{r=0}^{r=1}r\\,dr\\,dz\\,d\\theta}}} \\\\ & =\\sqrt{3}\\pi +\\left(\\frac{16}{3}-3\\sqrt{3}\\right)\\pi =2\\pi \\left(\\frac{8}{3}-\\sqrt{3}\\right)\\,\\text{cubic units}.\\end{array}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding a Volume with Triple Integrals in Two Ways"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.30",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Redo the previous example with the order of integration $d\\theta \\,dz\\,dr.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$E_{2}=\\{(r,\\theta ,z)|0\\le \\theta \\le 2\\pi ,0\\le r\\le 1,r\\le z\\le \\sqrt{4-r^{2}}\\}$ and $V={\\displaystyle \\int_{r=0}^{r=1}\\,{\\displaystyle \\int_{z=r}^{z=\\sqrt{4-r^{2}}}\\,{\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}r\\,d\\theta \\,dz\\,dr}}}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "A figure can be helpful. Note that $\\theta$ is independent of $r$ and $z.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In three-dimensional space ${\\mathbb{R}}^{3}$ in the spherical coordinate system, we specify a point $P$ by its distance $\\rho$ from the origin, the polar angle $\\theta$ from the positive $x\\text{-axis}$ (same as in the cylindrical coordinate system), and the angle $\\varphi$ from the positive $z\\text{-axis}$ and the line $OP$ (Figure 5.54). Note that $\\rho \\ge 0$ and $0\\le \\varphi \\le \\pi .$ (Refer to Cylindrical and Spherical Coordinates for a review.) Spherical coordinates are useful for triple integrals over regions that are symmetric with respect to the origin."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_006.webp",
+     "alt": "A depiction of the spherical coordinate system: a point (x, y, z) is shown, which is equal to (rho, theta, phi) in spherical coordinates. Rho serves as the spherical radius, theta serves as the angle from the x axis in the xy plane, and phi serves as the angle from the z axis.",
+     "caption": "**Figure 5.54** The spherical coordinate system locates points with two angles and a distance from the origin.",
+     "width": 394,
+     "height": 371
+    },
+    {
+     "type": "p",
+     "text": "Recall the relationships that connect rectangular coordinates with spherical coordinates."
+    },
+    {
+     "type": "p",
+     "text": "From spherical coordinates to rectangular coordinates:"
+    },
+    {
+     "type": "math",
+     "tex": "x=\\rho \\,\\sin \\,\\varphi \\,\\cos \\,\\theta ,y=\\rho \\,\\sin \\,\\varphi \\,\\sin \\,\\theta ,\\,\\text{and}\\,z=\\rho \\,\\cos \\,\\varphi ."
+    },
+    {
+     "type": "p",
+     "text": "From rectangular coordinates to spherical coordinates:"
+    },
+    {
+     "type": "math",
+     "tex": "\\rho^{2}=x^{2}+y^{2}+z^{2},\\tan \\,\\theta =\\frac{y}{x},\\varphi =\\arccos \\left(\\frac{z}{\\sqrt{x^{2}+y^{2}+z^{2}}}\\right)."
+    }
+   ],
+   "title": "Review of Spherical Coordinates"
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Other relationships that are important to know for conversions are"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cccccc}\\text{•} & & r=\\rho \\,\\sin \\,\\varphi & & & \\\\ \\text{•} & & \\theta =\\theta & & & \\begin{array}{c}\\text{These equations are used to convert from} \\\\ \\text{spherical coordinates to cylindrical coordinates}\\end{array} \\\\ \\text{•} & & z=\\rho \\,\\cos \\,\\varphi & & & \\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cccccc} \\\\ \\\\ \\text{•} & & \\rho =\\sqrt{r^{2}+z^{2}} & & & \\\\ \\text{•} & & \\theta =\\theta & & & \\begin{array}{c}\\text{These equations are used to convert from} \\\\ \\text{cylindrical coordinates to spherical} \\\\ \\text{coordinates.}\\end{array} \\\\ \\text{•} & & \\varphi =\\arccos \\left(\\frac{z}{\\sqrt{r^{2}+z^{2}}}\\right) & & & \\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "The following figure shows a few solid regions that are convenient to express in spherical coordinates."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_007.webp",
+     "alt": "This figure consists of four figures. In the first, a sphere is shown with the note Sphere rho = c (constant). In the second, a half plane is drawn from the z axis with the note Half plane theta = c (constant). In the last two figures, a half cone is drawn in each with the note Half cone phi = c (constant). In the first of these, the cone opens up and it is marked 0 < c < pi/2. In the second of these, the cone opens down and it is marked pi/2 < c < pi.",
+     "caption": "**Figure 5.55** Spherical coordinates are especially convenient for working with solids bounded by these types of surfaces. (The letter $c$ indicates a constant.)",
+     "width": 900,
+     "height": 283
+    }
+   ],
+   "title": "Review of Spherical Coordinates (continued)"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now establish a triple integral in the spherical coordinate system, as we did before in the cylindrical coordinate system. Let the function $f(\\rho ,\\theta ,\\varphi )$ be continuous in a bounded spherical box, $B=\\{(\\rho ,\\theta ,\\varphi )|a\\le \\rho \\le b,\\alpha \\le \\theta \\le \\beta ,\\gamma \\le \\varphi \\le \\psi \\}.$ We then divide each interval into $l,m\\,\\text{and}\\,n$ subdivisions such that $\\text{Δ}\\rho =\\frac{b-a}{l},\\text{Δ}\\theta =\\frac{\\beta -\\alpha}{m},\\text{Δ}\\varphi =\\frac{\\psi -\\gamma}{n}.$"
+    },
+    {
+     "type": "p",
+     "text": "Now we can illustrate the following theorem for triple integrals in spherical coordinates with $\\left(\\rho_{ijk}^{*},\\theta_{ijk}^{*},\\varphi_{ijk}^{*}\\right)$ being any sample point in the spherical subbox $B_{ijk}.$ For the volume element of the subbox $\\text{Δ}V$ in spherical coordinates, we have $\\text{Δ}V=(\\text{Δ}\\rho )(\\rho \\text{Δ}\\varphi )(\\rho \\,\\sin \\,\\varphi \\text{Δ}\\theta ),,$ as shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_008.webp",
+     "alt": "In the spherical coordinate space, a box is projected onto the polar coordinate plane. On the polar coordinate plane, the projection has area rho sin phi Delta theta. On the z axis, a distance Delta rho is indicated, and from these boundaries, angles are made that project through the edges of the box. There is also a blown up version of the box that shows it has sides Delta rho, rho Delta phi, and rho sin phi Delta theta, with overall volume Delta V = rho squared sin phi Delta rho Delta phi Delta theta.",
+     "caption": "**Figure 5.56** The volume element of a box in spherical coordinates.",
+     "width": 756,
+     "height": 361
+    }
+   ],
+   "title": "Integration in Spherical Coordinates"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **triple integral in spherical coordinates** is the limit of a triple Riemann sum,"
+      },
+      {
+       "type": "math",
+       "tex": "\\lim_{l,m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{l}{\\displaystyle \\sum_{j=1}^{m}{\\displaystyle \\sum_{k=1}^{n}f(\\rho_{ijk}^{*},\\theta_{ijk}^{*},\\varphi_{ijk}^{*})\\left(\\rho_{ijk}^{*}\\right)^{2}\\sin \\,\\varphi_{ijk}^{*}\\text{Δ}\\rho \\text{Δ}\\theta \\text{Δ}\\varphi}}}"
+      },
+      {
+       "type": "p",
+       "text": "provided the limit exists."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "As with the other multiple integrals we have examined, all the properties work similarly for a triple integral in the spherical coordinate system, and so do the iterated integrals. Fubini’s theorem takes the following form."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $f(\\rho ,\\theta ,\\varphi )$ is continuous on a spherical solid box $B=[a,b]\\,\\times \\,[\\alpha ,\\beta ]\\,\\times \\,[\\gamma ,\\psi ],$ then"
+      },
+      {
+       "type": "math",
+       "tex": "\\iiint_{B}f(\\rho ,\\theta ,\\varphi )\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta =\\int_{\\theta =\\alpha}^{\\theta =\\beta}\\int_{\\varphi =\\gamma}^{\\varphi =\\psi}\\,\\int_{\\rho =a}^{\\rho =b}f(\\rho ,\\theta ,\\varphi )\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta ."
+      },
+      {
+       "type": "p",
+       "text": "This iterated integral may be replaced by other iterated integrals by integrating with respect to the three variables in other orders."
+      }
+     ],
+     "title": "Fubini’s Theorem for Spherical Coordinates"
+    }
+   ],
+   "title": "Integration in Spherical Coordinates (continued)"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As stated before, spherical coordinate systems work well for solids that are symmetric around a point, such as spheres and cones. Let us look at some examples before we consider triple integrals in spherical coordinates on general spherical regions."
+    }
+   ],
+   "title": "Integration in Spherical Coordinates (continued)"
+  },
+  {
+   "id": "x21",
+   "kind": "example",
+   "label": "Example 5.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the iterated triple integral ${\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /2}\\,{\\displaystyle \\int_{p=0}^{\\rho =1}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta}}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "As before, in this case the variables in the iterated integral are actually independent of each other and hence we can integrate each piece and multiply:"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{1}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta}}}={\\displaystyle \\int_{0}^{2\\pi}d\\theta}{\\displaystyle \\int_{0}^{\\pi /2}\\sin \\,\\varphi \\,d\\varphi {\\displaystyle \\int_{0}^{1}\\rho^{2}d\\rho}}=(2\\pi )(1)\\left(\\frac{1}{3}\\right)=\\frac{2\\pi}{3}."
+     }
+    ]
+   },
+   "title": "Evaluating a Triple Integral in Spherical Coordinates"
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The concept of triple integration in spherical coordinates can be extended to integration over a general solid, using the projections onto the coordinate planes. Note that $dV$ and $dA$ mean the increments in volume and area, respectively. The variables $V$ and $A$ are used as the variables for integration to express the integrals."
+    },
+    {
+     "type": "p",
+     "text": "The triple integral of a continuous function $f(\\rho ,\\theta ,\\varphi )$ over a general solid region"
+    },
+    {
+     "type": "math",
+     "tex": "E=\\{(\\rho ,\\theta ,\\varphi )|(\\rho ,\\theta )\\in D,u_{1}(\\rho ,\\theta )\\le \\varphi \\le u_{2}(\\rho ,\\theta )\\}"
+    },
+    {
+     "type": "p",
+     "text": "in ${\\mathbb{R}}^{3},$ where $D$ is the projection of $E$ onto the $\\rho \\theta$-plane, is"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iiint_{E}f(\\rho ,\\theta ,\\varphi )}dV={\\displaystyle \\iint_{D}\\left[{\\displaystyle \\int_{u_{1}(\\rho ,\\theta )}^{u_{2}(\\rho ,\\theta )}f(\\rho ,\\theta ,\\varphi )d\\varphi}\\right]}dA."
+    },
+    {
+     "type": "p",
+     "text": "In particular, if $D=\\{(\\rho ,\\theta )|g_{1}(\\theta )\\le \\rho \\le g_{2}(\\theta ),\\alpha \\le \\theta \\le \\beta \\},$ then we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iiint_{E}f(\\rho ,\\theta ,\\varphi )}dV={\\displaystyle \\int_{\\alpha}^{\\beta}\\,{\\displaystyle \\int_{g_{1}(\\theta )}^{g_{2}(\\theta )}\\,{\\displaystyle \\int_{u_{1}(\\rho ,\\theta )}^{u_{2}(\\rho ,\\theta )}f(\\rho ,\\theta ,\\varphi )\\rho^{2}\\sin \\,\\varphi \\,d\\varphi \\,d\\rho \\,d\\theta}}}."
+    },
+    {
+     "type": "p",
+     "text": "Similar formulas occur for projections onto the other coordinate planes."
+    }
+   ],
+   "title": "Integration in Spherical Coordinates (continued)"
+  },
+  {
+   "id": "x23",
+   "kind": "example",
+   "label": "Example 5.48",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Set up an integral for the volume of the region bounded by the cone $z=\\sqrt{3(x^{2}+y^{2})}$ and the hemisphere $z=\\sqrt{4-x^{2}-y^{2}}$ (see the figure below)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_009.webp",
+     "alt": "A hemisphere with equation z = the square root of (4 minus x squared minus y squared) in the upper half plane, and within it, a cone with equation z = the square root of (3 times (x squared + y squared)) that is pointing down, with vertex at the origin.",
+     "caption": "**Figure 5.57** A region bounded below by a cone and above by a hemisphere.",
+     "width": 490,
+     "height": 340
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using the conversion formulas from rectangular coordinates to spherical coordinates, we have:"
+     },
+     {
+      "type": "p",
+      "text": "For the cone: $z=\\sqrt{3(x^{2}+y^{2})}$ or $\\rho \\,\\cos \\,\\varphi =\\sqrt{3}\\rho \\,\\sin \\,\\varphi$ or $\\tan \\,\\varphi =\\frac{1}{\\sqrt{3}}$ or $\\varphi =\\frac{\\pi}{6}.$"
+     },
+     {
+      "type": "p",
+      "text": "For the sphere: $z=\\sqrt{4-x^{2}-y^{2}}$ or $z^{2}=x^{2}+y^{2}=4$ or $\\rho^{2}=4$ or $\\rho =2.$"
+     },
+     {
+      "type": "p",
+      "text": "Thus, the triple integral for the volume is $V(E)={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /6}\\,{\\displaystyle \\int_{\\rho =0}^{\\rho =2}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta}}}.$"
+     }
+    ]
+   },
+   "title": "Setting up a Triple Integral in Spherical Coordinates"
+  },
+  {
+   "id": "c24",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.31",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Set up a triple integral for the volume of the solid region bounded above by the sphere $\\rho =2$ and bounded below by the cone $\\varphi =\\pi /3.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$V(E)={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{\\phi =0}^{\\varphi =\\pi /3}\\,{\\displaystyle \\int_{\\rho =0}^{\\rho =2}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta}}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps of the previous example."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x25",
+   "kind": "example",
+   "label": "Example 5.49",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let $E$ be the region bounded below by the cone $z=\\sqrt{x^{2}+y^{2}}$ and above by the sphere $z=x^{2}+y^{2}+z^{2}$ (Figure 5.58). Set up a triple integral in spherical coordinates and find the volume of the region using the following orders of integration:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$d\\rho \\,d\\theta \\,d\\theta ,$",
+      [
+       {
+        "type": "p",
+        "text": "$d\\varphi \\,d\\rho \\,d\\theta .$"
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_15_05_010.webp",
+        "alt": "A sphere with equation z = x squared + y squared + z squared, and within it, a cone with equation z = the square root of (x squared + y squared) that is pointing down, with vertex at the origin.",
+        "caption": "**Figure 5.58** A region bounded below by a cone and above by a sphere.",
+        "width": 480,
+        "height": 341
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Use the conversion formulas to write the equations of the sphere and cone in spherical coordinates.\n\nFor the sphere:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}x^{2}+y^{2}+z^{2} & = & z \\\\ \\rho^{2} & = & \\rho \\,\\cos \\,\\varphi \\\\ \\rho & = & \\cos \\,\\varphi .\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "For the cone:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccc}z & = & \\sqrt{x^{2}+y^{2}} \\\\ \\rho \\,\\cos \\,\\varphi & = & \\sqrt{\\rho^{2}\\sin^{2}\\varphi \\,\\cos^{2}\\theta +\\rho^{2}\\sin^{2}\\varphi \\,\\sin^{2}\\theta} \\\\ \\rho \\,\\cos \\,\\varphi & = & \\sqrt{\\rho^{2}\\sin^{2}\\varphi (\\cos^{2}\\theta +\\sin^{2}\\theta )} \\\\ \\rho \\,\\cos \\,\\varphi & = & \\rho \\,\\sin \\,\\varphi \\\\ \\cos \\,\\varphi & = & \\sin \\,\\varphi \\\\ \\varphi & = & \\pi /4.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Hence the integral for the volume of the solid region $E$ becomes"
+        },
+        {
+         "type": "math",
+         "tex": "V(E)={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /4}\\,{\\displaystyle \\int_{\\rho =0}^{\\rho =\\cos \\,\\varphi}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta}}}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Consider the $\\varphi \\rho$-plane. Note that the ranges for $\\varphi$ and $\\rho$ (from part a.) are"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{c}0\\le \\varphi \\le \\pi /4 \\\\ 0\\le \\rho \\le \\cos \\,\\varphi .\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "The curve $\\rho =\\cos \\,\\varphi$ meets the line $\\varphi =\\pi /4$ at the point $(\\pi /4,\\sqrt{2}/2).$ Thus, to change the order of integration, we need to use two pieces:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{ccccccc}\\begin{array}{c}0\\le \\rho \\le \\sqrt{2}/2 \\\\ 0\\le \\varphi \\le \\pi /4\\end{array} & & & \\text{and} & & & \\begin{array}{ccc}\\sqrt{2}/2 & \\le & \\rho \\le 1 \\\\ 0 & \\le & \\varphi \\le \\cos^{-1}\\rho .\\end{array}\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Hence the integral for the volume of the solid region $E$ becomes"
+        },
+        {
+         "type": "math",
+         "tex": "V(E)={\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{\\rho =0}^{\\rho =\\sqrt{2}/2}\\,{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /4}\\rho^{2}\\sin \\,\\varphi \\,d\\varphi \\,d\\rho \\,d\\theta}}}+{\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{\\rho =\\sqrt{2}/2}^{\\rho =1}\\,{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\cos^{-1}\\rho}\\rho^{2}\\sin \\,\\varphi \\,d\\varphi \\,d\\rho \\,d\\theta}}}."
+        },
+        {
+         "type": "p",
+         "text": "In each case, the integration results in $V(E)=\\frac{\\pi}{8}.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Interchanging Order of Integration in Spherical Coordinates"
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Before we end this section, we present a couple of examples that can illustrate the conversion from rectangular coordinates to cylindrical coordinates and from rectangular coordinates to spherical coordinates."
+    }
+   ],
+   "title": "Integration in Spherical Coordinates (continued)"
+  },
+  {
+   "id": "x27",
+   "kind": "example",
+   "label": "Example 5.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Convert the following integral into cylindrical coordinates:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{y=-1}^{y=1}\\,{\\displaystyle \\int_{x=0}^{x=\\sqrt{1-y^{2}}}\\,{\\displaystyle \\int_{z=x^{2}+y^{2}}^{z=\\sqrt{x^{2}+y^{2}}}xyz\\,dz\\,dx\\,dy}}}."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The ranges of the variables are"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}-1 & \\le & y\\le 1 \\\\ 0 & \\le & x\\le \\sqrt{1-y^{2}} \\\\ x^{2}+y^{2} & \\le & z\\le \\sqrt{x^{2}+y^{2}}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The first two inequalities describe the right half of a circle of radius $1.$ Therefore, the ranges for $\\theta$ and $r$ are"
+     },
+     {
+      "type": "math",
+      "tex": "-\\frac{\\pi}{2}\\le \\theta \\le \\frac{\\pi}{2}\\,\\text{and}\\,0\\le r\\le 1."
+     },
+     {
+      "type": "p",
+      "text": "The limits of $z$ are $r^{2}\\le z\\le r,$ hence"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{y=-1}^{y=1}\\,{\\displaystyle \\int_{x=0}^{x=\\sqrt{1-y^{2}}}\\,{\\displaystyle \\int_{z=x^{2}+y^{2}}^{z=\\sqrt{x^{2}+y^{2}}}xyz\\,dz\\,dx\\,dy}}}={\\displaystyle \\int_{\\theta =-\\pi /2}^{\\theta =\\pi /2}\\,{\\displaystyle \\int_{r=0}^{r=1}\\,{\\displaystyle \\int_{z=r^{2}}^{z=r}r(r\\,\\cos \\,\\theta )(r\\,\\sin \\,\\theta )z\\,dz\\,dr\\,d\\theta}}}."
+     }
+    ]
+   },
+   "title": "Converting from Rectangular Coordinates to Cylindrical Coordinates"
+  },
+  {
+   "id": "x28",
+   "kind": "example",
+   "label": "Example 5.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Convert the following integral into spherical coordinates:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int_{y=0}^{y=3}\\,{\\displaystyle \\int_{x=0}^{x=\\sqrt{9-y^{2}}}\\,{\\displaystyle \\int_{z=\\sqrt{x^{2}+y^{2}}}^{z=\\sqrt{18-x^{2}-y^{2}}}(x^{2}+y^{2}+z^{2})dz\\,dx\\,dy}}}."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The ranges of the variables are"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}0 & \\le & y\\le 3 \\\\ 0 & \\le & x\\le \\sqrt{9-y^{2}} \\\\ \\sqrt{x^{2}+y^{2}} & \\le & z\\le \\sqrt{18-x^{2}-y^{2}}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The first two ranges of variables describe a quarter disk in the first quadrant of the $xy$-plane. Hence the range for $\\theta$ is $0\\le \\theta \\le \\frac{\\pi}{2}.$"
+     },
+     {
+      "type": "p",
+      "text": "The lower bound $z=\\sqrt{x^{2}+y^{2}}$ is the upper half of a cone and the upper bound $z=\\sqrt{18-x^{2}-y^{2}}$ is the upper half of a sphere. Therefore, we have $0\\le \\rho \\le \\sqrt{18},$ which is $0\\le \\rho \\le 3\\sqrt{2}.$"
+     },
+     {
+      "type": "p",
+      "text": "For the ranges of $\\varphi ,$ we need to find where the cone and the sphere intersect, so solve the equation"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}r^{2}+z^{2} & = & 18 \\\\ (\\sqrt{x^{2}+y^{2}})^{2}+z^{2} & = & 18 \\\\ z^{2}+z^{2} & = & 18 \\\\ 2z^{2} & = & 18 \\\\ z^{2} & = & 9 \\\\ z & = & 3.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This gives"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}3\\sqrt{2}\\,\\cos \\,\\varphi & = & 3 \\\\ \\cos \\,\\varphi & = & \\frac{1}{\\sqrt{2}} \\\\ \\varphi & = & \\frac{\\pi}{4}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Putting this together, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int_{y=0}^{y=3}\\,{\\displaystyle \\int_{x=0}^{x=\\sqrt{9-y^{2}}}\\,{\\displaystyle \\int_{z=\\sqrt{x^{2}+y^{2}}}^{z=\\sqrt{18-x^{2}-y^{2}}}(x^{2}+y^{2}+z^{2})dz\\,dx\\,dy}}}={\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /4}\\,{\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi /2}\\,{\\displaystyle \\int_{\\rho =0}^{\\rho =3\\sqrt{2}}\\rho^{4}\\sin \\,\\varphi \\,d\\rho \\,d\\theta}}}\\,d\\varphi ."
+     }
+    ]
+   },
+   "title": "Converting from Rectangular Coordinates to Spherical Coordinates"
+  },
+  {
+   "id": "c29",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.32",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use rectangular, cylindrical, and spherical coordinates to set up triple integrals for finding the volume of the region inside the sphere $x^{2}+y^{2}+z^{2}=4$ but outside the cylinder $x^{2}+y^{2}=1.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_011.webp",
+     "alt": "A sphere with equation x squared + y squared + z squared = 4, and within it, a cylinder with equation x squared + y squared = 1.",
+     "width": 493,
+     "height": 402
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Rectangular: ${\\displaystyle \\int_{x=-2}^{x=2}\\,{\\displaystyle \\int_{y=-\\sqrt{4-x^{2}}}^{y=\\sqrt{4-x^{2}}}\\,{\\displaystyle \\int_{z=-\\sqrt{4-x^{2}-y^{2}}}^{z=\\sqrt{4-x^{2}-y^{2}}}dz\\,dy\\,dx-}}}{\\displaystyle \\int_{x=-1}^{x=1}\\,{\\displaystyle \\int_{y=-\\sqrt{1-x^{2}}}^{y=\\sqrt{1-x^{2}}}\\,{\\displaystyle \\int_{z=-\\sqrt{4-x^{2}-y^{2}}}^{z=\\sqrt{4-x^{2}-y^{2}}}dz\\,dy\\,dx}}}.$\n\nCylindrical: ${\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{r=1}^{r=2}\\,{\\displaystyle \\int_{z=-\\sqrt{4-r^{2}}}^{z=\\sqrt{4-r^{2}}}r\\,dz\\,dr\\,d\\theta}}}.$\n\nSpherical: ${\\displaystyle \\int_{\\varphi =\\pi /6}^{\\varphi =5\\pi /6}\\,{\\displaystyle \\int_{\\theta =0}^{\\theta =2\\pi}\\,{\\displaystyle \\int_{\\rho =\\csc \\,\\varphi}^{\\rho =2}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\theta \\,d\\varphi}}}.$"
+     }
+    ]
+   }
+  },
+  {
+   "id": "r30",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we are familiar with the spherical coordinate system, let’s find the volume of some known geometric figures, such as spheres and ellipsoids."
+    }
+   ],
+   "title": "Integration in Spherical Coordinates (continued)"
+  },
+  {
+   "id": "x31",
+   "kind": "example",
+   "label": "Example 5.52",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the volume of the spherical planetarium in l’Hemisphèric in Valencia, Spain, which is five stories tall and has a radius of approximately $50$ ft, using the equation $x^{2}+y^{2}+z^{2}=r^{2}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_012.webp",
+     "alt": "A picture of l’Hemisphèric, which is a giant glass structure that is in the shape of an ellipsoid.",
+     "caption": "**Figure 5.59** (credit: modification of work by Javier Yaya Tur, Wikimedia Commons)",
+     "width": 325,
+     "height": 219
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We calculate the volume of the ball in the first octant, where $x\\ge 0,y\\ge 0,$ and $z\\ge 0,$ using spherical coordinates, and then multiply the result by $8$ for symmetry. Since we consider the region $D$ as the first octant in the integral, the ranges of the variables are"
+     },
+     {
+      "type": "math",
+      "tex": "0\\le \\varphi \\le \\frac{\\pi}{2},0\\le \\rho \\le r,0\\le \\theta \\le \\frac{\\pi}{2}."
+     },
+     {
+      "type": "p",
+      "text": "Therefore,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}V & ={\\displaystyle \\iiint_{D}dx\\,dy\\,dz=8{\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi /2}\\,{\\displaystyle \\int_{\\rho =0}^{\\rho =r}\\,{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /2}\\rho^{2}\\sin \\,\\theta}}}}\\,d\\varphi \\,d\\rho \\,d\\theta \\\\ & =8{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /2}d\\varphi {\\displaystyle \\int_{\\rho =0}^{\\rho =r}\\rho^{2}d\\rho}}{\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi /2}\\sin \\,\\theta \\,d\\theta} \\\\ & =8\\left(\\frac{\\pi}{2}\\right)\\left(\\frac{r^{3}}{3}\\right)(1) \\\\ & =\\frac{4}{3}\\pi r^{3}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This exactly matches with what we knew. So for a sphere with a radius of approximately $50$ ft, the volume is $\\frac{4}{3}\\pi (50)^{3}\\approx 523,600{\\,\\text{ft}}^{3}.$"
+     }
+    ]
+   },
+   "title": "Chapter Opener: Finding the Volume of l’Hemisphèric"
+  },
+  {
+   "id": "r32",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For the next example we find the volume of an ellipsoid."
+    }
+   ],
+   "title": "Integration in Spherical Coordinates (continued)"
+  },
+  {
+   "id": "x33",
+   "kind": "example",
+   "label": "Example 5.53",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the volume of the ellipsoid $\\frac{x^{2}}{a^{2}}+\\frac{y^{2}}{b^{2}}+\\frac{z^{2}}{c^{2}}=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We again use symmetry and evaluate the volume of the ellipsoid using spherical coordinates. As before, we use the first octant $x\\ge 0,y\\ge 0,$ and $z\\ge 0$ and then multiply the result by $8.$"
+     },
+     {
+      "type": "p",
+      "text": "In this case the ranges of the variables are"
+     },
+     {
+      "type": "math",
+      "tex": "0\\le \\varphi \\le \\frac{\\pi}{2},0,0\\le \\rho \\le 1,\\,\\text{and}\\,0\\le \\theta \\le \\frac{\\pi}{2}."
+     },
+     {
+      "type": "p",
+      "text": "Also, we need to change the rectangular to spherical coordinates in this way:"
+     },
+     {
+      "type": "math",
+      "tex": "x=a\\rho \\,\\cos \\,\\varphi \\,\\sin \\,\\theta ,y=b\\rho \\,\\sin \\,\\varphi \\,\\sin \\,\\theta ,\\,\\text{and}\\,z=c\\rho \\,\\cos \\,\\theta ."
+     },
+     {
+      "type": "p",
+      "text": "Then the volume of the ellipsoid becomes"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}V & ={\\displaystyle \\iiint_{D}dx\\,dy\\,dz} \\\\ & =8{\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi /2}\\,{\\displaystyle \\int_{\\rho =0}^{\\rho =1}\\,{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /2}abc\\rho^{2}\\sin \\,\\theta}}}\\,d\\varphi \\,d\\rho \\,d\\theta \\\\ & =8abc{\\displaystyle \\int_{\\varphi =0}^{\\varphi =\\pi /2}d\\varphi {\\displaystyle \\int_{\\rho =0}^{\\rho =1}\\rho^{2}d\\rho {\\displaystyle \\int_{\\theta =0}^{\\theta =\\pi /2}\\sin \\,\\theta \\,d\\theta}}} \\\\ & =8abc\\left(\\frac{\\pi}{2}\\right)\\left(\\frac{1}{3}\\right)(1) \\\\ & =\\frac{4}{3}\\pi abc.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Volume of an Ellipsoid"
+  },
+  {
+   "id": "x34",
+   "kind": "example",
+   "label": "Example 5.54",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the volume of the space inside the ellipsoid $\\frac{x^{2}}{75^{2}}+\\frac{y^{2}}{80^{2}}+\\frac{z^{2}}{90^{2}}=1$ and outside the sphere $x^{2}+y^{2}+z^{2}=50^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This problem is directly related to the l’Hemisphèric structure. The volume of space inside the ellipsoid and outside the sphere might be useful to find the expense of heating or cooling that space. We can use the preceding two examples for the volume of the sphere and ellipsoid and then substract."
+     },
+     {
+      "type": "p",
+      "text": "First we find the volume of the ellipsoid using $a=75\\,\\text{ft,}$ $b=80\\,\\text{ft,}$ and $c=90\\,\\text{ft}$ in the result from Example 5.53. Hence the volume of the ellipsoid is"
+     },
+     {
+      "type": "math",
+      "tex": "V_{\\text{ellipsoid}}=\\frac{4}{3}\\pi (75)(80)(90)\\approx 2,262,000{\\,\\text{ft}}^{3}."
+     },
+     {
+      "type": "p",
+      "text": "From Example 5.52, the volume of the sphere is"
+     },
+     {
+      "type": "math",
+      "tex": "V_{\\text{sphere}}\\approx 523,600{\\,\\text{ft}}^{3}."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, the volume of the space inside the ellipsoid $\\frac{x^{2}}{75^{2}}+\\frac{y^{2}}{80^{2}}+\\frac{z^{2}}{90^{2}}=1$ and outside the sphere $x^{2}+y^{2}+z^{2}=50^{2}$ is approximately"
+     },
+     {
+      "type": "math",
+      "tex": "V_{\\text{Hemisferic}}=V_{\\text{ellipsoid}}-V_{\\text{sphere}}=1,738,400{\\,\\text{ft}}^{3}."
+     }
+    ]
+   },
+   "title": "Finding the Volume of the Space Inside an Ellipsoid and Outside a Sphere"
+  },
+  {
+   "id": "r35",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "To evaluate a triple integral in cylindrical coordinates, use the iterated integral"
+       },
+       {
+        "type": "math",
+        "tex": "{\\displaystyle \\int_{\\theta =\\alpha}^{\\theta =\\beta}\\,{\\displaystyle \\int_{r=g_{1}(\\theta )}^{r=g_{2}(\\theta )}\\,{\\displaystyle \\int_{z=u_{1}(r,\\theta )}^{z=u_{2}(r,\\theta )}f(r,\\theta ,z)}}}r\\,dz\\,dr\\,d\\theta ."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "To evaluate a triple integral in spherical coordinates, use the iterated integral"
+       },
+       {
+        "type": "math",
+        "tex": "{\\displaystyle \\int_{\\theta =\\alpha}^{\\theta =\\beta}\\,{\\displaystyle \\int_{\\rho =g_{1}(\\theta )}^{\\rho =g_{2}(\\theta )}\\,{\\displaystyle \\int_{\\varphi =u_{1}(r,\\theta )}^{\\varphi =u_{2}(r,\\theta )}f(\\rho ,\\theta ,\\varphi )}}}\\rho^{2}\\sin \\,\\varphi \\,d\\varphi \\,d\\rho \\,d\\theta ."
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r36",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Triple integral in cylindrical coordinates**",
+       "${\\displaystyle \\iiint_{B}g(x,y,z)dV}={\\displaystyle \\iiint_{B}g(r\\,\\cos \\,\\theta ,r\\,\\sin \\,\\theta ,z)r\\,dr\\,d\\theta \\,dz={\\displaystyle \\iiint_{B}f(r,\\theta ,z)}}r\\,dr\\,d\\theta \\,dz$"
+      ],
+      [
+       "**Triple integral in spherical coordinates**",
+       "${\\displaystyle \\iiint_{B}f(\\rho ,\\theta ,\\varphi )}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta ={\\displaystyle \\int_{\\varphi =\\gamma}^{\\varphi =\\psi}\\,{\\displaystyle \\int_{\\theta =\\alpha}^{\\theta =\\beta}\\,{\\displaystyle \\int_{\\rho =a}^{\\rho =b}f(\\rho ,\\theta ,\\varphi )}}}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e241",
+   "number": 241,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=z,$ $B=\\{(x,y,z)|x^{2}+y^{2}\\le 9,x\\ge 0,y\\ge 0,0\\le z\\le 1\\}$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_201.webp",
+     "alt": "A quarter section of a cylinder with height 1 and radius 3.",
+     "width": 423,
+     "height": 425
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793638867",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integrals ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{9\\pi}{8}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((9 pi)/8)"
+   }
+  },
+  {
+   "id": "e242",
+   "number": 242,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=xz^{2},$ $B=\\{(x,y,z)|x^{2}+y^{2}\\le 16,x\\ge 0,y\\le 0,-1\\le z\\le 1\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793447646",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integrals ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e243",
+   "number": 243,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=xy,$ $B=\\{(x,y,z)|x^{2}+y^{2}\\le 1,x\\ge 0,y\\ge 0,x\\le y,-1\\le z\\le 1\\}$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_202.webp",
+     "alt": "A wedge with radius 1, height 1, and angle pi/4.",
+     "width": 437,
+     "height": 409
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793454883",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integrals ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{8}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/8)"
+   }
+  },
+  {
+   "id": "e244",
+   "number": 244,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=x^{2}+y^{2},$ $B=\\{(x,y,z)|x^{2}+y^{2}\\le 4,x\\ge 0,x\\le y,0\\le z\\le 3\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793280426",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integrals ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e245",
+   "number": 245,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=e^{\\sqrt{x^{2}+y^{2}}},$ $B=\\{(x,y,z)|1\\le x^{2}+y^{2}\\le 4,y\\le 0,x\\le y\\sqrt{3},2\\le z\\le 3\\}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793568631",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integrals ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi e^{2}}{6}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((pi e^2)/6)"
+   }
+  },
+  {
+   "id": "e246",
+   "number": 246,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=\\sqrt{x^{2}+y^{2}},$ $B=\\{(x,y,z)|1\\le x^{2}+y^{2}\\le 9,y\\le 0,0\\le z\\le 1\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929921",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integrals ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e247",
+   "number": 247,
+   "prompt": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "Let $B$ be a cylindrical shell with inner radius $a,$ outer radius $b,$ and height $c,$ where $0<a<b$ and $c>0.$ Assume that a function $F$ defined on $B$ can be expressed in cylindrical coordinates as $F(x,y,z)=f(r)+h(z),$ where $f$ and $h$ are differentiable functions. If ${\\displaystyle \\int_{a}^{b}\\tilde{f}(r)dr=0}$ and $\\tilde{h}(0)=0,$ where $\\tilde{f}$ and $\\tilde{h}$ are antiderivatives of $f$ and $h,$ respectively, show that"
+       },
+       {
+        "type": "math",
+        "tex": "{\\displaystyle \\iiint_{B}F(x,y,z)dV}=2\\pi c(b\\tilde{f}(b)-a\\tilde{f}(a))+\\pi (b^{2}-a^{2})\\tilde{h}(c)."
+       }
+      ],
+      "Use the previous result to show that ${\\displaystyle \\iiint_{B}(z+\\sin \\sqrt{x^{2}+y^{2}})}dx\\,dy\\,dz=6\\pi^{2}(\\pi -2),$ where $B$ is a cylindrical shell with inner radius $\\pi ,$ outer radius $2\\pi ,$ and height $2.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793991259",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integrals ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e248",
+   "number": 248,
+   "prompt": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "Let $B$ be a cylindrical shell with inner radius $a,$ outer radius $b,$ and height $c,$ where $0<a<b$ and $c>0.$ Assume that a function $F$ defined on $B$ can be expressed in cylindrical coordinates as $F(x,y,z)=f(r)g(\\theta )h(z),$ where $f,g,\\,\\text{and}\\,h$ are differentiable functions. If ${\\displaystyle \\int_{a}^{b}\\tilde{f}(r)dr=0},$ where $\\tilde{f}$ is an antiderivative of $f,$ show that"
+       },
+       {
+        "type": "math",
+        "tex": "{\\displaystyle \\iiint_{B}F(x,y,z)dV}=[b\\tilde{f}(b)-a\\tilde{f}(a)]\\,[\\tilde{g}(2\\pi )-\\tilde{g}(0)]\\,[\\tilde{h}(c)-\\tilde{h}(0)],"
+       },
+       {
+        "type": "p",
+        "text": "where $\\tilde{g}$ and $\\tilde{h}$ are antiderivatives of $g$ and $h,$ respectively."
+       }
+      ],
+      "Use the previous result to show that ${\\displaystyle \\iiint_{B}z\\,\\sin \\sqrt{x^{2}+y^{2}}}dx\\,dy\\,dz=-12\\pi^{2},$ where $B$ is a cylindrical shell with inner radius $\\pi ,$ outer radius $2\\pi ,$ and height $2.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793941346",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integrals ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e249",
+   "number": 249,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is inside the right circular cylinder $r=4\\,\\sin \\,\\theta ,$ above the $r\\theta$-plane, and inside the sphere $r^{2}+z^{2}=16.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793590432",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the boundaries of the solid $E$ are given in cylindrical coordinates. Let $f(r,\\theta ,z)$ be the corresponding function in cylindrical coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Define the region in cylindrical coordinates.",
+      "Convert the integral $\\iiint_{Ε}g(x,y,z)dV$ to cylindrical coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $E=\\{(r,\\theta ,z)|0\\le \\theta \\le \\pi ,0\\le r\\le 4\\,\\sin \\,\\theta ,0\\le z\\le \\sqrt{16-r^{2}}\\};$ b. ${\\displaystyle \\int_{0}^{\\pi}\\,{\\displaystyle \\int_{0}^{4\\,\\sin \\,\\theta}\\,{\\displaystyle \\int_{0}^{\\sqrt{16-r^{2}}}f(r,\\theta ,z)r\\,dz\\,dr\\,d\\theta}}}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e250",
+   "number": 250,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is inside the right circular cylinder $r=\\cos \\,\\theta ,$ above the $r\\theta$-plane, and inside the sphere $r^{2}+z^{2}=9.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793619924",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the boundaries of the solid $E$ are given in cylindrical coordinates. Let $f(r,\\theta ,z)$ be the corresponding function in cylindrical coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Define the region in cylindrical coordinates.",
+      "Convert the integral $\\iiint_{Ε}g(x,y,z)dV$ to cylindrical coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e251",
+   "number": 251,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is located in the first octant and is bounded by the circular paraboloid $z=9-3r^{2},$ the cylinder $r=\\sqrt{3},$ and the plane $r(\\cos \\,\\theta +\\sin \\,\\theta )=20-z.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793409904",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the boundaries of the solid $E$ are given in cylindrical coordinates. Let $f(r,\\theta ,z)$ be the corresponding function in cylindrical coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Define the region in cylindrical coordinates.",
+      "Convert the integral $\\iiint_{Ε}g(x,y,z)dV$ to cylindrical coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $E=\\left\\{(r,\\theta ,z)|0\\le \\theta \\le \\frac{\\pi}{2},0\\le r\\le \\sqrt{3},9-3r^{2}\\le z\\le 20-r(\\cos \\,\\theta +\\sin \\,\\theta )\\right\\};$ b. ${\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{\\sqrt{3}}\\,{\\displaystyle \\int_{9-3r^{2}}^{20-r(\\cos \\,\\theta +\\sin \\,\\theta )}f(r,\\theta ,z)}}}r\\,dz\\,dr\\,d\\theta$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e252",
+   "number": 252,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is located in the first octant outside the circular paraboloid $z=10-2r^{2}$ and inside the cylinder $r=\\sqrt{5}$ and is bounded also by the planes $z=20$ and $\\theta =\\frac{\\pi}{4}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793508031",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the boundaries of the solid $E$ are given in cylindrical coordinates. Let $f(r,\\theta ,z)$ be the corresponding function in cylindrical coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Define the region in cylindrical coordinates.",
+      "Convert the integral $\\iiint_{Ε}g(x,y,z)dV$ to cylindrical coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e253",
+   "number": 253,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y,z)=\\frac{1}{x+3},$ $E=\\{(x,y,z)|0\\le x^{2}+y^{2}\\le 9,x\\ge 0,y\\ge 0,0\\le z\\le x+3\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793358337",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $g$ and region $E$ are given in rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the region $Ε$ and the function $g$ in cylindrical coordinates. Let $f(r,\\theta ,z)$ be the corresponding function in cylindrical coordinates.",
+      "Convert the integral ${\\displaystyle \\iiint_{E}g(x,y,z)}dV$ to cylindrical coordinates and evaluate it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $E=\\left\\{(r,\\theta ,z)|0\\le r\\le 3,0\\le \\theta \\le \\frac{\\pi}{2},0\\le z\\le r\\,\\cos \\,\\theta +3\\right\\},$ $f(r,\\theta ,z)=\\frac{1}{r\\,\\cos \\,\\theta +3};$ b. ${\\displaystyle \\int_{0}^{3}\\,{\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{r\\,\\cos \\,\\theta +3}\\frac{r}{r\\,\\cos \\,\\theta +3}dz\\,d\\theta \\,dr=\\frac{9\\pi}{4}}}}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e254",
+   "number": 254,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y,z)=x^{2}+y^{2},$ $E=\\{(x,y,z)|0\\le x^{2}+y^{2}\\le 4,y\\ge 0,0\\le z\\le 3-x\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793618161",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $g$ and region $E$ are given in rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the region $Ε$ and the function $g$ in cylindrical coordinates. Let $f(r,\\theta ,z)$ be the corresponding function in cylindrical coordinates.",
+      "Convert the integral ${\\displaystyle \\iiint_{E}g(x,y,z)}dV$ to cylindrical coordinates and evaluate it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e255",
+   "number": 255,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y,z)=x,$ $E=\\{(x,y,z)|1\\le y^{2}+z^{2}\\le 9,0\\le x\\le 9-y^{2}-z^{2}\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793637679",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $g$ and region $E$ are given in rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the region $Ε$ and the function $g$ in cylindrical coordinates. Let $f(r,\\theta ,z)$ be the corresponding function in cylindrical coordinates.",
+      "Convert the integral ${\\displaystyle \\iiint_{E}g(x,y,z)}dV$ to cylindrical coordinates and evaluate it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $y=r\\,\\cos \\,\\theta ,z=r\\,\\sin \\,\\theta ,x=z,$ $E=\\{(r,\\theta ,z)|1\\le r\\le 3,0\\le \\theta \\le 2\\pi ,0\\le z\\le 9-r^{2}\\},f(r,\\theta ,z)=z;$ b. ${\\displaystyle \\int_{1}^{3}\\,{\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{0}^{9-r^{2}}zr\\,dz\\,d\\theta \\,dr=\\frac{256\\pi}{3}}}}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e256",
+   "number": 256,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y,z)=y,$ $E=\\{(x,y,z)|1\\le x^{2}+z^{2}\\le 9,0\\le y\\le 9-x^{2}-z^{2}\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793312490",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $g$ and region $E$ are given in rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the region $Ε$ and the function $g$ in cylindrical coordinates. Let $f(r,\\theta ,z)$ be the corresponding function in cylindrical coordinates.",
+      "Convert the integral ${\\displaystyle \\iiint_{E}g(x,y,z)}dV$ to cylindrical coordinates and evaluate it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e257",
+   "number": 257,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is above the $xy$-plane, inside the cylinder $x^{2}+y^{2}=1,$ and below the plane $z=1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793638544",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "pi"
+   }
+  },
+  {
+   "id": "e258",
+   "number": 258,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is below the plane $z=1$ and inside the paraboloid $z=x^{2}+y^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793626951",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e259",
+   "number": 259,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is bounded by the circular cone $z=\\sqrt{x^{2}+y^{2}}$ and $z=1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793584551",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/3)"
+   }
+  },
+  {
+   "id": "e260",
+   "number": 260,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is located above the $xy$-plane, below $z=1,$ outside the one-sheeted hyperboloid $x^{2}+y^{2}-z^{2}=1,$ and inside the cylinder $x^{2}+y^{2}=2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793937971",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e261",
+   "number": 261,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is located inside the cylinder $x^{2}+y^{2}=1$ and between the circular paraboloids $z=1-x^{2}-y^{2}$ and $z=x^{2}+y^{2}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793495341",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/4)"
+   }
+  },
+  {
+   "id": "e262",
+   "number": 262,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is located inside the sphere $x^{2}+y^{2}+z^{2}=1,$ above the $xy$-plane, and inside the circular cone $z=\\sqrt{x^{2}+y^{2}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793368870",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e263",
+   "number": 263,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is located inside the circular cone $x^{2}+y^{2}=(z-1)^{2}$ and between the planes $z=0$ and $z=2.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793275071",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2\\pi}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((2 pi)/3)"
+   }
+  },
+  {
+   "id": "e264",
+   "number": 264,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E$ is located inside the cylinder $x^{2}+y^{2}=1$, above the circular cone $z=1-\\sqrt{x^{2}+y^{2}}$, and below the circular paraboloid $z=1+x^{2}+y^{2}$, and between the planes $z=0$ and $z=2$."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793515908",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e265",
+   "number": 265,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a computer algebra system (CAS) to graph the solid whose volume is given by the iterated integral in cylindrical coordinates ${\\displaystyle \\int_{-\\pi /2}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{r^{2}}^{r}r\\,dz\\,dr\\,d\\theta}}}.$ Find the volume $V$ of the solid. Round your answer to four decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793495449",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$V=\\frac{\\pi}{12}\\approx 0.2618$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_05_203.webp",
+      "alt": "A quarter section of an ellipsoid with width 2, height 1, and depth 1.",
+      "width": 436,
+      "height": 368
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e266",
+   "number": 266,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a CAS to graph the solid whose volume is given by the iterated integral in cylindrical coordinates ${\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{r^{4}}^{r}r\\,dz\\,dr\\,d\\theta}}}.$ Find the volume $V$ of the solid Round your answer to four decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793930824",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e267",
+   "number": 267,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Convert the integral ${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{-\\sqrt{1-y^{2}}}^{\\sqrt{1-y^{2}}}\\,{\\displaystyle \\int_{x^{2}+y^{2}}^{\\sqrt{x^{2}+y^{2}}}xz\\,dz\\,dx\\,dy}}}$ into an integral in cylindrical coordinates."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793378476",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{\\pi}\\,{\\displaystyle \\int_{r^{2}}^{r}zr^{2}\\cos \\,\\theta}}}\\,dz\\,d\\theta \\,dr$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e268",
+   "number": 268,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Convert the integral ${\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{y}\\,{\\displaystyle \\int_{0}^{1}(xy+z)}}}dz\\,dx\\,dy$ into an integral in cylindrical coordinates."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793929630",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e269",
+   "number": 269,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=1,$ $B=\\{(x,y,z)|x^{2}+y^{2}+z^{2}\\le 90,z\\ge 0\\}$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_205.webp",
+     "alt": "A filled-in half-sphere with radius 3 times the square root of 10.",
+     "width": 417,
+     "height": 260
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793929144",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integral ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$180\\pi \\sqrt{10}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "180 pi sqrt(10)"
+   }
+  },
+  {
+   "id": "e270",
+   "number": 270,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=1-\\sqrt{x^{2}+y^{2}+z^{2}},$ $B=\\{(x,y,z)|x^{2}+y^{2}+z^{2}\\le 9,y\\ge 0,z\\ge 0\\}$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_05_206.webp",
+     "alt": "A quarter section of an ovoid with height 8, width 8 and length 18.",
+     "width": 419,
+     "height": 396
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793570708",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integral ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e271",
+   "number": 271,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=\\sqrt{x^{2}+y^{2}},$ $B$ is bounded above by the half-sphere $x^{2}+y^{2}+z^{2}=9$ with $z\\ge 0$ and below by the cone $z^{2}=x^{2}+y^{2}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793477539",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integral ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{81\\pi (\\pi -2)}{16}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((81 pi (pi -2))/16)"
+   }
+  },
+  {
+   "id": "e272",
+   "number": 272,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y,z)=z,$ $B$ is bounded above by the half-sphere $x^{2}+y^{2}+z^{2}=16$ with $z\\ge 0$ and below by the cone $z^{2}=x^{2}+y^{2}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793380047",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integral ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e273",
+   "number": 273,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that if $F(\\rho ,\\theta ,\\varphi )=f(\\rho )g(\\theta )h(\\varphi )$ is a continuous function on the spherical box $B=\\{(\\rho ,\\theta ,\\varphi )|a\\le \\rho \\le b,\\alpha \\le \\theta \\le \\beta ,\\gamma \\le \\varphi \\le \\psi \\},$ then"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\iiint_{B}F\\,dV}=\\left({\\displaystyle \\int_{a}^{b}\\rho^{2}f(\\rho )dr}\\right)\\left({\\displaystyle \\int_{\\alpha}^{\\beta}g(\\theta )d\\theta}\\right)\\left({\\displaystyle \\int_{\\gamma}^{\\psi}h(\\varphi )\\sin \\,\\varphi \\,d\\varphi}\\right)."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793911884",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integral ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e274",
+   "number": 274,
+   "prompt": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "A function $F$ is said to have spherical symmetry if it depends on the distance to the origin only, that is, it can be expressed in spherical coordinates as $F(x,y,z)=f(\\rho ),$ where $\\rho =\\sqrt{x^{2}+y^{2}+z^{2}}.$ Show that"
+       },
+       {
+        "type": "math",
+        "tex": "{\\displaystyle \\iiint_{B}F(x,y,z)dV}=2\\pi {\\displaystyle \\int_{a}^{b}\\rho^{2}f(\\rho )d\\rho},"
+       },
+       {
+        "type": "p",
+        "text": "where $B$ is the region between the upper concentric hemispheres of radii $a$ and $b$ centered at the origin, with $0<a<b$ and $F$ a spherical function defined on $B.$"
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "Use the previous result to show that ${\\displaystyle \\iiint_{B}(x^{2}+y^{2}+z^{2})\\sqrt{x^{2}+y^{2}+z^{2}}\\,dV}=21\\pi ,$ where"
+       },
+       {
+        "type": "math",
+        "tex": "B=\\{(x,y,z)|1\\le x^{2}+y^{2}+z^{2}\\le 2,z\\ge 0\\}."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793957757",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integral ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e275",
+   "number": 275,
+   "prompt": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "Let $B$ be the region between the upper concentric hemispheres of radii *a* and *b* centered at the origin and situated in the first octant, where $0<a<b.$ Consider *F* a function defined on *B* whose form in spherical coordinates $(\\rho ,\\theta ,\\varphi )$ is $F(x,y,z)=f(\\rho )\\cos \\,\\varphi .$ Show that if $g(a)=g(b)=0$ and ${\\displaystyle \\int_{a}^{b}h(\\rho )d\\rho =0},$ then"
+       },
+       {
+        "type": "math",
+        "tex": "{\\displaystyle \\iiint_{B}F(x,y,z)dV}=\\frac{\\pi^{2}}{4}[ah(a)-bh(b)],"
+       },
+       {
+        "type": "p",
+        "text": "where $g$ is an antiderivative of $f$ and $h$ is an antiderivative of $g.$"
+       }
+      ],
+      "Use the previous result to show that ${\\displaystyle \\iiint_{B}\\frac{z\\,\\cos \\sqrt{x^{2}+y^{2}+z^{2}}}{\\sqrt{x^{2}+y^{2}+z^{2}}}dV}=\\frac{3\\pi^{2}}{2},$ where $B$ is the region between the upper concentric hemispheres of radii $\\pi$ and $2\\pi$ centered at the origin and situated in the first octant."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794024252",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the triple integral ${\\displaystyle \\iiint_{B}f(x,y,z)dV}$ over the solid $B.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e276",
+   "number": 276,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y,z)=z;$ $E=\\{(x,y,z)|0\\le x^{2}+y^{2}+z^{2}\\le 1,z\\ge 0\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793478913",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $g$ and region $E$ are given in rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the region $E$ and the function $g$ in spherical coordinates. Let $f(\\rho ,\\theta ,\\varphi )$ be the corresponding function in spherical coordinates",
+      "Convert the integral ${\\displaystyle \\iiint_{E}g(x,y,z)}dV$ to spherical coordinates and evaluate it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e277",
+   "number": 277,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y,z)=x+y;$ $E=\\{(x,y,z)|1\\le x^{2}+y^{2}+z^{2}\\le 4,z\\ge 0,y\\ge 0\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793383399",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $g$ and region $E$ are given in rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the region $E$ and the function $g$ in spherical coordinates. Let $f(\\rho ,\\theta ,\\varphi )$ be the corresponding function in spherical coordinates",
+      "Convert the integral ${\\displaystyle \\iiint_{E}g(x,y,z)}dV$ to spherical coordinates and evaluate it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(\\rho ,\\theta ,\\varphi )=\\rho \\,\\sin \\,\\varphi (\\cos \\,\\theta +\\sin \\,\\theta ),$ $E=\\left\\{(\\rho ,\\theta ,\\varphi )|1\\le \\rho \\le 2,0\\le \\theta \\le \\pi ,0\\le \\varphi \\le \\frac{\\pi}{2}\\right\\};$ b. $\\int_{0}^{\\pi}\\,\\int_{0}^{\\pi /2}\\,\\int_{1}^{2}\\rho^{3}\\sin^{2}\\,\\varphi \\left(\\cos \\theta +\\sin \\theta \\right)=\\frac{15\\pi}{8}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e278",
+   "number": 278,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y,z)=2xy;$ $E=\\{(x,y,z)|\\sqrt{x^{2}+y^{2}}\\le z\\le \\sqrt{1-x^{2}-y^{2}},x\\ge 0,y\\ge 0\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793395451",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $g$ and region $E$ are given in rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the region $E$ and the function $g$ in spherical coordinates. Let $f(\\rho ,\\theta ,\\varphi )$ be the corresponding function in spherical coordinates",
+      "Convert the integral ${\\displaystyle \\iiint_{E}g(x,y,z)}dV$ to spherical coordinates and evaluate it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e279",
+   "number": 279,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$g(x,y,z)=z;$ $E=\\{(x,y,z)|x^{2}+y^{2}+z^{2}-2z\\le 0,\\sqrt{x^{2}+y^{2}}\\le z\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794171529",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function $g$ and region $E$ are given in rectangular coordinates."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the region $E$ and the function $g$ in spherical coordinates. Let $f(\\rho ,\\theta ,\\varphi )$ be the corresponding function in spherical coordinates",
+      "Convert the integral ${\\displaystyle \\iiint_{E}g(x,y,z)}dV$ to spherical coordinates and evaluate it."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(\\rho ,\\theta ,\\varphi )=\\rho \\,\\cos \\,\\varphi ;$ $E=\\left\\{(\\rho ,\\theta ,\\varphi )|0\\le \\rho \\le 2\\,\\cos \\,\\varphi ,0\\le \\theta \\le 2\\pi ,0\\le \\varphi \\le \\frac{\\pi}{4}\\right\\};$ b. ${\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{0}^{\\pi /4}\\,{\\displaystyle \\int_{0}^{2\\,\\cos \\,\\varphi}\\rho^{3}\\sin \\,\\varphi}}}\\cos \\,\\varphi \\,d\\rho \\,d\\varphi \\,d\\theta =\\frac{7\\pi}{6}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e280",
+   "number": 280,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E=\\{(x,y,z)|\\sqrt{x^{2}+y^{2}}\\le z\\le \\sqrt{16-x^{2}-y^{2}},x\\ge 0,y\\ge 0\\}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793925196",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e281",
+   "number": 281,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$E=\\{(x,y,z)|x^{2}+y^{2}+z^{2}-2z\\le 0,\\sqrt{x^{2}+y^{2}}\\le z\\}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793639916",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "pi"
+   }
+  },
+  {
+   "id": "e282",
+   "number": 282,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use spherical coordinates to find the volume of the solid situated inside the sphere $\\rho =1$ and outside the sphere $\\rho =\\cos \\,\\varphi ,$ with $\\varphi \\in \\left[0,\\frac{\\pi}{2}\\right].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793638423",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e283",
+   "number": 283,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use spherical coordinates to find the volume of the ball $\\rho \\le 3$ that is situated between the cones $\\varphi =\\frac{\\pi}{4}\\,\\text{and}\\,\\varphi =\\frac{\\pi}{3}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794054134",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$9\\pi (\\sqrt{2}-1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "9 pi (sqrt(2)-1)"
+   }
+  },
+  {
+   "id": "e284",
+   "number": 284,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Convert the integral ${\\displaystyle \\int_{-4}^{4}\\,{\\displaystyle \\int_{-\\sqrt{16-y^{2}}}^{\\sqrt{16-y^{2}}}\\,{\\displaystyle \\int_{-\\sqrt{16-x^{2}-y^{2}}}^{\\sqrt{16-x^{2}-y^{2}}}(x^{2}+y^{2}+z^{2})}}}dz\\,dx\\,dy$ into an integral in spherical coordinates."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793502315",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e285",
+   "number": 285,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Convert the integral ${\\displaystyle \\int_{0}^{4}\\,{\\displaystyle \\int_{0}^{\\sqrt{16-x^{2}}}\\,{\\displaystyle \\int_{-\\sqrt{16-x^{2}-y^{2}}}^{\\sqrt{16-x^{2}-y^{2}}}(x^{2}+y^{2}+z^{2})^{2}}}}dz\\,dy\\,dx$ into an integral in spherical coordinates."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793244493",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{\\pi /2}\\,{\\displaystyle \\int_{0}^{\\pi}\\,{\\displaystyle \\int_{0}^{4}\\rho^{6}\\sin \\,\\varphi}}}\\,d\\rho \\,d\\varphi \\,d\\theta$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e286",
+   "number": 286,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Convert the integral $\\int_{-2\\sqrt{2}}^{2\\sqrt{2}}\\,\\int_{-\\sqrt{8-x^{2}}}^{\\sqrt{8-x^{2}}}\\,\\int_{\\sqrt{x^{2}+y^{2}}}^{\\sqrt{16-x^{2}-y^{2}}}dz\\,dy\\,dx$ into an integral in spherical coordinates and evaluate it."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793938014",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e287",
+   "number": 287,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a CAS to graph the solid whose volume is given by the iterated integral in spherical coordinates ${\\displaystyle \\int_{\\pi /2}^{\\pi}\\,{\\displaystyle \\int_{5\\pi /6}^{\\pi /6}\\,{\\displaystyle \\int_{0}^{2}\\rho^{2}\\sin \\,\\varphi}}}\\,d\\rho \\,d\\varphi \\,d\\theta .$ Find the volume $V$ of the solid. Round your answer to three decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794094549",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$V=\\frac{4\\pi \\sqrt{3}}{3}\\approx 7.255$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_05_208.webp",
+      "alt": "A quarter section of an ellipsoid with width 2, height 2, and depth 1",
+      "width": 367,
+      "height": 448
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e288",
+   "number": 288,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a CAS to graph the solid whose volume is given by the iterated integral in spherical coordinates as ${\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{\\pi /4}^{3\\pi /4}\\,{\\displaystyle \\int_{0}^{1}\\rho^{2}\\sin \\,\\varphi}}}\\,d\\rho \\,d\\varphi \\,d\\theta .$ Find the volume $V$ of the solid. Round your answer to three decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793776371",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e289",
+   "number": 289,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a CAS to evaluate the integral ${\\displaystyle \\iiint_{E}(x^{2}+y^{2})}dV$ where $E$ lies above the paraboloid $z=x^{2}+y^{2}$ and below the plane $z=3y.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794222798",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{243\\pi}{32}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((243 pi)/32)"
+   }
+  },
+  {
+   "id": "e290",
+   "number": 290,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]**"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Evaluate the integral ${\\displaystyle \\iiint_{E}e^{\\sqrt{x^{2}+y^{2}+z^{2}}}dV},$ where $E$ is bounded by the spheres $4x^{2}+4y^{2}+4z^{2}=1$ and $x^{2}+y^{2}+z^{2}=1.$",
+      "Use a CAS to find an approximation of the previous integral. Round your answer to two decimal places."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793300366",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e291",
+   "number": 291,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Express the volume of the solid inside the sphere $x^{2}+y^{2}+z^{2}=16$ and outside the cylinder $x^{2}+y^{2}=4$ as triple integrals in cylindrical coordinates and spherical coordinates."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793228964",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{2}^{4}\\,{\\displaystyle \\int_{-\\sqrt{16-r^{2}}}^{\\sqrt{16-r^{2}}}r\\,dz\\,dr\\,d\\theta}}};$ ${\\displaystyle \\int_{\\pi /6}^{5\\pi /6}\\,{\\displaystyle \\int_{0}^{2\\pi}\\,{\\displaystyle \\int_{2\\,\\csc \\,\\varphi}^{4}\\rho^{2}\\sin \\,\\varphi \\,d\\rho \\,d\\theta \\,d\\varphi}}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e292",
+   "number": 292,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Express the volume of the solid inside the sphere $x^{2}+y^{2}+z^{2}=16$ and outside the cylinder $x^{2}+y^{2}=4$ that is located in the first octant as triple integrals in cylindrical coordinates and spherical coordinates."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793921619",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e293",
+   "number": 293,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The power emitted by an antenna has a power density per unit volume given in spherical coordinates by"
+    },
+    {
+     "type": "p",
+     "text": "$p(\\rho ,\\theta ,\\varphi )=\\frac{P_{0}}{\\rho^{2}}\\cos^{2}\\theta \\,\\sin^{4}\\varphi ,$where $P_{0}$ is a constant with units in watts. The total power within a sphere $B$ of radius $r$ meters is defined as $P={\\displaystyle \\iiint_{B}p(\\rho ,\\theta ,\\varphi )}dV.$ Find the total power $P$ within a sphere of radius 20 meters."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794336023",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$P=\\frac{64P_{0}\\pi}{3}$ watts"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e294",
+   "number": 294,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding exercise to find the total power within a sphere $B$ of radius 5 meters when the power density per unit volume is given by $p(\\rho ,\\theta ,\\varphi )=\\frac{30}{\\rho^{2}}\\cos^{2}\\theta \\,\\sin^{4}\\varphi .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794122101",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A charge cloud contained in a sphere $B$ of radius *r* centimeters centered at the origin has its charge density given by $q(x,y,z)=k\\sqrt{x^{2}+y^{2}+z^{2}}\\frac{\\mu \\,\\text{C}}{{\\text{cm}}^{3}},$ where $k>0.$ The total charge contained in $B$ is given by $Q={\\displaystyle \\iiint_{B}q(x,y,z)}dV.$ Find the total charge $Q.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793378232",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$Q=kr^{4}\\pi \\mu C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "Q=k r^4 pi mu C"
+   }
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding exercise to find the total charge cloud contained in the unit sphere if the charge density is $q(x,y,z)=20\\sqrt{x^{2}+y^{2}+z^{2}}\\frac{\\mu \\,\\text{C}}{{\\text{cm}}^{3}}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794067783",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the volume of the solid $E$ whose boundaries are given in rectangular coordinates."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "triple integral in cylindrical coordinates",
+   "meaning": "the limit of a triple Riemann sum, provided the following limit exists:\n\n$\\lim_{l,m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{l}{\\displaystyle \\sum_{j=1}^{m}{\\displaystyle \\sum_{k=1}^{n}f(r_{ijk}^{*},\\theta_{ijk}^{*},z_{ijk}^{*})r_{ijk}^{*}\\text{Δ}r\\text{Δ}\\theta \\text{Δ}z}}}$"
+  },
+  {
+   "term": "triple integral in spherical coordinates",
+   "meaning": "the limit of a triple Riemann sum, provided the following limit exists:\n\n$\\lim_{l,m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{l}{\\displaystyle \\sum_{j=1}^{m}{\\displaystyle \\sum_{k=1}^{n}f(\\rho_{ijk}^{*},\\theta_{ijk}^{*},\\varphi_{ijk}^{*})\\left(\\rho_{ijk}^{*}\\right)^{2}\\sin \\,\\varphi \\text{Δ}\\rho \\text{Δ}\\theta \\text{Δ}\\varphi}}}$"
+  }
+ ]
+}

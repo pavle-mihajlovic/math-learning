@@ -1,0 +1,2552 @@
+{
+ "schema": 1,
+ "id": "V1.5.7",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 5,
+ "section": 7,
+ "title": "Integrals Resulting in Inverse Trigonometric Functions",
+ "chapterTitle": "Integration",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53636",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/5-7-integrals-resulting-in-inverse-trigonometric-functions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §5.7 “Integrals Resulting in Inverse Trigonometric Functions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Integrate functions resulting in inverse trigonometric functions"
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section we focus on integrals that result in inverse trigonometric functions. We have worked with these functions before. Recall from Functions and Graphs that trigonometric functions are not one-to-one unless the domains are restricted. When working with inverses of trigonometric functions, we always need to be careful to take these restrictions into account. Also in Derivatives, we developed formulas for derivatives of inverse trigonometric functions. The formulas developed there give rise directly to integration formulas involving inverse trigonometric functions."
+    }
+   ],
+   "title": "Integrals Resulting in Inverse Trigonometric Functions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let us begin this last section of the chapter with the three formulas. Along with these formulas, we use substitution to evaluate the integrals. We prove the formula for the inverse sine integral."
+    },
+    {
+     "type": "box",
+     "variant": "rule",
+     "body": [
+      {
+       "type": "p",
+       "text": "The following integration formulas yield inverse trigonometric functions. Assume $a>0$:"
+      },
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "math",
+          "tex": "\\int \\frac{du}{\\sqrt{a^{2}-u^{2}}}=\\sin^{-1}\\left(\\frac{u}{a}\\right)+C"
+         }
+        ],
+        [
+         {
+          "type": "math",
+          "tex": "{\\displaystyle \\int \\frac{du}{a^{2}+u^{2}}}=\\frac{1}{a}\\,\\tan^{-1}\\frac{u}{a}+C"
+         }
+        ],
+        [
+         {
+          "type": "math",
+          "tex": "\\int \\frac{du}{u\\sqrt{u^{2}-a^{2}}}=\\frac{1}{a}\\,\\sec^{-1}\\frac{|u|}{a}+C"
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Integration Formulas Resulting in Inverse Trigonometric Functions"
+    }
+   ],
+   "title": "Integrals that Result in Inverse Sine Functions"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let $y=\\sin^{-1}\\frac{x}{a}.$ Then $a\\,\\sin \\,y=x.$ Now let’s use implicit differentiation. We obtain"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\frac{d}{dx}\\,(a\\,\\sin \\,y) & = & \\frac{d}{dx}\\,(x) \\\\ \\\\ a\\,\\cos \\,y\\,\\frac{dy}{dx} & = & 1 \\\\ \\frac{dy}{dx} & = & \\frac{1}{a\\,\\cos \\,y}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "For $-\\frac{\\pi}{2}\\le y\\le \\frac{\\pi}{2},\\cos \\,y\\ge 0.$ Thus, applying the Pythagorean identity $\\sin^{2}y+\\cos^{2}y=1,$ we have $\\cos \\,y=\\sqrt{1-\\sin^{2}y}.$ This gives"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{1}{a\\,\\cos \\,y} & =\\frac{1}{a\\sqrt{1-\\sin^{2}y}} \\\\ \\\\ & =\\frac{1}{\\sqrt{a^{2}-a^{2}\\sin^{2}y}} \\\\ & =\\frac{1}{\\sqrt{a^{2}-x^{2}}}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Then for $-a\\le x\\le a,$ and generalizing to *u*, we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int \\frac{1}{\\sqrt{a^{2}-u^{2}}}du=\\sin^{-1}}\\left(\\frac{u}{a}\\right)+C."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    }
+   ],
+   "title": "Proof"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 5.49",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the definite integral ${\\displaystyle \\int_{0}^{\\frac{1}{2}}\\frac{dx}{\\sqrt{1-x^{2}}}.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We can go directly to the formula for the antiderivative in the rule on integration formulas resulting in inverse trigonometric functions, and then evaluate the definite integral. We have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ \\\\ {\\displaystyle \\int_{0}^{\\frac{1}{2}}\\frac{dx}{\\sqrt{1-x^{2}}}} & =\\sin^{-1}x|_{0}^{\\frac{1}{2}} \\\\ & =\\sin^{-1}\\frac{1}{2}-\\sin^{-1}0 \\\\ & =\\frac{\\pi}{6}-0 \\\\ & =\\frac{\\pi}{6}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating a Definite Integral Using Inverse Trigonometric Functions"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.40",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the integral ${\\displaystyle \\int \\frac{dx}{\\sqrt{1-16x^{2}}}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}\\,\\sin^{-1}(4x)+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Substitute $u=4x$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/4) sin^(-1) (4 x)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 5.50",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the integral ${\\displaystyle \\int \\frac{dx}{\\sqrt{4-9x^{2}}}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Substitute $u=3x.$ Then $du=3dx$ and we have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\frac{dx}{\\sqrt{4-9x^{2}}}}=\\frac{1}{3}{\\displaystyle \\int \\frac{du}{\\sqrt{4-u^{2}}}}."
+     },
+     {
+      "type": "p",
+      "text": "Applying the formula with $a=2,$ we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\int \\frac{dx}{\\sqrt{4-9x^{2}}}} & =\\frac{1}{3}{\\displaystyle \\int \\frac{du}{\\sqrt{4-u^{2}}}} \\\\ \\\\ & =\\frac{1}{3}\\sin^{-1}\\left(\\frac{u}{2}\\right)+C \\\\ & =\\frac{1}{3}\\sin^{-1}\\left(\\frac{3x}{2}\\right)+C.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding an Antiderivative Involving an Inverse Trigonometric Function"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.41",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the indefinite integral using an inverse trigonometric function and substitution for ${\\displaystyle \\int \\frac{dx}{\\sqrt{9-x^{2}}}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin^{-1}\\left(\\frac{x}{3}\\right)+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the formula in the rule on integration formulas resulting in inverse trigonometric functions."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sin^(-1) ((x/3))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 5.51",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the definite integral ${\\displaystyle \\int_{0}^{\\sqrt{3}/2}\\frac{du}{\\sqrt{1-u^{2}}}.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The format of the problem matches the inverse sine formula. Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ \\\\ {\\displaystyle \\int_{0}^{\\sqrt{3}/2}\\frac{du}{\\sqrt{1-u^{2}}}} & =\\sin^{-1}u|_{0}^{\\sqrt{3}/2} \\\\ & =\\left[\\sin^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)\\right]-[\\sin^{-1}(0)] \\\\ & =\\frac{\\pi}{3}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating a Definite Integral"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "There are six inverse trigonometric functions. However, only three integration formulas are noted in the rule on integration formulas resulting in inverse trigonometric functions because the remaining three are negative versions of the ones we use. The only difference is whether the integrand is positive or negative. Rather than memorizing three more formulas, if the integrand is negative, simply factor out −1 and evaluate the integral using one of the formulas already provided. To close this section, we examine one more formula: the integral resulting in the inverse tangent function."
+    }
+   ],
+   "title": "Integrals Resulting in Other Inverse Trigonometric Functions"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 5.52",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the integral ${\\displaystyle \\int \\frac{1}{1+4x^{2}}dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Comparing this problem with the formulas stated in the rule on integration formulas resulting in inverse trigonometric functions, the integrand looks similar to the formula for $\\tan^{-1}u+C.$ So we use substitution, letting $u=2x,$ then $du=2dx$ and $1/2du=dx.$ Then, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{1}{2}{\\displaystyle \\int \\frac{1}{1+u^{2}}du=\\frac{1}{2}\\,\\tan^{-1}u+C}=\\frac{1}{2}\\,\\tan^{-1}(2x)+C."
+     }
+    ]
+   },
+   "title": "Finding an Antiderivative Involving the Inverse Tangent Function"
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.42",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use substitution to find the antiderivative ${\\displaystyle \\int \\frac{dx}{25+4x^{2}}.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{10}\\,\\tan^{-1}\\left(\\frac{2x}{5}\\right)+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the solving strategy from Example 5.52 and the rule on integration formulas resulting in inverse trigonometric functions."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/10) tan^(-1) (((2 x)/5))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 5.53",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the integral ${\\displaystyle \\int \\frac{1}{9+x^{2}}dx.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Apply the formula with $a=3.$ Then,"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\frac{dx}{9+x^{2}}}=\\frac{1}{3}\\,\\tan^{-1}\\left(\\frac{x}{3}\\right)+C."
+     }
+    ]
+   },
+   "title": "Applying the Integration Formulas"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.43",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the integral ${\\displaystyle \\int \\frac{dx}{16+x^{2}}.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}\\,\\tan^{-1}\\left(\\frac{x}{4}\\right)+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps in Example 5.53."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/4) tan^(-1) ((x/4))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "x14",
+   "kind": "example",
+   "label": "Example 5.54",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the definite integral ${\\displaystyle \\int_{\\sqrt{3}/3}^{\\sqrt{3}}\\frac{dx}{1+x^{2}}.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use the formula for the inverse tangent. We have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc} \\\\ \\\\ {\\displaystyle \\int_{\\sqrt{3}/3}^{\\sqrt{3}}\\frac{dx}{1+x^{2}}} & =\\tan^{-1}x|_{\\sqrt{3}/3}^{\\sqrt{3}} \\\\ & =[\\tan^{-1}(\\sqrt{3})]-\\left[\\tan^{-1}\\left(\\frac{\\sqrt{3}}{3}\\right)\\right] \\\\ & =\\frac{\\pi}{6}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Evaluating a Definite Integral"
+  },
+  {
+   "id": "c15",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.44",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the definite integral ${\\displaystyle \\int_{0}^{2}\\frac{dx}{4+x^{2}}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{8}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the procedures from Example 5.54 to solve the problem."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/8)"
+   }
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Formulas for derivatives of inverse trigonometric functions developed in Derivatives of Exponential and Logarithmic Functions lead directly to integration formulas involving inverse trigonometric functions.",
+      "Use the formulas listed in the rule on integration formulas resulting in inverse trigonometric functions to match up the correct format and make alterations as necessary to solve the problem.",
+      "Substitution is often required to put the integrand in the correct form."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Integrals That Produce Inverse Trigonometric Functions**",
+       "${\\displaystyle \\int \\frac{du}{\\sqrt{a^{2}-u^{2}}}=\\sin^{-1}\\left(\\frac{u}{a}\\right)+C}$\n\n${\\displaystyle \\int \\frac{du}{a^{2}+u^{2}}=\\frac{1}{a}\\,\\tan^{-1}\\left(\\frac{u}{a}\\right)+C}$\n\n${\\displaystyle \\int \\frac{du}{u\\sqrt{u^{2}-a^{2}}}=\\frac{1}{a}\\,\\sec^{-1}\\left(\\frac{u}{a}\\right)+C}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e391",
+   "number": 391,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\sqrt{3}/2}\\frac{dx}{\\sqrt{1-x^{2}}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572180188",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each integral in terms of an inverse trigonometric function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin^{-1}x|_{0}^{\\sqrt{3}/2}=\\frac{\\pi}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/3)"
+   }
+  },
+  {
+   "id": "e392",
+   "number": 392,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-1/2}^{1/2}\\frac{dx}{\\sqrt{1-x^{2}}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572369231",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each integral in terms of an inverse trigonometric function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e393",
+   "number": 393,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\sqrt{3}}^{1}\\frac{dx}{1+x^{2}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571609291",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each integral in terms of an inverse trigonometric function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\tan^{-1}x|_{\\sqrt{3}}^{1}=-\\frac{\\pi}{12}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-(pi/12)"
+   }
+  },
+  {
+   "id": "e394",
+   "number": 394,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1/\\sqrt{3}}^{\\sqrt{3}}\\frac{dx}{1+x^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571712219",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each integral in terms of an inverse trigonometric function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e395",
+   "number": 395,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\frac{2}{\\sqrt{3}}}^{\\sqrt{2}}\\frac{dx}{|x|\\sqrt{x^{2}-1}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572625745",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each integral in terms of an inverse trigonometric function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sec^{-1}|_{\\frac{2}{\\sqrt{3}}}^{\\sqrt{2}}=\\frac{\\pi}{4}-\\frac{\\pi}{6}=\\frac{\\pi}{12}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/12)"
+   }
+  },
+  {
+   "id": "e396",
+   "number": 396,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\sqrt{2}}^{2}\\frac{dx}{|x|\\sqrt{x^{2}-1}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572560653",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate each integral in terms of an inverse trigonometric function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e397",
+   "number": 397,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{\\sqrt{9-x^{2}}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572333184",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin^{-1}\\left(\\frac{x}{3}\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sin^(-1) ((x/3))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e398",
+   "number": 398,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{\\sqrt{1-16x^{2}}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571543108",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e399",
+   "number": 399,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{9+x^{2}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571630356",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}\\,\\tan^{-1}\\left(\\frac{x}{3}\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3) tan^(-1) ((x/3))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e400",
+   "number": 400,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{25+16x^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571719603",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e401",
+   "number": 401,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{|x|\\sqrt{x^{2}-9}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571712540",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}\\,\\sec^{-1}\\left(\\frac{x}{3}\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3) sec^(-1) ((x/3))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e402",
+   "number": 402,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{|x|\\sqrt{4x^{2}-16}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571609447",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e403",
+   "number": 403,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain the relationship $-\\cos^{-1}t+C={\\displaystyle \\int \\frac{dt}{\\sqrt{1-t^{2}}}=\\sin^{-1}t+C.}$ Is it true, in general, that $\\cos^{-1}t=-\\sin^{-1}t?$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572274931",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cos \\left(\\frac{\\pi}{2}-\\theta \\right)=\\sin \\,\\theta .$ So, $\\sin^{-1}t=\\frac{\\pi}{2}-\\cos^{-1}t.$ They differ by a constant."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e404",
+   "number": 404,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain the relationship $\\sec^{-1}t+C={\\displaystyle \\int \\frac{dt}{|t|\\sqrt{t^{2}-1}}=-\\csc^{-1}t+C.}$ Is it true, in general, that $\\sec^{-1}t=-\\csc^{-1}t?$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572563040",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e405",
+   "number": 405,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain what is wrong with the following integral: ${\\displaystyle \\int_{1}^{2}\\frac{dt}{\\sqrt{1-t^{2}}}.}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571609258",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{1-t^{2}}$ is not defined as a real number when $t>1.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e406",
+   "number": 406,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Explain what is wrong with the following integral: ${\\displaystyle \\int_{-1}^{1}\\frac{dt}{|t|\\sqrt{t^{2}-1}}.}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572163878",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find each indefinite integral, using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e407",
+   "number": 407,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{1}{\\sqrt{9-x^{2}}}dx}$ over $[-3,3]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571699012",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, solve for the antiderivative ${\\displaystyle \\int f}$ of *f* with $C=0,$ then use a calculator to graph *f* and the antiderivative over the given interval $[a,b].$ Identify a value of *C* such that adding *C* to the antiderivative recovers the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_07_201.webp",
+      "alt": "Two graphs. The first shows the function f(x) = 1 / sqrt(9 – x^2). It is an upward opening curve symmetric about the y axis, crossing at (0, 1/3). The second shows the function F(x) = arcsin(1/3 x). It is an increasing curve going through the origin.",
+      "width": 315,
+      "height": 479
+     },
+     {
+      "type": "p",
+      "text": "The antiderivative is $\\sin^{-1}\\left(\\frac{x}{3}\\right)+C.$ Taking $C=\\frac{\\pi}{2}$ recovers the definite integral."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e408",
+   "number": 408,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{9}{9+x^{2}}dx}$ over $[-6,6]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571649965",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, solve for the antiderivative ${\\displaystyle \\int f}$ of *f* with $C=0,$ then use a calculator to graph *f* and the antiderivative over the given interval $[a,b].$ Identify a value of *C* such that adding *C* to the antiderivative recovers the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e409",
+   "number": 409,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{\\cos \\,x}{4+\\sin^{2}x}dx}$ over $[-6,6]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572565396",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, solve for the antiderivative ${\\displaystyle \\int f}$ of *f* with $C=0,$ then use a calculator to graph *f* and the antiderivative over the given interval $[a,b].$ Identify a value of *C* such that adding *C* to the antiderivative recovers the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_07_203.webp",
+      "alt": "Two graphs. The first shows the function f(x) = cos(x) / (4 + sin(x)^2). It is an oscillating function over [-6, 6] with turning points at roughly (-3, -2.5), (0, .25), and (3, -2.5), where (0,.25) is a local max and the others are local mins. The second shows the function F(x) = .5 * arctan(.5*sin(x)), which also oscillates over [-6,6]. It has turning points at roughly (-4.5, .25), (-1.5, -.25), (1.5, .25), and (4.5, -.25).",
+      "width": 361,
+      "height": 504
+     },
+     {
+      "type": "p",
+      "text": "The antiderivative is $\\frac{1}{2}\\,\\tan^{-1}\\left(\\frac{\\sin \\,x}{2}\\right)+C.$ Taking $C=\\frac{1}{2}\\,\\tan^{-1}\\left(\\frac{\\sin (6)}{2}\\right)$ recovers the definite integral."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e410",
+   "number": 410,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{e^{x}}{1+e^{2x}}dx}$ over $[-6,6]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572368670",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, solve for the antiderivative ${\\displaystyle \\int f}$ of *f* with $C=0,$ then use a calculator to graph *f* and the antiderivative over the given interval $[a,b].$ Identify a value of *C* such that adding *C* to the antiderivative recovers the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e411",
+   "number": 411,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\sin^{-1}tdt}{\\sqrt{1-t^{2}}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571769593",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute the antiderivative using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}(\\sin^{-1}t)^{2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2)(sin^(-1) t)^2+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e412",
+   "number": 412,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dt}{\\sin^{-1}t\\sqrt{1-t^{2}}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571636151",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute the antiderivative using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e413",
+   "number": 413,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\tan^{-1}(2t)}{1+4t^{2}}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572628413",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute the antiderivative using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}(\\tan^{-1}(2t))^{2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/4)(tan^(-1) (2 t))^2+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e414",
+   "number": 414,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{t\\tan^{-1}(t^{2})}{1+t^{4}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572331872",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute the antiderivative using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e415",
+   "number": 415,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\sec^{-1}\\left(\\frac{t}{2}\\right)}{|t|\\sqrt{t^{2}-4}}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572558294",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute the antiderivative using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}\\left(\\sec^{-1}\\left(\\frac{t}{2}\\right)^{2}\\right)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/4)(sec^(-1) ((t/2))^2)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e416",
+   "number": 416,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{t\\sec^{-1}(t^{2})}{t^{2}\\sqrt{t^{4}-1}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571733959",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute the antiderivative using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e417",
+   "number": 417,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{1}{x\\sqrt{x^{2}-4}}dx}$ over $[2,6]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572601262",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to graph the antiderivative ${\\displaystyle \\int f}$ with $C=0$ over the given interval $[a,b].$ Approximate a value of *C*, if possible, such that adding *C* to the antiderivative gives the same value as the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_07_205.webp",
+      "alt": "A graph of the function f(x) = -.5 * arctan(2 / ( sqrt(x^2 – 4) ) ) in quadrant four. It is an increasing concave down curve with a vertical asymptote at x=2.",
+      "width": 465,
+      "height": 394
+     },
+     {
+      "type": "p",
+      "text": "The antiderivative is $\\frac{1}{2}\\,\\sec^{-1}\\left(\\frac{x}{2}\\right)+C.$ Taking $C=0$ recovers the definite integral over $[2,6].$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e418",
+   "number": 418,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{1}{(2x+2)\\sqrt{x}}dx}$ over $[0,6]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571679862",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to graph the antiderivative ${\\displaystyle \\int f}$ with $C=0$ over the given interval $[a,b].$ Approximate a value of *C*, if possible, such that adding *C* to the antiderivative gives the same value as the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e419",
+   "number": 419,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{(\\sin \\,x+x\\,\\cos \\,x)}{1+x^{2}\\sin^{2}x}dx}$ over $[-6,6]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572249934",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to graph the antiderivative ${\\displaystyle \\int f}$ with $C=0$ over the given interval $[a,b].$ Approximate a value of *C*, if possible, such that adding *C* to the antiderivative gives the same value as the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_07_207.webp",
+      "alt": "The graph of f(x) = arctan(x sin(x)) over [-6,6]. It has five turning points at roughly (-5, -1.5), (-2,1), (0,0), (2,1), and (5,-1.5).",
+      "width": 343,
+      "height": 273
+     },
+     {
+      "type": "p",
+      "text": "The general antiderivative is $\\tan^{-1}(x\\,\\sin \\,x)+C.$ Taking $C=-\\tan^{-1}(6\\,\\sin (6))$ recovers the definite integral."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e420",
+   "number": 420,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{2e^{-2x}}{\\sqrt{1-e^{-4x}}}dx}$ over $[0,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571810858",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to graph the antiderivative ${\\displaystyle \\int f}$ with $C=0$ over the given interval $[a,b].$ Approximate a value of *C*, if possible, such that adding *C* to the antiderivative gives the same value as the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e421",
+   "number": 421,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{1}{x+x\\ln^{2}x}}dx$ over $[0,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571697193",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to graph the antiderivative ${\\displaystyle \\int f}$ with $C=0$ over the given interval $[a,b].$ Approximate a value of *C*, if possible, such that adding *C* to the antiderivative gives the same value as the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_05_07_209.webp",
+      "alt": "A graph of the function f(x) = arctan(ln(x)) over (0, 2]. It is an increasing curve with x-intercept at (1,0).",
+      "width": 251,
+      "height": 275
+     },
+     {
+      "type": "p",
+      "text": "The general antiderivative is $\\tan^{-1}(\\ln \\,x)+C.$ Taking $C=\\frac{\\pi}{2}=\\tan^{-1}\\infty$ recovers the definite integral."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e422",
+   "number": 422,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** ${\\displaystyle \\int \\frac{\\sin^{-1}x}{\\sqrt{1-x^{2}}}}dx$ over $[-1,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571539209",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use a calculator to graph the antiderivative ${\\displaystyle \\int f}$ with $C=0$ over the given interval $[a,b].$ Approximate a value of *C*, if possible, such that adding *C* to the antiderivative gives the same value as the definite integral $F(x)={\\displaystyle \\int_{a}^{x}f(t)dt.}$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e423",
+   "number": 423,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{e^{t}}{\\sqrt{1-e^{2t}}}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572456364",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each integral using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin^{-1}(e^{t})+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sin^(-1) (e^t)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e424",
+   "number": 424,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{e^{t}}{1+e^{2t}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571580944",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each integral using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e425",
+   "number": 425,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dt}{t\\sqrt{1-\\ln^{2}t}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572396478",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each integral using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin^{-1}(\\ln \\,t)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "sin^(-1) (ln t)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e426",
+   "number": 426,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dt}{t(1+\\ln^{2}t)}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572396552",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each integral using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e427",
+   "number": 427,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\cos^{-1}(2t)}{\\sqrt{1-4t^{2}}}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572218636",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each integral using appropriate substitutions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{4}(\\cos^{-1}(2t))^{2}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/4)(cos^(-1) (2 t))^2+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e428",
+   "number": 428,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{e^{t}\\cos^{-1}(e^{t})}{\\sqrt{1-e^{2t}}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572386173",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each integral using appropriate substitutions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e429",
+   "number": 429,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1/2}\\frac{\\tan (\\sin^{-1}t)}{\\sqrt{1-t^{2}}}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572643272",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\ln \\left(\\frac{4}{3}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2) ln ((4/3))"
+   }
+  },
+  {
+   "id": "e430",
+   "number": 430,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1/4}^{1/2}\\frac{\\tan (\\cos^{-1}t)}{\\sqrt{1-t^{2}}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572373740",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e431",
+   "number": 431,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1/2}\\frac{\\sin (\\tan^{-1}t)}{1+t^{2}}dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571710706",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1-\\frac{2}{\\sqrt{5}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1-(2/(sqrt(5)))"
+   }
+  },
+  {
+   "id": "e432",
+   "number": 432,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1/2}\\frac{\\cos (\\tan^{-1}t)}{1+t^{2}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572399032",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e433",
+   "number": 433,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For $A>0,$ compute $I(A)={\\displaystyle \\int_{-A}^{A}\\frac{dt}{1+t^{2}}}$ and evaluate $\\lim_{A\\to \\infty}I(A),$ the area under the graph of $\\frac{1}{1+t^{2}}$ on $[-\\infty ,\\infty ].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572415152",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\tan^{-1}(A)\\to \\pi$ as $A\\to \\infty$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e434",
+   "number": 434,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For $1<B<\\infty ,$ compute $I(B)={\\displaystyle \\int_{1}^{B}\\frac{dt}{t\\sqrt{t^{2}-1}}}$ and evaluate $\\lim_{B\\to \\infty}I(B),$ the area under the graph of $\\frac{1}{t\\sqrt{t^{2}-1}}$ over $[1,\\infty ).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572629160",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e435",
+   "number": 435,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the substitution $u=\\sqrt{2}\\,\\cot \\,x$ and the identity $1+\\cot^{2}x=\\csc^{2}x$ to evaluate ${\\displaystyle \\int \\frac{dx}{1+\\cos^{2}x}.}$ (*Hint:* Multiply the top and bottom of the integrand by $\\csc^{2}x.)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572569940",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using the hint, one has ${\\displaystyle \\int \\frac{\\csc^{2}x}{\\csc^{2}x+\\cot^{2}x}}dx={\\displaystyle \\int \\frac{\\csc^{2}x}{1+2\\cot^{2}x}}dx.$ Set $u=\\sqrt{2}\\cot \\,x.$ Then, $du=-\\sqrt{2}\\csc^{2}x$ and the integral is $-\\frac{1}{\\sqrt{2}}{\\displaystyle \\int \\frac{du}{1+u^{2}}=-\\frac{1}{\\sqrt{2}}}\\tan^{-1}u+C=\\frac{1}{\\sqrt{2}}\\,\\tan^{-1}(\\sqrt{2}\\cot \\,x)+C.$ If one uses the identity $\\tan^{-1}s+\\tan^{-1}\\left(\\frac{1}{s}\\right)=\\frac{\\pi}{2},$ then this can also be written $\\frac{1}{\\sqrt{2}}\\,\\tan^{-1}\\left(\\frac{\\tan \\,x}{\\sqrt{2}}\\right)+C.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e436",
+   "number": 436,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Approximate the points at which the graphs of $f(x)=2x^{2}-1$ and $g(x)=(1+4x^{2})^{-3/2}$ intersect to four decimal places, and approximate the area between their graphs to three decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572310020",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e437",
+   "number": 437,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Approximate the points at which the graphs of $f(x)=x^{2}-1$ and $g(x)=(x^{2}+1)^{\\frac{1}{2}}$ intersect to four decimal places, and approximate the area between their graphs to three decimal places."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571613771",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x\\approx \\pm 1.7321.$ The left endpoint estimate with $N=100$ is 4.781 and these decimals persist for $N=500.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e438",
+   "number": 438,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the following graph to prove that ${\\displaystyle \\int_{0}^{x}\\sqrt{1-t^{2}}dt=\\frac{1}{2}x\\sqrt{1-x^{2}}+\\frac{1}{2}\\,\\sin^{-1}x}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_05_07_211.webp",
+     "alt": "A diagram containing two shapes, a wedge from a circle shaded in blue on top of a triangle shaded in brown. The triangle’s hypotenuse is one of the radii edges of the wedge of the circle and is 1 unit long. There is a dotted red line forming a rectangle out of part of the wedge and the triangle, with the hypotenuse of the triangle as the diagonal of the rectangle. The curve of the circle is described by the equation sqrt(1-x^2).",
+     "width": 200,
+     "height": 255
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571661806",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, compute each definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e439",
+   "number": 439,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x)>0,f'(x)>0$ for all $x,$ then the right-hand rule underestimates the integral ${\\displaystyle \\int_{a}^{b}f(x)}.$ Use a graph to justify your answer."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572347001",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False.* Justify your answer with a proof or a counterexample. Assume all functions $f$ and $g$ are continuous over their domains."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "False"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e440",
+   "number": 440,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{a}^{b}f(x)^{2}dx=}{\\displaystyle \\int_{a}^{b}f(x)dx}{\\displaystyle \\int_{a}^{b}f(x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451355",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False.* Justify your answer with a proof or a counterexample. Assume all functions $f$ and $g$ are continuous over their domains."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e441",
+   "number": 441,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If $f(x)\\le g(x)$ for all $x\\in [a,b],$ then ${\\displaystyle \\int_{a}^{b}f(x)}\\le {\\displaystyle \\int_{a}^{b}g(x)}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572329953",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False.* Justify your answer with a proof or a counterexample. Assume all functions $f$ and $g$ are continuous over their domains."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "True"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e442",
+   "number": 442,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "All continuous functions have an antiderivative."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572379120",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "*True or False.* Justify your answer with a proof or a counterexample. Assume all functions $f$ and $g$ are continuous over their domains."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e443",
+   "number": 443,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=3x^{2}-2x+1$ over $[-1,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572379162",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the Riemann sums $L_{4}\\,\\text{and}\\,R_{4}$ for the following functions over the specified interval. Compare your answer with the exact answer, when possible, or use a calculator to determine the answer."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$L_{4}=5.25,R_{4}=3.25,$ exact answer: 4"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e444",
+   "number": 444,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\ln (x^{2}+1)$ over $[0,e]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571613663",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the Riemann sums $L_{4}\\,\\text{and}\\,R_{4}$ for the following functions over the specified interval. Compare your answer with the exact answer, when possible, or use a calculator to determine the answer."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e445",
+   "number": 445,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{2}\\sin \\,x$ over $[0,\\pi ]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572434937",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the Riemann sums $L_{4}\\,\\text{and}\\,R_{4}$ for the following functions over the specified interval. Compare your answer with the exact answer, when possible, or use a calculator to determine the answer."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$L_{4}=5.364,R_{4}=5.364,$ exact answer: 5.870"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e446",
+   "number": 446,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sqrt{x}+\\frac{1}{x}$ over $[1,4]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572412264",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the Riemann sums $L_{4}\\,\\text{and}\\,R_{4}$ for the following functions over the specified interval. Compare your answer with the exact answer, when possible, or use a calculator to determine the answer."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e447",
+   "number": 447,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-1}^{1}(x^{3}-2x^{2}+4x)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572627080",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{4}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-(4/3)"
+   }
+  },
+  {
+   "id": "e448",
+   "number": 448,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{4}\\frac{3t}{\\sqrt{1+6t^{2}}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572627151",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e449",
+   "number": 449,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\pi /3}^{\\pi /2}2\\,\\sec (2\\theta )}\\tan (2\\theta )d\\theta$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572572290",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "1"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e450",
+   "number": 450,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /4}e^{\\cos^{2}x}}\\sin \\,x\\,\\cos x\\,dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571712795",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integrals."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e451",
+   "number": 451,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{(x+4)^{3}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572379185",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{2(x+4)^{2}}+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(2(x+4)^2))+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e452",
+   "number": 452,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int x\\,\\ln (x^{2})dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572379267",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e453",
+   "number": 453,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{4x^{2}}{\\sqrt{1-x^{6}}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572330260",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{4}{3}\\,\\sin^{-1}(x^{3})+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(4/3) sin^(-1) (x^3)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e454",
+   "number": 454,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{e^{2x}}{1+e^{4x}}dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572223520",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the antiderivative."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e455",
+   "number": 455,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dt}{\\displaystyle \\int_{0}^{t}\\frac{\\sin \\,x}{\\sqrt{1+x^{2}}}dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571568944",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivative."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\sin \\,t}{\\sqrt{1+t^{2}}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((sin t)/(sqrt(1+t^2)))"
+   }
+  },
+  {
+   "id": "e456",
+   "number": 456,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{1}^{x^{3}}\\sqrt{4-t^{2}}dt}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572309715",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivative."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e457",
+   "number": 457,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{1}^{\\ln (x)}(4t+e^{t})dt}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572309794",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivative."
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4\\frac{\\ln \\,x}{x}+1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "4((ln x)/x)+1"
+   }
+  },
+  {
+   "id": "e458",
+   "number": 458,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{0}^{\\cos \\,x}e^{t^{2}}}dt$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572582616",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the derivative."
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e459",
+   "number": 459,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "If the average cost per gigabyte of RAM in 2010 is \\$12, find the average cost per gigabyte of RAM in 1980."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571638140",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the historic average cost per gigabyte of RAM on a computer."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1980",
+       "0"
+      ],
+      [
+       "1985",
+       "−5,468,750"
+      ],
+      [
+       "1990",
+       "**−**755,495"
+      ],
+      [
+       "1995",
+       "−73,005"
+      ],
+      [
+       "2000",
+       "−29,768"
+      ],
+      [
+       "2005",
+       "−918"
+      ],
+      [
+       "2010",
+       "−177"
+      ]
+     ],
+     "header": [
+      "Year",
+      "5-Year Change (\\$)"
+     ]
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "\\$6,328,113"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "6328113"
+   }
+  },
+  {
+   "id": "e460",
+   "number": 460,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The average cost per gigabyte of RAM can be approximated by the function $C(t)=8,500,000(0.65)^{t},$ where $t$ is measured in years since 1980, and $C$ is cost in US\\$. Find the average cost per gigabyte of RAM for 1980 to 2010."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571610274",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the historic average cost per gigabyte of RAM on a computer."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1980",
+       "0"
+      ],
+      [
+       "1985",
+       "−5,468,750"
+      ],
+      [
+       "1990",
+       "**−**755,495"
+      ],
+      [
+       "1995",
+       "−73,005"
+      ],
+      [
+       "2000",
+       "−29,768"
+      ],
+      [
+       "2005",
+       "−918"
+      ],
+      [
+       "2010",
+       "−177"
+      ]
+     ],
+     "header": [
+      "Year",
+      "5-Year Change (\\$)"
+     ]
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e461",
+   "number": 461,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the average cost of 1GB RAM for 2005 to 2010."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571610339",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the historic average cost per gigabyte of RAM on a computer."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1980",
+       "0"
+      ],
+      [
+       "1985",
+       "−5,468,750"
+      ],
+      [
+       "1990",
+       "**−**755,495"
+      ],
+      [
+       "1995",
+       "−73,005"
+      ],
+      [
+       "2000",
+       "−29,768"
+      ],
+      [
+       "2005",
+       "−918"
+      ],
+      [
+       "2010",
+       "−177"
+      ]
+     ],
+     "header": [
+      "Year",
+      "5-Year Change (\\$)"
+     ]
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "\\$73.36"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "73.36"
+   }
+  },
+  {
+   "id": "e462",
+   "number": 462,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The velocity of a bullet from a rifle can be approximated by $v(t)=6400t^{2}-6505t+2686,$ where $t$ is seconds after the shot and $v$ is the velocity measured in feet per second. This equation only models the velocity for the first half-second after the shot: $0\\le t\\le 0.5.$ What is the total distance the bullet travels in 0.5 sec?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571610355",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the historic average cost per gigabyte of RAM on a computer."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1980",
+       "0"
+      ],
+      [
+       "1985",
+       "−5,468,750"
+      ],
+      [
+       "1990",
+       "**−**755,495"
+      ],
+      [
+       "1995",
+       "−73,005"
+      ],
+      [
+       "2000",
+       "−29,768"
+      ],
+      [
+       "2005",
+       "−918"
+      ],
+      [
+       "2010",
+       "−177"
+      ]
+     ],
+     "header": [
+      "Year",
+      "5-Year Change (\\$)"
+     ]
+    }
+   ],
+   "review": true,
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e463",
+   "number": 463,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "What is the average velocity of the bullet for the first half-second?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572504538",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The following problems consider the historic average cost per gigabyte of RAM on a computer."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1980",
+       "0"
+      ],
+      [
+       "1985",
+       "−5,468,750"
+      ],
+      [
+       "1990",
+       "**−**755,495"
+      ],
+      [
+       "1995",
+       "−73,005"
+      ],
+      [
+       "2000",
+       "−29,768"
+      ],
+      [
+       "2005",
+       "−918"
+      ],
+      [
+       "2010",
+       "−177"
+      ]
+     ],
+     "header": [
+      "Year",
+      "5-Year Change (\\$)"
+     ]
+    }
+   ],
+   "review": true,
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{19117}{12}\\text{ft/sec},\\text{or}\\,1593\\,\\text{ft/sec}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  }
+ ],
+ "proofs": []
+}

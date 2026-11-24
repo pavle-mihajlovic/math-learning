@@ -1,0 +1,2052 @@
+{
+ "schema": 1,
+ "id": "V1.1.4",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 1,
+ "section": 4,
+ "title": "Inverse Functions",
+ "chapterTitle": "Functions and Graphs",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53480",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/1-4-inverse-functions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §1.4 “Inverse Functions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Determine the conditions for when a function has an inverse.",
+  "Use the horizontal line test to recognize when a function is one-to-one.",
+  "Find the inverse of a given function.",
+  "Draw the graph of an inverse function.",
+  "Evaluate inverse trigonometric functions."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "An inverse function reverses the operation done by a particular function. In other words, whatever a function does, the inverse function undoes it. In this section, we define an inverse function formally and state the necessary conditions for an inverse function to exist. We examine how to find an inverse function and study the relationship between the graph of a function and the graph of its inverse. Then we apply these ideas to define and discuss properties of the inverse trigonometric functions."
+    }
+   ],
+   "title": "Inverse Functions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We begin with an example. Given a function $f$ and an output $y=f(x),$ we are often interested in finding what value or values $x$ were mapped to $y$ by $f.$ For example, consider the function $f(x)=x^{3}+4.$ Since any output $y=x^{3}+4,$ we can solve this equation for $x$ to find that the input is $x=\\sqrt[3]{y-4}.$ This equation defines $x$ as a function of $y.$ Denoting this function as $f^{-1},$ and writing $x=f^{-1}(y)=\\sqrt[3]{y-4},$ we see that for any $x$ in the domain of $f,f^{-1}(f(x))=f^{-1}(x^{3}+4)=x.$ Thus, this new function, $f^{-1},$ “undid” what the original function $f$ did. A function with this property is called the inverse function of the original function."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Given a function $f$ with domain $D$ and range $R,$ its **inverse function** (if it exists) is the function $f^{-1}$ with domain $R$ and range $D$ such that $f^{-1}(y)=x$ if $f(x)=y.$ In other words, for a function $f$ and its inverse $f^{-1},$"
+      },
+      {
+       "type": "math",
+       "tex": "f^{-1}(f(x))=x\\,\\text{for all}\\,x\\,\\text{in}\\,D,\\text{and}\\,f(f^{-1}(y))=y\\,\\text{for all}\\,y\\,\\text{in}\\,R."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Note that $f^{-1}$ is read as “f inverse.” Here, the $-1$ is not used as an exponent and $f^{-1}(x)\\ne 1/f(x).$ Figure 1.36 shows the relationship between the domain and range of *f* and the domain and range of $f^{-1}.$"
+    }
+   ],
+   "title": "Existence of an Inverse Function"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_001.webp",
+     "alt": "An image of two bubbles. The first bubble is orange and has two labels: the top label is “Domain of f” and the bottom label is “Range of f inverse”. Within this bubble is the variable “x”. An orange arrow with the label “f” points from this bubble to the second bubble. The second bubble is blue and has two labels: the top label is “range of f” and the bottom label is “domain of f inverse”. Within this bubble is the variable “y”. A blue arrow with the label “f inverse” points from this bubble to the first bubble.",
+     "caption": "**Figure 1.36** Given a function $f$ and its inverse $f^{-1},f^{-1}(y)=x$ if and only if $f(x)=y.$ The range of $f$ becomes the domain of $f^{-1}$ and the domain of $f$ becomes the range of $f^{-1}.$",
+     "width": 487,
+     "height": 160
+    },
+    {
+     "type": "p",
+     "text": "Recall that a function has exactly one output for each input. Therefore, to define an inverse function, we need to map each input to exactly one output. For example, let’s try to find the inverse function for $f(x)=x^{2}.$ Solving the equation $y=x^{2}$ for $x,$ we arrive at the equation $x=\\pm \\sqrt{y}.$ This equation does not describe $x$ as a function of $y$ because there are two solutions to this equation for every $y>0.$ The problem with trying to find an inverse function for $f(x)=x^{2}$ is that two inputs are sent to the same output for each output $y>0.$ The function $f(x)=x^{3}+4$ discussed earlier did not have this problem. For that function, each input was sent to a different output. A function that sends each input to a *different* output is called a one-to-one function."
+    }
+   ],
+   "title": "Existence of an Inverse Function (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "We say a $f$ is a **one-to-one function** if $f(x_{1})\\ne f(x_{2})$ when $x_{1}\\ne x_{2}.$"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "One way to determine whether a function is one-to-one is by looking at its graph. If a function is one-to-one, then no two inputs can be sent to the same output. Therefore, if we draw a horizontal line anywhere in the $xy$-plane, according to the **horizontal line test**, it cannot intersect the graph more than once. We note that the horizontal line test is different from the vertical line test. The vertical line test determines whether a graph is the graph of a function. The horizontal line test determines whether a function is one-to-one (Figure 1.37)."
+    },
+    {
+     "type": "box",
+     "variant": "rule",
+     "body": [
+      {
+       "type": "p",
+       "text": "A function $f$ is one-to-one if and only if every horizontal line intersects the graph of $f$ no more than once."
+      }
+     ],
+     "title": "Horizontal Line Test"
+    }
+   ],
+   "title": "Existence of an Inverse Function (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_002.webp",
+     "alt": "An image of two graphs. Both graphs have an x axis that runs from -3 to 3 and a y axis that runs from -3 to 4. The first graph is of the function “f(x) = x squared”, which is a parabola. The function decreases until it hits the origin, where it begins to increase. The x intercept and y intercept are both at the origin. There are two orange horizontal lines also plotted on the graph, both of which run through the function at two points each. The second graph is of the function “f(x) = x cubed”, which is an increasing curved function. The x intercept and y intercept are both at the origin. There are three orange lines also plotted on the graph, each of which only intersects the function at one point.",
+     "caption": "**Figure 1.37** (a) The function $f(x)=x^{2}$ is not one-to-one because it fails the horizontal line test. (b) The function $f(x)=x^{3}$ is one-to-one because it passes the horizontal line test.",
+     "width": 487,
+     "height": 313
+    }
+   ],
+   "title": "Existence of an Inverse Function (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 1.28",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following functions, use the horizontal line test to determine whether it is one-to-one."
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_01_04_003.webp",
+        "alt": "An image of a graph. The x axis runs from -3 to 11 and the y axis runs from -3 to 11. The graph is of a step function which contains 10 horizontal steps. Each steps starts with a closed circle and ends with an open circle. The first step starts at the origin and ends at the point (1, 0). The second step starts at the point (1, 1) and ends at the point (1, 2). Each of the following 8 steps starts 1 unit higher in the y direction than where the previous step ended. The tenth and final step starts at the point (9, 9) and ends at the point (10, 9)",
+        "width": 487,
+        "height": 496
+       }
+      ],
+      [
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_01_04_004.webp",
+        "alt": "An image of a graph. The x axis runs from -3 to 6 and the y axis runs from -3 to 6. The graph is of the function “f(x) = (1/x)”, a curved decreasing function. The graph of the function starts right below the x axis in the 4th quadrant and begins to decreases until it comes close to the y axis. The graph keeps decreasing as it gets closer and closer to the y axis, but never touches it due to the vertical asymptote. In the first quadrant, the graph of the function starts close to the y axis and keeps decreasing until it gets close to the x axis. As the function continues to decreases it gets closer and closer to the x axis without touching it, where there is a horizontal asymptote.",
+        "width": 325,
+        "height": 339
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Since the horizontal line $y=n$ for any integer $n\\ge 0$ intersects the graph more than once, this function is not one-to-one."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_01_04_005.webp",
+         "alt": "An image of a graph. The x axis runs from -3 to 11 and the y axis runs from -3 to 11. The graph is of a step function which contains 10 horizontal steps. Each steps starts with a closed circle and ends with an open circle. The first step starts at the origin and ends at the point (1, 0). The second step starts at the point (1, 1) and ends at the point (1, 2). Each of the following 8 steps starts 1 unit higher in the y direction than where the previous step ended. The tenth and final step starts at the point (9, 9) and ends at the point (10, 9). There are also two horizontal orange lines plotted on the graph, each of which run through an entire step of the function.",
+         "width": 487,
+         "height": 496
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Since every horizontal line intersects the graph once (at most), this function is one-to-one."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_01_04_006.webp",
+         "alt": "An image of a graph. The x axis runs from -3 to 6 and the y axis runs from -3 to 6. The graph is of the function “f(x) = (1/x)”, a curved decreasing function. The graph of the function starts right below the x axis in the 4th quadrant and begins to decreases until it comes close to the y axis. The graph keeps decreasing as it gets closer and closer to the y axis, but never touches it due to the vertical asymptote. In the first quadrant, the graph of the function starts close to the y axis and keeps decreasing until it gets close to the x axis. As the function continues to decreases it gets closer and closer to the x axis without touching it, where there is a horizontal asymptote. There are also three horizontal orange lines plotted on the graph, each of which only runs through the function at one point.",
+         "width": 325,
+         "height": 339
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Determining Whether a Function Is One-to-One"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.23",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Is the function $f$ graphed in the following image one-to-one?"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_007.webp",
+     "alt": "An image of a graph. The x axis runs from -3 to 4 and the y axis runs from -3 to 5. The graph is of the function “f(x) = (x cubed) - x” which is a curved function. The function increases, decreases, then increases again. The x intercepts are at the points (-1, 0), (0,0), and (1, 0). The y intercept is at the origin.",
+     "width": 326,
+     "height": 330
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "No."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the horizontal line test."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "no"
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We can now consider one-to-one functions and show how to find their inverses. Recall that a function maps elements in the domain of $f$ to elements in the range of $f.$ The inverse function maps each element from the range of $f$ back to its corresponding element from the domain of $f.$ Therefore, to find the inverse function of a one-to-one function $f,$ given any $y$ in the range of $f,$ we need to determine which $x$ in the domain of $f$ satisfies $f(x)=y.$ Since $f$ is one-to-one, there is exactly one such value $x.$ We can find that value $x$ by solving the equation $f(x)=y$ for $x.$ Doing so, we are able to write $x$ as a function of $y$ where the domain of this function is the range of $f$ and the range of this new function is the domain of $f.$ Consequently, this function is the inverse of $f,$ and we write $x=f^{-1}(y).$ Since we typically use the variable $x$ to denote the independent variable and $y$ to denote the dependent variable, we often interchange the roles of $x$ and $y,$ and write $y=f^{-1}(x).$ Representing the inverse function in this way is also helpful later when we graph a function $f$ and its inverse $f^{-1}$ on the same axes."
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Solve the equation $y=f(x)$ for $x.$",
+        "Interchange the variables $x$ and $y$ and write $y=f^{-1}(x).$"
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Finding an Inverse Function"
+    }
+   ],
+   "title": "Finding a Function’s Inverse"
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 1.29",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the inverse for the function $f(x)=3x-4.$ State the domain and range of the inverse function. Verify that $f^{-1}(f(x))=x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Follow the steps outlined in the strategy."
+     },
+     {
+      "type": "p",
+      "text": "Step 1. If $y=3x-4,$ then $3x=y+4$ and $x=\\frac{1}{3}y+\\frac{4}{3}.$"
+     },
+     {
+      "type": "p",
+      "text": "Step 2. Rewrite as $y=\\frac{1}{3}x+\\frac{4}{3}$ and let $y=f^{-1}(x).$"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, $f^{-1}(x)=\\frac{1}{3}x+\\frac{4}{3}.$"
+     },
+     {
+      "type": "p",
+      "text": "Since the domain of $f$ is $(-\\infty ,\\infty ),$ the range of $f^{-1}$ is $(-\\infty ,\\infty ).$ Since the range of $f$ is $(-\\infty ,\\infty ),$ the domain of $f^{-1}$ is $(-\\infty ,\\infty ).$"
+     },
+     {
+      "type": "p",
+      "text": "You can verify that $f^{-1}(f(x))=x$ by writing"
+     },
+     {
+      "type": "math",
+      "tex": "f^{-1}(f(x))=f^{-1}(3x-4)=\\frac{1}{3}(3x-4)+\\frac{4}{3}=x-\\frac{4}{3}+\\frac{4}{3}=x."
+     },
+     {
+      "type": "p",
+      "text": "Note that for $f^{-1}(x)$ to be the inverse of $f(x),$ both $f^{-1}(f(x))=x$ and $f(f^{-1}(x))=x$ for all *x* in the domain of the inside function."
+     }
+    ]
+   },
+   "title": "Finding an Inverse Function"
+  },
+  {
+   "id": "c10",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.24",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the inverse of the function $f(x)=3x/(x-2).$ State the domain and range of the inverse function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f^{-1}(x)=\\frac{2x}{x-3}.$ The domain of $f^{-1}$ is $\\{x|x\\ne 3\\}.$ The range of $f^{-1}$ is $\\{y|y\\ne 2\\}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the (see above) for finding inverse functions."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Let’s consider the relationship between the graph of a function $f$ and the graph of its inverse. Consider the graph of $f$ shown in Figure 1.38 and a point $(a,b)$ on the graph. Since $b=f(a),$ then $f^{-1}(b)=a.$ Therefore, when we graph $f^{-1},$ the point $(b,a)$ is on the graph. As a result, the graph of $f^{-1}$ is a reflection of the graph of $f$ about the line $y=x.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_017.webp",
+     "alt": "An image of two graphs. The first graph is of “y = f(x)”, which is a curved increasing function, that increases at a faster rate as x increases. The point (a, b) is on the graph of the function in the first quadrant. The second graph also graphs “y = f(x)” with the point (a, b), but also graphs the function “y = f inverse (x)”, an increasing curved function, that increases at a slower rate as x increases. This function includes the point (b, a). In addition to the two functions, there is a diagonal dotted line potted with the equation “y =x”, which shows that “f(x)” and “f inverse (x)” are mirror images about the line “y =x”.",
+     "caption": "**Figure 1.38** (a) The graph of this function $f$ shows point $(a,b)$ on the graph of $f.$ (b) Since $(a,b)$ is on the graph of $f,$ the point $(b,a)$ is on the graph of $f^{-1}.$ The graph of $f^{-1}$ is a reflection of the graph of $f$ about the line $y=x.$",
+     "width": 710,
+     "height": 387
+    }
+   ],
+   "title": "Graphing Inverse Functions"
+  },
+  {
+   "id": "x12",
+   "kind": "example",
+   "label": "Example 1.30",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For the graph of $f$ in the following image, sketch a graph of $f^{-1}$ by sketching the line $y=x$ and using symmetry. Identify the domain and range of $f^{-1}.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_009.webp",
+     "alt": "An image of a graph. The x axis runs from -2 to 2 and the y axis runs from 0 to 2. The graph is of the function “f(x) = square root of (x +2)”, an increasing curved function. The function starts at the point (-2, 0). The x intercept is at (-2, 0) and the y intercept is at the approximate point (0, 1.4).",
+     "width": 325,
+     "height": 321
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Reflect the graph about the line $y=x.$ The domain of $f^{-1}$ is $[0,\\infty ).$ The range of $f^{-1}$ is $[-2,\\infty ).$ By using the preceding strategy for finding inverse functions, we can verify that the inverse function is $f^{-1}(x)=x^{2}-2,$ as shown in the graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_01_04_010.webp",
+      "alt": "An image of a graph. The x axis runs from -2 to 2 and the y axis runs from -2 to 2. The graph is of two functions. The first function is “f(x) = square root of (x +2)”, an increasing curved function. The function starts at the point (-2, 0). The x intercept is at (-2, 0) and the y intercept is at the approximate point (0, 1.4). The second function is “f inverse (x) = (x squared) -2”, an increasing curved function that starts at the point (0, -2). The x intercept is at the approximate point (1.4, 0) and the y intercept is at the point (0, -2). In addition to the two functions, there is a diagonal dotted line potted with the equation “y =x”, which shows that “f(x)” and “f inverse (x)” are mirror images about the line “y =x”.",
+      "width": 325,
+      "height": 324
+     }
+    ]
+   },
+   "title": "Sketching Graphs of Inverse Functions"
+  },
+  {
+   "id": "c13",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.25",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Sketch the graph of $f(x)=2x+3$ and the graph of its inverse using the symmetry property of inverse functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_01_04_011.webp",
+      "alt": "An image of a graph. The x axis runs from -3 to 4 and the y axis runs from -3 to 5. The graph is of two functions. The first function is “f(x) = 2x +3”, an increasing straight line function. The function has an x intercept at (-1.5, 0) and a y intercept at (0, 3). The second function is “f inverse (x) = (x - 3)/2”, an increasing straight line function, which increases at a slower rate than the first function. The function has an x intercept at (3, 0) and a y intercept at (0, -1.5). In addition to the two functions, there is a diagonal dotted line potted with the equation “y =x”, which shows that “f(x)” and “f inverse (x)” are mirror images about the line “y =x”.",
+      "width": 325,
+      "height": 358
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The graphs are symmetric about the line $y=x.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As we have seen, $f(x)=x^{2}$ does not have an inverse function because it is not one-to-one. However, we can choose a subset of the domain of $f$ such that the function is one-to-one. This subset is called a **restricted domain**. By restricting the domain of $f,$ we can define a new function $g$ such that the domain of $g$ is the restricted domain of $f$ and $g(x)=f(x)$ for all $x$ in the domain of $g.$ Then we can define an inverse function for $g$ on that domain. For example, since $f(x)=x^{2}$ is one-to-one on the interval $[0,\\infty ),$ we can define a new function $g$ such that the domain of $g$ is $[0,\\infty )$ and $g(x)=x^{2}$ for all $x$ in its domain. Since $g$ is a one-to-one function, it has an inverse function, given by the formula $g^{-1}(x)=\\sqrt{x}.$ On the other hand, the function $f(x)=x^{2}$ is also one-to-one on the domain $(-\\infty ,0].$ Therefore, we could also define a new function $h$ such that the domain of $h$ is $(-\\infty ,0]$ and $h(x)=x^{2}$ for all $x$ in the domain of $h.$ Then $h$ is a one-to-one function and must also have an inverse. Its inverse is given by the formula $h^{-1}(x)=-\\sqrt{x}$ (Figure 1.39)."
+    }
+   ],
+   "title": "Restricting Domains"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_012.webp",
+     "alt": "An image of two graphs. Both graphs have an x axis that runs from -2 to 5 and a y axis that runs from -2 to 5. The first graph is of two functions. The first function is “g(x) = x squared”, an increasing curved function that starts at the point (0, 0). This function increases at a faster rate for larger values of x. The second function is “g inverse (x) = square root of x”, an increasing curved function that starts at the point (0, 0). This function increases at a slower rate for larger values of x. The first function is “h(x) = x squared”, a decreasing curved function that ends at the point (0, 0). This function decreases at a slower rate for larger values of x. The second function is “h inverse (x) = -(square root of x)”, an increasing curved function that starts at the point (0, 0). This function decreases at a slower rate for larger values of x. In addition to the two functions, there is a diagonal dotted line potted with the equation “y =x”, which shows that “f(x)” and “f inverse (x)” are mirror images about the line “y =x”.",
+     "caption": "**Figure 1.39** (a) For $g(x)=x^{2}$ restricted to $[0,\\infty ),g^{-1}(x)=\\sqrt{x}.$ (b) For $h(x)=x^{2}$ restricted to $(-\\infty ,0],h^{-1}(x)=-\\sqrt{x}.$",
+     "width": 656,
+     "height": 353
+    }
+   ],
+   "title": "Restricting Domains (continued)"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 1.31",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the function $f(x)=(x+1)^{2}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Sketch the graph of $f$ and use the horizontal line test to show that $f$ is not one-to-one.",
+      "Show that $f$ is one-to-one on the restricted domain $[-1,\\infty ).$ Determine the domain and range for the inverse of $f$ on this restricted domain and find a formula for $f^{-1}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "The graph of $f$ is the graph of $y=x^{2}$ shifted left 1 unit. Since there exists a horizontal line intersecting the graph more than once, $f$ is not one-to-one."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_01_04_013.webp",
+         "alt": "An image of a graph. The x axis runs from -6 to 6 and the y axis runs from -2 to 10. The graph is of the function “f(x) = (x+ 1) squared”, which is a parabola. The function decreases until the point (-1, 0), where it begins it increases. The x intercept is at the point (-1, 0) and the y intercept is at the point (0, 1). There is also a horizontal dotted line plotted on the graph, which crosses through the function at two points.",
+         "width": 325,
+         "height": 286
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "On the interval $[-1,\\infty ),\\,f$ is one-to-one."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_01_04_014.webp",
+         "alt": "An image of a graph. The x axis runs from -6 to 6 and the y axis runs from -2 to 10. The graph is of the function “f(x) = (x+ 1) squared”, on the interval [1, infinity). The function starts from the point (-1, 0) and increases. The x intercept is at the point (-1, 0) and the y intercept is at the point (0, 1).",
+         "width": 325,
+         "height": 511
+        },
+        {
+         "type": "p",
+         "text": "The domain and range of $f^{-1}$ are given by the range and domain of $f,$ respectively. Therefore, the domain of $f^{-1}$ is $[0,\\infty )$ and the range of $f^{-1}$ is $[-1,\\infty ).$ To find a formula for $f^{-1},$ solve the equation $y=(x+1)^{2}$ for $x.$ If $y=(x+1)^{2},$ then $x=-1\\pm \\sqrt{y}.$ Since we are restricting the domain to the interval where $x\\ge -1,$ we need $\\pm \\sqrt{y}\\ge 0.$ Therefore, $x=-1+\\sqrt{y}.$ Interchanging $x$ and $y,$ we write $y=-1+\\sqrt{x}$ and conclude that $f^{-1}(x)=-1+\\sqrt{x}.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Restricting the Domain"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 1.26",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider $f(x)=1/x^{2}$ restricted to the domain $(-\\infty ,0).$ Verify that $f$ is one-to-one on this domain. Determine the domain and range of the inverse of $f$ and find a formula for $f^{-1}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The domain of $f^{-1}$ is $(0,\\infty ).$ The range of $f^{-1}$ is $(-\\infty ,0).$ The inverse function is given by the formula $f^{-1}(x)=-1/\\sqrt{x}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "The domain and range of $f^{-1}$ is given by the range and domain of $f,$ respectively. To find $f^{-1},$ solve $y=1/x^{2}$ for $x.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The six basic trigonometric functions are periodic, and therefore they are not one-to-one. However, if we restrict the domain of a trigonometric function to an interval where it is one-to-one, we can define its inverse. Consider the sine function (Figure 1.33). The sine function is one-to-one on an infinite number of intervals, but the standard convention is to restrict the domain to the interval $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right].$ By doing so, we define the inverse sine function on the domain $[-1,1]$ such that for any $x$ in the interval $[-1,1],$ the inverse sine function tells us which angle $\\theta$ in the interval $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$ satisfies $\\sin \\,\\theta =x.$ Similarly, we can restrict the domains of the other trigonometric functions to define **inverse trigonometric functions**, which are functions that tell us which angle in a certain interval has a specified trigonometric value."
+    }
+   ],
+   "title": "Inverse Trigonometric Functions"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The inverse sine function, denoted $\\sin^{-1}$ or arcsin, and the inverse cosine function, denoted $\\cos^{-1}$ or arccos, are defined on the domain $D=\\{x|-1\\le x\\le 1\\}$ as follows:"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{c}\\sin^{-1}(x)=y\\,\\text{if and only if}\\,\\sin (y)=x\\,\\text{and}\\,-\\frac{\\pi}{2}\\le y\\le \\frac{\\pi}{2}; \\\\ \\cos^{-1}(x)=y\\,\\text{if and only if}\\,\\cos (y)=x\\,\\text{and}\\,0\\le y\\le \\pi .\\end{array}"
+      },
+      {
+       "type": "p",
+       "text": "The inverse tangent function, denoted $\\tan^{-1}$ or arctan, and inverse cotangent function, denoted $\\cot^{-1}$ or arccot, are defined on the domain $D=\\{x|-\\infty <x<\\infty \\}$ as follows:"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{c}\\tan^{-1}(x)=y\\,\\text{if and only if}\\,\\tan (y)=x\\,\\text{and}\\,-\\frac{\\pi}{2}<y<\\frac{\\pi}{2}; \\\\ \\cot^{-1}(x)=y\\,\\text{if and only if}\\,\\cot (y)=x\\,\\text{and}\\,0<y<\\pi .\\end{array}"
+      },
+      {
+       "type": "p",
+       "text": "The inverse cosecant function, denoted $\\csc^{-1}$ or arccsc, and inverse secant function, denoted $\\sec^{-1}$ or arcsec, are defined on the domain $D=\\{x||x|\\ge 1\\}$ as follows:"
+      },
+      {
+       "type": "math",
+       "tex": "\\begin{array}{c}\\csc^{-1}(x)=y\\,\\text{if and only if}\\,\\csc (y)=x\\,\\text{and}\\,-\\frac{\\pi}{2}\\le y\\le \\frac{\\pi}{2},y\\ne 0; \\\\ \\sec^{-1}(x)=y\\,\\text{if and only if}\\,\\sec (y)=x\\,\\text{and}\\,0\\le y\\le \\pi ,y\\ne \\pi /2.\\end{array}"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "To graph the inverse trigonometric functions, we use the graphs of the trigonometric functions restricted to the domains defined earlier and reflect the graphs about the line $y=x$ (Figure 1.40)."
+    }
+   ],
+   "title": "Inverse Trigonometric Functions (continued)"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_018.webp",
+     "alt": "An image of six graphs. The first graph is of the function “f(x) = sin inverse(x)”, which is an increasing curve function. The function starts at the point (-1, -(pi/2)) and increases until it ends at the point (1, (pi/2)). The x intercept and y intercept are at the origin. The second graph is of the function “f(x) = cos inverse (x)”, which is a decreasing curved function. The function starts at the point (-1, pi) and decreases until it ends at the point (1, 0). The x intercept is at the point (1, 0). The y intercept is at the point (0, (pi/2)). The third graph is of the function f(x) = tan inverse (x)”, which is an increasing curve function. The function starts close to the horizontal line “y = -(pi/2)” and increases until it comes close the “y = (pi/2)”. The function never intersects either of these lines, it always stays between them - they are horizontal asymptotes. The x intercept and y intercept are both at the origin. The fourth graph is of the function “f(x) = cot inverse (x)”, which is a decreasing curved function. The function starts slightly below the horizontal line “y = pi” and decreases until it gets close the x axis. The function never intersects either of these lines, it always stays between them - they are horizontal asymptotes. The fifth graph is of the function “f(x) = csc inverse (x)”, a decreasing curved function. The function starts slightly below the x axis, then decreases until it hits a closed circle point at (-1, -(pi/2)). The function then picks up again at the point (1, (pi/2)), where is begins to decrease and approach the x axis, without ever touching the x axis. There is a horizontal asymptote at the x axis. The sixth graph is of the function “f(x) = sec inverse (x)”, an increasing curved function. The function starts slightly above the horizontal line “y = (pi/2)”, then increases until it hits a closed circle point at (-1, pi). The function then picks up again at the point (1, 0), where is begins to increase and approach the horizontal line “y = (pi/2)”, without ever touching the line. There is a horizontal asymptote at the “y = (pi/2)”.",
+     "caption": "**Figure 1.40** The graph of each of the inverse trigonometric functions is a reflection about the line $y=x$ of the corresponding restricted trigonometric function.",
+     "width": 851,
+     "height": 714
+    }
+   ],
+   "title": "Inverse Trigonometric Functions (continued)"
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When evaluating an inverse trigonometric function, the output is an angle. For example, to evaluate $\\cos^{-1}\\left(\\frac{1}{2}\\right),$ we need to find an angle $\\theta$ such that $\\cos \\,\\theta =\\frac{1}{2}.$ Clearly, many angles have this property. However, given the definition of $\\cos^{-1},$ we need the angle $\\theta$ that not only solves this equation, but also lies in the interval $[0,\\pi ].$ We conclude that $\\cos^{-1}\\left(\\frac{1}{2}\\right)=\\frac{\\pi}{3}.$"
+    },
+    {
+     "type": "p",
+     "text": "We now consider a composition of a trigonometric function and its inverse. For example, consider the two expressions $\\sin \\left(\\sin^{-1}\\left(\\frac{\\sqrt{2}}{\\,\\,2}\\right)\\right)$ and $\\sin^{-1}(\\sin (\\pi )).$ For the first one, we simplify as follows:"
+    },
+    {
+     "type": "math",
+     "tex": "\\sin \\left(\\sin^{-1}\\left(\\frac{\\sqrt{2}}{2}\\right)\\right)=\\sin \\left(\\frac{\\pi}{4}\\right)=\\frac{\\sqrt{2}}{2}."
+    },
+    {
+     "type": "p",
+     "text": "For the second one, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\sin^{-1}(\\sin (\\pi ))=\\sin^{-1}(0)=0."
+    }
+   ],
+   "title": "Inverse Trigonometric Functions (continued)"
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The inverse function is supposed to “undo” the original function, so why isn’t $\\sin^{-1}(\\sin (\\pi ))=\\pi ?$ Recalling our definition of inverse functions, a function $f$ and its inverse $f^{-1}$ satisfy the conditions $f(f^{-1}(y))=y$ for all $y$ in the domain of $f^{-1}$ and $f^{-1}(f(x))=x$ for all $x$ in the domain of $f,$ so what happened here? The issue is that the inverse sine function, $\\sin^{-1},$ is the inverse of the *restricted* sine function defined on the domain $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right].$ Therefore, for $x$ in the interval $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right],$ it is true that $\\sin^{-1}(\\sin \\,x)=x.$ However, for values of $x$ outside this interval, the equation does not hold, even though $\\sin^{-1}(\\sin \\,x)$ is defined for all real numbers $x.$"
+    },
+    {
+     "type": "p",
+     "text": "What about $\\sin (\\sin^{-1}y)?$ Does that have a similar issue? The answer is *no*. Since the domain of $\\sin^{-1}$ is the interval $[-1,1],$ we conclude that $\\sin (\\sin^{-1}y)=y$ if $-1\\le y\\le 1$ and the expression is not defined for other values of $y.$ To summarize,"
+    },
+    {
+     "type": "math",
+     "tex": "\\sin (\\sin^{-1}y)=y\\,\\text{if}\\,-1\\le y\\le 1"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "\\sin^{-1}(\\sin \\,x)=x\\,\\text{if}\\,-\\frac{\\pi}{2}\\le x\\le \\frac{\\pi}{2}."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, for the cosine function,"
+    },
+    {
+     "type": "math",
+     "tex": "\\cos (\\cos^{-1}y)=y\\,\\text{if}\\,-1\\le y\\le 1"
+    },
+    {
+     "type": "p",
+     "text": "and"
+    },
+    {
+     "type": "math",
+     "tex": "\\cos^{-1}(\\cos \\,x)=x\\,\\text{if}\\,0\\le x\\le \\pi ."
+    },
+    {
+     "type": "p",
+     "text": "Similar properties hold for the other trigonometric functions and their inverses."
+    }
+   ],
+   "title": "Inverse Trigonometric Functions (continued)"
+  },
+  {
+   "id": "x23",
+   "kind": "example",
+   "label": "Example 1.32",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate each of the following expressions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\sin^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)$",
+      "$\\tan \\left(\\tan^{-1}\\left(-\\frac{1}{\\sqrt{3}}\\right)\\right)$",
+      "$\\cos^{-1}\\left(\\cos \\left(\\frac{5\\pi}{4}\\right)\\right)$",
+      "$\\sin^{-1}\\left(\\cos \\left(\\frac{2\\pi}{3}\\right)\\right)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "Evaluating $\\sin^{-1}(-\\sqrt{3}/2)$ is equivalent to finding the angle $\\theta$ such that $\\sin \\,\\theta =-\\sqrt{3}/2$ and $-\\pi /2\\le \\theta \\le \\pi /2.$ The angle $\\theta =-\\pi /3$ satisfies these two conditions. Therefore, $\\sin^{-1}(-\\sqrt{3}/2)=-\\pi /3.$",
+       "First we use the fact that $\\tan^{-1}(-1/\\sqrt{3})=-\\pi /6.$ Then $\\tan (-\\pi /6)=-1/\\sqrt{3}.$ Therefore, $\\tan (\\tan^{-1}(-1/\\sqrt{3}))=-1/\\sqrt{3}.$",
+       "To evaluate $\\cos^{-1}(\\cos (5\\pi /4)),$ first use the fact that $\\cos (5\\pi /4)=-\\sqrt{2}/2.$ Then we need to find the angle $\\theta$ such that $\\cos (\\theta )=-\\sqrt{2}/2$ and $0\\le \\theta \\le \\pi .$ Since $3\\pi /4$ satisfies both these conditions, we have $\\cos^{-1}(\\cos (5\\pi /4))=\\cos^{-1}(-\\sqrt{2}/2)=3\\pi /4.$",
+       "Since $\\cos (2\\pi /3)=-1/2,$ we need to evaluate $\\sin^{-1}(-1/2).$ That is, we need to find the angle $\\theta$ such that $\\sin (\\theta )=-1/2$ and $-\\pi /2\\le \\theta \\le \\pi /2.$ Since $-\\pi /6$ satisfies both these conditions, we can conclude that $\\sin^{-1}(\\cos (2\\pi /3))=\\sin^{-1}(-1/2)=-\\pi /6.$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Evaluating Expressions Involving Inverse Trigonometric Functions"
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "For a function to have an inverse, the function must be one-to-one. Given the graph of a function, we can determine whether the function is one-to-one by using the horizontal line test.",
+      "If a function is not one-to-one, we can restrict the domain to a smaller domain where the function is one-to-one and then define the inverse of the function on the smaller domain.",
+      "For a function $f$ and its inverse $f^{-1},f(f^{-1}(x))=x$ for all $x$ in the domain of $f^{-1}$ and $f^{-1}(f(x))=x$ for all $x$ in the domain of $f.$",
+      "Since the trigonometric functions are periodic, we need to restrict their domains to define the inverse trigonometric functions.",
+      "The graph of a function $f$ and its inverse $f^{-1}$ are symmetric about the line $y=x.$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Inverse functions**",
+       "$f^{-1}(f(x))=x\\,\\text{for all}\\,x\\,\\text{in}\\,D,\\text{and}\\,f(f^{-1}(y))=y\\,\\text{for all}\\,y\\,\\text{in}\\,R.$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e183",
+   "number": 183,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_201.webp",
+     "alt": "An image of a graph. The x axis runs from -4 to 4 and the y axis runs from -4 to 4. The graph is of a function that decreases in a straight in until the origin, where it begins to increase in a straight line. The x intercept and y intercept are both at the origin.",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572547969",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the horizontal line test to determine whether each of the given graphs is one-to-one."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Not one-to-one"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "not one-to-one"
+   }
+  },
+  {
+   "id": "e184",
+   "number": 184,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_202.webp",
+     "alt": "An image of a graph. The x axis runs from 0 to 7 and the y axis runs from -4 to 4. The graph is of a function that is always increasing. There is an approximate x intercept at the point (1, 0) and no y intercept shown.",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572547995",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the horizontal line test to determine whether each of the given graphs is one-to-one."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e185",
+   "number": 185,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_203.webp",
+     "alt": "An image of a graph. The x axis runs from -4 to 4 and the y axis runs from -4 to 4. The graph is of a function that resembles a semi-circle, the top half of a circle. The function starts at the point (-3, 0) and increases until the point (0, 3), where it begins decreasing until it ends at the point (3, 0). The x intercepts are at (-3, 0) and (3, 0). The y intercept is at (0, 3).",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572548022",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the horizontal line test to determine whether each of the given graphs is one-to-one."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Not one-to-one"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "not one-to-one"
+   }
+  },
+  {
+   "id": "e186",
+   "number": 186,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_204.webp",
+     "alt": "An image of a graph. The x axis runs from -4 to 4 and the y axis runs from -4 to 4. The graph is of a curved function. The function increases until it hits the origin, then decreases until it hits the point (2, -4), where it begins to increase again. There are x intercepts at the origin and the point (3, 0). The y intercept is at the origin.",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572548050",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the horizontal line test to determine whether each of the given graphs is one-to-one."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e187",
+   "number": 187,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_205.webp",
+     "alt": "An image of a graph. The x axis runs from -4 to 4 and the y axis runs from -4 to 4. The graph is of a curved function that is always increasing. The x intercept and y intercept are both at the origin.",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572548077",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the horizontal line test to determine whether each of the given graphs is one-to-one."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "One-to-one"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "text",
+    "value": "one-to-one"
+   }
+  },
+  {
+   "id": "e188",
+   "number": 188,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_206.webp",
+     "alt": "An image of a graph. The x axis runs from -4 to 7 and the y axis runs from -4 to 4. The graph is of a function that increases in a straight line until the approximate point (, 3). After this point, the function becomes a horizontal straight line. The x intercept and y intercept are both at the origin.",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572452097",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the horizontal line test to determine whether each of the given graphs is one-to-one."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e189",
+   "number": 189,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}-4,x\\ge 0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572452128",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, a. find the inverse function, and b. find the domain and range of the inverse function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f^{-1}(x)=\\sqrt{x+4}$ b. Domain $:\\,x\\ge -4,\\text{range}:\\,y\\ge 0$"
+     }
+    ]
+   },
+   "notes": "self-check: part b is not plain math"
+  },
+  {
+   "id": "e190",
+   "number": 190,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt[3]{x-4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572452229",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, a. find the inverse function, and b. find the domain and range of the inverse function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e191",
+   "number": 191,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{3}+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572176863",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, a. find the inverse function, and b. find the domain and range of the inverse function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f^{-1}(x)=\\sqrt[3]{x-1}$ b. Domain: all real numbers, range: all real numbers"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e192",
+   "number": 192,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=(x-1)^{2},x\\le 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572176931",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, a. find the inverse function, and b. find the domain and range of the inverse function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e193",
+   "number": 193,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{x-1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572549738",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, a. find the inverse function, and b. find the domain and range of the inverse function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f^{-1}(x)=x^{2}+1,$ b. Domain: $x\\ge 0,$ range: $y\\ge 1$"
+     }
+    ]
+   },
+   "notes": "self-check: part b is not plain math"
+  },
+  {
+   "id": "e194",
+   "number": 194,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{x+2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572549826",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, a. find the inverse function, and b. find the domain and range of the inverse function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e195",
+   "number": 195,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_207.webp",
+     "alt": "An image of a graph. The x axis runs from -4 to 4 and the y axis runs from -4 to 4. The graph is of an increasing straight line function labeled “f” that is always increasing. The x intercept is at (-2, 0) and y intercept are both at (0, 1).",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451526",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the graph of $f$ to sketch the graph of its inverse function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_01_04_208.webp",
+      "alt": "An image of a graph. The x axis runs from -4 to 4 and the y axis runs from -4 to 4. The graph is of two functions. The first function is an increasing straight line function labeled “f”. The x intercept is at (-2, 0) and y intercept are both at (0, 1). The second function is of an increasing straight line function labeled “f inverse”. The x intercept is at the point (1, 0) and the y intercept is at the point (0, -2).",
+      "width": 325,
+      "height": 308
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e196",
+   "number": 196,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_209.webp",
+     "alt": "An image of a graph. The x axis runs from -4 to 4 and the y axis runs from -4 to 4. The graph is of a curved decreasing function labeled “f”. As the function decreases, it gets approaches the x axis but never touches it. The function does not have an x intercept and the y intercept is (0, 1).",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451569",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the graph of $f$ to sketch the graph of its inverse function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e197",
+   "number": 197,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_211.webp",
+     "alt": "An image of a graph. The x axis runs from -8 to 8 and the y axis runs from -8 to 8. The graph is of an increasing straight line function labeled “f”. The function starts at the point (0, 1) and increases in straight line until the point (4, 6). After this point, the function continues to increase, but at a slower rate than before, as it approaches the point (8, 8). The function does not have an x intercept and the y intercept is (0, 1).",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572452480",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the graph of $f$ to sketch the graph of its inverse function."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_01_04_212.webp",
+      "alt": "An image of a graph. The x axis runs from 0 to 8 and the y axis runs from 0 to 8. The graph is of two function. The first function is an increasing straight line function labeled “f”. The function starts at the point (0, 1) and increases in straight line until the point (4, 6). After this point, the function continues to increase, but at a slower rate than before, as it approaches the point (8, 8). The function does not have an x intercept and the y intercept is (0, 1). The second function is an increasing straight line function labeled “f inverse”. The function starts at the point (1, 0) and increases in straight line until the point (6, 4). After this point, the function continues to increase, but at a faster rate than before, as it approaches the point (8, 8). The function does not have an y intercept and the x intercept is (1, 0).",
+      "width": 288,
+      "height": 303
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e198",
+   "number": 198,
+   "prompt": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_213.webp",
+     "alt": "An image of a graph. The x axis runs from -4 to 4 and the y axis runs from -4 to 4. The graph is of a decreasing curved function labeled “f”, which ends at the origin, which is both the x intercept and y intercept. Another point on the function is (-4, 2).",
+     "width": 325,
+     "height": 308
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572452528",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the graph of $f$ to sketch the graph of its inverse function."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e199",
+   "number": 199,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=8x,g(x)=\\frac{x}{8}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572452575",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use composition to determine which pairs of functions are inverses."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "These are inverses."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e200",
+   "number": 200,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=8x+3,g(x)=\\frac{x-3}{8}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572452628",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use composition to determine which pairs of functions are inverses."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e201",
+   "number": 201,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=5x-7,g(x)=\\frac{x+5}{7}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572449207",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use composition to determine which pairs of functions are inverses."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "These are not inverses."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e202",
+   "number": 202,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{2}{3}x+2,g(x)=\\frac{3}{2}x+3$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572449269",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use composition to determine which pairs of functions are inverses."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e203",
+   "number": 203,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\frac{1}{x-1},x\\ne 1,g(x)=\\frac{1}{x}+1,x\\ne 0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572548356",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use composition to determine which pairs of functions are inverses."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "These are inverses."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e204",
+   "number": 204,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{3}+1,g(x)=(x-1)^{1/3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572548436",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use composition to determine which pairs of functions are inverses."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e205",
+   "number": 205,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=x^{2}+2x+1,x\\ge -1,\\quad g(x)=-1+\\sqrt{x},x\\ge 0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572548511",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use composition to determine which pairs of functions are inverses."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "These are inverses."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e206",
+   "number": 206,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x)=\\sqrt{4-x^{2}},0\\le x\\le 2,g(x)=\\sqrt{4-x^{2}},0\\le x\\le 2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572229332",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use composition to determine which pairs of functions are inverses."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e207",
+   "number": 207,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\tan^{-1}\\left(\\frac{\\sqrt{3}}{3}\\right)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572451288",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{6}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/6)"
+   }
+  },
+  {
+   "id": "e208",
+   "number": 208,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cos^{-1}\\left(-\\frac{\\sqrt{2}}{2}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451334",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e209",
+   "number": 209,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cot^{-1}(1)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572451384",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/4)"
+   }
+  },
+  {
+   "id": "e210",
+   "number": 210,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin^{-1}(-1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451423",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e211",
+   "number": 211,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cos^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572142146",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{6}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/6)"
+   }
+  },
+  {
+   "id": "e212",
+   "number": 212,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\cos (\\tan^{-1}(\\sqrt{3}))$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572142191",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e213",
+   "number": 213,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin \\left(\\cos^{-1}\\left(\\frac{\\sqrt{2}}{2}\\right)\\right)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572142240",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\sqrt{2}}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((sqrt(2))/2)"
+   }
+  },
+  {
+   "id": "e214",
+   "number": 214,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\sin^{-1}\\left(\\sin \\left(\\frac{\\pi}{3}\\right)\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572142296",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e215",
+   "number": 215,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\tan^{-1}\\left(\\tan \\left(-\\frac{\\pi}{6}\\right)\\right)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572549009",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{\\pi}{6}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-(pi/6)"
+   }
+  },
+  {
+   "id": "e216",
+   "number": 216,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The function $C=T(F)=(5/9)(F-32)$ converts degrees Fahrenheit to degrees Celsius."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the inverse function $F=T^{-1}(C)$",
+      "What is the inverse function used for?"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572549065",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e217",
+   "number": 217,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The velocity *V* (in centimeters per second) of blood in an artery at a distance *x* cm from the center of the artery can be modeled by the function $V=f(x)=500(0.04-x^{2})$ for $0\\le x\\le 0.2.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find $x=f^{-1}(V).$",
+      "Interpret what the inverse function is used for.",
+      "Find the distance from the center of an artery with a velocity of 15 cm/sec, 10 cm/sec, and 5 cm/sec."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572451744",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x=f^{-1}(V)=\\sqrt{0.04-\\frac{V}{500}}$ b. The inverse function determines the distance from the center of the artery at which blood is flowing with velocity *V*. c. 0.1 cm; 0.14 cm; 0.17 cm"
+     }
+    ]
+   },
+   "notes": "self-check: part a has an unclear kind"
+  },
+  {
+   "id": "e218",
+   "number": 218,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A function that converts dress sizes in the United States to those in Europe is given by $D(x)=2x+24.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the European dress sizes that correspond to sizes 6, 8, 10, and 12 in the United States.",
+      "Find the function that converts European dress sizes to U.S. dress sizes.",
+      "Use part b. to find the dress sizes in the United States that correspond to 46, 52, 62, and 70."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572547801",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e219",
+   "number": 219,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The cost to remove a toxin from a lake is modeled by the function"
+    },
+    {
+     "type": "p",
+     "text": "$C(p)=75p/(85-p),$ where $C$ is the cost (in thousands of dollars) and $p$ is the amount of toxin in a small lake (measured in parts per billion [ppb]). This model is valid only when the amount of toxin is less than 85 ppb."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the cost to remove 25 ppb, 40 ppb, and 50 ppb of the toxin from the lake.",
+      "Find the inverse function. c. Use part b. to determine how much of the toxin is removed for \\$50,000."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572547878",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. \\$31,250, \\$66,667, \\$107,143 b. $\\left(p=\\frac{85C}{C+75}\\right)$ c. 34 ppb"
+     }
+    ]
+   },
+   "notes": "self-check: part a is prose"
+  },
+  {
+   "id": "e220",
+   "number": 220,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A race car is accelerating at a velocity given by"
+    },
+    {
+     "type": "p",
+     "text": "$v(t)=\\frac{25}{4}t+54,$\nwhere *v* is the velocity (in feet per second) at time *t*."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the velocity of the car at 10 sec.",
+      "Find the inverse function.",
+      "Use part b. to determine how long it takes for the car to reach a speed of 150 ft/sec."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572542921",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e221",
+   "number": 221,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** An airplane’s Mach number *M* is the ratio of its speed to the speed of sound. When a plane is flying at a constant altitude, then its Mach angle is given by $\\mu =2\\sin^{-1}\\left(\\frac{1}{M}\\right).$"
+    },
+    {
+     "type": "p",
+     "text": "Find the Mach angle (to the nearest degree) for the following Mach numbers."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_01_04_215.webp",
+     "alt": "An image of a birds eye view of an airplane. Directly in front of the airplane is a sideways “V” shape, with the airplane flying directly into the opening of the “V” shape. The “V” shape is labeled “mach wave”. There are two arrows with labels. The first arrow points from the nose of the airplane to the corner of the “V” shape. This arrow has the label “velocity = v”. The second arrow points diagonally from the nose of the airplane to the edge of the upper portion of the “V” shape. This arrow has the label “speed of sound = a”. Between these two arrows is an angle labeled “Mach angle”. There is also text in the image that reads “mach = M > 1.0”.",
+     "width": 465,
+     "height": 305
+    },
+    {
+     "type": "list",
+     "items": [
+      "$M=1.4$",
+      "$M=2.8$",
+      "$M=4.3$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572543027",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\sim 92\\text{°}$ b. $\\sim 42\\text{°}$ c. $\\sim 27\\text{°}$"
+     }
+    ]
+   },
+   "notes": "self-check: part a is not plain math"
+  },
+  {
+   "id": "e222",
+   "number": 222,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Using $\\mu =2\\sin^{-1}\\left(\\frac{1}{M}\\right),$ find the Mach number *M* for the following angles."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\mu =\\frac{\\pi}{6}$",
+      "$\\mu =\\frac{2\\pi}{7}$",
+      "$\\mu =\\frac{3\\pi}{8}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572455224",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e223",
+   "number": 223,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The average temperature (in degrees Celsius) of a city in the northern United States can be modeled by the function"
+    },
+    {
+     "type": "p",
+     "text": "$T(x)=5+18\\,\\sin \\left[\\frac{\\pi}{6}(x-4.6)\\right],$\nwhere $x$ is time in months and $x=1.00$ corresponds to January 1. Determine the day(s) (month and day) when the average temperature is $21\\text{°}\\text{C}.$ Use the integer portion of your answer(s) as the month and calculate the day of the month from the decimal portion."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572551494",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x\\approx 6.69,8.51;$ so, the temperature occurs on June 21 and August 15"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e224",
+   "number": 224,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The depth (in feet) of water at a dock changes with the rise and fall of tides. It is modeled by the function"
+    },
+    {
+     "type": "p",
+     "text": "$D(t)=5\\,\\sin \\left(\\frac{\\pi}{6}t-\\frac{7\\pi}{6}\\right)+8,$\nwhere $t$ is the number of hours after midnight. Determine the first time after midnight when the depth is 11.75 ft."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572545115",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e225",
+   "number": 225,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** An object moving in simple harmonic motion is modeled by the function"
+    },
+    {
+     "type": "p",
+     "text": "$s(t)=-6\\,\\cos \\left(\\frac{\\pi t}{2}\\right),$\nwhere $s$ is measured in inches and $t$ is measured in seconds. Determine the first time when the distance moved is 4.5 in."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572545202",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sim 1.5\\,\\sec$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e226",
+   "number": 226,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A local art gallery has a portrait 3 ft in height that is hung 2.5 ft above the eye level of an average person. The viewing angle $\\theta$ can be modeled by the function"
+    },
+    {
+     "type": "p",
+     "text": "$\\theta =\\tan^{-1}\\frac{5.5}{x}-\\tan^{-1}\\frac{2.5}{x},$\nwhere $x$ is the distance (in feet) from the portrait. Find the viewing angle when a person is 4 ft from the portrait."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572169073",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e227",
+   "number": 227,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a calculator to evaluate $\\tan^{-1}(\\tan (2.1))$ and $\\cos^{-1}(\\cos (2.1)).$ Explain the results of each."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572169169",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\tan^{-1}(\\tan (2.1))\\approx -1.0416;$ the expression does not equal 2.1 since $2.1>1.57=\\frac{\\pi}{2}$—in other words, it is not in the restricted domain of $\\tan \\,x.\\,\\cos^{-1}(\\cos (2.1))=2.1,$ since 2.1 is in the restricted domain of $\\cos \\,x.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e228",
+   "number": 228,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use a calculator to evaluate $\\sin (\\sin^{-1}(-2))$ and $\\tan (\\tan^{-1}(-2)).$ Explain the results of each."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572243833",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate the functions. Give the exact value."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "horizontal line test",
+   "meaning": "a function $f$ is one-to-one if and only if every horizontal line intersects the graph of $f,$ at most, once"
+  },
+  {
+   "term": "inverse function",
+   "meaning": "for a function $f,$ the inverse function $f^{-1}$ satisfies $f^{-1}(y)=x$ if $f(x)=y$"
+  },
+  {
+   "term": "inverse trigonometric functions",
+   "meaning": "the inverses of the trigonometric functions are defined on restricted domains where they are one-to-one functions"
+  },
+  {
+   "term": "one-to-one function",
+   "meaning": "a function $f$ is one-to-one if $f(x_{1})\\ne f(x_{2})$ if $x_{1}\\ne x_{2}$"
+  },
+  {
+   "term": "restricted domain",
+   "meaning": "a subset of the domain of a function $f$"
+  }
+ ]
+}

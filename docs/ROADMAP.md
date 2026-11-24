@@ -10,17 +10,19 @@ The chat reads `docs/`, does the work, ticks the box, and opens a pull request. 
 
 ## Stage A: First exercise on your phone
 
-- [ ] **B01 Scaffold.** Svelte + Vite + TS, KaTeX, always-dark theme, test runner, works in Chrome, Firefox, Edge and Safari. One hard-coded problem on screen.
-- [ ] **B02 Content schema.** JSON Schema + TS types for book → chapter → unit → reading cards / exercises / proof cards (SPEC §4). Write `docs/CONTENT_GUIDE.md`, which every K-task chat follows. *Needs:* B01.
-- [ ] **B03 OpenStax importer.** ⇉ `scripts/import_openstax.py`: source files → JSON for all 110 sections. Converts the math markup to LaTeX, copies figures, attaches book answers, marks each exercise as auto-checkable or self-check, and keeps worked examples for the readings. *Done when:* all 110 unit files exist and spot-checks render correctly. *Needs:* B02.
-- [ ] **B04 Answer checker.** ⇉ `src/check/`: plain-text math parsing, random-point equivalence, `+C`, tolerance, intervals/sets, vectors/matrices, DNE/∞, multi-part. 150+ tests. *Needs:* B01.
-- [ ] **B05 Validator.** `npm run validate`: schema, KaTeX renders, every stored answer passes the checker, plus `scripts/verify_sympy.py`. *Needs:* B02, B04.
-- [ ] **B06 Input mode 1: plain text.** Live preview and a helper key row tuned for the iPhone keyboard. *Needs:* B01.
-- [ ] **B07 Input mode 2: visual editor.** MathLive with its on-screen math keyboard, plus a settings toggle between modes 1 and 2. *Needs:* B06.
-- [ ] **B08 Card screens.** Reading cards (swipe, "Got it"), exercise card (check → retry → hint → step-by-step solution), self-check card, source and solution labels, desktop keyboard shortcuts. *Needs:* B03, B04, B06.
-- [ ] **B09 Deploy.** Cloudflare Pages from the private repo. The chat gives you about 5 minutes of click-by-click setup. *Done when:* it opens on your iPhone and Windows. *Needs:* B08.
+- [x] **B01 Scaffold.** Svelte + Vite + TS, KaTeX, always-dark theme, test runner, works in Chrome, Firefox, Edge and Safari. One hard-coded problem on screen.
+- [x] **B02 Content schema.** JSON Schema + TS types for book → chapter → unit → reading cards / exercises / proof cards (SPEC §4). Write `docs/CONTENT_GUIDE.md`, which every K-task chat follows. *Needs:* B01.
+- [x] **B03 OpenStax importer.** ⇉ `scripts/import_openstax.py`: source files → JSON for all 110 sections. Converts the math markup to LaTeX, copies figures, attaches book answers, marks each exercise as auto-checkable or self-check, and keeps worked examples for the readings. *Done when:* all 110 unit files exist and spot-checks render correctly. *Needs:* B02.
+- [x] **B04 Answer checker.** ⇉ `src/check/`: plain-text math parsing, random-point equivalence, `+C`, tolerance, intervals/sets, vectors/matrices, DNE/∞, multi-part. 150+ tests. *Needs:* B01.
+- [x] **B05 Validator.** `npm run validate`: schema, KaTeX renders, every stored answer passes the checker, plus `scripts/verify_sympy.py`. *Needs:* B02, B04.
+- [x] **B06 Input mode 1: plain text.** Live preview and a helper key row tuned for the iPhone keyboard. *Needs:* B01.
+- [x] **B07 Input mode 2: visual editor.** MathLive with its on-screen math keyboard, plus a settings toggle between modes 1 and 2. *Needs:* B06.
+- [x] **B08 Card screens.** Reading cards (swipe, "Got it"), exercise card (check → retry → hint → step-by-step solution), self-check card, source and solution labels, desktop keyboard shortcuts. *Needs:* B03, B04, B06.
+- [x] **B09 Deploy.** Cloudflare Pages from the private repo. The chat gives you about 5 minutes of click-by-click setup. *Done when:* it opens on your iPhone and Windows. *Needs:* B08.
 
 **🎯 Milestone A: you can do OpenStax §1.1 on your phone, with both input modes to try out.**
+
+> Status after B01–B09: the app runs every section end to end. The importer auto-checks 1,307 of the 3,093 book-answered exercises. Most of §1.1's book answers combine a value with its domain ("$5x^2+x-8$; all real numbers"), so they stay self-check until **K-V1.1.1** splits them into checkable parts. Deploying is your 5-minute click-through in [DEPLOY.md](DEPLOY.md).
 
 ## Stage B: Daily driver
 

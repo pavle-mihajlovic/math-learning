@@ -1,0 +1,2607 @@
+{
+ "schema": 1,
+ "id": "V3.3.3",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 3,
+ "section": 3,
+ "title": "Arc Length and Curvature",
+ "chapterTitle": "Vector-Valued Functions",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53919",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/3-3-arc-length-and-curvature",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §3.3 “Arc Length and Curvature”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Determine the length of a particle’s path in space by using the arc-length function.",
+  "Explain the meaning of the curvature of a curve in space and state its formula.",
+  "Describe the meaning of the normal and binormal vectors of a curve in space."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section, we study formulas related to curves in both two and three dimensions, and see how they are related to various properties of the same curve. For example, suppose a vector-valued function describes the motion of a particle in space. We would like to determine how far the particle has traveled over a given time interval, which can be described by the arc length of the path it follows. Or, suppose that the vector-valued function describes a road we are building and we want to determine how sharply the road curves at a given point. This is described by the curvature of the function at that point. We explore each of these concepts in this section."
+    }
+   ],
+   "title": "Arc Length and Curvature"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have seen how a vector-valued function describes a curve in either two or three dimensions. Recall (see above), which states that the formula for the arc length of a curve defined by the parametric functions $x=x(t),y=y(t),t_{1}\\le t\\le t_{2}$ is given by"
+    },
+    {
+     "type": "math",
+     "tex": "s={\\displaystyle \\int_{t_{1}}^{t_{2}}\\sqrt{(x'(t))^{2}+(y'(t))^{2}}dt.}"
+    },
+    {
+     "type": "p",
+     "text": "In a similar fashion, if we define a smooth curve using a vector-valued function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j},$ where $a\\le t\\le b,$ the arc length is given by the formula"
+    },
+    {
+     "type": "math",
+     "tex": "s={\\displaystyle \\int_{a}^{b}\\sqrt{(f'(t))^{2}+(g'(t))^{2}}}dt."
+    },
+    {
+     "type": "p",
+     "text": "In three dimensions, if the vector-valued function is described by $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k}$ over the same interval $a\\le t\\le b,$ the arc length is given by"
+    },
+    {
+     "type": "math",
+     "tex": "s={\\displaystyle \\int_{a}^{b}\\sqrt{(f'(t))^{2}+(g'(t))^{2}+(h'(t))^{2}}}dt."
+    }
+   ],
+   "title": "Arc Length for Vector Functions"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "p",
+          "text": "*Plane curve*: Given a smooth curve *C* defined by the function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j},$ where *t* lies within the interval $[a,b],$ the arc length of *C* over the interval is"
+         },
+         {
+          "type": "math",
+          "tex": "s={\\displaystyle \\int_{a}^{b}\\sqrt{\\,[f'(t)]^{2}+[g'(t)]^{2}}}dt={\\displaystyle \\int_{a}^{b}\\| r'(t)\\|}\\,dt."
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "*Space curve*: Given a smooth curve *C* defined by the function $\\text{r}(t)=f(t)\\,\\text{i}+g(t)\\,\\text{j}+h(t)\\,\\text{k},$ where *t* lies within the interval $[a,b],$ the arc length of *C* over the interval is"
+         },
+         {
+          "type": "math",
+          "tex": "s={\\displaystyle \\int_{a}^{b}\\sqrt{\\,[f'(t)]^{2}+[g'(t)]^{2}+[h'(t)]^{2}}dt}={\\displaystyle \\int_{a}^{b}\\| r'(t)\\|}\\,dt."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Arc-Length Formulas"
+    },
+    {
+     "type": "p",
+     "text": "The two formulas are very similar; they differ only in the fact that a space curve has three component functions instead of two. Note that the formulas are defined for smooth curves: curves where the vector-valued function $\\text{r}(t)$ is continuously differentiable with a non-zero derivative. The smoothness condition guarantees that the curve has no cusps (or corners) that could make the formula problematic."
+    }
+   ],
+   "title": "Arc Length for Vector Functions (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 3.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the arc length for each of the following vector-valued functions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\text{r}(t)=(3t-2)\\,\\text{i}+(4t+5)\\,\\text{j},1\\le t\\le 5$",
+      "$\\text{r}(t)=〈t\\,\\cos \\,t,t\\,\\sin \\,t,2t〉,0\\le t\\le 2\\pi$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "Using (see above), $r'(t)=3\\text{i}+4\\text{j},$ so"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}s & ={\\displaystyle \\int_{a}^{b}\\| r'(t)\\|}\\,dt \\\\ & ={\\displaystyle \\int_{a}^{5}\\sqrt{3^{2}+4^{2}}}dt \\\\ & ={\\displaystyle \\int_{1}^{5}5\\,dt}=5t|_{1}^{5}=20.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Using (see above), $r'(t)=〈\\cos \\,t-t\\,\\sin \\,t,\\sin \\,t+t\\,\\cos \\,t,2〉,$ so"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}s & ={\\displaystyle \\int_{a}^{b}\\| r'(t)\\|}\\,dt \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\sqrt{(\\cos \\,t-t\\,\\sin \\,t)^{2}+(\\sin \\,t+t\\,\\cos \\,t)^{2}+2^{2}}}dt \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\sqrt{(\\cos^{2}t-2t\\,\\sin \\,t\\,\\cos \\,t+t^{2}\\sin^{2}t)+(\\sin^{2}t+2t\\,\\sin \\,t\\,\\cos \\,t+t^{2}\\cos^{2}t)+4}\\,dt} \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\sqrt{\\cos^{2}t+\\sin^{2}t+t^{2}(\\cos^{2}t+\\sin^{2}t)+4}\\,dt} \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\sqrt{t^{2}+5}\\,dt}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Here we can use a table integration formula"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\int \\sqrt{u^{2}+a^{2}}\\,du}=\\frac{u}{2}\\sqrt{u^{2}+a^{2}}+\\frac{a^{2}}{2}\\ln \\,|u+\\sqrt{u^{2}+a^{2}}|+C,"
+        },
+        {
+         "type": "p",
+         "text": "so we obtain"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}{\\displaystyle \\int_{0}^{2\\pi}\\sqrt{t^{2}+5}\\,dt} & =\\frac{1}{2}(t\\sqrt{t^{2}+5}+5\\,\\ln \\,|t+\\sqrt{t^{2}+5}|)_{0}^{2\\pi} \\\\ & =\\frac{1}{2}(2\\pi \\sqrt{4\\pi^{2}+5}+5\\,\\ln \\,(2\\pi +\\sqrt{4\\pi^{2}+5}))-\\frac{5}{2}\\,\\ln \\,\\sqrt{5} \\\\ & \\approx 25.343.\\end{array}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding the Arc Length"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the arc length of the parameterized curve"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(t)=〈2t^{2}+1,2t^{2}-1,t^{3}〉,0\\le t\\le 3."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$r'(t)=〈4t,4t,3t^{2}〉,$ so $s=\\frac{1}{27}(113^{3/2}-32^{3/2})\\approx 37.785$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above)."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now return to the helix introduced earlier in this chapter. A vector-valued function that describes a helix can be written in the form"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(t)=R\\,\\cos \\left(\\frac{2\\pi Nt}{h}\\right)\\,\\text{i}+R\\,\\sin \\left(\\frac{2\\pi Nt}{h}\\right)\\,\\text{j}+t\\,\\text{k},\\,0\\le t\\le h,"
+    },
+    {
+     "type": "p",
+     "text": "where *R* represents the radius of the helix, *h* represents the height (distance between two consecutive turns), and the helix completes *N* turns. Let’s derive a formula for the arc length of this helix using (see above). First of all,"
+    },
+    {
+     "type": "math",
+     "tex": "r'(t)=-\\frac{2\\pi NR}{h}\\sin \\left(\\frac{2\\pi Nt}{h}\\right)\\,\\text{i}+\\frac{2\\pi NR}{h}\\cos \\left(\\frac{2\\pi Nt}{h}\\right)\\,\\text{j}+\\text{k}."
+    },
+    {
+     "type": "p",
+     "text": "Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}s & ={\\displaystyle \\int_{a}^{b}\\| r'(t)\\|}\\,dt \\\\ & ={\\displaystyle \\int_{0}^{h}\\sqrt{\\left(-\\frac{2\\pi NR}{h}\\sin \\left(\\frac{2\\pi Nt}{h}\\right)\\right)^{2}+\\left(\\frac{2\\pi NR}{h}\\cos \\left(\\frac{2\\pi Nt}{h}\\right)\\right)^{2}+1^{2}}dt} \\\\ & ={\\displaystyle \\int_{0}^{h}\\sqrt{\\frac{4\\pi^{2}N^{2}R^{2}}{h^{2}}\\left(\\sin^{2}\\left(\\frac{2\\pi Nt}{h}\\right)+\\cos^{2}\\left(\\frac{2\\pi Nt}{h}\\right)\\right)+1}}dt \\\\ & ={\\displaystyle \\int_{0}^{h}\\sqrt{\\frac{4\\pi^{2}N^{2}R^{2}}{h^{2}}+1}}dt \\\\ & =\\left[t\\sqrt{\\frac{4\\pi^{2}N^{2}R^{2}}{h^{2}}+1}\\right]_{0}^{h} \\\\ & =h\\sqrt{\\frac{4\\pi^{2}N^{2}R^{2}+h^{2}}{h^{2}}} \\\\ & =\\sqrt{4\\pi^{2}N^{2}R^{2}+h^{2}}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "This gives a formula for the length of a wire needed to form a helix with *N* turns that has radius *R* and height *h.*"
+    }
+   ],
+   "title": "Arc Length for Vector Functions (continued)"
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now have a formula for the arc length of a curve defined by a vector-valued function. Let’s take this one step further and examine what an **arc-length function** is."
+    },
+    {
+     "type": "p",
+     "text": "If a vector-valued function represents the position of a particle in space as a function of time, then the arc-length function measures how far that particle travels as a function of time. The formula for the arc-length function follows directly from the formula for arc length:"
+    },
+    {
+     "type": "math",
+     "tex": "s(t)={\\displaystyle \\int_{a}^{t}\\sqrt{(f'(u))^{2}+(g'(u))^{2}+(h'(u))^{2}}}du."
+    },
+    {
+     "type": "p",
+     "text": "If the curve is in two dimensions, then only two terms appear under the square root inside the integral. The reason for using the independent variable *u* is to distinguish between time and the variable of integration. Since $s(t)$ measures distance traveled as a function of time, $s'(t)$ measures the speed of the particle at any given time. Since we have a formula for $s(t)$ in (see above), we can differentiate both sides of the equation:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}s'(t) & =\\frac{d}{dt}\\left[{\\displaystyle \\int_{a}^{t}\\sqrt{(f'(u))^{2}+(g'(u))^{2}+(h'(u))^{2}}}du\\right] \\\\ & =\\frac{d}{dt}\\left[{\\displaystyle \\int_{a}^{t}\\| r'(u)\\| \\,du}\\right] \\\\ & =\\| r'(t)\\| .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "If we assume that $\\text{r}(t)$ defines a smooth curve, then the arc length is always increasing, so $s'(t)>0$ for $t>a.$ Last, if $\\text{r}(t)$ is a curve on which $\\| r'(t)\\| =1$ for all *t*, then"
+    },
+    {
+     "type": "math",
+     "tex": "s(t)={\\displaystyle \\int_{a}^{t}\\| r'(u)\\| \\,du}={\\displaystyle \\int_{a}^{t}1\\,du}=t-a,"
+    }
+   ],
+   "title": "Arc-Length Parameterization"
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "which means that *t* represents the arc length as long as $a=0.$"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $\\text{r}(t)$ describe a smooth curve for $t\\ge a.$ Then the arc-length function is given by"
+      },
+      {
+       "type": "math",
+       "tex": "s(t)={\\displaystyle \\int_{a}^{t}\\| r'(u)\\| \\,du}."
+      },
+      {
+       "type": "p",
+       "text": "Furthermore, $\\frac{ds}{dt}=\\| r'(t)\\| >0.$ If $\\| r'(t)\\| =1$ for all $t\\ge a,$ then the parameter *t* represents the arc length from the starting point at $t=a.$"
+      }
+     ],
+     "title": "Arc-Length Function"
+    },
+    {
+     "type": "p",
+     "text": "A useful application of this theorem is to find an alternative parameterization of a given curve, called an **arc-length parameterization**. Recall that any vector-valued function can be reparameterized via a change of variables. For example, if we have a function $\\text{r}(t)=〈3\\,\\cos \\,t,3\\,\\sin \\,t〉,0\\le t\\le 2\\pi$ that parameterizes a circle of radius 3, we can change the parameter from *t* to $4t,$ obtaining a new parameterization $\\text{r}(t)=〈3\\,\\cos \\,4t,3\\,\\sin \\,4t〉.$ The new parameterization still defines a circle of radius 3, but now we need only use the values $0\\le t\\le \\pi /2$ to traverse the circle once."
+    }
+   ],
+   "title": "Arc-Length Parameterization (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Suppose that we find the arc-length function $s(t)$ and are able to solve this function for *t* as a function of *s.* We can then reparameterize the original function $\\text{r}(t)$ by substituting the expression for *t* back into $\\text{r}(t).$ The vector-valued function is now written in terms of the parameter *s.* Since the variable *s* represents the arc length, we call this an *arc-length parameterization* of the original function $\\text{r}(t).$ One advantage of finding the arc-length parameterization is that the distance traveled along the curve starting from $s=0$ is now equal to the parameter *s.* The arc-length parameterization also appears in the context of curvature (which we examine later in this section) and line integrals, which we study in the Introduction to Vector Calculus."
+    }
+   ],
+   "title": "Arc-Length Parameterization (continued)"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 3.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the arc-length parameterization for each of the following curves:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}+4\\,\\sin \\,t\\,\\text{j},t\\ge 0$",
+      "$\\text{r}(t)=〈t+3,\\,2t-4,2t〉,t\\ge 3$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "First we find the arc-length function using (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}s(t) & ={\\displaystyle \\int_{a}^{t}\\| r'(u)\\| \\,du} \\\\ & ={\\displaystyle \\int_{0}^{t}\\| 〈-4\\,\\sin \\,u,4\\,\\cos \\,u〉\\| \\,du} \\\\ & ={\\displaystyle \\int_{0}^{t}\\sqrt{(-4\\,\\sin \\,u)^{2}+(4\\,\\cos \\,u)^{2}}\\,du} \\\\ & ={\\displaystyle \\int_{0}^{t}\\sqrt{16\\,\\sin^{2}u+16\\,\\cos^{2}u}\\,du} \\\\ & ={\\displaystyle \\int_{0}^{t}4\\,du}=4t,\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "which gives the relationship between the arc length *s* and the parameter *t* as $s=4t;$ so, $t=s/4.$ Next we replace the variable *t* in the original function $\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}+4\\,\\sin \\,t\\,\\text{j}$ with the expression $s/4$ to obtain"
+        },
+        {
+         "type": "math",
+         "tex": "\\text{r}(t)=4\\,\\cos \\left(\\frac{s}{4}\\right)\\,\\text{i}+4\\,\\sin \\left(\\frac{s}{4}\\right)\\,\\text{j}."
+        },
+        {
+         "type": "p",
+         "text": "This is the arc-length parameterization of $\\text{r}(t).$ Since the original restriction on *t* was given by $t\\ge 0,$ the restriction on *s* becomes $s/4\\ge 0,$ or $s\\ge 0.$"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The arc-length function is given by (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}s(t) & ={\\displaystyle \\int_{a}^{t}\\| r'(u)\\| \\,du} \\\\ & ={\\displaystyle \\int_{3}^{t}\\| 〈1,2,2〉\\| \\,du} \\\\ & ={\\displaystyle \\int_{3}^{t}\\sqrt{1^{2}+2^{2}+2^{2}}\\,du} \\\\ & ={\\displaystyle \\int_{3}^{t}3\\,du} \\\\ & =3t-9.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, the relationship between the arc length *s* and the parameter *t* is $s=3t-9,$ so $t=\\frac{s}{3}+3.$ Substituting this into the original function $\\text{r}(t)=〈t+3,\\,2t-4,2t〉$ yields"
+        },
+        {
+         "type": "math",
+         "tex": "\\text{r}(s)=〈\\left(\\frac{s}{3}+3\\right)+3,\\,2\\left(\\frac{s}{3}+3\\right)-4,2\\left(\\frac{s}{3}+3\\right)〉=〈\\frac{s}{3}+6,\\,\\frac{2s}{3}+2,\\frac{2s}{3}+6〉."
+        },
+        {
+         "type": "p",
+         "text": "This is an arc-length parameterization of $\\text{r}(t).$ The original restriction on the parameter $t$ was $t\\ge 3,$ so the restriction on *s* is $(s/3)+3\\ge 3,$ or $s\\ge 0.$"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding an Arc-Length Parameterization"
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the arc-length function for the helix"
+    },
+    {
+     "type": "math",
+     "tex": "\\text{r}(t)=〈3\\,\\cos \\,t,3\\,\\sin \\,t,4t〉,t\\ge 0."
+    },
+    {
+     "type": "p",
+     "text": "Then, use the relationship between the arc length and the parameter *t* to find an arc-length parameterization of $\\text{r}(t).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$s=5t,$ or $t=s/5.$ Substituting this into $\\text{r}(t)=〈3\\,\\cos \\,t,3\\,\\sin \\,t,4t〉$ gives"
+     },
+     {
+      "type": "p",
+      "text": "$\\text{r}(s)=〈3\\,\\cos \\left(\\frac{s}{5}\\right),\\,3\\,\\sin \\left(\\frac{s}{5}\\right),\\frac{4s}{5}〉,s\\ge 0.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Start by finding the arc-length function."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "An important topic related to arc length is curvature. The concept of curvature provides a way to measure how sharply a smooth curve turns. A circle has constant curvature. The smaller the radius of the circle, the greater the curvature."
+    },
+    {
+     "type": "p",
+     "text": "Think of driving down a road. Suppose the road lies on an arc of a large circle. In this case you would barely have to turn the wheel to stay on the road. Now suppose the radius is smaller. In this case you would need to turn more sharply to stay on the road. In the case of a curve other than a circle, it is often useful first to inscribe a circle to the curve at a given point so that it is tangent to the curve at that point and “hugs” the curve as closely as possible in a neighborhood of the point (Figure 3.5). The curvature of the graph at that point is then defined to be the same as the curvature of the inscribed circle."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_001.webp",
+     "alt": "This figure is the graph of a curve. The curve rises and falls in the first quadrant. Along the curve, where the curve changes from decreasing to increasing there is a circle. The bottom of the circle curves the same as the graph of the curve. There is also a second smaller circle where the curve goes from increasing to decreasing. Part of the circle falls on the curve. Both circles have the radius r represented.",
+     "caption": "**Figure 3.5** The graph represents the curvature of a function $y=f(x).$ The sharper the turn in the graph, the greater the curvature, and the smaller the radius of the inscribed circle.",
+     "width": 379,
+     "height": 196
+    }
+   ],
+   "title": "Curvature"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *C* be a smooth curve in the plane or in space given by $\\text{r}(s),$ where $s$ is the arc-length parameter. The **curvature** $\\kappa$ at *s* is"
+      },
+      {
+       "type": "math",
+       "tex": "\\kappa =\\left\\|\\frac{d\\,\\text{T}}{ds}\\right\\|=\\| T'(s)\\| ."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The formula in the definition of curvature is not very useful in terms of calculation. In particular, recall that $\\text{T}(t)$ represents the unit tangent vector to a given vector-valued function $\\text{r}(t),$ and the formula for $\\text{T}(t)$ is $\\text{T}(t)=\\frac{r'(t)}{\\| r'(t)\\|}.$ To use the formula for curvature, it is first necessary to express $\\text{r}(t)$ in terms of the arc-length parameter *s*, then find the unit tangent vector $\\text{T}(s)$ for the function $\\text{r}(s),$ then take the derivative of $\\text{T}(s)$ with respect to *s.* This is a tedious process. Fortunately, there are equivalent formulas for curvature."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If *C* is a smooth curve given by $\\text{r}(t),$ then the curvature $\\kappa$ of *C* at *t* is given by"
+      },
+      {
+       "type": "math",
+       "tex": "\\kappa =\\frac{\\| T'(t)\\|}{\\| r'(t)\\|}."
+      },
+      {
+       "type": "p",
+       "text": "If *C* is a three-dimensional curve, then the curvature can be given by the formula"
+      },
+      {
+       "type": "math",
+       "tex": "\\kappa =\\frac{\\| r'(t)\\,\\times \\,r''(t)\\|}{\\| r'(t)\\|^{3}}."
+      },
+      {
+       "type": "p",
+       "text": "If *C* is the graph of a function $y=f(x)$ and both $y'$ and $y''$ exist, then the curvature $\\kappa$ at point $(x,y)$ is given by"
+      },
+      {
+       "type": "math",
+       "tex": "\\kappa =\\frac{|y''|}{[1+(y')^{2}]^{3/2}}."
+      }
+     ],
+     "title": "Alternative Formulas for Curvature"
+    }
+   ],
+   "title": "Curvature (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "*A proof of Alternative Formulas for Curvature is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Curvature (continued)"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have seen that the derivative $r'(t)$ of a vector-valued function is a tangent vector to the curve defined by $\\text{r}(t),$ and the unit tangent vector $\\text{T}(t)$ can be calculated by dividing $r'(t)$ by its magnitude. When studying motion in three dimensions, two other vectors are useful in describing the motion of a particle along a path in space: the **principal unit normal vector** and the **binormal vector**."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let *C* be a three-dimensional **smooth** curve represented by **r** over an open interval *I.* If $T'(t)\\ne 0,$ then the principal unit normal vector at *t* is defined to be"
+      },
+      {
+       "type": "math",
+       "tex": "\\text{N}(t)=\\frac{T'(t)}{\\| T'(t)\\|}."
+      },
+      {
+       "type": "p",
+       "text": "The binormal vector at *t* is defined as"
+      },
+      {
+       "type": "math",
+       "tex": "\\text{B}(t)=\\text{T}(t)\\,\\times \\,\\text{N}(t),"
+      },
+      {
+       "type": "p",
+       "text": "where $\\text{T}(t)$ is the unit tangent vector."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Note that, by definition, the binormal vector is orthogonal to both the unit tangent vector and the normal vector. Furthermore, $\\text{B}(t)$ is always a unit vector. This can be shown using the formula for the magnitude of a cross product"
+    },
+    {
+     "type": "math",
+     "tex": "\\| \\text{B}(t)\\| =\\| \\text{T}(t)\\,\\times \\,\\text{N}(t)\\| =\\| \\text{T}(t)\\| \\| \\text{N}(t)\\| \\sin \\,\\theta ,"
+    }
+   ],
+   "title": "The Normal and Binormal Vectors"
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "where $\\theta$ is the angle between $\\text{T}(t)$ and $\\text{N}(t).$ Since $\\text{N}(t)$ is the derivative of a unit vector, property (vii) of the derivative of a vector-valued function tells us that $\\text{T}(t)$ and $\\text{N}(t)$ are orthogonal to each other, so $\\theta =\\pi /2.$ Furthermore, they are both unit vectors, so their magnitude is 1. Therefore, $\\| \\text{T}(t)\\| \\| \\text{N}(t)\\| \\sin \\,\\theta =(1)(1)\\sin (\\pi /2)=1$ and $\\text{B}(t)$ is a unit vector."
+    },
+    {
+     "type": "p",
+     "text": "The principal unit normal vector can be challenging to calculate because the unit tangent vector involves a quotient, and this quotient often has a square root in the denominator. In the three-dimensional case, finding the cross product of the unit tangent vector and the unit normal vector can be even more cumbersome. Fortunately, we have alternative formulas for finding these two vectors, and they are presented in Motion in Space."
+    }
+   ],
+   "title": "The Normal and Binormal Vectors (continued)"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 3.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For each of the following vector-valued functions, find the principal unit normal vector. Then, if possible, find the binormal vector."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}-4\\,\\sin \\,t\\,\\text{j}$",
+      "$\\text{r}(t)=(6t+2)\\,\\text{i}+5t^{2}\\,\\text{j}-8t\\,\\text{k}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "This function describes a circle."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_13_03_004.webp",
+         "alt": "This figure is the graph of a circle centered at the origin with radius of 2. The orientation of the circle is clockwise. It represents the vector-valued function r(t) = 4costi – 4 sintj.",
+         "width": 448,
+         "height": 422
+        },
+        {
+         "type": "p",
+         "text": "To find the principal unit normal vector, we first must find the unit tangent vector $\\text{T}(t):$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\text{T}(t) & =\\frac{r'(t)}{\\| r'(t)\\|} \\\\ & =\\frac{-4\\,\\sin \\,t\\,\\text{i}-4\\,\\cos \\,t\\,\\text{j}}{\\sqrt{(-4\\,\\sin \\,t)^{2}+(-4\\,\\cos \\,t)^{2}}} \\\\ & =\\frac{-4\\,\\sin \\,t\\,\\text{i}-4\\,\\cos \\,t\\,\\text{j}}{\\sqrt{16\\,\\sin^{2}t+16\\,\\cos^{2}t}} \\\\ & =\\frac{-4\\,\\sin \\,t\\,\\text{i}-4\\,\\cos \\,t\\,\\text{j}}{\\sqrt{16(\\sin^{2}t+\\cos^{2}t)}} \\\\ & =\\frac{-4\\,\\sin \\,t\\,\\text{i}-4\\,\\cos \\,t\\,\\text{j}}{4} \\\\ & =-\\sin \\,t\\,\\text{i}-\\cos \\,t\\,\\text{j}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Next, we use (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\text{N}(t) & =\\frac{T'(t)}{\\| T'(t)\\|} \\\\ & =\\frac{-\\cos \\,t\\,\\text{i}+\\sin \\,t\\,\\text{j}}{\\sqrt{(-\\cos \\,t)^{2}+(\\sin \\,t)^{2}}} \\\\ & =\\frac{-\\cos \\,t\\,\\text{i}+\\sin \\,t\\,\\text{j}}{\\sqrt{\\cos^{2}t+\\sin^{2}t}} \\\\ & =-\\cos \\,t\\,\\text{i}+\\sin \\,t\\,\\text{j}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Notice that the unit tangent vector and the principal unit normal vector are orthogonal to each other for all values of *t*:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\text{T}(t)\\cdot \\text{N}(t) & =〈-\\sin \\,t,-\\cos \\,t〉\\cdot 〈-\\cos \\,t,\\sin \\,t〉 \\\\ & =\\sin \\,t\\,\\cos \\,t-\\cos \\,t\\,\\sin \\,t \\\\ & =0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Furthermore, the principal unit normal vector points toward the center of the circle from every point on the circle. Since $\\text{r}(t)$ defines a curve in two dimensions, we cannot calculate the binormal vector."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_13_03_005.webp",
+         "alt": "This figure is the graph of a circle centered at the origin with radius of 2. The orientation of the circle is clockwise. It represents the vector-valued function r(t) = 4costi – 4 sintj. On the circle in the first quadrant is a vector pointing inward. It is labeled “principal unit normal vector”.",
+         "width": 438,
+         "height": 272
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "This function looks like this:"
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_13_03_011.webp",
+         "alt": "This figure is a curve in 3 dimensions. It is inside of a box. The box represents the first octant. The curve starts at the bottom right of the box and curves through the box in a parabolic curve to the top.",
+         "width": 420,
+         "height": 504
+        },
+        {
+         "type": "p",
+         "text": "To find the principal unit normal vector, we first find the unit tangent vector $\\text{T}(t):$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\text{T}(t) & =\\frac{r'(t)}{\\| r'(t)\\|} \\\\ & =\\frac{6\\,\\text{i}+10t\\,\\text{j}-8\\,\\text{k}}{\\sqrt{6^{2}+(10t)^{2}+(-8)^{2}}} \\\\ & =\\frac{6\\,\\text{i}+10t\\,\\text{j}-8\\,\\text{k}}{\\sqrt{36+100t^{2}+64}} \\\\ & =\\frac{6\\,\\text{i}+10t\\,\\text{j}-8\\text{k}}{\\sqrt{100(t^{2}+1)}} \\\\ & =\\frac{3\\,\\text{i}+5t\\,\\text{j}-4\\text{k}}{5\\sqrt{t^{2}+1}} \\\\ & =\\frac{3}{5}(t^{2}+1)^{-1/2}\\text{i}+t(t^{2}+1)^{-1/2}\\text{j}-\\frac{4}{5}(t^{2}+1)^{-1/2}\\text{k}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Next, we calculate $T'(t)$ and $\\| T'(t)\\| :$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}T'(t) & =\\frac{3}{5}\\left(-\\frac{1}{2}\\right)(t^{2}+1)^{-3/2}(2t)\\,\\text{i}+\\left((t^{2}+1)^{-1/2}-t\\left(\\frac{1}{2}\\right)(t^{2}+1)^{-3/2}(2t)\\right)\\,\\text{j} \\\\ & \\qquad -\\frac{4}{5}\\left(-\\frac{1}{2}\\right)(t^{2}+1)^{-3/2}(2t)\\,\\text{k} \\\\ & =-\\frac{3t}{5(t^{2}+1)^{3/2}}\\text{i}+\\frac{1}{(t^{2}+1)^{3/2}}\\text{j}+\\frac{4t}{5(t^{2}+1)^{3/2}}\\text{k} \\\\ \\| T'(t)\\| & =\\sqrt{\\left(-\\frac{3t}{5(t^{2}+1)^{3/2}}\\right)^{2}+\\left(-\\frac{1}{(t^{2}+1)^{3/2}}\\right)^{2}+\\left(\\frac{4t}{5(t^{2}+1)^{3/2}}\\right)^{2}} \\\\ & =\\sqrt{\\frac{9t^{2}}{25(t^{2}+1)^{3}}+\\frac{1}{(t^{2}+1)^{3}}+\\frac{16t^{2}}{25(t^{2}+1)^{3}}} \\\\ & =\\sqrt{\\frac{25t^{2}+25}{25(t^{2}+1)^{3}}} \\\\ & =\\sqrt{\\frac{1}{(t^{2}+1)^{2}}} \\\\ & =\\frac{1}{t^{2}+1}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Therefore, according to (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\text{N}(t) & =\\frac{T'(t)}{\\| T'(t)\\|} \\\\ & =\\left(-\\frac{3t}{5(t^{2}+1)^{3/2}}\\text{i}+\\frac{1}{(t^{2}+1)^{3/2}}\\text{j}+\\frac{4t}{5(t^{2}+1)^{3/2}}\\text{k}\\right)(t^{2}+1) \\\\ & =-\\frac{3t}{5(t^{2}+1)^{1/2}}\\text{i}+\\frac{5}{5(t^{2}+1)^{1/2}}\\text{j}+\\frac{4t}{5(t^{2}+1)^{1/2}}\\text{k} \\\\ & =-\\frac{3t\\,\\text{i}-5\\text{j}-4t\\,\\text{k}}{5\\sqrt{t^{2}+1}}.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Once again, the unit tangent vector and the principal unit normal vector are orthogonal to each other for all values of *t*:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\text{T}(t)\\cdot \\text{N}(t) & =\\left(\\frac{3\\,\\text{i}+5t\\,\\text{j}-4\\text{k}}{5\\sqrt{t^{2}+1}}\\right)\\cdot \\left(-\\frac{3t\\,\\text{i}-5\\text{j}-4t\\,\\text{k}}{5\\sqrt{t^{2}+1}}\\right) \\\\ & =\\frac{3(-3t)-5t(-5)-4(4t)}{5\\sqrt{t^{2}+1}} \\\\ & =\\frac{-9t+25t-16t}{5\\sqrt{t^{2}+1}} \\\\ & =0.\\end{array}"
+        },
+        {
+         "type": "p",
+         "text": "Last, since $\\text{r}(t)$ represents a three-dimensional curve, we can calculate the binormal vector using (see above):"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}\\text{B}(t) & =\\text{T}(t)\\,\\times \\,\\text{N}(t) \\\\ & =\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ \\frac{3}{5\\sqrt{t^{2}+1}} & +\\frac{5t}{5\\sqrt{t^{2}+1}} & -\\frac{4}{5\\sqrt{t^{2}+1}} \\\\ -\\frac{3t}{5\\sqrt{t^{2}+1}} & +\\frac{5}{5\\sqrt{t^{2}+1}} & \\frac{4t}{5\\sqrt{t^{2}+1}}\\end{array}\\right| \\\\ & =\\left(\\left(+\\frac{5t}{5\\sqrt{t^{2}+1}}\\right)\\left(\\frac{4t}{5\\sqrt{t^{2}+1}}\\right)-\\left(-\\frac{4}{5\\sqrt{t^{2}+1}}\\right)\\left(+\\frac{5}{5\\sqrt{t^{2}+1}}\\right)\\right)\\,\\text{i} \\\\ & \\quad +\\left(\\left(\\frac{3}{5\\sqrt{t^{2}+1}}\\right)\\left(\\frac{4t}{5\\sqrt{t^{2}+1}}\\right)-\\left(-\\frac{4}{5\\sqrt{t^{2}+1}}\\right)\\left(-\\frac{3t}{5\\sqrt{t^{2}+1}}\\right)\\right)\\,\\text{j} \\\\ & \\quad +\\left(\\left(\\frac{3}{5\\sqrt{t^{2}+1}}\\right)\\left(+\\frac{5}{5\\sqrt{t^{2}+1}}\\right)-\\left(+\\frac{5t}{5\\sqrt{t^{2}+1}}\\right)\\left(-\\frac{3t}{5\\sqrt{t^{2}+1}}\\right)\\right)\\,\\text{k} \\\\ & =\\left(\\frac{20t^{2}+20}{25(t^{2}+1)}\\right)\\,\\text{i}+\\left(\\frac{-15-15t^{2}}{25(t^{2}+1)}\\right)\\,\\text{k} \\\\ & =20\\left(\\frac{t^{2}+1}{25(t^{2}+1)}\\right)\\,\\text{i+}15\\left(\\frac{t^{2}+1}{25(t^{2}+1)}\\right)\\,\\text{k} \\\\ & =\\frac{4}{5}\\text{i+}\\frac{3}{5}\\text{k}.\\end{array}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Finding the Principal Unit Normal Vector and Binormal Vector"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.12",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the unit normal vector for the vector-valued function $\\text{r}(t)=(t^{2}-3t)\\,\\text{i}+(4t+1)\\,\\text{j}$ and evaluate it at $t=2.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{N}(2)=\\frac{\\sqrt{2}}{2}(\\text{i}-\\text{j})$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "First, find $\\text{T}(t),$ then use (see above)."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "((sqrt(2))/2)( i - j )"
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "For any smooth curve in three dimensions that is defined by a vector-valued function, we now have formulas for the unit tangent vector **T**, the unit normal vector **N**, and the binormal vector **B**. The unit normal vector and the binormal vector form a plane that is perpendicular to the curve at any point on the curve, called the **normal plane**. In addition, these three vectors form a frame of reference in three-dimensional space called the **Frenet frame of reference** (also called the **TNB** frame) (Figure 3.6). Last, the plane determined by the vectors **T** and **N** forms the osculating plane of *C* at any point *P* on the curve."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_006.webp",
+     "alt": "This figure is the graph of a curve increasing and decreasing. Along the curve at 4 different points are 3 vectors at each point. The first vector is labeled “T” and is tangent to the curve at the point. The second vector is labeled “N” and is normal to the curve at the point. The third vector is labeled “B” and is orthogonal to T and N.",
+     "caption": "**Figure 3.6** This figure depicts a Frenet frame of reference. At every point *P* on a three-dimensional curve, the unit tangent, unit normal, and binormal vectors form a three-dimensional frame of reference.",
+     "width": 677,
+     "height": 321
+    }
+   ],
+   "title": "The Normal and Binormal Vectors (continued)"
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Suppose we form a circle in the osculating plane of *C* at point *P* on the curve. Assume that the circle has the same curvature as the curve does at point *P* and let the circle have radius *r.* Then, the curvature of the circle is given by $1/r.$ We call *r* the **radius of curvature** of the curve, and it is equal to the reciprocal of the curvature. If this circle lies on the concave side of the curve and is tangent to the curve at point *P,* then this circle is called the **osculating circle** of *C* at *P*, as shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_007.webp",
+     "alt": "This figure is the graph of a curve with a circle in the middle. The bottom of the circle is the same as part of the curve. Inside of the circle is a vector labeled “r”. It starts at point “P” on the circle and points towards the radius. There is also a line segment perpendicular to the radius and tangent to point P.",
+     "caption": "**Figure 3.7** In this osculating circle, the circle is tangent to curve *C* at point *P* and shares the same curvature.",
+     "width": 721,
+     "height": 305
+    },
+    {
+     "type": "p",
+     "text": "To find the equation of an osculating circle in two dimensions, we need find only the center and radius of the circle."
+    }
+   ],
+   "title": "The Normal and Binormal Vectors (continued)"
+  },
+  {
+   "id": "x21",
+   "kind": "example",
+   "label": "Example 3.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find an equation of the osculating circle of the curve defined by the function $y=x^{3}-3x+1$ at $x=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Figure 3.8 shows the graph of $y=x^{3}-3x+1.$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_03_008.webp",
+      "alt": "This figure is the graph of a cubic function y = x^3-3x+1. The curve increases, reaches a maximum at x=-1, decreases passing through the y-axis at 1, then reaching a minimum at x =1 before increasing again.",
+      "caption": "**Figure 3.8** We want to find the osculating circle of this graph at the point where $t=1.$",
+      "width": 342,
+      "height": 347
+     },
+     {
+      "type": "p",
+      "text": "First, let’s calculate the curvature at $x=1:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\kappa =\\frac{|f''(x)|}{(1+[f'(x)]^{2})^{3/2}}=\\frac{|6x|}{(1+[3x^{2}-3]^{2})^{3/2}}."
+     },
+     {
+      "type": "p",
+      "text": "This gives $\\kappa =6.$ Therefore, the radius of the osculating circle is given by $R=\\frac{1}{\\kappa}=\\frac{1}{6}.$ Next, we then calculate the coordinates of the center of the circle. When $x=1,$ the slope of the tangent line is zero. Therefore, the center of the osculating circle is directly above the point on the graph with coordinates $(1,-1).$ The center is located at $\\left(1,-\\frac{5}{6}\\right).$ The formula for a circle with radius *r* and center $(h,k)$ is given by $(x-h)^{2}+(y-k)^{2}=r^{2}.$ Therefore, the equation of the osculating circle is $(x-1)^{2}+\\left(y+\\frac{5}{6}\\right)^{2}=\\frac{1}{36}.$ The graph and its osculating circle appears in the following graph."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_03_009.webp",
+      "alt": "This figure is the graph of a cubic function y = x^3-3x+1. The curve increases, reaches a maximum at x=-1, decreases passing through the y-axis at 1, then reaching a minimum at x =1 before increasing again. There is a small circle inside of the bend of the cure at x = 1.",
+      "caption": "**Figure 3.9** The osculating circle has radius $R=1/6.$",
+      "width": 342,
+      "height": 347
+     }
+    ]
+   },
+   "title": "Finding the Equation of an Osculating Circle"
+  },
+  {
+   "id": "c22",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.13",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find an equation of the osculating circle of the curve defined by the vector-valued function $y=2x^{2}-4x+5$ at $x=1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\kappa =\\frac{4}{[1+(4x-4)^{2}]^{3/2}}$"
+     },
+     {
+      "type": "p",
+      "text": "At the point $x=1,$ the curvature is equal to 4. Therefore, the radius of the osculating circle is $\\frac{1}{4}.$"
+     },
+     {
+      "type": "p",
+      "text": "A graph of this function appears next:"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_13_03_010.webp",
+      "alt": "This figure is the graph of the function y = 2x^2-4x+5. The curve is a parabola opening up with vertex at (1, 3).",
+      "width": 362,
+      "height": 347
+     },
+     {
+      "type": "p",
+      "text": "The vertex of this parabola is located at the point $(1,3).$ Furthermore, the center of the osculating circle is directly above the vertex. Therefore, the coordinates of the center are $\\left(1,\\frac{13}{4}\\right).$ The equation of the osculating circle is"
+     },
+     {
+      "type": "p",
+      "text": "$(x-1)^{2}+\\left(y-\\frac{13}{4}\\right)^{2}=\\frac{1}{16}.$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above) to find the curvature of the graph, then draw a graph of the function around $x=1$ to help visualize the circle in relation to the graph."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The arc-length function for a vector-valued function is calculated using the integral formula $s(t)={\\displaystyle \\int_{a}^{t}\\| r'(u)\\| \\,du}.$ This formula is valid in both two and three dimensions.",
+      "The curvature of a curve at a point in either two or three dimensions is defined to be the curvature of the inscribed circle at that point. The arc-length parameterization is used in the definition of curvature.",
+      "There are several different formulas for curvature. The curvature of a circle is equal to the reciprocal of its radius.",
+      [
+       {
+        "type": "p",
+        "text": "The principal unit normal vector at *t* is defined to be"
+       },
+       {
+        "type": "math",
+        "tex": "\\text{N}(t)=\\frac{T'(t)}{\\| T'(t)\\|}."
+       }
+      ],
+      "The binormal vector at *t* is defined as $\\text{B}(t)=\\text{T}(t)\\,\\times \\,\\text{N}(t),$ where $\\text{T}(t)$ is the unit tangent vector.",
+      "The Frenet frame of reference is formed by the unit tangent vector, the principal unit normal vector, and the binormal vector.",
+      "The osculating circle is tangent to a curve at a point and has the same curvature as the tangent curve at that point."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Arc length of space curve**",
+       "$s={\\displaystyle \\int_{a}^{b}\\sqrt{\\,[f'(t)]^{2}+[g'(t)]^{2}+[h'(t)]^{2}}}\\,dt={\\displaystyle \\int_{a}^{b}\\| r'(t)\\|}dt$"
+      ],
+      [
+       "**Arc-length function**",
+       "$s(t)={\\displaystyle \\int_{a}^{t}\\sqrt{(f'(u))^{2}+(g'(u))^{2}+(h'(u))^{2}}}du\\,\\text{or}\\,s(t)={\\displaystyle \\int_{a}^{t}\\| r'(u)\\| \\,du}$"
+      ],
+      [
+       "**Curvature**",
+       "$\\kappa =\\frac{\\| T'(t)\\|}{\\| r'(t)\\|}\\,\\text{or}\\,\\kappa =\\frac{\\| r'(t)\\,\\times \\,r''(t)\\|}{\\| r'(t)\\|^{3}}\\,\\text{or}\\,\\kappa =\\frac{|y''|}{[1+(y')^{2}]^{3/2}}$"
+      ],
+      [
+       "**Principal unit normal vector**",
+       "$\\text{N}(t)=\\frac{T'(t)}{\\| T'(t)\\|}$"
+      ],
+      [
+       "**Binormal vector**",
+       "$\\text{B}(t)=\\text{T}(t)\\,\\times \\,\\text{N}(t)$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e102",
+   "number": 102,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=t^{2}\\text{i}+14t\\text{j},\\,0\\le t\\le 7.$ This portion of the graph is shown here:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_203.webp",
+     "alt": "This figure is the graph of a curve beginning at the origin and increasing.",
+     "width": 246,
+     "height": 241
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738079918",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e103",
+   "number": 103,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=t^{2}\\text{i}+(2t^{2}+1)\\text{j},\\,1\\le t\\le 3$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738244710",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$8\\sqrt{5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "8 sqrt(5)"
+   }
+  },
+  {
+   "id": "e104",
+   "number": 104,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=〈2\\,\\sin \\,t,5t,2\\,\\cos \\,t〉,0\\le t\\le \\pi .$ This portion of the graph is shown here:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_204.webp",
+     "alt": "This figure is the graph of a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the upper right corner of the box and bends through the box to the other side.",
+     "width": 456,
+     "height": 552
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737285182",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e105",
+   "number": 105,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=〈t^{2}+1,4t^{3}+3〉,\\,-1\\le t\\le 0$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737248693",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{54}(37^{3/2}-1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/54)(37^(3/2)-1)"
+   }
+  },
+  {
+   "id": "e106",
+   "number": 106,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\text{r}(t)=〈e^{-t}\\cos \\,t,e^{-t}\\sin \\,t〉$ over the interval $\\left[0,\\frac{\\pi}{2}\\right].$ Here is the portion of the graph on the indicated interval:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_205.webp",
+     "alt": "This figure is the graph of a curve in the first quadrant. It begins approximately at 0.20 on the y axis and increases to approximately where x = 0.3. Then the curve decreases, meeting the x-axis at 1.0.",
+     "width": 440,
+     "height": 317
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738011633",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e107",
+   "number": 107,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the length of one turn of the helix given by $\\text{r}(t)=\\frac{1}{2}\\cos \\,t\\text{i}+\\frac{1}{2}\\sin \\,t\\text{j}+\\sqrt{\\frac{3}{4}}\\,t\\,\\text{k}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738159327",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Length $=2\\pi$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e108",
+   "number": 108,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the vector-valued function $\\text{r}(t)=-t\\text{i}+4t\\text{j}+3t\\text{k}$ over $[0,1].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738166961",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e109",
+   "number": 109,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "A particle travels once around a circle with the equation of motion $\\text{r}(t)=3\\,\\cos \\,t\\text{i}+3\\,\\sin \\,t\\text{j}+0\\text{k}.$ Find the distance traveled around the circle by the particle."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738088757",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$6\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "6 pi"
+   }
+  },
+  {
+   "id": "e110",
+   "number": 110,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Set up an integral to find the circumference of the ellipse with the equation $\\text{r}(t)=\\cos \\,t\\text{i}+2\\,\\sin \\,t\\text{j}+0\\text{k}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737358750",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e111",
+   "number": 111,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the length of the curve $\\text{r}(t)=〈\\sqrt{2}t,e^{t},e^{-t}〉$ over the interval $0\\le t\\le 1.$ The graph is shown here:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_206.webp",
+     "alt": "This figure is the graph of a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the upper left corner of the box and bends through the box to the bottom of the other side.",
+     "width": 436,
+     "height": 311
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738208778",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e-\\frac{1}{e}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "e-(1/e)"
+   }
+  },
+  {
+   "id": "e112",
+   "number": 112,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the length of the curve $\\text{r}(t)=〈2\\,\\sin \\,t,5t,2\\,\\cos \\,t〉$ for $t\\in [-10,10].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737194099",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e113",
+   "number": 113,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The position function for a particle is $\\text{r}(t)=a\\,\\cos (\\omega t)\\text{i}+b\\,\\sin (\\omega t)\\text{j}.$ Find the unit tangent vector and the unit normal vector at $t=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738094810",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{T}(0)=\\text{j},$ $\\text{N}(0)=-\\text{i}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e114",
+   "number": 114,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $\\text{r}(t)=a\\,\\cos (\\omega t)\\text{i}+b\\,\\sin (\\omega t)\\text{j},$ find the binormal vector $\\text{B}(0).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737253245",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e115",
+   "number": 115,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $\\text{r}(t)=〈2e^{t},e^{t}\\cos \\,t,e^{t}\\sin \\,t〉,$ determine the tangent vector $\\text{T}(t).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738216150",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{T}(t)=〈\\frac{2}{\\sqrt{6}},\\frac{\\cos \\,t-\\sin \\,t}{\\sqrt{6}},\\frac{\\cos \\,t+\\sin \\,t}{\\sqrt{6}}〉$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e116",
+   "number": 116,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $\\text{r}(t)=〈2e^{t},e^{t}\\cos \\,t,e^{t}\\sin \\,t〉,$ determine the unit tangent vector $\\text{T}(t)$ evaluated at $t=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738007810",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e117",
+   "number": 117,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $\\text{r}(t)=〈2e^{t},e^{t}\\cos \\,t,e^{t}\\sin \\,t〉,$ find the unit normal vector $\\text{N}(t)$ evaluated at $t=0,$ $\\text{N}(0).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738253240",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{N}\\left(0\\right)=\\left\\langle0,-\\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2}\\right\\rangle$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "<0,-((sqrt(2))/2),((sqrt(2))/2)>"
+   }
+  },
+  {
+   "id": "e118",
+   "number": 118,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $\\text{r}(t)=〈2e^{t},e^{t}\\cos \\,t,e^{t}\\sin \\,t〉,$ find the unit binormal vector evaluated at $t=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737512651",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e119",
+   "number": 119,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Given $\\text{r}(t)=t\\text{i}+t^{2}\\text{j}+t\\text{k},$ find the unit tangent vector $\\text{T}(t).$ The graph is shown here:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_207.webp",
+     "alt": "This figure is the graph of a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the bottom left corner of the box and bends through the box to the upper left side.",
+     "width": 448,
+     "height": 519
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738202647",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{T}(t)=\\frac{1}{\\sqrt{4t^{2}+2}}<1,2t,1>$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e120",
+   "number": 120,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the unit tangent vector $\\text{T}(t)$ and unit normal vector $\\text{N}(t)$ at $t=0$ for the plane curve $\\text{r}(t)=〈t^{3}-4t,5t^{2}-2〉.$ The graph is shown here:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_208.webp",
+     "alt": "This figure is the graph of a curve above the x-axis. The curve decreases in the second quadrant, passes through the y-axis at y=20. Then it intersects the origin. The curve loops at the origin, increasing back through y=20 into the first quadrant.",
+     "width": 342,
+     "height": 347
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738157604",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e121",
+   "number": 121,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the unit tangent vector $\\text{T}(t)$ for $\\text{r}(t)=3t\\text{i}+5t^{2}\\text{j}+2t\\text{k}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737368054",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{T}(t)=\\frac{1}{\\sqrt{100t^{2}+13}}(3\\text{i}+10t\\text{j}+2\\text{k})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(1/(sqrt(100 t^2+13)))(3 i +10 t j +2 k )"
+   }
+  },
+  {
+   "id": "e122",
+   "number": 122,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the principal normal vector to the curve $\\text{r}(t)=〈6\\,\\cos \\,t,6\\,\\sin \\,t〉$ at the point determined by $t=\\pi /3.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737168027",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e123",
+   "number": 123,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find $\\text{T}(t)$ for the curve $\\text{r}(t)=(t^{3}-4t)\\,\\text{i}+(5t^{2}-2)\\,\\text{j}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737286125",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{T}(t)=\\frac{1}{\\sqrt{9t^{4}+76t^{2}+16}}([3t^{2}-4]\\text{i}+10t\\text{j})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(1/(sqrt(9 t^4+76 t^2+16)))([3 t^2-4] i +10 t j )"
+   }
+  },
+  {
+   "id": "e124",
+   "number": 124,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find $\\text{N}(t)$ for the curve $\\text{r}(t)=(t^{3}-4t)\\,\\text{i}+(5t^{2}-2)\\,\\text{j}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737444980",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e125",
+   "number": 125,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the unit normal vector $\\text{N}(t)$ for $\\text{r}(t)=〈2\\,\\sin \\,t,5t,2\\,\\cos \\,t〉.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737929313",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{N}(t)=〈-\\sin \\,t,0,-\\cos \\,t〉$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e126",
+   "number": 126,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the unit tangent vector $\\text{T}(t)$ for $\\text{r}(t)=〈2\\,\\sin \\,t,5t,2\\,\\cos \\,t〉.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737826079",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e127",
+   "number": 127,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the arc-length function $s(t)$ for the line segment given by $\\text{r}(t)=〈3-3t,4t〉.$ Write *r* as a parameter of *s.*"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737524273",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Arc-length function: $s(t)=5t;$ r as a parameter of *s*: $\\text{r}(s)=\\left(3-\\frac{3s}{5}\\right)\\,\\text{i}+\\frac{4s}{5}\\text{j}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e128",
+   "number": 128,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Parameterize the helix $\\text{r}(t)=\\cos \\,t\\text{i}+\\sin \\,t\\text{j}+t\\text{k}$ using the arc-length parameter *s*, from $t=0.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737254508",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e129",
+   "number": 129,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Parameterize the curve using the arc-length parameter *s*, at the point at which $t=0$ for $\\text{r}(t)=e^{t}\\sin \\,t\\text{i}+e^{t}\\cos \\,t\\text{j}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737180756",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\text{r}(s)=\\left(1+\\frac{s}{\\sqrt{2}}\\right)\\,\\sin \\left(\\ln (1+\\frac{s}{\\sqrt{2}})\\right)\\,\\text{i}+\\left(1+\\frac{s}{\\sqrt{2}}\\right)\\,\\cos \\left[\\ln \\left(1+\\frac{s}{\\sqrt{2}}\\right)\\right]\\text{j}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "vector",
+    "value": "(1+(s/(sqrt(2)))) sin ( ln (1+(s/(sqrt(2))))) i +(1+(s/(sqrt(2)))) cos [ ln (1+(s/(sqrt(2))))] j"
+   }
+  },
+  {
+   "id": "e130",
+   "number": 130,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature of the curve $\\text{r}(t)=5\\,\\cos \\,t\\text{i}+4\\,\\sin \\,t\\text{j}$ at $t=\\pi /3.$ (*Note:* The graph is an ellipse.)"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_209.webp",
+     "alt": "This figure is the graph of an ellipse. The ellipse is oval along the x-axis. It is centered at the origin and intersects the y-axis at -4 and 4.",
+     "width": 417,
+     "height": 422
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737538390",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e131",
+   "number": 131,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the *x*-coordinate at which the curvature of the curve $y=1/x$ is a maximum value."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737294027",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The maximum value of the curvature occurs at $x=1.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e132",
+   "number": 132,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature of the curve $\\text{r}(t)=5\\,\\cos \\,t\\text{i}+5\\,\\sin \\,t\\text{j}.$ Does the curvature depend upon the parameter *t*?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737905593",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e133",
+   "number": 133,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature $\\kappa$ for the curve $y=x-\\frac{1}{4}x^{2}$ at the point $x=2.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737905683",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2)"
+   }
+  },
+  {
+   "id": "e134",
+   "number": 134,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature $\\kappa$ for the curve $y=\\frac{1}{3}x^{3}$ at the point $x=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737274792",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e135",
+   "number": 135,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature $\\kappa$ of the curve $\\text{r}(t)=t\\text{i}+6t^{2}\\text{j}+4t\\,\\text{k}.$ The graph is shown here:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_13_03_210.webp",
+     "alt": "This figure is the graph of a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve has a parabolic shape in the middle of the box.",
+     "width": 381,
+     "height": 377
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737274876",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\kappa \\approx \\frac{49.477}{(17+144t^{2})^{3/2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "kappa =(49.477/((17+144 t^2)^(3/2)))"
+   }
+  },
+  {
+   "id": "e136",
+   "number": 136,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature of $\\text{r}(t)=〈2\\,\\sin \\,t,5t,2\\,\\cos \\,t〉.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737214887",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e137",
+   "number": 137,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature of $\\text{r}(t)=\\sqrt{2}t\\text{i}+e^{t}\\text{j}+e^{-t}\\text{k}$ at point $P(0,1,1).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737214960",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2\\sqrt{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/(2 sqrt(2)))"
+   }
+  },
+  {
+   "id": "e138",
+   "number": 138,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "At what point does the curve $y=e^{x}$ have maximum curvature?"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737423506",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e139",
+   "number": 139,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "What happens to the curvature as $x\\to \\infty$ for the curve $y=e^{x}?$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737170342",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The curvature approaches zero."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e140",
+   "number": 140,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the point of maximum curvature on the curve $y=\\ln \\,x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737170380",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e141",
+   "number": 141,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the equations of the normal plane and the osculating plane of the curve $\\text{r}(t)=〈2\\,\\sin (3t),t,2\\,\\cos (3t)〉$ at point $(0,\\pi ,-2).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737170443",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=6x+\\pi$ and $x+6y=6\\pi$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"y=6 x+ pi, x+6 y=6 pi\""
+  },
+  {
+   "id": "e142",
+   "number": 142,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find equations of the osculating circles of the ellipse $4y^{2}+9x^{2}=36$ at the points $(2,0)$ and $(0,3).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737160474",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e143",
+   "number": 143,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the equation for the osculating plane at point $t=\\pi /4$ on the curve $\\text{r}(t)=\\cos (2t)\\text{i}+\\sin (2t)\\text{j}+t\\text{k}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737825776",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x+2z=\\frac{\\pi}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "x+2 z=(pi/2)"
+   }
+  },
+  {
+   "id": "e144",
+   "number": 144,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the radius of curvature of $6y=x^{3}$ at the point $\\left(2,\\frac{4}{3}\\right).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737368141",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e145",
+   "number": 145,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature at each point $(x,y)$ on the hyperbola $\\text{r}(t)=〈a\\,\\cosh (t),b\\,\\sinh (t)〉.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737368202",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{a^{4}b^{4}}{(b^{4}x^{2}+a^{4}y^{2})^{3/2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((a^4 b^4)/((b^4 x^2+a^4 y^2)^(3/2)))"
+   }
+  },
+  {
+   "id": "e146",
+   "number": 146,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Calculate the curvature of the circular helix $\\text{r}(t)=r\\,\\sin (t)\\text{i}+r\\,\\cos (t)\\text{j}+t\\,\\text{k}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737168660",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e147",
+   "number": 147,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the radius of curvature of $y=\\ln (x+1)$ at point $(2,\\ln \\,3).$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169737565320",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{10\\sqrt{10}}{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((10 sqrt(10))/3)"
+   }
+  },
+  {
+   "id": "e148",
+   "number": 148,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the radius of curvature of the hyperbola $xy=1$ at point $(1,1).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737931502",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the curve on the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e149",
+   "number": 149,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the length of the curve over the interval $[0,2].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737201424",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "A particle moves along the plane curve C described by $\\text{r}(t)=t\\text{i}+t^{2}\\text{j}.$ Solve the following problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}\\ln \\left(\\sqrt{17}+4\\right)+\\sqrt{17}\\approx 4.647$"
+     }
+    ]
+   },
+   "notes": "self-check: imported answer {\"kind\":\"equation\",\"value\":\"(1/4) ln (sqrt(17)+4)+sqrt(17)=4.647\"} failed (checker rejects the answer itself)"
+  },
+  {
+   "id": "e150",
+   "number": 150,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature of the plane curve at $t=0,1,2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169737201465",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "A particle moves along the plane curve C described by $\\text{r}(t)=t\\text{i}+t^{2}\\text{j}.$ Solve the following problems."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e151",
+   "number": 151,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Describe the curvature as *t* increases from $t=0$ to $t=2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738059709",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "A particle moves along the plane curve C described by $\\text{r}(t)=t\\text{i}+t^{2}\\text{j}.$ Solve the following problems."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The curvature is decreasing over this interval."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e152",
+   "number": 152,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology to graph the surface."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738059789",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The surface of a large cup is formed by revolving the graph of the function $y=0.25x^{1.6}$ from $x=0$ to $x=5$ about the *y*-axis (measured in centimeters)."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e153",
+   "number": 153,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the curvature $\\kappa$ of the generating curve as a function of *x.*"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169738133111",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The surface of a large cup is formed by revolving the graph of the function $y=0.25x^{1.6}$ from $x=0$ to $x=5$ about the *y*-axis (measured in centimeters)."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\kappa =\\frac{6}{x^{2/5}(25+4x^{6/5})}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "kappa =(6/(x^(2/5)(25+4 x^(6/5))))"
+   }
+  },
+  {
+   "id": "e154",
+   "number": 154,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology to graph the curvature function."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169738133176",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "The surface of a large cup is formed by revolving the graph of the function $y=0.25x^{1.6}$ from $x=0$ to $x=5$ about the *y*-axis (measured in centimeters)."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Alternative Formulas for Curvature",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If *C* is a smooth curve given by $\\text{r}(t),$ then the curvature $\\kappa$ of *C* at *t* is given by"
+    },
+    {
+     "type": "math",
+     "tex": "\\kappa =\\frac{\\| T'(t)\\|}{\\| r'(t)\\|}."
+    },
+    {
+     "type": "p",
+     "text": "If *C* is a three-dimensional curve, then the curvature can be given by the formula"
+    },
+    {
+     "type": "math",
+     "tex": "\\kappa =\\frac{\\| r'(t)\\,\\times \\,r''(t)\\|}{\\| r'(t)\\|^{3}}."
+    },
+    {
+     "type": "p",
+     "text": "If *C* is the graph of a function $y=f(x)$ and both $y'$ and $y''$ exist, then the curvature $\\kappa$ at point $(x,y)$ is given by"
+    },
+    {
+     "type": "math",
+     "tex": "\\kappa =\\frac{|y''|}{[1+(y')^{2}]^{3/2}}."
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "The first formula follows directly from the chain rule:"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d\\text{T}}{dt}=\\frac{d\\text{T}}{ds}\\,\\frac{ds}{dt},"
+    },
+    {
+     "type": "p",
+     "text": "where *s* is the arc length along the curve *C.* Dividing both sides by $ds/dt,$ and taking the magnitude of both sides gives"
+    },
+    {
+     "type": "math",
+     "tex": "\\left\\|\\frac{d\\text{T}}{ds}\\right\\|=\\left\\|\\frac{T'(t)}{\\frac{ds}{dt}}\\right\\|."
+    },
+    {
+     "type": "p",
+     "text": "Since $ds/dt=\\| r'(t)\\| ,$ this gives the formula for the curvature $\\kappa$ of a curve *C* in terms of any parameterization of *C*:"
+    },
+    {
+     "type": "math",
+     "tex": "\\kappa =\\frac{\\| T'(t)\\|}{\\| r'(t)\\|}."
+    },
+    {
+     "type": "p",
+     "text": "In the case of a three-dimensional curve, we start with the formulas $\\text{T}(t)=(r'(t))/\\| r'(t)\\|$ and $ds/dt=\\| r'(t)\\| .$ Therefore, $r'(t)=(ds/dt)\\,\\text{T}(t).$ We can take the derivative of this function using the scalar product formula:"
+    },
+    {
+     "type": "math",
+     "tex": "r''(t)=\\frac{d^{2}s}{dt^{2}}\\text{T}(t)+\\frac{ds}{dt}T'(t)."
+    },
+    {
+     "type": "p",
+     "text": "Using these last two equations we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}r'(t)\\,\\times \\,r''(t) & =\\frac{ds}{dt}\\text{T}(t)\\,\\times \\,\\left(\\frac{d^{2}s}{dt^{2}}\\text{T}(t)+\\frac{ds}{dt}T'(t)\\right) \\\\ & =\\frac{ds}{dt}\\,\\frac{d^{2}s}{dt^{2}}\\text{T}(t)\\,\\times \\,\\text{T}(t)+\\left(\\frac{ds}{dt}\\right)^{2}\\text{T}(t)\\,\\times \\,T'(t).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Since $\\text{T}(t)\\,\\times \\,\\text{T}(t)=0,$ this reduces to"
+    },
+    {
+     "type": "math",
+     "tex": "r'(t)\\,\\times \\,r''(t)=\\left(\\frac{ds}{dt}\\right)^{2}\\text{T}(t)\\,\\times \\,T'(t)."
+    },
+    {
+     "type": "p",
+     "text": "Because $\\mathbf{T}(t)$ is a unit vector, $\\| \\mathbf{T}(t)\\| =1$ for all values of $t$. So,\n$\\mathbf{T}\\left(t\\right)\\cdot \\mathbf{T}\\left(t\\right)=$\n$\\| \\mathbf{T}(t)\\|^{2}=1$."
+    },
+    {
+     "type": "p",
+     "text": "By (see above), we have"
+    },
+    {
+     "type": "math",
+     "tex": "0=\\frac{d}{dt}(\\mathbf{T}(t)\\cdot \\mathbf{T}(t))=T'(t)\\cdot \\mathbf{T}(t)+\\mathbf{T}(t)\\cdot T'(t)=2T'(t)\\cdot \\mathbf{T}(t)."
+    },
+    {
+     "type": "p",
+     "text": "Therefore, $T'\\cdot \\mathbf{T}=0$ showing that $\\mathbf{T}$ and $T'$ are perpendicular. This means that"
+    },
+    {
+     "type": "math",
+     "tex": "\\| \\mathbf{T}\\times T'\\| =\\| \\mathbf{T}\\| .\\| T'\\| \\sin \\frac{\\pi}{2}=\\| {\\mathbf{T}}'\\| \\text{, so}"
+    },
+    {
+     "type": "math",
+     "tex": "\\| {\\mathbf{r}}'(t)\\,\\times \\,{\\mathbf{r}}''(t)\\| =\\left(\\frac{ds}{dt}\\right)^{2}\\| {\\mathbf{T}}'(t)\\| ."
+    },
+    {
+     "type": "p",
+     "text": "Now we solve this equation for $\\| T'(t)\\|$ and use the fact that $ds/dt=\\| r'(t)\\| :$"
+    },
+    {
+     "type": "math",
+     "tex": "\\| T'(t)\\| =\\frac{\\| r'(t)\\,\\times \\,r''(t)\\|}{\\| r'(t)\\|^{2}}."
+    },
+    {
+     "type": "p",
+     "text": "Then, we divide both sides by $\\| r'(t)\\| .$ This gives"
+    },
+    {
+     "type": "math",
+     "tex": "\\kappa =\\frac{\\| T'(t)\\|}{\\| r'(t)\\|}=\\frac{\\| r'(t)\\,\\times \\,r''(t)\\|}{\\| r'(t)\\|^{3}}."
+    },
+    {
+     "type": "p",
+     "text": "This proves (see above). To prove (see above), we start with the assumption that curve *C* is defined by the function $y=f(x).$ Then, we can define $\\text{r}(t)=x\\,\\text{i}+f(x)\\,\\text{j}+0\\,\\text{k}.$ Using the previous formula for curvature:"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}r'(t) & =\\text{i}+f'(x)\\,\\text{j} \\\\ r''(t) & =f''(x)\\,\\text{j} \\\\ r'(t)\\,\\times \\,r''(t) & =\\left|\\begin{array}{ccc}\\text{i} & \\text{j} & \\text{k} \\\\ 1 & f'(x) & 0 \\\\ 0 & f''(x) & 0\\end{array}\\right|=f''(x)\\,\\text{k}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Therefore,"
+    },
+    {
+     "type": "math",
+     "tex": "\\kappa =\\frac{\\| r'(t)\\,\\times \\,r''(t)\\|}{\\| r'(t)\\|^{3}}=\\frac{|f''(x)|}{(1+[(f'(x))^{2}])^{3/2}}."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Find the curvature for each of the following curves at the given point:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\text{r}(t)=4\\,\\cos \\,t\\,\\text{i}+4\\,\\sin \\,t\\,\\text{j}+3t\\,\\text{k},t=\\frac{4\\pi}{3}$",
+      "$f(x)=\\sqrt{4x-x^{2}},x=2$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "This function describes a helix."
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_13_03_002.webp",
+        "alt": "This figure is the graph of a curve in 3 dimensions. The curve is a helix that spirals around the z-axis. It begins below the xy plane and spirals up with orientation.",
+        "width": 321,
+        "height": 478
+       },
+       {
+        "type": "p",
+        "text": "The curvature of the helix at $t=(4\\pi )/3$ can be found by using (see above). First, calculate $\\text{T}(t):$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\text{T}(t) & =\\frac{r'(t)}{\\| r'(t)\\|} \\\\ & =\\frac{〈-4\\,\\sin \\,t,4\\,\\cos \\,t,3〉}{\\sqrt{(-4\\,\\sin \\,t)^{2}+(4\\,\\cos \\,t)^{2}+3^{2}}} \\\\ & =〈-\\frac{4}{5}\\sin \\,t,\\frac{4}{5}\\cos \\,t,\\frac{3}{5}〉.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Next, calculate $T'(t):$"
+       },
+       {
+        "type": "math",
+        "tex": "T'(t)=〈-\\frac{4}{5}\\cos \\,t,-\\frac{4}{5}\\sin \\,t,0〉."
+       },
+       {
+        "type": "p",
+        "text": "Last, apply (see above):"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\kappa & =\\frac{\\| T'(t)\\|}{\\| r'(t)\\|}=\\frac{\\left\\|〈-\\frac{4}{5}\\cos \\,t,-\\frac{4}{5}\\sin \\,t,0〉\\right\\|}{\\| 〈-4\\,\\sin \\,t,4\\,\\cos \\,t,3〉\\|} \\\\ & =\\frac{\\sqrt{\\left(-\\frac{4}{5}\\cos \\,t\\right)^{2}+\\left(-\\frac{4}{5}\\sin \\,t\\right)^{2}+0^{2}}}{\\sqrt{(-4\\,\\sin \\,t)^{2}+(4\\,\\cos \\,t)^{2}+3^{2}}} \\\\ & =\\frac{4/5}{5}=\\frac{4}{25}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "The curvature of this helix is constant at all points on the helix."
+       }
+      ],
+      [
+       {
+        "type": "p",
+        "text": "This function describes a semicircle."
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_13_03_003.webp",
+        "alt": "This figure is the graph of a semicircle. It is in the first quadrant. The semicircle begins at the origin and stops at 4 on the x-axis. The semicircle represents the function f(x) = the square root of (4x-x^2).",
+        "width": 267,
+        "height": 272
+       },
+       {
+        "type": "p",
+        "text": "To find the curvature of this graph, we must use (see above). First, we calculate $y'$ and $y'':$"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}y & =\\sqrt{4x-x^{2}}=(4x-x^{2})^{1/2} \\\\ y' & =\\frac{1}{2}(4x-x^{2})^{-1/2}(4-2x)=(2-x)(4x-x^{2})^{-1/2} \\\\ y'' & =-(4x-x^{2})^{-1/2}+(2-x)\\left(-\\frac{1}{2}\\right)(4x-x^{2})^{-3/2}(4-2x) \\\\ & =-\\frac{4x-x^{2}}{(4x-x^{2})^{3/2}}-\\frac{(2-x)^{2}}{(4x-x^{2})^{3/2}} \\\\ & =\\frac{x^{2}-4x-(4-4x+x^{2})}{(4x-x^{2})^{3/2}} \\\\ & =-\\frac{4}{(4x-x^{2})^{3/2}}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "Then, we apply (see above):"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{cc}\\kappa & =\\frac{|y''|}{[1+(y')^{2}]^{3/2}} \\\\ & =\\frac{\\left|-\\frac{4}{(4x-x^{2})^{3/2}}\\right|}{[1+((2-x)(4x-x^{2})^{-1/2})^{2}]^{3/2}}=\\frac{\\left|\\frac{4}{(4x-x^{2})^{3/2}}\\right|}{\\left[1+\\frac{(2-x)^{2}}{4x-x^{2}}\\right]^{3/2}} \\\\ & =\\frac{\\left|\\frac{4}{(4x-x^{2})^{3/2}}\\right|}{\\left[\\frac{4x-x^{2}+x^{2}-4x+4}{4x-x^{2}}\\right]^{3/2}}=\\left|\\frac{4}{(4x-x^{2})^{3/2}}\\right|\\cdot \\frac{(4x-x^{2})^{3/2}}{8} \\\\ & =\\frac{1}{2}.\\end{array}"
+       },
+       {
+        "type": "p",
+        "text": "The curvature of this circle is equal to the reciprocal of its radius."
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "label": "book"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "arc-length function",
+   "meaning": "a function $s(t)$ that describes the arc length of curve *C* as a function of *t*"
+  },
+  {
+   "term": "arc-length parameterization",
+   "meaning": "a reparameterization of a vector-valued function in which the parameter is equal to the arc length"
+  },
+  {
+   "term": "binormal vector",
+   "meaning": "a unit vector orthogonal to the unit tangent vector and the unit normal vector"
+  },
+  {
+   "term": "curvature",
+   "meaning": "the derivative of the unit tangent vector with respect to the arc-length parameter"
+  },
+  {
+   "term": "Frenet frame of reference",
+   "meaning": "(TNB frame) a frame of reference in three-dimensional space formed by the unit tangent vector, the unit normal vector, and the binormal vector"
+  },
+  {
+   "term": "normal plane",
+   "meaning": "a plane that is perpendicular to a curve at any point on the curve"
+  },
+  {
+   "term": "osculating circle",
+   "meaning": "a circle that is tangent to a curve *C* at a point *P* and that shares the same curvature"
+  },
+  {
+   "term": "osculating plane",
+   "meaning": "the plane determined by the unit tangent and the unit normal vector"
+  },
+  {
+   "term": "principal unit normal vector",
+   "meaning": "a vector orthogonal to the unit tangent vector, given by the formula $\\frac{T'(t)}{\\| T'(t)\\|}$"
+  },
+  {
+   "term": "radius of curvature",
+   "meaning": "the reciprocal of the curvature"
+  },
+  {
+   "term": "smooth",
+   "meaning": "curves where the vector-valued function $\\text{r}(t)$ is differentiable with a non-zero derivative"
+  }
+ ]
+}

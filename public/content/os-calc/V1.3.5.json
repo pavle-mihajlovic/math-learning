@@ -1,0 +1,1819 @@
+{
+ "schema": 1,
+ "id": "V1.3.5",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 3,
+ "section": 5,
+ "title": "Derivatives of Trigonometric Functions",
+ "chapterTitle": "Derivatives",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53578",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/3-5-derivatives-of-trigonometric-functions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §3.5 “Derivatives of Trigonometric Functions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Find the derivatives of the sine and cosine function.",
+  "Find the derivatives of the standard trigonometric functions.",
+  "Calculate the higher-order derivatives of the sine and cosine."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "One of the most important types of motion in physics is simple harmonic motion, which is associated with such systems as an object with mass oscillating on a spring. Simple harmonic motion can be described by using either sine or cosine functions. In this section we expand our knowledge of derivative formulas to include derivatives of these and other trigonometric functions. We begin with the derivatives of the sine and cosine functions and then use them to obtain formulas for the derivatives of the remaining four trigonometric functions. Being able to calculate the derivatives of the sine and cosine functions will enable us to find the velocity and acceleration of simple harmonic motion."
+    }
+   ],
+   "title": "Derivatives of Trigonometric Functions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We begin our exploration of the derivative for the sine function by using the formula to make a reasonable guess at its derivative. Recall that for a function $f(x),$"
+    },
+    {
+     "type": "math",
+     "tex": "f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}."
+    },
+    {
+     "type": "p",
+     "text": "Consequently, for values of $h$ very close to 0, $f'(x)\\approx \\frac{f(x+h)-f(x)}{h}.$ We see that by using $h=0.01,$"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(\\sin \\,x)\\approx \\frac{\\sin \\,(x+0.01)-\\sin \\,x}{0.01}"
+    },
+    {
+     "type": "p",
+     "text": "By setting $D(x)=\\frac{\\sin \\,(x+0.01)-\\sin \\,x}{0.01}$ and using a graphing utility, we can get a graph of an approximation to the derivative of $\\sin \\,x$ (Figure 3.24)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_05_001.webp",
+     "alt": "The function D(x) = (sin(x + 0.01) − sin x)/0.01 is graphed. It looks a lot like a cosine curve.",
+     "caption": "**Figure 3.24** The graph of the function $D(x)$ looks a lot like a cosine curve.",
+     "width": 431,
+     "height": 392
+    },
+    {
+     "type": "p",
+     "text": "Upon inspection, the graph of $D(x)$ appears to be very close to the graph of the cosine function. Indeed, we will show that"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(\\sin \\,x)=\\cos \\,x."
+    },
+    {
+     "type": "p",
+     "text": "If we were to follow the same steps to approximate the derivative of the cosine function, we would find that"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(\\cos \\,x)=-\\sin \\,x."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "The derivative of the sine function is the cosine and the derivative of the cosine function is the negative sine."
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}(\\sin \\,x)=\\cos \\,x"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}(\\cos \\,x)=-\\sin \\,x"
+      }
+     ],
+     "title": "The Derivatives of sin *x* and cos *x*"
+    }
+   ],
+   "title": "Derivatives of the Sine and Cosine Functions"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "*A proof of The Derivatives of sin *x* and cos *x* is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Derivatives of the Sine and Cosine Functions (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Since the remaining four trigonometric functions may be expressed as quotients involving sine, cosine, or both, we can use the quotient rule to find formulas for their derivatives."
+    }
+   ],
+   "title": "Derivatives of Other Trigonometric Functions"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 3.42",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=\\tan \\,x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Start by expressing $\\tan \\,x$ as the quotient of $\\sin \\,x$ and $\\cos \\,x:$"
+     },
+     {
+      "type": "math",
+      "tex": "f(x)=\\tan \\,x=\\frac{\\sin \\,x}{\\cos \\,x}."
+     },
+     {
+      "type": "p",
+      "text": "Now apply the quotient rule to obtain"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{\\cos \\,x\\,\\cos \\,x-(-\\sin \\,x)\\sin \\,x}{(\\cos \\,x)^{2}}."
+     },
+     {
+      "type": "p",
+      "text": "Simplifying, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{\\cos^{2}x+{\\,\\sin}^{2}x}{\\cos^{2}x}."
+     },
+     {
+      "type": "p",
+      "text": "Recognizing that $\\cos^{2}x+\\sin^{2}x=1,$ by the Pythagorean theorem, we now have"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{1}{\\cos^{2}x}."
+     },
+     {
+      "type": "p",
+      "text": "Finally, use the identity $\\sec \\,x=\\frac{1}{\\cos \\,x}$ to obtain"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\sec^{2}x."
+     }
+    ]
+   },
+   "title": "The Derivative of the Tangent Function"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.28",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=\\cot \\,x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=-\\csc^{2}x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Rewrite $\\cot \\,x$ as $\\frac{\\cos \\,x}{\\sin \\,x}$ and use the quotient rule."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- csc^2 x"
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The derivatives of the remaining trigonometric functions may be obtained by using similar techniques. We provide these formulas in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "The derivatives of the remaining trigonometric functions are as follows:"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}(\\tan \\,x)=\\sec^{2}x"
+      },
+      {
+       "type": "math",
+       "tex": "\\;\\frac{d}{dx}(\\cot \\,x)=-\\csc^{2}x"
+      },
+      {
+       "type": "math",
+       "tex": "\\quad \\frac{d}{dx}(\\sec \\,x)=\\sec \\,x\\,\\tan \\,x"
+      },
+      {
+       "type": "math",
+       "tex": "\\qquad \\frac{d}{dx}(\\csc \\,x)=-\\csc \\,x\\,\\cot \\,x."
+      }
+     ],
+     "title": "Derivatives of $\\tan \\,x,\\cot \\,x,\\sec \\,x,$ and $\\csc \\,x$"
+    }
+   ],
+   "title": "Derivatives of Other Trigonometric Functions (continued)"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 3.43",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the equation of a line tangent to the graph of $f(x)=\\cot \\,x$ at $x=\\frac{\\pi}{4}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To find an equation of the tangent line, we need a point and a slope at that point. To find the point, compute"
+     },
+     {
+      "type": "math",
+      "tex": "f\\left(\\frac{\\pi}{4}\\right)=\\cot \\,\\frac{\\pi}{4}=1."
+     },
+     {
+      "type": "p",
+      "text": "Thus the tangent line passes through the point $\\left(\\frac{\\pi}{4},1\\right).$ Next, find the slope by finding the derivative of $f(x)=\\cot \\,x$ and evaluating it at $\\frac{\\pi}{4}:$"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=-\\csc^{2}x\\,\\text{and}\\,f'\\left(\\frac{\\pi}{4}\\right)=-\\csc^{2}\\left(\\frac{\\pi}{4}\\right)=-2."
+     },
+     {
+      "type": "p",
+      "text": "Using the point-slope equation of the line, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "y-1=-2\\left(x-\\frac{\\pi}{4}\\right)"
+     },
+     {
+      "type": "p",
+      "text": "or equivalently,"
+     },
+     {
+      "type": "math",
+      "tex": "y=-2x+1+\\frac{\\pi}{2}."
+     }
+    ]
+   },
+   "title": "Finding the Equation of a Tangent Line"
+  },
+  {
+   "id": "x9",
+   "kind": "example",
+   "label": "Example 3.44",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=\\csc \\,x+x\\,\\tan \\,x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "To find this derivative, we must use both the sum rule and the product rule. Using the sum rule, we find"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{d}{dx}(\\csc \\,x)+\\frac{d}{dx}(x\\,\\tan \\,x)."
+     },
+     {
+      "type": "p",
+      "text": "In the first term, $\\frac{d}{dx}(\\csc \\,x)=-\\csc \\,x\\,\\cot \\,x,$ and by applying the product rule to the second term we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{d}{dx}(x\\,\\tan \\,x)=(1)(\\tan \\,x)+(\\sec^{2}x)(x)."
+     },
+     {
+      "type": "p",
+      "text": "Therefore, we have"
+     },
+     {
+      "type": "math",
+      "tex": "f'(x)=-\\csc \\,x\\,\\cot \\,x+\\tan \\,x+x\\,\\sec^{2}x."
+     }
+    ]
+   },
+   "title": "Finding the Derivative of Trigonometric Functions"
+  },
+  {
+   "id": "c10",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.29",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=2\\,\\tan \\,x-3\\,\\cot \\,x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=2\\,\\sec^{2}x+3\\,\\csc^{2}x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the rule for differentiating a constant multiple and the rule for differentiating a difference of two functions."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 sec^2 x+3 csc^2 x"
+   }
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.30",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the slope of the line tangent to the graph of $f(x)=\\tan \\,x$ at $x=\\frac{\\pi}{6}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{4}{3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Evaluate the derivative at $x=\\frac{\\pi}{6}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(4/3)"
+   }
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The higher-order derivatives of $\\sin \\,x$ and $\\cos \\,x$ follow a repeating pattern. By following the pattern, we can find any higher-order derivative of $\\sin \\,x$ and $\\cos \\,x.$"
+    }
+   ],
+   "title": "Higher-Order Derivatives"
+  },
+  {
+   "id": "x13",
+   "kind": "example",
+   "label": "Example 3.45",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the first four derivatives of $y=\\sin \\,x.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Each step in the chain is straightforward:"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}y & = & \\sin \\,x \\\\ \\frac{dy}{dx} & = & \\cos \\,x \\\\ \\frac{d^{2}y}{dx^{2}} & = & -\\sin \\,x \\\\ \\frac{d^{3}y}{dx^{3}} & = & -\\cos \\,x \\\\ \\frac{d^{4}y}{dx^{4}} & = & \\sin \\,x.\\end{array}"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "Once we recognize the pattern of derivatives, we can find any higher-order derivative by determining the step in the pattern to which it corresponds. For example, every fourth derivative of sin *x* equals sin *x*, so"
+       },
+       {
+        "type": "math",
+        "tex": "\\begin{array}{l}\\frac{d^{4}}{dx^{4}}(\\sin \\,x)=\\frac{d^{8}}{dx^{8}}(\\sin \\,x)=\\frac{d^{12}}{dx^{12}}(\\sin \\,x)=\\dots =\\frac{d^{4n}}{dx^{4n}}(\\sin \\,x)=\\sin \\,x \\\\ \\frac{d^{5}}{dx^{5}}(\\sin \\,x)=\\frac{d^{9}}{dx^{9}}(\\sin \\,x)=\\frac{d^{13}}{dx^{13}}(\\sin \\,x)=\\dots =\\frac{d^{4n+1}}{dx^{4n+1}}(\\sin \\,x)=\\cos \\,x.\\end{array}"
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Finding Higher-Order Derivatives of $y=\\sin \\,x$"
+  },
+  {
+   "id": "c14",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.31",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For $y=\\cos \\,x,$ find $\\frac{d^{4}y}{dx^{4}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cos \\,x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "See the previous example."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "cos x"
+   }
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 3.46",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find $\\frac{d^{74}}{dx^{74}}(\\sin \\,x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We can see right away that for the 74th derivative of $\\sin \\,x,74=4(18)+2,$ so"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{d^{74}}{dx^{74}}(\\sin \\,x)=\\frac{d^{72+2}}{dx^{72+2}}(\\sin \\,x)=\\frac{d^{2}}{dx^{2}}(\\sin \\,x)=-\\sin \\,x."
+     }
+    ]
+   },
+   "title": "Using the Pattern for Higher-Order Derivatives of $y=\\sin \\,x$"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.32",
+   "problem": [
+    {
+     "type": "p",
+     "text": "For $y=\\sin \\,x,$ find $\\frac{d^{59}}{dx^{59}}(\\sin \\,x).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\cos \\,x$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "$\\frac{d^{59}}{dx^{59}}(\\sin \\,x)=\\frac{d^{4\\cdot 14+3}}{dx^{4\\cdot 14+3}}(\\sin \\,x)$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "- cos x"
+   }
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 3.47",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A particle moves along a coordinate axis in such a way that its position at time $t$ is given by $s(t)=2-\\sin \\,t.$ Find $v(\\pi /4)$ and $a(\\pi /4).$ Compare these values and decide whether the particle is speeding up or slowing down."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First find $v(t)=s'(t):$"
+     },
+     {
+      "type": "math",
+      "tex": "v(t)=s'(t)=-\\cos \\,t."
+     },
+     {
+      "type": "p",
+      "text": "Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "v\\left(\\frac{\\pi}{4}\\right)=-\\frac{1}{\\sqrt{2}}."
+     },
+     {
+      "type": "p",
+      "text": "Next, find $a(t)=v'(t).$ Thus, $a(t)=v'(t)=\\sin \\,t$ and we have"
+     },
+     {
+      "type": "math",
+      "tex": "a\\left(\\frac{\\pi}{4}\\right)=\\frac{1}{\\sqrt{2}}."
+     },
+     {
+      "type": "p",
+      "text": "Since $v\\left(\\frac{\\pi}{4}\\right)=-\\frac{1}{\\sqrt{2}}<0$ and $a\\left(\\frac{\\pi}{4}\\right)=\\frac{1}{\\sqrt{2}}>0,$ we see that velocity and acceleration are acting in opposite directions; that is, the object is being accelerated in the direction opposite to the direction in which it is travelling. Consequently, the particle is slowing down."
+     }
+    ]
+   },
+   "title": "An Application to Acceleration"
+  },
+  {
+   "id": "c18",
+   "kind": "checkpoint",
+   "label": "Checkpoint 3.33",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A block attached to a spring is moving vertically. Its position at time $t$ is given by $s(t)=2\\,\\sin \\,t.$ Find $v(\\frac{5\\pi}{6})$ and $a\\left(\\frac{5\\pi}{6}\\right).$ Compare these values and decide whether the block is speeding up or slowing down."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v\\left(\\frac{5\\pi}{6}\\right)=-\\sqrt{3}<0$ and $a\\left(\\frac{5\\pi}{6}\\right)=-1<0.$ The block is speeding up."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use Example 3.47 as a guide."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "We can find the derivatives of sin *x* and cos *x* by using the definition of derivative and the limit formulas found earlier. The results are"
+       },
+       {
+        "type": "math",
+        "tex": "\\frac{d}{dx}\\,\\sin \\,x=\\cos \\,x\\,\\frac{d}{dx}\\,\\cos \\,x=-\\sin \\,x."
+       }
+      ],
+      "With these two formulas, we can determine the derivatives of all six basic trigonometric functions."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Derivative of sine function**",
+       "$\\frac{d}{dx}(\\sin \\,x)=\\cos \\,x$"
+      ],
+      [
+       "**Derivative of cosine function**",
+       "$\\frac{d}{dx}(\\cos \\,x)=-\\sin \\,x$"
+      ],
+      [
+       "**Derivative of tangent function**",
+       "$\\frac{d}{dx}(\\tan \\,x)=\\sec^{2}x$"
+      ],
+      [
+       "**Derivative of cotangent function**",
+       "$\\frac{d}{dx}(\\cot \\,x)=-\\csc^{2}x$"
+      ],
+      [
+       "**Derivative of secant function**",
+       "$\\frac{d}{dx}(\\sec \\,x)=\\sec \\,x\\,\\tan \\,x$"
+      ],
+      [
+       "**Derivative of cosecant function**",
+       "$\\frac{d}{dx}(\\csc \\,x)=-\\csc \\,x\\,\\cot \\,x$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e175",
+   "number": 175,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{2}-\\sec \\,x+1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736597649",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=2x-\\sec \\,x\\,\\tan \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 x- sec x tan x"
+   }
+  },
+  {
+   "id": "e176",
+   "number": 176,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=3\\,\\csc \\,x+\\frac{5}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736597729",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e177",
+   "number": 177,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{2}\\cot \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736658534",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=2x\\,\\cot \\,x-x^{2}\\csc^{2}x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 x cot x-x^2 csc^2 x"
+   }
+  },
+  {
+   "id": "e178",
+   "number": 178,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x-x^{3}\\sin \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736658614",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e179",
+   "number": 179,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{\\sec \\,x}{x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739275164",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=\\frac{x\\,\\sec \\,x\\,\\tan \\,x-\\sec \\,x}{x^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((x sec x tan x- sec x)/(x^2))"
+   }
+  },
+  {
+   "id": "e180",
+   "number": 180,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sin \\,x\\,\\tan \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739275253",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e181",
+   "number": 181,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=(x+\\cos \\,x)(1-\\sin \\,x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739303603",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=(1-\\sin \\,x)(1-\\sin \\,x)-\\cos \\,x(x+\\cos \\,x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1- sin x)(1- sin x)- cos x(x+ cos x)"
+   }
+  },
+  {
+   "id": "e182",
+   "number": 182,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{\\tan \\,x}{1-\\sec \\,x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739303738",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e183",
+   "number": 183,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{1-\\cot \\,x}{1+\\cot \\,x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739350812",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=\\frac{2\\,\\csc^{2}x}{(1+\\cot \\,x)^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((2 csc^2 x)/((1+ cot x)^2))"
+   }
+  },
+  {
+   "id": "e184",
+   "number": 184,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\cos \\,x(1+\\csc \\,x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736593529",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e185",
+   "number": 185,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=-\\sin \\,x,x=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736593674",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-x$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_03_05_201.webp",
+      "alt": "The graph shows negative sin(x) and the straight line T(x) with slope −1 and y intercept 0.",
+      "width": 325,
+      "height": 288
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e186",
+   "number": 186,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\csc \\,x,x=\\frac{\\pi}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739266669",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e187",
+   "number": 187,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=1+\\cos \\,x,x=\\frac{3\\pi}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739266742",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=x+\\frac{2-3\\pi}{2}$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_03_05_203.webp",
+      "alt": "The graph shows the cosine function shifted up one and has the straight line T(x) with slope 1 and y intercept (2 – 3π)/2.",
+      "width": 325,
+      "height": 288
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e188",
+   "number": 188,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=\\sec \\,x,x=\\frac{\\pi}{4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736655200",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e189",
+   "number": 189,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=x^{2}-\\tan \\,x,\\,x=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736655301",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-x$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_03_05_205.webp",
+      "alt": "The graph shows the function as starting at (−1, 3), decreasing to the origin, continuing to slowly decrease to about (1, −0.5), at which point it decreases very quickly.",
+      "width": 325,
+      "height": 288
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e190",
+   "number": 190,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x)=5\\,\\cot \\,x,\\,x=\\frac{\\pi}{4}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739305492",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e191",
+   "number": 191,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x\\,\\sin \\,x-\\cos \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739305614",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3\\,\\cos \\,x-x\\,\\sin \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "3 cos x-x sin x"
+   }
+  },
+  {
+   "id": "e192",
+   "number": 192,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sin \\,x\\,\\cos \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736662308",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e193",
+   "number": 193,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x-\\frac{1}{2}\\,\\sin \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736662371",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\,\\sin \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/2) sin x"
+   }
+  },
+  {
+   "id": "e194",
+   "number": 194,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{1}{x}+\\tan \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736662423",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e195",
+   "number": 195,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=2\\,\\csc \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739303429",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\csc \\,x(\\csc^{2}x+\\cot^{2}x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "2 csc x(csc^2 x+ cot^2 x)"
+   }
+  },
+  {
+   "id": "e196",
+   "number": 196,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sec^{2}x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739303516",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e197",
+   "number": 197,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find all $x$ values on the graph of $f(x)=-3\\,\\sin \\,x\\,\\cos \\,x$ where the tangent line is horizontal."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739335809",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{(2n+1)\\pi}{4},\\text{where}\\,n\\,\\text{is an integer}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e198",
+   "number": 198,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find all $x$ values on the graph of $f(x)=x-2\\,\\cos \\,x$ for $0<x<2\\pi$ where the tangent line has slope 2."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739335906",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e199",
+   "number": 199,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let $f(x)=\\cot \\,x.$ Determine the points on the graph of $f$ for $0<x<2\\pi$ where the tangent line(s) is (are) parallel to the line $y=-2x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739335992",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\left(\\frac{\\pi}{4},1\\right),(\\frac{3\\pi}{4},-1),(\\frac{5\\pi}{4},1),(\\frac{7\\pi}{4},-1)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e200",
+   "number": 200,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** A mass on a spring bounces up and down in simple harmonic motion, modeled by the function $s(t)=-6\\,\\cos \\,t$ where $s$ is measured in inches and $t$ is measured in seconds. Find the rate at which the spring is oscillating at $t=5$ s."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736613947",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e201",
+   "number": 201,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let the position of a swinging pendulum in simple harmonic motion be given by $s(t)=a\\,\\cos \\,t+b\\,\\sin \\,t$ where $a$ and $b$ are constants, $t$ measures time in seconds, and $s$ measures position in centimeters. If the position is 0 cm and the velocity is 3 cm/s when $t=0$, find the values of $a$ and $b$."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736614037",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$a=0,b=3$"
+     }
+    ]
+   },
+   "notes": "self-check: could not classify \"a=0, b=3\""
+  },
+  {
+   "id": "e202",
+   "number": 202,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "After a diver jumps off a diving board, the edge of the board oscillates with position given by $s(t)=-5\\,\\cos \\,t$ cm at $t$ seconds after the jump."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Sketch one period of the position function for $t\\ge 0.$",
+      "Find the velocity function.",
+      "Sketch one period of the velocity function for $t\\ge 0.$",
+      "Determine the times when the velocity is 0 over one period.",
+      "Find the acceleration function.",
+      "Sketch one period of the acceleration function for $t\\ge 0.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739341409",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e203",
+   "number": 203,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The number of hamburgers sold at a fast-food restaurant in Pasadena, California, is given by $y=10+5\\,\\sin \\,x$ where $y$ is the number of hamburgers sold and $x$ represents the number of hours after the restaurant opened at 11 a.m. until 11 p.m., when the store closes. Find $y'$ and determine the intervals where the number of burgers being sold is increasing."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739353376",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=5\\,\\cos \\,(x),$ increasing on $\\left(0,\\frac{\\pi}{2}\\right),\\left(\\frac{3\\pi}{2},\\frac{5\\pi}{2}\\right),$ and $\\left(\\frac{7\\pi}{2},12\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e204",
+   "number": 204,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** The amount of rainfall per month in Phoenix, Arizona, can be approximated by $y(t)=0.5+0.3\\,\\cos \\,t,$ where $t$ is months since January. Find $y'$ and use a calculator to determine the intervals where the amount of rain falling is decreasing."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739307888",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e205",
+   "number": 205,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}(\\cot \\,x)=-\\csc^{2}x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739264128",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the quotient rule to derive the given equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e206",
+   "number": 206,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}(\\sec \\,x)=\\sec \\,x\\,\\tan \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739264176",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the quotient rule to derive the given equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e207",
+   "number": 207,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}(\\csc \\,x)=-\\csc \\,x\\,\\cot \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739264230",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the quotient rule to derive the given equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e208",
+   "number": 208,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the definition of derivative and the identity"
+    },
+    {
+     "type": "p",
+     "text": "$\\cos \\,(x+h)=\\cos \\,x\\,\\cos \\,h-\\sin \\,x\\,\\sin \\,h$ to prove that $\\frac{d(\\cos \\,x)}{dx}=-\\sin \\,x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739264287",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the quotient rule to derive the given equations."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e209",
+   "number": 209,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d^{3}y}{dx^{3}}$ of $y=3\\,\\cos \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739289340",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the requested higher-order derivative for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3\\,\\sin \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "3 sin x"
+   }
+  },
+  {
+   "id": "e210",
+   "number": 210,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d^{2}y}{dx^{2}}$ of $y=3\\,\\sin \\,x+x^{2}\\cos \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169739289409",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the requested higher-order derivative for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e211",
+   "number": 211,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d^{4}y}{dx^{4}}$ of $y=5\\,\\cos \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169736592467",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the requested higher-order derivative for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$5\\,\\cos \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "5 cos x"
+   }
+  },
+  {
+   "id": "e212",
+   "number": 212,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d^{2}y}{dx^{2}}$ of $y=\\sec \\,x+\\cot \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1169736592536",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the requested higher-order derivative for the given functions."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e213",
+   "number": 213,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d^{3}y}{dx^{3}}$ of $y=x^{10}-\\sec \\,x$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1169739301937",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the requested higher-order derivative for the given functions."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$720x^{7}-5\\,\\tan \\,(x)\\sec^{3}(x)-\\tan^{3}(x)\\,\\sec \\,(x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "720 x^7-5 tan (x) sec^3 (x)- tan^3 (x) sec (x)"
+   }
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "The Derivatives of sin *x* and cos *x*",
+   "statement": [
+    {
+     "type": "p",
+     "text": "The derivative of the sine function is the cosine and the derivative of the cosine function is the negative sine."
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(\\sin \\,x)=\\cos \\,x"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(\\cos \\,x)=-\\sin \\,x"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Because the proofs for $\\frac{d}{dx}(\\sin \\,x)=\\cos \\,x$ and $\\frac{d}{dx}(\\cos \\,x)=-\\sin \\,x$ use similar techniques, we provide only the proof for $\\frac{d}{dx}(\\sin \\,x)=\\cos \\,x.$ Before beginning, recall two important trigonometric limits we learned in Introduction to Limits:"
+    },
+    {
+     "type": "math",
+     "tex": "\\lim_{h\\to 0}\\frac{\\sin \\,h}{h}=1\\,\\text{and}\\,\\lim_{h\\to 0}\\frac{\\cos \\,h-1}{h}=0."
+    },
+    {
+     "type": "p",
+     "text": "The graphs of $y=\\frac{(\\sin \\,h)}{h}$ and $y=\\frac{(\\cos \\,h-1)}{h}$ are shown in Figure 3.25."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_05_002.webp",
+     "alt": "The function y = (sin h)/h and y = (cos h – 1)/h are graphed. They both have discontinuities on the y-axis.",
+     "caption": "**Figure 3.25** These graphs show two important limits needed to establish the derivative formulas for the sine and cosine functions.",
+     "width": 800,
+     "height": 386
+    },
+    {
+     "type": "p",
+     "text": "We also recall the following trigonometric identity for the sine of the sum of two angles:"
+    },
+    {
+     "type": "math",
+     "tex": "\\sin \\,(x+h)=\\sin \\,x\\,\\cos \\,h+\\cos \\,x\\,\\sin \\,h."
+    },
+    {
+     "type": "p",
+     "text": "Now that we have gathered all the necessary equations and identities, we proceed with the proof."
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccccc}\\frac{d}{dx}\\,\\sin \\,x & =\\lim_{h\\to 0}\\frac{\\sin \\,(x+h)-\\sin \\,x}{h} & & & \\text{Apply the definition}\\,\\text{of the derivative.} \\\\ & =\\lim_{h\\to 0}\\frac{\\sin \\,x\\,\\cos \\,h+\\cos \\,x\\,\\sin \\,h-\\sin \\,x}{h} & & & \\text{Use trig identity for the sine of the sum of two angles.} \\\\ & =\\lim_{h\\to 0}\\left(\\frac{\\sin \\,x\\,\\cos \\,h-\\sin \\,x}{h}+\\frac{\\cos \\,x\\,\\sin \\,h}{h}\\right) & & & \\text{Regroup.} \\\\ & =\\lim_{h\\to 0}\\left(\\sin \\,x\\left(\\frac{\\cos \\,h-1}{h}\\right)+\\cos \\,x\\left(\\frac{\\sin \\,h}{h}\\right)\\right) & & & \\text{Factor out}\\,\\sin \\,x\\,\\text{and}\\,\\cos \\,x. \\\\ & =\\sin \\,x\\cdot 0+\\cos \\,x\\cdot 1 & & & \\text{Apply trig limit formulas.} \\\\ & =\\cos \\,x & & & \\text{Simplify.}\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Figure 3.26 shows the relationship between the graph of $f(x)=\\sin \\,x$ and its derivative $f'(x)=\\cos \\,x.$ Notice that at the points where $f(x)=\\sin \\,x$ has a horizontal tangent, its derivative $f'(x)=\\cos \\,x$ takes on the value zero. We also see that where $f(x)=\\sin \\,x$ is increasing, $f'(x)=\\cos \\,x>0$ and where $f(x)=\\sin \\,x$ is decreasing, $f'(x)=\\cos \\,x<0.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_03_05_003.webp",
+     "alt": "The functions f(x) = sin x and f’(x) = cos x are graphed. It is apparent that when f(x) has a maximum or a minimum that f’(x) = 0.",
+     "caption": "**Figure 3.26** Where $f(x)$ has a maximum or a minimum, $f'(x)=0$ that is, $f'(x)=0$ where $f(x)$ has a horizontal tangent. These points are noted with dots on the graphs.",
+     "width": 487,
+     "height": 358
+    },
+    {
+     "type": "p",
+     "text": "Find the derivative of $f(x)=5x^{3}\\sin \\,x.$"
+    },
+    {
+     "type": "p",
+     "text": "Using the product rule, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}f'(x) & =\\frac{d}{dx}(5x^{3})\\cdot \\sin \\,x+\\frac{d}{dx}(\\sin \\,x)\\cdot 5x^{3} \\\\ & =15x^{2}\\cdot \\sin \\,x+\\cos \\,x\\cdot 5x^{3}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "After simplifying, we obtain"
+    },
+    {
+     "type": "math",
+     "tex": "f'(x)=15x^{2}\\sin \\,x+5x^{3}\\cos \\,x."
+    },
+    {
+     "type": "p",
+     "text": "Find the derivative of $g(x)=\\frac{\\cos \\,x}{4x^{2}}.$"
+    },
+    {
+     "type": "p",
+     "text": "By applying the quotient rule, we have"
+    },
+    {
+     "type": "math",
+     "tex": "g'(x)=\\frac{(-\\sin \\,x)4x^{2}-8x(\\cos \\,x)}{(4x^{2})^{2}}."
+    },
+    {
+     "type": "p",
+     "text": "Simplifying, we obtain"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}g'(x) & =\\frac{-4x^{2}\\sin \\,x-8x\\,\\cos \\,x}{16x^{4}} \\\\ & =\\frac{-x\\,\\sin \\,x-2\\,\\cos \\,x}{4x^{3}}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "A particle moves along a coordinate axis in such a way that its position at time $t$ is given by $s(t)=2\\,\\sin \\,t-t$ for $0\\le t\\le 2\\pi .$ At what times is the particle at rest?"
+    },
+    {
+     "type": "p",
+     "text": "To determine when the particle is at rest, set $s'(t)=v(t)=0.$ Begin by finding $s'(t).$ We obtain"
+    },
+    {
+     "type": "math",
+     "tex": "s'(t)=2\\,\\cos \\,t-1,"
+    },
+    {
+     "type": "p",
+     "text": "so we must solve"
+    },
+    {
+     "type": "math",
+     "tex": "2\\,\\cos \\,t-1=0\\,\\text{for}\\,0\\le t\\le 2\\pi ."
+    },
+    {
+     "type": "p",
+     "text": "The solutions to this equation are $t=\\frac{\\pi}{3}$ and $t=\\frac{5\\pi}{3}.$ Thus the particle is at rest at times $t=\\frac{\\pi}{3}$ and $t=\\frac{5\\pi}{3}.$"
+    }
+   ],
+   "label": "book"
+  }
+ ]
+}

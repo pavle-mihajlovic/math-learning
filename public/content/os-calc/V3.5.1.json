@@ -1,0 +1,3107 @@
+{
+ "schema": 1,
+ "id": "V3.5.1",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 5,
+ "section": 1,
+ "title": "Double Integrals over Rectangular Regions",
+ "chapterTitle": "Multiple Integration",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m53949",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/5-1-double-integrals-over-rectangular-regions",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §5.1 “Double Integrals over Rectangular Regions”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Recognize when a function of two variables is integrable over a rectangular region.",
+  "Recognize and use some of the properties of double integrals.",
+  "Evaluate a double integral over a rectangular region by writing it as an iterated integral.",
+  "Use a double integral to calculate the area of a region, volume under a surface, or average value of a function over a plane region."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In this section we investigate double integrals and show how we can use them to find the volume of a solid over a rectangular region in the $xy$-plane. Many of the properties of double integrals are similar to those we have already discussed for single integrals."
+    }
+   ],
+   "title": "Double Integrals over Rectangular Regions"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We begin by considering the space above a rectangular region *R*. Consider a continuous function $f(x,y)\\ge 0$ of two variables defined on the closed rectangle *R*:"
+    },
+    {
+     "type": "math",
+     "tex": "R=[a,b]\\,\\times \\,[c,d]=\\{(x,y)\\in {\\mathbb{R}}^{2}|a\\le x\\le b,c\\le y\\le d\\}"
+    },
+    {
+     "type": "p",
+     "text": "Here $[a,b]\\,\\times \\,[c,d]$ denotes the Cartesian product of the two closed intervals $[a,b]$ and $[c,d].$ It consists of rectangular pairs $(x,y)$ such that $a\\le x\\le b$ and $c\\le y\\le d.$ The graph of $f$ represents a surface above the $xy$-plane with equation $z=f(x,y)$ where $z$ is the height of the surface at the point $(x,y).$ Let $S$ be the solid that lies above $R$ and under the graph of $f$ (Figure 5.1). The base of the solid is the rectangle $R$ in the $xy$-plane. We want to find the volume $V$ of the solid $S.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_001.webp",
+     "alt": "In xyz space, there is a surface z = f(x, y). On the x axis, the lines denoting a and b are drawn; on the y axis the lines for c and d are drawn. When the surface is projected onto the xy plane, it forms a rectangle with corners (a, c), (a, d), (b, c), and (b, d).",
+     "caption": "**Figure 5.1** The graph of $f(x,y)$ over the rectangle $R$ in the $xy$-plane is a curved surface.",
+     "width": 487,
+     "height": 434
+    },
+    {
+     "type": "p",
+     "text": "We divide the region $R$ into small rectangles $R_{ij},$ each with area $\\text{Δ}A$ and with sides $\\text{Δ}x$ and $\\text{Δ}y$ (Figure 5.2). We do this by dividing the interval $[a,b]$ into $m$ subintervals and dividing the interval $[c,d]$ into $n$ subintervals. Hence $\\text{Δ}x=\\frac{b-a}{m},$ $\\text{Δ}y=\\frac{d-c}{n},$ and $\\text{Δ}A=\\text{Δ}x\\text{Δ}y.$"
+    }
+   ],
+   "title": "Volumes and Double Integrals"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_002.webp",
+     "alt": "In the xy plane, there is a rectangle with corners (a, c), (a, d), (b, c), and (b, d). Between a and b on the x axis lines are drawn from a, x1, x2, …, xi, …, b with distance Delta x between each line; between c and d on the y axis lines are drawn from c, y1, y2, …, yj, …, d with distance Delta y between each line. Among the resulting subrectangles, the one in the second column and third row up has a point marked (x*23, y*23). The rectangle Rij is marked with upper right corner (xi, yj). Within this rectangle the point (x*ij, y*ij) is marked.",
+     "caption": "**Figure 5.2** Rectangle $R$ is divided into small rectangles $R_{ij},$ each with area $\\text{Δ}A.$",
+     "width": 900,
+     "height": 521
+    },
+    {
+     "type": "p",
+     "text": "The volume of a thin rectangular box above $R_{ij}$ is $f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A,$ where $\\left(x_{ij}^{*},y_{ij}^{*}\\right)$ is an arbitrary sample point in each $R_{ij}$ as shown in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_003.webp",
+     "alt": "In xyz space, there is a surface z = f(x, y). On the x axis, the lines denoting a and b are drawn; on the y axis the lines for c and d are drawn. When the surface is projected onto the xy plane, it forms a rectangle with corners (a, c), (a, d), (b, c), and (b, d). There are additional squares drawn to correspond to changes of Delta x and Delta y. On the surface, a square is marked and its projection onto the plane is marked as Rij. The average value for this small square is f(x*ij, y*ij).",
+     "caption": "**Figure 5.3** A thin rectangular box above $R_{ij}$ with height $f\\left(x_{ij}^{*},y_{ij}^{*}\\right).$",
+     "width": 487,
+     "height": 474
+    }
+   ],
+   "title": "Volumes and Double Integrals (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Using the same idea for all the subrectangles, we obtain an approximate volume of the solid $S$ as $V\\approx {\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A}}.$ This sum is known as a **double Riemann sum** and can be used to approximate the value of the volume of the solid. Here the double sum means that for each subrectangle we evaluate the function at the chosen point, multiply by the area of each rectangle, and then add all the results."
+    },
+    {
+     "type": "p",
+     "text": "As we have seen in the single-variable case, we obtain a better approximation to the actual volume if *m* and *n* become larger."
+    },
+    {
+     "type": "math",
+     "tex": "V=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}}}A\\,\\text{or}\\,V=\\lim_{\\text{Δ}x,\\text{Δ}y\\to 0}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A.}}"
+    },
+    {
+     "type": "p",
+     "text": "Note that the sum approaches a limit in either case and the limit is the volume of the solid with the base *R*. Now we are ready to define the double integral."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **double integral** of the function $f(x,y)$ over the rectangular region $R$ in the $xy$-plane is defined as"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\iint_{R}f(x,y)dA}=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A}}."
+      }
+     ]
+    }
+   ],
+   "title": "Volumes and Double Integrals (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If $f(x,y)\\ge 0,$ then the volume *V* of the solid *S*, which lies above $R$ in the $xy$-plane and under the graph of *f*, is the double integral of the function $f(x,y)$ over the rectangle $R.$ If the function is ever negative, then the double integral can be considered a “signed” volume in a manner similar to the way we defined net signed area in The Definite Integral."
+    }
+   ],
+   "title": "Volumes and Double Integrals (continued)"
+  },
+  {
+   "id": "x6",
+   "kind": "example",
+   "label": "Example 5.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the function $z=f(x,y)=3x^{2}-y$ over the rectangular region $R=[0,2]\\,\\times \\,[0,2]$ (Figure 5.4)."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Set up a double integral for finding the value of the signed volume of the solid *S* that lies above $R$ and “under” the graph of $f.$",
+      "Divide *R* into four squares with $m=n=2,$ and choose the sample point as the upper right corner point of each square $(1,1),(2,1),(1,2),$ and $(2,2)$ (Figure 5.5) to approximate the signed volume of the solid *S* that lies above $R$ and “under” the graph of $f.$",
+      [
+       {
+        "type": "p",
+        "text": "Divide *R* into four squares with $m=n=2,$ and choose the sample point as the midpoint of each square: $(1/2,1/2),(3/2,1/2),(1/2,3/2),\\text{and}\\,(3/2,3/2)$ to approximate the signed volume."
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_15_01_004.webp",
+        "alt": "In xyz space, there is a surface z = f(x, y) = 3x2 minus y. The corners of the surface are given as (0, 0, 0), (2, 0, 12), (0, 2, negative 2), and (2, 2, 10). The surface is parabolic along the x axis.",
+        "caption": "**Figure 5.4** The function $z=f(x,y)$ graphed over the rectangular region $R=[0,2]\\,\\times \\,[0,2].$",
+        "width": 483,
+        "height": 252
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "As we can see, the function $z=f(x,y)=3x^{2}-y^{}$ is both above and below the plane. To find the signed volume of *S*, we need to divide the region *R* into small rectangles $R_{ij},$ each with area $\\text{Δ}A$ and with sides $\\text{Δ}x$ and $\\text{Δ}y,$ and choose $\\left(x_{ij}^{*},y_{ij}^{*}\\right)$ as sample points in each $R_{ij}.$ Hence, a double integral is set up as"
+        },
+        {
+         "type": "math",
+         "tex": "V={\\displaystyle \\iint_{R}(3x^{2}-y)dA}=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}\\left[3\\left(x_{ij}^{*}\\right)^{2}-y_{ij}^{*}\\right]\\text{Δ}A}}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Approximating the signed volume using a Riemann sum with $m=n=2$ we have $\\text{Δ}A=\\text{Δ}x\\text{Δ}y=1\\,\\times \\,1=1.$ Also, the sample points are (1, 1), (2, 1), (1, 2), and (2, 2) as shown in the following figure."
+        },
+        {
+         "type": "figure",
+         "src": "figures/os-calc/CNX_Calc_Figure_15_01_005.webp",
+         "alt": "On the xy plane, the points (1, 1), (1, 2), (2, 1), and (2, 2) are marked, and these form the upper right corners of four squares marked R11, R12, R21, and R22, respectively. Each square has area Delta A = 1.",
+         "caption": "**Figure 5.5** Subrectangles for the rectangular region $R=[0,2]\\,\\times \\,[0,2].$",
+         "width": 376,
+         "height": 484
+        },
+        {
+         "type": "p",
+         "text": "Hence,"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cl}V & =\\sum_{i=1}^{2}\\sum_{j=1}^{2}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A \\\\ & =\\sum_{i=1}^{2}(f(x_{i1}^{*},y_{i1}^{*})+f(x_{i2}^{*},y_{i2}^{*}))\\text{Δ}A \\\\ & =f(x_{11}^{*},y_{11}^{*})\\text{Δ}A+f(x_{21}^{*},y_{21}^{*})\\text{Δ}A+f(x_{12}^{*},y_{12}^{*})\\text{Δ}A+f(x_{22}^{*},y_{22}^{*})\\text{Δ}A \\\\ & =f(1,1)(1)+f(2,1)(1)+f(1,2)(1)+f(2,2)(1) \\\\ & =\\left(3-1\\right)(1)+(12-1)(1)+(3-2)(1)+(12-2)(1) \\\\ & =2+11+1+10=24\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Approximating the signed volume using a Riemann sum with $m=n=2,$ we have $\\text{Δ}A=\\text{Δ}x\\text{Δ}y=1\\,\\times \\,1=1.$ In this case the sample points are (1/2, 1/2), (3/2, 1/2), (1/2, 3/2),\nand (3/2, 3/2).\n\nHence"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}V & =\\sum_{i=1}^{2}\\sum_{j=1}^{2}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A \\\\ & =f(x_{11}^{*},y_{11}^{*})\\text{Δ}A+f(x_{21}^{*},y_{21}^{*})\\text{Δ}A+f(x_{12}^{*},y_{12}^{*})\\text{Δ}A+f(x_{22}^{*},y_{22}^{*})\\text{Δ}A \\\\ & =f(\\frac{1}{2},\\frac{1}{2})(1)+f(\\frac{3}{2},\\frac{1}{2})(1)+f(\\frac{1}{2},\\frac{3}{2})(1)+f(\\frac{3}{2},\\frac{3}{2})(1) \\\\ & =\\left(\\frac{3}{4}-\\frac{1}{2}\\right)(1)+\\left(\\frac{27}{4}-\\frac{1}{2}\\right)(1)+\\left(\\frac{3}{4}-\\frac{3}{2}\\right)(1)+\\left(\\frac{27}{4}-\\frac{3}{2}\\right)(1) \\\\ & =\\frac{1}{4}+\\frac{25}{4}+\\left(-\\frac{3}{4}\\right)+\\frac{21}{4}=\\frac{44}{4}=11\\end{array}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "Notice that the approximate answers differ due to the choices of the sample points. In either case, we are introducing some error because we are using only a few sample points. Thus, we need to investigate how we can achieve an accurate answer."
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Setting up a Double Integral and Approximating It by Double Sums"
+  },
+  {
+   "id": "c7",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use the same function $z=f(x,y)=3x^{2}-y^{}$ over the rectangular region $R=[0,2]\\,\\times \\,[0,2].$"
+    },
+    {
+     "type": "p",
+     "text": "Divide *R* into the same four squares with $m=n=2,$ and choose the sample points as the upper left corner point of each square $(0,1),(1,1),(0,2),$ and $(1,2)$ (Figure 5.5) to approximate the signed volume of the solid *S* that lies above $R$ and “under” the graph of $f.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$V={\\displaystyle \\sum_{i=1}^{2}{\\displaystyle \\sum_{j=1}^{2}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A}}=0$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Follow the steps of the previous example."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "r8",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Note that we developed the concept of double integral using a rectangular region *R*. This concept can be extended to any general region. However, when a region is not rectangular, the subrectangles may not all fit perfectly into *R*, particularly if the base area is curved. We examine this situation in more detail in the next section, where we study regions that are not always rectangular and subrectangles may not fit perfectly in the region *R*. Also, the heights may not be exact if the surface $z=f(x,y)$ is curved. However, the errors on the sides and the height where the pieces may not fit perfectly within the solid *S* approach 0 as *m* and *n* approach infinity. Also, the double integral of the function $z=f(x,y)$ exists provided that the function $f$ is not too discontinuous. If the function is bounded and continuous over *R* except on a finite number of smooth curves, then the double integral exists and we say that $f$ is integrable over *R*."
+    },
+    {
+     "type": "p",
+     "text": "Since $\\text{Δ}A=\\text{Δ}x\\text{Δ}y=\\text{Δ}y\\text{Δ}x,$ we can express $dA$ as $dx\\,dy$ or $dy\\,dx.$ This means that, when we are using rectangular coordinates, the double integral over a region $R$ denoted by ${\\displaystyle \\iint_{R}f(x,y)d}A$ can be written as ${\\displaystyle \\iint_{R}f(x,y)d}x\\,dy$ or ${\\displaystyle \\iint_{R}f(x,y)d}y\\,dx.$"
+    },
+    {
+     "type": "p",
+     "text": "Now let’s list some of the properties that can be helpful to compute double integrals."
+    }
+   ],
+   "title": "Volumes and Double Integrals (continued)"
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The properties of double integrals are very helpful when computing them or otherwise working with them. We list here six properties of double integrals. Properties 1 and 2 are referred to as the linearity of the integral, property 3 is the additivity of the integral, property 4 is the monotonicity of the integral, and property 5 is used to find the bounds of the integral. Property 6 is used if $f(x,y)$ is a product of two functions $g(x)$ and $h(y).$"
+    }
+   ],
+   "title": "Properties of Double Integrals"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Assume that the functions $f(x,y)$ and $g(x,y)$ are integrable over the rectangular region *R*; *S* and *T* are subregions of *R*; and assume that *m* and *M* are real numbers."
+      },
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "p",
+          "text": "The sum $f(x,y)+g(x,y)$ is integrable and"
+         },
+         {
+          "type": "math",
+          "tex": "{\\displaystyle \\iint_{R}[f(x,y)+g(x,y)]dA=}{\\displaystyle \\iint_{R}f(x,y)dA+}{\\displaystyle \\iint_{R}g(x,y)dA.}"
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "If *c* is a constant, then $cf(x,y)$ is integrable and"
+         },
+         {
+          "type": "math",
+          "tex": "{\\displaystyle \\iint_{R}cf(x,y)dA=c}{\\displaystyle \\iint_{R}f(x,y)dA.}"
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "If $R=S\\cup T$ and $S\\cap T=\\varnothing$ except an overlap on the boundaries, then"
+         },
+         {
+          "type": "math",
+          "tex": "{\\displaystyle \\iint_{R}f(x,y)dA=}{\\displaystyle \\iint_{S}f(x,y)dA+{\\displaystyle \\iint_{T}f(x,y)dA}.}"
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "If $f(x,y)\\ge g(x,y)$ for $(x,y)$ in $R,$ then"
+         },
+         {
+          "type": "math",
+          "tex": "{\\displaystyle \\iint_{R}f(x,y)dA\\ge}{\\displaystyle \\iint_{R}g(x,y)dA.}"
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "If $m\\le f(x,y)\\le M,$ then"
+         },
+         {
+          "type": "math",
+          "tex": "m\\,\\times \\,A(R)\\le {\\displaystyle \\iint_{R}f(x,y)dA\\le M\\,\\times \\,A(R)}."
+         }
+        ],
+        [
+         {
+          "type": "p",
+          "text": "In the case where $f(x,y)$ can be factored as a product of a function $g(x)$ of $x$ only and a function $h(y)$ of $y$ only, then over the region $R=\\{(x,y)|a\\le x\\le b,c\\le y\\le d\\},$ the double integral can be written as"
+         },
+         {
+          "type": "math",
+          "tex": "{\\displaystyle \\iint_{R}f(x,y)dA}=\\left({\\displaystyle \\int_{a}^{b}g(x)dx}\\right)\\left({\\displaystyle \\int_{c}^{d}h(y)dy}\\right)."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Properties of Double Integrals"
+    }
+   ],
+   "title": "Properties of Double Integrals (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "These properties are used in the evaluation of double integrals, as we will see later. We will become skilled in using these properties once we become familiar with the computational tools of double integrals. So let’s get to that now."
+    }
+   ],
+   "title": "Properties of Double Integrals (continued)"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "So far, we have seen how to set up a double integral and how to obtain an approximate value for it. We can also imagine that evaluating double integrals by using the definition can be a very lengthy process if we choose larger values for $m$ and $n.$ Therefore, we need a practical and convenient technique for computing double integrals. In other words, we need to learn how to compute double integrals without employing the definition that uses limits and double sums."
+    },
+    {
+     "type": "p",
+     "text": "The basic idea is that the evaluation becomes easier if we can break a double integral into single integrals by integrating first with respect to one variable and then with respect to the other. The key tool we need is called an iterated integral."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Assume $a,b,c,$ and $d$ are real numbers. We define an **iterated integral** for a function $f(x,y)$ over the rectangular region $R$ $=[a,b]\\,\\times \\,[c,d]$ as"
+      },
+      {
+       "type": "list",
+       "items": [
+        [
+         {
+          "type": "math",
+          "tex": "{\\displaystyle \\int_{a}^{b}\\,{\\displaystyle \\int_{c}^{d}f(x,y)dy\\,dx}}={\\displaystyle \\int_{a}^{b}\\left[{\\displaystyle \\int_{c}^{d}f(x,y)dy}\\right]}dx"
+         }
+        ],
+        [
+         {
+          "type": "math",
+          "tex": "{\\displaystyle \\int_{c}^{d}\\,{\\displaystyle \\int_{a}^{b}f(x,y)dx\\,dy}}={\\displaystyle \\int_{c}^{d}\\left[{\\displaystyle \\int_{a}^{b}f(x,y)dx}\\right]}dy."
+         }
+        ]
+       ],
+       "ordered": true,
+       "style": "a"
+      }
+     ]
+    }
+   ],
+   "title": "Iterated Integrals"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The notation ${\\displaystyle \\int_{a}^{b}\\left[{\\displaystyle \\int_{c}^{d}f(x,y)dy}\\right]}dx$ means that we integrate $f(x,y)$ with respect to *y* while holding *x* constant. Similarly, the notation ${\\displaystyle \\int_{c}^{d}\\left[{\\displaystyle \\int_{a}^{b}f(x,y)dx}\\right]}dy$ means that we integrate $f(x,y)$ with respect to *x* while holding *y* constant. The fact that double integrals can be split into iterated integrals is expressed in Fubini’s theorem. Think of this theorem as an essential tool for evaluating double integrals."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose that $f(x,y)$ is a function of two variables that is continuous over a rectangular region $R=\\{(x,y)\\in {\\mathbb{R}}^{2}|a\\le x\\le b,\\text{c}\\le \\text{y}\\le \\text{d}\\}.$ Then we see from Figure 5.6 that the double integral of $f$ over the region equals an iterated integral,"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\iint_{R}f(x,y)dA=}{\\displaystyle \\iint_{R}f(x,y)dx\\,dy}={\\displaystyle \\int_{a}^{b}\\,{\\displaystyle \\int_{c}^{d}f(x,y)dy\\,dx}}={\\displaystyle \\int_{c}^{d}\\,{\\displaystyle \\int_{a}^{b}f(x,y)dx\\,dy}}."
+      },
+      {
+       "type": "p",
+       "text": "More generally, **Fubini’s theorem** is true if $f$ is bounded on $R$ and $f$ is discontinuous only on a finite number of continuous curves. In other words, $f$ has to be integrable over $R.$"
+      }
+     ],
+     "title": "Fubini’s Theorem"
+    }
+   ],
+   "title": "Iterated Integrals (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_006.webp",
+     "alt": "This figure consists of two figures marked a and b. In figure a, in xyz space, a surface is shown that is given by the function f(x, y). A point x is chosen on the x axis, and at this point, it it written fix x. From this point, a plane is projected perpendicular to the xy plane along the line with value x. This plane is marked Area A(x), and the entire space under the surface is marked V. Similarly, in figure b, in xyz space, a surface is shown that is given by the function f(x, y). A point y is chosen on the y axis, and at this point, it it written fix y. From this point, a plane is projected perpendicular to the xy plane along the line with value y. This plane is marked Area A(y), and the entire space under the surface is marked V.",
+     "caption": "**Figure 5.6** (a) Integrating first with respect to $y$ and then with respect to $x$ to find the area $A(x)$ and then the volume *V*; (b) integrating first with respect to $x$ and then with respect to $y$ to find the area $A(y)$ and then the volume *V*.",
+     "width": 900,
+     "height": 489
+    }
+   ],
+   "title": "Iterated Integrals (continued)"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 5.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Use Fubini’s theorem to compute the double integral ${\\displaystyle \\iint_{R}f(x,y)dA}$ where $f(x,y)=x$ and $R=[0,2]\\,\\times \\,[0,1].$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Fubini’s theorem offers an easier way to evaluate the double integral by the use of an iterated integral. Note how the boundary values of the region *R* become the upper and lower limits of integration."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{R}f(x,y)dA} & ={\\displaystyle \\iint_{R}f(x,y)dx\\,dy} \\\\ & ={\\displaystyle \\int_{y=0}^{y=1}{\\displaystyle \\int_{x=0}^{x=2}x\\,dx\\,dy}} \\\\ & ={\\displaystyle \\int_{y=0}^{y=1}\\left[\\frac{x^{2}}{2}|_{x=0}^{x=2}\\right]}dy \\\\ & ={\\displaystyle \\int_{y=0}^{y=1}2dy=2y|_{y=0}^{y=1}=2}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Using Fubini’s Theorem"
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The double integration in this example is simple enough to use Fubini’s theorem directly, allowing us to convert a double integral into an iterated integral. Consequently, we are now ready to convert all double integrals to iterated integrals and demonstrate how the properties listed earlier can help us evaluate double integrals when the function $f(x,y)$ is more complex. Note that the order of integration can be changed (see Example 5.7)."
+    }
+   ],
+   "title": "Iterated Integrals (continued)"
+  },
+  {
+   "id": "x17",
+   "kind": "example",
+   "label": "Example 5.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the double integral ${\\displaystyle \\iint_{R}(xy-3xy^{2})}dA$ where $R=\\{(x,y)|0\\le x\\le 2,1\\le y\\le 2\\}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This function has two pieces: one piece is $xy$ and the other is $3xy^{2}.$ Also, the second piece has a constant $3.$ Notice how we use properties i and ii to help evaluate the double integral."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cccc} \\\\ \\\\ \\\\ \\\\ \\quad {\\displaystyle \\iint_{R}(xy-3xy^{2})}dA & & & \\\\ ={\\displaystyle \\iint_{R}xy}\\,dA+{\\displaystyle \\iint_{R}(-3xy^{2})}dA & & & \\text{Property i: Integral of a sum is the sum of the integrals.} \\\\ ={\\displaystyle \\int_{y=1}^{y=2}{\\displaystyle \\int_{x=0}^{x=2}xy\\,dx\\,dy}}-{\\displaystyle \\int_{y=1}^{y=2}{\\displaystyle \\int_{x=0}^{x=2}3xy^{2}dx\\,dy}} & & & \\text{Convert double integrals to iterated integrals.} \\\\ ={\\displaystyle \\int_{y=1}^{y=2}\\left(\\frac{x^{2}}{2}y\\right)|_{x=0}^{x=2}dy}-3{\\displaystyle \\int_{y=1}^{y=2}\\left(\\frac{x^{2}}{2}y^{2}\\right)|_{x=0}^{x=2}dy} & & & \\text{Integrate with respect to}\\,x,\\text{holding}\\,y\\,\\text{constant.} \\\\ ={\\displaystyle \\int_{y=1}^{y=2}2y\\,dy}-{\\displaystyle \\int_{y=1}^{y=2}6y^{2}dy} & & & \\text{Property ii: Placing the constant before the integral.} \\\\ ={\\displaystyle 2\\int_{1}^{2}y\\,dy}-6{\\displaystyle \\int_{1}^{2}y^{2}dy} & & & \\text{Integrate with respect to}\\,y. \\\\ =2\\frac{y^{2}}{2}|_{1}^{2}-6\\frac{y^{3}}{3}|_{1}^{2} & & & \\\\ =y^{2}|_{1}^{2}-2y^{3}|_{1}^{2} & & & \\\\ =(4-1)-2(8-1) & & & \\\\ =3-2(7)=3-14=-11.\\end{array}"
+     }
+    ]
+   },
+   "title": "Illustrating Properties i and ii"
+  },
+  {
+   "id": "x18",
+   "kind": "example",
+   "label": "Example 5.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Over the region $R=\\{(x,y)|1\\le x\\le 3,1\\le y\\le 2\\},$ we have $2\\le x^{2}+y^{2}\\le 13.$ Find a lower and an upper bound for the integral ${\\displaystyle \\iint_{R}(x^{2}+y^{2})}dA.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "For a lower bound, integrate the constant function 2 over the region $R.$ For an upper bound, integrate the constant function 13 over the region $R.$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}{\\displaystyle \\int_{1}^{2}{\\displaystyle \\int_{1}^{3}2dx\\,dy}} & = & {\\displaystyle \\int_{1}^{2}\\left[2x|_{1}^{3}\\right]}dy={\\displaystyle \\int_{1}^{2}2(2)dy}=4y|_{1}^{2}=4(2-1)=4 \\\\ {\\displaystyle \\int_{1}^{2}{\\displaystyle \\int_{1}^{3}13dx\\,dy}} & = & {\\displaystyle \\int_{1}^{2}\\left[13x|_{1}^{3}\\right]}dy={\\displaystyle \\int_{1}^{2}13(2)dy}=26y|_{1}^{2}=26(2-1)=26.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Hence, we obtain $4\\le {\\displaystyle \\iint_{R}(x^{2}+y^{2})}dA\\le 26.$"
+     }
+    ]
+   },
+   "title": "Illustrating Property v."
+  },
+  {
+   "id": "x19",
+   "kind": "example",
+   "label": "Example 5.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the integral ${\\displaystyle \\iint_{R}e^{y}\\cos \\,x\\,dA}$ over the region $R=\\left\\{(x,y)|0\\le x\\le \\frac{\\pi}{2},0\\le y\\le 1\\right\\}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "This is a great example for property vi because the function $f(x,y)$ is clearly the product of two single-variable functions $e^{y}$ and $\\cos \\,x.$ Thus we can split the integral into two parts and then integrate each one as a single-variable integration problem."
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{R}e^{y}\\cos \\,x\\,dA} & ={\\displaystyle \\int_{0}^{1}{\\displaystyle \\int_{0}^{\\pi /2}e^{y}\\cos \\,x\\,dx\\,dy}} \\\\ & =\\left({\\displaystyle \\int_{0}^{1}e^{y}dy}\\right)\\left({\\displaystyle \\int_{0}^{\\pi /2}\\cos \\,x\\,dx}\\right) \\\\ & =\\left(e^{y}|_{0}^{1}\\right)\\left(\\sin \\,x|_{0}^{\\pi /2}\\right) \\\\ & =e-1.\\end{array}"
+     }
+    ]
+   },
+   "title": "Illustrating Property vi"
+  },
+  {
+   "id": "c20",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.2",
+   "problem": [
+    {
+     "type": "list",
+     "items": [
+      [
+       {
+        "type": "p",
+        "text": "Use the properties of the double integral and Fubini’s theorem to evaluate the integral"
+       },
+       {
+        "type": "math",
+        "tex": "{\\displaystyle \\int_{0}^{1}{\\displaystyle \\int_{-1}^{3}(3-x+4y)dy\\,dx}}."
+       }
+      ],
+      "Show that $0\\le {\\displaystyle \\iint_{R}\\sin \\,\\pi x\\,\\cos \\,\\pi y\\,dA\\le \\frac{1}{32}}$ where $R=\\left[0,\\frac{1}{4}\\right]\\times \\left[\\frac{1}{4},\\frac{1}{2}\\right].$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 26 b. Answers may vary."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use properties i. and ii. and evaluate the iterated integral, and then use property v."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As we mentioned before, when we are using rectangular coordinates, the double integral over a region $R$ denoted by ${\\displaystyle \\iint_{R}f(x,y)dA}$ can be written as ${\\displaystyle \\iint_{R}f(x,y)d}x\\,dy$ or ${\\displaystyle \\iint_{R}f(x,y)d}y\\,dx.$ The next example shows that the results are the same regardless of which order of integration we choose."
+    }
+   ],
+   "title": "Iterated Integrals (continued)"
+  },
+  {
+   "id": "x22",
+   "kind": "example",
+   "label": "Example 5.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Let’s return to the function $f(x,y)=3x^{2}-y$ from Example 5.1, this time over the rectangular region $R=[0,2]\\,\\times \\,[0,3].$ Use Fubini’s theorem to evaluate ${\\displaystyle \\iint_{R}f(x,y)dA}$ in two different ways:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "First integrate with respect to *y* and then with respect to *x*;",
+      "First integrate with respect to *x* and then with respect to *y*."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Figure 5.6 shows how the calculation works in two different ways."
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "First integrate with respect to *y* and then integrate with respect to *x*:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{R}f(x,y)dA} & ={\\displaystyle \\int_{x=0}^{x=2}{\\displaystyle \\int_{y=0}^{y=3}(3x^{2}-y)dy\\,dx}} \\\\ & ={\\displaystyle \\int_{x=0}^{x=2}\\left({\\displaystyle \\int_{y=0}^{y=3}(3x^{2}-y)dy}\\right)}dx={\\displaystyle \\int_{x=0}^{x=2}\\left[3x^{2}y-\\frac{y^{2}}{2}|_{y=0}^{y=3}\\right]dx} \\\\ & ={\\displaystyle \\int_{x=0}^{x=2}\\left(9x^{2}-\\frac{9}{2}\\right)}dx=3x^{3}-\\frac{9}{2}x|_{x=0}^{x=2}=15.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "First integrate with respect to *x* and then integrate with respect to *y*:"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{R}f(x,y)dA} & ={\\displaystyle \\int_{y=0}^{y=3}{\\displaystyle \\int_{x=0}^{x=2}(3x^{2}-y)dx\\,dy}} \\\\ & ={\\displaystyle \\int_{y=0}^{y=3}\\left({\\displaystyle \\int_{x=0}^{x=2}(3x^{2}-y)dx}\\right)}dy={\\displaystyle \\int_{y=0}^{y=3}\\left[x^{3}-xy|_{x=0}^{x=2}\\right]dy} \\\\ & ={\\displaystyle \\int_{y=0}^{y=3}(8-2y)dy}=8y-y^{2}|_{y=0}^{y=3}=15.\\end{array}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Analysis",
+      "body": [
+       {
+        "type": "p",
+        "text": "With either order of integration, the double integral gives us an answer of 15. We might wish to interpret this answer as a volume in cubic units of the solid $S$ below the function $f(x,y)=3x^{2}-y$ over the region $R=[0,2]\\,\\times \\,[0,3].$ However, remember that the interpretation of a double integral as a (non-signed) volume works only when the integrand $f$ is a nonnegative function over the base region $R.$"
+       }
+      ]
+     }
+    ]
+   },
+   "title": "Evaluating an Iterated Integral in Two Ways"
+  },
+  {
+   "id": "c23",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate ${\\displaystyle \\int_{y=-3}^{y=2}{\\displaystyle \\int_{x=3}^{x=5}(2-3x^{2}+y^{2})dx\\,dy}}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1340}{3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use Fubini’s theorem."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-(1340/3)"
+   }
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the next example we see that it can actually be beneficial to switch the order of integration to make the computation easier. We will come back to this idea several times in this chapter."
+    }
+   ],
+   "title": "Iterated Integrals (continued)"
+  },
+  {
+   "id": "x25",
+   "kind": "example",
+   "label": "Example 5.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the double integral ${\\displaystyle \\iint_{R}x\\,\\sin (xy)dA}$ over the region $R=\\{(x,y)|0\\le x\\le \\pi ,1\\le y\\le 2\\}$ (Figure 5.7)."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Express the double integral in two different ways.",
+      "Analyze whether evaluating the double integral in one way is easier than the other and why.",
+      [
+       {
+        "type": "p",
+        "text": "Evaluate the integral."
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_15_01_007.webp",
+        "alt": "The function z = f(x, y) = x sin(xy) is shown, which starts with z = 0 along the x axis. Then, the function increases roughly as a normal sin function would, but then skews a bit and decreases as x increases after pi/2.",
+        "caption": "**Figure 5.7** The function $z=f(x,y)=x\\,\\sin (xy)$ over the rectangular region $R=[0,\\pi ]\\,\\times \\,[1,2].$",
+        "width": 668,
+        "height": 529
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "We can express ${\\displaystyle \\iint_{R}x\\,\\sin (xy)dA}$ in the following two ways: first by integrating with respect to $y$ and then with respect to $x;$ second by integrating with respect to $x$ and then with respect to $y.$"
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cccc} \\\\ \\\\ \\\\ \\\\ \\quad {\\displaystyle \\iint_{R}x\\,\\sin (xy)dA} & & & \\\\ ={\\displaystyle \\int_{x=0}^{x=\\pi}\\,{\\displaystyle \\int_{y=1}^{y=2}x\\,\\sin (xy)dy\\,dx}} & & & \\text{Integrate first with respect to}\\,y. \\\\ ={\\displaystyle \\int_{y=1}^{y=2}\\,{\\displaystyle \\int_{x=0}^{x=\\pi}x\\,\\sin (xy)dx\\,dy}} & & & \\text{Integrate first with respect to}\\,x.\\end{array}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "If we want to integrate with respect to *y* first and then integrate with respect to $x,$ we see that we can use the substitution $u=xy,$ which gives $du=x\\,dy.$ Hence the inner integral is simply ${\\displaystyle \\int \\sin \\,u}\\,du$ and we can change the limits to be functions of *x*,"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\iint_{R}x\\,\\sin (xy)dA}={\\displaystyle \\int_{x=0}^{x=\\pi}\\,{\\displaystyle \\int_{y=1}^{y=2}x\\,\\sin (xy)dy\\,dx}}={\\displaystyle \\int_{x=0}^{x=\\pi}\\left[{\\displaystyle \\int_{u=x}^{u=2x}\\sin (u)du}\\right]}dx."
+        },
+        {
+         "type": "p",
+         "text": "However, integrating with respect to $x$ first and then integrating with respect to $y$ requires integration by parts for the inner integral, with $u=x$ and $dv=\\sin (xy)dx.$\n\nThen $du=dx$ and $v=-\\frac{\\cos (xy)}{y},$ so"
+        },
+        {
+         "type": "math",
+         "tex": "{\\displaystyle \\iint_{R}x\\,\\sin (xy)dA}={\\displaystyle \\int_{y=1}^{y=2}\\,{\\displaystyle \\int_{x=0}^{x=\\pi}x\\,\\sin (xy)dx\\,dy}}={\\displaystyle \\int_{y=1}^{y=2}\\left[-\\frac{x\\,\\cos (xy)}{y}|_{x=0}^{x=\\pi}+\\frac{1}{y}{\\displaystyle \\int_{x=0}^{x=\\pi}\\cos (xy)dx}\\right]}dy."
+        },
+        {
+         "type": "p",
+         "text": "Since the evaluation is getting complicated, we will only do the computation that is easier to do, which is clearly the first method."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "Evaluate the double integral using the easier way."
+        },
+        {
+         "type": "math",
+         "tex": "\\begin{array}{cc}{\\displaystyle \\iint_{R}x\\,\\sin (xy)dA} & ={\\displaystyle \\int_{x=0}^{x=\\pi}\\,{\\displaystyle \\int_{y=1}^{y=2}x\\,\\sin (xy)dy\\,dx}} \\\\ & ={\\displaystyle \\int_{x=0}^{x=\\pi}\\left[{\\displaystyle \\int_{u=x}^{u=2x}\\sin (u)du}\\right]}dx={\\displaystyle \\int_{x=0}^{x=\\pi}\\left[-\\cos \\,u|_{u=x}^{u=2x}\\right]}dx={\\displaystyle \\int_{x=0}^{x=\\pi}(-\\cos \\,2x+\\cos \\,x)dx} \\\\ & =-\\frac{1}{2}\\sin \\,2x+\\sin \\,x|_{x=0}^{x=\\pi}=0.\\end{array}"
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Switching the Order of Integration"
+  },
+  {
+   "id": "c26",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the integral ${\\displaystyle \\iint_{R}xe^{xy}dA}$ where $R=[0,1]\\,\\times \\,[0,\\ln \\,5].$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{4-\\ln \\,5}{\\ln \\,5}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Integrate with respect to $y$ first."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((4- ln 5)/(ln 5))"
+   }
+  },
+  {
+   "id": "r27",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Double integrals are very useful for finding the area of a region bounded by curves of functions. We describe this situation in more detail in the next section. However, if the region is a rectangular shape, we can find its area by integrating the constant function $f(x,y)=1$ over the region $R.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The area of the region $R$ is given by $A(R)={\\displaystyle \\iint_{R}1dA}.$"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "This definition makes sense because using $f(x,y)=1$ and evaluating the integral make it a product of length and width. Let’s check this formula with an example and see how this works."
+    }
+   ],
+   "title": "Applications of Double Integrals"
+  },
+  {
+   "id": "x28",
+   "kind": "example",
+   "label": "Example 5.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the area of the region $R=\\{(x,y)|0\\le x\\le 3,0\\le y\\le 2\\}$ by using a double integral, that is, by integrating 1 over the region $R.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The region is rectangular with length 3 and width 2, so we know that the area is 6. We get the same answer when we use a double integral:"
+     },
+     {
+      "type": "math",
+      "tex": "A(R)={\\displaystyle \\int_{0}^{2}\\,{\\displaystyle \\int_{0}^{3}1dx\\,dy}}={\\displaystyle \\int_{0}^{2}\\left[x|_{0}^{3}\\right]}dy={\\displaystyle \\int_{0}^{2}3dy=3{\\displaystyle \\int_{0}^{2}dy=3y|_{0}^{2}}}=3(2)=6."
+     }
+    ]
+   },
+   "title": "Finding Area Using a Double Integral"
+  },
+  {
+   "id": "r29",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have already seen how double integrals can be used to find the volume of a solid bounded above by a function $f(x,y)$ over a region $R$ provided $f(x,y)\\ge 0$ for all $(x,y)$ in $R.$ Here is another example to illustrate this concept."
+    }
+   ],
+   "title": "Applications of Double Integrals (continued)"
+  },
+  {
+   "id": "x30",
+   "kind": "example",
+   "label": "Example 5.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the volume $V$ of the solid $S$ that is bounded by the elliptic paraboloid $2x^{2}+y^{2}+z=27,$ the planes $x=3$ and $y=3,$ and the three coordinate planes."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First notice the graph of the surface $z=27-2x^{2}-y^{2}$ in Figure 5.8(a) and above the square region $R_{1}=[-3,3]\\,\\times \\,[-3,3].$ However, we need the volume of the solid bounded by the elliptic paraboloid $2x^{2}+y^{2}+z=27,$ the planes $x=3$ and $y=3,$ and the three coordinate planes."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_01_008.webp",
+      "alt": "This figure consists of two figures marked a and b. In figure a, in xyz space, the surface z = 20 minus 2x2 minus y2 is shown for x and y from negative 3 to positive 3. The shape looks like a sheet that has been pinned at the corners and forced up gently in the middle. In figure b, in xyz space, the surface z = 20 minus 2x2 minus y2 is shown for x and y from 0 to positive 3. The surface is the upper corner of the figure from part a, and below the surface is marked the solid S.",
+      "caption": "**Figure 5.8** (a) The surface $z=27-2x^{2}-y^{2}$ above the square region $R_{1}=[-3,3]\\,\\times \\,[-3,3].$ (b) The solid *S* lies under the surface $z=27-2x^{2}-y^{2}$ above the square region $R_{2}=[0,3]\\,\\times \\,[0,3].$",
+      "width": 872,
+      "height": 445
+     },
+     {
+      "type": "p",
+      "text": "Now let’s look at the graph of the surface in Figure 5.8(b). We determine the volume *V* by evaluating the double integral over $R_{2}:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccccc}V & ={\\displaystyle \\iint_{R}z\\,dA=}{\\displaystyle \\iint_{R}(27-2x^{2}-y^{2})dA} & & & \\\\ & ={\\displaystyle \\int_{y=0}^{y=3}\\,{\\displaystyle \\int_{x=0}^{x=3}(27-2x^{2}-y^{2})dx\\,dy}} & & & \\text{Convert to iterated integral.} \\\\ & ={\\displaystyle \\int_{y=0}^{y=3}\\left[27x-\\frac{2}{3}x^{3}-y^{2}x\\right]|_{x=0}^{x=3}}dy & & & \\text{Integrate with respect to}\\,x. \\\\ & ={\\displaystyle \\int_{y=0}^{y=3}(63-3y^{2})dy}=63y-y^{3}|_{y=0}^{y=3}=162. & & & \\end{array}"
+     }
+    ]
+   },
+   "title": "Volume of an Elliptic Paraboloid"
+  },
+  {
+   "id": "c31",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the volume of the solid bounded above by the graph of $f(x,y)=xy\\,\\sin (x^{2}y)$ and below by the $xy$-plane on the rectangular region $R=[0,1]\\,\\times \\,[0,\\pi ].$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{2}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Graph the function, set up the integral, and use an iterated integral."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/2)"
+   }
+  },
+  {
+   "id": "r32",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall that we defined the average value of a function of one variable on an interval $[a,b]$ as"
+    },
+    {
+     "type": "math",
+     "tex": "f_{\\text{ave}}=\\frac{1}{b-a}{\\displaystyle \\int_{a}^{b}f(x)dx}."
+    },
+    {
+     "type": "p",
+     "text": "Similarly, we can define the average value of a function of two variables over a region *R*. The main difference is that we divide by an area instead of the width of an interval."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The average value of a function of two variables over a region $R$ is"
+      },
+      {
+       "type": "math",
+       "tex": "f_{\\text{ave}}=\\frac{1}{\\text{Area}\\,R}{\\displaystyle \\iint_{R}f(x,y)dA.}"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "In the next example we find the average value of a function over a rectangular region. This is a good example of obtaining useful information for an integration by making individual measurements over a grid, instead of trying to find an algebraic expression for a function."
+    }
+   ],
+   "title": "Applications of Double Integrals (continued)"
+  },
+  {
+   "id": "x33",
+   "kind": "example",
+   "label": "Example 5.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "The weather map in Figure 5.9 shows an unusually moist storm system associated with the remnants of Hurricane Karl, which dumped 4–8 inches (100–200 mm) of rain in some parts of the Midwest on September 22–23, 2010. The area of rainfall measured 300 miles east to west and 250 miles north to south. Estimate the average rainfall over the entire area in those two days."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_009.webp",
+     "alt": "A map of Wisconsin and Minnesota that shows many cities with numbers affixed to them. The highest numbers come in a narrow band, and the map is colored accordingly. The map effectively looks like a contour map, but instead of elevations, it uses these numbers.",
+     "caption": "**Figure 5.9** Effects of Hurricane Karl, which dumped 4–8 inches (100–200 mm) of rain in some parts of southwest Wisconsin, southern Minnesota, and southeast South Dakota over a span of 300 miles east to west and 250 miles north to south.",
+     "width": 900,
+     "height": 485
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Place the origin at the southwest corner of the map so that all the values can be considered as being in the first quadrant and hence all are positive. Now divide the entire map into six rectangles $(m=3\\,\\text{and}\\,n=2),$ as shown in Figure 5.10. Assume $f(x,y)$ denotes the storm rainfall in inches at a point approximately $x$ miles to the east of the origin and *y* miles to the north of the origin. Let $R$ represent the entire area of $250\\,\\times \\,300=75000$ square miles. Then the area of each subrectangle is"
+     },
+     {
+      "type": "math",
+      "tex": "\\text{Δ}A=\\frac{1}{6}(75,000)=12,500."
+     },
+     {
+      "type": "p",
+      "text": "Assume $\\left(x_{ij}^{*},y_{ij}^{*}\\right)$ are approximately the midpoints of each subrectangle $R_{ij}.$ Note the color-coded region at each of these points, and estimate the rainfall. The rainfall at each of these points can be estimated as:"
+     },
+     {
+      "type": "p",
+      "text": "At $(x*_{11},y*_{11})$ the rainfall is 0.08."
+     },
+     {
+      "type": "p",
+      "text": "At $(x*_{21},y*_{21})$ the rainfall is 0.08."
+     },
+     {
+      "type": "p",
+      "text": "At $(x*_{31},y*_{31})$ the rainfall is 0.01."
+     },
+     {
+      "type": "p",
+      "text": "At $(x*_{12},y*_{12})$ the rainfall is 1.70."
+     },
+     {
+      "type": "p",
+      "text": "At $(x*_{22},y*_{22})$ the rainfall is 1.74."
+     },
+     {
+      "type": "p",
+      "text": "At $(x*_{32},y*_{32})$ the rainfall is 3.00."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_01_011.webp",
+      "alt": "Another version of the previous storm map, but this time with lines drawn for x = 100, 200, and 300 and for y = 125 and 250. There is a dot in the center of each of the resulting rectangles.",
+      "caption": "**Figure 5.10** Storm rainfall with rectangular axes and showing the midpoints of each subrectangle.",
+      "width": 730,
+      "height": 415
+     },
+     {
+      "type": "p",
+      "text": "According to our definition, the average storm rainfall in the entire area during those two days was"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{rl}f_{\\text{ave}} & =\\frac{1}{\\text{Area}\\,R}\\iint_{R}f(x,y)dx\\,dy=\\frac{1}{75000}\\iint_{R}f(x,y)dx\\,dy \\\\ & \\approx \\frac{1}{75,000}\\sum_{i=1}^{3}\\sum_{j=1}^{2}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A \\\\ & \\approx \\frac{1}{75,000}[f(x_{11}^{*},y_{11}^{*})\\text{Δ}A+f(x_{21}^{*},y_{21}^{*})\\text{Δ}A \\\\ & \\quad +f(x_{31}^{*},y_{31}^{*})\\text{Δ}A+f(x_{12}^{*},y_{12}^{*})\\text{Δ}A+f(x_{22}^{*},y_{22}^{*})\\text{Δ}A+f(x_{32}^{*},y_{32}^{*})\\text{Δ}A] \\\\ & \\approx \\frac{1}{75,000}[0.08+0.08+0.01+1.70+1.74+3.00]\\text{Δ}A \\\\ & \\approx \\frac{1}{75,000}[0.08+0.08+0.01+1.70+1.74+3.00]12500 \\\\ & \\approx \\frac{5}{30}[0.08+0.08+0.01+1.70+1.74+3.00] \\\\ & \\approx 1.10.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "During September 22–23, 2010 this area had an average storm rainfall of approximately 1.10 inches."
+     }
+    ]
+   },
+   "title": "Calculating Average Storm Rainfall"
+  },
+  {
+   "id": "c34",
+   "kind": "checkpoint",
+   "label": "Checkpoint 5.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A contour map is shown for a function $f(x,y)$ on the rectangle $R=[-3,6]\\,\\times \\,[-1,4].$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_010.webp",
+     "alt": "A contour map is shown with the highest point being about 18 and centered near (4, negative 1). From this point, the values decrease to 16, 14, 12, 10, 8, and 6 roughly every 0.5 to 1 distance. The lowest point is negative four near (negative 3, 4). There is a local minimum of 2 near (negative 1, 0).",
+     "width": 379,
+     "height": 234
+    },
+    {
+     "type": "list",
+     "items": [
+      "Use the midpoint rule with $m=3$ and $n=2$ to estimate the value of ${\\displaystyle \\iint_{R}f(x,y)dA}.$",
+      "Estimate the average value of the function $f(x,y).$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers to both parts a. and b. may vary."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Divide the region into six rectangles, and use the contour lines to estimate the values for $f(x,y).$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r35",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "We can use a double Riemann sum to approximate the volume of a solid bounded above by a function of two variables over a rectangular region. By taking the limit, this becomes a double integral representing the volume of the solid.",
+      "Properties of double integral are useful to simplify computation and find bounds on their values.",
+      "We can use Fubini’s theorem to write and evaluate a double integral as an iterated integral.",
+      "Double integrals are used to calculate the area of a region, the volume under a surface, and the average value of a function of two variables over a rectangular region."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r36",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Double integral**",
+       "${\\displaystyle \\iint_{R}f(x,y)dA}=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A}}$"
+      ],
+      [
+       "**Iterated integral**",
+       "${\\displaystyle \\int_{a}^{b}{\\displaystyle \\int_{c}^{d}f(x,y)dx\\,dy}}={\\displaystyle \\int_{a}^{b}\\left[{\\displaystyle \\int_{c}^{d}f(x,y)dy}\\right]}dx$\n\nor\n\n${\\displaystyle \\int_{c}^{d}{\\displaystyle \\int_{b}^{a}f(x,y)dx\\,dy}}={\\displaystyle \\int_{c}^{d}\\left[{\\displaystyle \\int_{a}^{b}f(x,y)dx}\\right]}dy$"
+      ],
+      [
+       "**Average value of a function of two variables**",
+       "$f_{\\text{ave}}=\\frac{1}{\\text{Area}\\,R}{\\displaystyle \\iint_{R}f(x,y)dx\\,dy}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e1",
+   "number": 1,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=4x+2y+8xy$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793952156",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the midpoint rule with $m=4$ and $n=2$ to estimate the volume of the solid bounded by the surface $z=f(x,y),$ the vertical planes $x=1,$ $x=2,$ $y=1,$ and $y=2,$ and the horizontal plane $z=0.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "27."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e2",
+   "number": 2,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=16x^{2}+\\frac{y}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793377910",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use the midpoint rule with $m=4$ and $n=2$ to estimate the volume of the solid bounded by the surface $z=f(x,y),$ the vertical planes $x=1,$ $x=2,$ $y=1,$ and $y=2,$ and the horizontal plane $z=0.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e3",
+   "number": 3,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sin \\,x-\\cos \\,y,$ $R=[0,\\pi ]\\,\\times \\,[0,\\pi ]$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793380060",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e4",
+   "number": 4,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\cos \\,x+\\cos \\,y,$ $R=[0,\\pi ]\\,\\times \\,\\left[0,\\frac{\\pi}{2}\\right]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793373521",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e5",
+   "number": 5,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the midpoint rule with $m=n=2$ to estimate ${\\displaystyle \\iint_{R}f(x,y)dA},$ where the values of the function *f* on $R=[8,10]\\,\\times \\,[9,11]$ are given in the following table."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "",
+       "**y**"
+      ],
+      [
+       "**x**",
+       "9",
+       "9.5",
+       "10",
+       "10.5",
+       "11"
+      ],
+      [
+       "8",
+       "9.8",
+       "5",
+       "6.7",
+       "5",
+       "5.6"
+      ],
+      [
+       "8.5",
+       "9.4",
+       "4.5",
+       "8",
+       "5.4",
+       "3.4"
+      ],
+      [
+       "9",
+       "8.7",
+       "4.6",
+       "6",
+       "5.5",
+       "3.4"
+      ],
+      [
+       "9.5",
+       "6.7",
+       "6",
+       "4.5",
+       "5.4",
+       "6.7"
+      ],
+      [
+       "10",
+       "6.8",
+       "6.4",
+       "5.5",
+       "5.7",
+       "6.8"
+      ]
+     ]
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793293640",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "21.3."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "21.3"
+   }
+  },
+  {
+   "id": "e6",
+   "number": 6,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The values of the function *f* on the rectangle $R=[0,2]\\,\\times \\,[7,9]$ are given in the following table. Estimate the double integral ${\\displaystyle \\iint_{R}f(x,y)dA}$ by using a Riemann sum with $m=n=2.$ Select the sample points to be the upper right corners of the subsquares of *R*."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "",
+       "$y_{0}=7$",
+       "$y_{1}=8$",
+       "$y_{2}=9$"
+      ],
+      [
+       "$x_{0}=0$",
+       "10.22",
+       "10.21",
+       "9.85"
+      ],
+      [
+       "$x_{1}=1$",
+       "6.73",
+       "9.75",
+       "9.63"
+      ],
+      [
+       "$x_{2}=2$",
+       "5.62",
+       "7.83",
+       "8.21"
+      ]
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793421274",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e7",
+   "number": 7,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The depth of a children’s 4-ft by 4-ft swimming pool, measured at 1-ft intervals, is given in the following table."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Estimate the volume of water in the swimming pool by using a Riemann sum with $m=n=2.$ Select the sample points using the midpoint rule on $R=[0,4]\\,\\times \\,[0,4].$",
+      [
+       {
+        "type": "p",
+        "text": "Approximate the average depth of the swimming pool."
+       },
+       {
+        "type": "table",
+        "rows": [
+         [
+          "",
+          "**y**"
+         ],
+         [
+          "**x**",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+         ],
+         [
+          "0",
+          "1",
+          "1.5",
+          "2",
+          "2.5",
+          "3"
+         ],
+         [
+          "1",
+          "1",
+          "1.5",
+          "2",
+          "2.5",
+          "3"
+         ],
+         [
+          "2",
+          "1",
+          "1.5",
+          "1.5",
+          "2.5",
+          "3"
+         ],
+         [
+          "3",
+          "1",
+          "1",
+          "1.5",
+          "2",
+          "2.5"
+         ],
+         [
+          "4",
+          "1",
+          "1",
+          "1",
+          "1.5",
+          "2"
+         ]
+        ]
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793300250",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 28 ${\\text{ft}}^{3}$ b. 1.75 ft."
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e8",
+   "number": 8,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The depth of a 3-ft by 3-ft hole in the ground, measured at 1-ft intervals, is given in the following table."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Estimate the volume of the hole by using a Riemann sum with $m=n=3$ and the sample points to be the upper left corners of the subsquares of *R*.",
+      [
+       {
+        "type": "p",
+        "text": "Approximate the average depth of the hole."
+       },
+       {
+        "type": "table",
+        "rows": [
+         [
+          "",
+          "**y**"
+         ],
+         [
+          "**x**",
+          "0",
+          "1",
+          "2",
+          "3"
+         ],
+         [
+          "0",
+          "6",
+          "6.5",
+          "6.4",
+          "6"
+         ],
+         [
+          "1",
+          "6.5",
+          "7",
+          "7.5",
+          "6.5"
+         ],
+         [
+          "2",
+          "6.5",
+          "6.7",
+          "6.5",
+          "6"
+         ],
+         [
+          "3",
+          "6",
+          "6.5",
+          "5",
+          "5.6"
+         ]
+        ]
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793829197",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e9",
+   "number": 9,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The level curves $f(x,y)=k$ of the function *f* are given in the following graph, where *k* is a constant."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Apply the midpoint rule with $m=n=2$ to estimate the double integral ${\\displaystyle \\iint_{R}f(x,y)dA},$ where $R=[0.2,1]\\,\\times \\,[0,0.8].$",
+      [
+       {
+        "type": "p",
+        "text": "Estimate the average value of the function *f* on *R*."
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_15_01_201.webp",
+        "alt": "A series of curves marked k = negative 1, negative ½, negative ¼, negative 1/8, 0, 1/8, ¼, ½, and 1. The line marked k = 0 serves as an asymptote along the line y = x. The lines originate at (along the y axis) 1, 0.7, 0.5, 0.38, 0, (along the x axis) 0.38, 0.5, 0.7, and 1, with the further out lines curving less dramatically toward the asymptote.",
+        "width": 343,
+        "height": 448
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793571245",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $0.112$ b. $f_{\\text{ave}}≃0.175;$ here $f(0.4,0.2)≃0.1,$ $f(0.2,0.6)≃-0.2,$ $f(0.8,0.2)≃0.6,$ and $f(0.8,0.6)≃0.2.$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e10",
+   "number": 10,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The level curves $f(x,y)=k$ of the function *f* are given in the following graph, where *k* is a constant."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Apply the midpoint rule with $m=n=2$ to estimate the double integral ${\\displaystyle \\iint_{R}f(x,y)dA},$ where $R=[0.1,0.5]\\,\\times \\,[0.1,0.5].$",
+      [
+       {
+        "type": "p",
+        "text": "Estimate the average value of the function *f* on *R*."
+       },
+       {
+        "type": "figure",
+        "src": "figures/os-calc/CNX_Calc_Figure_15_01_202.webp",
+        "alt": "A series of quarter circles drawn in the first quadrant marked k = 1/32, 1/16, 1/8, ¼, ½, ¾, and 1. The quarter circles have radii 0. 17, 0.25, 0.35, 0.5, 0.71, 0.87, and 1, respectively.",
+        "width": 427,
+        "height": 547
+       }
+      ]
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794210521",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e11",
+   "number": 11,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid lying under the surface $z=\\sqrt{4-y^{2}}$ and above the rectangular region $R=[0,2]\\,\\times \\,[0,2]$ is illustrated in the following graph. Evaluate the double integral ${\\displaystyle \\iint_{R}f(x,y)dA},$ where $f(x,y)=\\sqrt{4-y^{2}},$ by finding the volume of the corresponding solid."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_203.webp",
+     "alt": "A quarter cylinder with center along the x axis and with radius 2. It has height 2 as shown.",
+     "width": 449,
+     "height": 392
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794324522",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\pi .$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2 pi"
+   }
+  },
+  {
+   "id": "e12",
+   "number": 12,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The solid lying under the plane $z=y+4$ and above the rectangular region $R=[0,2]\\,\\times \\,[0,4]$ is illustrated in the following graph. Evaluate the double integral ${\\displaystyle \\iint_{R}f(x,y)dA},$ where $f(x,y)=y+4,$ by finding the volume of the corresponding solid."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_204.webp",
+     "alt": "In xyz space, a shape is created with sides given by y = 0, x = 0, y = 4, x = 2, z = 0, and the plane the runs from z = 4 along the y axis to z = 8 along the plane formed by y = 4.",
+     "width": 379,
+     "height": 390
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793925202",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, estimate $\\iint_{R}f\\left(x,y\\right)dA$ by using a Riemann sum with $m=n=2$ and the sample points to be the lower left corners of the subrectangles of the partition."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e13",
+   "number": 13,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{-1}^{1}\\left({\\displaystyle \\int_{-2}^{2}(2x+3y+5)dx}\\right)}dy$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793589825",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, calculate the integrals by interchanging the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "40."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "40"
+   }
+  },
+  {
+   "id": "e14",
+   "number": 14,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2}\\left({\\displaystyle \\int_{0}^{1}(x+2e^{y}-3)dx}\\right)}dy$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794054147",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, calculate the integrals by interchanging the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e15",
+   "number": 15,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{27}\\left({\\displaystyle \\int_{1}^{2}(\\sqrt[3]{x}+\\sqrt[3]{y})}dy\\right)dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793639969",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, calculate the integrals by interchanging the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{81}{2}+39\\sqrt[3]{2}.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(81/2)+39 root(2, 3)"
+   }
+  },
+  {
+   "id": "e16",
+   "number": 16,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{16}\\left({\\displaystyle \\int_{1}^{8}(\\sqrt[4]{x}+2\\sqrt[3]{y})}dy\\right)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793428876",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, calculate the integrals by interchanging the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e17",
+   "number": 17,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\ln \\,2}^{\\ln \\,3}\\left({\\displaystyle \\int_{0}^{\\mathrm{l}}e^{x+y}dy}\\right)}dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793502300",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, calculate the integrals by interchanging the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e-1.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "e-1"
+   }
+  },
+  {
+   "id": "e18",
+   "number": 18,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2}\\left({\\displaystyle \\int_{0}^{1}3^{x+y}dy}\\right)}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793299910",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, calculate the integrals by interchanging the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e19",
+   "number": 19,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{6}\\left({\\displaystyle \\int_{2}^{9}\\frac{\\sqrt{y}}{x^{2}}}dy\\right)}dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793467402",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, calculate the integrals by interchanging the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$15-\\frac{10\\sqrt{2}}{9}.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "15-((10 sqrt(2))/9)"
+   }
+  },
+  {
+   "id": "e20",
+   "number": 20,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{9}\\left({\\displaystyle \\int_{4}^{2}\\frac{\\sqrt{x}}{y^{2}}}dy\\right)}dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793393679",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, calculate the integrals by interchanging the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e21",
+   "number": 21,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi}\\,{\\displaystyle \\int_{0}^{\\pi /2}\\sin (2x)\\cos (3y)}}dx\\,dy$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793244524",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "0."
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e22",
+   "number": 22,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{\\pi /12}^{\\pi /8}\\,{\\displaystyle \\int_{\\pi /4}^{\\pi /3}[\\cot \\,x+\\tan (2y)]}}dx\\,dy$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793372913",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e23",
+   "number": 23,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{e}\\,{\\displaystyle \\int_{1}^{e}\\left[\\frac{1}{x}\\sin (\\ln \\,x)+\\frac{1}{y}\\cos (\\ln \\,y)\\right]dx\\,dy}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793938028",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(e-1)(1+\\sin \\,1-\\cos \\,1).$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(e-1)(1+ sin 1- cos 1)"
+   }
+  },
+  {
+   "id": "e24",
+   "number": 24,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{e}\\,{\\displaystyle \\int_{1}^{e}\\frac{\\sin (\\ln \\,x)\\cos (\\ln \\,y)}{xy}dx\\,dy}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794094489",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e25",
+   "number": 25,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{2}\\,{\\displaystyle \\int_{1}^{2}\\left(\\frac{\\ln \\,y}{x}+\\frac{x}{2y+1}\\right)}}dy\\,dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793776355",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{3}{4}\\ln \\left(\\frac{5}{3}\\right)+2\\,\\ln^{2}2-\\ln \\,2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(3/4) ln ((5/3))+2 ln^2 2- ln 2"
+   }
+  },
+  {
+   "id": "e26",
+   "number": 26,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{e}\\,{\\displaystyle \\int_{1}^{2}x^{2}\\ln (x)}}dy\\,dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793300302",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e27",
+   "number": 27,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{\\sqrt{3}}\\,{\\displaystyle \\int_{1}^{2}y\\,\\arctan \\left(\\frac{1}{x}\\right)}}dy\\,dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793544829",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{8}[(2\\sqrt{3}-3)\\pi +6\\,\\ln \\,2].$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/8)[(2 sqrt(3)-3) pi +6 ln 2]"
+   }
+  },
+  {
+   "id": "e28",
+   "number": 28,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{1/2}(\\arcsin \\,x+\\arcsin \\,y)}}dy\\,dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794222803",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e29",
+   "number": 29,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{1}^{2}xe^{x+4y}}}dy\\,dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793409400",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{4}e^{4}(e^{4}-1).$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/4)e^4(e^4-1)"
+   }
+  },
+  {
+   "id": "e30",
+   "number": 30,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{2}\\,{\\displaystyle \\int_{0}^{1}xe^{x-y}}}dy\\,dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793568960",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e31",
+   "number": 31,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{e}\\,{\\displaystyle \\int_{1}^{e}\\left(\\frac{\\ln \\,y}{\\sqrt{y}}+\\frac{\\ln \\,x}{\\sqrt{x}}\\right)}}dy\\,dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793228971",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4(e-1)(2-\\sqrt{e}).$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "4(e-1)(2-sqrt(e))"
+   }
+  },
+  {
+   "id": "e32",
+   "number": 32,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{e}\\,{\\displaystyle \\int_{1}^{e}\\left(\\frac{x\\,\\ln \\,y}{\\sqrt{y}}+\\frac{y\\,\\ln \\,x}{\\sqrt{x}}\\right)}}dy\\,dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794296833",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e33",
+   "number": 33,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{1}^{2}\\left(\\frac{x}{x^{2}+y^{2}}\\right)}}dy\\,dx$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793432334",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{\\pi}{4}+\\ln \\left(\\frac{5}{4}\\right)-\\frac{1}{2}\\ln \\,2+\\arctan \\,2.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-(pi/4)+ ln ((5/4))-(1/2) ln 2+ arctan 2"
+   }
+  },
+  {
+   "id": "e34",
+   "number": 34,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{1}^{2}\\frac{y}{x+y^{2}}}}dy\\,dx$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794336014",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, evaluate the iterated integrals by choosing the order of integration."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e35",
+   "number": 35,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=-x+2y,$ $R=[0,1]\\,\\times \\,[0,1]$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794122102",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the average value of the function over the given rectangles."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}.$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2)"
+   }
+  },
+  {
+   "id": "e36",
+   "number": 36,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=x^{4}+2y^{3},$ $R=[1,2]\\,\\times \\,[2,3]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793378240",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the average value of the function over the given rectangles."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e37",
+   "number": 37,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\sinh \\,x+\\sinh \\,y,$ $R=[0,1]\\,\\times \\,[0,2]$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793480081",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the average value of the function over the given rectangles."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\left(2\\,\\cosh \\,1+\\cosh \\,2-3\\right).$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2)(2 cosh 1+ cosh 2-3)"
+   }
+  },
+  {
+   "id": "e38",
+   "number": 38,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f(x,y)=\\arctan (xy),$ $R=[0,1]\\,\\times \\,[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793417017",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the average value of the function over the given rectangles."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let *f* and *g* be two continuous functions such that $0\\le m_{1}\\le f(x)\\le M_{1}$ for any $x\\in [a,b]$ and $0\\le m_{2}\\le g(y)\\le M_{2}$ for any $y\\in [c,d].$ Show that the following inequality is true:"
+    },
+    {
+     "type": "p",
+     "text": "$m_{1}m_{2}(b-a)(d-c)\\le \\int_{a}^{b}\\,\\int_{c}^{d}f(x)g(y)dy\\,dx\\le M_{1}M_{2}(b-a)(d-c).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793455226",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, find the average value of the function over the given rectangles."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{1}{e^{2}}\\le {\\displaystyle \\iint_{R}e^{-x^{2}-y^{2}}dA}\\le 1,$ where $R=[0,1]\\,\\times \\,[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793626149",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e41",
+   "number": 41,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{\\pi^{2}}{144}\\le {\\displaystyle \\iint_{R}\\sin \\,x\\,\\cos \\,y\\,dA}\\le \\frac{\\pi^{2}}{48},$ where $R=\\left[\\frac{\\pi}{6},\\frac{\\pi}{3}\\right]\\,\\times \\,\\left[\\frac{\\pi}{6},\\frac{\\pi}{3}\\right]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793515800",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e42",
+   "number": 42,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$0\\le \\iint_{R}e^{-y}\\cos \\,x\\,dA\\le \\left(\\frac{\\pi}{2}\\right)^{2},$ where $R=\\left[0,\\frac{\\pi}{2}\\right]\\,\\times \\,\\left[0,\\frac{\\pi}{2}\\right]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793930085",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e43",
+   "number": 43,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$0\\le {\\displaystyle \\iint_{R}(\\ln \\,x)(\\ln \\,y)dA}\\le (e-1)^{2},$ where $R=[1,e]\\,\\times \\,[1,e]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793933574",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e44",
+   "number": 44,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Let *f* and *g* be two continuous functions such that $0\\le m_{1}\\le f(x)\\le M_{1}$ for any $x\\in [a,b]$ and $0\\le m_{2}\\le g(y)\\le M_{2}$ for any $y\\in [c,d].$ Show that the following inequality is true:"
+    },
+    {
+     "type": "p",
+     "text": "$(m_{1}+m_{2})(b-a)(d-c)\\le {\\displaystyle \\int_{a}^{b}\\,{\\displaystyle \\int_{c}^{d}[f(x)+g(y)]dy\\,dx}}\\le (M_{1}+M_{2})(b-a)(d-c).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793298271",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e45",
+   "number": 45,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{2}{e}\\le {\\displaystyle \\iint_{R}(e^{-x^{2}}+e^{-y^{2}})dA}\\le 2,$ where $R=[0,1]\\,\\times \\,[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793512126",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e46",
+   "number": 46,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{\\pi^{2}}{36}\\le {\\displaystyle \\iint_{R}(\\sin \\,x+\\cos \\,y)}dA\\le \\frac{\\pi^{2}\\sqrt{3}}{36},$ where $R=\\left[\\frac{\\pi}{6},\\frac{\\pi}{3}\\right]\\,\\times \\,\\left[\\frac{\\pi}{6},\\frac{\\pi}{3}\\right]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793425931",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e47",
+   "number": 47,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{\\pi^{2}}{4}e^{\\frac{-\\pi}{2}}\\le \\iint_{R}(\\cos \\,x+e^{-y})dA\\le \\frac{\\pi^{2}}{2},$ where $R=\\left[0,\\frac{\\pi}{2}\\right]\\,\\times \\,\\left[0,\\frac{\\pi}{2}\\right]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793479214",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e48",
+   "number": 48,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$0\\le \\iint_{R}(\\ln x+\\ln \\,y)dA\\le 2\\left(e-1\\right)^{2},$ where $R=[1,e]\\,\\times \\,[1,e]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793711590",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e49",
+   "number": 49,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x,y)={\\displaystyle \\int_{0}^{y}\\,{\\displaystyle \\int_{0}^{x}(xs+yt)ds\\,dt}},$ where $(x,y)\\in R=[0,1]\\,\\times \\,[0,1]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794163611",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function *f* is given in terms of double integrals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine the explicit form of the function *f*.",
+      "Find the volume of the solid under the surface $z=f(x,y)$ and above the region *R*.",
+      "Find the average value of the function *f* on *R*.",
+      "Use a computer algebra system (CAS) to plot $z=f(x,y)$ and $z=f_{\\text{ave}}$ in the same system of coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(x,y)=\\frac{1}{2}xy(x^{2}+y^{2})$ b. $V={\\displaystyle \\int_{0}^{1}\\,{\\displaystyle \\int_{0}^{1}f(x,y)dx\\,dy}}=\\frac{1}{8}$ c. $f_{\\text{ave}}=\\frac{1}{8};$\n\nd."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_01_205.webp",
+      "alt": "In xyz space, a plane is formed at z = 1/8, and there is another shape that starts at the origin, increases through the plane in a line roughly running from (1, 0.25, 0.125) to (0.25, 1, 0.125), and then rapidly increases to (1, 1, 1).",
+      "width": 457,
+      "height": 447
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e50",
+   "number": 50,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $f(x,y)={\\displaystyle \\int_{0}^{x}\\,{\\displaystyle \\int_{0}^{y}[\\cos (s)+\\cos (t)]dt\\,ds}},$ where $(x,y)\\in R=[0,3]\\,\\times \\,[0,3]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794143668",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function *f* is given in terms of double integrals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine the explicit form of the function *f*.",
+      "Find the volume of the solid under the surface $z=f(x,y)$ and above the region *R*.",
+      "Find the average value of the function *f* on *R*.",
+      "Use a computer algebra system (CAS) to plot $z=f(x,y)$ and $z=f_{\\text{ave}}$ in the same system of coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e51",
+   "number": 51,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that if *f* and *g* are continuous on $[a,b]$ and $[c,d],$ respectively, then"
+    },
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{a}^{b}\\,{\\displaystyle \\int_{c}^{d}[f(x)+g(y)]dy\\,dx}}=(d-c){\\displaystyle \\int_{a}^{b}f(x)dx}$"
+    },
+    {
+     "type": "p",
+     "text": "$\\qquad +{\\displaystyle \\int_{a}^{b}\\,{\\displaystyle \\int_{c}^{d}g(y)dy}}\\,dx=(b-a){\\displaystyle \\int_{c}^{d}g(y)dy+}{\\displaystyle \\int_{c}^{d}\\,{\\displaystyle \\int_{a}^{b}f(x)dx}}\\,dy.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793569960",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function *f* is given in terms of double integrals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine the explicit form of the function *f*.",
+      "Find the volume of the solid under the surface $z=f(x,y)$ and above the region *R*.",
+      "Find the average value of the function *f* on *R*.",
+      "Use a computer algebra system (CAS) to plot $z=f(x,y)$ and $z=f_{\\text{ave}}$ in the same system of coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e52",
+   "number": 52,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that ${\\displaystyle \\int_{a}^{b}\\,{\\displaystyle \\int_{c}^{d}yf(x)+xg(y)dy\\,dx}}=\\frac{1}{2}(d^{2}-c^{2})\\left({\\displaystyle \\int_{a}^{b}f(x)dx}\\right)+\\frac{1}{2}(b^{2}-a^{2})\\left({\\displaystyle \\int_{c}^{d}g(y)dy}\\right).$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793581590",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function *f* is given in terms of double integrals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine the explicit form of the function *f*.",
+      "Find the volume of the solid under the surface $z=f(x,y)$ and above the region *R*.",
+      "Find the average value of the function *f* on *R*.",
+      "Use a computer algebra system (CAS) to plot $z=f(x,y)$ and $z=f_{\\text{ave}}$ in the same system of coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e53",
+   "number": 53,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Consider the function $f(x,y)=e^{-x^{2}-y^{2}},$ where $(x,y)\\in R=[-1,1]\\,\\times \\,[-1,1].$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Use the midpoint rule with $m=n=2,4,\\dots ,\\,10$ to estimate the double integral $I={\\displaystyle \\iint_{R}e^{-x^{2}-y^{2}}dA}.$ Round your answers to the nearest hundredths.",
+      "For $m=n=2,$ find the average value of *f* over the region *R*. Round your answer to the nearest hundredths.",
+      "Use a CAS to graph in the same coordinate system the solid whose volume is given by ${\\displaystyle \\iint_{R}e^{-x^{2}-y^{2}}dA}$ and the plane $z=f_{\\text{ave}}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794145449",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function *f* is given in terms of double integrals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine the explicit form of the function *f*.",
+      "Find the volume of the solid under the surface $z=f(x,y)$ and above the region *R*.",
+      "Find the average value of the function *f* on *R*.",
+      "Use a computer algebra system (CAS) to plot $z=f(x,y)$ and $z=f_{\\text{ave}}$ in the same system of coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. For $m=n=2,$ $I=4e^{-0.5}\\approx 2.43$ b. $f_{\\text{ave}}=e^{-0.5}≃0.61;$\n\nc."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_15_01_207.webp",
+      "alt": "In xyz space, a plane is formed at z = 0.61, and there is another shape with maximum roughly at (0, 0, 0.92), which decreases along all the sides to the points (plus or minus 1, plus or minus 1, 0.12).",
+      "width": 430,
+      "height": 410
+     }
+    ]
+   },
+   "notes": "self-check: solution has a figure or table"
+  },
+  {
+   "id": "e54",
+   "number": 54,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Consider the function $f(x,y)=\\sin (x^{2})\\cos (y^{2}),$ where $(x,y)\\in R=[-1,1]\\,\\times \\,[-1,1].$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Use the midpoint rule with $m=n=2,4,\\dots ,\\,10$ to estimate the double integral $I={\\displaystyle \\iint_{R}\\sin (x^{2})\\cos (y^{2})dA}.$ Round your answers to the nearest hundredths.",
+      "For $m=n=2,$ find the average value of *f* over the region *R.* Round your answer to the nearest hundredths.",
+      "Use a CAS to graph in the same coordinate system the solid whose volume is given by ${\\displaystyle \\iint_{R}\\sin (x^{2})\\cos (y^{2})dA}$ and the plane $z=f_{\\text{ave}}.$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794127165",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the function *f* is given in terms of double integrals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Determine the explicit form of the function *f*.",
+      "Find the volume of the solid under the surface $z=f(x,y)$ and above the region *R*.",
+      "Find the average value of the function *f* on *R*.",
+      "Use a computer algebra system (CAS) to plot $z=f(x,y)$ and $z=f_{\\text{ave}}$ in the same system of coordinates."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e55",
+   "number": 55,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f_{n}(x,y)=x^{n}+y^{n}+xy,(x,y)\\in R=[0,1]\\,\\times \\,[0,1]$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793515241",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the functions $f_{n}$ are given, where $n\\ge 1$ is a natural number."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the volume of the solids $S_{n}$ under the surfaces $z=f_{n}(x,y)$ and above the region *R*.",
+      "Determine the limit of the volumes of the solids $S_{n}$ as *n* increases without bound."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\frac{2}{n+1}+\\frac{1}{4}$ b. $\\frac{1}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a",
+      "answer": {
+       "kind": "expression",
+       "value": "(2/(n+1))+(1/4)"
+      }
+     },
+     {
+      "label": "b",
+      "answer": {
+       "kind": "number",
+       "value": "(1/4)"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "e56",
+   "number": 56,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$f_{n}(x,y)=\\frac{1}{x^{n}}+\\frac{1}{y^{n}},(x,y)\\in R=[1,2]\\,\\times \\,[1,2]$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293538",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the functions $f_{n}$ are given, where $n\\ge 1$ is a natural number."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the volume of the solids $S_{n}$ under the surfaces $z=f_{n}(x,y)$ and above the region *R*.",
+      "Determine the limit of the volumes of the solids $S_{n}$ as *n* increases without bound."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e57",
+   "number": 57,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the average value of a function *f* on a rectangular region $R=[a,b]\\,\\times \\,[c,d]$ is $f_{\\text{ave}}\\approx \\frac{1}{mn}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f\\left(x_{ij}^{*},y_{ij}^{*}\\right)}},$ where $\\left(x_{ij}^{*},y_{ij}^{*}\\right)$ are the sample points of the partition of *R*, where $1\\le i\\le m$ and $1\\le j\\le n.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793928479",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the functions $f_{n}$ are given, where $n\\ge 1$ is a natural number."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the volume of the solids $S_{n}$ under the surfaces $z=f_{n}(x,y)$ and above the region *R*.",
+      "Determine the limit of the volumes of the solids $S_{n}$ as *n* increases without bound."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e58",
+   "number": 58,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the midpoint rule with $m=n$ to show that the average value of a function *f* on a rectangular region $R=[a,b]\\,\\times \\,[c,d]$ is approximated by"
+    },
+    {
+     "type": "math",
+     "tex": "f_{\\text{ave}}\\approx \\frac{1}{n^{2}}{\\displaystyle \\sum_{i,j=1}^{n}f\\left(\\frac{1}{2}(x_{i-1}+x_{i}),\\frac{1}{2}(y_{j-1}+y_{j})\\right)}."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794126862",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the functions $f_{n}$ are given, where $n\\ge 1$ is a natural number."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the volume of the solids $S_{n}$ under the surfaces $z=f_{n}(x,y)$ and above the region *R*.",
+      "Determine the limit of the volumes of the solids $S_{n}$ as *n* increases without bound."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e59",
+   "number": 59,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "An isotherm map is a chart connecting points having the same temperature at a given time for a given period of time. Use the preceding exercise and apply the midpoint rule with $m=n=2$ to find the average temperature over the region given in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_15_01_209.webp",
+     "alt": "A contour map showing surface temperature in degrees Fahrenheit. Given the map, the midpoint rule would give rectangles with values 71, 72, 40, and 43.",
+     "width": 457,
+     "height": 345
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793590316",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "In the following exercises, the functions $f_{n}$ are given, where $n\\ge 1$ is a natural number."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Find the volume of the solids $S_{n}$ under the surfaces $z=f_{n}(x,y)$ and above the region *R*.",
+      "Determine the limit of the volumes of the solids $S_{n}$ as *n* increases without bound."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$56.5\\text{°}$ F; here $f(x_{1}^{*},y_{1}^{*})=71,$ $f(x_{2}^{*},y_{1}^{*})=72,$ $f(x_{1}^{*},y_{2}^{*})=40,$ $f(x_{2}^{*},y_{2}^{*})=43,$ where $x_{i}^{*}$ and $y_{j}^{*}$ are the midpoints of the subintervals of the partitions of $[a,b]$ and $[c,d],$ respectively."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "double integral",
+   "meaning": "of the function $f(x,y)$ over the region $R$ in the $xy$-plane is defined as the limit of a double Riemann sum, ${\\displaystyle \\iint_{R}f(x,y)dA}=\\lim_{m,n\\to \\infty}{\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A.}}$"
+  },
+  {
+   "term": "double Riemann sum",
+   "meaning": "of the function $f(x,y)$ over a rectangular region $R$ is ${\\displaystyle \\sum_{i=1}^{m}{\\displaystyle \\sum_{j=1}^{n}f(x_{ij}^{*},y_{ij}^{*})\\text{Δ}A}}$ where $R$ is divided into smaller subrectangles $R_{ij}$ and $\\left(x_{ij}^{*},y_{ij}^{*}\\right)$ is an arbitrary point in $R_{ij}$"
+  },
+  {
+   "term": "Fubini’s theorem",
+   "meaning": "if $f(x,y)$ is a function of two variables that is continuous over a rectangular region $R=\\{(x,y)\\in {\\mathbb{R}}^{2}|a\\le x\\le b,c\\le y\\le d\\},$ then the double integral of $f$ over the region equals an iterated integral,\n${\\displaystyle \\iint_{R}f(x,y)dy\\,dx}={\\displaystyle \\int_{a}^{b}{\\displaystyle \\int_{c}^{d}f(x,y)dx\\,dy}}={\\displaystyle \\int_{c}^{d}{\\displaystyle \\int_{a}^{b}f(x,y)dx\\,dy}}$"
+  },
+  {
+   "term": "iterated integral",
+   "meaning": "for a function $f(x,y)$ over the region $R$ is\n\n${\\displaystyle \\int_{a}^{b}{\\displaystyle \\int_{c}^{d}f(x,y)dx\\,dy}}={\\displaystyle \\int_{a}^{b}\\left[{\\displaystyle \\int_{c}^{d}f(x,y)dy}\\right]}dx,$\n${\\displaystyle \\int_{c}^{d}{\\displaystyle \\int_{b}^{a}f(x,y)dx\\,dy}}={\\displaystyle \\int_{c}^{d}\\left[{\\displaystyle \\int_{a}^{b}f(x,y)dx}\\right]}dy,$\n\nwhere $a,b,c,$ and $d$ are any real numbers and $R=[a,b]\\,\\times \\,[c,d]$"
+  }
+ ]
+}

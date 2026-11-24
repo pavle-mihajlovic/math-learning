@@ -1,0 +1,2310 @@
+{
+ "schema": 1,
+ "id": "V1.6.7",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 6,
+ "section": 7,
+ "title": "Integrals, Exponential Functions, and Logarithms",
+ "chapterTitle": "Applications of Integration",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53650",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/6-7-integrals-exponential-functions-and-logarithms",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §6.7 “Integrals, Exponential Functions, and Logarithms”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Write the definition of the natural logarithm as an integral.",
+  "Recognize the derivative of the natural logarithm.",
+  "Integrate functions involving the natural logarithmic function.",
+  "Define the number $e$ through an integral.",
+  "Recognize the derivative and integral of the exponential function.",
+  "Prove properties of logarithms and exponential functions using integrals.",
+  "Express general logarithmic and exponential functions in terms of natural logarithms and exponentials."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We already examined exponential functions and logarithms in earlier chapters. However, we glossed over some key details in the previous discussions. For example, we did not study how to treat exponential functions with exponents that are irrational. The definition of the number *e* is another area where the previous development was somewhat incomplete. We now have the tools to deal with these concepts in a more mathematically rigorous way, and we do so in this section."
+    },
+    {
+     "type": "p",
+     "text": "For purposes of this section, assume we have not yet defined the natural logarithm, the number *e*, or any of the integration and differentiation formulas associated with these functions. By the end of the section, we will have studied these concepts in a mathematically rigorous way (and we will see they are consistent with the concepts we learned earlier)."
+    },
+    {
+     "type": "p",
+     "text": "We begin the section by defining the natural logarithm in terms of an integral. This definition forms the foundation for the section. From this definition, we derive differentiation formulas, define the number $e,$ and expand these concepts to logarithms and exponential functions of any base."
+    }
+   ],
+   "title": "Integrals, Exponential Functions, and Logarithms"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Recall the power rule for integrals:"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int x^{n}dx=\\frac{x^{n+1}}{n+1}}+C,\\,n\\ne -1."
+    },
+    {
+     "type": "p",
+     "text": "Clearly, this does not work when $n=-1,$ as it would force us to divide by zero. So, what do we do with ${\\displaystyle \\int \\frac{1}{x}dx}?$ Recall from the Fundamental Theorem of Calculus that ${\\displaystyle \\int_{1}^{x}\\frac{1}{t}dt}$ is an antiderivative of $1/x.$ Therefore, we can make the following definition."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "For $x>0,$ define the natural logarithm function by"
+      },
+      {
+       "type": "math",
+       "tex": "\\ln \\,x={\\displaystyle \\int_{1}^{x}\\frac{1}{t}dt}."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "For $x>1,$ this is just the area under the curve $y=1/t$ from $1$ to $x.$ For $x<1,$ we have ${\\displaystyle \\int_{1}^{x}\\frac{1}{t}dt}=-{\\displaystyle \\int_{x}^{1}\\frac{1}{t}dt},$ so in this case it is the negative of the area under the curve from $x\\,\\text{to}\\,1$ (see the following figure)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_07_001.webp",
+     "alt": "This figure has two graphs. The first is the curve y=1/t. It is decreasing and in the first quadrant. Under the curve is a shaded area. The area is bounded to the left at x=1. The area is labeled “area=lnx”. The second graph is the same curve y=1/t. It has shaded area under the curve bounded to the right by x=1. It is labeled “area=-lnx”.",
+     "caption": "**Figure 6.74** (a) When $x>1,$ the natural logarithm is the area under the curve $y=1/t$ from $1\\,\\text{to}\\,x.$ (b) When $x<1,$ the natural logarithm is the negative of the area under the curve from $x$ to $1.$",
+     "width": 589,
+     "height": 311
+    }
+   ],
+   "title": "The Natural Logarithm as an Integral"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Notice that $\\ln \\,1=0.$ Furthermore, the function $y=1/t>0$ for $x>0.$ Therefore, by the properties of integrals, it is clear that $\\ln \\,x$ is increasing for $x>0.$"
+    }
+   ],
+   "title": "The Natural Logarithm as an Integral (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Because of the way we defined the natural logarithm, the following differentiation formula falls out immediately as a result of to the Fundamental Theorem of Calculus."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "For $x>0,$ the derivative of the natural logarithm is given by"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}\\ln \\,x=\\frac{1}{x}."
+      }
+     ],
+     "title": "Derivative of the Natural Logarithm"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "The function $\\ln \\,x$ is differentiable; therefore, it is continuous."
+      }
+     ],
+     "title": "Corollary to the Derivative of the Natural Logarithm"
+    },
+    {
+     "type": "p",
+     "text": "A graph of $\\ln \\,x$ is shown in Figure 6.75. Notice that it is continuous throughout its domain of $(0,\\infty ).$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_07_002.webp",
+     "alt": "This figure is a graph. It is an increasing curve labeled f(x)=lnx. The curve is increasing with the y-axis as an asymptote. The curve intersects the x-axis at x=1.",
+     "caption": "**Figure 6.75** The graph of $f(x)=\\ln \\,x$ shows that it is a continuous function.",
+     "width": 266,
+     "height": 347
+    }
+   ],
+   "title": "Properties of the Natural Logarithm"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 6.35",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dx}\\ln (5x^{3}-2)$",
+      "$\\frac{d}{dx}(\\ln (3x))^{2}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We need to apply the chain rule in both cases."
+     },
+     {
+      "type": "list",
+      "items": [
+       "$\\frac{d}{dx}\\ln (5x^{3}-2)=\\frac{15x^{2}}{5x^{3}-2}$",
+       "$\\frac{d}{dx}(\\ln (3x))^{2}=\\frac{2(\\ln (3x))\\cdot 3}{3x}=\\frac{2(\\ln (3x))}{x}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Calculating Derivatives of Natural Logarithms"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.35",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dx}\\ln (2x^{2}+x)$",
+      "$\\frac{d}{dx}(\\ln (x^{3}))^{2}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$\\frac{d}{dx}\\ln (2x^{2}+x)=\\frac{4x+1}{2x^{2}+x}$",
+       "$\\frac{d}{dx}(\\ln (x^{3}))^{2}=\\frac{6\\,\\ln (x^{3})}{x}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Apply the differentiation formula just provided and use the chain rule as necessary."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Note that if we use the absolute value function and create a new function $\\ln \\,|x|,$ we can extend the domain of the natural logarithm to include $x<0.$ Then $(d/(dx))\\ln \\,|x|=1/x.$ This gives rise to the familiar integration formula."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "The natural logarithm is the antiderivative of the function $f(u)=1/u:$"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int \\frac{1}{u}}du=\\ln \\,|u|+C."
+      }
+     ],
+     "title": "Integral of (1/*u*) *du*"
+    }
+   ],
+   "title": "Properties of the Natural Logarithm (continued)"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 6.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the integral ${\\displaystyle \\int \\frac{x}{x^{2}+4}}dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Using $u$-substitution, let $u=x^{2}+4.$ Then $du=2x\\,dx$ and we have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\frac{x}{x^{2}+4}}dx=\\frac{1}{2}{\\displaystyle \\int \\frac{1}{u}du=\\frac{1}{2}\\ln \\,|u|+C=}\\frac{1}{2}\\ln \\,|x^{2}+4|+C=\\frac{1}{2}\\ln (x^{2}+4)+C."
+     }
+    ]
+   },
+   "title": "Calculating Integrals Involving Natural Logarithms"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.36",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Calculate the integral ${\\displaystyle \\int \\frac{x^{2}}{x^{3}+6}}dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int \\frac{x^{2}}{x^{3}+6}}dx=\\frac{1}{3}\\ln \\,|x^{3}+6|+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Apply the integration formula provided earlier and use *u*-substitution as necessary."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3) ln |x^3+6|+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Although we have called our function a “logarithm,” we have not actually proved that any of the properties of logarithms hold for this function. We do so here."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $a,b>0$ and $r$ is a rational number, then"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$\\ln \\,1=0$",
+        "$\\ln (ab)=\\ln \\,a+\\ln \\,b$",
+        "$\\ln \\left(\\frac{a}{b}\\right)=\\ln \\,a-\\ln \\,b$",
+        "$\\ln (a^{r})=r\\,\\ln \\,a$"
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Properties of the Natural Logarithm"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Properties of the Natural Logarithm is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Properties of the Natural Logarithm (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we have the natural logarithm defined, we can use that function to define the number $e.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The number $e$ is defined to be the real number such that"
+      },
+      {
+       "type": "math",
+       "tex": "\\ln \\,e=1."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "To put it another way, the area under the curve $y=1/t$ between $t=1$ and $t=e$ is $1$ (Figure 6.76). The proof that such a number exists and is unique is left to you. (*Hint*: Use the Intermediate Value Theorem to prove existence and the fact that $\\ln \\,x$ is increasing to prove uniqueness.)"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_07_003.webp",
+     "alt": "This figure is a graph. It is the curve y=1/t. It is decreasing and in the first quadrant. Under the curve is a shaded area. The area is bounded to the left at x=1 and to the right at x=e. The area is labeled “area=1”.",
+     "caption": "**Figure 6.76** The area under the curve from $1$ to $e$ is equal to one.",
+     "width": 304,
+     "height": 316
+    },
+    {
+     "type": "p",
+     "text": "The number $e$ can be shown to be irrational, although we won’t do so here (see the Student Project in Taylor and Maclaurin Series). Its approximate value is given by"
+    },
+    {
+     "type": "math",
+     "tex": "e\\approx 2.71828182846."
+    }
+   ],
+   "title": "Defining the Number *e*"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now turn our attention to the function $e^{x}.$ Note that the natural logarithm is one-to-one and therefore has an inverse function. For now, we denote this inverse function by $\\exp \\,x.$ Then,"
+    },
+    {
+     "type": "math",
+     "tex": "\\exp (\\ln \\,x)=x\\,\\text{for}\\,x>0\\,\\text{and}\\,\\ln (\\exp \\,x)=x\\,\\text{for all}\\,x."
+    },
+    {
+     "type": "p",
+     "text": "The following figure shows the graphs of $\\exp \\,x$ and $\\ln \\,x.$"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_07_004.webp",
+     "alt": "This figure is a graph. It has three curves. The first curve is labeled exp x. It is an increasing curve with the x-axis as a horizontal asymptote. It intersects the y-axis at y=1. The second curve is a diagonal line through the origin. The third curve is labeled lnx. It is an increasing curve with the y-axis as an vertical axis. It intersects the x-axis at x=1.",
+     "caption": "**Figure 6.77** The graphs of $\\ln \\,x$ and $\\exp \\,x.$",
+     "width": 421,
+     "height": 422
+    },
+    {
+     "type": "p",
+     "text": "We hypothesize that $\\exp \\,x=e^{x}.$ For rational values of $x,$ this is easy to show. If $x$ is rational, then we have $\\ln (e^{x})=x\\,\\ln \\,e=x.$ Thus, when $x$ is rational, $e^{x}=\\exp \\,x.$ For irrational values of $x,$ we simply define $e^{x}$ as the inverse function of $\\ln \\,x.$"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "For any real number $x,$ define $y=e^{x}$ to be the number for which"
+      },
+      {
+       "type": "math",
+       "tex": "\\ln \\,y=\\ln (e^{x})=x."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Then we have $e^{x}=\\exp (x)$ for all $x,$ and thus"
+    },
+    {
+     "type": "math",
+     "tex": "e^{\\ln \\,x}=x\\,\\text{for}\\,x>0\\,\\text{and}\\,\\ln (e^{x})=x"
+    },
+    {
+     "type": "p",
+     "text": "for all $x.$"
+    }
+   ],
+   "title": "The Exponential Function"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Since the exponential function was defined in terms of an inverse function, and not in terms of a power of $e,$ we must verify that the usual laws of exponents hold for the function $e^{x}.$"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $p$ and $q$ are any real numbers and $r$ is a rational number, then"
+      },
+      {
+       "type": "list",
+       "items": [
+        "$e^{p}e^{q}=e^{p+q}$",
+        "$\\frac{e^{p}}{e^{q}}=e^{p-q}$",
+        "$(e^{p})^{r}=e^{pr}$"
+       ],
+       "ordered": true,
+       "style": "i"
+      }
+     ],
+     "title": "Properties of the Exponential Function"
+    },
+    {
+     "type": "p",
+     "text": "*A proof of Properties of the Exponential Function is on a proof card at the end of the unit.*"
+    }
+   ],
+   "title": "Properties of the Exponential Function"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We close this section by looking at exponential functions and logarithms with bases other than $e.$ Exponential functions are functions of the form $f(x)=a^{x}.$ Note that unless $a=e,$ we still do not have a mathematically rigorous definition of these functions for irrational exponents. Let’s rectify that here by defining the function $f(x)=a^{x}$ in terms of the exponential function $e^{x}.$ We then examine logarithms with bases other than $e$ as inverse functions of exponential functions."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "For any $a>0,$ and for any real number $x,$ define $y=a^{x}$ as follows:"
+      },
+      {
+       "type": "math",
+       "tex": "y=a^{x}=e^{x\\,\\ln \\,a}."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Now $a^{x}$ is defined rigorously for all values of *x*. This definition also allows us to generalize property iv. of logarithms and property iii. of exponential functions to apply to both rational and irrational values of $r.$ It is straightforward to show that properties of exponents hold for general exponential functions defined in this way."
+    },
+    {
+     "type": "p",
+     "text": "Let’s now apply this definition to calculate a differentiation formula for $a^{x}.$ We have"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}a^{x}=\\frac{d}{dx}e^{x\\,\\ln \\,a}=e^{x\\,\\ln \\,a}\\ln \\,a=a^{x}\\ln \\,a."
+    },
+    {
+     "type": "p",
+     "text": "The corresponding integration formula follows immediately."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $a>0.$ Then,"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}a^{x}=a^{x}\\ln \\,a"
+      },
+      {
+       "type": "p",
+       "text": "and"
+      },
+      {
+       "type": "math",
+       "tex": "{\\displaystyle \\int a^{x}dx}=\\frac{1}{\\ln \\,a}a^{x}+C."
+      }
+     ],
+     "title": "Derivatives and Integrals Involving General Exponential Functions"
+    }
+   ],
+   "title": "General Logarithmic and Exponential Functions"
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If $a\\ne 1,$ then the function $a^{x}$ is one-to-one and has a well-defined inverse. Its inverse is denoted by $\\log_{a}x.$ Then,"
+    },
+    {
+     "type": "math",
+     "tex": "y=\\log_{a}x\\,\\text{if and only if}\\,x=a^{y}."
+    },
+    {
+     "type": "p",
+     "text": "Note that general logarithm functions can be written in terms of the natural logarithm. Let $y=\\log_{a}x.$ Then, $x=a^{y}.$ Taking the natural logarithm of both sides of this second equation, we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\ln \\,x & = & \\ln (a^{y}) \\\\ \\ln \\,x & = & y\\,\\ln \\,a \\\\ y & = & \\frac{\\ln \\,x}{\\ln \\,a} \\\\ \\log_{a}x & = & \\frac{\\ln \\,x}{\\ln \\,a}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus, we see that all logarithmic functions are constant multiples of one another. Next, we use this formula to find a differentiation formula for a logarithm with base $a.$ Again, let $y=\\log_{a}x.$ Then,"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}\\frac{dy}{dx} & =\\frac{d}{dx}(\\log_{a}x) \\\\ & =\\frac{d}{dx}\\left(\\frac{\\ln \\,x}{\\ln \\,a}\\right) \\\\ & =\\left(\\frac{1}{\\ln \\,a}\\right)\\frac{d}{dx}(\\ln \\,x) \\\\ & =\\frac{1}{\\ln \\,a}\\cdot \\frac{1}{x} \\\\ & =\\frac{1}{x\\,\\ln \\,a}.\\end{array}"
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $a>0.$ Then,"
+      },
+      {
+       "type": "math",
+       "tex": "\\frac{d}{dx}\\log_{a}x=\\frac{1}{x\\,\\ln \\,a}."
+      }
+     ],
+     "title": "Derivatives of General Logarithm Functions"
+    }
+   ],
+   "title": "General Logarithmic and Exponential Functions (continued)"
+  },
+  {
+   "id": "x16",
+   "kind": "example",
+   "label": "Example 6.40",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dt}(4^{t}\\cdot 2^{t^{2}})$",
+      "$\\frac{d}{dx}\\log_{8}(7x^{2}+4)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We need to apply the chain rule as necessary."
+     },
+     {
+      "type": "list",
+      "items": [
+       "$\\frac{d}{dt}(4^{t}\\cdot 2^{t^{2}})=\\frac{d}{dt}(2^{2t}\\cdot 2^{t^{2}})=\\frac{d}{dt}(2^{2t+t^{2}})=2^{2t+t^{2}}\\ln (2)(2+2t)$",
+       "$\\frac{d}{dx}\\log_{8}(7x^{2}+4)=\\frac{1}{(7x^{2}+4)(\\ln \\,8)}(14x)$"
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Calculating Derivatives of General Exponential and Logarithm Functions"
+  },
+  {
+   "id": "c17",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.40",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dt}\\,4^{t^{4}}$",
+      "$\\frac{d}{dx}\\log_{3}(\\sqrt{x^{2}+1})$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$\\frac{d}{dt}4^{t^{4}}=4^{t^{4}}(\\ln \\,4)(4t^{3})$",
+       "$\\frac{d}{dx}\\log_{3}(\\sqrt{x^{2}+1})=\\frac{x}{(\\ln \\,3)(x^{2}+1)}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the formulas and apply the chain rule as necessary."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x18",
+   "kind": "example",
+   "label": "Example 6.41",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integral: ${\\displaystyle \\int \\frac{3}{2^{3x}}}dx.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use $u\\text{-substitution}$ and let $u=-3x.$ Then $du=-3dx$ and we have"
+     },
+     {
+      "type": "math",
+      "tex": "{\\displaystyle \\int \\frac{3}{2^{3x}}}dx={\\displaystyle \\int 3\\cdot 2^{-3x}}dx=-{\\displaystyle \\int 2^{u}du}=-\\frac{1}{\\ln \\,2}2^{u}+C=-\\frac{1}{\\ln \\,2}2^{-3x}+C."
+     }
+    ]
+   },
+   "title": "Integrating General Exponential Functions"
+  },
+  {
+   "id": "c19",
+   "kind": "checkpoint",
+   "label": "Checkpoint 6.41",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Evaluate the following integral: ${\\displaystyle \\int x^{2}2^{x^{3}}dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int x^{2}2^{x^{3}}dx}=\\frac{1}{3\\,\\ln \\,2}2^{x^{3}}+C$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the properties of exponential functions and $u\\text{-substitution}$ as necessary."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/(3 ln 2))2^(x^3)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The earlier treatment of logarithms and exponential functions did not define the functions precisely and formally. This section develops the concepts in a mathematically rigorous way.",
+      "The cornerstone of the development is the definition of the natural logarithm in terms of an integral.",
+      "The function $e^{x}$ is then defined as the inverse of the natural logarithm.",
+      "General exponential functions are defined in terms of $e^{x},$ and the corresponding inverse functions are general logarithms.",
+      "Familiar properties of logarithms and exponents still hold in this more rigorous context."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Natural logarithm function**",
+       "$\\ln \\,x={\\displaystyle \\int_{1}^{x}\\frac{1}{t}}dt$ Z"
+      ],
+      [
+       "**Exponential function** $y=e^{x}$",
+       "$\\ln \\,y=\\ln (e^{x})=x$ Z"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e295",
+   "number": 295,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\ln (2x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793363071",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/x)"
+   }
+  },
+  {
+   "id": "e296",
+   "number": 296,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\ln (2x+1)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794097588",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $\\frac{dy}{dx}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e297",
+   "number": 297,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\frac{1}{\\ln \\,x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793831549",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $\\frac{dy}{dx}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{x(\\ln \\,x)^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(x(ln x)^2))"
+   }
+  },
+  {
+   "id": "e298",
+   "number": 298,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dt}{3t}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793541108",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e299",
+   "number": 299,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{1+x}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793367825",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (x+1)+C$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln (x+1)+C",
+    "constant": true
+   }
+  },
+  {
+   "id": "e300",
+   "number": 300,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\frac{\\ln (x)}{x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793706119",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e301",
+   "number": 301,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=x\\,\\ln (x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793510876",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (x)+1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "ln (x)+1"
+   }
+  },
+  {
+   "id": "e302",
+   "number": 302,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\log_{10}x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793628640",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e303",
+   "number": 303,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\ln (\\sin \\,x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793244348",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cot (x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "cot (x)"
+   }
+  },
+  {
+   "id": "e304",
+   "number": 304,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\ln (\\ln \\,x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793504037",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e305",
+   "number": 305,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=7\\,\\ln (4x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793423443",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{7}{x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(7/x)"
+   }
+  },
+  {
+   "id": "e306",
+   "number": 306,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\ln ((4x)^{7})$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793293705",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e307",
+   "number": 307,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\ln (\\tan \\,x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794073092",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\csc (x)\\sec \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "csc (x) sec x"
+   }
+  },
+  {
+   "id": "e308",
+   "number": 308,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\ln (\\tan (3x))$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793563636",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e309",
+   "number": 309,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $y=\\ln (\\cos^{2}x)$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793281522",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the derivative $dy/dx.$ (You can use a calculator to plot the function and the derivative to confirm that it is correct.)"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-2\\,\\tan \\,x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-2 tan x"
+   }
+  },
+  {
+   "id": "e310",
+   "number": 310,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\frac{dx}{3+x}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793553760",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e311",
+   "number": 311,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{1}\\frac{dt}{3+2t}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793372398",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\ln \\left(\\frac{5}{3}\\right)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2) ln ((5/3))"
+   }
+  },
+  {
+   "id": "e312",
+   "number": 312,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2}\\frac{x\\,dx}{x^{2}+1}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793582462",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e313",
+   "number": 313,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{2}\\frac{x^{3}dx}{x^{2}+1}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794122084",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2-\\frac{1}{2}\\ln (5)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2-(1/2) ln (5)"
+   }
+  },
+  {
+   "id": "e314",
+   "number": 314,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{2}^{e}\\frac{dx}{x\\,\\ln \\,x}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793499058",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e315",
+   "number": 315,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{2}^{e}\\frac{dx}{x\\,(\\ln \\,x)^{2}}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794054231",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{\\ln (2)}-1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/(ln (2)))-1"
+   }
+  },
+  {
+   "id": "e316",
+   "number": 316,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{\\cos \\,x\\,dx}{\\sin \\,x}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793481974",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e317",
+   "number": 317,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{0}^{\\pi /4}\\tan \\,x\\,dx}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793469786",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}\\ln (2)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(1/2) ln (2)"
+   }
+  },
+  {
+   "id": "e318",
+   "number": 318,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\cot (3x)dx}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794005239",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e319",
+   "number": 319,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{(\\ln \\,x)^{2}dx}{x}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794291581",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the definite or indefinite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{3}(\\ln \\,x)^{3}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/3)(ln x)^3"
+   }
+  },
+  {
+   "id": "e320",
+   "number": 320,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sqrt{x^{2}+1}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793518492",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e321",
+   "number": 321,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sqrt{x^{2}+1}\\sqrt{x^{2}-1}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793394990",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{2x^{3}}{\\sqrt{x^{2}+1}\\sqrt{x^{2}-1}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((2 x^3)/(sqrt(x^2+1)sqrt(x^2-1)))"
+   }
+  },
+  {
+   "id": "e322",
+   "number": 322,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{\\sin \\,x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793595222",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e323",
+   "number": 323,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{-1/x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793634250",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^{-2-(1/x)}(\\ln \\,x-1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "x^(-2-(1/x))(ln x-1)"
+   }
+  },
+  {
+   "id": "e324",
+   "number": 324,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{(ex)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793465279",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e325",
+   "number": 325,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{e}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793627001",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$ex^{e-1}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "e x^(e-1)"
+   }
+  },
+  {
+   "id": "e326",
+   "number": 326,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{(ex)}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793445751",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e327",
+   "number": 327,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=\\sqrt{x}\\,\\sqrt[3]{x}\\,\\sqrt[6]{x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793543331",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   }
+  },
+  {
+   "id": "e328",
+   "number": 328,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=x^{-1/\\ln \\,x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793566023",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e329",
+   "number": 329,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y=e^{-\\ln \\,x}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793566062",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, compute $dy/dx$ by differentiating $\\ln \\,y.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-\\frac{1}{x^{2}}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-(1/(x^2))"
+   }
+  },
+  {
+   "id": "e330",
+   "number": 330,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{5}^{10}\\frac{dt}{t}-{\\displaystyle \\int_{5x}^{10x}\\frac{dt}{t}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793315561",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate by any method."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e331",
+   "number": 331,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int_{1}^{e^{\\pi}}\\frac{dx}{x}}+{\\displaystyle \\int_{-2}^{-1}\\frac{dx}{x}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793937978",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate by any method."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\pi -\\ln (2)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "pi - ln (2)"
+   }
+  },
+  {
+   "id": "e332",
+   "number": 332,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{x}^{1}\\frac{dt}{t}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794127468",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate by any method."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e333",
+   "number": 333,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}{\\displaystyle \\int_{x}^{x^{2}}\\frac{dt}{t}}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794127523",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate by any method."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "(1/x)"
+   }
+  },
+  {
+   "id": "e334",
+   "number": 334,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}\\ln (\\sec \\,x+\\tan \\,x)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167794146835",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, evaluate by any method."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e335",
+   "number": 335,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area of the region enclosed by $x=1$ and $y=5$ above $y=\\ln \\,x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793423297",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the function $\\ln \\,x.$ If you are unable to find intersection points analytically, use a calculator."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{5}-6\\,{\\text{units}}^{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e336",
+   "number": 336,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the arc length of $\\ln \\,x$ from $x=1$ to $x=2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793541870",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the function $\\ln \\,x.$ If you are unable to find intersection points analytically, use a calculator."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e337",
+   "number": 337,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area between $\\ln \\,x$ and the *x*-axis from $x=1\\,\\text{to}\\,x=2.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793454016",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the function $\\ln \\,x.$ If you are unable to find intersection points analytically, use a calculator."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln (4)-1\\,{\\text{units}}^{2}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e338",
+   "number": 338,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the volume of the shape created when rotating this curve from $x=1\\,\\text{to}\\,x=2$ around the *x*-axis, as pictured here."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_06_07_201.webp",
+     "alt": "This figure is a surface. It has been generated by revolving the curve ln x about the x-axis. The surface is inside of a cube showing it is 3-dimensinal.",
+     "width": 461,
+     "height": 522
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793713080",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the function $\\ln \\,x.$ If you are unable to find intersection points analytically, use a calculator."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e339",
+   "number": 339,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the surface area of the shape created when rotating the curve in the previous exercise from $x=1$ to $x=2$ around the *x*-axis."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793510646",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the function $\\ln \\,x.$ If you are unable to find intersection points analytically, use a calculator."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2.8656$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2.8656"
+   }
+  },
+  {
+   "id": "e340",
+   "number": 340,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area of the hyperbolic quarter-circle enclosed by $x=2\\,\\text{and}\\,y=2$ above $y=1/x.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793510699",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "If you are unable to find intersection points analytically in the following exercises, use a calculator."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e341",
+   "number": 341,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Find the arc length of $y=1/x$ from $x=1\\,\\text{to}\\,x=4.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167794209645",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "If you are unable to find intersection points analytically in the following exercises, use a calculator."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3.1502$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "3.1502"
+   }
+  },
+  {
+   "id": "e342",
+   "number": 342,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the area under $y=1/x$ and above the *x*-axis from $x=1\\,\\text{to}\\,x=4.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793570750",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "If you are unable to find intersection points analytically in the following exercises, use a calculator."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e343",
+   "number": 343,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}\\ln (x+\\sqrt{x^{2}+1})=\\frac{1}{\\sqrt{1+x^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793593498",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, verify the derivatives and antiderivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e344",
+   "number": 344,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}\\ln \\left(\\frac{x-a}{x+a}\\right)=\\frac{2a}{(x^{2}-a^{2})}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793377930",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, verify the derivatives and antiderivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e345",
+   "number": 345,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}\\ln \\left(\\frac{1+\\sqrt{1-x^{2}}}{x}\\right)=-\\frac{1}{x\\sqrt{1-x^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793380054",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, verify the derivatives and antiderivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e346",
+   "number": 346,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d}{dx}\\ln (x+\\sqrt{x^{2}-a^{2}})=\\frac{1}{\\sqrt{x^{2}-a^{2}}}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793911914",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, verify the derivatives and antiderivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e347",
+   "number": 347,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "${\\displaystyle \\int \\frac{dx}{x\\,\\ln (x)\\ln (\\ln \\,x)}}=\\ln (\\ln (\\ln \\,x))+C$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793373565",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, verify the derivatives and antiderivatives."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [
+  {
+   "id": "p1",
+   "title": "Properties of the Natural Logarithm",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If $a,b>0$ and $r$ is a rational number, then"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\ln \\,1=0$",
+      "$\\ln (ab)=\\ln \\,a+\\ln \\,b$",
+      "$\\ln \\left(\\frac{a}{b}\\right)=\\ln \\,a-\\ln \\,b$",
+      "$\\ln (a^{r})=r\\,\\ln \\,a$"
+     ],
+     "ordered": true,
+     "style": "i"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "i. By definition, $\\ln \\,1={\\displaystyle \\int_{1}^{1}\\frac{1}{t}}dt=0.$"
+    },
+    {
+     "type": "p",
+     "text": "ii. We have"
+    },
+    {
+     "type": "math",
+     "tex": "\\ln (ab)={\\displaystyle \\int_{1}^{ab}\\frac{1}{t}}dt={\\displaystyle \\int_{1}^{a}\\frac{1}{t}}dt+{\\displaystyle \\int_{a}^{ab}\\frac{1}{t}}dt."
+    },
+    {
+     "type": "p",
+     "text": "Use $u\\text{-substitution}$ on the last integral in this expression. Let $u=t/a.$ Then $du=(1/a)dt.$ Furthermore, when $t=a,u=1,$ and when $t=ab,u=b.$ So we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\ln (ab)={\\displaystyle \\int_{1}^{a}\\frac{1}{t}}dt+{\\displaystyle \\int_{a}^{ab}\\frac{1}{t}}dt={\\displaystyle \\int_{1}^{a}\\frac{1}{t}}dt+{\\displaystyle \\int_{a}^{ab}\\frac{a}{t}\\cdot \\frac{1}{a}}dt={\\displaystyle \\int_{1}^{a}\\frac{1}{t}dt+}{\\displaystyle \\int_{1}^{b}\\frac{1}{u}du=\\ln \\,a+\\ln \\,b.}"
+    },
+    {
+     "type": "p",
+     "text": "iv. Note that"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}\\ln (x^{r})=\\frac{rx^{r-1}}{x^{r}}=\\frac{r}{x}."
+    },
+    {
+     "type": "p",
+     "text": "Furthermore,"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}(r\\,\\ln \\,x)=\\frac{r}{x}."
+    },
+    {
+     "type": "p",
+     "text": "Since the derivatives of these two functions are the same, by the Fundamental Theorem of Calculus, they must differ by a constant. So we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\ln (x^{r})=r\\,\\ln \\,x+C"
+    },
+    {
+     "type": "p",
+     "text": "for some constant $C.$ Taking $x=1,$ we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\ln (1^{r}) & = & r\\,\\ln (1)+C \\\\ 0 & = & r(0)+C \\\\ C & = & 0.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus $\\ln (x^{r})=r\\,\\ln \\,x$ and the proof is complete. Note that we can extend this property to irrational values of $r$ later in this section.\n\nPart iii. follows from parts ii. and iv. and the proof is left to you."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "Use properties of logarithms to simplify the following expression into a single logarithm:"
+    },
+    {
+     "type": "math",
+     "tex": "\\ln \\,9-2\\,\\ln \\,3+\\ln \\left(\\frac{1}{3}\\right)."
+    },
+    {
+     "type": "p",
+     "text": "We have"
+    },
+    {
+     "type": "math",
+     "tex": "\\ln \\,9-2\\,\\ln \\,3+\\ln \\left(\\frac{1}{3}\\right)=\\ln (3^{2})-2\\,\\ln \\,3+\\ln (3^{-1})=2\\,\\ln \\,3-2\\,\\ln \\,3-\\ln \\,3=-\\ln \\,3."
+    }
+   ],
+   "label": "book"
+  },
+  {
+   "id": "p2",
+   "title": "Properties of the Exponential Function",
+   "statement": [
+    {
+     "type": "p",
+     "text": "If $p$ and $q$ are any real numbers and $r$ is a rational number, then"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$e^{p}e^{q}=e^{p+q}$",
+      "$\\frac{e^{p}}{e^{q}}=e^{p-q}$",
+      "$(e^{p})^{r}=e^{pr}$"
+     ],
+     "ordered": true,
+     "style": "i"
+    }
+   ],
+   "proof": [
+    {
+     "type": "p",
+     "text": "Note that if $p$ and $q$ are rational, the properties hold. However, if $p$ or $q$ are irrational, we must apply the inverse function definition of $e^{x}$ and verify the properties. Only the first property is verified here; the other two are left to you. We have"
+    },
+    {
+     "type": "math",
+     "tex": "\\ln (e^{p}e^{q})=\\ln (e^{p})+\\ln (e^{q})=p+q=\\ln (e^{p+q})."
+    },
+    {
+     "type": "p",
+     "text": "Since $\\ln \\,x$ is one-to-one, then"
+    },
+    {
+     "type": "math",
+     "tex": "e^{p}e^{q}=e^{p+q}."
+    },
+    {
+     "type": "p",
+     "text": "□"
+    },
+    {
+     "type": "p",
+     "text": "As with part iv. of the logarithm properties, we can extend property iii. to irrational values of $r,$ and we do so by the end of the section."
+    },
+    {
+     "type": "p",
+     "text": "We also want to verify the differentiation formula for the function $y=e^{x}.$ To do this, we need to use implicit differentiation. Let $y=e^{x}.$ Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}\\ln \\,y & = & x \\\\ \\frac{d}{dx}\\ln \\,y & = & \\frac{d}{dx}x \\\\ \\frac{1}{y}\\,\\frac{dy}{dx} & = & 1 \\\\ \\frac{dy}{dx} & = & y.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Thus, we see"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{d}{dx}e^{x}=e^{x}"
+    },
+    {
+     "type": "p",
+     "text": "as desired, which leads immediately to the integration formula"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int e^{x}dx}=e^{x}+C."
+    },
+    {
+     "type": "p",
+     "text": "We apply these formulas in the following examples."
+    },
+    {
+     "type": "p",
+     "text": "Evaluate the following derivatives:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dt}e^{3t}e^{t^{2}}$",
+      "$\\frac{d}{dx}e^{3x^{2}}$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "We apply the chain rule as necessary."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$\\frac{d}{dt}e^{3t}e^{t^{2}}=\\frac{d}{dt}e^{3t+t^{2}}=e^{3t+t^{2}}(3+2t)$",
+      "$\\frac{d}{dx}e^{3x^{2}}=e^{3x^{2}}6x$"
+     ],
+     "ordered": true,
+     "style": "a"
+    },
+    {
+     "type": "p",
+     "text": "Evaluate the following integral: ${\\displaystyle \\int 2xe^{-x^{2}}dx}.$"
+    },
+    {
+     "type": "p",
+     "text": "Using $u$-substitution, let $u=-x^{2}.$ Then $du=-2x\\,dx,$ and we have"
+    },
+    {
+     "type": "math",
+     "tex": "{\\displaystyle \\int 2xe^{-x^{2}}dx}=-{\\displaystyle \\int e^{u}du}=-e^{u}+C=-e^{-x^{2}}+C."
+    }
+   ],
+   "label": "book"
+  }
+ ]
+}

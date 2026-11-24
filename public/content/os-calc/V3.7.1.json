@@ -1,0 +1,2917 @@
+{
+ "schema": 1,
+ "id": "V3.7.1",
+ "book": "os-calc",
+ "volume": 3,
+ "chapter": 7,
+ "section": 1,
+ "title": "Second-Order Linear Equations",
+ "chapterTitle": "Second-Order Differential Equations",
+ "source": {
+  "book": "Calculus Volume 3",
+  "module": "m54040",
+  "url": "https://openstax.org/books/calculus-volume-3/pages/7-1-second-order-linear-equations",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 3, §7.1 “Second-Order Linear Equations”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Recognize homogeneous and nonhomogeneous linear differential equations.",
+  "Determine the characteristic equation of a homogeneous linear equation.",
+  "Use the roots of the characteristic equation to find the solution to a homogeneous linear equation.",
+  "Solve initial-value and boundary-value problems involving linear differential equations."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "When working with differential equations, usually the goal is to find a solution. In other words, we want to find a function (or functions) that satisfies the differential equation. The technique we use to find these solutions varies, depending on the form of the differential equation with which we are working. Second-order differential equations have several important characteristics that can help us determine which solution method to use. In this section, we examine some of these characteristics and the associated terminology."
+    }
+   ],
+   "title": "Second-Order Linear Equations"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Consider the second-order differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "xy''+2x^{2}y'+5x^{3}y=0."
+    },
+    {
+     "type": "p",
+     "text": "Notice that *y* and its derivatives appear in a relatively simple form. They are multiplied by functions of *x*, but are not raised to any powers themselves, nor are they multiplied together. As discussed in Introduction to Differential Equations, first-order equations with similar characteristics are said to be linear. The same is true of second-order equations. Also note that all the terms in this differential equation involve either *y* or one of its derivatives. There are no terms involving only functions of *x*. Equations like this, in which every term contains *y* or one of its derivatives, are called homogeneous."
+    },
+    {
+     "type": "p",
+     "text": "Not all differential equations are homogeneous. Consider the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "xy''+2x^{2}y'+5x^{3}y=x^{2}."
+    },
+    {
+     "type": "p",
+     "text": "The $x^{2}$ term on the right side of the equal sign does not contain *y* or any of its derivatives. Therefore, this differential equation is nonhomogeneous."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A second-order differential equation is linear if it can be written in the form"
+      },
+      {
+       "type": "math",
+       "tex": "a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x),"
+      },
+      {
+       "type": "p",
+       "text": "where $a_{2}(x),$ $a_{1}(x),$ $a_{0}(x),$ and $r(x)$ are real-valued functions and $a_{2}(x)$ is not identically zero. If $r(x)\\equiv 0$—in other words, if $r(x)=0$ for every value of *x*—the equation is said to be a **homogeneous linear equation**. If $r(x)\\ne 0$ for some value of $x,$ the equation is said to be a **nonhomogeneous linear equation**."
+      }
+     ]
+    }
+   ],
+   "title": "Homogeneous Linear Equations"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In linear differential equations, $y$ and its derivatives can be raised only to the first power and they may not be multiplied by one another. Terms involving $y^{2}$ or $\\sqrt{y'}$ make the equation nonlinear. Functions of $y$ and its derivatives, such as $\\sin \\,y$ or $e^{y'},$ are similarly prohibited in linear differential equations."
+    },
+    {
+     "type": "p",
+     "text": "Note that equations may not always be given in standard form (the form shown in the definition). It can be helpful to rewrite them in that form to decide whether they are linear, or whether a linear equation is homogeneous."
+    }
+   ],
+   "title": "Homogeneous Linear Equations (continued)"
+  },
+  {
+   "id": "x4",
+   "kind": "example",
+   "label": "Example 7.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Classify each of the following equations as linear or nonlinear. If the equation is linear, determine further whether it is homogeneous or nonhomogeneous."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y''+3x^{4}y'+x^{2}y^{2}=x^{3}$",
+      "$(\\sin \\,x)y''+(\\cos \\,x)y'+3y=0$",
+      "$4t^{2}x''+3txx'+4x=0$",
+      "$5y''+y=4x^{5}$",
+      "$(\\cos \\,x)y''-\\sin \\,y'+(\\sin \\,x)y-\\cos \\,x=0$",
+      "$8ty''-6t^{2}y'+4ty-3t^{2}=0$",
+      "$\\sin (x^{2})y''-(\\cos \\,x)y'+x^{2}y=y'-3$",
+      "$y''+5xy'-3y=\\cos \\,y$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "This equation is nonlinear because of the $y^{2}$ term.",
+       "This equation is linear. There is no term involving a power or function of $y,$ and the coefficients are all functions of $x.$ The equation is already written in standard form, and $r(x)$ is identically zero, so the equation is homogeneous.",
+       "This equation is nonlinear. Note that, in this case, *x* is the dependent variable and *t* is the independent variable. The second term involves the product of $x$ and $x',$ so the equation is nonlinear.",
+       "This equation is linear. Since $r(x)=4x^{5},$ the equation is nonhomogeneous.",
+       "This equation is nonlinear, because of the $\\sin \\,y'$ term.",
+       [
+        {
+         "type": "p",
+         "text": "This equation is linear. Rewriting it in standard form gives"
+        },
+        {
+         "type": "math",
+         "tex": "8t^{2}y''-6t^{2}y'+4ty=3t^{2}."
+        },
+        {
+         "type": "p",
+         "text": "With the equation in standard form, we can see that $r(t)=3t^{2},$ so the equation is nonhomogeneous."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "This equation looks like it’s linear, but we should rewrite it in standard form to be sure. We get"
+        },
+        {
+         "type": "math",
+         "tex": "\\sin (x^{2})y''-(\\cos \\,x+1)y'+x^{2}y=-3."
+        },
+        {
+         "type": "p",
+         "text": "This equation is, indeed, linear. With $r(x)=-3,$ it is nonhomogeneous."
+        }
+       ],
+       "This equation is nonlinear because of the $\\cos \\,y$ term."
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Classifying Second-Order Equations"
+  },
+  {
+   "id": "c5",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Classify each of the following equations as linear or nonlinear. If the equation is linear, determine further whether it is homogeneous or nonhomogeneous."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$(y'')^{2}-y'+8x^{3}y=0$",
+      "$(\\sin \\,t)y''+\\cos \\,t-3ty'=0$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "Nonlinear",
+       "Linear, nonhomogeneous"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Write the equation in standard form if necessary. Check for powers or functions of $y$ and its derivatives."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Later in this section, we will see some techniques for solving specific types of differential equations. Before we get to that, however, let’s get a feel for how solutions to linear differential equations behave. In many cases, solving differential equations depends on making educated guesses about what the solution might look like. Knowing how various types of solutions behave will be helpful."
+    }
+   ],
+   "title": "Homogeneous Linear Equations (continued)"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 7.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the linear, homogeneous differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "x^{2}y''-xy'-3y=0."
+    },
+    {
+     "type": "p",
+     "text": "Looking at this equation, notice that the coefficient functions are polynomials, with higher powers of $x$ associated with higher-order derivatives of $y.$ Show that $y=x^{3}$ is a solution to this differential equation."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $y=x^{3}.$ Then $y'=3x^{2}$ and $y''=6x.$ Substituting into the differential equation, we see that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}x^{2}y''-xy'-3y & =x^{2}(6x)-x(3x^{2})-3(x^{3}) \\\\ & =6x^{3}-3x^{3}-3x^{3} \\\\ & =0.\\end{array}"
+     }
+    ]
+   },
+   "title": "Verifying a Solution"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Show that $y=2x^{2}$ is a solution to the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "\\frac{1}{2}x^{2}y''-xy'+y=0."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Calculate the derivatives and substitute them into the differential equation."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Although simply finding any solution to a differential equation is important, mathematicians and engineers often want to go beyond finding *one* solution to a differential equation to finding *all* solutions to a differential equation. In other words, we want to find a general solution**.** Just as with first-order differential equations, a general solution (or family of solutions) gives the entire set of solutions to a differential equation. An important difference between first-order and second-order equations is that, with second-order equations, we typically need to find two different solutions to the equation to find the general solution. If we find two solutions, then any linear combination of these solutions is also a solution. We state this fact as the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $y_{1}(x)$ and $y_{2}(x)$ are solutions to a linear homogeneous differential equation, then the function"
+      },
+      {
+       "type": "math",
+       "tex": "y(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x),"
+      },
+      {
+       "type": "p",
+       "text": "where $c_{1}$ and $c_{2}$ are constants, is also a solution."
+      }
+     ],
+     "title": "Superposition Principle"
+    },
+    {
+     "type": "p",
+     "text": "The proof of this **superposition principle** theorem is left as an exercise."
+    }
+   ],
+   "title": "Homogeneous Linear Equations (continued)"
+  },
+  {
+   "id": "x10",
+   "kind": "example",
+   "label": "Example 7.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "y''-4y'-5y=0."
+    },
+    {
+     "type": "p",
+     "text": "Given that $e^{-x}$ and $e^{5x}$ are solutions to this differential equation, show that $4e^{-x}+e^{5x}$ is a solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have"
+     },
+     {
+      "type": "math",
+      "tex": "y(x)=4e^{-x}+e^{5x},\\,\\text{so}\\,y'(x)=-4e^{-x}+5e^{5x}\\,\\text{and}\\,y''(x)=4e^{-x}+25e^{5x}."
+     },
+     {
+      "type": "p",
+      "text": "Then"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}y''-4y'-5y & =(4e^{-x}+25e^{5x})-4(-4e^{-x}+5e^{5x})-5(4e^{-x}+e^{5x}) \\\\ & =4e^{-x}+25e^{5x}+16e^{-x}-20e^{5x}-20e^{-x}-5e^{5x} \\\\ & =0.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus, $y(x)=4e^{-x}+e^{5x}$ is a solution."
+     }
+    ]
+   },
+   "title": "Verifying the Superposition Principle"
+  },
+  {
+   "id": "c11",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Consider the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "y''+5y'+6y=0."
+    },
+    {
+     "type": "p",
+     "text": "Given that $e^{-2x}$ and $e^{-3x}$ are solutions to this differential equation, show that $3e^{-2x}+6e^{-3x}$ is a solution."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Differentiate the function and substitute into the differential equation."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Unfortunately, to find the general solution to a second-order differential equation, it is not enough to find any two solutions and then combine them. Consider the differential equation"
+    },
+    {
+     "type": "math",
+     "tex": "x''+7x'+12x=0."
+    },
+    {
+     "type": "p",
+     "text": "Both $e^{-3t}$ and $2e^{-3t}$ are solutions (check this). However, $x(t)=c_{1}e^{-3t}+c_{2}(2e^{-3t})$ is *not* the general solution. This expression does not account for all solutions to the differential equation. In particular, it fails to account for the function $e^{-4t},$ which is also a solution to the differential equation."
+    },
+    {
+     "type": "p",
+     "text": "It turns out that to find the general solution to a second-order differential equation, we must find two linearly independent solutions. We define that terminology here."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "A set of functions $f_{1}(x),f_{2}(x),\\dots ,f_{n}(x)$ is said to be **linearly dependent** if there are constants $c_{1},c_{2},\\dots c_{n},$ not all zero, such that $c_{1}f_{1}(x)+c_{2}f_{2}(x)+\\cdots +c_{n}f_{n}(x)=0$ for all *x* over the interval of interest. A set of functions that is not linearly dependent is said to be **linearly independent**."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "In this chapter, we usually test sets of only two functions for linear independence, which allows us to simplify this definition. From a practical perspective, we see that two functions are linearly dependent if either one of them is identically zero or if they are constant multiples of each other."
+    }
+   ],
+   "title": "Homogeneous Linear Equations (continued)"
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "First we show that if the functions meet the conditions given previously, then they are linearly dependent. If one of the functions is identically zero—say, $f_{2}(x)\\equiv 0$—then choose $c_{1}=0$ and $c_{2}=1,$ and the condition for linear dependence is satisfied. If, on the other hand, neither $f_{1}(x)$ nor $f_{2}(x)$ is identically zero, but $f_{1}(x)=Cf_{2}(x)$ for some constant $C,$ then choose $c_{1}=\\frac{1}{C}$ and $c_{2}=-1,$ and again, the condition is satisfied."
+    },
+    {
+     "type": "p",
+     "text": "Next, we show that if two functions are linearly dependent, then either one is identically zero or they are constant multiples of one another. Assume $f_{1}(x)$ and $f_{2}(x)$ are linearly independent. Then, there are constants, $c_{1}$ and $c_{2},$ not both zero, such that"
+    },
+    {
+     "type": "math",
+     "tex": "c_{1}f_{1}(x)+c_{2}f_{2}(x)=0"
+    },
+    {
+     "type": "p",
+     "text": "for all *x* over the interval of interest. Then,"
+    },
+    {
+     "type": "math",
+     "tex": "c_{1}f_{1}(x)=-c_{2}f_{2}(x)."
+    },
+    {
+     "type": "p",
+     "text": "Now, since we stated that $c_{1}$ and $c_{2}$ can’t both be zero, assume $c_{2}\\ne 0.$ Then, there are two cases: either $c_{1}=0$ or $c_{1}\\ne 0.$ If $c_{1}=0,$ then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}0=-c_{2}f_{2}(x) \\\\ 0=f_{2}(x),\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "so one of the functions is identically zero. Now suppose $c_{1}\\ne 0.$ Then,"
+    },
+    {
+     "type": "math",
+     "tex": "f_{1}(x)=\\left(-\\frac{c_{2}}{c_{1}}\\right)f_{2}(x)"
+    },
+    {
+     "type": "p",
+     "text": "and we see that the functions are constant multiples of one another."
+    }
+   ],
+   "title": "Homogeneous Linear Equations (continued)"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Two functions, $f_{1}(x)$ and $f_{2}(x),$ are said to be linearly dependent if either one of them is identically zero or if $f_{1}(x)=Cf_{2}(x)$ for some constant *C* and for all *x* over the interval of interest. Functions that are not linearly dependent are said to be *linearly independent*."
+      }
+     ],
+     "title": "Linear Dependence of Two Functions"
+    }
+   ],
+   "title": "Homogeneous Linear Equations (continued)"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 7.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether the following pairs of functions are linearly dependent or linearly independent."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$f_{1}(x)=x^{2},$ $f_{2}(x)=5x^{2}$",
+      "$f_{1}(x)=\\sin \\,x,$ $f_{2}(x)=\\cos \\,x$",
+      "$f_{1}(x)=e^{3x},$ $f_{2}(x)=e^{-3x}$",
+      "$f_{1}(x)=3x,$ $f_{2}(x)=3x+1$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$f_{2}(x)=5f_{1}(x),$ so the functions are linearly dependent.",
+       "There is no constant *C* such that $f_{1}(x)=Cf_{2}(x),$ so the functions are linearly independent.",
+       "There is no constant *C* such that $f_{1}(x)=Cf_{2}(x),$ so the functions are linearly independent. Don’t get confused by the fact that the exponents are constant multiples of each other. With two exponential functions, unless the exponents are equal, the functions are linearly independent.",
+       "There is no constant *C* such that $f_{1}(x)=Cf_{2}(x),$ so the functions are linearly independent."
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Testing for Linear Dependence"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.4",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Determine whether the following pairs of functions are linearly dependent or linearly independent: $f_{1}(x)=e^{x},$ $f_{2}(x)=3e^{3x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Linearly independent"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Are the functions constant multiples of one another?"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If we are able to find two linearly independent solutions to a second-order differential equation, then we can combine them to find the general solution. This result is formally stated in the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "If $y_{1}(x)$ and $y_{2}(x)$ are linearly independent solutions to a second-order, linear, homogeneous differential equation, then the general solution is given by"
+      },
+      {
+       "type": "math",
+       "tex": "y(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x),"
+      },
+      {
+       "type": "p",
+       "text": "where $c_{1}$ and $c_{2}$ are constants."
+      }
+     ],
+     "title": "General Solution to a Homogeneous Equation"
+    },
+    {
+     "type": "p",
+     "text": "When we say a family of functions is the **general solution to a differential equation**, we mean that (1) every expression of that form is a solution and (2) every solution to the differential equation can be written in that form, which makes this theorem extremely powerful. If we can find two linearly independent solutions to a differential equation, we have, effectively, found *all* solutions to the differential equation—quite a remarkable statement. The proof of this theorem is beyond the scope of this text."
+    }
+   ],
+   "title": "Homogeneous Linear Equations (continued)"
+  },
+  {
+   "id": "x18",
+   "kind": "example",
+   "label": "Example 7.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "If $y_{1}(t)=e^{3t}$ and $y_{2}(t)=e^{-3t}$ are solutions to $y''-9y=0,$ what is the general solution?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Note that $y_{1}$ and $y_{2}$ are not constant multiples of one another, so they are linearly independent. Then, the general solution to the differential equation is $y(t)=c_{1}e^{3t}+c_{2}e^{-3t}.$"
+     }
+    ]
+   },
+   "title": "Writing the General Solution"
+  },
+  {
+   "id": "c19",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.5",
+   "problem": [
+    {
+     "type": "p",
+     "text": "If $y_{1}(x)=e^{3x}$ and $y_{2}(x)=xe^{3x}$ are solutions to $y''-6y'+9y=0,$ what is the general solution?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=c_{1}e^{3x}+c_{2}xe^{3x}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Check for linear independence first."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "c_1 e^(3 x)+c_2 x e^(3 x)"
+   }
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Now that we have a better feel for linear differential equations, we are going to concentrate on solving second-order equations of the form"
+    },
+    {
+     "type": "math",
+     "tex": "ay''+by'+cy=0,"
+    },
+    {
+     "type": "p",
+     "text": "where $a,$ $b,$ and $c$ are constants."
+    },
+    {
+     "type": "p",
+     "text": "Since all the coefficients are constants, the solutions are probably going to be functions with derivatives that are constant multiples of themselves. We need all the terms to cancel out, and if taking a derivative introduces a term that is not a constant multiple of the original function, it is difficult to see how that term cancels out. Exponential functions have derivatives that are constant multiples of the original function, so let’s see what happens when we try a solution of the form $y(x)=e^{\\lambda x},$ where $\\lambda$ (the lowercase Greek letter lambda) is some constant."
+    },
+    {
+     "type": "p",
+     "text": "If $y(x)=e^{\\lambda x},$ then $y'(x)=\\lambda e^{\\lambda x}$ and $y''=\\lambda^{2}e^{\\lambda x}.$ Substituting these expressions into (see above), we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}ay''+by'+cy & =a(\\lambda^{2}e^{\\lambda x})+b(\\lambda e^{\\lambda x})+ce^{\\lambda x} \\\\ & =e^{\\lambda x}(a\\lambda^{2}+b\\lambda +c).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Since $e^{\\lambda x}$ is never zero, this expression can be equal to zero for all *x* only if"
+    },
+    {
+     "type": "math",
+     "tex": "a\\lambda^{2}+b\\lambda +c=0."
+    },
+    {
+     "type": "p",
+     "text": "We call this the characteristic equation of the differential equation."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **characteristic equation** of the differential equation $ay''+by'+cy=0$ is $a\\lambda^{2}+b\\lambda +c=0.$"
+      }
+     ]
+    }
+   ],
+   "title": "Second-Order Equations with Constant Coefficients"
+  },
+  {
+   "id": "r21",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The characteristic equation is very important in finding solutions to differential equations of this form. We can solve the characteristic equation either by factoring or by using the quadratic formula"
+    },
+    {
+     "type": "math",
+     "tex": "\\lambda =\\frac{-b\\pm \\sqrt{b^{2}-4ac}}{2a}."
+    },
+    {
+     "type": "p",
+     "text": "This gives three cases. The characteristic equation has (1) distinct real roots; (2) a single, repeated real root; or (3) complex conjugate roots. We consider each of these cases separately."
+    }
+   ],
+   "title": "Second-Order Equations with Constant Coefficients (continued)"
+  },
+  {
+   "id": "r22",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "If the characteristic equation has distinct real roots $\\lambda_{1}$ and $\\lambda_{2},$ then $e^{\\lambda_{1}x}$ and $e^{\\lambda_{2}x}$ are linearly independent solutions to Example 7.1, and the general solution is given by"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=c_{1}e^{\\lambda_{1}x}+c_{2}e^{\\lambda_{2}x},"
+    },
+    {
+     "type": "p",
+     "text": "where $c_{1}$ and $c_{2}$ are constants."
+    },
+    {
+     "type": "p",
+     "text": "For example, the differential equation $y''+9y'+14y=0$ has the associated characteristic equation $\\lambda^{2}+9\\lambda +14=0.$ This factors into $(\\lambda +2)(\\lambda +7)=0,$ which has roots $\\lambda_{1}=-2$ and $\\lambda_{2}=-7.$ Therefore, the general solution to this differential equation is"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=c_{1}e^{-2x}+c_{2}e^{-7x}."
+    }
+   ],
+   "title": "Distinct Real Roots"
+  },
+  {
+   "id": "r23",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Things are a little more complicated if the characteristic equation has a repeated real root, $\\lambda .$ In this case, we know $e^{\\lambda x}$ is a solution to (see above), but it is only one solution and we need two linearly independent solutions to determine the general solution. We might be tempted to try a function of the form $ke^{\\lambda x},$ where *k* is some constant, but it would not be linearly independent of $e^{\\lambda x}.$ Therefore, let’s try $xe^{\\lambda x}$ as the second solution. First, note that by the quadratic formula,"
+    },
+    {
+     "type": "math",
+     "tex": "\\lambda =\\frac{-b\\pm \\sqrt{b^{2}-4ac}}{2a}."
+    },
+    {
+     "type": "p",
+     "text": "But, $\\lambda$ is a repeated root, so $b^{2}-4ac=0$ and $\\lambda =\\frac{-b}{2a}.$ Thus, if $y=xe^{\\lambda x},$ we have"
+    },
+    {
+     "type": "math",
+     "tex": "y'=e^{\\lambda x}+\\lambda xe^{\\lambda x}\\,\\text{and}\\,y''=2\\lambda e^{\\lambda x}+\\lambda^{2}xe^{\\lambda x}."
+    },
+    {
+     "type": "p",
+     "text": "Substituting these expressions into (see above), we see that"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}ay''+by'+cy & =a(2\\lambda e^{\\lambda x}+\\lambda^{2}xe^{\\lambda x})+b(e^{\\lambda x}+\\lambda xe^{\\lambda x})+cxe^{\\lambda x} \\\\ & =xe^{\\lambda x}(a\\lambda^{2}+b\\lambda +c)+e^{\\lambda x}(2a\\lambda +b) \\\\ & =xe^{\\lambda x}(0)+e^{\\lambda x}\\left(2a\\left(\\frac{-b}{2a}\\right)+b\\right) \\\\ & =0+e^{\\lambda x}(0) \\\\ & =0.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "This shows that $xe^{\\lambda x}$ is a solution to (see above). Since $e^{\\lambda x}$ and $xe^{\\lambda x}$ are linearly independent, when the characteristic equation has a repeated root $\\lambda ,$ the general solution to (see above) is given by"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=c_{1}e^{\\lambda x}+c_{2}xe^{\\lambda x},"
+    }
+   ],
+   "title": "Single Repeated Real Root"
+  },
+  {
+   "id": "r24",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "where $c_{1}$ and $c_{2}$ are constants."
+    },
+    {
+     "type": "p",
+     "text": "For example, the differential equation $y''+12y'+36y=0$ has the associated characteristic equation $\\lambda^{2}+12\\lambda +36=0.$ This factors into $(\\lambda +6)^{2}=0,$ which has a repeated root $\\lambda =-6.$ Therefore, the general solution to this differential equation is"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=c_{1}e^{-6x}+c_{2}xe^{-6x}."
+    }
+   ],
+   "title": "Single Repeated Real Root (continued)"
+  },
+  {
+   "id": "r25",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The third case we must consider is when $b^{2}-4ac<0.$ In this case, when we apply the quadratic formula, we are taking the square root of a negative number. We must use the imaginary number $i=\\sqrt{-1}$ to find the roots, which take the form $\\lambda_{1}=\\alpha +\\beta i$ and $\\lambda_{2}=\\alpha -\\beta i.$ The **complex number** $\\alpha +\\beta i$ is called the *conjugate* of $\\alpha -\\beta i.$ Thus, we see that when $b^{2}-4ac<0,$ the roots of our characteristic equation are always **complex conjugates**."
+    }
+   ],
+   "title": "Complex Conjugate Roots"
+  },
+  {
+   "id": "r26",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "This creates a little bit of a problem for us. If we follow the same process we used for distinct real roots—using the roots of the characteristic equation as the coefficients in the exponents of exponential functions—we get the functions $e^{(\\alpha +\\beta i)x}$ and $e^{(\\alpha -\\beta i)x}$ as our solutions. However, there are problems with this approach. First, these functions take on complex (imaginary) values, and a complete discussion of such functions is beyond the scope of this text. Second, even if we were comfortable with complex-value functions, in this course we do not address the idea of a derivative for such functions. So, if possible, we’d like to find two linearly independent *real-value* solutions to the differential equation. For purposes of this development, we are going to manipulate and differentiate the functions $e^{(\\alpha +\\beta i)x}$ and $e^{(\\alpha -\\beta i)x}$ as if they were real-value functions. For these particular functions, this approach is valid mathematically, but be aware that there are other instances when complex-value functions do not follow the same rules as real-value functions. Those of you interested in a more in-depth discussion of complex-value functions should consult a complex analysis text."
+    },
+    {
+     "type": "p",
+     "text": "Based on the roots $\\alpha \\pm \\beta i$ of the characteristic equation, the functions $e^{(\\alpha +\\beta i)x}$ and $e^{(\\alpha -\\beta i)x}$ are linearly independent solutions to the differential equation. and the general solution is given by"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=c_{1}e^{(\\alpha +\\beta i)x}+c_{2}e^{(\\alpha -\\beta i)x}."
+    }
+   ],
+   "title": "Complex Conjugate Roots (continued)"
+  },
+  {
+   "id": "r27",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Using some smart choices for $c_{1}$ and $c_{2},$ and a little bit of algebraic manipulation, we can find two linearly independent, real-value solutions to (see above) and express our general solution in those terms."
+    },
+    {
+     "type": "p",
+     "text": "We encountered exponential functions with complex exponents earlier. One of the key tools we used to express these exponential functions in terms of sines and cosines was **Euler’s formula**, which tells us that"
+    },
+    {
+     "type": "math",
+     "tex": "e^{i\\theta}=\\cos \\,\\theta +i\\,\\sin \\,\\theta"
+    },
+    {
+     "type": "p",
+     "text": "for all real numbers $\\theta .$"
+    },
+    {
+     "type": "p",
+     "text": "Going back to the general solution, we have"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}y(x) & =c_{1}e^{(\\alpha +\\beta i)x}+c_{2}e^{(\\alpha -\\beta i)x} \\\\ & =c_{1}e^{\\alpha x}e^{\\beta ix}+c_{2}e^{\\alpha x}e^{-\\beta ix} \\\\ & =e^{\\alpha x}(c_{1}e^{\\beta ix}+c_{2}e^{-\\beta ix}).\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Applying Euler’s formula together with the identities $\\cos (-x)=\\cos \\,x$ and $\\sin (-x)=-\\sin \\,x,$ we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}y(x) & =e^{\\alpha x}[c_{1}(\\cos \\,\\beta x+i\\,\\sin \\,\\beta x)+c_{2}(\\cos (-\\beta x)+i\\,\\sin (-\\beta x))] \\\\ & =e^{\\alpha x}[(c_{1}+c_{2})\\cos \\,\\beta x+(c_{1}-c_{2})i\\,\\sin \\,\\beta x].\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "Now, if we choose $c_{1}=c_{2}=\\frac{1}{2},$ the second term is zero and we get"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=e^{\\alpha x}\\cos \\,\\beta x"
+    },
+    {
+     "type": "p",
+     "text": "as a real-value solution to (see above). Similarly, if we choose $c_{1}=-\\frac{i}{2}$ and $c_{2}=\\frac{i}{2},$ the first term is zero and we get"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=e^{\\alpha x}\\sin \\,\\beta x"
+    }
+   ],
+   "title": "Complex Conjugate Roots (continued)"
+  },
+  {
+   "id": "r28",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "as a second, linearly independent, real-value solution to (see above)."
+    },
+    {
+     "type": "p",
+     "text": "Based on this, we see that if the characteristic equation has complex conjugate roots $\\alpha \\pm \\beta i,$ then the general solution to (see above) is given by"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}y(x) & =c_{1}e^{\\alpha x}\\cos \\,\\beta x+c_{2}e^{\\alpha x}\\sin \\,\\beta x \\\\ & =e^{\\alpha x}(c_{1}\\cos \\,\\beta x+c_{2}\\sin \\,\\beta x),\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "where $c_{1}$ and $c_{2}$ are constants."
+    },
+    {
+     "type": "p",
+     "text": "For example, the differential equation $y''-2y'+5y=0$ has the associated characteristic equation $\\lambda^{2}-2\\lambda +5=0.$ By the quadratic formula, the roots of the characteristic equation are $1\\pm 2i.$ Therefore, the general solution to this differential equation is"
+    },
+    {
+     "type": "math",
+     "tex": "y(x)=e^{x}(c_{1}\\cos \\,2x+c_{2}\\sin \\,2x)."
+    }
+   ],
+   "title": "Complex Conjugate Roots (continued)"
+  },
+  {
+   "id": "r29",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We can solve second-order, linear, homogeneous differential equations with constant coefficients by finding the roots of the associated characteristic equation. The form of the general solution varies, depending on whether the characteristic equation has distinct, real roots; a single, repeated real root; or complex conjugate roots. The three cases are summarized in Table 7.1."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "Distinct real roots, $\\lambda_{1}$ and $\\lambda_{2}$",
+       "$y(x)=c_{1}e^{\\lambda_{1}x}+c_{2}e^{\\lambda_{2}x}$"
+      ],
+      [
+       "A repeated real root, $\\lambda$",
+       "$y(x)=c_{1}e^{\\lambda x}+c_{2}xe^{\\lambda x}$"
+      ],
+      [
+       "Complex conjugate roots $\\alpha \\pm \\beta i$",
+       "$y(x)=e^{\\alpha x}(c_{1}\\cos \\,\\beta x+c_{2}\\sin \\,\\beta x)$"
+      ]
+     ],
+     "header": [
+      "Characteristic Equation Roots",
+      "General Solution to the Differential Equation"
+     ],
+     "caption": "**Table 7.1** Summary of Characteristic Equation Cases"
+    },
+    {
+     "type": "box",
+     "variant": "strategy",
+     "body": [
+      {
+       "type": "list",
+       "items": [
+        "Write the differential equation in the form $ay''+by'+cy=0.$",
+        "Find the corresponding characteristic equation $a\\lambda^{2}+b\\lambda +c=0.$",
+        "Either factor the characteristic equation or use the quadratic formula to find the roots.",
+        "Determine the form of the general solution based on whether the characteristic equation has distinct, real roots; a single, repeated real root; or complex conjugate roots."
+       ],
+       "ordered": true,
+       "style": "1"
+      }
+     ],
+     "title": "Using the Characteristic Equation to Solve Second-Order Differential Equations with Constant Coefficients"
+    }
+   ],
+   "title": "Summary of Results"
+  },
+  {
+   "id": "x30",
+   "kind": "example",
+   "label": "Example 7.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to the following differential equations. Give your answers as functions of *x*."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y''+3y'-4y=0$",
+      "$y''+6y'+13y=0$",
+      "$y''+2y'+y=0$",
+      "$y''-5y'=0$",
+      "$y''-16y=0$",
+      "$y''+16y=0$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Note that all these equations are already given in standard form (step 1)."
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "type": "p",
+         "text": "The characteristic equation is $\\lambda^{2}+3\\lambda -4=0$ (step 2). This factors into $(\\lambda +4)(\\lambda -1)=0,$ so the roots of the characteristic equation are $\\lambda_{1}=-4$ and $\\lambda_{2}=1$ (step 3). Then the general solution to the differential equation is"
+        },
+        {
+         "type": "math",
+         "tex": "y(x)=c_{1}e^{-4x}+c_{2}e^{x}\\,\\text{(step 4)}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The characteristic equation is $\\lambda^{2}+6\\lambda +13=0$ (step 2). Applying the quadratic formula, we see this equation has complex conjugate roots $-3\\pm 2i$ (step 3). Then the general solution to the differential equation is"
+        },
+        {
+         "type": "math",
+         "tex": "y(t)=e^{-3t}(c_{1}\\cos \\,2t+c_{2}\\sin \\,2t)\\,\\text{(step 4)}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The characteristic equation is $\\lambda^{2}+2\\lambda +1=0$ (step 2). This factors into $(\\lambda +1)^{2}=0,$ so the characteristic equation has a repeated real root $\\lambda =-1$ (step 3). Then the general solution to the differential equation is"
+        },
+        {
+         "type": "math",
+         "tex": "y(t)=c_{1}e^{-t}+c_{2}te^{-t}\\,\\text{(step 4).}"
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The characteristic equation is $\\lambda^{2}-5\\lambda$ (step 2). This factors into $\\lambda (\\lambda -5)=0,$ so the roots of the characteristic equation are $\\lambda_{1}=0$ and $\\lambda_{2}=5$ (step 3). Note that $e^{0x}=e^{0}=1,$ so our first solution is just a constant. Then the general solution to the differential equation is"
+        },
+        {
+         "type": "math",
+         "tex": "y(x)=c_{1}+c_{2}e^{5x}\\,\\text{(step 4)}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The characteristic equation is $\\lambda^{2}-16=0$ (step 2). This factors into $(\\lambda +4)(\\lambda -4)=0,$ so the roots of the characteristic equation are $\\lambda_{1}=4$ and $\\lambda_{2}=-4$ (step 3). Then the general solution to the differential equation is"
+        },
+        {
+         "type": "math",
+         "tex": "y(x)=c_{1}e^{4x}+c_{2}e^{-4x}\\,\\text{(step 4)}."
+        }
+       ],
+       [
+        {
+         "type": "p",
+         "text": "The characteristic equation is $\\lambda^{2}+16=0$ (step 2). This has complex conjugate roots $\\pm 4i$ (step 3). Note that $e^{0x}=e^{0}=1,$ so the exponential term in our solution is just a constant. Then the general solution to the differential equation is"
+        },
+        {
+         "type": "math",
+         "tex": "y(t)=c_{1}\\cos \\,4t+c_{2}\\sin \\,4t\\,\\text{(step 4)}."
+        }
+       ]
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Solving Second-Order Equations with Constant Coefficients"
+  },
+  {
+   "id": "c31",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.6",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the general solution to the following differential equations:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y''-2y'+10y=0$",
+      "$y''+14y'+49y=0$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "list",
+      "items": [
+       "$y(x)=e^{x}(c_{1}\\cos \\,3x+c_{2}\\sin \\,3x)$",
+       "$y(x)=c_{1}e^{-7x}+c_{2}xe^{-7x}$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Find the roots of the characteristic equation."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r32",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "So far, we have been finding general solutions to differential equations. However, differential equations are often used to describe physical systems, and the person studying that physical system usually knows something about the state of that system at one or more points in time. For example, if a constant-coefficient differential equation is representing how far a motorcycle shock absorber is compressed, we might know that the rider is sitting still on his motorcycle at the start of a race, time $t=t_{0}.$ This means the system is at equilibrium, so $y(t_{0})=0,$ and the compression of the shock absorber is not changing, so $y'(t_{0})=0.$ With these two initial conditions and the general solution to the differential equation, we can find the *specific* solution to the differential equation that satisfies both initial conditions. This process is known as *solving an initial-value problem*. (Recall that we discussed **initial-value problems** in Introduction to Differential Equations.) Note that second-order equations have two arbitrary constants in the general solution, and therefore we require two initial conditions to find the solution to the initial-value problem."
+    },
+    {
+     "type": "p",
+     "text": "Sometimes we know the condition of the system at two different times. For example, we might know $y(t_{0})=y_{0}$ and $y(t_{1})=y_{1}.$ These conditions are called **boundary conditions**, and finding the solution to the differential equation that satisfies the boundary conditions is called solving a **boundary-value problem**."
+    }
+   ],
+   "title": "Initial-Value Problems and Boundary-Value Problems"
+  },
+  {
+   "id": "r33",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Mathematicians, scientists, and engineers are interested in understanding the conditions under which an initial-value problem or a boundary-value problem has a unique solution. Although a complete treatment of this topic is beyond the scope of this text, it is useful to know that, within the context of constant-coefficient, second-order equations, initial-value problems are guaranteed to have a unique solution as long as two initial conditions are provided. Boundary-value problems, however, are not as well behaved. Even when two boundary conditions are known, we may encounter boundary-value problems with unique solutions, many solutions, or no solution at all."
+    }
+   ],
+   "title": "Initial-Value Problems and Boundary-Value Problems (continued)"
+  },
+  {
+   "id": "x34",
+   "kind": "example",
+   "label": "Example 7.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problem: $y''+3y'-4y=0,$ $y(0)=1,$ $y'(0)=-9.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We already solved this differential equation in Example 7.6a. and found the general solution to be"
+     },
+     {
+      "type": "math",
+      "tex": "y(x)=c_{1}e^{-4x}+c_{2}e^{x}."
+     },
+     {
+      "type": "p",
+      "text": "Then"
+     },
+     {
+      "type": "math",
+      "tex": "y'(x)=-4c_{1}e^{-4x}+c_{2}e^{x}."
+     },
+     {
+      "type": "p",
+      "text": "When $x=0,$ we have $y(0)=c_{1}+c_{2}$ and $y'(0)=-4c_{1}+c_{2}.$ Applying the initial conditions, we have"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}c_{1}+c_{2} & = & 1 \\\\ -4c_{1}+c_{2} & = & -9.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Then $c_{1}=1-c_{2}.$ Substituting this expression into the second equation, we see that"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}-4(1-c_{2})+c_{2} & = & -9 \\\\ -4+4c_{2}+c_{2} & = & -9 \\\\ 5c_{2} & = & -5 \\\\ c_{2} & = & -1.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "So, $c_{1}=2$ and the solution to the initial-value problem is"
+     },
+     {
+      "type": "math",
+      "tex": "y(x)=2e^{-4x}-e^{x}."
+     }
+    ]
+   },
+   "title": "Solving an Initial-Value Problem"
+  },
+  {
+   "id": "c35",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.7",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem $y''-3y'-10y=0,$ $y(0)=0,$ $y'(0)=7.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=-e^{-2x}+e^{5x}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the initial conditions to determine values for $c_{1}$ and $c_{2}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "-e^(-2 x)+e^(5 x)"
+   }
+  },
+  {
+   "id": "x36",
+   "kind": "example",
+   "label": "Example 7.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problem and graph the solution:"
+    },
+    {
+     "type": "math",
+     "tex": "y''+6y'+13y=0,\\,y(0)=0,\\,y'(0)=2"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We already solved this differential equation in Example 7.6b. and found the general solution to be"
+     },
+     {
+      "type": "math",
+      "tex": "y(x)=e^{-3x}(c_{1}\\cos \\,2x+c_{2}\\sin \\,2x)."
+     },
+     {
+      "type": "p",
+      "text": "Then"
+     },
+     {
+      "type": "math",
+      "tex": "y'(x)=e^{-3x}(-2c_{1}\\sin \\,2x+2c_{2}\\cos \\,2x)-3e^{-3x}(c_{1}\\cos \\,2x+c_{2}\\sin \\,2x)."
+     },
+     {
+      "type": "p",
+      "text": "When $x=0,$ we have $y(0)=c_{1}$ and $y'(0)=2c_{2}-3c_{1}.$ Applying the initial conditions, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}c_{1} & = & 0 \\\\ -3c_{1}+2c_{2} & = & 2.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Therefore, $c_{1}=0,$ $c_{2}=1,$ and the solution to the initial value problem is shown in the following graph."
+     },
+     {
+      "type": "math",
+      "tex": "y=e^{-3x}\\sin \\,2x."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_17_01_001.webp",
+      "alt": "This figure is a graph of the function y = e^−3x sin 2x. The x axis is scaled in increments of tenths. The y axis is scaled in increments of even tenths. The curve passes through the origin and has a horizontal asymptote of the positive x axis.",
+      "width": 723,
+      "height": 272
+     }
+    ]
+   },
+   "title": "Solving an Initial-Value Problem and Graphing the Solution"
+  },
+  {
+   "id": "c37",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.8",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Solve the following initial-value problem and graph the solution: $y''-2y'+10y=0,y(0)=2,y'(0)=-1$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(x)=e^{x}(2\\,\\cos \\,3x-\\sin \\,3x)$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_17_01_002.webp",
+      "alt": "This figure is the graph of y(x) = e^x(2 cos 3x − sin 3x) It has the positive x axis scaled in increments of even tenths. The y axis is scaled in increments of twenty. The graph itself starts at the origin. Its amplitude increases as x increases.",
+      "width": 900,
+      "height": 530
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the initial conditions to determine values for $c_{1}$ and $c_{2}.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x38",
+   "kind": "example",
+   "label": "Example 7.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "The following initial-value problem models the position of an object with mass attached to a spring. Spring-mass systems are examined in detail in Applications. The solution to the differential equation gives the position of the mass with respect to a neutral (equilibrium) position (in meters) at any given time. (Note that for spring-mass systems of this type, it is customary to define the downward direction as positive.)"
+    },
+    {
+     "type": "math",
+     "tex": "y''+2y'+y=0,y(0)=1,y'(0)=0"
+    },
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem and graph the solution. What is the position of the mass at time $t=2$ sec? How fast is the mass moving at time $t=1$ sec? In what direction?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "In Example 7.6c. we found the general solution to this differential equation to be"
+     },
+     {
+      "type": "math",
+      "tex": "y(t)=c_{1}e^{-t}+c_{2}te^{-t}."
+     },
+     {
+      "type": "p",
+      "text": "Then"
+     },
+     {
+      "type": "math",
+      "tex": "y'(t)=-c_{1}e^{-t}+c_{2}(-te^{-t}+e^{-t})."
+     },
+     {
+      "type": "p",
+      "text": "When $t=0,$ we have $y(0)=c_{1}$ and $y'(0)=-c_{1}+c_{2}.$ Applying the initial conditions, we obtain"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}c_{1} & = & 1 \\\\ {-c}_{1}+c_{2} & = & 0.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Thus, $c_{1}=1,$ $c_{2}=1,$ and the solution to the initial value problem is"
+     },
+     {
+      "type": "math",
+      "tex": "y(t)=e^{-t}+te^{-t}."
+     },
+     {
+      "type": "p",
+      "text": "This solution is represented in the following graph. At time $t=2,$ the mass is at position $y(2)=e^{-2}+2e^{-2}=3e^{-2}\\approx 0.406$ m below equilibrium."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_17_01_003.webp",
+      "alt": "This figure is the graph of y(t) = e^−t + te^−t. The horizontal axis is labeled with t and is scaled in increments of even tenths. The y axis is scaled in increments of 0.5. The graph passes through positive one and decreases with a horizontal asymptote of the positive t axis.",
+      "width": 702,
+      "height": 234
+     },
+     {
+      "type": "p",
+      "text": "To calculate the velocity at time $t=1,$ we need to find the derivative. We have $y(t)=e^{-t}+te^{-t},$ so"
+     },
+     {
+      "type": "math",
+      "tex": "y'(t)=-e^{-t}+e^{-t}-te^{-t}=-te^{-t}."
+     },
+     {
+      "type": "p",
+      "text": "Then $y'(1)=-e^{-1}\\approx -0.3679.$ At time $t=1,$ the mass is moving upward at 0.3679 m/sec."
+     }
+    ]
+   },
+   "title": "Initial-Value Problem Representing a Spring-Mass System"
+  },
+  {
+   "id": "c39",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.9",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Suppose the following initial-value problem models the position (in feet) of a mass in a spring-mass system at any given time. Solve the initial-value problem and graph the solution. What is the position of the mass at time $t=0.3$ sec? How fast is it moving at time $t=0.1$ sec? In what direction?"
+    },
+    {
+     "type": "math",
+     "tex": "y''+14y'+49y=0,y(0)=0,y'(0)=1"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(t)=te^{-7t}$"
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_17_01_004.webp",
+      "alt": "This figure is the graph of y(t) = te^−7t. The horizontal axis is labeled with t and is scaled in increments of tenths. The y axis is scaled in increments of 0.5. The graph passes through the origin and has a horizontal asymptote of the positive t axis.",
+      "width": 721,
+      "height": 572
+     },
+     {
+      "type": "p",
+      "text": "At time $t=0.3,$ $y(0.3)=0.3e^{(-7*0.3)}=0.3e^{-2.1}\\approx 0.0367.$ The mass is 0.0367 ft below equilibrium. At time $t=0.1,$ $y'(0.1)=0.3e^{-0.7}\\approx 0.1490.$ The mass is moving downward at a speed of 0.1490 ft/sec."
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use the initial conditions to determine values for $c_{1}$ and $c_{2}.$"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "x40",
+   "kind": "example",
+   "label": "Example 7.10",
+   "problem": [
+    {
+     "type": "p",
+     "text": "In Example 7.6f. we solved the differential equation $y''+16y=0$ and found the general solution to be $y(t)=c_{1}\\cos \\,4t+c_{2}\\sin \\,4t.$ If possible, solve the boundary-value problem if the boundary conditions are the following:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$y(0)=0,$ $y\\left(\\frac{\\pi}{4}\\right)=0$",
+      "$y(0)=1,$ $y\\left(\\frac{\\pi}{8}\\right)=0$",
+      "$y\\left(\\frac{\\pi}{8}\\right)=0,$ $y\\left(\\frac{3\\pi}{8}\\right)=2$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "We have"
+     },
+     {
+      "type": "math",
+      "tex": "y(t)=c_{1}\\cos \\,4t+c_{2}\\sin \\,4t."
+     },
+     {
+      "type": "list",
+      "items": [
+       "Applying the first boundary condition given here, we get $y(0)=c_{1}=0.$ So the solution is of the form $y(t)=c_{2}\\sin \\,4t.$ When we apply the second boundary condition, though, we get $y\\left(\\frac{\\pi}{4}\\right)=c_{2}\\sin \\,\\left(4\\left(\\frac{\\pi}{4}\\right)\\right)=c_{2}\\sin \\,\\pi =0$ for all values of $c_{2}.$ The boundary conditions are not sufficient to determine a value for $c_{2},$ so this boundary-value problem has infinitely many solutions. Thus, $y(t)=c_{2}\\sin \\,4t$ is a solution for any value of $c_{2}.$",
+       "Applying the first boundary condition given here, we get $y(0)=c_{1}=1.$ Applying the second boundary condition gives $y\\left(\\frac{\\pi}{8}\\right)=c_{2}=0,$ so $c_{2}=0.$ In this case, we have a unique solution: $y(t)=\\cos \\,4t.$",
+       "Applying the first boundary condition given here, we get $y\\left(\\frac{\\pi}{8}\\right)=c_{2}=0.$ However, applying the second boundary condition gives $y\\left(\\frac{3\\pi}{8}\\right)=-c_{2}=2,$ so $c_{2}=-2.$ We cannot have $c_{2}=0=-2,$ so this boundary value problem has no solution."
+      ],
+      "ordered": true,
+      "style": "a"
+     }
+    ]
+   },
+   "title": "Solving a Boundary-Value Problem"
+  },
+  {
+   "id": "r41",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Second-order differential equations can be classified as linear or nonlinear, homogeneous or nonhomogeneous.",
+      [
+       {
+        "type": "p",
+        "text": "To find a general solution for a homogeneous second-order differential equation, we must find two linearly independent solutions. If $y_{1}(x)$ and $y_{2}(x)$ are linearly independent solutions to a second-order, linear, homogeneous differential equation, then the general solution is given by"
+       },
+       {
+        "type": "math",
+        "tex": "y(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x)."
+       }
+      ],
+      "To solve homogeneous second-order differential equations with constant coefficients, find the roots of the characteristic equation. The form of the general solution varies depending on whether the characteristic equation has distinct, real roots; a single, repeated real root; or complex conjugate roots.",
+      "Initial conditions or boundary conditions can then be used to find the specific solution to a differential equation that satisfies those conditions, except when there is no solution or infinitely many solutions."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r42",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Linear second-order differential equation**",
+       "$a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x)$"
+      ],
+      [
+       "**Second-order equation with constant coefficients**",
+       "$ay''+by'+cy=0$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e1",
+   "number": 1,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$x^{3}y''+(x-1)y'-8y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572604496",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify each of the following equations as linear or nonlinear. If the equation is linear, determine whether it is homogeneous or nonhomogeneous."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "linear, homogenous"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e2",
+   "number": 2,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$(1+y^{2})y''+xy'-3y=\\cos \\,x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572604555",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify each of the following equations as linear or nonlinear. If the equation is linear, determine whether it is homogeneous or nonhomogeneous."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e3",
+   "number": 3,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$xy''+e^{y}y'=x$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571543371",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify each of the following equations as linear or nonlinear. If the equation is linear, determine whether it is homogeneous or nonhomogeneous."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "nonlinear"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e4",
+   "number": 4,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+\\frac{4}{x}y'-8xy=5x^{2}+1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571543412",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify each of the following equations as linear or nonlinear. If the equation is linear, determine whether it is homogeneous or nonhomogeneous."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e5",
+   "number": 5,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+(\\sin \\,x)y'-xy=4y$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572642017",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify each of the following equations as linear or nonlinear. If the equation is linear, determine whether it is homogeneous or nonhomogeneous."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "linear, homogeneous"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e6",
+   "number": 6,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+\\left(\\frac{x+3}{y}\\right)y'=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572642074",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Classify each of the following equations as linear or nonlinear. If the equation is linear, determine whether it is homogeneous or nonhomogeneous."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e7",
+   "number": 7,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]**$y''+2y'-3y=0;$ $y(x)=c_{1}e^{x}+c_{2}e^{-3x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571614582",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e8",
+   "number": 8,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]**$x^{2}y''-2y-3x^{2}+1=0;$ $y(x)=c_{1}x^{2}+c_{2}x^{-1}+x^{2}\\ln \\,(x)+\\frac{1}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571614670",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e9",
+   "number": 9,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]**$y''+14y'+49y=0;$ $y(x)=c_{1}e^{-7x}+c_{2}xe^{-7x}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572372098",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e10",
+   "number": 10,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]**$6y''-49y'+8y=0;$ $y(x)=c_{1}e^{x/6}+c_{2}e^{8x}$"
+    },
+    {
+     "type": "p",
+     "text": "Find the general solution to the linear differential equation."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572268377",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e11",
+   "number": 11,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-3y'-10y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572088733",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{5x}+c_{2}e^{-2x}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e12",
+   "number": 12,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-7y'+12y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572309558",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e13",
+   "number": 13,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+4y'+4y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572309635",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{-2x}+c_{2}xe^{-2x}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e14",
+   "number": 14,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4y''-12y'+9y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572383725",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e15",
+   "number": 15,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$2y''-3y'-5y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572334866",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{5x/2}+c_{2}e^{-x}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e16",
+   "number": 16,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$3y''-14y'+8y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572334950",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e17",
+   "number": 17,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+y'+y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572582391",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=e^{-x/2}\\left(c_{1}\\cos \\,\\frac{\\sqrt{3}x}{2}+c_{2}\\sin \\,\\frac{\\sqrt{3}x}{2}\\right)$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e18",
+   "number": 18,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$5y''+2y'+4y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572560180",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e19",
+   "number": 19,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-121y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572274637",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{-11x}+c_{2}e^{11x}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e20",
+   "number": 20,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$8y''+14y'-15y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572274705",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e21",
+   "number": 21,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+81y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571557043",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}\\cos \\,9x+c_{2}\\sin \\,9x$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e22",
+   "number": 22,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-y'+11y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571557115",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e23",
+   "number": 23,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$2y''=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572583472",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}+c_{2}x$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e24",
+   "number": 24,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-6y'+9y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572512668",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e25",
+   "number": 25,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$3y''-2y'-7y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572512748",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{((1+\\sqrt{22})/3)x}+c_{2}e^{((1-\\sqrt{22})/3)x}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e26",
+   "number": 26,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4y''-10y'=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571553821",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e27",
+   "number": 27,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$36\\frac{d^{2}y}{dx^{2}}+12\\frac{dy}{dx}+y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572542773",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}e^{-x/6}+c_{2}xe^{-x/6}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e28",
+   "number": 28,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$25\\frac{d^{2}y}{dx^{2}}-80\\frac{dy}{dx}+64y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571638071",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e29",
+   "number": 29,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$\\frac{d^{2}y}{dx^{2}}-9\\frac{dy}{dx}=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572388329",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=c_{1}+c_{2}e^{9x}$"
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e30",
+   "number": 30,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4\\frac{d^{2}y}{dx^{2}}+8y=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572388411",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following problems, verify that the given function is a solution to the differential equation. Use a graphing utility to graph the particular solutions for several values of *c*$_{\\text{1}}$ and *c*$_{\\text{2}}$. What do the solutions have in common?"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e31",
+   "number": 31,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+5y'+6y=0,\\qquad y(0)=0,\\,\\,y'(0)=-2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571596269",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-2e^{-2x}+2e^{-3x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-2 e^(-2 x)+2 e^(-3 x)"
+   }
+  },
+  {
+   "id": "e32",
+   "number": 32,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+2y'-8y=0,\\qquad y(0)=5,\\,\\,y'(0)=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572626478",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e33",
+   "number": 33,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+4y=0,\\qquad y(0)=3,\\,\\,y'(0)=10$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572557927",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=3\\,\\cos \\,(2x)+5\\,\\sin \\,(2x)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=3 cos (2 x)+5 sin (2 x)"
+   }
+  },
+  {
+   "id": "e34",
+   "number": 34,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-18y'+81y=0,\\qquad y(0)=1,\\,\\,y'(0)=5$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572501316",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e35",
+   "number": 35,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-y'-30y=0,\\qquad y(0)=1,\\,\\,y'(0)=-16$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572304970",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-e^{6x}+2e^{-5x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-e^(6 x)+2 e^(-5 x)"
+   }
+  },
+  {
+   "id": "e36",
+   "number": 36,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4y''+4y'-8y=0,\\qquad y(0)=2,\\,\\,y'(0)=1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571790172",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e37",
+   "number": 37,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$25y''+10y'+y=0,\\qquad y(0)=2,\\,\\,y'(0)=1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571817331",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=2e^{-x/5}+\\frac{7}{5}xe^{-x/5}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=2 e^(-x/5)+(7/5)x e^(-x/5)"
+   }
+  },
+  {
+   "id": "e38",
+   "number": 38,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+y=0,\\qquad y(\\pi )=1,\\,\\,y'(\\pi )=-5$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572499617",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the initial-value problem."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e39",
+   "number": 39,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+y'-42y=0,\\qquad y(0)=0,\\,\\,y(1)=2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571755418",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\left(\\frac{2}{e^{6}-e^{-7}}\\right)e^{6x}-\\left(\\frac{2}{e^{6}-e^{-7}}\\right)e^{-7x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=((2/(e^6-e^(-7))))e^(6 x)-((2/(e^6-e^(-7))))e^(-7 x)"
+   }
+  },
+  {
+   "id": "e40",
+   "number": 40,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$9y''+y=0,\\qquad y(\\frac{3\\pi}{2})=6,\\,\\,y(0)=-8$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572217354",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e41",
+   "number": 41,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+10y'+34y=0,\\qquad y(0)=6,\\,\\,y(\\pi )=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571733162",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "No solutions exist."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e42",
+   "number": 42,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+7y'-60y=0,\\qquad y(0)=4,\\,\\,y(2)=0$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571733252",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e43",
+   "number": 43,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-4y'+4y=0,\\qquad y(0)=2,\\,\\,y(1)=-1$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170572311082",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=2e^{2x}-\\frac{2e^{2}+1}{e^{2}}xe^{2x}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=2 e^(2 x)-((2 e^2+1)/(e^2))x e^(2 x)"
+   }
+  },
+  {
+   "id": "e44",
+   "number": 44,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-5y'=0,\\qquad y(0)=3,\\,\\,y(-1)=2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571542979",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e45",
+   "number": 45,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+9y=0,\\qquad y(0)=4,\\,\\,y\\left(\\frac{\\pi}{3}\\right)=-4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572268031",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=4\\,\\cos \\,3x+c_{2}\\sin \\,3x,\\,\\text{infinitely many solutions}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e46",
+   "number": 46,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$4y''+25y=0,\\qquad y(0)=2,\\,\\,y(2\\pi )=-2$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571778788",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e47",
+   "number": 47,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find a differential equation with a general solution that is $y=c_{1}e^{x/5}+c_{2}e^{-4x}.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571654026",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$5y''+19y'-4y=0$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   }
+  },
+  {
+   "id": "e48",
+   "number": 48,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find a differential equation with a general solution that is $y=c_{1}e^{x}+c_{2}e^{-4x/3}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571654111",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "Solve the boundary-value problem, if possible."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e49",
+   "number": 49,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+64y=0;\\qquad y(0)=3,\\quad y'(0)=-24$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572417838",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following differential equations:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Solve the initial value problem.",
+      "**[T]** Use a graphing utility to graph the particular solution."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $y=3\\,\\cos (8x)$\nb."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_17_01_201.webp",
+      "alt": "This figure is a periodic graph. It has an amplitude of 3.5. Both the x and y axes are scaled in increments of 1.",
+      "width": 342,
+      "height": 347
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e50",
+   "number": 50,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''-2y'+10y=0\\qquad y(0)=1,\\quad y'(0)=13$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572281082",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following differential equations:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Solve the initial value problem.",
+      "**[T]** Use a graphing utility to graph the particular solution."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e51",
+   "number": 51,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$y''+5y'+15y=0\\qquad y(0)=-2,\\quad y'(0)=7$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572388281",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following differential equations:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Solve the initial value problem.",
+      "**[T]** Use a graphing utility to graph the particular solution."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $y=e^{(-5/2)x}\\left[-2\\,\\cos \\,\\left(\\frac{\\sqrt{35}}{2}x\\right)+\\frac{4\\sqrt{35}}{35}\\,\\sin \\,\\left(\\frac{\\sqrt{35}}{2}x\\right)\\right]$\nb."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_17_01_203.webp",
+      "alt": "This figure is a graph of an oscillating function. The amplitude of the graph is decreasing as x increases.",
+      "width": 342,
+      "height": 347
+     }
+    ]
+   },
+   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+  },
+  {
+   "id": "e52",
+   "number": 52,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "(Principle of superposition) Prove that if $y_{1}(x)$ and $y_{2}(x)$ are solutions to a linear homogeneous differential equation, $y''+p(x)y'+q(x)y=0,$ then the function $y(x)=c_{1}y_{1}(x)+c_{2}y_{2}(x),$ where $c_{1}$ and $c_{2}$ are constants, is also a solution."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572567835",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following differential equations:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Solve the initial value problem.",
+      "**[T]** Use a graphing utility to graph the particular solution."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e53",
+   "number": 53,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Prove that if *a, b,* and *c* are positive constants, then all solutions to the second-order linear differential equation $ay''+by'+cy=0$ approach zero as $x\\to \\infty .$ (*Hint:* Consider three cases: two distinct roots, repeated real roots, and complex conjugate roots.)"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170572622303",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For each of the following differential equations:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Solve the initial value problem.",
+      "**[T]** Use a graphing utility to graph the particular solution."
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "boundary conditions",
+   "meaning": "the conditions that give the state of a system at different times, such as the position of a spring-mass system at two different times"
+  },
+  {
+   "term": "boundary-value problem",
+   "meaning": "a differential equation with associated boundary conditions"
+  },
+  {
+   "term": "characteristic equation",
+   "meaning": "the equation $a\\lambda^{2}+b\\lambda +c=0$ for the differential equation $ay''+by'+cy=0$"
+  },
+  {
+   "term": "homogeneous linear equation",
+   "meaning": "a second-order differential equation that can be written in the form $a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x),$ but $r(x)=0$ for every value of $x$"
+  },
+  {
+   "term": "nonhomogeneous linear equation",
+   "meaning": "a second-order differential equation that can be written in the form $a_{2}(x)y''+a_{1}(x)y'+a_{0}(x)y=r(x),$ but $r(x)\\ne 0$ for some value of $x$"
+  },
+  {
+   "term": "linearly dependent",
+   "meaning": "a set of functions $f_{1}(x),f_{2}(x),\\dots ,f_{n}(x)$ for which there are constants $c_{1},c_{2},\\dots c_{n},$ not all zero, such that $c_{1}f_{1}(x)+c_{2}f_{2}(x)+\\cdots +c_{n}f_{n}(x)=0$ for all *x* in the interval of interest"
+  },
+  {
+   "term": "linearly independent",
+   "meaning": "a set of functions $f_{1}(x),f_{2}(x),\\dots ,f_{n}(x)$ for which there are no constants $c_{1},c_{2},\\dots c_{n},$ such that $c_{1}f_{1}(x)+c_{2}f_{2}(x)+\\cdots +c_{n}f_{n}(x)=0$ for all *x* in the interval of interest"
+  }
+ ]
+}

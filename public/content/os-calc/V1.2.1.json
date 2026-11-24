@@ -1,0 +1,1504 @@
+{
+ "schema": 1,
+ "id": "V1.2.1",
+ "book": "os-calc",
+ "volume": 1,
+ "chapter": 2,
+ "section": 1,
+ "title": "A Preview of Calculus",
+ "chapterTitle": "Limits",
+ "source": {
+  "book": "Calculus Volume 1",
+  "module": "m53485",
+  "url": "https://openstax.org/books/calculus-volume-1/pages/2-1-a-preview-of-calculus",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 1, §2.1 “A Preview of Calculus”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Describe the tangent problem and how it led to the idea of a derivative.",
+  "Explain how the idea of a limit is involved in solving the tangent problem.",
+  "Recognize a tangent to a curve at a point as the limit of secant lines.",
+  "Identify instantaneous velocity as the limit of average velocity over a small time interval.",
+  "Describe the area problem and how it was solved by the integral.",
+  "Explain how the idea of a limit is involved in solving the area problem.",
+  "Recognize how the ideas of limit, derivative, and integral led to the studies of infinite series and multivariable calculus."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As we embark on our study of calculus, we shall see how its development arose from common solutions to practical problems in areas such as engineering physics—like the space travel problem posed in the chapter opener. Two key problems led to the initial formulation of calculus: (1) the tangent problem, or how to determine the slope of a line tangent to a curve at a point; and (2) the area problem, or how to determine the area under a curve."
+    }
+   ],
+   "title": "A Preview of Calculus"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Rate of change is one of the most critical concepts in calculus. We begin our investigation of rates of change by looking at the graphs of the three lines $f(x)=-2x-3,g(x)=\\frac{1}{2}x+1,$ and $h(x)=2,$ shown in Figure 2.1."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_001.webp",
+     "alt": "Three graphs of different linear functions are shown. The first is f(x) = -2x – 3, with slope of -2 and y intercept of -3. The second is g(x) = x / 2 + 1, with slope of 1/2 and y intercept of 1. The third is h(x) = 2, with slope of 0 and y intercept of 2. The rate of change of each is constant, as determined by the slope.",
+     "caption": "**Figure 2.1** The rate of change of a linear function is constant in each of these three graphs, with the constant determined by the slope.",
+     "width": 900,
+     "height": 330
+    },
+    {
+     "type": "p",
+     "text": "As we move from left to right along the graph of $f(x)=-2x-3,$ we see that the graph decreases at a constant rate. For every 1 unit we move to the right along the *x*-axis, the *y*-coordinate decreases by 2 units. This **rate of change** is determined by the slope (−2) of the line. Similarly, the slope of 1/2 in the function $g(x)$ tells us that for every change in *x* of 1 unit there is a corresponding change in *y* of 1/2 unit. The function $h(x)=2$ has a slope of zero, indicating that the values of the function remain constant. We see that the slope of each linear function indicates the rate of change of the function."
+    }
+   ],
+   "title": "The Tangent Problem and Differential Calculus"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Compare the graphs of these three functions with the graph of $k(x)=x^{2}$ (Figure 2.2). The graph of $k(x)=x^{2}$ starts from the left by decreasing rapidly, then begins to decrease more slowly and level off, and then finally begins to increase—slowly at first, followed by an increasing rate of increase as it moves toward the right. Unlike a linear function, no single number represents the rate of change for this function. We quite naturally ask: How do we measure the rate of change of a nonlinear function?"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_002.webp",
+     "alt": "A graph of the parabola k(x) = x^2, which opens up and has its vertex at the origin.",
+     "caption": "**Figure 2.2** The function $k(x)=x^{2}$ does not have a constant rate of change.",
+     "width": 487,
+     "height": 499
+    },
+    {
+     "type": "p",
+     "text": "We can approximate the rate of change of a function $f(x)$ at a point $(a,f(a))$ on its graph by taking another point $(x,f(x))$ on the graph of $f(x),$ drawing a line through the two points, and calculating the slope of the resulting line. Such a line is called a **secant** line. Figure 2.3 shows a secant line to a function $f(x)$ at a point $(a,f(a)).$"
+    }
+   ],
+   "title": "The Tangent Problem and Differential Calculus (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_003.webp",
+     "alt": "A graph showing a generic curved function going through the points (0,0), (a, fa.), and (x, f(x)). A straight line called the secant line is drawn through the points (a, fa.), and (x, f(x)), going below the curved function between a and x and going above the curved function at values greater than x or less than a. The curved function and the secant line cross once more at some point in the third quadrant. The slope of the secant line is ( f(x) – fa. ) / (x – a).",
+     "caption": "**Figure 2.3** The slope of a secant line through a point $(a,f(a))$ estimates the rate of change of the function at the point $(a,f(a)).$",
+     "width": 487,
+     "height": 350
+    },
+    {
+     "type": "p",
+     "text": "We formally define a secant line as follows:"
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "The **secant** to the function $f(x)$ through the points $(a,f(a))$ and $(x,f(x))$ is the line passing through these points. Its slope is given by"
+      },
+      {
+       "type": "math",
+       "tex": "m_{\\sec}=\\frac{f(x)-f(a)}{x-a}."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The accuracy of approximating the rate of change of the function with a secant line depends on how close *x* is to *a*. As we see in Figure 2.4, if *x* is closer to *a*, the slope of the secant line is a better measure of the rate of change of $f(x)$ at *a*."
+    }
+   ],
+   "title": "The Tangent Problem and Differential Calculus (continued)"
+  },
+  {
+   "id": "r5",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_004.webp",
+     "alt": "This graph is the same as the previous secant line and generic curved function graph. However, another point x is added, this time plotted closer to a on the x-axis. As such, another secant line is drawn through the points (a, fa.) and the new, closer (x, f(x)). The line stays much closer to the generic curved function around (a, fa.). The slope of this secant line has become a better approximation of the rate of change of the generic function.",
+     "caption": "**Figure 2.4** As *x* gets closer to *a*, the slope of the secant line becomes a better approximation to the rate of change of the function $f(x)$ at *a*.",
+     "width": 487,
+     "height": 350
+    },
+    {
+     "type": "p",
+     "text": "The secant lines themselves approach a line that is called the **tangent** to the function $f(x)$ at *a* (Figure 2.5). The slope of the tangent line to the graph at *a* measures the rate of change of the function at *a*. This value also represents the derivative of the function $f(x)$ at *a*, or the rate of change of the function at *a*. This derivative is denoted by $f'(a).$ **Differential calculus** is the field of calculus concerned with the study of derivatives and their applications."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_005.webp",
+     "alt": "This graph is a continuation of the previous two. This time, the graph contains the curved function, the two secant lines, and a tangent line. As x approaches a, the secant lines approach the tangent line.",
+     "caption": "**Figure 2.5** Solving the **Tangent Problem**: As *x* approaches *a*, the secant lines approach the tangent line.",
+     "width": 487,
+     "height": 350
+    }
+   ],
+   "title": "The Tangent Problem and Differential Calculus (continued)"
+  },
+  {
+   "id": "r6",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Example 2.1 illustrates how to find slopes of secant lines. These slopes estimate the slope of the tangent line or, equivalently, the rate of change of the function at the point at which the slopes are calculated."
+    }
+   ],
+   "title": "The Tangent Problem and Differential Calculus (continued)"
+  },
+  {
+   "id": "x7",
+   "kind": "example",
+   "label": "Example 2.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Estimate the slope of the tangent line (rate of change) to $f(x)=x^{2}$ at $x=1$ by finding slopes of secant lines through $(1,1)$ and each of the following points on the graph of $f(x)=x^{2}.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$(2,4)$",
+      "$\\left(\\frac{3}{2},\\frac{9}{4}\\right)$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Use the formula for the slope of a secant line from the definition."
+     },
+     {
+      "type": "list",
+      "items": [
+       "$m_{\\sec}=\\frac{4-1}{2-1}=3$",
+       "$m_{\\sec}=\\frac{\\frac{9}{4}-1}{\\frac{3}{2}-1}=\\frac{5}{2}=2.5$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "p",
+      "text": "The point in part b. is closer to the point $(1,1),$ so the slope of 2.5 is closer to the slope of the tangent line. A good estimate for the slope of the tangent would be in the range of 2 to 2.5 (Figure 2.6)."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_02_01_011.webp",
+      "alt": "Two graphs of the parabola f(x) = x^2 are shown. The first has a secant line drawn, intersecting the parabola at (1,1) and (2,4). The second has a secant line drawn, intersecting the parabola at (1,1) and (3/2, 9/4). These lines provide successively closer approximations to the tangent line to the function at (1,1).",
+      "caption": "**Figure 2.6** The secant lines to $f(x)=x^{2}$ at $(1,1)$ through (a) $(2,4)$ and (b) $\\left(\\frac{3}{2},\\frac{9}{4}\\right)$ provide successively closer approximations to the tangent line to $f(x)=x^{2}$ at $(1,1).$",
+      "width": 483,
+      "height": 461
+     }
+    ]
+   },
+   "title": "Finding Slopes of Secant Lines"
+  },
+  {
+   "id": "c8",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.1",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Estimate the slope of the tangent line (rate of change) to $f(x)=x^{2}$ at $x=1$ by finding the slope of the secant line through $(1,1)$ and the point $\\left(\\frac{5}{4},\\frac{25}{16}\\right)$ on the graph of $f(x)=x^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "2.25"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use Example 2.1 and Figure 2.6 as a solving guide."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2.25"
+   }
+  },
+  {
+   "id": "r9",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We continue our investigation by exploring a related question. Keeping in mind that velocity may be thought of as the rate of change of position, suppose that we have a function, $s(t),$ that gives the position of an object along a coordinate axis at any given time *t*. Can we use these same ideas to create a reasonable definition of the instantaneous velocity at a given time $t=a?$ We start by approximating the instantaneous velocity with an average velocity. First, recall that the speed of an object traveling at a constant rate is the ratio of the distance traveled to the length of time it has traveled. We define the **average velocity** of an object over a time period to be the change in its position divided by the length of the time period."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $s(t)$ be the position of an object moving along a coordinate axis at time *t*. The **average velocity** of the object over a time interval $[a,t]$ where $a<t$ (or $[t,a]$ if $t<a)$ is"
+      },
+      {
+       "type": "math",
+       "tex": "v_{\\text{ave}}=\\frac{s(t)-s(a)}{t-a}."
+      }
+     ]
+    }
+   ],
+   "title": "The Tangent Problem and Differential Calculus (continued)"
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As *t* is chosen closer to *a*, the average velocity becomes closer to the instantaneous velocity. Note that finding the average velocity of a position function over a time interval is essentially the same as finding the slope of a secant line to a function. Furthermore, to find the slope of a tangent line at a point *a*, we let the *x*-values approach *a* in the slope of the secant line. Similarly, to find the instantaneous velocity at time *a*, we let the *t*-values approach *a* in the average velocity. This process of letting *x* or *t* approach *a* in an expression is called taking a **limit**. Thus, we may define the **instantaneous velocity** as follows."
+    },
+    {
+     "type": "box",
+     "variant": "definition",
+     "body": [
+      {
+       "type": "p",
+       "text": "For a position function $s(t),$ the **instantaneous velocity** at a time $t=a$ is the value that the average velocities approach on intervals of the form $[a,t]$ and $[t,a]$ as the values of *t* become closer to *a*, provided such a value exists."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Example 2.2 illustrates this concept of limits and average velocity."
+    }
+   ],
+   "title": "The Tangent Problem and Differential Calculus (continued)"
+  },
+  {
+   "id": "x11",
+   "kind": "example",
+   "label": "Example 2.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "A rock is dropped from a height of 64 ft. It is determined that its height (in feet) above ground *t* seconds later (for $0\\le t\\le 2)$ is given by $s(t)=-16t^{2}+64.$ Find the average velocity of the rock over each of the given time intervals. Use this information to guess the instantaneous velocity of the rock at time $t=0.5.$"
+    },
+    {
+     "type": "list",
+     "items": [
+      "$[0.49,0.5]$",
+      "$[0.5,0.51]$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Substitute the data into the formula for the definition of average velocity."
+     },
+     {
+      "type": "list",
+      "items": [
+       "$v_{\\text{ave}}=\\frac{s(0.5)-s(0.49)}{0.5-0.49}=-15.84$",
+       "$v_{\\text{ave}}=\\frac{s(0.51)-s(0.5)}{0.51-0.5}=-16.16$"
+      ],
+      "ordered": true,
+      "style": "a"
+     },
+     {
+      "type": "p",
+      "text": "The instantaneous velocity is somewhere between −15.84 and −16.16 ft/sec. A good guess might be −16 ft/sec."
+     }
+    ]
+   },
+   "title": "Finding Average Velocity"
+  },
+  {
+   "id": "c12",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.2",
+   "problem": [
+    {
+     "type": "p",
+     "text": "An object moves along a coordinate axis so that its position at time *t* is given by $s(t)=t^{3}.$ Estimate its instantaneous velocity at time $t=2$ by computing its average velocity over the time interval $[2,2.001].$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "12.006001"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use $v_{\\text{ave}}=\\frac{s(2.001)-s(2)}{2.001-2}.$"
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "12.006001"
+   }
+  },
+  {
+   "id": "r13",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We now turn our attention to a classic question from calculus. Many quantities in physics—for example, quantities of work—may be interpreted as the area under a curve. This leads us to ask the question: How can we find the area between the graph of a function and the *x*-axis over an interval (Figure 2.7)?"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_006.webp",
+     "alt": "A graph is shown of a generic curved function f(x) shaped like a hill in quadrant one. An area under the function is shaded above the x-axis and between x=a and x=b.",
+     "caption": "**Figure 2.7** The **Area Problem**: How do we find the area of the shaded region?",
+     "width": 325,
+     "height": 237
+    },
+    {
+     "type": "p",
+     "text": "As in the answer to our previous questions on velocity, we first try to approximate the solution. We approximate the area by dividing up the interval $[a,b]$ into smaller intervals in the shape of rectangles. The approximation of the area comes from adding up the areas of these rectangles (Figure 2.8)."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_007.webp",
+     "alt": "The graph is the same as the previous image, with one difference. Instead of the area completely shaded under the curved function, the interval [a, b] is divided into smaller intervals in the shape of rectangles. The rectangles have the same small width. The height of each rectangle is the height of the function at the midpoint of the base of that specific rectangle.",
+     "caption": "**Figure 2.8** The area of the region under the curve is approximated by summing the areas of thin rectangles.",
+     "width": 325,
+     "height": 237
+    }
+   ],
+   "title": "The Area Problem and Integral Calculus"
+  },
+  {
+   "id": "r14",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "As the widths of the rectangles become smaller (approach zero), the sums of the areas of the rectangles approach the area between the graph of $f(x)$ and the *x*-axis over the interval $[a,b].$ Once again, we find ourselves taking a limit. Limits of this type serve as a basis for the definition of the definite integral. **Integral calculus** is the study of integrals and their applications."
+    }
+   ],
+   "title": "The Area Problem and Integral Calculus (continued)"
+  },
+  {
+   "id": "x15",
+   "kind": "example",
+   "label": "Example 2.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Estimate the area between the *x*-axis and the graph of $f(x)=x^{2}+1$ over the interval $[0,3]$ by using the three rectangles shown in Figure 2.9."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_008.webp",
+     "alt": "A graph of the parabola f(x) – x^2 + 1 drawn on graph paper with all units shown. The rectangles completely contained under the function and above the x-axis in the interval [0,3] are shaded. This strategy sets the heights of the rectangles as the smaller of the two corners that could intersect with the function. As such, the rectangles are shorter than the height of the function.",
+     "caption": "**Figure 2.9** The area of the region under the curve of $f(x)=x^{2}+1$ can be estimated using rectangles.",
+     "width": 325,
+     "height": 538
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The areas of the three rectangles are 1 unit$^{\\text{2}}$, 2 unit$^{\\text{2}}$, and 5 unit$^{\\text{2}}$. Using these rectangles, our area estimate is 8 unit$^{\\text{2}}$."
+     }
+    ]
+   },
+   "title": "Estimation Using Rectangles"
+  },
+  {
+   "id": "c16",
+   "kind": "checkpoint",
+   "label": "Checkpoint 2.3",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Estimate the area between the *x*-axis and the graph of $f(x)=x^{2}+1$ over the interval $[0,3]$ by using the three rectangles shown here:"
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_009.webp",
+     "alt": "A graph of the same parabola f(x) = x^2 + 1, but with a different shading strategy over the interval [0,3]. This time, the shaded rectangles are given the height of the taller corner that could intersect with the function. As such, the rectangles go higher than the height of the function.",
+     "width": 325,
+     "height": 538
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "17 unit$^{\\text{2}}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use Example 2.3 as a guide."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "r17",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "So far, we have studied functions of one variable only. Such functions can be represented visually using graphs in two dimensions; however, there is no good reason to restrict our investigation to two dimensions. Suppose, for example, that instead of determining the velocity of an object moving along a coordinate axis, we want to determine the velocity of a rock fired from a catapult at a given time, or of an airplane moving in three dimensions. We might want to graph real-value functions of two variables or determine volumes of solids of the type shown in Figure 2.10. These are only a few of the types of questions that can be asked and answered using **multivariable calculus**. Informally, multivariable calculus can be characterized as the study of the calculus of functions of two or more variables. However, before exploring these and other ideas, we must first lay a foundation for the study of calculus in one variable by exploring the concept of a limit."
+    }
+   ],
+   "title": "Other Aspects of Calculus"
+  },
+  {
+   "id": "r18",
+   "kind": "text",
+   "body": [
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_02_01_010.webp",
+     "alt": "A diagram in three dimensional space, over the x, y, and z axis where z = f(x,y). The base is the x,y axis, and the height is the z axis. The base is a rectangle contained in the x,y axis plane. The top is a surface of changing height with corners located directly above those of the rectangle in the x,y plane.. The highest point is above the corner at x=0, y=0. The lowest point is at the corner somewhere in the first quadrant of the x, y plane. The other two points are roughly the same height and located above the corners on the x axis and y axis. Lines are drawn connecting the corners of the rectangle to those of the surface.",
+     "caption": "**Figure 2.10** We can use multivariable calculus to find the volume between a surface defined by a function of two variables and a plane.",
+     "width": 325,
+     "height": 307
+    }
+   ],
+   "title": "Other Aspects of Calculus (continued)"
+  },
+  {
+   "id": "r19",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "Differential calculus arose from trying to solve the problem of determining the slope of a line tangent to a curve at a point. The slope of the tangent line indicates the rate of change of the function, also called the *derivative*. Calculating a derivative requires finding a limit.",
+      "Integral calculus arose from trying to solve the problem of finding the area of a region between the graph of a function and the *x*-axis. We can approximate the area by dividing it into thin rectangles and summing the areas of these rectangles. This summation leads to the value of a function called the *integral*. The integral is also calculated by finding a limit and, in fact, is related to the derivative of a function.",
+      "Multivariable calculus enables us to solve problems in three-dimensional space, including determining motion in space and finding volumes of solids."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r20",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Slope of a Secant Line**",
+       "$m_{\\sec}=\\frac{f(x)-f(a)}{x-a}$"
+      ],
+      [
+       "**Average Velocity over Interval** $[a,t]$",
+       "$v_{\\text{ave}}=\\frac{s(t)-s(a)}{t-a}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e1",
+   "number": 1,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Complete the following table with the appropriate values: *y*-coordinate of *Q*, the point $Q(x,y),$ and the slope of the secant line passing through points *P* and *Q*. Round your answer to eight significant digits."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1.1",
+       "a.",
+       "e.",
+       "i."
+      ],
+      [
+       "1.01",
+       "b.",
+       "f.",
+       "j."
+      ],
+      [
+       "1.001",
+       "c.",
+       "g.",
+       "k."
+      ],
+      [
+       "1.0001",
+       "d.",
+       "h.",
+       "l."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "*y*",
+      "$Q(x,y)$",
+      "*m*$_{\\text{sec}}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170570997908",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1,2)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{2}+1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 2.2100000; b. 2.0201000; c. 2.0020010; d. 2.0002000; e. (1.1000000, 2.2100000); f. (1.0100000, 2.0201000); g. (1.0010000, 2.0020010); h. (1.0001000, 2.0002000); i. 2.1000000; j. 2.0100000; k. 2.0010000; l. 2.0001000"
+     }
+    ]
+   },
+   "notes": "self-check: part e is prose"
+  },
+  {
+   "id": "e2",
+   "number": 2,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the line tangent to *f* at $x=1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170570990874",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1,2)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{2}+1.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e3",
+   "number": 3,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the value in the preceding exercise to find an equation of the tangent line at point *P*. Graph $f(x)$ and the tangent line."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573369540",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1,2)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{2}+1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=2x$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=2 x"
+   }
+  },
+  {
+   "id": "e4",
+   "number": 4,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Complete the following table with the appropriate values: *y*-coordinate of *Q*, the point $Q(x,y),$ and the slope of the secant line passing through points *P* and *Q*. Round your answer to eight significant digits."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1.1",
+       "a.",
+       "e.",
+       "i."
+      ],
+      [
+       "1.01",
+       "b.",
+       "f.",
+       "j."
+      ],
+      [
+       "1.001",
+       "c.",
+       "g.",
+       "k."
+      ],
+      [
+       "1.0001",
+       "d.",
+       "h.",
+       "l."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "*y*",
+      "$Q(x,y)$",
+      "*m*$_{\\text{sec}}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573414344",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1,1)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{3}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e5",
+   "number": 5,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the tangent line to *f* at $x=1.$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170571048191",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1,1)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{3}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "3"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "3"
+   }
+  },
+  {
+   "id": "e6",
+   "number": 6,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the value in the preceding exercise to find an equation of the tangent line at point *P*. Graph $f(x)$ and the tangent line."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573263712",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1,1)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{3}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e7",
+   "number": 7,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Complete the following table with the appropriate values: *y*-coordinate of *Q*, the point $Q(x,y),$ and the slope of the secant line passing through points *P* and *Q*. Round your answer to eight significant digits."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "4.1",
+       "a.",
+       "e.",
+       "i."
+      ],
+      [
+       "4.01",
+       "b.",
+       "f.",
+       "j."
+      ],
+      [
+       "4.001",
+       "c.",
+       "g.",
+       "k."
+      ],
+      [
+       "4.0001",
+       "d.",
+       "h.",
+       "l."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "*y*",
+      "$Q(x,y)$",
+      "*m*$_{\\text{sec}}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573371452",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(4,2)$ and $Q(x,y)$ are on the graph of the function $f(x)=\\sqrt{x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. 2.0248457; b. 2.0024984; c. 2.0002500; d. 2.0000250; e. (4.1000000,2.0248457); f. (4.0100000,2.0024984); g. (4.0010000,2.0002500); h. (4.00010000,2.0000250); i. 0.24845673; j. 0.24984395; k. 0.24998438; l. 0.24999844"
+     }
+    ]
+   },
+   "notes": "self-check: part e is prose"
+  },
+  {
+   "id": "e8",
+   "number": 8,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the tangent line to *f* at $x=4.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573419319",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(4,2)$ and $Q(x,y)$ are on the graph of the function $f(x)=\\sqrt{x}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e9",
+   "number": 9,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the value in the preceding exercise to find an equation of the tangent line at point *P*."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170570997493",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(4,2)$ and $Q(x,y)$ are on the graph of the function $f(x)=\\sqrt{x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\frac{x}{4}+1$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=(x/4)+1"
+   }
+  },
+  {
+   "id": "e10",
+   "number": 10,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Complete the following table with the appropriate values: *y*-coordinate of *Q*, the point $Q(\\varphi ,y),$ and the slope of the secant line passing through points *P* and *Q*. Round your answer to eight significant digits."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "1.4",
+       "a.",
+       "e.",
+       "i."
+      ],
+      [
+       "1.49",
+       "b.",
+       "f.",
+       "j."
+      ],
+      [
+       "1.499",
+       "c.",
+       "g.",
+       "k."
+      ],
+      [
+       "1.4999",
+       "d.",
+       "h.",
+       "l."
+      ]
+     ],
+     "header": [
+      "*φ*",
+      "*y*",
+      "$Q(\\varphi ,y)$",
+      "*m*$_{\\text{sec}}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573350763",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1.5,0)$ and $Q(\\varphi ,y)$ are on the graph of the function $f(\\varphi )=\\cos \\,(\\pi \\varphi ).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e11",
+   "number": 11,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the tangent line to *f* at $\\varphi =1.5.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573449494",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1.5,0)$ and $Q(\\varphi ,y)$ are on the graph of the function $f(\\varphi )=\\cos \\,(\\pi \\varphi ).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "*π*"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e12",
+   "number": 12,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the value in the preceding exercise to find an equation of the tangent line at point *P*."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573589729",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(1.5,0)$ and $Q(\\varphi ,y)$ are on the graph of the function $f(\\varphi )=\\cos \\,(\\pi \\varphi ).$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e13",
+   "number": 13,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Complete the following table with the appropriate values: *y*-coordinate of *Q*, the point $Q(x,y),$ and the slope of the secant line passing through points *P* and *Q*. Round your answer to eight significant digits."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "−1.05",
+       "a.",
+       "e.",
+       "i."
+      ],
+      [
+       "−1.01",
+       "b.",
+       "f.",
+       "j."
+      ],
+      [
+       "−1.005",
+       "c.",
+       "g.",
+       "k."
+      ],
+      [
+       "−1.001",
+       "d.",
+       "h.",
+       "l."
+      ]
+     ],
+     "header": [
+      "*x*",
+      "*y*",
+      "$Q(x,y)$",
+      "*m*$_{\\text{sec}}$"
+     ]
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573419372",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(-1,-1)$ and $Q(x,y)$ are on the graph of the function $f(x)=\\frac{1}{x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. −0.95238095; b. −0.99009901; c. −0.99502488; d. −0.99900100; e. (−1;.0500000,−0;.95238095); f. (−1;.0100000,−0;.9909901); g. (−1;.0050000,−0;.99502488); h. (1.0010000,−0;.99900100); i. −0.95238095; j. −0.99009901; k. −0.99502488; l. −0.99900100"
+     }
+    ]
+   },
+   "notes": "self-check: part e is prose"
+  },
+  {
+   "id": "e14",
+   "number": 14,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the line tangent to *f* at $x=-1.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573408094",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(-1,-1)$ and $Q(x,y)$ are on the graph of the function $f(x)=\\frac{1}{x}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e15",
+   "number": 15,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the value in the preceding exercise to find an equation of the tangent line at point *P*."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1170573382504",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, points $P(-1,-1)$ and $Q(x,y)$ are on the graph of the function $f(x)=\\frac{1}{x}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=-x-2$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "y=-x-2"
+   }
+  },
+  {
+   "id": "e16",
+   "number": 16,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Compute the average velocity of the ball over the given time intervals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$[4.99,5]$",
+      "$[5,5.01]$",
+      "$[4.999,5]$",
+      "$[5,5.001]$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573393541",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the position function of a ball dropped from the top of a 200-meter tall building is given by $s(t)=200-4.9t^{2},$ where position *s* is measured in meters and time *t* is measured in seconds. Round your answer to eight significant digits."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e17",
+   "number": 17,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding exercise to guess the instantaneous velocity of the ball at $t=5$ sec."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170570997916",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, the position function of a ball dropped from the top of a 200-meter tall building is given by $s(t)=200-4.9t^{2},$ where position *s* is measured in meters and time *t* is measured in seconds. Round your answer to eight significant digits."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "−49 m/sec (velocity of the ball is 49 m/sec downward)"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e18",
+   "number": 18,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Compute the average velocity of the stone over the given time intervals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$[1,1.05]$",
+      "$[1,1.01]$",
+      "$[1,1.005]$",
+      "$[1,1.001]$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573430332",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a stone tossed into the air from ground level with an initial velocity of 15 m/sec. Its height in meters at time *t* seconds is $h(t)=15t-4.9t^{2}.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e19",
+   "number": 19,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding exercise to guess the instantaneous velocity of the stone at $t=1$ sec."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573324864",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a stone tossed into the air from ground level with an initial velocity of 15 m/sec. Its height in meters at time *t* seconds is $h(t)=15t-4.9t^{2}.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "5.2 m/sec"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e20",
+   "number": 20,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Compute the average velocity of the rocket over the given time intervals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$[9,9.01]$",
+      "$[8.99,9]$",
+      "$[9,9.001]$",
+      "$[8.999,9]$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573425872",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a rocket shot into the air that then returns to Earth. The height of the rocket in meters is given by $h(t)=600+78.4t-4.9t^{2},$ where *t* is measured in seconds."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e21",
+   "number": 21,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding exercise to guess the instantaneous velocity of the rocket at $t=9$ sec."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573369087",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider a rocket shot into the air that then returns to Earth. The height of the rocket in meters is given by $h(t)=600+78.4t-4.9t^{2},$ where *t* is measured in seconds."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "−9.8 m/sec"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e22",
+   "number": 22,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Compute the average velocity of the runner over the given time intervals."
+    },
+    {
+     "type": "list",
+     "items": [
+      "$[1.95,2.05]$",
+      "$[1.995,2.005]$",
+      "$[1.9995,2.0005]$",
+      "$[2,2.00001]$"
+     ],
+     "ordered": true,
+     "style": "a"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571136683",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider an athlete running a 40-m dash. The position of the athlete is given by $d(t)=\\frac{t^{3}}{6}+4t,$ where *d* is the position in meters and *t* is the time elapsed, measured in seconds."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e23",
+   "number": 23,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding exercise to guess the instantaneous velocity of the runner at $t=2$ sec."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571123766",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider an athlete running a 40-m dash. The position of the athlete is given by $d(t)=\\frac{t^{3}}{6}+4t,$ where *d* is the position in meters and *t* is the time elapsed, measured in seconds."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "6 m/sec"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e24",
+   "number": 24,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Sketch the graph of *f* over the interval $[-1,2]$ and shade the region above the *x*-axis."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573582782",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=|x|.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e25",
+   "number": 25,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding exercise to find the aproximate value of the area between the *x*-axis and the graph of *f* over the interval $[-1,2]$ using rectangles. For the rectangles, use the square units, and approximate both above and below the lines. Use geometry to find the exact answer."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571259931",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=|x|.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Under, 1 unit$^{\\text{2}}$; over: 4 unit$^{\\text{2}}$. The exact area of the two triangles is $\\frac{1}{2}(1)(1)+\\frac{1}{2}(2)(2)=2.5{\\,\\text{units}}^{2}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e26",
+   "number": 26,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Sketch the graph of *f* over the interval $[-1,1].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571050086",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=\\sqrt{1-x^{2}}.$ (*Hint*: This is the upper half of a circle of radius 1 positioned at $(0,0).)$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e27",
+   "number": 27,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the preceding exercise to find the aproximate area between the *x*-axis and the graph of *f* over the interval $[-1,1]$ using rectangles. For the rectangles, use squares 0.4 by 0.4 units, and approximate both above and below the lines. Use geometry to find the exact answer."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573615200",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=\\sqrt{1-x^{2}}.$ (*Hint*: This is the upper half of a circle of radius 1 positioned at $(0,0).)$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Under, 0.96 unit$^{\\text{2}}$; over, 1.92 unit$^{\\text{2}}$. The exact area of the semicircle with radius 1 is $\\frac{\\pi (1)^{2}}{2}=\\frac{\\pi}{2}$ unit$^{\\text{2}}$."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e28",
+   "number": 28,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Sketch the graph of *f* over the interval $[-1,1].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170573750527",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=-x^{2}+1.$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e29",
+   "number": 29,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Approximate the area of the region between the *x*-axis and the graph of *f* over the interval $[-1,1].$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1170571137056",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, consider the function $f(x)=-x^{2}+1.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Approximately 1.3333333 unit$^{\\text{2}}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  }
+ ],
+ "proofs": [],
+ "glossary": [
+  {
+   "term": "average velocity",
+   "meaning": "the change in an object’s position divided by the length of a time period; the average velocity of an object over a time interval $[t,a]$ (if $t<a$ or $[a,t]$ if $t>a)$, with a position given by $s(t),$ that is $v_{\\text{ave}}=\\frac{s(t)-s(a)}{t-a}$"
+  },
+  {
+   "term": "differential calculus",
+   "meaning": "the field of calculus concerned with the study of derivatives and their applications"
+  },
+  {
+   "term": "instantaneous velocity",
+   "meaning": "The instantaneous velocity of an object with a position function that is given by $s(t)$ is the value that the average velocities on intervals of the form $[t,a]$ and $[a,t]$ approach as the values of *t* move closer to $a,$ provided such a value exists"
+  },
+  {
+   "term": "integral calculus",
+   "meaning": "the study of integrals and their applications"
+  },
+  {
+   "term": "limit",
+   "meaning": "the process of letting *x* or *t* approach *a* in an expression; the limit of a function $f(x)$ as *x* approaches *a* is the value that $f(x)$ approaches as *x* approaches *a*"
+  },
+  {
+   "term": "multivariable calculus",
+   "meaning": "the study of the calculus of functions of two or more variables"
+  },
+  {
+   "term": "secant",
+   "meaning": "A secant line to a function $f(x)$ at *a* is a line through the point $(a,f(a))$ and another point on the function; the slope of the secant line is given by $m_{\\sec}=\\frac{f(x)-f(a)}{x-a}$"
+  },
+  {
+   "term": "tangent",
+   "meaning": "A tangent line to the graph of a function at a point $(a,f(a))$ is the line that secant lines through $(a,f(a))$ approach as they are taken through points on the function with *x*-values that approach *a*; the slope of the tangent line to a graph at *a* measures the rate of change of the function at *a*"
+  }
+ ]
+}

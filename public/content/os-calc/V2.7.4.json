@@ -1,0 +1,2139 @@
+{
+ "schema": 1,
+ "id": "V2.7.4",
+ "book": "os-calc",
+ "volume": 2,
+ "chapter": 7,
+ "section": 4,
+ "title": "Area and Arc Length in Polar Coordinates",
+ "chapterTitle": "Parametric Equations and Polar Coordinates",
+ "source": {
+  "book": "Calculus Volume 2",
+  "module": "m53840",
+  "url": "https://openstax.org/books/calculus-volume-2/pages/7-4-area-and-arc-length-in-polar-coordinates",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Adapted from Calculus Volume 2, §7.4 “Area and Arc Length in Polar Coordinates”, by Gilbert Strang and Edwin “Jed” Herman (OpenStax), licensed under CC BY-NC-SA 4.0."
+ },
+ "status": {
+  "imported": "2026-11-24",
+  "reading": "imported",
+  "answers": "imported"
+ },
+ "objectives": [
+  "Apply the formula for area of a region in polar coordinates.",
+  "Determine the arc length of a polar curve."
+ ],
+ "reading": [
+  {
+   "id": "r1",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In the rectangular coordinate system, the definite integral provides a way to calculate the area under a curve. In particular, if we have a function $y=f(x)$ defined from $x=a$ to $x=b$ where $f(x)>0$ on this interval, the area between the curve and the *x*-axis is given by $A={\\displaystyle \\int_{a}^{b}f(x)\\,dx}.$ This fact, along with the formula for evaluating this integral, is summarized in the Fundamental Theorem of Calculus. Similarly, the arc length of this curve is given by $L={\\displaystyle \\int_{a}^{b}\\sqrt{1+(f'(x))^{2}}dx}.$ In this section, we study analogous formulas for area and arc length in the polar coordinate system."
+    }
+   ],
+   "title": "Area and Arc Length in Polar Coordinates"
+  },
+  {
+   "id": "r2",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We have studied the formulas for area under a curve defined in rectangular coordinates and parametrically defined curves. Now we turn our attention to deriving a formula for the area of a region bounded by a polar curve. Recall that the proof of the Fundamental Theorem of Calculus used the concept of a Riemann sum to approximate the area under a curve by using rectangles. For polar curves we use the Riemann sum again, but the rectangles are replaced by sectors of a circle."
+    },
+    {
+     "type": "p",
+     "text": "Consider a curve defined by the function $r=f(\\theta ),$ where $\\alpha \\le \\theta \\le \\beta .$ Our first step is to partition the interval $[\\alpha ,\\beta ]$ into *n* equal-width subintervals. The width of each subinterval is given by the formula $\\text{Δ}\\theta =(\\beta -\\alpha )/n,$ and the *i*th partition point $\\theta_{i}$ is given by the formula $\\theta_{i}=\\alpha +i\\text{Δ}\\theta .$ Each partition point $\\theta =\\theta_{i}$ defines a line with slope $\\tan \\theta_{i}$ passing through the pole as shown in the following graph."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_04_001.webp",
+     "alt": "On the polar coordinate plane, a curve is drawn in the first quadrant, and there are rays from the origin that intersect this curve at a regular interval. Every time one of these rays intersects the curve, a perpendicular arc is made from the ray to the next ray. The first instance of a ray-curve intersection is labeled θ = α; the last instance is labeled θ = β. The intervening ones are marked θ1, θ2, …, θn−1.",
+     "caption": "**Figure 7.38** A partition of a typical curve in polar coordinates.",
+     "width": 732,
+     "height": 671
+    }
+   ],
+   "title": "Areas of Regions Bounded by Polar Curves"
+  },
+  {
+   "id": "r3",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "The line segments are connected by arcs of constant radius. This defines sectors whose areas can be calculated by using a geometric formula. The area of each sector is then used to approximate the area between successive line segments. We then sum the areas of the sectors to approximate the total area. This approach gives a Riemann sum approximation for the total area. The formula for the area of a sector of a circle is illustrated in the following figure."
+    },
+    {
+     "type": "figure",
+     "src": "figures/os-calc/CNX_Calc_Figure_11_04_002.webp",
+     "alt": "A circle is drawn with radius r and a sector of angle θ. It is noted that A = (1/2) θ r2.",
+     "caption": "**Figure 7.39** The area of a sector of a circle is given by $A=\\frac{1}{2}\\theta r^{2}.$",
+     "width": 325,
+     "height": 330
+    },
+    {
+     "type": "p",
+     "text": "Recall that the area of a circle is $A=\\pi r^{2}.$ When measuring angles in radians, 360 degrees is equal to $2\\pi$ radians. Therefore a fraction of a circle can be measured by the central angle $\\theta .$ The fraction of the circle is given by $\\frac{\\theta}{2\\pi},$ so the area of the sector is this fraction multiplied by the total area:"
+    },
+    {
+     "type": "math",
+     "tex": "A=\\left(\\frac{\\theta}{2\\pi}\\right)\\,\\pi r^{2}=\\frac{1}{2}\\theta r^{2}."
+    },
+    {
+     "type": "p",
+     "text": "Since the radius of a typical sector in Figure 7.38 is given by $r_{i}=f(\\theta_{i}),$ the area of the *i*th sector is given by"
+    },
+    {
+     "type": "math",
+     "tex": "A_{i}=\\frac{1}{2}(\\text{Δ}\\theta )(f(\\theta_{i}))^{2}."
+    },
+    {
+     "type": "p",
+     "text": "Therefore a Riemann sum that approximates the area is given by"
+    },
+    {
+     "type": "math",
+     "tex": "A_{n}={\\displaystyle \\sum_{i=1}^{n}A_{i}}\\approx {\\displaystyle \\sum_{i=1}^{n}\\frac{1}{2}(\\text{Δ}\\theta )(f(\\theta_{i}))^{2}}."
+    }
+   ],
+   "title": "Areas of Regions Bounded by Polar Curves (continued)"
+  },
+  {
+   "id": "r4",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "We take the limit as $n\\to \\infty$ to get the exact area:"
+    },
+    {
+     "type": "math",
+     "tex": "A=\\lim_{n\\to \\infty}A_{n}=\\frac{1}{2}{\\displaystyle \\int_{\\alpha}^{\\beta}(f(\\theta ))^{2}d\\theta}."
+    },
+    {
+     "type": "p",
+     "text": "This gives the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Suppose $f$ is continuous and nonnegative on the interval $\\alpha \\le \\theta \\le \\beta$ with $0<\\beta -\\alpha \\le 2\\pi .$ The area of the region bounded by the graph of $r=f(\\theta )$ between the radial lines $\\theta =\\alpha$ and $\\theta =\\beta$ is"
+      },
+      {
+       "type": "math",
+       "tex": "A=\\frac{1}{2}{\\displaystyle \\int_{\\alpha}^{\\beta}[f(\\theta )]^{2}d\\theta}=\\frac{1}{2}{\\displaystyle \\int_{\\alpha}^{\\beta}r^{2}d\\theta}."
+      }
+     ],
+     "title": "Area of a Region Bounded by a Polar Curve"
+    }
+   ],
+   "title": "Areas of Regions Bounded by Polar Curves (continued)"
+  },
+  {
+   "id": "x5",
+   "kind": "example",
+   "label": "Example 7.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the area of one petal of the rose defined by the equation $r=3\\,\\sin (2\\theta ).$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph of $r=3\\,\\sin (2\\theta )$ follows."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_04_003.webp",
+      "alt": "A four-petaled rose with furthest extent 3 from the origin at π/4, 3π/4, 5π/4, and 7π/4.",
+      "caption": "**Figure 7.40** The graph of $r=3\\,\\sin (2\\theta ).$",
+      "width": 354,
+      "height": 354
+     },
+     {
+      "type": "p",
+      "text": "When $\\theta =0$ we have $r=3\\,\\sin (2(0))=0.$ The next value for which $r=0$ is $\\theta =\\pi /2.$ This can be seen by solving the equation $3\\,\\sin (2\\theta )=0$ for $\\theta .$ Therefore the values $\\theta =0$ to $\\theta =\\pi /2$ trace out the first petal of the rose. To find the area inside this petal, use (see above) with $f(\\theta )=3\\,\\sin (2\\theta ),$ $\\alpha =0,$ and $\\beta =\\pi /2:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}A & =\\frac{1}{2}{\\displaystyle \\int_{\\alpha}^{\\beta}[f(\\theta )]^{2}d\\theta} \\\\ & =\\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi /2}[3\\,\\sin (2\\theta )]^{2}d\\theta} \\\\ & =\\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi /2}9\\,\\sin^{2}(2\\theta )\\,d\\theta}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "To evaluate this integral, use the formula $\\sin^{2}\\alpha =(1-\\cos (2\\alpha ))/2$ with $\\alpha =2\\theta :$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}A & =\\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi /2}9\\,\\sin^{2}(2\\theta )\\,d\\theta} \\\\ & =\\frac{9}{2}{\\displaystyle \\int_{0}^{\\pi /2}\\frac{(1-\\cos (4\\theta ))}{2}d\\theta} \\\\ & =\\frac{9}{4}\\left({\\displaystyle \\int_{0}^{\\pi /2}1-\\cos (4\\theta )\\,d\\theta}\\right) \\\\ & =\\frac{9}{4}(\\theta -\\frac{\\sin (4\\theta )}{4})_{0}^{\\pi /2} \\\\ & =\\frac{9}{4}\\left(\\frac{\\pi}{2}-\\frac{\\sin \\,2\\pi}{4}\\right)-\\frac{9}{4}\\left(0-\\frac{\\sin \\,4(0)}{4}\\right) \\\\ & =\\frac{9\\pi}{8}.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding an Area of a Polar Region"
+  },
+  {
+   "id": "c6",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.15",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the area inside the cardioid defined by the equation $r=1-\\cos \\,\\theta .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$A=3\\pi /2$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above). Be sure to determine the correct limits of integration before evaluating."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "A=3 pi /2"
+   }
+  },
+  {
+   "id": "r7",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Example 7.16 involved finding the area inside one curve. We can also use (see above) to find the area between two polar curves. However, we often need to find the points of intersection of the curves and determine which function defines the outer curve or the inner curve between these two points."
+    }
+   ],
+   "title": "Areas of Regions Bounded by Polar Curves (continued)"
+  },
+  {
+   "id": "x8",
+   "kind": "example",
+   "label": "Example 7.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the area outside the cardioid $r=2+2\\,\\sin \\,\\theta$ and inside the circle $r=6\\,\\sin \\,\\theta .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "First draw a graph containing both curves as shown."
+     },
+     {
+      "type": "figure",
+      "src": "figures/os-calc/CNX_Calc_Figure_11_04_004.webp",
+      "alt": "A cardioid with equation r = 2 + 2 sinθ is shown, so it has its upper heart part at the origin and the rest of the cardioid is pointed up. There is a circle with radius 6 centered at (3, π/2). The area above the cardioid but below the circle is shaded orange.",
+      "caption": "**Figure 7.41** The region between the curves $r=2+2\\,\\sin \\,\\theta$ and $r=6\\,\\sin \\,\\theta .$",
+      "width": 354,
+      "height": 356
+     },
+     {
+      "type": "p",
+      "text": "To determine the limits of integration, first find the points of intersection by setting the two functions equal to each other and solving for $\\theta :$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{ccc}6\\,\\sin \\,\\theta & = & 2+2\\,\\sin \\,\\theta \\\\ 4\\,\\sin \\,\\theta & = & 2 \\\\ \\sin \\,\\theta & = & \\frac{1}{2}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "This gives the solutions $\\theta =\\frac{\\pi}{6}$ and $\\theta =\\frac{5\\pi}{6},$ which are the limits of integration. The circle $r=3\\,\\sin \\,\\theta$ is the red graph, which is the outer function, and the cardioid $r=2+2\\,\\sin \\,\\theta$ is the blue graph, which is the inner function. To calculate the area between the curves, start with the area inside the circle between $\\theta =\\frac{\\pi}{6}$ and $\\theta =\\frac{5\\pi}{6},$ then subtract the area inside the cardioid between $\\theta =\\frac{\\pi}{6}$ and $\\theta =\\frac{5\\pi}{6}:$"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}A & =\\text{circle}-\\text{cardioid} \\\\ & =\\frac{1}{2}{\\displaystyle \\int_{\\pi /6}^{5\\pi /6}[6\\,\\sin \\,\\theta ]^{2}d\\theta}-\\frac{1}{2}{\\displaystyle \\int_{\\pi /6}^{5\\pi /6}[2+2\\,\\sin \\,\\theta ]^{2}d\\theta} \\\\ & =\\frac{1}{2}{\\displaystyle \\int_{\\pi /6}^{5\\pi /6}36\\,\\sin^{2}\\theta \\,d\\theta}-\\frac{1}{2}{\\displaystyle \\int_{\\pi /6}^{5\\pi /6}[4+8\\,\\sin \\,\\theta +4\\,\\sin^{2}\\theta ]\\,d\\theta} \\\\ & =18{\\displaystyle \\int_{\\pi /6}^{5\\pi /6}\\frac{1-\\cos (2\\theta )}{2}d\\theta}-2{\\displaystyle \\int_{\\pi /6}^{5\\pi /6}[1+2\\,\\sin \\,\\theta +\\frac{1-\\cos (2\\theta )}{2}]d\\theta} \\\\ & =9\\left[\\theta -\\frac{\\sin (2\\theta )}{2}\\right]_{\\pi /6}^{5\\pi /6}-2\\left[\\frac{3\\theta}{2}-2\\,\\cos \\,\\theta -\\frac{\\sin (2\\theta )}{4}\\right]_{\\pi /6}^{5\\pi /6} \\\\ & =9\\left(\\frac{5\\pi}{6}-\\frac{\\sin \\,2(5\\pi /6)}{2}\\right)-9\\left(\\frac{\\pi}{6}-\\frac{\\sin \\,2(\\pi /6)}{2}\\right) \\\\ & \\;-\\left(3\\left(\\frac{5\\pi}{6}\\right)-4\\,\\cos \\,\\frac{5\\pi}{6}-\\frac{\\sin \\,2(5\\pi /6)}{2}\\right)+\\left(3\\left(\\frac{\\pi}{6}\\right)-4\\,\\cos \\,\\frac{\\pi}{6}-\\frac{\\sin \\,2(\\pi /6)}{2}\\right) \\\\ & =4\\pi .\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Area between Two Polar Curves"
+  },
+  {
+   "id": "c9",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.16",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the area inside the circle $r=4\\,\\cos \\,\\theta$ and outside the circle $r=2.$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$A=\\frac{4\\pi}{3}+2\\sqrt{3}$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above) and take advantage of symmetry."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "equation",
+    "value": "A=((4 pi)/3)+2 sqrt(3)"
+   }
+  },
+  {
+   "id": "r10",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "In Example 7.17 we found the area inside the circle and outside the cardioid by first finding their intersection points. Notice that solving the equation directly for $\\theta$ yielded two solutions: $\\theta =\\frac{\\pi}{6}$ and $\\theta =\\frac{5\\pi}{6}.$ However, in the graph there are three intersection points. The third intersection point is the origin. The reason why this point did not show up as a solution is because the origin is on both graphs but for different values of $\\theta .$ For example, for the cardioid we get"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{ccc}2+2\\,\\sin \\,\\theta & = & 0 \\\\ \\sin \\,\\theta & = & -1,\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "so the values for $\\theta$ that solve this equation are $\\theta =\\frac{3\\pi}{2}+2n\\pi ,$ where *n* is any integer. For the circle we get"
+    },
+    {
+     "type": "math",
+     "tex": "6\\,\\sin \\,\\theta =0."
+    },
+    {
+     "type": "p",
+     "text": "The solutions to this equation are of the form $\\theta =n\\pi$ for any integer value of *n.* These two solution sets have no points in common. Regardless of this fact, the curves intersect at the origin. This case must always be taken into consideration."
+    }
+   ],
+   "title": "Areas of Regions Bounded by Polar Curves (continued)"
+  },
+  {
+   "id": "r11",
+   "kind": "text",
+   "body": [
+    {
+     "type": "p",
+     "text": "Here we derive a formula for the arc length of a curve defined in polar coordinates."
+    },
+    {
+     "type": "p",
+     "text": "In rectangular coordinates, the arc length of a parameterized curve $(x(t),y(t))$ for $a\\le t\\le b$ is given by"
+    },
+    {
+     "type": "math",
+     "tex": "L={\\displaystyle \\int_{a}^{b}\\sqrt{\\left(\\frac{dx}{dt}\\right)^{2}+\\left(\\frac{dy}{dt}\\right)^{2}}dt}."
+    },
+    {
+     "type": "p",
+     "text": "In polar coordinates we define the curve by the equation $r=f(\\theta ),$ where $\\alpha \\le \\theta \\le \\beta .$ In order to adapt the arc length formula for a polar curve, we use the equations"
+    },
+    {
+     "type": "math",
+     "tex": "x=r\\,\\cos \\,\\theta =f(\\theta )\\,\\cos \\,\\theta \\,\\text{and}\\,y=r\\,\\sin \\,\\theta =f(\\theta )\\,\\sin \\,\\theta ,"
+    },
+    {
+     "type": "p",
+     "text": "and we replace the parameter *t* by $\\theta .$ Then"
+    },
+    {
+     "type": "math",
+     "tex": "\\begin{array}{c}\\frac{dx}{d\\theta}=f'(\\theta )\\,\\cos \\,\\theta -f(\\theta )\\,\\sin \\,\\theta \\\\ \\frac{dy}{d\\theta}=f'(\\theta )\\,\\sin \\,\\theta +f(\\theta )\\,\\cos \\,\\theta .\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "We replace $dt$ by $d\\theta ,$ and the lower and upper limits of integration are $\\alpha$ and $\\beta ,$ respectively. Then the arc length formula becomes"
+    }
+   ],
+   "title": "Arc Length in Polar Curves"
+  },
+  {
+   "id": "r12",
+   "kind": "text",
+   "body": [
+    {
+     "type": "math",
+     "tex": "\\begin{array}{cc}L & ={\\displaystyle \\int_{a}^{b}\\sqrt{\\left(\\frac{dx}{dt}\\right)^{2}+\\left(\\frac{dy}{dt}\\right)^{2}}dt} \\\\ & ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{\\left(\\frac{dx}{d\\theta}\\right)^{2}+\\left(\\frac{dy}{d\\theta}\\right)^{2}}d\\theta} \\\\ & ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{(f'(\\theta )\\,\\cos \\,\\theta -f(\\theta )\\,\\sin \\,\\theta )^{2}+(f'(\\theta )\\,\\sin \\,\\theta +f(\\theta )\\,\\cos \\,\\theta )^{2}}d\\theta} \\\\ & ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{(f'(\\theta ))^{2}(\\cos^{2}\\theta +\\sin^{2}\\theta )+(f(\\theta ))^{2}(\\cos^{2}\\theta +\\sin^{2}\\theta )}d\\theta} \\\\ & ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{(f'(\\theta ))^{2}+(f(\\theta ))^{2}}d\\theta} \\\\ & ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{r^{2}+\\left(\\frac{dr}{d\\theta}\\right)^{2}}d\\theta}.\\end{array}"
+    },
+    {
+     "type": "p",
+     "text": "This gives us the following theorem."
+    },
+    {
+     "type": "box",
+     "variant": "theorem",
+     "body": [
+      {
+       "type": "p",
+       "text": "Let $f$ be a function whose derivative is continuous on an interval $\\alpha \\le \\theta \\le \\beta .$ The length of the graph of $r=f(\\theta )$ from $\\theta =\\alpha$ to $\\theta =\\beta$ is"
+      },
+      {
+       "type": "math",
+       "tex": "L={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{[f(\\theta )]^{2}+[f'(\\theta )]^{2}}d\\theta ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{r^{2}+\\left(\\frac{dr}{d\\theta}\\right)^{2}}d\\theta .}}"
+      }
+     ],
+     "title": "Arc Length of a Curve Defined by a Polar Function"
+    }
+   ],
+   "title": "Arc Length in Polar Curves (continued)"
+  },
+  {
+   "id": "x13",
+   "kind": "example",
+   "label": "Example 7.18",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the arc length of the cardioid $r=2+2\\,\\cos \\,\\theta .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "When $\\theta =0,r=2+2\\,\\cos \\,0=4.$ Furthermore, as $\\theta$ goes from $0$ to $2\\pi ,$ the cardioid is traced out exactly once. Therefore these are the limits of integration. Using $f(\\theta )=2+2\\,\\cos \\,\\theta ,$ $\\alpha =0,$ and $\\beta =2\\pi ,$ (see above) becomes"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}L & ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{[f(\\theta )]^{2}+[f'(\\theta )]^{2}}}\\,d\\theta \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\sqrt{[2+2\\,\\cos \\,\\theta ]^{2}+[-2\\,\\sin \\,\\theta ]^{2}}}\\,d\\theta \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\sqrt{4+8\\,\\cos \\,\\theta +4\\,\\cos^{2}\\,\\theta +4\\,\\sin^{2}\\,\\theta}}\\,d\\theta \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\sqrt{4+8\\,\\cos \\,\\theta +4(\\cos^{2}\\,\\theta +\\sin^{2}\\,\\theta )}}\\,d\\theta \\\\ & ={\\displaystyle \\int_{0}^{2\\pi}\\sqrt{8+8\\,\\cos \\,\\theta}}\\,d\\theta \\\\ & =2{\\displaystyle \\int_{0}^{2\\pi}\\sqrt{2+2\\,\\cos \\,\\theta}}\\,d\\theta .\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "Next, using the identity $\\cos (2\\alpha )=2\\,\\cos^{2}\\alpha -1,$ add 1 to both sides and multiply by 2. This gives $2+2\\,\\cos (2\\alpha )=4\\,\\cos^{2}\\alpha .$ Substituting $\\alpha =\\theta /2$ gives $2+2\\,\\cos \\,\\theta =4\\,\\cos^{2}(\\theta /2),$ so the integral becomes"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}L & =2{\\displaystyle \\int_{0}^{2\\pi}\\sqrt{2+2\\,\\cos \\,\\theta}}d\\theta \\\\ & =2{\\displaystyle \\int_{0}^{2\\pi}\\sqrt{4\\,\\cos^{2}\\left(\\frac{\\theta}{2}\\right)}d\\theta} \\\\ & =2{\\displaystyle \\int_{0}^{2\\pi}2|\\cos \\left(\\frac{\\theta}{2}\\right)|d\\theta}.\\end{array}"
+     },
+     {
+      "type": "p",
+      "text": "The absolute value is necessary because the cosine is negative for some values in its domain. To resolve this issue, change the limits from $0$ to $\\pi$ and double the answer. This strategy works because cosine is positive between $0$ and $\\frac{\\pi}{2}.$ Thus,"
+     },
+     {
+      "type": "math",
+      "tex": "\\begin{array}{cc}L & =4{\\displaystyle \\int_{0}^{2\\pi}\\left|\\cos \\left(\\frac{\\theta}{2}\\right)\\right|d\\theta} \\\\ & =8{\\displaystyle \\int_{0}^{\\pi}\\cos \\left(\\frac{\\theta}{2}\\right)\\,d\\theta} \\\\ & =8(2\\,\\sin \\left(\\frac{\\theta}{2}\\right))_{0}^{\\pi} \\\\ & =16.\\end{array}"
+     }
+    ]
+   },
+   "title": "Finding the Arc Length of a Polar Curve"
+  },
+  {
+   "id": "c14",
+   "kind": "checkpoint",
+   "label": "Checkpoint 7.17",
+   "problem": [
+    {
+     "type": "p",
+     "text": "Find the total arc length of $r=3\\,\\sin \\,\\theta .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$s=3\\pi$"
+     },
+     {
+      "type": "box",
+      "variant": "note",
+      "title": "Hint",
+      "body": [
+       {
+        "type": "p",
+        "text": "Use (see above). To determine the correct limits, make a table of values."
+       }
+      ]
+     }
+    ]
+   },
+   "answer": {
+    "kind": "list",
+    "value": "3 pi"
+   }
+  },
+  {
+   "id": "r15",
+   "kind": "text",
+   "title": "Key Concepts",
+   "body": [
+    {
+     "type": "list",
+     "items": [
+      "The area of a region in polar coordinates defined by the equation $r=f(\\theta )$ with $\\alpha \\le \\theta \\le \\beta$ is given by the integral $A=\\frac{1}{2}{\\displaystyle \\int_{\\alpha}^{\\beta}[f(\\theta )]}^{2}d\\theta .$",
+      "To find the area between two curves in the polar coordinate system, first find the points of intersection, then subtract the corresponding areas.",
+      "The arc length of a polar curve defined by the equation $r=f(\\theta )$ with $\\alpha \\le \\theta \\le \\beta$ is given by the integral $L={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{[f(\\theta )]^{2}+[f'(\\theta )]^{2}}d\\theta ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{r^{2}+\\left(\\frac{dr}{d\\theta}\\right)^{2}}d\\theta}}.$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r16",
+   "kind": "text",
+   "title": "Key Equations",
+   "body": [
+    {
+     "type": "table",
+     "rows": [
+      [
+       "**Area of a region bounded by a polar curve**",
+       "$A=\\frac{1}{2}{\\displaystyle \\int_{\\alpha}^{\\beta}[f(\\theta )]^{2}d\\theta}=\\frac{1}{2}{\\displaystyle \\int_{\\alpha}^{\\beta}r^{2}d\\theta}$"
+      ],
+      [
+       "**Arc length of a polar curve**",
+       "$L={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{[f(\\theta )]^{2}+[f'(\\theta )]^{2}}}d\\theta ={\\displaystyle \\int_{\\alpha}^{\\beta}\\sqrt{r^{2}+\\left(\\frac{dr}{d\\theta}\\right)^{2}}d\\theta}$"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e188",
+   "number": 188,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region enclosed by $r=4$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793363493",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e189",
+   "number": 189,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region enclosed by $r=3\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793361414",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{9}{2}{\\displaystyle \\int_{0}^{\\pi}\\sin^{2}\\theta \\,d\\theta}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e190",
+   "number": 190,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region in the first quadrant within the cardioid $r=1+\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793363662",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e191",
+   "number": 191,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region enclosed by one petal of $r=8\\,\\sin (2\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793363740",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$32{\\displaystyle \\int_{0}^{\\pi /2}\\sin^{2}(2\\theta )d\\theta}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e192",
+   "number": 192,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region enclosed by one petal of $r=\\cos (3\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793369680",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e193",
+   "number": 193,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region below the polar axis and enclosed by $r=1-\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793366455",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{1}{2}{\\displaystyle \\int_{\\pi}^{2\\pi}(1-\\sin \\,\\theta )^{2}d\\theta}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e194",
+   "number": 194,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region in the first quadrant enclosed by $r=2-\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793361609",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e195",
+   "number": 195,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region enclosed by the inner loop of $r=2-3\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793361687",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{\\sin^{-1}(2/3)}^{\\pi /2}(2-3\\,\\sin \\,\\theta )^{2}}d\\theta$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e196",
+   "number": 196,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region enclosed by the inner loop of $r=3-4\\,\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793367117",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e197",
+   "number": 197,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region enclosed by $r=1-2\\,\\cos \\,\\theta$ and outside the inner loop"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793362198",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{\\pi /3}^{\\pi}(1-2\\,\\cos \\,\\theta )^{2}d\\theta -{\\displaystyle \\int_{0}^{\\pi /3}(1-2\\,\\cos \\,\\theta )^{2}}}d\\theta$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e198",
+   "number": 198,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region common to $r=3\\,\\sin \\,\\theta \\,\\text{and}\\,r=2-\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793363547",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e199",
+   "number": 199,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region common to $r=2\\,\\text{and}\\,r=4\\,\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793292298",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4{\\displaystyle \\int_{0}^{\\pi /3}d\\theta +16{\\displaystyle \\int_{\\pi /3}^{\\pi /2}(\\cos^{2}\\theta )}}d\\theta$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e200",
+   "number": 200,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Region common to $r=3\\,\\cos \\,\\theta \\,\\text{and}\\,r=3\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793292410",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, determine a definite integral that represents the area."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e201",
+   "number": 201,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Enclosed by $r=6\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793366618",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$9\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "9 pi"
+   }
+  },
+  {
+   "id": "e202",
+   "number": 202,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Above the polar axis enclosed by $r=2+\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793366652",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e203",
+   "number": 203,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Below the polar axis and enclosed by $r=2-\\cos \\,\\theta$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793366697",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{9\\pi}{4}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((9 pi)/4)"
+   }
+  },
+  {
+   "id": "e204",
+   "number": 204,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Enclosed by one petal of $r=4\\,\\cos (3\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793369819",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e205",
+   "number": 205,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Enclosed by one petal of $r=3\\,\\cos (2\\theta )$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793369866",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{9\\pi}{8}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((9 pi)/8)"
+   }
+  },
+  {
+   "id": "e206",
+   "number": 206,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Enclosed by $r=1+\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793369914",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e207",
+   "number": 207,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Enclosed by the inner loop of $r=3+6\\,\\cos \\,\\theta$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793277945",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{18\\pi -27\\sqrt{3}}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((18 pi -27 sqrt(3))/2)"
+   }
+  },
+  {
+   "id": "e208",
+   "number": 208,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Enclosed by $r=2+4\\,\\cos \\,\\theta$ and outside the inner loop"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793277995",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e209",
+   "number": 209,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Common interior of $r=4\\,\\sin (2\\theta )\\,\\text{and}\\,r=2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793278043",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{4}{3}(4\\pi -3\\sqrt{3})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(4/3)(4 pi -3 sqrt(3))"
+   }
+  },
+  {
+   "id": "e210",
+   "number": 210,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Common interior of $r=3-2\\,\\sin \\,\\theta \\,\\text{and}\\,r=-3+2\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793363232",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e211",
+   "number": 211,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Common interior of $r=6\\,\\sin \\,\\theta \\,\\text{and}\\,r=3$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793363296",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{3}{2}(4\\pi -3\\sqrt{3})$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(3/2)(4 pi -3 sqrt(3))"
+   }
+  },
+  {
+   "id": "e212",
+   "number": 212,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Inside $r=1+\\cos \\,\\theta$ and outside $r=\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793363362",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e213",
+   "number": 213,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Common interior of $r=2+2\\,\\cos \\,\\theta \\,\\text{and}\\,r=2\\,\\sin \\,\\theta$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793369082",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the area of the described region."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2\\pi -4$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2 pi -4"
+   }
+  },
+  {
+   "id": "e214",
+   "number": 214,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=4\\,\\cos \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\frac{\\pi}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793369145",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find a definite integral that represents the arc length."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e215",
+   "number": 215,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=1+\\sin \\,\\theta$ on the interval $0\\le \\theta \\le 2\\pi$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793369218",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find a definite integral that represents the arc length."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "${\\displaystyle \\int_{0}^{2\\pi}\\sqrt{(1+\\sin \\,\\theta )^{2}+\\cos^{2}\\theta}}d\\theta$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e216",
+   "number": 216,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=2\\,\\sec \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\frac{\\pi}{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793376345",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find a definite integral that represents the arc length."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e217",
+   "number": 217,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=e^{\\theta}\\text{on the interval}\\,0\\le \\theta \\le 1$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793376422",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find a definite integral that represents the arc length."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sqrt{2}{\\displaystyle \\int_{0}^{1}e^{\\theta}d\\theta}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e218",
+   "number": 218,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=6\\,\\text{on the interval}\\,0\\le \\theta \\le \\frac{\\pi}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793376488",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the length of the curve over the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e219",
+   "number": 219,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=e^{3\\theta}\\text{on the interval}\\,0\\le \\theta \\le 2$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793376532",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the length of the curve over the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{\\sqrt{10}}{3}(e^{6}-1)$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "((sqrt(10))/3)(e^6-1)"
+   }
+  },
+  {
+   "id": "e220",
+   "number": 220,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=6\\,\\cos \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\frac{\\pi}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371732",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the length of the curve over the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e221",
+   "number": 221,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=8+8\\,\\cos \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793371779",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the length of the curve over the given interval."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "32"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "32"
+   }
+  },
+  {
+   "id": "e222",
+   "number": 222,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=1-\\sin \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le 2\\pi$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371822",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the length of the curve over the given interval."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e223",
+   "number": 223,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $r=3\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\frac{\\pi}{2}$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793371871",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the integration capabilities of a calculator to approximate the length of the curve."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "6.238"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "6.238"
+   }
+  },
+  {
+   "id": "e224",
+   "number": 224,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $r=\\frac{2}{\\theta}\\,\\text{on the interval}\\,\\pi \\le \\theta \\le 2\\pi$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371918",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the integration capabilities of a calculator to approximate the length of the curve."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e225",
+   "number": 225,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $r=\\sin^{2}\\left(\\frac{\\theta}{2}\\right)\\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793366017",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the integration capabilities of a calculator to approximate the length of the curve."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "2"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   }
+  },
+  {
+   "id": "e226",
+   "number": 226,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $r=2\\theta^{2}\\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793366074",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the integration capabilities of a calculator to approximate the length of the curve."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e227",
+   "number": 227,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** $r=\\sin (3\\,\\cos \\,\\theta )\\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793366120",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the integration capabilities of a calculator to approximate the length of the curve."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "4.39"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "4.39"
+   }
+  },
+  {
+   "id": "e228",
+   "number": 228,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3\\,\\sin \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793366178",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the familiar formula from geometry to find the area of the region described and then confirm by using the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e229",
+   "number": 229,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\sin \\,\\theta +\\cos \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793370322",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the familiar formula from geometry to find the area of the region described and then confirm by using the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$A=\\pi \\left(\\frac{\\sqrt{2}}{2}\\right)^{2}=\\frac{\\pi}{2}\\,\\text{and}\\,\\frac{1}{2}{\\displaystyle \\int_{0}^{\\pi}(1+2\\,\\sin \\,\\theta \\,\\cos \\,\\theta )}d\\theta =\\frac{\\pi}{2}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "(pi/2)"
+   }
+  },
+  {
+   "id": "e230",
+   "number": 230,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=6\\,\\sin \\,\\theta +8\\,\\cos \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793370454",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the familiar formula from geometry to find the area of the region described and then confirm by using the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e231",
+   "number": 231,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3\\,\\sin \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793370600",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the familiar formula from geometry to find the length of the curve and then confirm using the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$C=2\\pi \\left(\\frac{3}{2}\\right)=3\\pi \\,\\text{and}\\,{\\displaystyle \\int_{0}^{\\pi}3}d\\theta =3\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "3 pi"
+   }
+  },
+  {
+   "id": "e232",
+   "number": 232,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\sin \\,\\theta +\\cos \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793370696",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the familiar formula from geometry to find the length of the curve and then confirm using the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e233",
+   "number": 233,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=6\\,\\sin \\,\\theta +8\\,\\cos \\,\\theta \\,\\text{on the interval}\\,0\\le \\theta \\le \\pi$"
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793372015",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the familiar formula from geometry to find the length of the curve and then confirm using the definite integral."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$C=2\\pi (5)=10\\pi \\,\\text{and}\\,{\\displaystyle \\int_{0}^{\\pi}10}\\,d\\theta =10\\pi$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "10 pi"
+   }
+  },
+  {
+   "id": "e234",
+   "number": 234,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Verify that if $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta$ then $\\frac{dy}{d\\theta}=f'(\\theta )\\sin \\,\\theta +f(\\theta )\\cos \\,\\theta .$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793372117",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, use the familiar formula from geometry to find the length of the curve and then confirm using the definite integral."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e235",
+   "number": 235,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Use the definition of the derivative $\\frac{dy}{dx}=\\frac{dy/d\\theta}{dx/d\\theta}$ and the product rule to derive the derivative of a polar equation."
+    }
+   ],
+   "check": "auto",
+   "sourceId": "fs-id1167793372320",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\frac{dy}{dx}=\\frac{f'(\\theta )\\sin \\,\\theta +f(\\theta )\\,\\cos \\,\\theta}{f'(\\theta )\\,\\cos \\,\\theta -f(\\theta )\\sin \\,\\theta}$"
+     }
+    ]
+   },
+   "answer": {
+    "kind": "expression",
+    "value": "((f'(theta) sin theta +f(theta) cos theta)/(f'(theta) cos theta -f(theta) sin theta))"
+   }
+  },
+  {
+   "id": "e236",
+   "number": 236,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=1-\\sin \\,\\theta ;$ $\\left(\\frac{1}{2},\\frac{\\pi}{6}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793372471",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e237",
+   "number": 237,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=4\\,\\cos \\,\\theta ;$ $\\left(2,\\frac{\\pi}{3}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793370884",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The slope is $\\frac{1}{\\sqrt{3}}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e238",
+   "number": 238,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=8\\,\\sin \\,\\theta ;$ $\\left(4,\\frac{5\\pi}{6}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793370944",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e239",
+   "number": 239,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=4+\\sin \\,\\theta ;$ $\\left(3,\\frac{3\\pi}{2}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371005",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The slope is 0."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e240",
+   "number": 240,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=6+3\\,\\cos \\,\\theta ;$ $(3,\\pi )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371058",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e241",
+   "number": 241,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=4\\,\\cos (2\\theta );$ tips of the leaves"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371107",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "At $(4,0),$ the slope is undefined. At $\\left(-4,\\frac{\\pi}{2}\\right),$ the slope is 0."
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e242",
+   "number": 242,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=2\\,\\sin (3\\theta );$ tips of the leaves"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371187",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e243",
+   "number": 243,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=2\\theta ;$ $\\left(\\frac{\\pi}{2},\\frac{\\pi}{4}\\right)$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371294",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "The slope is undefined at $\\frac{4+\\pi}{4-\\pi}$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e244",
+   "number": 244,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Find the points on the interval $-\\pi \\le \\theta \\le \\pi$ at which the cardioid $r=1-\\cos \\,\\theta$ has a vertical or horizontal tangent line."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371358",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e245",
+   "number": 245,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "For the cardioid $r=1+\\sin \\,\\theta ,$ find the slope of the tangent line when $\\theta =\\frac{\\pi}{3}.$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371455",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of a tangent line to a polar curve $r=f(\\theta ).$ Let $x=r\\,\\cos \\,\\theta =f(\\theta )\\cos \\,\\theta$ and $y=r\\,\\sin \\,\\theta =f(\\theta )\\sin \\,\\theta ,$ so the polar equation $r=f(\\theta )$ is now written in parametric form."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Slope = −1."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e246",
+   "number": 246,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=3\\,\\cos \\,\\theta ,\\theta =\\frac{\\pi}{3}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371514",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of the tangent line to the given polar curve at the point given by the value of $\\theta .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e247",
+   "number": 247,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\theta ,$ $\\theta =\\frac{\\pi}{2}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371563",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of the tangent line to the given polar curve at the point given by the value of $\\theta .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Slope is $\\frac{-2}{\\pi}.$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e248",
+   "number": 248,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=\\ln \\,\\theta ,$ $\\theta =e$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793371611",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of the tangent line to the given polar curve at the point given by the value of $\\theta .$"
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e249",
+   "number": 249,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "**[T]** Use technology: $r=2+4\\,\\cos \\,\\theta$ at $\\theta =\\frac{\\pi}{6}$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793373919",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the slope of the tangent line to the given polar curve at the point given by the value of $\\theta .$"
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Calculator answer: −0.836."
+     }
+    ]
+   },
+   "notes": "self-check: answer is prose"
+  },
+  {
+   "id": "e250",
+   "number": 250,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=4\\,\\cos \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793373973",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the points at which the following polar curves have a horizontal or vertical tangent line."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e251",
+   "number": 251,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r^{2}=4\\,\\cos (2\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793374087",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the points at which the following polar curves have a horizontal or vertical tangent line."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Horizontal tangent at $\\left(\\text{±}\\sqrt{2},\\frac{\\pi}{6}\\right),$ $\\left(\\text{±}\\sqrt{2},-\\frac{\\pi}{6}\\right).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e252",
+   "number": 252,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "$r=2\\,\\sin (2\\theta )$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793374175",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the points at which the following polar curves have a horizontal or vertical tangent line."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  },
+  {
+   "id": "e253",
+   "number": 253,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "The cardioid $r=1+\\sin \\,\\theta$"
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793374258",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the points at which the following polar curves have a horizontal or vertical tangent line."
+    }
+   ],
+   "solution": {
+    "label": "book",
+    "body": [
+     {
+      "type": "p",
+      "text": "Horizontal tangents at $\\frac{\\pi}{2},\\frac{7\\pi}{6},\\frac{11\\pi}{6}.$ Vertical tangents at $\\frac{\\pi}{6},\\frac{5\\pi}{6}$ and also at the pole $(0,0).$"
+     }
+    ]
+   },
+   "notes": "self-check: answer mixes prose and math"
+  },
+  {
+   "id": "e254",
+   "number": 254,
+   "prompt": [
+    {
+     "type": "p",
+     "text": "Show that the curve $r=\\sin \\,\\theta \\,\\tan \\,\\theta$ (called a **cissoid of Diocles**) has the line $x=1$ as a vertical asymptote."
+    }
+   ],
+   "check": "self",
+   "sourceId": "fs-id1167793374357",
+   "instructions": [
+    {
+     "type": "p",
+     "text": "For the following exercises, find the points at which the following polar curves have a horizontal or vertical tangent line."
+    }
+   ],
+   "notes": "no book answer yet (even-numbered); a content chat adds one"
+  }
+ ],
+ "proofs": []
+}
