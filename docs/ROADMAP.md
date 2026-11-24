@@ -39,9 +39,11 @@ The chat reads `docs/`, does the work, ticks the box, and opens a pull request. 
 
 > **Done early (home + progress pass):** the home screen now shows Calculus I, II and III as separate unit cards (a % and per-chapter bar on each), then the next units (Linear Algebra, Proofs, Spivak, and optional Differential Equations / PDE) and Rudin as the goal. Time, estimated pages read (reading-card words ÷ 350) and problems solved per day come from the B11 attempt log (`src/lib/progress.svelte.ts` summarizes it), so they sync with B12. They feed a "This week" summary and a GitHub-style daily map. `#/calc/1` – `#/calc/3` list sections with progress. Any progress recorded in the earlier localStorage log is imported into the attempt log once.
 
-- [ ] **B14 Home screen.** "Continue" button, % of Calc I–III complete, all-time problems solved, total time spent. *Needs:* B11.
-- [ ] **B15 Course map.** Volumes → chapters → sections in table-of-contents layout, a % bar on each, ✓ on finished sections, tap a section for its stats or to redo it. *Needs:* B11.
-- [ ] **B16 Stats screen.** Problems solved and time spent per day and week, first-try accuracy per chapter, pending mistakes count. *Needs:* B11.
+- [x] **B14 Home screen.** "Continue" button, % of Calc I–III complete, all-time problems solved, total time spent. *Needs:* B11.
+- [x] **B15 Course map.** Volumes → chapters → sections in table-of-contents layout, a % bar on each, ✓ on finished sections, tap a section for its stats or to redo it. *Needs:* B11.
+- [x] **B16 Stats screen.** Problems solved and time spent per day and week, first-try accuracy per chapter, pending mistakes count. *Needs:* B11.
+
+> Status after B14–B16: Home leads with the three numbers (% of Calculus I–III, problems solved, time spent) above Continue. `#/map` is the whole course as a table of contents (`#/calc/N` shows one volume) with % bars and ✓; tapping a section opens `#/section/V1.2.3` with its stats (reading, exercises, first-try accuracy, time in section, pending mistakes, last studied) and Continue / Redo buttons. `#/stats` shows problems and time per day (14 days) and per week (12 weeks), first-try accuracy per chapter, and pending mistakes. Course % now counts reading + finished exercises everywhere (SPEC §6). Time is logged per unit from now on; earlier time counts in totals only.
 
 **🎯 Milestone C: you can always see exactly where you are and how much you've done.**
 

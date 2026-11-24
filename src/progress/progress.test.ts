@@ -5,7 +5,7 @@ import type { BookIndex } from '../content/types';
 import { buildSteps } from '../cards/types';
 import { ActiveTimer, IDLE_MS } from './activity';
 import { memoryStore, openIdb } from './db';
-import { courseFraction, derive, firstUndoneStep, nextUnitId, unitComplete, unitFraction } from './derive';
+import { courseFraction, derive, firstTry, firstUndoneStep, nextUnitId, unitComplete, unitFraction } from './derive';
 import { isEvent, type Event, type NewEvent } from './events';
 
 let n = 0;
@@ -36,6 +36,31 @@ const index: BookIndex = {
 const [u1, u2] = index.volumes[0].chapters[0].units;
 
 describe('derive', () => {
+  it('first-try accuracy uses each exercise\'s first main-flow attempt', () => {
+    const d = derive([
+      ev({ type: 'ex', unit: 'V1.1.1', item: 'e1', ...ok }),
+      ev({ type: 'ex', unit: 'V1.1.1', item: 'e2', ...miss }),
+      ev({ type: 'ex', unit: 'V1.1.1', item: 'e2', ...ok }), // redo doesn't change it
+      ev({ type: 'review', unit: 'V1.1.2', item: 'e1', ...ok, seed: 1, variant: false }), // practice doesn't count
+    ]);
+    expect(firstTry(d, [u1])).toEqual({ done: 1, total: 2 });
+    expect(firstTry(d, [u1, u2])).toEqual({ done: 1, total: 2 });
+    expect(firstTry(d, [u2])).toEqual({ done: 0, total: 0 });
+  });
+
+  it('tracks time and last activity per unit', () => {
+    const d = derive([
+      ev({ type: 'time', ms: 5000 }, 1000),
+      ev({ type: 'time', ms: 3000, unit: 'V1.1.1' }, 2000),
+      ev({ type: 'read', unit: 'V1.1.1', item: 'r1' }, 3000),
+      ev({ type: 'time', ms: 2000, unit: 'V1.1.1' }, 4000),
+    ]);
+    expect(d.ms).toBe(10000);
+    expect(d.unitMs.get('V1.1.1')).toBe(5000);
+    expect(d.unitLast.get('V1.1.1')).toBe(4000);
+    expect(d.unitLast.has('V1.1.2')).toBe(false);
+  });
+
   it('counts reading and exercises toward unit and course %', () => {
     const d = derive([
       ev({ type: 'read', unit: 'V1.1.1', item: 'r1' }),

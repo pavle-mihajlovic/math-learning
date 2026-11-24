@@ -86,8 +86,8 @@ class Progress {
     void this.record({ type: 'review', unit, item, seed, variant, ...r });
   }
 
-  recordTime(ms: number): void {
-    if (ms >= 1000) void this.record({ type: 'time', ms: Math.round(ms) });
+  recordTime(ms: number, unit?: string): void {
+    if (ms >= 1000) void this.record(unit ? { type: 'time', ms: Math.round(ms), unit } : { type: 'time', ms: Math.round(ms) });
   }
 
   recordSetting(key: string, value: unknown): void {

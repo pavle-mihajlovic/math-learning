@@ -4,7 +4,7 @@
   import { CALC, NEXT } from './subjects';
   import Heatmap from './Heatmap.svelte';
   import { dayStats, fmtPages, fmtTime, solvedIn, streak, sumDays, weekKeys, weekStart } from './progress.svelte';
-  import { nextUnitId, unitComplete } from '../progress/derive';
+  import { chapterFraction, courseFraction, nextUnitId, pct as frac, unitComplete, volumeFraction } from '../progress/derive';
   import { progress } from '../progress/store.svelte';
   import { mistakes } from '../practice/store.svelte';
 
@@ -17,17 +17,18 @@
     if (!index) return [];
     return CALC.map((meta) => {
       const v = index!.volumes.find((x) => x.volume === meta.volume);
+      // % complete counts reading cards and finished exercises (SPEC §6), same as the course map.
       const chapters = (v?.chapters ?? []).map((c) => {
         const total = c.units.reduce((a, u) => a + u.exercises, 0);
         const solved = c.units.reduce((a, u) => a + Math.min(u.exercises, solvedIn(u.id)), 0);
         const done = c.units.filter((u) => unitComplete(progress.d, u)).length;
-        return { chapter: c.chapter, title: c.title, total, solved, done, units: c.units.length };
+        return { chapter: c.chapter, title: c.title, total, solved, done, units: c.units.length, frac: frac(chapterFraction(progress.d, c)), size: chapterFraction(progress.d, c).total };
       });
       const total = chapters.reduce((a, c) => a + c.total, 0);
       const solved = chapters.reduce((a, c) => a + c.solved, 0);
       const sections = chapters.reduce((a, c) => a + c.units, 0);
       const done = chapters.reduce((a, c) => a + c.done, 0);
-      const pct = total ? (solved / total) * 100 : 0;
+      const pct = v ? frac(volumeFraction(progress.d, v)) * 100 : 0;
       return { ...meta, chapters, total, solved, sections, done, pct };
     });
   });
@@ -70,6 +71,9 @@
     return `${d >= 0 ? '▲' : '▼'} ${fmt(Math.abs(d))} vs last wk`;
   }
 
+  const coursePct = $derived(index ? frac(courseFraction(progress.d, index)) * 100 : 0);
+  const fmtPct = (p: number) => (p > 0 && p < 10 ? p.toFixed(1) : String(Math.floor(p)));
+
   const nextId = $derived(index ? nextUnitId(progress.d, index) : 'V1.1.1');
   const started = $derived(progress.d.read.size > 0 || progress.d.done.size > 0);
   const due = $derived(mistakes.due().length);
@@ -80,8 +84,29 @@
 
 <header class="top">
   <h1>Road to Rudin</h1>
-  <a href="#/settings" class="settings">Settings</a>
+  <nav class="links">
+    <a href="#/map">Map</a>
+    <a href="#/stats">Stats</a>
+    <a href="#/settings">Settings</a>
+  </nav>
 </header>
+
+<!-- B14: the three numbers -->
+<div class="summary" aria-label="Overall progress">
+  <a class="stat" href="#/map">
+    <div class="snum">{fmtPct(coursePct)}<small>%</small></div>
+    <div class="slabel">of Calculus I–III</div>
+  </a>
+  <a class="stat" href="#/stats">
+    <div class="snum">{progress.d.solved.toLocaleString()}</div>
+    <div class="slabel">problems solved</div>
+  </a>
+  <a class="stat" href="#/stats">
+    <div class="snum">{fmtTime(progress.d.ms)}</div>
+    <div class="slabel">time spent</div>
+  </a>
+</div>
+<div class="course-bar" aria-hidden="true"><div style="width: {coursePct}%"></div></div>
 
 {#if nextId}
   <a class="btn primary continue" href="#/continue">{started ? 'Continue' : 'Start'} · §{nextId.slice(3)}</a>
@@ -140,12 +165,12 @@
             <h2>{v.name}</h2>
             <p class="tagline">{v.tagline}</p>
           </div>
-          <div class="pct">{v.pct < 10 && v.pct > 0 ? v.pct.toFixed(1) : Math.floor(v.pct)}<small>%</small></div>
+          <div class="pct">{fmtPct(v.pct)}<small>%</small></div>
         </div>
         <div class="segments" aria-hidden="true">
           {#each v.chapters as c (c.chapter)}
-            <div class="seg" style="flex: {c.total}" title="Ch. {c.chapter} {c.title}">
-              <div class="seg-fill" style="width: {c.total ? (c.solved / c.total) * 100 : 0}%"></div>
+            <div class="seg" style="flex: {c.size}" title="Ch. {c.chapter} {c.title}: {Math.floor(c.frac * 100)}%">
+              <div class="seg-fill" style="width: {c.frac * 100}%"></div>
             </div>
           {/each}
         </div>
@@ -184,15 +209,24 @@
   <h2 class="caps">Activity</h2>
   <Heatmap />
   <p class="all-time">
-    All time: <strong>{progress.d.solved.toLocaleString()}</strong> problems ·
-    <strong>{fmtPages(allTime.pages)}</strong> pages · <strong>{fmtTime(allTime.ms)}</strong>
+    All time: <strong>{fmtPages(allTime.pages)}</strong> pages read ·
+    <a href="#/stats">More stats →</a>
   </p>
 </section>
 
 <style>
   .top { display: flex; justify-content: space-between; align-items: baseline; padding-top: calc(18px + env(safe-area-inset-top, 0px)); }
   h1 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 0 0 16px; }
-  .settings { font-size: 0.9rem; color: var(--muted); }
+  .links { display: flex; gap: 14px; font-size: 0.9rem; }
+  .links a { color: var(--muted); }
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
+  .stat { display: block; color: var(--text); text-decoration: none; min-width: 0; }
+  .stat:hover { text-decoration: none; }
+  .snum { font-size: 1.75rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.15; white-space: nowrap; }
+  .snum small { font-size: 0.55em; color: var(--muted); font-weight: 500; }
+  .slabel { font-size: 0.75rem; color: var(--muted); }
+  .course-bar { height: 4px; background: var(--surface-2); border-radius: 2px; overflow: hidden; margin: 6px 0 16px; }
+  .course-bar div { height: 100%; background: var(--accent); border-radius: 2px; }
   .continue { width: 100%; margin-bottom: 10px; }
   .practice { width: 100%; margin-bottom: 22px; }
   .badge { background: var(--text); color: var(--bg); border-radius: 999px; padding: 0 0.55em; font-size: 0.8rem; margin-left: 0.4em; font-variant-numeric: tabular-nums; }
@@ -273,6 +307,7 @@
   .all-time strong { color: var(--text); }
 
   @media (max-width: 380px) {
+    .snum { font-size: 1.35rem; }
     .tile .num { font-size: 1.3rem; }
     .numeral { font-size: 2.1rem; }
     .pct { font-size: 1.5rem; }

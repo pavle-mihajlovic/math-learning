@@ -57,6 +57,8 @@ export interface ReviewEvent extends Base, ExerciseResult {
 export interface TimeEvent extends Base {
   type: 'time';
   ms: number;
+  /** Unit the time was spent in (absent for Practice mistakes and for time logged before B15). */
+  unit?: string;
 }
 
 /** A synced setting. The latest one per key wins. */
