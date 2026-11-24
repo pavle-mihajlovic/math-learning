@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { untrack } from 'svelte';
   import type { Unit } from '../content/types';
   import { loadUnit, unitOrder } from '../content/load';
   import { inlineHtml } from '../content/render';
@@ -14,7 +15,8 @@
   import TryCard from './TryCard.svelte';
   import { buildSteps, type Outcome, type Step } from './types';
 
-  let { unitId }: { unitId: string } = $props();
+  /** `from` restarts a unit (B15 "Redo"): at its first card, or at its first exercise. */
+  let { unitId, from }: { unitId: string; from?: 'start' | 'exercises' } = $props();
 
   let unit = $state<Unit | null>(null);
   let error = $state('');
@@ -37,7 +39,13 @@
         // Resume at the first card you haven't done; in a finished unit, where you last were.
         const first = firstUndoneStep(steps, progress.d.read.get(id), progress.d.done.get(id));
         const complete = steps[first]?.kind === 'complete';
-        at = Math.max(0, Math.min(complete ? getPosition(id) : first, steps.length - 1));
+        const restart = untrack(() => from);
+        let start = complete ? getPosition(id) : first;
+        if (restart === 'start') start = 0;
+        else if (restart === 'exercises') start = Math.max(0, steps.findIndex((s) => s.kind === 'exercise'));
+        at = Math.max(0, Math.min(start, steps.length - 1));
+        // Drop the redo suffix so a reload resumes instead of restarting again.
+        if (restart) history.replaceState(null, '', `#/unit/${id}`);
         setPosition(id, at);
         prefetchAround(id).catch(() => {});
       })
@@ -53,7 +61,10 @@
   const step = $derived(steps[at]);
 
   // Active study time (B11).
-  $effect(() => trackActiveTime((ms) => progress.recordTime(ms)));
+  $effect(() => {
+    const id = unitId;
+    return trackActiveTime((ms) => progress.recordTime(ms, id));
+  });
 
   function go(i: number, markRead = true) {
     // Moving forward past a reading card marks it read (not when skipping ahead).

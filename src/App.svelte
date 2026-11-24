@@ -2,7 +2,9 @@
   import UnitPlayer from './cards/UnitPlayer.svelte';
   import Contents from './lib/Contents.svelte';
   import Home from './lib/Home.svelte';
+  import Section from './lib/Section.svelte';
   import Settings from './lib/Settings.svelte';
+  import Stats from './lib/Stats.svelte';
   import Practice from './practice/Practice.svelte';
   import Pair from './sync/Pair.svelte';
   import { loadIndex } from './content/load';
@@ -15,15 +17,22 @@
    *   #/              home
    *   #/calc/1        a calculus unit's sections (1–3)
    *   #/continue      next card in strict book order (B11)
-   *   #/unit/V1.2.3   a unit
+   *   #/unit/V1.2.3   a unit (…/start or …/exercises redoes it from there)
+   *   #/map           course map: volumes → chapters → sections (B15)
+   *   #/section/V1.2.3  a section's stats, with open / redo (B15)
+   *   #/stats         stats screen (B16)
    *   #/practice      Practice mistakes (B13)
    *   #/settings      settings, account, offline, backup
    *   #/pair/CODE     sign in this device with a pairing code from another device (B12)
    */
   let hash = $state(location.hash);
   const route = $derived.by(() => {
-    const m = /^#\/unit\/(V\d\.\d+\.\d+)$/.exec(hash);
-    if (m) return { name: 'unit' as const, id: m[1] };
+    const m = /^#\/unit\/(V\d\.\d+\.\d+)(?:\/(start|exercises))?$/.exec(hash);
+    if (m) return { name: 'unit' as const, id: m[1], from: m[2] as 'start' | 'exercises' | undefined };
+    const sec = /^#\/section\/(V\d\.\d+\.\d+)$/.exec(hash);
+    if (sec) return { name: 'section' as const, id: sec[1] };
+    if (hash === '#/map') return { name: 'map' as const };
+    if (hash === '#/stats') return { name: 'stats' as const };
     const p = /^#\/pair\/([A-Za-z0-9-]+)$/.exec(hash);
     if (p) return { name: 'pair' as const, code: p[1] };
     if (hash === '#/settings') return { name: 'settings' as const };
@@ -59,9 +68,15 @@
   {#if !progress.ready}
     <p class="muted">Loading…</p>
   {:else if route.name === 'unit'}
-    {#key route.id}<UnitPlayer unitId={route.id} />{/key}
+    {#key route.id + (route.from ?? '')}<UnitPlayer unitId={route.id} from={route.from} />{/key}
   {:else if route.name === 'calc'}
     <Contents volume={route.volume} />
+  {:else if route.name === 'map'}
+    <Contents />
+  {:else if route.name === 'section'}
+    <Section unitId={route.id} />
+  {:else if route.name === 'stats'}
+    <Stats />
   {:else if route.name === 'settings'}
     <Settings />
   {:else if route.name === 'practice'}

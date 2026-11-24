@@ -34,6 +34,10 @@ export interface Derived {
   days: Map<string, DayStats>;
   /** Latest value of each synced setting. */
   settings: Record<string, unknown>;
+  /** Active ms spent inside each unit (only time logged with a unit). */
+  unitMs: Map<string, number>;
+  /** Last time anything happened in each unit (read, exercise, practice, time). */
+  unitLast: Map<string, number>;
 }
 
 export function dayKey(t: number): string {
@@ -49,7 +53,7 @@ function add<K>(m: Map<K, Set<string>>, k: K, v: string) {
 
 /** Events must be sorted by time (the store keeps them that way). */
 export function derive(events: readonly Event[]): Derived {
-  const d: Derived = { read: new Map(), done: new Map(), correct: new Map(), first: new Map(), solved: 0, ms: 0, days: new Map(), settings: {} };
+  const d: Derived = { read: new Map(), done: new Map(), correct: new Map(), first: new Map(), solved: 0, ms: 0, days: new Map(), settings: {}, unitMs: new Map(), unitLast: new Map() };
   const settingAt: Record<string, number> = {};
   const day = (t: number) => {
     const k = dayKey(t);
@@ -58,6 +62,7 @@ export function derive(events: readonly Event[]): Derived {
     return s;
   };
   for (const e of events) {
+    if ('unit' in e && e.unit) d.unitLast.set(e.unit, e.t);
     switch (e.type) {
       case 'read': {
         const seen = d.read.get(e.unit)?.has(e.item);
@@ -84,6 +89,7 @@ export function derive(events: readonly Event[]): Derived {
       case 'time':
         d.ms += e.ms;
         day(e.t).ms += e.ms;
+        if (e.unit) d.unitMs.set(e.unit, (d.unitMs.get(e.unit) ?? 0) + e.ms);
         break;
       case 'set':
         if ((settingAt[e.key] ?? -Infinity) <= e.t) {
@@ -132,6 +138,24 @@ export function volumeFraction(d: Derived, v: BookIndex['volumes'][number]): Fra
 
 export function courseFraction(d: Derived, index: BookIndex): Fraction {
   return sum(index.volumes.map((v) => volumeFraction(d, v)));
+}
+
+/**
+ * First-try accuracy over some units: of the exercises attempted in the main flow, how many were
+ * right on the very first attempt (later redos don't change it).
+ */
+export function firstTry(d: Derived, units: Iterable<{ id: string }>): Fraction {
+  let done = 0;
+  let total = 0;
+  for (const u of units) {
+    for (const item of d.done.get(u.id) ?? []) {
+      const f = d.first.get(itemKey(u.id, item));
+      if (f === undefined) continue;
+      total++;
+      if (f) done++;
+    }
+  }
+  return { done, total };
 }
 
 /** Strict book order: the first unit that isn't complete, or null when the whole course is done. */
