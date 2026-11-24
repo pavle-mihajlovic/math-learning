@@ -1,7 +1,9 @@
-# Spec sheet (v2, after round-2 answers)
+# Road to Rudin: spec sheet (v3, after round-3 answers)
 
 ## 1. Product in one sentence
-A private, Duolingo-style web app that walks you through every section of real textbooks, strictly in order. It starts with OpenStax Calculus I–III, then linear algebra, proofs, Spivak, Abbott and Rudin. Each section gives you a required reading first, then all of its exercises with auto-checked typed answers. It runs on iPhone, Windows and Linux, and syncs between them.
+**Road to Rudin** is a private, minimal web app that walks you through every section of OpenStax Calculus I–III, strictly in order. Each section gives you a required reading first, then all of its exercises with auto-checked typed answers. It shows clear progress (%, total problems solved, time spent), runs on iPhone, Windows and Linux, and syncs between them.
+
+**Scope for now: calculus only.** Linear algebra, proofs, Spivak, Abbott and Rudin come after we revisit the plan (see ROADMAP "Later").
 
 ## 2. Decisions log
 
@@ -23,11 +25,16 @@ A private, Duolingo-style web app that walks you through every section of real t
 | D14 | Missed problems come back as **variants with new numbers**. | R2 |
 | D15 | **Required reading before each unit**, adapted from the textbook section (OpenStax is CC-BY, so its text can be adapted with attribution). | R2 |
 | D16 | Optional proof cards for theorems, even during calculus. | R2 |
-| D17 | After linear algebra and proofs: **Spivak, every chapter**, then Abbott (you own it), then Rudin PMA, then Rudin RCA. | R2 |
+| D17 | Later stages (linear algebra, proofs, Spivak, Abbott, Rudin PMA, Rudin RCA) are **deferred**. We set up calculus first and plan the rest afterwards. | R3 |
 | D18 | Login: **account tied to your email, plus a one-time QR code** to log in other devices. Single user forever. | R2 |
 | D19 | **Always dark mode.** | R2 |
-| D20 | **Duolingo-style motivation is a core feature**, not polish. | R2 |
+| D20 | **Serious and minimal, not a game.** Progress is the point: % complete, total problems solved all-time, and time spent. No XP, sounds, confetti or badges. | R3 |
 | D21 | Hints are written in advance only. No live AI in the app. | R2 |
+| D22 | Required readings cover **close to the full section**. | R3 |
+| D23 | The book's worked examples become **"try it first" problems**, with the book's solution as the answer. | R3 |
+| D24 | Missed-problem reviews live behind a **separate "Practice mistakes" button**; they aren't mixed into the main flow. | R3 |
+| D25 | Login codes are sent through a free **Resend** email account. | R3 |
+| D26 | The app is called **Road to Rudin**. | R3 |
 
 ## 3. Hard requirements
 1. Tap the icon and you're on the next card in under 2 s.
@@ -38,14 +45,15 @@ A private, Duolingo-style web app that walks you through every section of real t
 
 ## 4. The flow
 ```
-Path map → next unit node
-  1. Required reading  (5–15 short swipeable cards adapted from the section, with the book's
-                        worked examples revealed step by step; "Got it" on each card)
+Home → "Continue" (next card in strict book order)
+  1. Required reading  (swipeable cards covering close to the full section; each of the book's
+                        worked examples is a "try it first" card: attempt it → see the book's solution)
   2. Chunks            (about 2 min each: 4–6 exercises from the section, in book order)
-       type answer → Check → ✓ +XP / ✗ → retry → hint → solution → next
+       type answer → Check → ✓ / ✗ → retry → hint → solution → next
   3. Optional proof cards for the section's theorems
-  4. Unit complete     → celebration, % updated, node fills on the map
-Reviews: missed problems return as variants, mixed in between chunks.
+  4. Unit complete     → % updated, unit marked done on the course map
+"Practice mistakes" button: missed problems return there as variants with new numbers, on a
+spaced-repetition schedule. Separate from the main flow.
 ```
 
 ### Exercises that can't be auto-checked
@@ -56,29 +64,21 @@ These are the same as v1: number, expression (with `+C`), equation, interval/set
 - **self-check**, described above.
 - **graph**: the app draws a function, and you answer a question about it.
 
-## 5. Motivation and progress (D20)
-- **Path map:** each book is a winding path. Chapters are banners and sections are nodes. A node's ring shows its % done, and the current node pulses.
-- **Percentages everywhere:**
-  - whole book (exercises done out of 6,316)
-  - each chapter, as a bar
-  - each unit, as a ring
-  - each stage, out of 7
-- **XP:** points for each correct answer, a combo bonus for runs of correct answers, and a bonus for a perfect chunk.
-- **Streak:** any one finished chunk counts for the day. Streak freezes are earned with XP. The streak counter is shown big on the home screen.
-- **Mastery:** each unit gets 0–5 crowns, based on how well its problems are remembered (from the spaced-repetition data).
-- **Celebrations:**
-  - confetti and sound after each chunk
-  - a trophy screen when a chapter is done
-  - a big screen when a book is done
-- **Badges:** "First derivative", "100 integrals", "Series slayer", "Every exercise in Vol 1", and so on.
-- **Stats:**
-  - activity calendar heatmap
-  - XP per week
-  - accuracy by topic
-  - a projected finish date at your recent pace
-- **Personal league:** this week's XP against your own last 4 weeks, since you're the only user.
-- **Not included:** hearts or lives. Being blocked from practising works against volume.
-- Haptics: iPhone Safari doesn't support vibration, so sound and animation carry the feedback there.
+## 5. Progress (D20): serious and minimal
+- **Home screen:** a "Continue" button, plus three numbers:
+  - **% of Calculus I–III complete**
+  - **total problems solved, all-time**
+  - **total time spent**
+- **Course map:** volumes → chapters → sections, laid out like the book's table of contents.
+  - a % bar for each chapter and section
+  - a ✓ mark on finished sections
+  - tap any section to see its stats or redo it
+- **Stats screen:**
+  - problems solved and time spent, per day and per week
+  - first-try accuracy per chapter
+  - mistakes still pending
+- **Time tracking:** the app counts active time only. It pauses after 60 s with no interaction, or when the app is in the background.
+- **Not included:** XP, streak pressure, sounds, confetti, badges, hearts.
 
 ## 6. Architecture
 ```
@@ -96,4 +96,4 @@ Cloudflare Worker + D1: email login (one-time code by email, through a free emai
 - **Attribution:** a footer on each unit credits OpenStax (CC-BY 4.0).
 
 ## 7. Non-goals
-A native app, multiple users, live AI in the app, hearts/lives, and daily quotas.
+A native app, multiple users, live AI in the app, game mechanics, sounds, and daily quotas.

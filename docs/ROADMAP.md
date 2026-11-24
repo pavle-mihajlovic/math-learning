@@ -25,21 +25,19 @@ The chat reads `docs/`, does the work, ticks the box, and opens a pull request. 
 ## Stage B: Daily driver
 
 - [ ] **B10 PWA + offline.** Manifest, icons, service worker, iOS "Add to Home Screen" install. Content downloads chapter by chapter. *Needs:* B09.
-- [ ] **B11 Progress engine.** IndexedDB attempt log, strict-order "next card" logic, ts-fsrs reviews mixed in between chunks, unit and chapter completion %. *Needs:* B08.
+- [ ] **B11 Progress engine.** IndexedDB attempt log, strict-order "next card" logic, unit and chapter completion %, all-time problems-solved counter, active-time tracking (pauses when idle or in the background). *Needs:* B08.
 - [ ] **B12 Account + sync.** Cloudflare Worker + D1, email one-time-code login, QR pairing for new devices, attempt-log sync, export/backup button. *Needs:* B11, B09.
-- [ ] **B13 Variants.** Templates with random parameters for missed exercises, with the answer computed per variant. *Needs:* B04, B11.
+- [ ] **B13 Practice mistakes.** Separate "Practice mistakes" button. Missed exercises come back on a spaced-repetition schedule (ts-fsrs) as variants with random parameters, and the answer is computed per variant. *Needs:* B04, B11.
 
-**🎯 Milestone B: phone and computer in sync, works offline, missed problems come back with new numbers.**
+**🎯 Milestone B: phone and computer in sync, works offline, separate mistakes practice.**
 
-## Stage C: Duolingo layer (core feature)
+## Stage C: Progress views (serious and minimal)
 
-- [ ] **B14 Path map.** Winding path per book, chapter banners, unit nodes with % rings, pulsing current node, tap any finished node to review. *Needs:* B11.
-- [ ] **B15 XP, combos, streaks, freezes.** Plus the home screen with a big streak counter and book %. *Needs:* B11.
-- [ ] **B16 Celebrations + sound.** Chunk-complete confetti, chapter trophy, book-complete screen, sound toggle. *Needs:* B15.
-- [ ] **B17 Crowns + badges.** Mastery 0–5 per unit from spaced-repetition data, plus about 30 badges. *Needs:* B15.
-- [ ] **B18 Stats screen.** Activity heatmap, XP per week, personal league, accuracy by topic, projected finish date, % of each book. *Needs:* B15.
+- [ ] **B14 Home screen.** "Continue" button, % of Calc I–III complete, all-time problems solved, total time spent. *Needs:* B11.
+- [ ] **B15 Course map.** Volumes → chapters → sections in table-of-contents layout, a % bar on each, ✓ on finished sections, tap a section for its stats or to redo it. *Needs:* B11.
+- [ ] **B16 Stats screen.** Problems solved and time spent per day and week, first-try accuracy per chapter, pending mistakes count. *Needs:* B11.
 
-**🎯 Milestone C: it feels like Duolingo.**
+**🎯 Milestone C: you can always see exactly where you are and how much you've done.**
 
 ## Stage D: Content for Calculus I–III (110 chats, ⇉ start any time after B05)
 
@@ -53,16 +51,18 @@ The chat reads `docs/`, does the work, ticks the box, and opens a pull request. 
 
   Tick the unit in CURRICULUM.md when done. Stay at least one chapter ahead of where you're studying.
 
-## Stage E: After calculus (each line is one chat)
-
-- [ ] **U-LA** Map Hefferon *Linear Algebra* into units, and write an importer if its source is available. Then K-tasks per unit.
-- [ ] **U-BOP** Map Hammack *Book of Proof* into units. Then K-tasks.
-- [ ] **B19 Proof card types.** Reorder-the-proof, fill-the-gap, true/false + counterexample, definition recall. *Needs:* B08. Do this before Stage 3.
-- [ ] **B20 Book importer for your copies.** PDF or phone photos → exercises + answers → unit JSON, with a review screen. Test on Spivak ch. 1.
-- [ ] **U-SPV** Map Spivak chapters into units. Then **I-S01 … I-S30** (import) and K-tasks.
-- [ ] **U-ABB / U-PMA / U-RCA** Same treatment for Abbott, Rudin PMA and Rudin RCA.
+## Later: after calculus is set up (to be planned together)
+Not scheduled yet. These are ideas we'll revisit once calculus is up and running:
+- Linear algebra (Hefferon? Axler?)
+- Proofs (Hammack?)
+- Spivak, every chapter
+- Abbott (you own it)
+- Rudin *Principles of Mathematical Analysis* (PMA)
+- Rudin *Real and Complex Analysis* (RCA)
+- Proof card types
+- A PDF/photo importer for books you own
 
 ## Suggested order
 1. B01 → B02 → (B03 ⇉ B04 ⇉ B06) → B05 → B07 → B08 → B09: **Milestone A**.
 2. Start K-V1.1.1, K-V1.1.2, … in parallel chats right away; keep 1–2 chapters ahead of yourself.
-3. B10 → B11 → B12 → B13, then B14–B18.
+3. B10 → B11 → B12 → B13, then B14–B16.

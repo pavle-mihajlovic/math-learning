@@ -1,12 +1,14 @@
 # Curriculum
 
 **Strict order, top to bottom.** One unit = one book section. Every section and every exercise in the book is covered.
+Scope for now: **Stage 1 only** (calculus). Stages 2–7 are tentative, to be planned later.
+
 Each unit is turned into app content by one chat (task `K-<unit id>`, see ROADMAP), and the app splits it into equal two-minute chunks.
 
 Every unit gets:
 1. A **required reading**: an explanation adapted from the textbook section, which you page through before problems unlock.
 2. **Optional proof cards** for the theorems in that section.
-3. **All of the book's end-of-section exercises**, plus new-number variants for anything you miss.
+3. **All of the book's end-of-section exercises**, plus new-number variants of anything you miss, in a separate "Practice mistakes" mode.
 
 Solutions are labeled in the app:
 - 📗 **book**: an answer written by the book's authors (odd-numbered exercises).
