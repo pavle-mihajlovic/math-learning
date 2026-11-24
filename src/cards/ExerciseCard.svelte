@@ -19,6 +19,7 @@
     ondone,
     kicker,
     computedAnswer,
+    oneTry = false,
   }: {
     exercise: Exercise;
     unitId: string;
@@ -27,6 +28,8 @@
     kicker?: string;
     /** Answer computed for a variant's numbers, shown instead of the book's solution. */
     computedAnswer?: string;
+    /** Test out: one checked try, no hints; a wrong answer shows the solution. */
+    oneTry?: boolean;
   } = $props();
 
   const auto = $derived(exercise.check === 'auto' && !!exercise.answer);
@@ -60,7 +63,10 @@
     }
     wrong++;
     const fb = r.feedback ? ` ${r.feedback}` : '';
-    if (wrong === 1) {
+    if (oneTry) {
+      revealed = true;
+      message = `✗ Not right.${fb}`;
+    } else if (wrong === 1) {
       message = `✗ Not quite. Try once more.${fb}`;
     } else if (wrong === 2 && hasHints) {
       hintShown = Math.max(hintShown, 1);
@@ -104,7 +110,7 @@
   }
 
   export function key(k: string): boolean {
-    if (k === 'h' && auto && wrong > 0) { showHint(); return true; }
+    if (k === 'h' && auto && wrong > 0 && !oneTry) { showHint(); return true; }
     if (!auto && revealed && judged === null) {
       if (k === 'y' || k === '1') { judge(true); return true; }
       if (k === 'n' || k === '2') { judge(false); return true; }
@@ -176,10 +182,10 @@
     {#if auto}
       {#if triesLeft}
         <button class="btn primary" onclick={submit}>Check <kbd>Enter</kbd></button>
-        {#if wrong > 0 && hasHints && hintShown < (exercise.hints?.length ?? 0)}
+        {#if !oneTry && wrong > 0 && hasHints && hintShown < (exercise.hints?.length ?? 0)}
           <button class="btn" onclick={showHint}>Hint <kbd>H</kbd></button>
         {/if}
-        {#if wrong > 0}<button class="btn ghost" onclick={giveUp}>Show solution</button>{/if}
+        {#if !oneTry && wrong > 0}<button class="btn ghost" onclick={giveUp}>Show solution</button>{/if}
       {:else}
         <button class="btn primary" onclick={() => finish()}>Next <kbd>Space</kbd></button>
         {#if !solved}

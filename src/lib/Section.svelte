@@ -36,6 +36,7 @@
     return {
       f: unitFraction(d, u),
       complete: unitComplete(d, u),
+      tested: d.testedOut.has(u.id),
       read,
       done,
       correct,
@@ -78,9 +79,9 @@
 
     <div class="headline">
       <span class="big">{Math.floor(pct(stats.f) * 100)}<small>%</small></span>
-      {#if stats.complete}<span class="done">✓ Finished</span>{/if}
+      {#if stats.tested}<span class="done tested">◆ Tested out</span>{:else if stats.complete}<span class="done">✓ Finished</span>{/if}
     </div>
-    <div class="bar" aria-hidden="true"><div style="width: {pct(stats.f) * 100}%"></div></div>
+    <div class="bar" class:tested={stats.tested} aria-hidden="true"><div style="width: {pct(stats.f) * 100}%"></div></div>
 
     <div class="actions">
       {#if stats.complete}
@@ -90,6 +91,9 @@
       {:else}
         <a class="btn primary" href="#/unit/{unitId}">{stats.f.done ? 'Continue' : 'Start'} §{num}</a>
         {#if stats.f.done}<a class="btn" href="#/unit/{unitId}/start">Start over</a>{/if}
+      {/if}
+      {#if !stats.complete}
+        <a class="btn test" href="#/test/{unitId}">Test out of §{num}</a>
       {/if}
       {#if !stats.complete && !isNext}
         <p class="note">Not next in book order. You can still do it now.</p>
@@ -132,6 +136,9 @@
   .done { color: var(--c); font-weight: 600; }
   .bar { height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; margin: 6px 0 18px; }
   .bar div { height: 100%; background: var(--c); border-radius: 3px; }
+  .bar.tested div { background: var(--tested); }
+  .done.tested { color: var(--tested); }
+  .btn.test { border-color: var(--tested); color: var(--tested); }
   .actions { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
   .actions .btn { width: 100%; }
   .note { font-size: 0.8rem; color: var(--faint); margin: 0; text-align: center; }
