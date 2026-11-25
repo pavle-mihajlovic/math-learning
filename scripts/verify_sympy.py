@@ -51,6 +51,8 @@ TARGET_LOCALS = {'continuous_domain': continuous_domain, 'function_range': funct
 
 def to_sympy(s: str):
     """Parse the app's plain-text answer syntax with SymPy."""
+    if s.strip().upper() == 'DNE':  # "does not exist": matches DNE in verify.sympy
+        return sp.Symbol('DNE')
     t = s.replace('−', '-').replace('π', 'pi').replace('∞', 'inf').replace('^', '**')
     t = re.sub(r'\blog_(\w+)\s*\(', r'log(\1, ', t)
     t = re.sub(r'\|([^|]+)\|', r' (abs(\1))', t)

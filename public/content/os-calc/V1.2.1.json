@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Describe the tangent problem and how it led to the idea of a derivative.",
@@ -147,14 +147,7 @@
      "caption": "**Figure 2.5** Solving the **Tangent Problem**: As *x* approaches *a*, the secant lines approach the tangent line.",
      "width": 487,
      "height": 350
-    }
-   ],
-   "title": "The Tangent Problem and Differential Calculus (continued)"
-  },
-  {
-   "id": "r6",
-   "kind": "text",
-   "body": [
+    },
     {
      "type": "p",
      "text": "Example 2.1 illustrates how to find slopes of secant lines. These slopes estimate the slope of the tangent line or, equivalently, the rate of change of the function at the point at which the slopes are calculated."
@@ -483,6 +476,10 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "17"
    }
   },
   {
@@ -492,14 +489,7 @@
     {
      "type": "p",
      "text": "So far, we have studied functions of one variable only. Such functions can be represented visually using graphs in two dimensions; however, there is no good reason to restrict our investigation to two dimensions. Suppose, for example, that instead of determining the velocity of an object moving along a coordinate axis, we want to determine the velocity of a rock fired from a catapult at a given time, or of an airplane moving in three dimensions. We might want to graph real-value functions of two variables or determine volumes of solids of the type shown in Figure 2.10. These are only a few of the types of questions that can be asked and answered using **multivariable calculus**. Informally, multivariable calculus can be characterized as the study of the calculus of functions of two or more variables. However, before exploring these and other ideas, we must first lay a foundation for the study of calculus in one variable by exploring the concept of a limit."
-    }
-   ],
-   "title": "Other Aspects of Calculus"
-  },
-  {
-   "id": "r18",
-   "kind": "text",
-   "body": [
+    },
     {
      "type": "figure",
      "src": "figures/os-calc/CNX_Calc_Figure_02_01_010.webp",
@@ -509,7 +499,7 @@
      "height": 307
     }
    ],
-   "title": "Other Aspects of Calculus (continued)"
+   "title": "Other Aspects of Calculus"
   },
   {
    "id": "r19",
@@ -592,7 +582,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170570997908",
    "instructions": [
     {
@@ -609,7 +599,77 @@
      }
     ]
    },
-   "notes": "self-check: part e is prose"
+   "notes": "Q(x,y) column (e–h) is just (x, y); not asked separately.",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $y$ at $x=1.1$",
+      "answer": {
+       "kind": "number",
+       "value": "2.21"
+      }
+     },
+     {
+      "label": "b. $y$ at $x=1.01$",
+      "answer": {
+       "kind": "number",
+       "value": "2.0201"
+      }
+     },
+     {
+      "label": "c. $y$ at $x=1.001$",
+      "answer": {
+       "kind": "number",
+       "value": "2.002001"
+      }
+     },
+     {
+      "label": "d. $y$ at $x=1.0001$",
+      "answer": {
+       "kind": "number",
+       "value": "2.00020001"
+      }
+     },
+     {
+      "label": "i. $m_{\\sec}$ at $x=1.1$",
+      "answer": {
+       "kind": "number",
+       "value": "2.1"
+      }
+     },
+     {
+      "label": "j. $m_{\\sec}$ at $x=1.01$",
+      "answer": {
+       "kind": "number",
+       "value": "2.01"
+      }
+     },
+     {
+      "label": "k. $m_{\\sec}$ at $x=1.001$",
+      "answer": {
+       "kind": "number",
+       "value": "2.001"
+      }
+     },
+     {
+      "label": "l. $m_{\\sec}$ at $x=1.0001$",
+      "answer": {
+       "kind": "number",
+       "value": "2.0001"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Slope of a secant line: $m_{\\sec}=\\dfrac{f(x)-f(a)}{x-a}$.",
+    "Compute $y=f(x)$ first, then the slope from $P$ to $Q(x,y)$."
+   ],
+   "steps": [
+    "$y=x^2+1$, so at $x=1.1$: $y=2.21$",
+    "$m_{\\sec}=\\dfrac{(x^2+1)-2}{x-1}=\\dfrac{x^2-1}{x-1}=x+1$",
+    "So $m_{\\sec}=2.1,\\ 2.01,\\ 2.001,\\ 2.0001$"
+   ]
   },
   {
    "id": "e2",
@@ -620,7 +680,7 @@
      "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the line tangent to *f* at $x=1.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170570990874",
    "instructions": [
     {
@@ -628,7 +688,47 @@
      "text": "For the following exercises, points $P(1,2)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{2}+1.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "The slopes $2.1,\\ 2.01,\\ 2.001,\\ 2.0001$ approach $2$, so the tangent slope at $x=1$ is $m=2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x**2+1,x).subs(x,1)"
+   },
+   "hints": [
+    "Look at the trend in the $m_{\\sec}$ column as $x\\to1$."
+   ],
+   "steps": [
+    "$2.1,\\,2.01,\\,2.001,\\,2.0001\\to2$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -5,
+      "max": 5
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Points $P(a,f(a))$ and $Q(x,y)$ lie on $f(x)=x^2+1$ with $a={{a}}$. The secant slopes from $P$ to $Q$ as $x\\to {{a}}$ approach what value?"
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{2*a}}"
+    }
+   }
   },
   {
    "id": "e3",
@@ -659,6 +759,35 @@
    "answer": {
     "kind": "equation",
     "value": "y=2 x"
+   },
+   "hints": [
+    "The tangent line passes through $P$ with the slope you guessed.",
+    "Use point-slope form $y-y_1=m(x-x_1)$."
+   ],
+   "steps": [
+    "Slope $2$ through $(1,2)$: $y-2=2(x-1)$",
+    "$y=2x$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -4,
+      "max": 4,
+      "exclude": [
+       0
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the equation of the tangent line to $f(x)=x^2+1$ at $x={{a}}$, given that its slope there is ${{2*a}}$."
+     }
+    ],
+    "answer": {
+     "kind": "equation",
+     "value": "y={{2*a}}x+{{1-a*a}}"
+    }
    }
   },
   {
@@ -705,7 +834,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573414344",
    "instructions": [
     {
@@ -713,7 +842,92 @@
      "text": "For the following exercises, points $P(1,1)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{3}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $y$ at $x=1.1$",
+      "answer": {
+       "kind": "number",
+       "value": "1.331"
+      }
+     },
+     {
+      "label": "b. $y$ at $x=1.01$",
+      "answer": {
+       "kind": "number",
+       "value": "1.030301"
+      }
+     },
+     {
+      "label": "c. $y$ at $x=1.001$",
+      "answer": {
+       "kind": "number",
+       "value": "1.003003001"
+      }
+     },
+     {
+      "label": "d. $y$ at $x=1.0001$",
+      "answer": {
+       "kind": "number",
+       "value": "1.000300030001"
+      }
+     },
+     {
+      "label": "i. $m_{\\sec}$ at $x=1.1$",
+      "answer": {
+       "kind": "number",
+       "value": "3.31"
+      }
+     },
+     {
+      "label": "j. $m_{\\sec}$ at $x=1.01$",
+      "answer": {
+       "kind": "number",
+       "value": "3.0301"
+      }
+     },
+     {
+      "label": "k. $m_{\\sec}$ at $x=1.001$",
+      "answer": {
+       "kind": "number",
+       "value": "3.003001"
+      }
+     },
+     {
+      "label": "l. $m_{\\sec}$ at $x=1.0001$",
+      "answer": {
+       "kind": "number",
+       "value": "3.00030001"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=x^3$: $1.331,\\ 1.030301,\\ 1.003003001,\\ 1.0003000300$ (so $Q=(x,y)$ with these values)."
+     },
+     {
+      "type": "p",
+      "text": "$m_{\\sec}=\\dfrac{x^3-1}{x-1}=x^2+x+1$: $3.31,\\ 3.0301,\\ 3.003001,\\ 3.0003000$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(11,10)**3, Rational(101,100)**3, Rational(1001,1000)**3, Rational(10001,10000)**3, Rational(331,100), Rational(30301,10000), Rational(3003001,1000000), Rational(300030001,100000000))"
+   },
+   "hints": [
+    "Slope of a secant line: $m_{\\sec}=\\dfrac{f(x)-f(a)}{x-a}$.",
+    "Compute $y=f(x)$ first, then the slope from $P$ to $Q(x,y)$."
+   ],
+   "steps": [
+    "At $x=1.1$: $y=1.331$, $m_{\\sec}=\\dfrac{1.331-1}{0.1}=3.31$",
+    "In general $m_{\\sec}=\\dfrac{x^3-1}{x-1}=x^2+x+1$"
+   ]
   },
   {
    "id": "e5",
@@ -744,7 +958,13 @@
    "answer": {
     "kind": "number",
     "value": "3"
-   }
+   },
+   "hints": [
+    "Look at the trend in the $m_{\\sec}$ column."
+   ],
+   "steps": [
+    "$3.31,\\,3.0301,\\,3.003001,\\,3.0003\\to3$"
+   ]
   },
   {
    "id": "e6",
@@ -755,7 +975,7 @@
      "text": "Use the value in the preceding exercise to find an equation of the tangent line at point *P*. Graph $f(x)$ and the tangent line."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573263712",
    "instructions": [
     {
@@ -763,7 +983,35 @@
      "text": "For the following exercises, points $P(1,1)$ and $Q(x,y)$ are on the graph of the function $f(x)=x^{3}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=3x-2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Slope $3$ through $P(1,1)$: $y-1=3(x-1)$, so $y=3x-2$."
+     },
+     {
+      "type": "p",
+      "text": "The line touches the cubic at $(1,1)$ and crosses it again at $x=-2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "3*x-2-y"
+   },
+   "hints": [
+    "The tangent line passes through $P$ with the slope you guessed.",
+    "Use point-slope form $y-y_1=m(x-x_1)$."
+   ],
+   "steps": [
+    "$y-1=3(x-1)$",
+    "$y=3x-2$"
+   ]
   },
   {
    "id": "e7",
@@ -809,7 +1057,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573371452",
    "instructions": [
     {
@@ -826,7 +1074,76 @@
      }
     ]
    },
-   "notes": "self-check: part e is prose"
+   "notes": "self-check: part e is prose",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $y$ at $x=4.1$",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(4.1)"
+      }
+     },
+     {
+      "label": "b. $y$ at $x=4.01$",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(4.01)"
+      }
+     },
+     {
+      "label": "c. $y$ at $x=4.001$",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(4.001)"
+      }
+     },
+     {
+      "label": "d. $y$ at $x=4.0001$",
+      "answer": {
+       "kind": "number",
+       "value": "sqrt(4.0001)"
+      }
+     },
+     {
+      "label": "i. $m_{\\sec}$ at $x=4.1$",
+      "answer": {
+       "kind": "number",
+       "value": "(sqrt(4.1)-2)/0.1"
+      }
+     },
+     {
+      "label": "j. $m_{\\sec}$ at $x=4.01$",
+      "answer": {
+       "kind": "number",
+       "value": "(sqrt(4.01)-2)/0.01"
+      }
+     },
+     {
+      "label": "k. $m_{\\sec}$ at $x=4.001$",
+      "answer": {
+       "kind": "number",
+       "value": "(sqrt(4.001)-2)/0.001"
+      }
+     },
+     {
+      "label": "l. $m_{\\sec}$ at $x=4.0001$",
+      "answer": {
+       "kind": "number",
+       "value": "(sqrt(4.0001)-2)/0.0001"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Slope of a secant line: $m_{\\sec}=\\dfrac{f(x)-f(a)}{x-a}$.",
+    "Compute $y=f(x)$ first, then the slope from $P$ to $Q(x,y)$."
+   ],
+   "steps": [
+    "At $x=4.1$: $y=\\sqrt{4.1}\\approx2.0248457$",
+    "$m_{\\sec}=\\dfrac{2.0248457-2}{0.1}\\approx0.24845673$"
+   ]
   },
   {
    "id": "e8",
@@ -837,7 +1154,7 @@
      "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the tangent line to *f* at $x=4.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573419319",
    "instructions": [
     {
@@ -845,7 +1162,29 @@
      "text": "For the following exercises, points $P(4,2)$ and $Q(x,y)$ are on the graph of the function $f(x)=\\sqrt{x}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "1/4"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "The slopes $0.2484\\ldots,\\ 0.24984\\ldots,\\ 0.249984\\ldots,\\ 0.2499984\\ldots$ approach $0.25$, so $m=\\tfrac14$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sqrt(x),x).subs(x,4)"
+   },
+   "hints": [
+    "Look at the trend in the $m_{\\sec}$ column as $x\\to4$."
+   ],
+   "steps": [
+    "The slopes approach $0.25=\\tfrac14$"
+   ]
   },
   {
    "id": "e9",
@@ -876,7 +1215,15 @@
    "answer": {
     "kind": "equation",
     "value": "y=(x/4)+1"
-   }
+   },
+   "hints": [
+    "The tangent line passes through $P$ with the slope you guessed.",
+    "Use point-slope form $y-y_1=m(x-x_1)$."
+   ],
+   "steps": [
+    "$y-2=\\tfrac14(x-4)$",
+    "$y=\\tfrac{x}{4}+1$"
+   ]
   },
   {
    "id": "e10",
@@ -922,7 +1269,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573350763",
    "instructions": [
     {
@@ -930,7 +1277,92 @@
      "text": "For the following exercises, points $P(1.5,0)$ and $Q(\\varphi ,y)$ are on the graph of the function $f(\\varphi )=\\cos \\,(\\pi \\varphi ).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $y$ at $x=1.4$",
+      "answer": {
+       "kind": "number",
+       "value": "cos(1.4pi)"
+      }
+     },
+     {
+      "label": "b. $y$ at $x=1.49$",
+      "answer": {
+       "kind": "number",
+       "value": "cos(1.49pi)"
+      }
+     },
+     {
+      "label": "c. $y$ at $x=1.499$",
+      "answer": {
+       "kind": "number",
+       "value": "cos(1.499pi)"
+      }
+     },
+     {
+      "label": "d. $y$ at $x=1.4999$",
+      "answer": {
+       "kind": "number",
+       "value": "cos(1.4999pi)"
+      }
+     },
+     {
+      "label": "i. $m_{\\sec}$ at $x=1.4$",
+      "answer": {
+       "kind": "number",
+       "value": "cos(1.4pi)/(-0.1)"
+      }
+     },
+     {
+      "label": "j. $m_{\\sec}$ at $x=1.49$",
+      "answer": {
+       "kind": "number",
+       "value": "cos(1.49pi)/(-0.01)"
+      }
+     },
+     {
+      "label": "k. $m_{\\sec}$ at $x=1.499$",
+      "answer": {
+       "kind": "number",
+       "value": "cos(1.499pi)/(-0.001)"
+      }
+     },
+     {
+      "label": "l. $m_{\\sec}$ at $x=1.4999$",
+      "answer": {
+       "kind": "number",
+       "value": "cos(1.4999pi)/(-0.0001)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\cos(\\pi\\varphi)$: $-0.30901699,\\ -0.031410759,\\ -0.0031415875,\\ -0.00031415926$."
+     },
+     {
+      "type": "p",
+      "text": "$m_{\\sec}=\\dfrac{y-0}{\\varphi-1.5}$: $3.0901699,\\ 3.1410759,\\ 3.1415875,\\ 3.1415926$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(cos(pi*Rational(14,10)), cos(pi*Rational(149,100)), cos(pi*Rational(1499,1000)), cos(pi*Rational(14999,10000)), cos(pi*Rational(14,10))/Rational(-1,10), cos(pi*Rational(149,100))/Rational(-1,100), cos(pi*Rational(1499,1000))/Rational(-1,1000), cos(pi*Rational(14999,10000))/Rational(-1,10000))"
+   },
+   "hints": [
+    "Use radians: $y=\\cos(\\pi\\varphi)$.",
+    "$m_{\\sec}=\\dfrac{y-0}{\\varphi-1.5}$."
+   ],
+   "steps": [
+    "At $\\varphi=1.4$: $y=\\cos(1.4\\pi)\\approx-0.30901699$",
+    "$m_{\\sec}=\\dfrac{-0.30901699}{-0.1}\\approx3.0901699$"
+   ]
   },
   {
    "id": "e11",
@@ -941,7 +1373,7 @@
      "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the tangent line to *f* at $\\varphi =1.5.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573449494",
    "instructions": [
     {
@@ -958,7 +1390,17 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "number",
+    "value": "pi"
+   },
+   "hints": [
+    "The slopes look like the digits of a famous constant."
+   ],
+   "steps": [
+    "$3.09,\\ 3.141,\\ 3.14159,\\ 3.1415926\\to\\pi$"
+   ]
   },
   {
    "id": "e12",
@@ -969,7 +1411,7 @@
      "text": "Use the value in the preceding exercise to find an equation of the tangent line at point *P*."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589729",
    "instructions": [
     {
@@ -977,7 +1419,32 @@
      "text": "For the following exercises, points $P(1.5,0)$ and $Q(\\varphi ,y)$ are on the graph of the function $f(\\varphi )=\\cos \\,(\\pi \\varphi ).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=pi(phi-1.5)",
+    "prompt": "use phi for φ"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Slope $\\pi$ through $P(1.5,0)$: $y-0=\\pi(\\varphi-1.5)$, so $y=\\pi\\varphi-\\dfrac{3\\pi}{2}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "pi*(phi-Rational(3,2))-y"
+   },
+   "hints": [
+    "The tangent line passes through $P$ with the slope you guessed.",
+    "Use point-slope form $y-y_1=m(x-x_1)$."
+   ],
+   "steps": [
+    "$y-0=\\pi(\\varphi-1.5)$",
+    "$y=\\pi\\varphi-\\frac{3\\pi}{2}$"
+   ]
   },
   {
    "id": "e13",
@@ -1023,7 +1490,7 @@
      ]
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573419372",
    "instructions": [
     {
@@ -1036,11 +1503,88 @@
     "body": [
      {
       "type": "p",
-      "text": "a. −0.95238095; b. −0.99009901; c. −0.99502488; d. −0.99900100; e. (−1;.0500000,−0;.95238095); f. (−1;.0100000,−0;.9909901); g. (−1;.0050000,−0;.99502488); h. (1.0010000,−0;.99900100); i. −0.95238095; j. −0.99009901; k. −0.99502488; l. −0.99900100"
+      "text": "a. $-0.95238095$; b. $-0.99009901$; c. $-0.99502488$; d. $-0.99900100$"
+     },
+     {
+      "type": "p",
+      "text": "e. $(-1.0500000,\\,-0.95238095)$; f. $(-1.0100000,\\,-0.99009901)$; g. $(-1.0050000,\\,-0.99502488)$; h. $(-1.0010000,\\,-0.99900100)$"
+     },
+     {
+      "type": "p",
+      "text": "i. $-0.95238095$; j. $-0.99009901$; k. $-0.99502488$; l. $-0.99900100$"
      }
     ]
    },
-   "notes": "self-check: part e is prose"
+   "notes": "self-check: part e is prose",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $y$ at $x=-1.05$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/1.05"
+      }
+     },
+     {
+      "label": "b. $y$ at $x=-1.01$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/1.01"
+      }
+     },
+     {
+      "label": "c. $y$ at $x=-1.005$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/1.005"
+      }
+     },
+     {
+      "label": "d. $y$ at $x=-1.001$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/1.001"
+      }
+     },
+     {
+      "label": "i. $m_{\\sec}$ at $x=-1.05$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/1.05"
+      }
+     },
+     {
+      "label": "j. $m_{\\sec}$ at $x=-1.01$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/1.01"
+      }
+     },
+     {
+      "label": "k. $m_{\\sec}$ at $x=-1.005$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/1.005"
+      }
+     },
+     {
+      "label": "l. $m_{\\sec}$ at $x=-1.001$",
+      "answer": {
+       "kind": "number",
+       "value": "-1/1.001"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Slope of a secant line: $m_{\\sec}=\\dfrac{f(x)-f(a)}{x-a}$.",
+    "Compute $y=f(x)$ first, then the slope from $P$ to $Q(x,y)$."
+   ],
+   "steps": [
+    "$m_{\\sec}=\\dfrac{\\frac1x-(-1)}{x-(-1)}=\\dfrac{\\frac{1+x}{x}}{x+1}=\\dfrac1x$",
+    "So each slope equals $y=\\frac1x$: $-0.95238095$ at $x=-1.05$"
+   ]
   },
   {
    "id": "e14",
@@ -1051,7 +1595,7 @@
      "text": "Use the values in the right column of the table in the preceding exercise to guess the value of the slope of the line tangent to *f* at $x=-1.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573408094",
    "instructions": [
     {
@@ -1059,7 +1603,29 @@
      "text": "For the following exercises, points $P(-1,-1)$ and $Q(x,y)$ are on the graph of the function $f(x)=\\frac{1}{x}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "The slopes $-0.952,\\ -0.990,\\ -0.995,\\ -0.999$ approach $-1$, so $m=-1$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(1/x,x).subs(x,-1)"
+   },
+   "hints": [
+    "Look at the trend in the $m_{\\sec}$ column as $x\\to-1$."
+   ],
+   "steps": [
+    "$-0.952,\\,-0.990,\\,-0.995,\\,-0.999\\to-1$"
+   ]
   },
   {
    "id": "e15",
@@ -1090,7 +1656,15 @@
    "answer": {
     "kind": "equation",
     "value": "y=-x-2"
-   }
+   },
+   "hints": [
+    "The tangent line passes through $P$ with the slope you guessed.",
+    "Use point-slope form $y-y_1=m(x-x_1)$."
+   ],
+   "steps": [
+    "$y-(-1)=-1(x-(-1))$",
+    "$y=-x-2$"
+   ]
   },
   {
    "id": "e16",
@@ -1112,7 +1686,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573393541",
    "instructions": [
     {
@@ -1120,7 +1694,89 @@
      "text": "For the following exercises, the position function of a ball dropped from the top of a 200-meter tall building is given by $s(t)=200-4.9t^{2},$ where position *s* is measured in meters and time *t* is measured in seconds. Round your answer to eight significant digits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $[4.99,5]$",
+      "answer": {
+       "kind": "number",
+       "value": "-48.951"
+      }
+     },
+     {
+      "label": "b. $[5,5.01]$",
+      "answer": {
+       "kind": "number",
+       "value": "-49.049"
+      }
+     },
+     {
+      "label": "c. $[4.999,5]$",
+      "answer": {
+       "kind": "number",
+       "value": "-48.9951"
+      }
+     },
+     {
+      "label": "d. $[5,5.001]$",
+      "answer": {
+       "kind": "number",
+       "value": "-49.0049"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v_{\\text{ave}}=\\dfrac{s(b)-s(a)}{b-a}=\\dfrac{-4.9(b^2-a^2)}{b-a}=-4.9(a+b)$."
+     },
+     {
+      "type": "p",
+      "text": "a. $-4.9(9.99)=-48.951$ m/sec; b. $-4.9(10.01)=-49.049$ m/sec; c. $-4.9(9.999)=-48.9951$ m/sec; d. $-4.9(10.001)=-49.0049$ m/sec."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(-48951,1000), Rational(-49049,1000), Rational(-489951,10000), Rational(-490049,10000))"
+   },
+   "hints": [
+    "Average velocity over $[a,b]$ is $\\dfrac{s(b)-s(a)}{b-a}$.",
+    "Watch the sign: the order of the endpoints matters only in which value is subtracted."
+   ],
+   "steps": [
+    "$\\dfrac{s(b)-s(a)}{b-a}=-4.9(a+b)$",
+    "a. $-4.9(4.99+5)=-48.951$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 6
+     },
+     "h": {
+      "choices": [
+       0.1,
+       0.01,
+       0.001
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "A ball's position is $s(t)=200-4.9t^2$ (meters). Find its average velocity over $[{{a}},{{a+h}}]$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{-4.9*(2*a+h)}}"
+    }
+   }
   },
   {
    "id": "e17",
@@ -1131,7 +1787,7 @@
      "text": "Use the preceding exercise to guess the instantaneous velocity of the ball at $t=5$ sec."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170570997916",
    "instructions": [
     {
@@ -1148,7 +1804,18 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "number",
+    "value": "-49"
+   },
+   "hints": [
+    "Both sides of $t=5$ squeeze toward one number."
+   ],
+   "steps": [
+    "$-48.95,\\ -48.995$ from the left; $-49.049,\\ -49.0049$ from the right",
+    "$v(5)=-49$ m/sec"
+   ]
   },
   {
    "id": "e18",
@@ -1170,7 +1837,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573430332",
    "instructions": [
     {
@@ -1178,7 +1845,89 @@
      "text": "For the following exercises, consider a stone tossed into the air from ground level with an initial velocity of 15 m/sec. Its height in meters at time *t* seconds is $h(t)=15t-4.9t^{2}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $[1,1.05]$",
+      "answer": {
+       "kind": "number",
+       "value": "4.955"
+      }
+     },
+     {
+      "label": "b. $[1,1.01]$",
+      "answer": {
+       "kind": "number",
+       "value": "5.151"
+      }
+     },
+     {
+      "label": "c. $[1,1.005]$",
+      "answer": {
+       "kind": "number",
+       "value": "5.1755"
+      }
+     },
+     {
+      "label": "d. $[1,1.001]$",
+      "answer": {
+       "kind": "number",
+       "value": "5.1951"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v_{\\text{ave}}=\\dfrac{h(1+k)-h(1)}{k}=15-4.9(2+k)$."
+     },
+     {
+      "type": "p",
+      "text": "a. $4.955$; b. $5.151$; c. $5.1755$; d. $5.1951$ (m/sec)."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(15-Rational(49,10)*Rational(205,100), 15-Rational(49,10)*Rational(201,100), 15-Rational(49,10)*Rational(2005,1000), 15-Rational(49,10)*Rational(2001,1000))"
+   },
+   "hints": [
+    "Average velocity over $[a,b]$ is $\\dfrac{s(b)-s(a)}{b-a}$.",
+    "Watch the sign: the order of the endpoints matters only in which value is subtracted."
+   ],
+   "steps": [
+    "$\\dfrac{h(1+k)-h(1)}{k}=\\dfrac{15k-4.9(2k+k^2)}{k}=15-4.9(2+k)$",
+    "a. $15-4.9(2.05)=4.955$"
+   ],
+   "variant": {
+    "params": {
+     "v": {
+      "min": 10,
+      "max": 25
+     },
+     "h": {
+      "choices": [
+       0.1,
+       0.01,
+       0.001
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "A stone has height $h(t)={{v}}t-4.9t^2$ (meters). Find its average velocity over $[1,{{1+h}}]$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{v-4.9*(2+h)}}"
+    }
+   }
   },
   {
    "id": "e19",
@@ -1189,7 +1938,7 @@
      "text": "Use the preceding exercise to guess the instantaneous velocity of the stone at $t=1$ sec."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573324864",
    "instructions": [
     {
@@ -1206,7 +1955,17 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "number",
+    "value": "5.2"
+   },
+   "hints": [
+    "What do the averages approach as the interval shrinks?"
+   ],
+   "steps": [
+    "$4.955,\\ 5.151,\\ 5.1755,\\ 5.1951\\to5.2$ m/sec"
+   ]
   },
   {
    "id": "e20",
@@ -1228,7 +1987,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573425872",
    "instructions": [
     {
@@ -1236,7 +1995,64 @@
      "text": "For the following exercises, consider a rocket shot into the air that then returns to Earth. The height of the rocket in meters is given by $h(t)=600+78.4t-4.9t^{2},$ where *t* is measured in seconds."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $[9,9.01]$",
+      "answer": {
+       "kind": "number",
+       "value": "-9.849"
+      }
+     },
+     {
+      "label": "b. $[8.99,9]$",
+      "answer": {
+       "kind": "number",
+       "value": "-9.751"
+      }
+     },
+     {
+      "label": "c. $[9,9.001]$",
+      "answer": {
+       "kind": "number",
+       "value": "-9.8049"
+      }
+     },
+     {
+      "label": "d. $[8.999,9]$",
+      "answer": {
+       "kind": "number",
+       "value": "-9.7951"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v_{\\text{ave}}=\\dfrac{h(b)-h(a)}{b-a}=78.4-4.9(a+b)$."
+     },
+     {
+      "type": "p",
+      "text": "a. $-9.849$; b. $-9.751$; c. $-9.8049$; d. $-9.7951$ (m/sec)."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(784,10)-Rational(49,10)*Rational(1801,100), Rational(784,10)-Rational(49,10)*Rational(1799,100), Rational(784,10)-Rational(49,10)*Rational(18001,1000), Rational(784,10)-Rational(49,10)*Rational(17999,1000))"
+   },
+   "hints": [
+    "Average velocity over $[a,b]$ is $\\dfrac{s(b)-s(a)}{b-a}$.",
+    "Watch the sign: the order of the endpoints matters only in which value is subtracted."
+   ],
+   "steps": [
+    "$\\dfrac{h(b)-h(a)}{b-a}=78.4-4.9(a+b)$",
+    "a. $78.4-4.9(18.01)=-9.849$"
+   ]
   },
   {
    "id": "e21",
@@ -1247,7 +2063,7 @@
      "text": "Use the preceding exercise to guess the instantaneous velocity of the rocket at $t=9$ sec."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573369087",
    "instructions": [
     {
@@ -1264,7 +2080,17 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "number",
+    "value": "-9.8"
+   },
+   "hints": [
+    "What do the averages approach as the interval shrinks?"
+   ],
+   "steps": [
+    "$-9.849,\\ -9.751,\\ -9.8049,\\ -9.7951\\to-9.8$ m/sec"
+   ]
   },
   {
    "id": "e22",
@@ -1286,7 +2112,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571136683",
    "instructions": [
     {
@@ -1294,7 +2120,64 @@
      "text": "For the following exercises, consider an athlete running a 40-m dash. The position of the athlete is given by $d(t)=\\frac{t^{3}}{6}+4t,$ where *d* is the position in meters and *t* is the time elapsed, measured in seconds."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $[1.95,2.05]$",
+      "answer": {
+       "kind": "number",
+       "value": "6.000416666667"
+      }
+     },
+     {
+      "label": "b. $[1.995,2.005]$",
+      "answer": {
+       "kind": "number",
+       "value": "6.000004166667"
+      }
+     },
+     {
+      "label": "c. $[1.9995,2.0005]$",
+      "answer": {
+       "kind": "number",
+       "value": "6.000000041667"
+      }
+     },
+     {
+      "label": "d. $[2,2.00001]$",
+      "answer": {
+       "kind": "number",
+       "value": "6.000010000017"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v_{\\text{ave}}=\\dfrac{d(b)-d(a)}{b-a}=\\dfrac{b^3-a^3}{6(b-a)}+4=\\dfrac{a^2+ab+b^2}{6}+4$."
+     },
+     {
+      "type": "p",
+      "text": "a. $6.0004167$; b. $6.0000042$; c. $6.0000000$ (exactly $6.0000000417$); d. $6.0000100$ (m/sec)."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(((Rational(195,100))**2+(Rational(195,100))*(Rational(205,100))+(Rational(205,100))**2)/6+4, ((Rational(1995,1000))**2+(Rational(1995,1000))*(Rational(2005,1000))+(Rational(2005,1000))**2)/6+4, ((Rational(19995,10000))**2+(Rational(19995,10000))*(Rational(20005,10000))+(Rational(20005,10000))**2)/6+4, ((2)**2+(2)*(Rational(200001,100000))+(Rational(200001,100000))**2)/6+4)"
+   },
+   "hints": [
+    "Average velocity over $[a,b]$ is $\\dfrac{s(b)-s(a)}{b-a}$.",
+    "Watch the sign: the order of the endpoints matters only in which value is subtracted."
+   ],
+   "steps": [
+    "$\\dfrac{b^3-a^3}{6(b-a)}+4=\\dfrac{a^2+ab+b^2}{6}+4$",
+    "a. $\\dfrac{1.95^2+1.95(2.05)+2.05^2}{6}+4\\approx6.0004167$"
+   ]
   },
   {
    "id": "e23",
@@ -1305,7 +2188,7 @@
      "text": "Use the preceding exercise to guess the instantaneous velocity of the runner at $t=2$ sec."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571123766",
    "instructions": [
     {
@@ -1322,7 +2205,18 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "number",
+    "value": "6"
+   },
+   "hints": [
+    "What do the averages approach?"
+   ],
+   "steps": [
+    "All four averages are about $6.000$",
+    "$v(2)=6$ m/sec"
+   ]
   },
   {
    "id": "e24",
@@ -1341,7 +2235,20 @@
      "text": "For the following exercises, consider the function $f(x)=|x|.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph of $|x|$ is a V with its corner at the origin: the line $y=-x$ for $-1\\le x\\le 0$ and $y=x$ for $0\\le x\\le2$."
+     },
+     {
+      "type": "p",
+      "text": "The shaded region is two triangles: one with base $[-1,0]$ and height $1$, one with base $[0,2]$ and height $2$."
+     }
+    ]
+   }
   },
   {
    "id": "e25",
@@ -1352,7 +2259,7 @@
      "text": "Use the preceding exercise to find the aproximate value of the area between the *x*-axis and the graph of *f* over the interval $[-1,2]$ using rectangles. For the rectangles, use the square units, and approximate both above and below the lines. Use geometry to find the exact answer."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571259931",
    "instructions": [
     {
@@ -1369,7 +2276,42 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "under (rectangles below the graph)",
+      "answer": {
+       "kind": "number",
+       "value": "1"
+      }
+     },
+     {
+      "label": "over (rectangles covering the graph)",
+      "answer": {
+       "kind": "number",
+       "value": "4"
+      }
+     },
+     {
+      "label": "exact area",
+      "answer": {
+       "kind": "number",
+       "value": "5/2"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Count unit squares lying completely under the graph, then squares that cover it.",
+    "The exact region is two triangles: area $\\tfrac12bh$ each."
+   ],
+   "steps": [
+    "Under: only the square $[1,2]\\times[0,1]$ fits: $1$",
+    "Over: $1+1+2=4$ squares cover it",
+    "Exact: $\\tfrac12(1)(1)+\\tfrac12(2)(2)=2.5$"
+   ]
   },
   {
    "id": "e26",
@@ -1388,7 +2330,16 @@
      "text": "For the following exercises, consider the function $f(x)=\\sqrt{1-x^{2}}.$ (*Hint*: This is the upper half of a circle of radius 1 positioned at $(0,0).)$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph of $\\sqrt{1-x^2}$ is the upper half of the unit circle: it starts at $(-1,0)$, rises to $(0,1)$ and comes back down to $(1,0)$."
+     }
+    ]
+   }
   },
   {
    "id": "e27",
@@ -1399,7 +2350,7 @@
      "text": "Use the preceding exercise to find the aproximate area between the *x*-axis and the graph of *f* over the interval $[-1,1]$ using rectangles. For the rectangles, use squares 0.4 by 0.4 units, and approximate both above and below the lines. Use geometry to find the exact answer."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573615200",
    "instructions": [
     {
@@ -1416,7 +2367,42 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "under",
+      "answer": {
+       "kind": "number",
+       "value": "0.96"
+      }
+     },
+     {
+      "label": "over",
+      "answer": {
+       "kind": "number",
+       "value": "1.92"
+      }
+     },
+     {
+      "label": "exact area",
+      "answer": {
+       "kind": "number",
+       "value": "pi/2"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Use a grid of $0.4\\times0.4$ squares (area $0.16$ each) and count.",
+    "The exact region is half of a unit disk."
+   ],
+   "steps": [
+    "Under: $6$ squares fit inside: $6(0.16)=0.96$",
+    "Over: $12$ squares cover it: $12(0.16)=1.92$",
+    "Exact: $\\tfrac12\\pi(1)^2=\\tfrac{\\pi}{2}$"
+   ]
   },
   {
    "id": "e28",
@@ -1435,7 +2421,16 @@
      "text": "For the following exercises, consider the function $f(x)=-x^{2}+1.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph of $-x^2+1$ is a downward parabola with vertex $(0,1)$ that crosses the $x$-axis at $x=\\pm1$; over $[-1,1]$ it is an arch above the axis."
+     }
+    ]
+   }
   },
   {
    "id": "e29",
@@ -1446,7 +2441,7 @@
      "text": "Approximate the area of the region between the *x*-axis and the graph of *f* over the interval $[-1,1].$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571137056",
    "instructions": [
     {
@@ -1463,7 +2458,23 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "number",
+    "value": "4/3",
+    "tolerance": {
+     "abs": 0.1
+    },
+    "prompt": "an estimate within about 0.1 is fine"
+   },
+   "hints": [
+    "Cover $[-1,1]$ with thin rectangles and add up their areas.",
+    "The thinner the rectangles, the better the estimate."
+   ],
+   "steps": [
+    "With rectangles of width $0.1$ at midpoints: $\\sum 0.1\\,(1-x_i^2)\\approx1.335$",
+    "The area is about $1.3333\\ (=\\tfrac43)$"
+   ]
   }
  ],
  "proofs": [],
