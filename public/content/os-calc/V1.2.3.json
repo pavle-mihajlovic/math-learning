@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Recognize the basic limit laws.",
@@ -35,18 +35,11 @@
    "body": [
     {
      "type": "p",
-     "text": "In the previous section, we evaluated limits by looking at graphs or by constructing a table of values. In this section, we establish laws for calculating limits and learn how to apply these laws. In the Student Project at the end of this section, you have the opportunity to apply these limit laws to derive the formula for the area of a circle by adapting a method devised by the Greek mathematician Archimedes. We begin by restating two useful limit results from the previous section. These two results, together with the limit laws, serve as a foundation for calculating many limits."
-    }
-   ],
-   "title": "The Limit Laws"
-  },
-  {
-   "id": "r2",
-   "kind": "text",
-   "body": [
+     "text": "In the previous section, we evaluated limits by looking at graphs or by constructing a table of values. In this section, we establish laws for calculating limits and learn how to apply these laws. We begin by restating two useful limit results from the previous section. These two results, together with the limit laws, serve as a foundation for calculating many limits."
+    },
     {
      "type": "p",
-     "text": "The first two limit laws were stated in (see above) and we repeat them here. These basic results, together with the other limit laws, allow us to evaluate limits of many algebraic functions."
+     "text": "The first two of these were found in the previous section, and we repeat them here. These basic results, together with the other limit laws, allow us to evaluate limits of many algebraic functions."
     },
     {
      "type": "box",
@@ -79,7 +72,7 @@
      "title": "Basic Limit Results"
     }
    ],
-   "title": "Evaluating Limits with the Limit Laws"
+   "title": "The Limit Laws"
   },
   {
    "id": "x3",
@@ -88,7 +81,7 @@
    "problem": [
     {
      "type": "p",
-     "text": "Evaluate each of the following limits using (see above)."
+     "text": "Evaluate each of the following limits using the basic limit results."
     },
     {
      "type": "list",
@@ -354,7 +347,7 @@
       "body": [
        {
         "type": "p",
-        "text": "Use (see above)"
+        "text": "Use the limits of polynomial and rational functions: substitute."
        }
       ]
      }
@@ -970,6 +963,10 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "-1"
    }
   },
   {
@@ -1053,6 +1050,10 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "number",
+    "value": "inf"
    }
   },
   {
@@ -1377,7 +1378,7 @@
      "text": "$\\lim_{x\\to 0}(4x^{2}-2x+3)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572597924",
    "instructions": [
     {
@@ -1394,7 +1395,49 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "3"
+   },
+   "hints": [
+    "Break the limit apart with the sum, difference, constant multiple, product, quotient, power and root laws.",
+    "Each piece is then $\\lim x=a$ or $\\lim c=c$."
+   ],
+   "steps": [
+    "$4\\lim x^2-2\\lim x+\\lim 3$ (sum, difference, constant multiple)",
+    "$=4(0)^2-2(0)+3=3$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -4,
+      "max": 4
+     },
+     "b": {
+      "min": 1,
+      "max": 6
+     },
+     "c": {
+      "min": -6,
+      "max": 6
+     },
+     "d": {
+      "min": -9,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Use the limit laws to evaluate $\\displaystyle\\lim_{x\\to {{a}}}({{b}}x^{2}+{{c}}x+{{d}})$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{b*a*a+c*a+d}}"
+    }
+   }
   },
   {
    "id": "e84",
@@ -1405,7 +1448,7 @@
      "text": "$\\lim_{x\\to 1}\\frac{x^{3}+3x^{2}+5}{4-7x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572347613",
    "instructions": [
     {
@@ -1413,7 +1456,35 @@
      "text": "In the following exercises, use the limit laws to evaluate each limit. Justify each step by indicating the appropriate limit law(s)."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-3"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Quotient law (the denominator's limit is $4-7=-3\\ne0$), then sum, power and constant multiple laws:"
+     },
+     {
+      "type": "math",
+      "tex": "\\lim_{x\\to1}\\frac{x^3+3x^2+5}{4-7x}=\\frac{\\lim x^3+3\\lim x^2+\\lim 5}{\\lim4-7\\lim x}=\\frac{1+3+5}{4-7}=\\frac{9}{-3}=-3"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((x**3+3*x**2+5)/(4-7*x), x, 1)"
+   },
+   "hints": [
+    "Break the limit apart with the sum, difference, constant multiple, product, quotient, power and root laws.",
+    "Each piece is then $\\lim x=a$ or $\\lim c=c$."
+   ],
+   "steps": [
+    "Quotient law: denominator limit $4-7=-3\\ne0$",
+    "$\\dfrac{1+3+5}{-3}=-3$"
+   ]
   },
   {
    "id": "e85",
@@ -1424,7 +1495,7 @@
      "text": "$\\lim_{x\\to -2}\\sqrt{x^{2}-6x+3}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571574688",
    "instructions": [
     {
@@ -1441,7 +1512,19 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(19)"
+   },
+   "hints": [
+    "Break the limit apart with the sum, difference, constant multiple, product, quotient, power and root laws.",
+    "Each piece is then $\\lim x=a$ or $\\lim c=c$."
+   ],
+   "steps": [
+    "Root law: $\\sqrt{\\lim_{x\\to-2}(x^2-6x+3)}$",
+    "$=\\sqrt{4+12+3}=\\sqrt{19}$"
+   ]
   },
   {
    "id": "e86",
@@ -1452,7 +1535,7 @@
      "text": "$\\lim_{x\\to -1}(9x+1)^{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572229064",
    "instructions": [
     {
@@ -1460,7 +1543,64 @@
      "text": "In the following exercises, use the limit laws to evaluate each limit. Justify each step by indicating the appropriate limit law(s)."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "64"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Power law, then sum and constant multiple laws:"
+     },
+     {
+      "type": "math",
+      "tex": "\\lim_{x\\to-1}(9x+1)^2=\\left(9\\lim_{x\\to-1}x+\\lim_{x\\to-1}1\\right)^2=(-9+1)^2=64"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((9*x+1)**2, x, -1)"
+   },
+   "hints": [
+    "Break the limit apart with the sum, difference, constant multiple, product, quotient, power and root laws.",
+    "Each piece is then $\\lim x=a$ or $\\lim c=c$."
+   ],
+   "steps": [
+    "Power law: $\\left(\\lim(9x+1)\\right)^2$",
+    "$(-8)^2=64$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -4,
+      "max": 4,
+      "exclude": [
+       0
+      ]
+     },
+     "m": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": -5,
+      "max": 5
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Use the limit laws to evaluate $\\displaystyle\\lim_{x\\to {{a}}}({{m}}x+{{b}})^{2}$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{(m*a+b)^2}}"
+    }
+   }
   },
   {
    "id": "e87",
@@ -1491,6 +1631,36 @@
    "answer": {
     "kind": "number",
     "value": "49"
+   },
+   "hints": [
+    "The function is continuous at the point, so substitute the value directly."
+   ],
+   "steps": [
+    "$7^2=49$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -9,
+      "max": 9
+     },
+     "n": {
+      "choices": [
+       2,
+       3
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{x\\to {{a}}}x^{ {{n}} }$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{a^n}}"
+    }
    }
   },
   {
@@ -1502,7 +1672,7 @@
      "text": "$\\lim_{x\\to -2}(4x^{2}-1)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571654827",
    "instructions": [
     {
@@ -1510,7 +1680,55 @@
      "text": "In the following exercises, use direct substitution to evaluate each limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "15"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4(-2)^2-1=16-1=15$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit(4*x**2-1, x, -2)"
+   },
+   "hints": [
+    "The function is continuous at the point, so substitute the value directly."
+   ],
+   "steps": [
+    "$4(-2)^2-1=15$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -5,
+      "max": 5
+     },
+     "b": {
+      "min": 2,
+      "max": 6
+     },
+     "c": {
+      "min": -9,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{x\\to {{a}}}({{b}}x^2+{{c}})$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{b*a*a+c}}"
+    }
+   }
   },
   {
    "id": "e89",
@@ -1541,7 +1759,13 @@
    "answer": {
     "kind": "number",
     "value": "1"
-   }
+   },
+   "hints": [
+    "The function is continuous at the point, so substitute the value directly."
+   ],
+   "steps": [
+    "$\\dfrac{1}{1+\\sin0}=\\dfrac11=1$"
+   ]
   },
   {
    "id": "e90",
@@ -1552,7 +1776,7 @@
      "text": "$\\lim_{x\\to 2}e^{2x-x^{2}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571654921",
    "instructions": [
     {
@@ -1560,7 +1784,30 @@
      "text": "In the following exercises, use direct substitution to evaluate each limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$e^{2(2)-2^2}=e^0=1$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit(exp(2*x-x**2), x, 2)"
+   },
+   "hints": [
+    "The function is continuous at the point, so substitute the value directly."
+   ],
+   "steps": [
+    "Exponent: $2(2)-2^2=0$",
+    "$e^0=1$"
+   ]
   },
   {
    "id": "e91",
@@ -1591,6 +1838,42 @@
    "answer": {
     "kind": "number",
     "value": "-(5/7)"
+   },
+   "hints": [
+    "The function is continuous at the point, so substitute the value directly."
+   ],
+   "steps": [
+    "$\\dfrac{2-7}{1+6}=-\\dfrac57$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -3,
+      "max": 3
+     },
+     "b": {
+      "min": 1,
+      "max": 9
+     },
+     "c": {
+      "min": 1,
+      "max": 9
+     },
+     "d": {
+      "min": 4,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{x\\to {{a}}}\\frac{ {{b}}-{{c}}x}{x+{{d}}}$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "({{b-c*a}})/({{a+d}})"
+    }
    }
   },
   {
@@ -1602,7 +1885,7 @@
      "text": "$\\lim_{x\\to 3}\\ln e^{3x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572482590",
    "instructions": [
     {
@@ -1610,7 +1893,31 @@
      "text": "In the following exercises, use direct substitution to evaluate each limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "9"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln e^{3x}=3x$, so the limit is $3(3)=9$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit(log(exp(3*x)), x, 3)"
+   },
+   "hints": [
+    "The function is continuous at the point, so substitute the value directly.",
+    "$\\ln e^{u}=u$."
+   ],
+   "steps": [
+    "$\\ln e^{3x}=3x$",
+    "$3(3)=9$"
+   ]
   },
   {
    "id": "e93",
@@ -1621,7 +1928,7 @@
      "text": "$\\lim_{x\\to 4}\\frac{x^{2}-16}{x-4}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572482649",
    "instructions": [
     {
@@ -1638,7 +1945,37 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "8"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute."
+   ],
+   "steps": [
+    "$\\dfrac{16-16}{4-4}=\\dfrac00$",
+    "$\\dfrac{(x+4)(x-4)}{x-4}=x+4\\to8$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{x\\to {{a}}}\\frac{x^2-{{a*a}}}{x-{{a}}}$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{2*a}}"
+    }
+   }
   },
   {
    "id": "e94",
@@ -1649,7 +1986,7 @@
      "text": "$\\lim_{x\\to 2}\\frac{x-2}{x^{2}-2x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572403294",
    "instructions": [
     {
@@ -1657,7 +1994,35 @@
      "text": "In the following exercises, use direct substitution to show that each limit leads to the indeterminate form $0/0.$ Then, evaluate the limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "1/2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Substitution gives $\\dfrac{2-2}{4-4}=\\dfrac00$."
+     },
+     {
+      "type": "math",
+      "tex": "\\lim_{x\\to2}\\frac{x-2}{x^2-2x}=\\lim_{x\\to2}\\frac{x-2}{x(x-2)}=\\lim_{x\\to2}\\frac1x=\\frac12"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((x-2)/(x**2-2*x), x, 2)"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute."
+   ],
+   "steps": [
+    "$\\dfrac00$ at $x=2$",
+    "$\\dfrac{x-2}{x(x-2)}=\\dfrac1x\\to\\dfrac12$"
+   ]
   },
   {
    "id": "e95",
@@ -1668,7 +2033,7 @@
      "text": "$\\lim_{x\\to 6}\\frac{3x-18}{2x-12}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571586166",
    "instructions": [
     {
@@ -1685,7 +2050,45 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "3/2"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute."
+   ],
+   "steps": [
+    "$\\dfrac{18-18}{12-12}=\\dfrac00$",
+    "$\\dfrac{3(x-6)}{2(x-6)}=\\dfrac32$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": 2,
+      "max": 9
+     },
+     "c": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{x\\to {{a}}}\\frac{ {{b}}x-{{a*b}}}{ {{c}}x-{{a*c}}}$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{b}}/{{c}}"
+    }
+   }
   },
   {
    "id": "e96",
@@ -1696,7 +2099,7 @@
      "text": "$\\lim_{h\\to 0}\\frac{(1+h)^{2}-1}{h}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572503561",
    "instructions": [
     {
@@ -1704,7 +2107,56 @@
      "text": "In the following exercises, use direct substitution to show that each limit leads to the indeterminate form $0/0.$ Then, evaluate the limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Substitution gives $\\dfrac{1-1}{0}=\\dfrac00$."
+     },
+     {
+      "type": "math",
+      "tex": "\\lim_{h\\to0}\\frac{(1+h)^2-1}{h}=\\lim_{h\\to0}\\frac{2h+h^2}{h}=\\lim_{h\\to0}(2+h)=2"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit(((1+x)**2-1)/x, x, 0)"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute."
+   ],
+   "steps": [
+    "Expand: $(1+h)^2-1=2h+h^2$",
+    "$\\dfrac{2h+h^2}{h}=2+h\\to2$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -5,
+      "max": 5,
+      "exclude": [
+       0
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{h\\to0}\\frac{({{a}}+h)^2-{{a*a}}}{h}$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{2*a}}"
+    }
+   }
   },
   {
    "id": "e97",
@@ -1715,7 +2167,7 @@
      "text": "$\\lim_{t\\to 9}\\frac{t-9}{\\sqrt{t}-3}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572499899",
    "instructions": [
     {
@@ -1732,7 +2184,38 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "6"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute.",
+    "Multiply by the conjugate $\\sqrt t+3$."
+   ],
+   "steps": [
+    "$\\dfrac{9-9}{3-3}=\\dfrac00$",
+    "$\\dfrac{t-9}{\\sqrt t-3}\\cdot\\dfrac{\\sqrt t+3}{\\sqrt t+3}=\\sqrt t+3\\to6$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{t\\to {{a*a}}}\\frac{t-{{a*a}}}{\\sqrt t-{{a}}}$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{2*a}}"
+    }
+   }
   },
   {
    "id": "e98",
@@ -1743,7 +2226,7 @@
      "text": "$\\lim_{h\\to 0}\\frac{\\frac{1}{a+h}-\\frac{1}{a}}{h},$ where *a* is a non-zero real-valued constant"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571655854",
    "instructions": [
     {
@@ -1751,7 +2234,36 @@
      "text": "In the following exercises, use direct substitution to show that each limit leads to the indeterminate form $0/0.$ Then, evaluate the limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-1/a^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Substitution gives $\\dfrac{\\frac1a-\\frac1a}{0}=\\dfrac00$. Combine the fractions in the numerator:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{\\frac{1}{a+h}-\\frac1a}{h}=\\frac{a-(a+h)}{a(a+h)h}=\\frac{-h}{a(a+h)h}=\\frac{-1}{a(a+h)}\\to-\\frac{1}{a^2}"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((1/(a+x)-1/a)/x, x, 0)"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute.",
+    "Use the common denominator $a(a+h)$."
+   ],
+   "steps": [
+    "$\\dfrac{1}{a+h}-\\dfrac1a=\\dfrac{-h}{a(a+h)}$",
+    "Divide by $h$: $\\dfrac{-1}{a(a+h)}\\to-\\dfrac{1}{a^2}$"
+   ]
   },
   {
    "id": "e99",
@@ -1762,7 +2274,7 @@
      "text": "$\\lim_{\\theta \\to \\pi}\\frac{\\sin \\,\\theta}{\\tan \\,\\theta}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571657390",
    "instructions": [
     {
@@ -1779,7 +2291,20 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute.",
+    "Write $\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}$."
+   ],
+   "steps": [
+    "$\\dfrac{\\sin\\pi}{\\tan\\pi}=\\dfrac00$",
+    "$\\dfrac{\\sin\\theta}{\\sin\\theta/\\cos\\theta}=\\cos\\theta\\to\\cos\\pi=-1$"
+   ]
   },
   {
    "id": "e100",
@@ -1790,7 +2315,7 @@
      "text": "$\\lim_{x\\to 1}\\frac{x^{3}-1}{x^{2}-1}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571599916",
    "instructions": [
     {
@@ -1798,7 +2323,54 @@
      "text": "In the following exercises, use direct substitution to show that each limit leads to the indeterminate form $0/0.$ Then, evaluate the limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "3/2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Substitution gives $\\dfrac{1-1}{1-1}=\\dfrac00$."
+     },
+     {
+      "type": "math",
+      "tex": "\\lim_{x\\to1}\\frac{x^3-1}{x^2-1}=\\lim_{x\\to1}\\frac{(x-1)(x^2+x+1)}{(x-1)(x+1)}=\\frac{1+1+1}{1+1}=\\frac32"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((x**3-1)/(x**2-1), x, 1)"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute.",
+    "$x^3-1=(x-1)(x^2+x+1)$."
+   ],
+   "steps": [
+    "$\\dfrac00$ at $x=1$",
+    "$\\dfrac{(x-1)(x^2+x+1)}{(x-1)(x+1)}=\\dfrac{x^2+x+1}{x+1}\\to\\dfrac32$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{x\\to {{a}}}\\frac{x^3-{{a^3}}}{x^2-{{a*a}}}$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{3*a}}/2"
+    }
+   }
   },
   {
    "id": "e101",
@@ -1809,7 +2381,7 @@
      "text": "$\\lim_{x\\to 1/2}\\frac{2x^{2}+3x-2}{2x-1}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572551466",
    "instructions": [
     {
@@ -1826,7 +2398,19 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "5/2"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute."
+   ],
+   "steps": [
+    "$\\dfrac{\\frac12+\\frac32-2}{1-1}=\\dfrac00$",
+    "$\\dfrac{(2x-1)(x+2)}{2x-1}=x+2\\to\\dfrac52$"
+   ]
   },
   {
    "id": "e102",
@@ -1837,7 +2421,7 @@
      "text": "$\\lim_{x\\to -3}\\frac{\\sqrt{x+4}-1}{x+3}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571599675",
    "instructions": [
     {
@@ -1845,7 +2429,36 @@
      "text": "In the following exercises, use direct substitution to show that each limit leads to the indeterminate form $0/0.$ Then, evaluate the limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "1/2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Substitution gives $\\dfrac{\\sqrt1-1}{0}=\\dfrac00$. Multiply by the conjugate:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{\\sqrt{x+4}-1}{x+3}\\cdot\\frac{\\sqrt{x+4}+1}{\\sqrt{x+4}+1}=\\frac{x+3}{(x+3)(\\sqrt{x+4}+1)}=\\frac{1}{\\sqrt{x+4}+1}\\to\\frac{1}{1+1}=\\frac12"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((sqrt(x+4)-1)/(x+3), x, -3)"
+   },
+   "hints": [
+    "Substituting gives $0/0$: factor, multiply by a conjugate, or combine fractions to cancel the troublesome factor.",
+    "After canceling, substitute.",
+    "Multiply by the conjugate $\\sqrt{x+4}+1$."
+   ],
+   "steps": [
+    "$\\dfrac00$ at $x=-3$",
+    "Conjugate: $\\dfrac{1}{\\sqrt{x+4}+1}\\to\\dfrac12$"
+   ]
   },
   {
    "id": "e103",
@@ -1856,7 +2469,7 @@
      "text": "$\\lim_{x\\to {-2}^{-}}\\frac{2x^{2}+7x-4}{x^{2}+x-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572174658",
    "instructions": [
     {
@@ -1869,11 +2482,29 @@
     "body": [
      {
       "type": "p",
-      "text": "−∞"
+      "text": "$-\\infty$"
+     },
+     {
+      "type": "p",
+      "text": "$\\dfrac{2x^2+7x-4}{x^2+x-2}=\\dfrac{(2x-1)(x+4)}{(x+2)(x-1)}$. Near $x=-2$ the numerator is $(-5)(2)=-10$, and for $x<-2$ the denominator $(x+2)(x-1)$ is $(\\text{neg})(\\text{neg})>0$, so the quotient goes to $-\\infty$."
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "number",
+    "value": "-inf",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "hints": [
+    "Substitution gives (nonzero)$/0$, so the limit is $+\\infty$ or $-\\infty$.",
+    "Factor the denominator and find the sign of each factor on the side you approach from."
+   ],
+   "steps": [
+    "$\\dfrac{(2x-1)(x+4)}{(x+2)(x-1)}$, numerator $\\to-10$",
+    "$x\\to-2^-$: $(x+2)<0$, $(x-1)<0$, denominator $\\to0^+$",
+    "$\\dfrac{-10}{0^+}\\to-\\infty$"
+   ]
   },
   {
    "id": "e104",
@@ -1884,7 +2515,7 @@
      "text": "$\\lim_{x\\to {-2}^{+}}\\frac{2x^{2}+7x-4}{x^{2}+x-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572174729",
    "instructions": [
     {
@@ -1892,7 +2523,37 @@
      "text": "In the following exercises, use direct substitution to obtain an undefined expression. Then, use the method of Example 2.23 to simplify the function to help determine the limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "inf",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{2x^2+7x-4}{x^2+x-2}=\\dfrac{(2x-1)(x+4)}{(x+2)(x-1)}$. The numerator tends to $(-5)(2)=-10$."
+     },
+     {
+      "type": "p",
+      "text": "For $x$ slightly greater than $-2$: $x+2>0$ and $x-1<0$, so the denominator tends to $0$ through negative values. $\\dfrac{-10}{0^-}\\to+\\infty$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((2*x**2+7*x-4)/(x**2+x-2), x, -2, \"+\")"
+   },
+   "hints": [
+    "Substitution gives (nonzero)$/0$, so the limit is $+\\infty$ or $-\\infty$.",
+    "Factor the denominator and find the sign of each factor on the side you approach from."
+   ],
+   "steps": [
+    "Numerator $\\to-10$",
+    "$x\\to-2^+$: $(x+2)>0$, $(x-1)<0$, denominator $\\to0^-$",
+    "$\\dfrac{-10}{0^-}\\to+\\infty$"
+   ]
   },
   {
    "id": "e105",
@@ -1903,7 +2564,7 @@
      "text": "$\\lim_{x\\to 1^{-}}\\frac{2x^{2}+7x-4}{x^{2}+x-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572174801",
    "instructions": [
     {
@@ -1917,10 +2578,28 @@
      {
       "type": "p",
       "text": "−∞"
+     },
+     {
+      "type": "p",
+      "text": "Numerator $\\to(1)(5)=5$; for $x<1$ near $1$ the denominator $(x+2)(x-1)\\to0^-$, so the quotient goes to $-\\infty$."
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "number",
+    "value": "-inf",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "hints": [
+    "Substitution gives (nonzero)$/0$, so the limit is $+\\infty$ or $-\\infty$.",
+    "Factor the denominator and find the sign of each factor on the side you approach from."
+   ],
+   "steps": [
+    "Numerator $(2x-1)(x+4)\\to5$",
+    "$x\\to1^-$: $(x+2)>0$, $(x-1)<0$, denominator $\\to0^-$",
+    "$\\dfrac{5}{0^-}\\to-\\infty$"
+   ]
   },
   {
    "id": "e106",
@@ -1931,7 +2610,7 @@
      "text": "$\\lim_{x\\to 1^{+}}\\frac{2x^{2}+7x-4}{x^{2}+x-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571610811",
    "instructions": [
     {
@@ -1939,7 +2618,33 @@
      "text": "In the following exercises, use direct substitution to obtain an undefined expression. Then, use the method of Example 2.23 to simplify the function to help determine the limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "inf",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Numerator $(2x-1)(x+4)\\to(1)(5)=5$. For $x>1$ near $1$: $x+2>0$ and $x-1>0$, so the denominator $\\to0^+$ and the quotient $\\to+\\infty$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((2*x**2+7*x-4)/(x**2+x-2), x, 1, \"+\")"
+   },
+   "hints": [
+    "Substitution gives (nonzero)$/0$, so the limit is $+\\infty$ or $-\\infty$.",
+    "Factor the denominator and find the sign of each factor on the side you approach from."
+   ],
+   "steps": [
+    "Numerator $\\to5$",
+    "$x\\to1^+$: denominator $\\to0^+$",
+    "$\\dfrac{5}{0^+}\\to+\\infty$"
+   ]
   },
   {
    "id": "e107",
@@ -1970,6 +2675,39 @@
    "answer": {
     "kind": "number",
     "value": "72"
+   },
+   "hints": [
+    "Replace each limit by its given value using the limit laws."
+   ],
+   "steps": [
+    "$2\\lim f\\cdot\\lim g=2(4)(9)$",
+    "$=72$"
+   ],
+   "variant": {
+    "params": {
+     "f": {
+      "min": 1,
+      "max": 9
+     },
+     "g": {
+      "min": 1,
+      "max": 9
+     },
+     "k": {
+      "min": 2,
+      "max": 5
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Given $\\lim_{x\\to6}f(x)={{f}}$ and $\\lim_{x\\to6}g(x)={{g}}$, evaluate $\\displaystyle\\lim_{x\\to6}{{k}}f(x)g(x)$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{k*f*g}}"
+    }
    }
   },
   {
@@ -1981,7 +2719,7 @@
      "text": "$\\lim_{x\\to 6}\\frac{g(x)-1}{f(x)}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571669881",
    "instructions": [
     {
@@ -1989,7 +2727,30 @@
      "text": "In the following exercises, assume that $\\lim_{x\\to 6}f(x)=4,\\lim_{x\\to 6}g(x)=9,$ and $\\lim_{x\\to 6}h(x)=6.$ Use these three facts and the limit laws to evaluate each limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Quotient law ($\\lim f=4\\ne0$) and difference law: $\\dfrac{\\lim g-1}{\\lim f}=\\dfrac{9-1}{4}=2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(9-1,4)"
+   },
+   "hints": [
+    "Replace each limit by its given value using the limit laws."
+   ],
+   "steps": [
+    "$\\dfrac{\\lim g(x)-1}{\\lim f(x)}$",
+    "$=\\dfrac{9-1}{4}=2$"
+   ]
   },
   {
    "id": "e109",
@@ -2020,7 +2781,14 @@
    "answer": {
     "kind": "number",
     "value": "7"
-   }
+   },
+   "hints": [
+    "Replace each limit by its given value using the limit laws."
+   ],
+   "steps": [
+    "$\\lim f+\\frac13\\lim g=4+\\frac13(9)$",
+    "$=7$"
+   ]
   },
   {
    "id": "e110",
@@ -2031,7 +2799,7 @@
      "text": "$\\lim_{x\\to 6}\\frac{(h(x))^{3}}{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572243205",
    "instructions": [
     {
@@ -2039,7 +2807,30 @@
      "text": "In the following exercises, assume that $\\lim_{x\\to 6}f(x)=4,\\lim_{x\\to 6}g(x)=9,$ and $\\lim_{x\\to 6}h(x)=6.$ Use these three facts and the limit laws to evaluate each limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "108"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Power and constant multiple laws: $\\dfrac{(\\lim h)^3}{2}=\\dfrac{6^3}{2}=\\dfrac{216}{2}=108$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(6**3,2)"
+   },
+   "hints": [
+    "Replace each limit by its given value using the limit laws."
+   ],
+   "steps": [
+    "$\\dfrac{(\\lim h(x))^3}{2}=\\dfrac{216}{2}$",
+    "$=108$"
+   ]
   },
   {
    "id": "e111",
@@ -2070,7 +2861,14 @@
    "answer": {
     "kind": "number",
     "value": "sqrt(5)"
-   }
+   },
+   "hints": [
+    "Replace each limit by its given value using the limit laws."
+   ],
+   "steps": [
+    "Root law: $\\sqrt{\\lim g-\\lim f}=\\sqrt{9-4}$",
+    "$=\\sqrt5$"
+   ]
   },
   {
    "id": "e112",
@@ -2081,7 +2879,7 @@
      "text": "$\\lim_{x\\to 6}x\\cdot h(x)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572217470",
    "instructions": [
     {
@@ -2089,7 +2887,30 @@
      "text": "In the following exercises, assume that $\\lim_{x\\to 6}f(x)=4,\\lim_{x\\to 6}g(x)=9,$ and $\\lim_{x\\to 6}h(x)=6.$ Use these three facts and the limit laws to evaluate each limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "36"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Product law: $\\left(\\lim_{x\\to6}x\\right)\\left(\\lim_{x\\to6}h(x)\\right)=6\\cdot6=36$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "6*6"
+   },
+   "hints": [
+    "Replace each limit by its given value using the limit laws."
+   ],
+   "steps": [
+    "$\\lim x\\cdot\\lim h(x)=6\\cdot6$",
+    "$=36$"
+   ]
   },
   {
    "id": "e113",
@@ -2120,7 +2941,14 @@
    "answer": {
     "kind": "number",
     "value": "28"
-   }
+   },
+   "hints": [
+    "Replace each limit by its given value using the limit laws."
+   ],
+   "steps": [
+    "$\\lim(x+1)\\cdot\\lim f(x)=7\\cdot4$",
+    "$=28$"
+   ]
   },
   {
    "id": "e114",
@@ -2131,7 +2959,7 @@
      "text": "$\\lim_{x\\to 6}(f(x)\\cdot g(x)-h(x))$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571563314",
    "instructions": [
     {
@@ -2139,7 +2967,56 @@
      "text": "In the following exercises, assume that $\\lim_{x\\to 6}f(x)=4,\\lim_{x\\to 6}g(x)=9,$ and $\\lim_{x\\to 6}h(x)=6.$ Use these three facts and the limit laws to evaluate each limit."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "30"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Difference and product laws: $\\lim f\\cdot\\lim g-\\lim h=4\\cdot9-6=30$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "4*9-6"
+   },
+   "hints": [
+    "Replace each limit by its given value using the limit laws."
+   ],
+   "steps": [
+    "$\\lim f\\cdot\\lim g-\\lim h=36-6$",
+    "$=30$"
+   ],
+   "variant": {
+    "params": {
+     "f": {
+      "min": 1,
+      "max": 9
+     },
+     "g": {
+      "min": 1,
+      "max": 9
+     },
+     "h": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Given $\\lim_{x\\to6}f(x)={{f}}$, $\\lim_{x\\to6}g(x)={{g}}$ and $\\lim_{x\\to6}h(x)={{h}}$, evaluate $\\displaystyle\\lim_{x\\to6}\\big(f(x)g(x)-h(x)\\big)$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{f*g-h}}"
+    }
+   }
   },
   {
    "id": "e115",
@@ -2159,7 +3036,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572624112",
    "instructions": [
     {
@@ -2183,7 +3060,35 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $\\lim_{x\\to3^-}f(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "9",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     },
+     {
+      "label": "b. $\\lim_{x\\to3^+}f(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "7",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Use the piece that applies on each side of $x=3$ and substitute."
+   ],
+   "steps": [
+    "Left: $x^2\\to9$",
+    "Right: $x+4\\to7$"
+   ]
   },
   {
    "id": "e116",
@@ -2203,7 +3108,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572380907",
    "instructions": [
     {
@@ -2211,7 +3116,51 @@
      "text": "**[T]** In the following exercises, use a calculator to draw the graph of each piecewise-defined function and study the graph to evaluate the given limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $\\lim_{x\\to0^-}g(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "-1",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     },
+     {
+      "label": "b. $\\lim_{x\\to0^+}g(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "1",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. For $x\\le0$, $g(x)=x^3-1\\to-1$. b. For $x>0$, $g(x)=1$, so the limit is $1$."
+     },
+     {
+      "type": "p",
+      "text": "The graph is the cubic $x^3-1$ ending at the filled dot $(0,-1)$, then the horizontal line $y=1$ for $x>0$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(limit(x**3-1, x, 0, \"-\"), 1)"
+   },
+   "hints": [
+    "Use the piece that applies on each side of $x=0$ and substitute."
+   ],
+   "steps": [
+    "Left: $x^3-1\\to-1$",
+    "Right: $g=1$"
+   ]
   },
   {
    "id": "e117",
@@ -2231,7 +3180,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572381069",
    "instructions": [
     {
@@ -2255,7 +3204,35 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $\\lim_{x\\to2^-}h(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "1",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     },
+     {
+      "label": "b. $\\lim_{x\\to2^+}h(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "1",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Use the piece that applies on each side of $x=2$ and substitute."
+   ],
+   "steps": [
+    "Left: $x^2-2x+1\\to1$",
+    "Right: $3-x\\to1$"
+   ]
   },
   {
    "id": "e118",
@@ -2266,7 +3243,7 @@
      "text": "$\\lim_{x\\to {-3}^{+}}(f(x)+g(x))$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572268090",
    "instructions": [
     {
@@ -2281,7 +3258,32 @@
      "height": 935
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "From the graphs: $\\lim_{x\\to-3^+}f(x)=-2$ (the right line starts at $(-3,-2)$) and $\\lim_{x\\to-3^+}g(x)=2$ (the curve starts at $(-3,2)$)."
+     },
+     {
+      "type": "p",
+      "text": "Sum law: $-2+2=0$."
+     }
+    ]
+   },
+   "hints": [
+    "Read each one-sided limit or value from the graph, then combine them with the limit laws.",
+    "$f$ and $g$ are made of lines (and a curve for $g$ right of $-3$); read the heights carefully."
+   ],
+   "steps": [
+    "$\\lim_{x\\to-3^+}f(x)=-2$, $\\lim_{x\\to-3^+}g(x)=2$",
+    "$-2+2=0$"
+   ]
   },
   {
    "id": "e119",
@@ -2319,7 +3321,15 @@
    "answer": {
     "kind": "number",
     "value": "6"
-   }
+   },
+   "hints": [
+    "Read each one-sided limit or value from the graph, then combine them with the limit laws.",
+    "$f$ and $g$ are made of lines (and a curve for $g$ right of $-3$); read the heights carefully."
+   ],
+   "steps": [
+    "$\\lim_{x\\to-3^-}f(x)=0$, $\\lim_{x\\to-3^-}g(x)=-2$",
+    "$0-3(-2)=6$"
+   ]
   },
   {
    "id": "e120",
@@ -2330,7 +3340,7 @@
      "text": "$\\lim_{x\\to 0}\\frac{f(x)g(x)}{3}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572435008",
    "instructions": [
     {
@@ -2345,7 +3355,36 @@
      "height": 935
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-0.9",
+    "tolerance": {
+     "abs": 0.15
+    },
+    "prompt": "estimate from the graph"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(0)=1$ (the line $y=x+1$) and $g(0)\\approx-2.7$ (the curve crosses the $y$-axis a little below $-2.5$)."
+     },
+     {
+      "type": "p",
+      "text": "Product and constant multiple laws: $\\dfrac{\\lim f\\cdot\\lim g}{3}\\approx\\dfrac{1\\cdot(-2.7)}{3}\\approx-0.9$."
+     }
+    ]
+   },
+   "hints": [
+    "Read each one-sided limit or value from the graph, then combine them with the limit laws.",
+    "$f$ and $g$ are made of lines (and a curve for $g$ right of $-3$); read the heights carefully."
+   ],
+   "steps": [
+    "$\\lim_{x\\to0}f(x)=1$, $\\lim_{x\\to0}g(x)\\approx-2.7$",
+    "$\\dfrac{1(-2.7)}{3}\\approx-0.9$"
+   ]
   },
   {
    "id": "e121",
@@ -2383,7 +3422,15 @@
    "answer": {
     "kind": "number",
     "value": "1"
-   }
+   },
+   "hints": [
+    "Read each one-sided limit or value from the graph, then combine them with the limit laws.",
+    "$f$ and $g$ are made of lines (and a curve for $g$ right of $-3$); read the heights carefully."
+   ],
+   "steps": [
+    "$\\lim_{x\\to-5}g(x)=0$, $\\lim_{x\\to-5}f(x)=2$",
+    "$\\dfrac{2+0}{2}=1$"
+   ]
   },
   {
    "id": "e122",
@@ -2394,7 +3441,7 @@
      "text": "$\\lim_{x\\to 1}(f(x))^{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572590096",
    "instructions": [
     {
@@ -2409,7 +3456,28 @@
      "height": 935
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "4"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Right of $-3$, $f(x)=x+1$, so $\\lim_{x\\to1}f(x)=2$. Power law: $2^2=4$."
+     }
+    ]
+   },
+   "hints": [
+    "Read each one-sided limit or value from the graph, then combine them with the limit laws.",
+    "$f$ and $g$ are made of lines (and a curve for $g$ right of $-3$); read the heights carefully."
+   ],
+   "steps": [
+    "$\\lim_{x\\to1}f(x)=2$",
+    "$2^2=4$"
+   ]
   },
   {
    "id": "e123",
@@ -2447,7 +3515,15 @@
    "answer": {
     "kind": "number",
     "value": "root(7, 3)"
-   }
+   },
+   "hints": [
+    "Read each one-sided limit or value from the graph, then combine them with the limit laws.",
+    "$f$ and $g$ are made of lines (and a curve for $g$ right of $-3$); read the heights carefully."
+   ],
+   "steps": [
+    "$\\lim_{x\\to1}f(x)=2$, $\\lim_{x\\to1}g(x)=-5$",
+    "$\\sqrt[3]{2-(-5)}=\\sqrt[3]7$"
+   ]
   },
   {
    "id": "e124",
@@ -2458,7 +3534,7 @@
      "text": "$\\lim_{x\\to -7}(x\\cdot g(x))$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572128651",
    "instructions": [
     {
@@ -2473,7 +3549,32 @@
      "height": 935
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-14"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Left of $-3$, $g(x)=-x-5$ (the line through $(-15,10)$ and $(-5,0)$), so $\\lim_{x\\to-7}g(x)=2$."
+     },
+     {
+      "type": "p",
+      "text": "Product law: $(-7)(2)=-14$."
+     }
+    ]
+   },
+   "hints": [
+    "Read each one-sided limit or value from the graph, then combine them with the limit laws.",
+    "$f$ and $g$ are made of lines (and a curve for $g$ right of $-3$); read the heights carefully."
+   ],
+   "steps": [
+    "$\\lim_{x\\to-7}g(x)=2$",
+    "$(-7)(2)=-14$"
+   ]
   },
   {
    "id": "e125",
@@ -2511,7 +3612,15 @@
    "answer": {
     "kind": "number",
     "value": "-46"
-   }
+   },
+   "hints": [
+    "Read each one-sided limit or value from the graph, then combine them with the limit laws.",
+    "$f$ and $g$ are made of lines (and a curve for $g$ right of $-3$); read the heights carefully."
+   ],
+   "steps": [
+    "$\\lim_{x\\to-9}f(x)=6$, $\\lim_{x\\to-9}g(x)=4$",
+    "$(-9)(6)+2(4)=-46$"
+   ]
   },
   {
    "id": "e126",
@@ -2522,7 +3631,7 @@
      "text": "**[T]** True or False? If $2x-1\\le g(x)\\le x^{2}-2x+3,$ then $\\lim_{x\\to 2}g(x)=0.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572511282",
    "instructions": [
     {
@@ -2530,7 +3639,50 @@
      "text": "For the following problems, evaluate the limit using the squeeze theorem. Use a calculator to graph the functions $f(x),g(x),$ and $h(x)$ when possible."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "true or false?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "true",
+        "false"
+       ],
+       "correct": 1
+      }
+     },
+     {
+      "label": "$\\lim_{x\\to2}g(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "3",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. At $x=2$ both bounds equal $3$: $2(2)-1=3$ and $2^2-2(2)+3=3$. By the squeeze theorem $\\lim_{x\\to2}g(x)=3$, not $0$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "3"
+   },
+   "hints": [
+    "Find the limits of the two bounding functions at $x=2$."
+   ],
+   "steps": [
+    "$\\lim(2x-1)=3$ and $\\lim(x^2-2x+3)=3$",
+    "Squeeze theorem: $\\lim g=3\\ne0$: false"
+   ]
   },
   {
    "id": "e127",
@@ -2541,7 +3693,7 @@
      "text": "**[T]** $\\lim_{\\theta \\to 0}\\theta^{2}\\cos \\,\\left(\\frac{1}{\\theta}\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572511389",
    "instructions": [
     {
@@ -2562,10 +3714,26 @@
       "alt": "The graph of three functions over the domain [-1,1], colored red, green, and blue as follows: red: theta^2, green: theta^2 * cos (1/theta), and blue: - (theta^2). The red and blue functions open upwards and downwards respectively as parabolas with vertices at the origin. The green function is trapped between the two.",
       "width": 342,
       "height": 347
+     },
+     {
+      "type": "p",
+      "text": "Since $-1\\le\\cos(1/\\theta)\\le1$, we have $-\\theta^2\\le\\theta^2\\cos(1/\\theta)\\le\\theta^2$, and both bounds tend to $0$."
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   },
+   "hints": [
+    "$-1\\le\\cos(\\text{anything})\\le1$.",
+    "Multiply that inequality by $\\theta^2\\ge0$."
+   ],
+   "steps": [
+    "$-\\theta^2\\le\\theta^2\\cos(1/\\theta)\\le\\theta^2$",
+    "Both bounds $\\to0$, so the limit is $0$"
+   ]
   },
   {
    "id": "e128",
@@ -2576,7 +3744,7 @@
      "text": "$\\lim_{x\\to 0}f(x),$ where $f(x)=\\{\\begin{array}{ll}0, & x\\,\\text{rational} \\\\ x^{2}, & x\\,\\text{irrational}\\end{array}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571625966",
    "instructions": [
     {
@@ -2584,7 +3752,34 @@
      "text": "For the following problems, evaluate the limit using the squeeze theorem. Use a calculator to graph the functions $f(x),g(x),$ and $h(x)$ when possible."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "0"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "For every $x$, $0\\le f(x)\\le x^2$ (it is either $0$ or $x^2$)."
+     },
+     {
+      "type": "p",
+      "text": "Since $\\lim_{x\\to0}0=0=\\lim_{x\\to0}x^2$, the squeeze theorem gives $\\lim_{x\\to0}f(x)=0$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit(x**2, x, 0)"
+   },
+   "hints": [
+    "Find two simple functions that $f$ is always between."
+   ],
+   "steps": [
+    "$0\\le f(x)\\le x^2$ for all $x$",
+    "Both bounds $\\to0$: the limit is $0$"
+   ]
   },
   {
    "id": "e129",
@@ -2604,7 +3799,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571626094",
    "instructions": [
     {
@@ -2632,7 +3827,19 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "number",
+    "value": "inf",
+    "prompt": "part b: the limit (number, DNE, inf or -inf)"
+   },
+   "hints": [
+    "$E(r)=\\dfrac{8.988\\times10^{9}\\cdot10^{-10}}{r^2}$: a positive constant over $r^2$."
+   ],
+   "steps": [
+    "$E(r)\\approx\\dfrac{0.8988}{r^2}$",
+    "As $r\\to0^+$, $r^2\\to0^+$ and $E\\to+\\infty$"
+   ]
   },
   {
    "id": "e130",
@@ -2652,7 +3859,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571612287",
    "instructions": [
     {
@@ -2660,7 +3867,35 @@
      "text": "For the following problems, evaluate the limit using the squeeze theorem. Use a calculator to graph the functions $f(x),g(x),$ and $h(x)$ when possible."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "inf",
+    "prompt": "part b: the limit (number, DNE, inf or -inf)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $V(\\rho)=\\dfrac{8}{\\rho}$ is one branch of a hyperbola in the first quadrant, decreasing in $\\rho$."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\lim_{\\rho\\to0^+}\\dfrac8\\rho=+\\infty$: an 8 kg object with density approaching $0$ would need a volume growing without bound."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit(8/x, x, 0, \"+\")"
+   },
+   "hints": [
+    "$V=\\dfrac{8}{\\rho}$ with $\\rho>0$."
+   ],
+   "steps": [
+    "$V(\\rho)=\\dfrac8\\rho$",
+    "As $\\rho\\to0^+$, $V\\to+\\infty$"
+   ]
   }
  ],
  "proofs": [],

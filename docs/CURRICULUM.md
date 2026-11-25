@@ -44,22 +44,26 @@ Exercises done for all five sections (answers checkable, solutions for every exe
 - [ ] **V1.1.5** Exponential and Logarithmic Functions · 108 exercises, 54 with book answers · exercises ✓
 
 ### V1.2 Limits
-- [ ] **V1.2.1** A Preview of Calculus · 29 exercises, 15 with book answers
-- [ ] **V1.2.2** The Limit of a Function · 53 exercises, 26 with book answers
-- [ ] **V1.2.3** The Limit Laws · 48 exercises, 24 with book answers
-- [ ] **V1.2.4** Continuity · 45 exercises, 23 with book answers
-- [ ] **V1.2.5** The Precise Definition of a Limit · 57 exercises, 28 with book answers
+Done: readings cleaned up (broken references fixed, typeable checkpoints), every exercise has an answer and a solution (book, SymPy-verified, or AI for graph readings and proofs), hints and steps on every auto-checked exercise, variants where new numbers make sense.
+
+- [x] **V1.2.1** A Preview of Calculus · 29 exercises, 15 with book answers
+- [x] **V1.2.2** The Limit of a Function · 53 exercises, 26 with book answers
+- [x] **V1.2.3** The Limit Laws · 48 exercises, 24 with book answers
+- [x] **V1.2.4** Continuity · 45 exercises, 23 with book answers
+- [x] **V1.2.5** The Precise Definition of a Limit · 57 exercises, 28 with book answers
 
 ### V1.3 Derivatives
-- [ ] **V1.3.1** Defining the Derivative · 53 exercises, 27 with book answers
-- [ ] **V1.3.2** The Derivative as a Function · 52 exercises, 26 with book answers
-- [ ] **V1.3.3** Differentiation Rules · 44 exercises, 22 with book answers
-- [ ] **V1.3.4** Derivatives as Rates of Change · 25 exercises, 12 with book answers
-- [ ] **V1.3.5** Derivatives of Trigonometric Functions · 39 exercises, 18 with book answers
-- [ ] **V1.3.6** The Chain Rule · 46 exercises, 23 with book answers
-- [ ] **V1.3.7** Derivatives of Inverse Functions · 40 exercises, 20 with book answers
-- [ ] **V1.3.8** Implicit Differentiation · 31 exercises, 15 with book answers
-- [ ] **V1.3.9** Derivatives of Exponential and Logarithmic Functions · 61 exercises, 31 with book answers
+Done, same as V1.2.
+
+- [x] **V1.3.1** Defining the Derivative · 53 exercises, 27 with book answers
+- [x] **V1.3.2** The Derivative as a Function · 52 exercises, 26 with book answers
+- [x] **V1.3.3** Differentiation Rules · 44 exercises, 22 with book answers
+- [x] **V1.3.4** Derivatives as Rates of Change · 25 exercises, 12 with book answers
+- [x] **V1.3.5** Derivatives of Trigonometric Functions · 39 exercises, 18 with book answers
+- [x] **V1.3.6** The Chain Rule · 46 exercises, 23 with book answers
+- [x] **V1.3.7** Derivatives of Inverse Functions · 40 exercises, 20 with book answers
+- [x] **V1.3.8** Implicit Differentiation · 31 exercises, 15 with book answers
+- [x] **V1.3.9** Derivatives of Exponential and Logarithmic Functions · 61 exercises, 31 with book answers
 
 ### V1.4 Applications of Derivatives
 - [ ] **V1.4.1** Related Rates · 45 exercises, 23 with book answers

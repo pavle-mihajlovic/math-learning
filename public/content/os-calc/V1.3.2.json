@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Define the derivative function of a given function.",
@@ -67,7 +67,7 @@
     },
     {
      "type": "p",
-     "text": "In the next few examples we use (see above) to find the derivative of a function."
+     "text": "In the next few examples we use the definition of the derivative function to find the derivative of a function."
     }
    ],
    "title": "Derivative Functions"
@@ -87,7 +87,7 @@
     "body": [
      {
       "type": "p",
-      "text": "Start directly with the definition of the derivative function. Use (see above)."
+      "text": "Start directly with the definition of the derivative function. Use $f'(x)=\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$."
      },
      {
       "type": "math",
@@ -146,7 +146,7 @@
       "body": [
        {
         "type": "p",
-        "text": "Use (see above) and follow the example."
+        "text": "Use the definition of the derivative function and follow the example."
        }
       ]
      }
@@ -417,7 +417,7 @@
       "body": [
        {
         "type": "p",
-        "text": "We found $f'(x)=2x$ in a previous checkpoint. Use (see above) to find the derivative of $f'(x)$"
+        "text": "We found $f'(x)=2x$ in a previous checkpoint. Use the definition of the derivative to find the derivative of $f'(x)$"
        }
       ]
      }
@@ -543,7 +543,7 @@
      "text": "$f(x)=6$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738186716",
    "instructions": [
     {
@@ -551,7 +551,31 @@
      "text": "For the following exercises, use the definition of a derivative to find $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "0"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\lim_{h\\to0}\\dfrac{6-6}{h}=0$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(6+0*x,x)"
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$f(x+h)-f(x)=6-6=0$",
+    "$f'(x)=0$"
+   ]
   },
   {
    "id": "e55",
@@ -580,8 +604,41 @@
     ]
    },
    "answer": {
-    "kind": "number",
+    "kind": "expression",
     "value": "-3"
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$\\dfrac{2-3(x+h)-(2-3x)}{h}=\\dfrac{-3h}{h}$",
+    "$f'(x)=-3$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -9,
+      "max": 9
+     },
+     "m": {
+      "min": -9,
+      "max": 9,
+      "exclude": [
+       0
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Use the definition of a derivative to find $f'(x)$ for $f(x)={{a}}+{{m}}x$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{m}}"
+    }
    }
   },
   {
@@ -593,7 +650,7 @@
      "text": "$f(x)=\\frac{2x}{7}+1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738186790",
    "instructions": [
     {
@@ -601,7 +658,30 @@
      "text": "For the following exercises, use the definition of a derivative to find $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "2/7"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{\\frac{2(x+h)}{7}+1-\\frac{2x}{7}-1}{h}=\\dfrac{2h/7}{h}=\\dfrac27$, so $f'(x)=\\dfrac27$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(2*x/7+1,x)"
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$\\dfrac{2h/7}{h}=\\dfrac27$"
+   ]
   },
   {
    "id": "e57",
@@ -632,6 +712,36 @@
    "answer": {
     "kind": "expression",
     "value": "8 x"
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$\\dfrac{4(x+h)^2-4x^2}{h}=\\dfrac{8xh+4h^2}{h}=8x+4h$",
+    "$\\to8x$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": -9,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Use the definition of a derivative to find $f'(x)$ for $f(x)={{a}}x^2+{{b}}x$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{2*a}}x+{{b}}"
+    }
    }
   },
   {
@@ -643,7 +753,7 @@
      "text": "$f(x)=5x-x^{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737143614",
    "instructions": [
     {
@@ -651,7 +761,31 @@
      "text": "For the following exercises, use the definition of a derivative to find $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "5-2x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{5(x+h)-(x+h)^2-5x+x^2}{h}=\\dfrac{5h-2xh-h^2}{h}=5-2x-h\\to5-2x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(5*x-x**2,x)"
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$\\dfrac{5h-2xh-h^2}{h}=5-2x-h$",
+    "$f'(x)=5-2x$"
+   ]
   },
   {
    "id": "e59",
@@ -682,7 +816,15 @@
    "answer": {
     "kind": "expression",
     "value": "(1/(sqrt(2 x)))"
-   }
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$\\dfrac{\\sqrt{2x+2h}-\\sqrt{2x}}{h}\\cdot\\dfrac{\\sqrt{2x+2h}+\\sqrt{2x}}{\\sqrt{2x+2h}+\\sqrt{2x}}=\\dfrac{2}{\\sqrt{2x+2h}+\\sqrt{2x}}$",
+    "$\\to\\dfrac{2}{2\\sqrt{2x}}=\\dfrac1{\\sqrt{2x}}$"
+   ]
   },
   {
    "id": "e60",
@@ -693,7 +835,7 @@
      "text": "$f(x)=\\sqrt{x-6}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738045048",
    "instructions": [
     {
@@ -701,7 +843,41 @@
      "text": "For the following exercises, use the definition of a derivative to find $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "1/(2sqrt(x-6))",
+    "domain": {
+     "x": [
+      7,
+      20
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Multiply by the conjugate:"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{\\sqrt{x+h-6}-\\sqrt{x-6}}{h}=\\frac{1}{\\sqrt{x+h-6}+\\sqrt{x-6}}\\to\\frac{1}{2\\sqrt{x-6}}"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sqrt(x-6),x)"
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "Conjugate: $\\dfrac{1}{\\sqrt{x+h-6}+\\sqrt{x-6}}$",
+    "$f'(x)=\\dfrac1{2\\sqrt{x-6}}$"
+   ]
   },
   {
    "id": "e61",
@@ -732,6 +908,32 @@
    "answer": {
     "kind": "expression",
     "value": "((-9)/(x^2))"
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$\\dfrac{\\frac9{x+h}-\\frac9x}{h}=\\dfrac{-9}{x(x+h)}$",
+    "$\\to-\\dfrac9{x^2}$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 12
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Use the definition of a derivative to find $f'(x)$ for $f(x)=\\dfrac{ {{a}} }{x}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "-{{a}}/x^2"
+    }
    }
   },
   {
@@ -743,7 +945,7 @@
      "text": "$f(x)=x+\\frac{1}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738045147",
    "instructions": [
     {
@@ -751,7 +953,31 @@
      "text": "For the following exercises, use the definition of a derivative to find $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "1-1/x^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{(x+h)+\\frac1{x+h}-x-\\frac1x}{h}=1+\\dfrac{\\frac{x-(x+h)}{x(x+h)}}{h}=1-\\dfrac{1}{x(x+h)}\\to1-\\dfrac1{x^2}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x+1/x,x)"
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$1-\\dfrac1{x(x+h)}$",
+    "$f'(x)=1-\\dfrac1{x^2}$"
+   ]
   },
   {
    "id": "e63",
@@ -782,7 +1008,15 @@
    "answer": {
     "kind": "expression",
     "value": "((-1)/(2 x^(3/2)))"
-   }
+   },
+   "hints": [
+    "$f'(x)=\\lim_{h\\to0}\\dfrac{f(x+h)-f(x)}{h}$: expand $f(x+h)$, subtract, cancel $h$.",
+    "For roots multiply by the conjugate; for fractions use a common denominator."
+   ],
+   "steps": [
+    "$\\dfrac{\\frac1{\\sqrt{x+h}}-\\frac1{\\sqrt x}}{h}=\\dfrac{\\sqrt x-\\sqrt{x+h}}{h\\sqrt x\\sqrt{x+h}}=\\dfrac{-1}{\\sqrt x\\sqrt{x+h}(\\sqrt x+\\sqrt{x+h})}$",
+    "$\\to\\dfrac{-1}{2x^{3/2}}$"
+   ]
   },
   {
    "id": "e64",
@@ -804,7 +1038,20 @@
      "text": "For the following exercises, use the graph of $y=f(x)$ to sketch the graph of its derivative $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f$ decreases until its local minimum near $x=0.5$, increases until its local maximum near $x=2.25$, then decreases again."
+     },
+     {
+      "type": "p",
+      "text": "So $f'(x)$ is negative for $x<0.5$, crosses the axis at $x\\approx0.5$, is positive between $0.5$ and $2.25$, crosses again at $x\\approx2.25$, and is negative after that: a downward-opening, parabola-like curve with zeros near $0.5$ and $2.25$, very negative at both ends (where $f$ is steep)."
+     }
+    ]
+   }
   },
   {
    "id": "e65",
@@ -860,7 +1107,20 @@
      "text": "For the following exercises, use the graph of $y=f(x)$ to sketch the graph of its derivative $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f$ increases steeply up to its local maximum near $x=-1.4$, decreases to the local minimum at the origin, increases to the local maximum near $x=1.4$, then falls steeply."
+     },
+     {
+      "type": "p",
+      "text": "So $f'(x)$ is large and positive at the far left, zero at $x\\approx-1.4$, negative on $(-1.4,0)$, zero at $0$, positive on $(0,1.4)$, zero at $x\\approx1.4$ and very negative at the right. Since $f$ is even, $f'$ is odd (symmetric about the origin), like an upside-down cubic."
+     }
+    ]
+   }
   },
   {
    "id": "e67",
@@ -905,7 +1165,7 @@
      "text": "$\\lim_{h\\to 0}\\frac{(1+h)^{2/3}-1}{h}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737927753",
    "instructions": [
     {
@@ -913,7 +1173,46 @@
      "text": "For the following exercises, the given limit represents the derivative of a function $y=f(x)$ at $x=a.$ Find $f(x)$ and $a.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "x^(2/3)"
+      }
+     },
+     {
+      "label": "$a$",
+      "answer": {
+       "kind": "number",
+       "value": "1"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{(1+h)^{2/3}-1}{h}=\\dfrac{f(1+h)-f(1)}{h}$ with $f(x)=x^{2/3}$ and $a=1$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(x**Rational(2,3), 1)"
+   },
+   "hints": [
+    "Match the limit to $\\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$.",
+    "Whatever is added to $h$ is $a$; the expression in $a+h$ shows $f$."
+   ],
+   "steps": [
+    "$1+h$ means $a=1$",
+    "$f(x)=x^{2/3}$ (and $f(1)=1$)"
+   ]
   },
   {
    "id": "e69",
@@ -924,7 +1223,7 @@
      "text": "$\\lim_{h\\to 0}\\frac{[3(2+h)^{2}+2]-14}{h}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738217060",
    "instructions": [
     {
@@ -941,7 +1240,34 @@
      }
     ]
    },
-   "notes": "self-check: could not classify \"f(x)=3 x^2+2, a=2\""
+   "notes": "self-check: could not classify \"f(x)=3 x^2+2, a=2\"",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "3x^2+2"
+      }
+     },
+     {
+      "label": "$a$",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Match the limit to $\\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$.",
+    "Whatever is added to $h$ is $a$; the expression in $a+h$ shows $f$."
+   ],
+   "steps": [
+    "$2+h$ means $a=2$",
+    "$f(x)=3x^2+2$, $f(2)=14$"
+   ]
   },
   {
    "id": "e70",
@@ -952,7 +1278,7 @@
      "text": "$\\lim_{h\\to 0}\\frac{\\cos \\,(\\pi +h)+1}{h}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737144209",
    "instructions": [
     {
@@ -960,7 +1286,47 @@
      "text": "For the following exercises, the given limit represents the derivative of a function $y=f(x)$ at $x=a.$ Find $f(x)$ and $a.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "cos x"
+      }
+     },
+     {
+      "label": "$a$",
+      "answer": {
+       "kind": "number",
+       "value": "pi"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\cos(\\pi+h)+1=\\cos(\\pi+h)-\\cos\\pi$, so this is $\\dfrac{f(\\pi+h)-f(\\pi)}{h}$ with $f(x)=\\cos x$ and $a=\\pi$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(cos(x), pi)"
+   },
+   "hints": [
+    "Match the limit to $\\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$.",
+    "Whatever is added to $h$ is $a$; the expression in $a+h$ shows $f$.",
+    "$\\cos\\pi=-1$."
+   ],
+   "steps": [
+    "$+1=-\\cos\\pi$",
+    "$f(x)=\\cos x$, $a=\\pi$"
+   ]
   },
   {
    "id": "e71",
@@ -971,7 +1337,7 @@
      "text": "$\\lim_{h\\to 0}\\frac{(2+h)^{4}-16}{h}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737144295",
    "instructions": [
     {
@@ -988,7 +1354,34 @@
      }
     ]
    },
-   "notes": "self-check: could not classify \"f(x)=x^4, a=2\""
+   "notes": "self-check: could not classify \"f(x)=x^4, a=2\"",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "x^4"
+      }
+     },
+     {
+      "label": "$a$",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Match the limit to $\\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$.",
+    "Whatever is added to $h$ is $a$; the expression in $a+h$ shows $f$."
+   ],
+   "steps": [
+    "$2+h$ means $a=2$",
+    "$f(x)=x^4$, $f(2)=16$"
+   ]
   },
   {
    "id": "e72",
@@ -999,7 +1392,7 @@
      "text": "$\\lim_{h\\to 0}\\frac{[2(3+h)^{2}-(3+h)]-15}{h}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737144378",
    "instructions": [
     {
@@ -1007,7 +1400,46 @@
      "text": "For the following exercises, the given limit represents the derivative of a function $y=f(x)$ at $x=a.$ Find $f(x)$ and $a.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "2x^2-x"
+      }
+     },
+     {
+      "label": "$a$",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(3)=2(9)-3=15$, so the limit is $\\dfrac{f(3+h)-f(3)}{h}$ with $f(x)=2x^2-x$ and $a=3$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(2*x**2-x, 3)"
+   },
+   "hints": [
+    "Match the limit to $\\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$.",
+    "Whatever is added to $h$ is $a$; the expression in $a+h$ shows $f$."
+   ],
+   "steps": [
+    "$3+h$ means $a=3$",
+    "$f(x)=2x^2-x$, $f(3)=15$"
+   ]
   },
   {
    "id": "e73",
@@ -1018,7 +1450,7 @@
      "text": "$\\lim_{h\\to 0}\\frac{e^{h}-1}{h}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737904601",
    "instructions": [
     {
@@ -1035,7 +1467,34 @@
      }
     ]
    },
-   "notes": "self-check: could not classify \"f(x)=e^x, a=0\""
+   "notes": "self-check: could not classify \"f(x)=e^x, a=0\"",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "e^x"
+      }
+     },
+     {
+      "label": "$a$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Match the limit to $\\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$.",
+    "Whatever is added to $h$ is $a$; the expression in $a+h$ shows $f$."
+   ],
+   "steps": [
+    "$e^h-1=e^{0+h}-e^0$",
+    "$f(x)=e^x$, $a=0$"
+   ]
   },
   {
    "id": "e74",
@@ -1063,7 +1522,24 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The graph follows $2\\sqrt x$ from $(0,0)$ to $(1,2)$, then the line $3x-1$ (which also passes through $(1,2)$, so $f$ is continuous)."
+     },
+     {
+      "type": "p",
+      "text": "b. $f(1)=2$. From the left: $\\dfrac{2\\sqrt{1+h}-2}{h}=\\dfrac{2}{\\sqrt{1+h}+1}\\to1$. From the right: $\\dfrac{3(1+h)-1-2}{h}=3$."
+     },
+     {
+      "type": "p",
+      "text": "The one-sided limits $1\\ne3$, so $\\lim_{h\\to0}\\frac{f(1+h)-f(1)}{h}$ does not exist: $f$ is not differentiable at $1$ (a corner)."
+     }
+    ]
+   }
   },
   {
    "id": "e75",
@@ -1139,7 +1615,24 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. A downward parabola $-x^2+2$ up to $(1,1)$, then the line $y=x$ from $(1,1)$ on (continuous at $1$)."
+     },
+     {
+      "type": "p",
+      "text": "b. $f(1)=1$. From the left: $\\dfrac{-(1+h)^2+2-1}{h}=\\dfrac{-2h-h^2}{h}\\to-2$. From the right: $\\dfrac{(1+h)-1}{h}=1$."
+     },
+     {
+      "type": "p",
+      "text": "$-2\\ne1$, so $f'(1)$ does not exist (a corner)."
+     }
+    ]
+   }
   },
   {
    "id": "e77",
@@ -1201,7 +1694,7 @@
      "height": 425
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738219549",
    "instructions": [
     {
@@ -1218,7 +1711,49 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. limit exists but not continuous at",
+      "answer": {
+       "kind": "set",
+       "value": "{4}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "b. continuous but not differentiable at",
+      "answer": {
+       "kind": "set",
+       "value": "{-1}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. At $x=4$ the curve passes through an open circle at $(4,2)$: the limit is $2$ but $f(4)$ is undefined. (At $x=-4$ and $x=2$ the graph jumps, so the limit doesn't exist there.)"
+     },
+     {
+      "type": "p",
+      "text": "b. At $x=-1$ the graph has a corner at $(-1,4)$: continuous but not differentiable."
+     }
+    ]
+   },
+   "hints": [
+    "(a) Look for holes: open circles with no filled dot above them.",
+    "(b) Look for corners or vertical tangents on an unbroken curve."
+   ],
+   "steps": [
+    "Hole at $(4,2)$: a. $x=4$",
+    "Corner at $(-1,4)$: b. $x=-1$"
+   ]
   },
   {
    "id": "e79",
@@ -1276,7 +1811,15 @@
       }
      }
     ]
-   }
+   },
+   "hints": [
+    "(a) Look for a hole or a misplaced dot.",
+    "(b) Look for a corner on an unbroken curve."
+   ],
+   "steps": [
+    "$x=1$: limit $1$, but $f(1)=2$",
+    "$x=2$: a corner"
+   ]
   },
   {
    "id": "e80",
@@ -1294,7 +1837,7 @@
      "height": 425
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737145107",
    "instructions": [
     {
@@ -1311,7 +1854,73 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f'(-0.5)$",
+      "answer": {
+       "kind": "number",
+       "value": "1",
+       "prompt": "DNE if it does not exist"
+      }
+     },
+     {
+      "label": "b. $f'(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "DNE",
+       "prompt": "DNE if it does not exist"
+      }
+     },
+     {
+      "label": "c. $f'(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "-1",
+       "prompt": "DNE if it does not exist"
+      }
+     },
+     {
+      "label": "d. $f'(2)$",
+      "answer": {
+       "kind": "number",
+       "value": "DNE",
+       "prompt": "DNE if it does not exist"
+      }
+     },
+     {
+      "label": "e. $f'(3)$",
+      "answer": {
+       "kind": "number",
+       "value": "2",
+       "prompt": "DNE if it does not exist"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph is three segments: $(-3,0)\\to(0,3)$ with slope $1$, $(0,3)\\to(2,1)$ with slope $-1$, $(2,1)\\to(4,5)$ with slope $2$."
+     },
+     {
+      "type": "p",
+      "text": "a. $1$; b. DNE (corner at $0$); c. $-1$; d. DNE (corner at $2$); e. $2$."
+     }
+    ]
+   },
+   "hints": [
+    "On a segment the derivative is the segment's slope.",
+    "At a corner the derivative does not exist."
+   ],
+   "steps": [
+    "Slopes $1$, $-1$, $2$ on the three segments",
+    "Corners at $x=0$ and $x=2$: DNE"
+   ]
   },
   {
    "id": "e81",
@@ -1340,9 +1949,16 @@
     ]
    },
    "answer": {
-    "kind": "number",
+    "kind": "expression",
     "value": "0"
-   }
+   },
+   "hints": [
+    "First find $f'(x)$, then apply the definition again to $f'$."
+   ],
+   "steps": [
+    "$f'(x)=-3$",
+    "$f''(x)=0$"
+   ]
   },
   {
    "id": "e82",
@@ -1353,7 +1969,7 @@
      "text": "$f(x)=4x^{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737933589",
    "instructions": [
     {
@@ -1361,7 +1977,52 @@
      "text": "For the following functions, use $f''(x)=\\lim_{h\\to 0}\\frac{f'(x+h)-f'(x)}{h}$ to find $f''(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "8"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=8x$ (Exercise 57). Then $f''(x)=\\lim_{h\\to0}\\dfrac{8(x+h)-8x}{h}=8$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(4*x**2,x,2)"
+   },
+   "hints": [
+    "First find $f'(x)$, then apply the definition again to $f'$."
+   ],
+   "steps": [
+    "$f'(x)=8x$",
+    "$f''(x)=8$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": -9,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f''(x)$ for $f(x)={{a}}x^2+{{b}}x$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{2*a}}"
+    }
+   }
   },
   {
    "id": "e83",
@@ -1392,7 +2053,14 @@
    "answer": {
     "kind": "expression",
     "value": "(2/(x^3))"
-   }
+   },
+   "hints": [
+    "First find $f'(x)$, then apply the definition again to $f'$."
+   ],
+   "steps": [
+    "$f'(x)=1-\\dfrac1{x^2}$",
+    "$f''(x)=\\lim\\dfrac{-\\frac1{(x+h)^2}+\\frac1{x^2}}{h}=\\dfrac2{x^3}$"
+   ]
   },
   {
    "id": "e84",
@@ -1403,7 +2071,7 @@
      "text": "**[T]** $f(x)=-\\frac{5}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738186974",
    "instructions": [
     {
@@ -1411,7 +2079,33 @@
      "text": "For the following exercises, use a calculator to graph $f(x).$ Determine the function $f'(x),$ then use a calculator to graph $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "5/x^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\lim_{h\\to0}\\dfrac{-\\frac5{x+h}+\\frac5x}{h}=\\lim_{h\\to0}\\dfrac{5}{x(x+h)}=\\dfrac5{x^2}$."
+     },
+     {
+      "type": "p",
+      "text": "$f$ is a hyperbola in quadrants II and IV; $f'=\\frac5{x^2}$ is always positive (both branches of $f$ increase), with a vertical asymptote at $x=0$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(-5/x,x)"
+   },
+   "hints": [
+    "Use the limit definition (or the patterns you've found: the derivative of $x^n$ is $nx^{n-1}$)."
+   ],
+   "steps": [
+    "$\\dfrac{5}{x(x+h)}\\to\\dfrac5{x^2}$"
+   ]
   },
   {
    "id": "e85",
@@ -1422,7 +2116,7 @@
      "text": "**[T]** $f(x)=3x^{2}+2x+4.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738187055",
    "instructions": [
     {
@@ -1446,7 +2140,18 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "expression",
+    "value": "6x+2"
+   },
+   "hints": [
+    "Use the limit definition (or the patterns you've found: the derivative of $x^n$ is $nx^{n-1}$)."
+   ],
+   "steps": [
+    "$\\dfrac{3(x+h)^2+2(x+h)+4-(3x^2+2x+4)}{h}=6x+3h+2$",
+    "$f'(x)=6x+2$"
+   ]
   },
   {
    "id": "e86",
@@ -1457,7 +2162,7 @@
      "text": "**[T]** $f(x)=\\sqrt{x}+3x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738225808",
    "instructions": [
     {
@@ -1465,7 +2170,40 @@
      "text": "For the following exercises, use a calculator to graph $f(x).$ Determine the function $f'(x),$ then use a calculator to graph $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "1/(2sqrt(x))+3",
+    "domain": {
+     "x": [
+      0.5,
+      10
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\dfrac{1}{2\\sqrt x}+3$ (the derivative of $\\sqrt x$ plus the derivative of $3x$)."
+     },
+     {
+      "type": "p",
+      "text": "$f'$ is defined for $x>0$, decreasing toward the asymptote $y=3$, and blows up as $x\\to0^+$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sqrt(x)+3*x,x)"
+   },
+   "hints": [
+    "Use the limit definition (or the patterns you've found: the derivative of $x^n$ is $nx^{n-1}$)."
+   ],
+   "steps": [
+    "$(\\sqrt x)'=\\dfrac1{2\\sqrt x}$, $(3x)'=3$",
+    "$f'(x)=\\dfrac1{2\\sqrt x}+3$"
+   ]
   },
   {
    "id": "e87",
@@ -1476,7 +2214,7 @@
      "text": "**[T]** $f(x)=\\frac{1}{\\sqrt{2x}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738225897",
    "instructions": [
     {
@@ -1500,7 +2238,24 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "expression",
+    "value": "-1/(2x)^(3/2)",
+    "domain": {
+     "x": [
+      0.5,
+      10
+     ]
+    }
+   },
+   "hints": [
+    "Use the limit definition (or the patterns you've found: the derivative of $x^n$ is $nx^{n-1}$)."
+   ],
+   "steps": [
+    "$f(x)=(2x)^{-1/2}$",
+    "$f'(x)=-\\dfrac{1}{(2x)^{3/2}}$"
+   ]
   },
   {
    "id": "e88",
@@ -1511,7 +2266,7 @@
      "text": "**[T]** $f(x)=1+x+\\frac{1}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738054414",
    "instructions": [
     {
@@ -1519,7 +2274,29 @@
      "text": "For the following exercises, use a calculator to graph $f(x).$ Determine the function $f'(x),$ then use a calculator to graph $f'(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "1-1/x^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=0+1-\\dfrac1{x^2}=1-\\dfrac1{x^2}$ (see Exercise 62)."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(1+x+1/x,x)"
+   },
+   "hints": [
+    "Use the limit definition (or the patterns you've found: the derivative of $x^n$ is $nx^{n-1}$)."
+   ],
+   "steps": [
+    "$f'(x)=1-\\dfrac1{x^2}$"
+   ]
   },
   {
    "id": "e89",
@@ -1530,7 +2307,7 @@
      "text": "**[T]** $f(x)=x^{3}+1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738054510",
    "instructions": [
     {
@@ -1554,7 +2331,18 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "expression",
+    "value": "3x^2"
+   },
+   "hints": [
+    "Use the limit definition (or the patterns you've found: the derivative of $x^n$ is $nx^{n-1}$)."
+   ],
+   "steps": [
+    "$\\dfrac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2$",
+    "$f'(x)=3x^2$"
+   ]
   },
   {
    "id": "e90",
@@ -1582,7 +2370,20 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The average rate of change of the population (people per year) between year $x$ and year $x+h$."
+     },
+     {
+      "type": "p",
+      "text": "b. The instantaneous rate at which the population is changing (people per year) at time $x$."
+     }
+    ]
+   }
   },
   {
    "id": "e91",
@@ -1647,7 +2448,20 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The average cost per additional clock radio (thousands of dollars per radio) when production goes from $x$ to $x+h$ radios."
+     },
+     {
+      "type": "p",
+      "text": "b. The marginal cost: the rate at which total cost changes (thousands of dollars per radio) when $x$ radios are being made."
+     }
+    ]
+   }
   },
   {
    "id": "e93",
@@ -1712,7 +2526,20 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The average rate of change of the textbook price (dollars per year) between $x$ and $x+h$ years after 1990."
+     },
+     {
+      "type": "p",
+      "text": "b. The instantaneous rate at which the price is changing (dollars per year) $x$ years after 1990."
+     }
+    ]
+   }
   },
   {
    "id": "e95",
@@ -1790,7 +2617,20 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary. Start near $y=0$ on the far left; rise through $(0,1)$; have a corner (or cusp) at $x=1$ where the curve turns down, so $f'(1)$ does not exist; come back to a horizontal tangent at $(2,2)$ with the curve rising on both sides of $x=2$ (a flat inflection point); then rise without bound."
+     },
+     {
+      "type": "p",
+      "text": "(One way to satisfy $f'(x)>0$ near $2$ and $f'(2)=0$ is a shape like $y=2+(x-2)^3$ near $x=2$.)"
+     }
+    ]
+   }
   },
   {
    "id": "e97",
@@ -1857,7 +2697,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738197948",
    "instructions": [
     {
@@ -1874,7 +2714,36 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "5",
+    "prompt": "part c: approximate change in profit, in thousands of dollars"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The average change in profit per extra unit sold (thousand dollars per unit) between $a$ and $b$ units."
+     },
+     {
+      "type": "p",
+      "text": "b. The marginal profit: the rate of change of profit (thousand dollars per unit) when $x$ units are sold."
+     },
+     {
+      "type": "p",
+      "text": "c. About $P'(30)\\cdot1=5$ thousand dollars, i.e. about \\$5000."
+     }
+    ]
+   },
+   "hints": [
+    "$P'(30)$ is the change in profit per extra unit near $30$ units."
+   ],
+   "steps": [
+    "Change $\\approx P'(30)\\times1$",
+    "$=5$ thousand dollars"
+   ]
   },
   {
    "id": "e99",
@@ -1979,7 +2848,16 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(t)$ is the vertical velocity of the rocket at time $t$: how fast its height is changing, in meters per second."
+     }
+    ]
+   }
   },
   {
    "id": "e101",
@@ -1990,7 +2868,7 @@
      "text": "**[T]** Construct a table of values for $h'(t)$ and graph both $h(t)$ and $h'(t)$ on the same graph. (*Hint:* for **interior points**, estimate both the left limit and right limit and average them. An interior point of an interval I is an element of I which is not an endpoint of I.)"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738039259",
    "instructions": [
     {
@@ -2069,7 +2947,63 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$h'(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "$h'(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "$h'(2)$",
+      "answer": {
+       "kind": "number",
+       "value": "5.5"
+      }
+     },
+     {
+      "label": "$h'(3)$",
+      "answer": {
+       "kind": "number",
+       "value": "10.5"
+      }
+     },
+     {
+      "label": "$h'(4)$",
+      "answer": {
+       "kind": "number",
+       "value": "9.5"
+      }
+     },
+     {
+      "label": "$h'(5)$",
+      "answer": {
+       "kind": "number",
+       "value": "7"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "At an interior time, average the slopes to the left and to the right.",
+    "At the endpoints use the one slope you have."
+   ],
+   "steps": [
+    "$t=1$: left slope $2$, right slope $2$: $2$",
+    "$t=2$: $\\frac{2+9}{2}=5.5$; $t=3$: $\\frac{9+12}{2}=10.5$",
+    "$t=4$: $\\frac{12+7}2=9.5$; endpoints: $2$ and $7$"
+   ]
   },
   {
    "id": "e102",
@@ -2080,7 +3014,7 @@
      "text": "**[T]** The best linear fit to the data is given by $H(t)=7.229t-4.905,$ where $H$ is the height of the rocket (in meters) and $t$ is the time elapsed since takeoff. From this equation, determine $H'(t).$ Graph $H(t)$ with the given data and, on a separate coordinate plane, graph $H'(t).$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738220747",
    "instructions": [
     {
@@ -2121,7 +3055,29 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "7.229"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$H(t)=7.229t-4.905$ is linear, so $H'(t)=7.229$ m/s: the graph of $H'$ is the horizontal line $y=7.229$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(Rational(7229,1000)*x-Rational(4905,1000),x)"
+   },
+   "hints": [
+    "The derivative of $mt+b$ is $m$."
+   ],
+   "steps": [
+    "$H'(t)=7.229$"
+   ]
   },
   {
    "id": "e103",
@@ -2132,7 +3088,7 @@
      "text": "**[T]** The best quadratic fit to the data is given by $G(t)=1.429t^{2}+0.0857t-0.1429,$ where $G$ is the height of the rocket (in meters) and $t$ is the time elapsed since takeoff. From this equation, determine $G'(t).$ Graph $G(t)$ with the given data and, on a separate coordinate plane, graph $G'(t).$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738220895",
    "instructions": [
     {
@@ -2196,7 +3152,18 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "expression",
+    "value": "2.858t+0.0857"
+   },
+   "hints": [
+    "Differentiate term by term: $(at^2)'=2at$, $(bt)'=b$."
+   ],
+   "steps": [
+    "$G'(t)=2(1.429)t+0.0857$",
+    "$=2.858t+0.0857$"
+   ]
   },
   {
    "id": "e104",
@@ -2207,7 +3174,7 @@
      "text": "**[T]** The best cubic fit to the data is given by $F(t)=0.2037t^{3}+2.956t^{2}-2.705t+0.4683,$ where $F$ is the height of the rocket (in m) and $t$ is the time elapsed since take off. From this equation, determine $F'(t).$ Graph $F(t)$ with the given data and, on a separate coordinate plane, graph $F'(t).$ Does the linear, quadratic, or cubic function fit the data best?"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737922969",
    "instructions": [
     {
@@ -2248,7 +3215,54 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$F'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0.6111t^2+5.912t-2.705"
+      }
+     },
+     {
+      "label": "best fit",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "linear",
+        "quadratic",
+        "cubic"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$F'(t)=3(0.2037)t^2+2(2.956)t-2.705=0.6111t^2+5.912t-2.705$."
+     },
+     {
+      "type": "p",
+      "text": "The cubic passes closest to the data points (it has the most freedom), so it fits best."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(Rational(2037,10000)*t**3+Rational(2956,1000)*t**2-Rational(2705,1000)*t+Rational(4683,10000),t)"
+   },
+   "hints": [
+    "Differentiate term by term."
+   ],
+   "steps": [
+    "$F'(t)=0.6111t^2+5.912t-2.705$",
+    "The cubic fits best"
+   ]
   },
   {
    "id": "e105",
@@ -2259,7 +3273,7 @@
      "text": "Using the best linear, quadratic, and cubic fits to the data, determine what $H''(t),G''(t)\\,\\text{and}\\,F''(t)$ are. What are the physical meanings of $H''(t),G''(t)\\,\\text{and}\\,F''(t),$ and what are their units?"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738227120",
    "instructions": [
     {
@@ -2309,7 +3323,40 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$H''(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0"
+      }
+     },
+     {
+      "label": "$G''(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "2.858"
+      }
+     },
+     {
+      "label": "$F''(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "1.2222t+5.912"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Differentiate the first derivatives once more."
+   ],
+   "steps": [
+    "$H''=0$, $G''=2.858$",
+    "$F''=1.2222t+5.912$ (m/s²): the acceleration"
+   ]
   }
  ],
  "proofs": [

@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Find the derivatives of the sine and cosine function.",
@@ -639,6 +639,36 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$v(5\\pi/6)$",
+      "answer": {
+       "kind": "number",
+       "value": "-sqrt(3)"
+      }
+     },
+     {
+      "label": "$a(5\\pi/6)$",
+      "answer": {
+       "kind": "number",
+       "value": "-1"
+      }
+     },
+     {
+      "label": "the block is",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "speeding up",
+        "slowing down"
+       ],
+       "correct": 0
+      }
+     }
+    ]
    }
   },
   {
@@ -731,6 +761,36 @@
    "answer": {
     "kind": "expression",
     "value": "2 x- sec x tan x"
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed."
+   ],
+   "steps": [
+    "$(x^2)'=2x$, $(\\sec x)'=\\sec x\\tan x$",
+    "$2x-\\sec x\\tan x$"
+   ],
+   "variant": {
+    "params": {
+     "n": {
+      "min": 2,
+      "max": 6
+     },
+     "a": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $\\dfrac{dy}{dx}$ for $y=x^{ {{n}} }-{{a}}\\sec x$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{n}}x^{{n-1}}-{{a}} sec x tan x"
+    }
    }
   },
   {
@@ -742,7 +802,7 @@
      "text": "$y=3\\,\\csc \\,x+\\frac{5}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736597729",
    "instructions": [
     {
@@ -750,7 +810,53 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-3csc x cot x-5/x^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{dx}=-3\\csc x\\cot x-\\dfrac{5}{x^2}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(3*csc(x)+5/x,x)"
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed."
+   ],
+   "steps": [
+    "$(3\\csc x)'=-3\\csc x\\cot x$",
+    "$(5x^{-1})'=-5x^{-2}$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $\\dfrac{dy}{dx}$ for $y={{a}}\\csc x+\\dfrac{ {{b}} }{x}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "-{{a}}csc x cot x-{{b}}/x^2"
+    }
+   }
   },
   {
    "id": "e177",
@@ -781,7 +887,14 @@
    "answer": {
     "kind": "expression",
     "value": "2 x cot x-x^2 csc^2 x"
-   }
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed."
+   ],
+   "steps": [
+    "Product rule: $2x\\cot x+x^2(-\\csc^2x)$"
+   ]
   },
   {
    "id": "e178",
@@ -792,7 +905,7 @@
      "text": "$y=x-x^{3}\\sin \\,x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736658614",
    "instructions": [
     {
@@ -800,7 +913,31 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "1-3x^2 sin x-x^3 cos x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Product rule on $x^3\\sin x$: $\\dfrac{dy}{dx}=1-(3x^2\\sin x+x^3\\cos x)=1-3x^2\\sin x-x^3\\cos x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x-x**3*sin(x),x)"
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed."
+   ],
+   "steps": [
+    "$(x^3\\sin x)'=3x^2\\sin x+x^3\\cos x$",
+    "$1-3x^2\\sin x-x^3\\cos x$"
+   ]
   },
   {
    "id": "e179",
@@ -831,7 +968,14 @@
    "answer": {
     "kind": "expression",
     "value": "((x sec x tan x- sec x)/(x^2))"
-   }
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed."
+   ],
+   "steps": [
+    "Quotient rule: $\\dfrac{x\\sec x\\tan x-\\sec x\\cdot1}{x^2}$"
+   ]
   },
   {
    "id": "e180",
@@ -842,7 +986,7 @@
      "text": "$y=\\sin \\,x\\,\\tan \\,x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739275253",
    "instructions": [
     {
@@ -850,7 +994,31 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "sin x+sin x sec^2 x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{dx}=\\cos x\\tan x+\\sin x\\sec^2x=\\sin x+\\sin x\\sec^2x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sin(x)*tan(x),x)"
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed."
+   ],
+   "steps": [
+    "$\\cos x\\tan x+\\sin x\\sec^2x$",
+    "$\\cos x\\tan x=\\sin x$"
+   ]
   },
   {
    "id": "e181",
@@ -881,7 +1049,15 @@
    "answer": {
     "kind": "expression",
     "value": "(1- sin x)(1- sin x)- cos x(x+ cos x)"
-   }
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed."
+   ],
+   "steps": [
+    "$(x+\\cos x)'=1-\\sin x$, $(1-\\sin x)'=-\\cos x$",
+    "$(1-\\sin x)^2-\\cos x(x+\\cos x)$"
+   ]
   },
   {
    "id": "e182",
@@ -892,7 +1068,7 @@
      "text": "$y=\\frac{\\tan \\,x}{1-\\sec \\,x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739303738",
    "instructions": [
     {
@@ -900,7 +1076,37 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "sec x/(sec x-1)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Quotient rule: $\\dfrac{dy}{dx}=\\dfrac{\\sec^2x(1-\\sec x)-\\tan x(-\\sec x\\tan x)}{(1-\\sec x)^2}=\\dfrac{\\sec^2x-\\sec^3x+\\sec x\\tan^2x}{(1-\\sec x)^2}$."
+     },
+     {
+      "type": "p",
+      "text": "With $\\tan^2x=\\sec^2x-1$ the numerator is $\\sec^2x-\\sec x=\\sec x(\\sec x-1)$, so $\\dfrac{dy}{dx}=\\dfrac{\\sec x}{\\sec x-1}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(tan(x)/(1-sec(x)),x)"
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed.",
+    "Use $\\tan^2x=\\sec^2x-1$ to simplify."
+   ],
+   "steps": [
+    "$\\dfrac{\\sec^2x(1-\\sec x)+\\sec x\\tan^2x}{(1-\\sec x)^2}$",
+    "Numerator $=\\sec x(\\sec x-1)$",
+    "$\\dfrac{\\sec x}{\\sec x-1}$"
+   ]
   },
   {
    "id": "e183",
@@ -931,7 +1137,15 @@
    "answer": {
     "kind": "expression",
     "value": "((2 csc^2 x)/((1+ cot x)^2))"
-   }
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed."
+   ],
+   "steps": [
+    "$\\dfrac{\\csc^2x(1+\\cot x)+(1-\\cot x)\\csc^2x}{(1+\\cot x)^2}$",
+    "$=\\dfrac{2\\csc^2x}{(1+\\cot x)^2}$"
+   ]
   },
   {
    "id": "e184",
@@ -942,7 +1156,7 @@
      "text": "$y=\\cos \\,x(1+\\csc \\,x)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736593529",
    "instructions": [
     {
@@ -950,7 +1164,32 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-sin x-csc^2 x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=\\cos x+\\cos x\\csc x=\\cos x+\\cot x$, so $\\dfrac{dy}{dx}=-\\sin x-\\csc^2x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(cos(x)*(1+csc(x)),x)"
+   },
+   "hints": [
+    "$(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$, $(\\cot x)'=-\\csc^2x$, $(\\sec x)'=\\sec x\\tan x$, $(\\csc x)'=-\\csc x\\cot x$.",
+    "Combine with the product and quotient rules as needed.",
+    "Simplify first: $\\cos x\\csc x=\\cot x$."
+   ],
+   "steps": [
+    "$y=\\cos x+\\cot x$",
+    "$-\\sin x-\\csc^2x$"
+   ]
   },
   {
    "id": "e185",
@@ -961,7 +1200,7 @@
      "text": "**[T]** $f(x)=-\\sin \\,x,x=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736593674",
    "instructions": [
     {
@@ -985,7 +1224,19 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-x"
+   },
+   "hints": [
+    "Point: $(a,f(a))$; slope: $f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f(0)=0$, $f'(x)=-\\cos x$, $f'(0)=-1$",
+    "$y=-x$"
+   ]
   },
   {
    "id": "e186",
@@ -996,7 +1247,7 @@
      "text": "**[T]** $f(x)=\\csc \\,x,x=\\frac{\\pi}{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739266669",
    "instructions": [
     {
@@ -1004,7 +1255,35 @@
      "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=1"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(\\frac\\pi2)=\\csc\\frac\\pi2=1$ and $f'(x)=-\\csc x\\cot x$, so $f'(\\frac\\pi2)=-1\\cdot0=0$."
+     },
+     {
+      "type": "p",
+      "text": "The tangent line is horizontal: $y=1$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "1-y"
+   },
+   "hints": [
+    "Point: $(a,f(a))$; slope: $f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f(\\frac\\pi2)=1$, $f'(\\frac\\pi2)=0$",
+    "$y=1$"
+   ]
   },
   {
    "id": "e187",
@@ -1015,7 +1294,7 @@
      "text": "**[T]** $f(x)=1+\\cos \\,x,x=\\frac{3\\pi}{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739266742",
    "instructions": [
     {
@@ -1039,7 +1318,19 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "equation",
+    "value": "y=x+(2-3pi)/2"
+   },
+   "hints": [
+    "Point: $(a,f(a))$; slope: $f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f(\\frac{3\\pi}2)=1$, $f'=-\\sin x$, $f'(\\frac{3\\pi}2)=1$",
+    "$y-1=x-\\frac{3\\pi}2$"
+   ]
   },
   {
    "id": "e188",
@@ -1050,7 +1341,7 @@
      "text": "**[T]** $f(x)=\\sec \\,x,x=\\frac{\\pi}{4}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736655200",
    "instructions": [
     {
@@ -1058,7 +1349,35 @@
      "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=sqrt(2)x+sqrt(2)-sqrt(2)pi/4"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(\\frac\\pi4)=\\sqrt2$ and $f'(\\frac\\pi4)=\\sec\\frac\\pi4\\tan\\frac\\pi4=\\sqrt2$."
+     },
+     {
+      "type": "p",
+      "text": "$y-\\sqrt2=\\sqrt2\\left(x-\\frac\\pi4\\right)$, i.e. $y=\\sqrt2x+\\sqrt2-\\frac{\\sqrt2\\pi}{4}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "sqrt(2)*x+sqrt(2)-sqrt(2)*pi/4-y"
+   },
+   "hints": [
+    "Point: $(a,f(a))$; slope: $f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f(\\frac\\pi4)=\\sqrt2$, slope $\\sqrt2\\cdot1=\\sqrt2$",
+    "$y=\\sqrt2(x-\\frac\\pi4)+\\sqrt2$"
+   ]
   },
   {
    "id": "e189",
@@ -1069,7 +1388,7 @@
      "text": "**[T]** $f(x)=x^{2}-\\tan \\,x,\\,x=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736655301",
    "instructions": [
     {
@@ -1093,7 +1412,19 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-x"
+   },
+   "hints": [
+    "Point: $(a,f(a))$; slope: $f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f(0)=0$, $f'=2x-\\sec^2x$, $f'(0)=-1$",
+    "$y=-x$"
+   ]
   },
   {
    "id": "e190",
@@ -1104,7 +1435,7 @@
      "text": "**[T]** $f(x)=5\\,\\cot \\,x,\\,x=\\frac{\\pi}{4}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739305492",
    "instructions": [
     {
@@ -1112,7 +1443,35 @@
      "text": "For the following exercises, find an equation of the tangent line to each of the given functions at the indicated values of $x.$ Then use a calculator to graph both the function and the tangent line to ensure the equation for the tangent line is correct."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-10x+5pi/2+5"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(\\frac\\pi4)=5$ and $f'(x)=-5\\csc^2x$, so $f'(\\frac\\pi4)=-5(2)=-10$."
+     },
+     {
+      "type": "p",
+      "text": "$y-5=-10\\left(x-\\frac\\pi4\\right)$: $y=-10x+\\frac{5\\pi}2+5$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-10*x+5*pi/2+5-y"
+   },
+   "hints": [
+    "Point: $(a,f(a))$; slope: $f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f(\\frac\\pi4)=5$, slope $-10$",
+    "$y=-10x+\\frac{5\\pi}{2}+5$"
+   ]
   },
   {
    "id": "e191",
@@ -1143,7 +1502,15 @@
    "answer": {
     "kind": "expression",
     "value": "3 cos x-x sin x"
-   }
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$y'=\\sin x+x\\cos x+\\sin x=2\\sin x+x\\cos x$",
+    "$y''=2\\cos x+\\cos x-x\\sin x=3\\cos x-x\\sin x$"
+   ]
   },
   {
    "id": "e192",
@@ -1154,7 +1521,7 @@
      "text": "$y=\\sin \\,x\\,\\cos \\,x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736662308",
    "instructions": [
     {
@@ -1162,7 +1529,31 @@
      "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-4sin x cos x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=\\cos^2x-\\sin^2x$, so $y''=-2\\cos x\\sin x-2\\sin x\\cos x=-4\\sin x\\cos x\\ (=-2\\sin2x)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sin(x)*cos(x),x,2)"
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$y'=\\cos^2x-\\sin^2x$",
+    "$y''=-4\\sin x\\cos x$"
+   ]
   },
   {
    "id": "e193",
@@ -1193,7 +1584,15 @@
    "answer": {
     "kind": "expression",
     "value": "(1/2) sin x"
-   }
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$y'=1-\\frac12\\cos x$",
+    "$y''=\\frac12\\sin x$"
+   ]
   },
   {
    "id": "e194",
@@ -1204,7 +1603,7 @@
      "text": "$y=\\frac{1}{x}+\\tan \\,x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736662423",
    "instructions": [
     {
@@ -1212,7 +1611,32 @@
      "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "2/x^3+2sec^2 x tan x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=-\\dfrac1{x^2}+\\sec^2x$ and $y''=\\dfrac{2}{x^3}+2\\sec x\\cdot\\sec x\\tan x=\\dfrac2{x^3}+2\\sec^2x\\tan x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(1/x+tan(x),x,2)"
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps.",
+    "$(\\sec^2x)'=2\\sec x\\cdot\\sec x\\tan x$ (product rule on $\\sec x\\cdot\\sec x$)."
+   ],
+   "steps": [
+    "$y'=-x^{-2}+\\sec^2x$",
+    "$y''=2x^{-3}+2\\sec^2x\\tan x$"
+   ]
   },
   {
    "id": "e195",
@@ -1243,7 +1667,15 @@
    "answer": {
     "kind": "expression",
     "value": "2 csc x(csc^2 x+ cot^2 x)"
-   }
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$y'=-2\\csc x\\cot x$",
+    "$y''=2\\csc x\\cot^2x+2\\csc^3x=2\\csc x(\\csc^2x+\\cot^2x)$"
+   ]
   },
   {
    "id": "e196",
@@ -1254,7 +1686,7 @@
      "text": "$y=\\sec^{2}x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739303516",
    "instructions": [
     {
@@ -1262,7 +1694,35 @@
      "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "4sec^2 x tan^2 x+2sec^4 x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=2\\sec x\\cdot\\sec x\\tan x=2\\sec^2x\\tan x$."
+     },
+     {
+      "type": "p",
+      "text": "$y''=4\\sec^2x\\tan x\\cdot\\tan x+2\\sec^2x\\cdot\\sec^2x=4\\sec^2x\\tan^2x+2\\sec^4x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sec(x)**2,x,2)"
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$y'=2\\sec^2x\\tan x$",
+    "$y''=4\\sec^2x\\tan^2x+2\\sec^4x$"
+   ]
   },
   {
    "id": "e197",
@@ -1273,7 +1733,7 @@
      "text": "Find all $x$ values on the graph of $f(x)=-3\\,\\sin \\,x\\,\\cos \\,x$ where the tangent line is horizontal."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739335809",
    "instructions": [
     {
@@ -1290,7 +1750,19 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "list",
+    "value": "pi/4, 3pi/4",
+    "prompt": "the solutions in [0, π)"
+   },
+   "hints": [
+    "$f(x)=-\\frac32\\sin2x$; set $f'(x)=0$."
+   ],
+   "steps": [
+    "$f'(x)=-3\\cos2x=0$",
+    "$2x=\\frac\\pi2+n\\pi$: $x=\\frac{(2n+1)\\pi}{4}$; in $[0,\\pi)$: $\\frac\\pi4,\\frac{3\\pi}4$"
+   ]
   },
   {
    "id": "e198",
@@ -1301,7 +1773,7 @@
      "text": "Find all $x$ values on the graph of $f(x)=x-2\\,\\cos \\,x$ for $0<x<2\\pi$ where the tangent line has slope 2."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739335906",
    "instructions": [
     {
@@ -1309,7 +1781,30 @@
      "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "list",
+    "value": "pi/6, 5pi/6"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=1+2\\sin x=2$ gives $\\sin x=\\frac12$, so $x=\\frac\\pi6$ or $x=\\frac{5\\pi}6$ in $(0,2\\pi)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(pi/6, 5*pi/6)"
+   },
+   "hints": [
+    "Set $f'(x)=2$ and solve."
+   ],
+   "steps": [
+    "$1+2\\sin x=2$",
+    "$\\sin x=\\frac12$: $x=\\frac\\pi6,\\frac{5\\pi}6$"
+   ]
   },
   {
    "id": "e199",
@@ -1320,7 +1815,7 @@
      "text": "Let $f(x)=\\cot \\,x.$ Determine the points on the graph of $f$ for $0<x<2\\pi$ where the tangent line(s) is (are) parallel to the line $y=-2x.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739335992",
    "instructions": [
     {
@@ -1337,7 +1832,19 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "list",
+    "value": "pi/4, 3pi/4, 5pi/4, 7pi/4",
+    "prompt": "the x-coordinates"
+   },
+   "hints": [
+    "Parallel to $y=-2x$ means slope $-2$: solve $f'(x)=-\\csc^2x=-2$."
+   ],
+   "steps": [
+    "$\\csc^2x=2$, $\\sin x=\\pm\\frac{1}{\\sqrt2}$",
+    "$x=\\frac\\pi4,\\frac{3\\pi}4,\\frac{5\\pi}4,\\frac{7\\pi}4$ (points with $y=\\pm1$)"
+   ]
   },
   {
    "id": "e200",
@@ -1348,7 +1855,7 @@
      "text": "**[T]** A mass on a spring bounces up and down in simple harmonic motion, modeled by the function $s(t)=-6\\,\\cos \\,t$ where $s$ is measured in inches and $t$ is measured in seconds. Find the rate at which the spring is oscillating at $t=5$ s."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736613947",
    "instructions": [
     {
@@ -1356,7 +1863,31 @@
      "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "6sin(5)",
+    "prompt": "in inches per second"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$s'(t)=6\\sin t$, so $s'(5)=6\\sin5\\approx-5.754$ in/s."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "6*sin(5)"
+   },
+   "hints": [
+    "The rate is $s'(t)$; use radians."
+   ],
+   "steps": [
+    "$s'(t)=6\\sin t$",
+    "$6\\sin5\\approx-5.754$ in/s"
+   ]
   },
   {
    "id": "e201",
@@ -1367,7 +1898,7 @@
      "text": "Let the position of a swinging pendulum in simple harmonic motion be given by $s(t)=a\\,\\cos \\,t+b\\,\\sin \\,t$ where $a$ and $b$ are constants, $t$ measures time in seconds, and $s$ measures position in centimeters. If the position is 0 cm and the velocity is 3 cm/s when $t=0$, find the values of $a$ and $b$."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736614037",
    "instructions": [
     {
@@ -1384,7 +1915,33 @@
      }
     ]
    },
-   "notes": "self-check: could not classify \"a=0, b=3\""
+   "notes": "self-check: could not classify \"a=0, b=3\"",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$a$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "$b$",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$s(0)=a$ and $s'(0)=b$."
+   ],
+   "steps": [
+    "$s(0)=a=0$",
+    "$s'(t)=-a\\sin t+b\\cos t$, $s'(0)=b=3$"
+   ]
   },
   {
    "id": "e202",
@@ -1408,7 +1965,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739341409",
    "instructions": [
     {
@@ -1416,7 +1973,62 @@
      "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. $v(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "5sin t"
+      }
+     },
+     {
+      "label": "d. times with $v=0$ in $[0,2\\pi]$",
+      "answer": {
+       "kind": "list",
+       "value": "0, pi, 2pi"
+      }
+     },
+     {
+      "label": "e. $a(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "5cos t"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $s(t)=-5\\cos t$ starts at $-5$, rises to $5$ at $t=\\pi$ and returns to $-5$ at $t=2\\pi$."
+     },
+     {
+      "type": "p",
+      "text": "b. $v(t)=5\\sin t$; c. one arch above the axis on $(0,\\pi)$ and one below on $(\\pi,2\\pi)$."
+     },
+     {
+      "type": "p",
+      "text": "d. $v=0$ at $t=0,\\pi,2\\pi$. e. $a(t)=5\\cos t$; f. starts at $5$, down to $-5$ at $\\pi$, back to $5$ at $2\\pi$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(5*sin(t), 0, pi, 2*pi, 5*cos(t))"
+   },
+   "hints": [
+    "$v=s'$, $a=v'$.",
+    "$\\sin t=0$ at multiples of $\\pi$."
+   ],
+   "steps": [
+    "$v=5\\sin t$",
+    "$v=0$: $t=0,\\pi,2\\pi$",
+    "$a=5\\cos t$"
+   ]
   },
   {
    "id": "e203",
@@ -1427,7 +2039,7 @@
      "text": "The number of hamburgers sold at a fast-food restaurant in Pasadena, California, is given by $y=10+5\\,\\sin \\,x$ where $y$ is the number of hamburgers sold and $x$ represents the number of hours after the restaurant opened at 11 a.m. until 11 p.m., when the store closes. Find $y'$ and determine the intervals where the number of burgers being sold is increasing."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739353376",
    "instructions": [
     {
@@ -1444,7 +2056,33 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$y'$",
+      "answer": {
+       "kind": "expression",
+       "value": "5cos x"
+      }
+     },
+     {
+      "label": "increasing on",
+      "answer": {
+       "kind": "set",
+       "value": "(0, pi/2) U (3pi/2, 5pi/2) U (7pi/2, 12)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Increasing where $y'>0$; $0\\le x\\le12$."
+   ],
+   "steps": [
+    "$y'=5\\cos x$",
+    "$\\cos x>0$ on $(0,\\frac\\pi2)\\cup(\\frac{3\\pi}2,\\frac{5\\pi}2)\\cup(\\frac{7\\pi}2,12)$"
+   ]
   },
   {
    "id": "e204",
@@ -1455,7 +2093,7 @@
      "text": "**[T]** The amount of rainfall per month in Phoenix, Arizona, can be approximated by $y(t)=0.5+0.3\\,\\cos \\,t,$ where $t$ is months since January. Find $y'$ and use a calculator to determine the intervals where the amount of rain falling is decreasing."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739307888",
    "instructions": [
     {
@@ -1463,7 +2101,49 @@
      "text": "For the following exercises, find $\\frac{d^{2}y}{dx^{2}}$ for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$y'$",
+      "answer": {
+       "kind": "expression",
+       "value": "-0.3sin t"
+      }
+     },
+     {
+      "label": "decreasing on (for $0\\le t\\le12$)",
+      "answer": {
+       "kind": "set",
+       "value": "(0, pi) U (2pi, 3pi)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'(t)=-0.3\\sin t$, which is negative exactly when $\\sin t>0$."
+     },
+     {
+      "type": "p",
+      "text": "For $0\\le t\\le12$ that is $(0,\\pi)\\cup(2\\pi,3\\pi)\\approx(0,3.14)\\cup(6.28,9.42)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(-Rational(3,10)*sin(t), Union(Interval.open(0,pi), Interval.open(2*pi,3*pi)))"
+   },
+   "hints": [
+    "Decreasing where $y'<0$."
+   ],
+   "steps": [
+    "$y'=-0.3\\sin t$",
+    "$\\sin t>0$ on $(0,\\pi)\\cup(2\\pi,3\\pi)$"
+   ]
   },
   {
    "id": "e205",
@@ -1482,7 +2162,16 @@
      "text": "For the following exercises, use the quotient rule to derive the given equations."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\frac{d}{dx}\\cot x=\\frac{d}{dx}\\frac{\\cos x}{\\sin x}=\\frac{(-\\sin x)\\sin x-\\cos x\\cos x}{\\sin^2x}=\\frac{-(\\sin^2x+\\cos^2x)}{\\sin^2x}=-\\frac{1}{\\sin^2x}=-\\csc^2x."
+     }
+    ]
+   }
   },
   {
    "id": "e206",
@@ -1501,7 +2190,16 @@
      "text": "For the following exercises, use the quotient rule to derive the given equations."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\frac{d}{dx}\\sec x=\\frac{d}{dx}\\frac{1}{\\cos x}=\\frac{0\\cdot\\cos x-1\\cdot(-\\sin x)}{\\cos^2x}=\\frac{\\sin x}{\\cos^2x}=\\frac{1}{\\cos x}\\cdot\\frac{\\sin x}{\\cos x}=\\sec x\\tan x."
+     }
+    ]
+   }
   },
   {
    "id": "e207",
@@ -1520,7 +2218,16 @@
      "text": "For the following exercises, use the quotient rule to derive the given equations."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\frac{d}{dx}\\csc x=\\frac{d}{dx}\\frac{1}{\\sin x}=\\frac{0-\\cos x}{\\sin^2x}=-\\frac{1}{\\sin x}\\cdot\\frac{\\cos x}{\\sin x}=-\\csc x\\cot x."
+     }
+    ]
+   }
   },
   {
    "id": "e208",
@@ -1543,7 +2250,20 @@
      "text": "For the following exercises, use the quotient rule to derive the given equations."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\frac{d}{dx}\\cos x=\\lim_{h\\to0}\\frac{\\cos x\\cos h-\\sin x\\sin h-\\cos x}{h}=\\cos x\\lim_{h\\to0}\\frac{\\cos h-1}{h}-\\sin x\\lim_{h\\to0}\\frac{\\sin h}{h}."
+     },
+     {
+      "type": "p",
+      "text": "Using $\\lim_{h\\to0}\\frac{\\cos h-1}{h}=0$ and $\\lim_{h\\to0}\\frac{\\sin h}{h}=1$, this is $\\cos x\\cdot0-\\sin x\\cdot1=-\\sin x$."
+     }
+    ]
+   }
   },
   {
    "id": "e209",
@@ -1574,6 +2294,43 @@
    "answer": {
     "kind": "expression",
     "value": "3 sin x"
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$-3\\sin x$, $-3\\cos x$, $3\\sin x$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "n": {
+      "choices": [
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $\\dfrac{d^{ {{n}} }y}{dx^{ {{n}} }}$ for $y={{a}}\\cos x$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{a}}cos(x+{{n}}pi/2)"
+    }
    }
   },
   {
@@ -1585,7 +2342,7 @@
      "text": "$\\frac{d^{2}y}{dx^{2}}$ of $y=3\\,\\sin \\,x+x^{2}\\cos \\,x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739289409",
    "instructions": [
     {
@@ -1593,7 +2350,35 @@
      "text": "For the following exercises, find the requested higher-order derivative for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-3sin x+2cos x-4x sin x-x^2 cos x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=3\\cos x+2x\\cos x-x^2\\sin x$."
+     },
+     {
+      "type": "p",
+      "text": "$y''=-3\\sin x+2\\cos x-2x\\sin x-2x\\sin x-x^2\\cos x=-3\\sin x+2\\cos x-4x\\sin x-x^2\\cos x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(3*sin(x)+x**2*cos(x),x,2)"
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$y'=3\\cos x+2x\\cos x-x^2\\sin x$",
+    "$y''=-3\\sin x+2\\cos x-4x\\sin x-x^2\\cos x$"
+   ]
   },
   {
    "id": "e211",
@@ -1624,7 +2409,15 @@
    "answer": {
     "kind": "expression",
     "value": "5 cos x"
-   }
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "Four derivatives of $\\cos x$ bring you back to $\\cos x$",
+    "$5\\cos x$"
+   ]
   },
   {
    "id": "e212",
@@ -1635,7 +2428,7 @@
      "text": "$\\frac{d^{2}y}{dx^{2}}$ of $y=\\sec \\,x+\\cot \\,x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736592536",
    "instructions": [
     {
@@ -1643,7 +2436,35 @@
      "text": "For the following exercises, find the requested higher-order derivative for the given functions."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "sec x tan^2 x+sec^3 x+2csc^2 x cot x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=\\sec x\\tan x-\\csc^2x$."
+     },
+     {
+      "type": "p",
+      "text": "$y''=\\sec x\\tan x\\cdot\\tan x+\\sec x\\cdot\\sec^2x+2\\csc x\\cdot\\csc x\\cot x=\\sec x\\tan^2x+\\sec^3x+2\\csc^2x\\cot x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sec(x)+cot(x),x,2)"
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$y'=\\sec x\\tan x-\\csc^2x$",
+    "$y''=\\sec x\\tan^2x+\\sec^3x+2\\csc^2x\\cot x$"
+   ]
   },
   {
    "id": "e213",
@@ -1674,7 +2495,16 @@
    "answer": {
     "kind": "expression",
     "value": "720 x^7-5 tan (x) sec^3 (x)- tan^3 (x) sec (x)"
-   }
+   },
+   "hints": [
+    "Differentiate one step at a time.",
+    "The derivatives of $\\sin$ and $\\cos$ repeat every four steps."
+   ],
+   "steps": [
+    "$y'=10x^9-\\sec x\\tan x$",
+    "$y''=90x^8-\\sec x\\tan^2x-\\sec^3x$",
+    "$y'''=720x^7-5\\sec^3x\\tan x-\\sec x\\tan^3x$"
+   ]
   }
  ],
  "proofs": [

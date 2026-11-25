@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Find the derivative of a complicated function by using implicit differentiation.",
@@ -430,7 +430,7 @@
      "text": "$x^{2}-y^{2}=4$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738212639",
    "instructions": [
     {
@@ -438,7 +438,54 @@
      "text": "For the following exercises, use implicit differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "x/y",
+    "prompt": "in terms of x and y"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2x-2yy'=0$, so $\\dfrac{dy}{dx}=\\dfrac xy$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "idiff(x**2-y**2-4, y, x)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$2x-2yy'=0$",
+    "$y'=\\frac xy$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Use implicit differentiation to find $\\dfrac{dy}{dx}$ for ${{a}}x^2+{{b}}y^2=36$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "-{{a}}x/({{b}}y)"
+    }
+   }
   },
   {
    "id": "e301",
@@ -469,6 +516,36 @@
    "answer": {
     "kind": "expression",
     "value": "((-2 x)/y)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$12x+6yy'=0$",
+    "$y'=-\\frac{2x}{y}$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Use implicit differentiation to find $\\dfrac{dy}{dx}$ for ${{a}}x^2-{{b}}y^2=5$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{a}}x/({{b}}y)"
+    }
    }
   },
   {
@@ -480,7 +557,7 @@
      "text": "$x^{2}y=y-7$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738106257",
    "instructions": [
     {
@@ -488,7 +565,32 @@
      "text": "For the following exercises, use implicit differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "2x y/(1-x^2)",
+    "prompt": "in terms of x and y"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2xy+x^2y'=y'$, so $y'(1-x^2)=2xy$ and $\\dfrac{dy}{dx}=\\dfrac{2xy}{1-x^2}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "idiff(x**2*y-y+7, y, x)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$2xy+x^2y'=y'$",
+    "$y'=\\dfrac{2xy}{1-x^2}$"
+   ]
   },
   {
    "id": "e303",
@@ -519,7 +621,15 @@
    "answer": {
     "kind": "expression",
     "value": "(x/(3 y))-(y/(2 x))"
-   }
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$9x^2+9y^2+18xyy'=15x^2$",
+    "$y'=\\dfrac{6x^2-9y^2}{18xy}=\\dfrac{x}{3y}-\\dfrac{y}{2x}$"
+   ]
   },
   {
    "id": "e304",
@@ -530,7 +640,7 @@
      "text": "$xy-\\cos \\,(xy)=1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738223350",
    "instructions": [
     {
@@ -538,7 +648,36 @@
      "text": "For the following exercises, use implicit differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-y/x",
+    "prompt": "in terms of x and y"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$(y+xy')+\\sin(xy)\\,(y+xy')=0$, i.e. $(y+xy')(1+\\sin(xy))=0$."
+     },
+     {
+      "type": "p",
+      "text": "Where $1+\\sin(xy)\\ne0$: $y+xy'=0$, so $\\dfrac{dy}{dx}=-\\dfrac yx$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "idiff(x*y-cos(x*y)-1, y, x)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$(y+xy')(1+\\sin xy)=0$",
+    "$y'=-\\frac yx$"
+   ]
   },
   {
    "id": "e305",
@@ -569,7 +708,15 @@
    "answer": {
     "kind": "expression",
     "value": "((y-(y/(2 sqrt(x+4))))/(sqrt(x+4)-x))"
-   }
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$y'\\sqrt{x+4}+\\dfrac{y}{2\\sqrt{x+4}}=y+xy'$",
+    "$y'(\\sqrt{x+4}-x)=y-\\dfrac{y}{2\\sqrt{x+4}}$"
+   ]
   },
   {
    "id": "e306",
@@ -580,7 +727,7 @@
      "text": "$-xy-2=\\frac{x}{7}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738073148",
    "instructions": [
     {
@@ -588,7 +735,32 @@
      "text": "For the following exercises, use implicit differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-(7y+1)/(7x)",
+    "prompt": "in terms of x and y"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$-y-xy'=\\frac17$, so $\\dfrac{dy}{dx}=-\\dfrac{y+\\frac17}{x}=-\\dfrac{7y+1}{7x}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "idiff(-x*y-2-x/7, y, x)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$-y-xy'=\\frac17$",
+    "$y'=-\\dfrac{7y+1}{7x}$"
+   ]
   },
   {
    "id": "e307",
@@ -619,7 +791,15 @@
    "answer": {
     "kind": "expression",
     "value": "((y^2 cos (x y))/(2 y- sin (x y)-x y cos (x y)))"
-   }
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$y'\\sin(xy)+y\\cos(xy)(y+xy')=2yy'$",
+    "Collect $y'$: $y'(2y-\\sin xy-xy\\cos xy)=y^2\\cos xy$"
+   ]
   },
   {
    "id": "e308",
@@ -630,7 +810,7 @@
      "text": "$(xy)^{2}+3x=y^{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738212451",
    "instructions": [
     {
@@ -638,7 +818,36 @@
      "text": "For the following exercises, use implicit differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(2x y^2+3)/(2y-2x^2 y)",
+    "prompt": "in terms of x and y"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2xy(y+xy')+3=2yy'$, so $2xy^2+2x^2yy'+3=2yy'$."
+     },
+     {
+      "type": "p",
+      "text": "$y'(2y-2x^2y)=2xy^2+3$: $\\dfrac{dy}{dx}=\\dfrac{2xy^2+3}{2y-2x^2y}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "idiff((x*y)**2+3*x-y**2, y, x)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$2xy(y+xy')+3=2yy'$",
+    "$y'=\\dfrac{2xy^2+3}{2y-2x^2y}$"
+   ]
   },
   {
    "id": "e309",
@@ -669,7 +878,15 @@
    "answer": {
     "kind": "expression",
     "value": "((-3 x^2 y-y^3)/(x^3+3 x y^2))"
-   }
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$3x^2y+x^3y'+y^3+3xy^2y'=0$",
+    "$y'=\\dfrac{-3x^2y-y^3}{x^3+3xy^2}$"
+   ]
   },
   {
    "id": "e310",
@@ -680,7 +897,7 @@
      "text": "**[T]** $x^{4}y-xy^{3}=-2,(-1,-1)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738184795",
    "instructions": [
     {
@@ -688,7 +905,35 @@
      "text": "For the following exercises, find an equation of the tangent line to the graph of the given equation at the indicated point. Use a calculator or computer software to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-5x/4-9/4"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$4x^3y+x^4y'-y^3-3xy^2y'=0$. At $(-1,-1)$: $4+y'+1+3y'=0$, so $y'=-\\frac54$."
+     },
+     {
+      "type": "p",
+      "text": "$y+1=-\\frac54(x+1)$: $y=-\\frac54x-\\frac94$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-5*x/4-Rational(9,4)-y"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$."
+   ],
+   "steps": [
+    "At $(-1,-1)$: $4+y'+1+3y'=0$",
+    "$y'=-\\frac54$: $y=-\\frac54x-\\frac94$"
+   ]
   },
   {
    "id": "e311",
@@ -699,7 +944,7 @@
      "text": "**[T]** $x^{2}y^{2}+5xy=14,(2,1)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738184892",
    "instructions": [
     {
@@ -723,7 +968,19 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-x/2+2"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$."
+   ],
+   "steps": [
+    "$2xy^2+2x^2yy'+5y+5xy'=0$; at $(2,1)$: $4+8y'+5+10y'=0$",
+    "$y'=-\\frac12$: $y=-\\frac12x+2$"
+   ]
   },
   {
    "id": "e312",
@@ -734,7 +991,7 @@
      "text": "**[T]** $\\tan \\,(xy)=y,\\left(\\frac{\\pi}{4},1\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738226177",
    "instructions": [
     {
@@ -742,7 +999,35 @@
      "text": "For the following exercises, find an equation of the tangent line to the graph of the given equation at the indicated point. Use a calculator or computer software to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=4(x-pi/4)/(pi-2)+1"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sec^2(xy)(y+xy')=y'$. At $(\\frac\\pi4,1)$, $\\sec^2\\frac\\pi4=2$: $2\\left(1+\\frac\\pi4y'\\right)=y'$, so $y'\\left(1-\\frac\\pi2\\right)=-2$ and $y'=\\dfrac{4}{\\pi-2}$."
+     },
+     {
+      "type": "p",
+      "text": "$y-1=\\dfrac{4}{\\pi-2}\\left(x-\\frac\\pi4\\right)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "4*(x-pi/4)/(pi-2)+1-y"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$."
+   ],
+   "steps": [
+    "$2(1+\\frac\\pi4y')=y'$",
+    "$y'=\\frac{4}{\\pi-2}$"
+   ]
   },
   {
    "id": "e313",
@@ -753,7 +1038,7 @@
      "text": "**[T]** $xy^{2}+\\sin \\,(\\pi y)-2x^{2}=10,(2,-3)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738238122",
    "instructions": [
     {
@@ -777,7 +1062,19 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "equation",
+    "value": "y=x/(pi+12)-(3pi+38)/(pi+12)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$."
+   ],
+   "steps": [
+    "$y^2+2xyy'+\\pi\\cos(\\pi y)y'-4x=0$; at $(2,-3)$: $9-12y'-\\pi y'-8=0$",
+    "$y'=\\frac{1}{\\pi+12}$"
+   ]
   },
   {
    "id": "e314",
@@ -788,7 +1085,7 @@
      "text": "**[T]** $\\frac{x}{y}+5x-7=-\\frac{3}{4}y,(1,2)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738234576",
    "instructions": [
     {
@@ -796,7 +1093,35 @@
      "text": "For the following exercises, find an equation of the tangent line to the graph of the given equation at the indicated point. Use a calculator or computer software to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-11x+13"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{y-xy'}{y^2}+5=-\\frac34y'$. At $(1,2)$: $\\dfrac{2-y'}{4}+5=-\\dfrac34y'$, so $2-y'+20=-3y'$ and $y'=-11$."
+     },
+     {
+      "type": "p",
+      "text": "$y-2=-11(x-1)$: $y=-11x+13$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-11*x+13-y"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$."
+   ],
+   "steps": [
+    "$\\frac{2-y'}{4}+5=-\\frac34y'$",
+    "$y'=-11$: $y=-11x+13$"
+   ]
   },
   {
    "id": "e315",
@@ -807,7 +1132,7 @@
      "text": "**[T]** $xy+\\sin \\,(x)=1,\\left(\\frac{\\pi}{2},0\\right)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738221157",
    "instructions": [
     {
@@ -831,7 +1156,19 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "equation",
+    "value": "y=0"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$."
+   ],
+   "steps": [
+    "$y+xy'+\\cos x=0$; at $(\\frac\\pi2,0)$: $\\frac\\pi2y'=0$",
+    "$y'=0$: $y=0$"
+   ]
   },
   {
    "id": "e316",
@@ -858,7 +1195,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738221240",
    "instructions": [
     {
@@ -866,7 +1203,51 @@
      "text": "For the following exercises, find an equation of the tangent line to the graph of the given equation at the indicated point. Use a calculator or computer software to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. tangent line",
+      "answer": {
+       "kind": "equation",
+       "value": "y=5x/4-3/2"
+      }
+     },
+     {
+      "label": "b. normal line",
+      "answer": {
+       "kind": "equation",
+       "value": "y=-4x/5+13/5"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$6x^2+6y^2y'-9y-9xy'=0$, so $y'=\\dfrac{9y-6x^2}{6y^2-9x}$. At $(2,1)$: $y'=\\dfrac{9-24}{6-18}=\\dfrac54$."
+     },
+     {
+      "type": "p",
+      "text": "a. $y-1=\\frac54(x-2)$: $y=\\frac54x-\\frac32$. b. Normal slope $-\\frac45$: $y-1=-\\frac45(x-2)$, i.e. $y=-\\frac45x+\\frac{13}5$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(5*x/4-Rational(3,2)-y, -4*x/5+Rational(13,5)-y)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$.",
+    "The normal line has slope $-1/m$."
+   ],
+   "steps": [
+    "$y'(2,1)=\\frac54$",
+    "Tangent $y=\\frac54x-\\frac32$; normal $y=-\\frac45x+\\frac{13}5$"
+   ]
   },
   {
    "id": "e317",
@@ -907,21 +1288,30 @@
     "kind": "multi",
     "parts": [
      {
-      "label": "a",
+      "label": "a. normal line",
       "answer": {
        "kind": "equation",
        "value": "y=-x+2"
       }
      },
      {
-      "label": "b",
+      "label": "b. other intersection point",
       "answer": {
        "kind": "vector",
        "value": "(3, -1)"
       }
      }
     ]
-   }
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$.",
+    "The normal line has slope $-1/m$."
+   ],
+   "steps": [
+    "$2x+2y+2xy'-6yy'=0$; at $(1,1)$: $y'=1$",
+    "Normal: $y=-x+2$; substitute into the curve: $x=1$ or $x=3$"
+   ]
   },
   {
    "id": "e318",
@@ -932,7 +1322,7 @@
      "text": "Find all points on the graph of $y^{3}-27y=x^{2}-90$ at which the tangent line is vertical."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738244457",
    "instructions": [
     {
@@ -940,7 +1330,54 @@
      "text": "For the following exercises, find an equation of the tangent line to the graph of the given equation at the indicated point. Use a calculator or computer software to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$x$-values with $y=3$",
+      "answer": {
+       "kind": "list",
+       "value": "6, -6"
+      }
+     },
+     {
+      "label": "$x$-values with $y=-3$",
+      "answer": {
+       "kind": "list",
+       "value": "12, -12"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3y^2y'-27y'=2x$, so $y'=\\dfrac{2x}{3y^2-27}$. The tangent is vertical where the denominator is $0$ (and $x\\ne0$): $y=\\pm3$."
+     },
+     {
+      "type": "p",
+      "text": "$y=3$: $27-81=x^2-90$, $x^2=36$, $x=\\pm6$. $y=-3$: $-27+81=x^2-90$, $x^2=144$, $x=\\pm12$."
+     },
+     {
+      "type": "p",
+      "text": "Points: $(\\pm6,3)$ and $(\\pm12,-3)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(6, -6, 12, -12)"
+   },
+   "hints": [
+    "Find $y'$; a vertical tangent is where its denominator is $0$.",
+    "Then plug those $y$-values back into the equation to find $x$."
+   ],
+   "steps": [
+    "$y'=\\frac{2x}{3y^2-27}$: vertical at $y=\\pm3$",
+    "$y=3$: $x=\\pm6$; $y=-3$: $x=\\pm12$"
+   ]
   },
   {
    "id": "e319",
@@ -961,7 +1398,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738211822",
    "instructions": [
     {
@@ -978,7 +1415,47 @@
      }
     ]
    },
-   "notes": "self-check: part a has an unclear kind"
+   "notes": "self-check: part a has an unclear kind",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $x$-intercepts ($x$-values)",
+      "answer": {
+       "kind": "list",
+       "value": "sqrt(7), -sqrt(7)"
+      }
+     },
+     {
+      "label": "b. slope at each",
+      "answer": {
+       "kind": "number",
+       "value": "-2"
+      }
+     },
+     {
+      "label": "c. the tangent lines are",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "parallel",
+        "perpendicular",
+        "the same line"
+       ],
+       "correct": 0
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$y=0$: $x^2=7$",
+    "$y'=-\\frac{2x+y}{x+2y}=-2$ at both",
+    "Parallel"
+   ]
   },
   {
    "id": "e320",
@@ -989,7 +1466,7 @@
      "text": "Find an equation of the tangent line to the graph of the equation $\\sin^{-1}x+\\sin^{-1}y=\\frac{\\pi}{6}$ at the point $\\left(0,\\frac{1}{2}\\right).$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738211914",
    "instructions": [
     {
@@ -997,7 +1474,35 @@
      "text": "For the following exercises, find an equation of the tangent line to the graph of the given equation at the indicated point. Use a calculator or computer software to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-sqrt(3)x/2+1/2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{1}{\\sqrt{1-x^2}}+\\dfrac{y'}{\\sqrt{1-y^2}}=0$. At $(0,\\frac12)$: $1+\\dfrac{y'}{\\sqrt3/2}=0$, so $y'=-\\dfrac{\\sqrt3}2$."
+     },
+     {
+      "type": "p",
+      "text": "$y=-\\dfrac{\\sqrt3}2x+\\dfrac12$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-sqrt(3)*x/2+Rational(1,2)-y"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$."
+   ],
+   "steps": [
+    "$1+\\frac{2y'}{\\sqrt3}=0$",
+    "$y'=-\\frac{\\sqrt3}2$"
+   ]
   },
   {
    "id": "e321",
@@ -1028,7 +1533,15 @@
    "answer": {
     "kind": "equation",
     "value": "y=-x+1"
-   }
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Plug the point in to get the slope, then use $y-y_0=m(x-x_0)$."
+   ],
+   "steps": [
+    "$\\dfrac{1+y'}{1+(x+y)^2}=2x$; at $(0,1)$: $\\frac{1+y'}{2}=0$",
+    "$y'=-1$: $y=-x+1$"
+   ]
   },
   {
    "id": "e322",
@@ -1039,7 +1552,7 @@
      "text": "Find $y'$ and $y''$ for $x^{2}+6xy-2y^{2}=3.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738186907",
    "instructions": [
     {
@@ -1047,7 +1560,58 @@
      "text": "For the following exercises, find an equation of the tangent line to the graph of the given equation at the indicated point. Use a calculator or computer software to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$y'$",
+      "answer": {
+       "kind": "expression",
+       "value": "(x+3y)/(2y-3x)",
+       "prompt": "in terms of x and y"
+      }
+     },
+     {
+      "label": "$y''$",
+      "answer": {
+       "kind": "expression",
+       "value": "-33/(2y-3x)^3",
+       "prompt": "simplify with x²+6xy−2y²=3"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$2x+6y+6xy'-4yy'=0$, so $y'=\\dfrac{x+3y}{2y-3x}$."
+     },
+     {
+      "type": "p",
+      "text": "$y''=\\dfrac{(1+3y')(2y-3x)-(x+3y)(2y'-3)}{(2y-3x)^2}=\\dfrac{11(y-xy')}{(2y-3x)^2}$."
+     },
+     {
+      "type": "p",
+      "text": "$y-xy'=\\dfrac{2y^2-6xy-x^2}{2y-3x}=\\dfrac{-3}{2y-3x}$ (using $x^2+6xy-2y^2=3$), so $y''=\\dfrac{-33}{(2y-3x)^3}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(idiff(x**2+6*x*y-2*y**2-3, y, x), -33/(2*y-3*x)**3)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out.",
+    "For $y''$, differentiate $y'$ with the quotient rule, substitute $y'$, and use the original equation."
+   ],
+   "steps": [
+    "$y'=\\dfrac{x+3y}{2y-3x}$",
+    "$y''=\\dfrac{11(y-xy')}{(2y-3x)^2}$",
+    "$=\\dfrac{-33}{(2y-3x)^3}$"
+   ]
   },
   {
    "id": "e323",
@@ -1067,7 +1631,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737934269",
    "instructions": [
     {
@@ -1084,7 +1648,19 @@
      }
     ]
    },
-   "notes": "self-check: part b is prose"
+   "notes": "self-check: part b is prose",
+   "answer": {
+    "kind": "number",
+    "value": "-16/27"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$45x^{-1/4}y^{1/4}+15x^{3/4}y^{-3/4}y'=0$: $y'=-\\frac{3y}{x}$",
+    "At $(81,16)$: $-\\frac{48}{81}\\approx-0.5926$"
+   ]
   },
   {
    "id": "e324",
@@ -1108,7 +1684,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738185040",
    "instructions": [
     {
@@ -1116,7 +1692,35 @@
      "text": "For the following exercises, find an equation of the tangent line to the graph of the given equation at the indicated point. Use a calculator or computer software to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-4/27"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$10x^{-2/3}y^{2/3}+20x^{1/3}y^{-1/3}y'=0$, so $y'=-\\dfrac{y}{2x}$. At $(27,8)$: $y'=-\\dfrac{8}{54}=-\\dfrac4{27}\\approx-0.148$."
+     },
+     {
+      "type": "p",
+      "text": "b. To keep production at 360 cars when labor spending is \\$27,000 and capital \\$8,000, capital can drop by about \\$148 for each extra \\$1000 spent on labor."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-Rational(8,54)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$y'=-\\frac{y}{2x}$",
+    "$-\\frac{8}{54}=-\\frac4{27}$"
+   ]
   },
   {
    "id": "e325",
@@ -1147,6 +1751,37 @@
    "answer": {
     "kind": "number",
     "value": "-8"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out.",
+    "$V$ is constant, so $\\frac{d}{dx}(x^2y)=0$."
+   ],
+   "steps": [
+    "$2xy+x^2y'=0$: $y'=-\\frac{2y}{x}$",
+    "$-\\frac{32}{4}=-8$"
+   ],
+   "variant": {
+    "params": {
+     "r": {
+      "min": 2,
+      "max": 8
+     },
+     "h": {
+      "min": 2,
+      "max": 20
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "The volume $V=\\frac13\\pi x^2y$ of a cone is constant. Find $\\dfrac{dy}{dx}$ when $x={{r}}$ and $y={{h}}$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "-2({{h}})/{{r}}"
+    }
    }
   },
   {
@@ -1158,7 +1793,7 @@
      "text": "Find an equation for the surface area of the rectangular box, $S(x,y).$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737954174",
    "instructions": [
     {
@@ -1166,7 +1801,29 @@
      "text": "For the following exercises, consider a closed rectangular box with a square base with side $x$ and height $y.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "2x^2+4x y"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Top and bottom: $2x^2$. Four sides of $x\\times y$: $4xy$. So $S(x,y)=2x^2+4xy$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "2*x**2+4*x*y"
+   },
+   "hints": [
+    "Add the areas of the 6 faces."
+   ],
+   "steps": [
+    "$2x^2+4xy$"
+   ]
   },
   {
    "id": "e327",
@@ -1196,8 +1853,16 @@
    },
    "answer": {
     "kind": "number",
-    "value": "-2.67"
-   }
+    "value": "-8/3"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$2x^2+4xy=78$: $4x+4y+4xy'=0$",
+    "$y'=-\\frac{x+y}{x}=-\\frac83\\approx-2.67$"
+   ]
   },
   {
    "id": "e328",
@@ -1208,7 +1873,7 @@
      "text": "$x=\\sin \\,y$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738071354",
    "instructions": [
     {
@@ -1216,7 +1881,42 @@
      "text": "For the following exercises, use implicit differentiation to determine $y'.$ Does the answer agree with the formulas we have previously determined?"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "1/sqrt(1-x^2)",
+    "domain": {
+     "x": [
+      -0.9,
+      0.9
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1=\\cos y\\cdot y'$, so $y'=\\dfrac1{\\cos y}=\\dfrac{1}{\\sqrt{1-\\sin^2y}}=\\dfrac{1}{\\sqrt{1-x^2}}$ (with $-\\frac\\pi2<y<\\frac\\pi2$, $\\cos y>0$)."
+     },
+     {
+      "type": "p",
+      "text": "This agrees with $\\frac{d}{dx}\\sin^{-1}x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(asin(x),x)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out.",
+    "Write the answer in terms of $x$ with $\\sin^2y+\\cos^2y=1$."
+   ],
+   "steps": [
+    "$1=\\cos y\\,y'$",
+    "$y'=\\frac{1}{\\sqrt{1-x^2}}$"
+   ]
   },
   {
    "id": "e329",
@@ -1247,7 +1947,15 @@
    "answer": {
     "kind": "expression",
     "value": "-(1/(sqrt(1-x^2)))"
-   }
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out."
+   ],
+   "steps": [
+    "$1=-\\sin y\\,y'$",
+    "$y'=-\\frac{1}{\\sqrt{1-x^2}}$"
+   ]
   },
   {
    "id": "e330",
@@ -1258,7 +1966,7 @@
      "text": "$x=\\tan \\,y$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738071461",
    "instructions": [
     {
@@ -1266,7 +1974,32 @@
      "text": "For the following exercises, use implicit differentiation to determine $y'.$ Does the answer agree with the formulas we have previously determined?"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "1/(1+x^2)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$1=\\sec^2y\\cdot y'$, so $y'=\\dfrac{1}{\\sec^2y}=\\dfrac{1}{1+\\tan^2y}=\\dfrac{1}{1+x^2}$, which agrees with $\\frac{d}{dx}\\tan^{-1}x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(atan(x),x)"
+   },
+   "hints": [
+    "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$: $\\frac{d}{dx}y^n=ny^{n-1}y'$.",
+    "Collect the $y'$ terms on one side and factor $y'$ out.",
+    "$\\sec^2y=1+\\tan^2y$."
+   ],
+   "steps": [
+    "$1=\\sec^2y\\,y'$",
+    "$y'=\\frac{1}{1+x^2}$"
+   ]
   }
  ],
  "proofs": [],

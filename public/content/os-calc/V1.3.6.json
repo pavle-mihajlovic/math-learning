@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "State the chain rule for the composition of two functions.",
@@ -264,7 +264,7 @@
       "body": [
        {
         "type": "p",
-        "text": "Use (see above) with $g(x)=2x^{3}+2x-1$"
+        "text": "Use the power rule combined with the chain rule with $g(x)=2x^{3}+2x-1$"
        }
       ]
      }
@@ -1035,7 +1035,7 @@
      "text": "$y=3u-6,u=2x^{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736659368",
    "instructions": [
     {
@@ -1043,7 +1043,31 @@
      "text": "For the following exercises, given $y=f(u)$ and $u=g(x),$ find $\\frac{dy}{dx}$ by using Leibniz’s notation for the chain rule: $\\frac{dy}{dx}=\\frac{dy}{du}\\,\\frac{du}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "12x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{du}=3$ and $\\dfrac{du}{dx}=4x$, so $\\dfrac{dy}{dx}=3\\cdot4x=12x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(3*(2*x**2)-6,x)"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$\\frac{dy}{du}=3$, $\\frac{du}{dx}=4x$",
+    "$12x$"
+   ]
   },
   {
    "id": "e215",
@@ -1067,13 +1091,54 @@
     "body": [
      {
       "type": "p",
-      "text": "$18u^{2}\\cdot 7=18(7x-4)^{2}\\cdot 7$"
+      "text": "$18u^2\\cdot7=18(7x-4)^2\\cdot7=126(7x-4)^2$"
      }
     ]
    },
    "answer": {
-    "kind": "equation",
-    "value": "18 u^2*7=18(7 x-4)^2*7"
+    "kind": "expression",
+    "value": "126(7x-4)^2"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$\\frac{dy}{du}=18u^2$, $\\frac{du}{dx}=7$",
+    "$126(7x-4)^2$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "n": {
+      "min": 2,
+      "max": 6
+     },
+     "b": {
+      "min": 2,
+      "max": 9
+     },
+     "c": {
+      "min": -9,
+      "max": 9,
+      "exclude": [
+       0
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $\\dfrac{dy}{dx}$ for $y={{a}}u^{ {{n}} }$, $u={{b}}x+{{c}}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{a*n*b}}({{b}}x+{{c}})^{{n-1}}"
+    }
    }
   },
   {
@@ -1085,7 +1150,7 @@
      "text": "$y=\\sin \\,u,u=5x-1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739281036",
    "instructions": [
     {
@@ -1093,7 +1158,56 @@
      "text": "For the following exercises, given $y=f(u)$ and $u=g(x),$ find $\\frac{dy}{dx}$ by using Leibniz’s notation for the chain rule: $\\frac{dy}{dx}=\\frac{dy}{du}\\,\\frac{du}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "5cos(5x-1)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{du}=\\cos u$, $\\dfrac{du}{dx}=5$: $\\dfrac{dy}{dx}=5\\cos(5x-1)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sin(5*x-1),x)"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$\\cos u\\cdot5$",
+    "$5\\cos(5x-1)$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": -9,
+      "max": 9,
+      "exclude": [
+       0
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $\\dfrac{dy}{dx}$ for $y=\\sin u$, $u={{a}}x+{{b}}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{a}}cos({{a}}x+{{b}})"
+    }
+   }
   },
   {
    "id": "e217",
@@ -1117,14 +1231,22 @@
     "body": [
      {
       "type": "p",
-      "text": "$-\\sin \\,u\\cdot \\frac{-1}{8}=-\\sin \\,\\left(\\frac{-x}{8}\\right)\\cdot \\frac{-1}{8}$"
+      "text": "$-\\sin u\\cdot\\dfrac{-1}{8}=-\\sin\\left(\\dfrac{-x}{8}\\right)\\cdot\\dfrac{-1}{8}=\\dfrac18\\sin\\left(-\\dfrac x8\\right)$"
      }
     ]
    },
    "answer": {
-    "kind": "equation",
-    "value": "- sin u*((-1)/8)=- sin (((-x)/8))*((-1)/8)"
-   }
+    "kind": "expression",
+    "value": "sin(-x/8)/8"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$-\\sin u\\cdot\\left(-\\frac18\\right)$",
+    "$\\frac18\\sin\\left(-\\frac x8\\right)$"
+   ]
   },
   {
    "id": "e218",
@@ -1135,7 +1257,7 @@
      "text": "$y=\\tan \\,u,u=9x+2$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739281207",
    "instructions": [
     {
@@ -1143,7 +1265,31 @@
      "text": "For the following exercises, given $y=f(u)$ and $u=g(x),$ find $\\frac{dy}{dx}$ by using Leibniz’s notation for the chain rule: $\\frac{dy}{dx}=\\frac{dy}{du}\\,\\frac{du}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "9sec^2(9x+2)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{du}=\\sec^2u$, $\\dfrac{du}{dx}=9$: $\\dfrac{dy}{dx}=9\\sec^2(9x+2)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(tan(9*x+2),x)"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$\\sec^2u\\cdot9$",
+    "$9\\sec^2(9x+2)$"
+   ]
   },
   {
    "id": "e219",
@@ -1167,14 +1313,28 @@
     "body": [
      {
       "type": "p",
-      "text": "$\\frac{8x-24}{2\\sqrt{4u+3}}=\\frac{4x-12}{\\sqrt{4x^{2}-24x+3}}$"
+      "text": "$\\dfrac{8x-24}{2\\sqrt{4u+3}}=\\dfrac{4x-12}{\\sqrt{4x^2-24x+3}}$"
      }
     ]
    },
    "answer": {
-    "kind": "equation",
-    "value": "((8 x-24)/(2 sqrt(4 u+3)))=((4 x-12)/(sqrt(4 x^2-24 x+3)))"
-   }
+    "kind": "expression",
+    "value": "(4x-12)/sqrt(4x^2-24x+3)",
+    "domain": {
+     "x": [
+      7,
+      12
+     ]
+    }
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$\\frac{dy}{du}=\\frac{4}{2\\sqrt{4u+3}}$, $\\frac{du}{dx}=2x-6$",
+    "$\\dfrac{4x-12}{\\sqrt{4x^2-24x+3}}$"
+   ]
   },
   {
    "id": "e220",
@@ -1185,7 +1345,7 @@
      "text": "$y=(3x-2)^{6}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736602724",
    "instructions": [
     {
@@ -1202,7 +1362,79 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $u=g(x)$",
+      "answer": {
+       "kind": "equation",
+       "value": "u=3x-2"
+      }
+     },
+     {
+      "label": "b. $\\frac{dy}{dx}$",
+      "answer": {
+       "kind": "expression",
+       "value": "18(3x-2)^5"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(u)=u^6$, $u=3x-2$."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\dfrac{dy}{dx}=6u^5\\cdot3=18(3x-2)^5$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(3*x-2-u, diff((3*x-2)**6,x))"
+   },
+   "hints": [
+    "The inside function $u=g(x)$ is the expression the outer operation is applied to.",
+    "Then $\\frac{dy}{dx}=f'(u)\\,g'(x)$."
+   ],
+   "steps": [
+    "$y=u^6$, $u=3x-2$",
+    "$6(3x-2)^5\\cdot3=18(3x-2)^5$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": -9,
+      "max": 9,
+      "exclude": [
+       0
+      ]
+     },
+     "n": {
+      "min": 3,
+      "max": 8
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $\\dfrac{dy}{dx}$ for $y=({{a}}x+{{b}})^{ {{n}} }$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{a*n}}({{a}}x+{{b}})^{{n-1}}"
+    }
+   }
   },
   {
    "id": "e221",
@@ -1257,7 +1489,15 @@
       }
      }
     ]
-   }
+   },
+   "hints": [
+    "The inside function $u=g(x)$ is the expression the outer operation is applied to.",
+    "Then $\\frac{dy}{dx}=f'(u)\\,g'(x)$."
+   ],
+   "steps": [
+    "$u=3x^2+1$",
+    "$3u^2\\cdot6x=18x(3x^2+1)^2$"
+   ]
   },
   {
    "id": "e222",
@@ -1268,7 +1508,7 @@
      "text": "$y=\\sin^{5}(x)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736602922",
    "instructions": [
     {
@@ -1285,7 +1525,50 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $u=g(x)$",
+      "answer": {
+       "kind": "equation",
+       "value": "u=sin x"
+      }
+     },
+     {
+      "label": "b. $\\frac{dy}{dx}$",
+      "answer": {
+       "kind": "expression",
+       "value": "5sin^4 x cos x"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(u)=u^5$, $u=\\sin x$."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\dfrac{dy}{dx}=5u^4\\cos x=5\\sin^4x\\cos x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(sin(x)-u, diff(sin(x)**5,x))"
+   },
+   "hints": [
+    "The inside function $u=g(x)$ is the expression the outer operation is applied to.",
+    "Then $\\frac{dy}{dx}=f'(u)\\,g'(x)$."
+   ],
+   "steps": [
+    "$y=u^5$, $u=\\sin x$",
+    "$5\\sin^4x\\cos x$"
+   ]
   },
   {
    "id": "e223",
@@ -1296,7 +1579,7 @@
      "text": "$y=\\left(\\frac{x}{7}+\\frac{7}{x}\\right)^{7}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736588943",
    "instructions": [
     {
@@ -1322,7 +1605,34 @@
      }
     ]
    },
-   "notes": "self-check: part a has an unclear kind"
+   "notes": "self-check: part a has an unclear kind",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $u=g(x)$",
+      "answer": {
+       "kind": "equation",
+       "value": "u=x/7+7/x"
+      }
+     },
+     {
+      "label": "b. $\\frac{dy}{dx}$",
+      "answer": {
+       "kind": "expression",
+       "value": "7(x/7+7/x)^6(1/7-7/x^2)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The inside function $u=g(x)$ is the expression the outer operation is applied to.",
+    "Then $\\frac{dy}{dx}=f'(u)\\,g'(x)$."
+   ],
+   "steps": [
+    "$y=u^7$, $u=\\frac x7+\\frac7x$",
+    "$7u^6\\left(\\frac17-\\frac7{x^2}\\right)$"
+   ]
   },
   {
    "id": "e224",
@@ -1333,7 +1643,7 @@
      "text": "$y=\\tan \\,(\\sec \\,x)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736589083",
    "instructions": [
     {
@@ -1350,7 +1660,50 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $u=g(x)$",
+      "answer": {
+       "kind": "equation",
+       "value": "u=sec x"
+      }
+     },
+     {
+      "label": "b. $\\frac{dy}{dx}$",
+      "answer": {
+       "kind": "expression",
+       "value": "sec^2(sec x) sec x tan x"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(u)=\\tan u$, $u=\\sec x$."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\dfrac{dy}{dx}=\\sec^2(u)\\cdot\\sec x\\tan x=\\sec^2(\\sec x)\\sec x\\tan x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(sec(x)-u, diff(tan(sec(x)),x))"
+   },
+   "hints": [
+    "The inside function $u=g(x)$ is the expression the outer operation is applied to.",
+    "Then $\\frac{dy}{dx}=f'(u)\\,g'(x)$."
+   ],
+   "steps": [
+    "$y=\\tan u$, $u=\\sec x$",
+    "$\\sec^2(\\sec x)\\cdot\\sec x\\tan x$"
+   ]
   },
   {
    "id": "e225",
@@ -1361,7 +1714,7 @@
      "text": "$y=\\csc \\,(\\pi x+1)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739251116",
    "instructions": [
     {
@@ -1387,7 +1740,34 @@
      }
     ]
    },
-   "notes": "self-check: part a has an unclear kind"
+   "notes": "self-check: part a has an unclear kind",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $u=g(x)$",
+      "answer": {
+       "kind": "equation",
+       "value": "u=pi x+1"
+      }
+     },
+     {
+      "label": "b. $\\frac{dy}{dx}$",
+      "answer": {
+       "kind": "expression",
+       "value": "-pi csc(pi x+1) cot(pi x+1)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The inside function $u=g(x)$ is the expression the outer operation is applied to.",
+    "Then $\\frac{dy}{dx}=f'(u)\\,g'(x)$."
+   ],
+   "steps": [
+    "$y=\\csc u$, $u=\\pi x+1$",
+    "$-\\csc u\\cot u\\cdot\\pi$"
+   ]
   },
   {
    "id": "e226",
@@ -1398,7 +1778,7 @@
      "text": "$y=\\cot^{2}x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739280322",
    "instructions": [
     {
@@ -1415,7 +1795,50 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $u=g(x)$",
+      "answer": {
+       "kind": "equation",
+       "value": "u=cot x"
+      }
+     },
+     {
+      "label": "b. $\\frac{dy}{dx}$",
+      "answer": {
+       "kind": "expression",
+       "value": "-2cot x csc^2 x"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f(u)=u^2$, $u=\\cot x$."
+     },
+     {
+      "type": "p",
+      "text": "b. $\\dfrac{dy}{dx}=2u\\cdot(-\\csc^2x)=-2\\cot x\\csc^2x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(cot(x)-u, diff(cot(x)**2,x))"
+   },
+   "hints": [
+    "The inside function $u=g(x)$ is the expression the outer operation is applied to.",
+    "Then $\\frac{dy}{dx}=f'(u)\\,g'(x)$."
+   ],
+   "steps": [
+    "$y=u^2$, $u=\\cot x$",
+    "$-2\\cot x\\csc^2x$"
+   ]
   },
   {
    "id": "e227",
@@ -1426,7 +1849,7 @@
      "text": "$y=-6\\,(\\sin x)^{-3}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739280417",
    "instructions": [
     {
@@ -1448,11 +1871,38 @@
     "body": [
      {
       "type": "p",
-      "text": "a. $f(u)=-6u^{-3},u=\\sin \\,x,$ b. $18\\,(\\sin )^{-4}x\\cdot \\cos \\,x$"
+      "text": "a. $f(u)=-6u^{-3}$, $u=\\sin x$; b. $18(\\sin x)^{-4}\\cos x$"
      }
     ]
    },
-   "notes": "self-check: part a has an unclear kind"
+   "notes": "self-check: part a has an unclear kind",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $u=g(x)$",
+      "answer": {
+       "kind": "equation",
+       "value": "u=sin x"
+      }
+     },
+     {
+      "label": "b. $\\frac{dy}{dx}$",
+      "answer": {
+       "kind": "expression",
+       "value": "18cos x/(sin x)^4"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The inside function $u=g(x)$ is the expression the outer operation is applied to.",
+    "Then $\\frac{dy}{dx}=f'(u)\\,g'(x)$."
+   ],
+   "steps": [
+    "$y=-6u^{-3}$, $u=\\sin x$",
+    "$18u^{-4}\\cos x=\\dfrac{18\\cos x}{\\sin^4x}$"
+   ]
   },
   {
    "id": "e228",
@@ -1463,7 +1913,7 @@
      "text": "$y=(3x^{2}+3x-1)^{4}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736653150",
    "instructions": [
     {
@@ -1471,7 +1921,31 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "4(3x^2+3x-1)^3(6x+3)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{dx}=4(3x^2+3x-1)^3(6x+3)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((3*x**2+3*x-1)**4,x)"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "Outside: $4(\\ )^3$; inside derivative: $6x+3$",
+    "$4(3x^2+3x-1)^3(6x+3)$"
+   ]
   },
   {
    "id": "e229",
@@ -1502,7 +1976,15 @@
    "answer": {
     "kind": "expression",
     "value": "(4/((5-2 x)^3))"
-   }
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$-2(5-2x)^{-3}\\cdot(-2)$",
+    "$\\dfrac{4}{(5-2x)^3}$"
+   ]
   },
   {
    "id": "e230",
@@ -1513,7 +1995,7 @@
      "text": "$y=\\cos^{3}(\\pi x)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736653316",
    "instructions": [
     {
@@ -1521,7 +2003,31 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-3pi cos^2(pi x) sin(pi x)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{dx}=3\\cos^2(\\pi x)\\cdot(-\\sin(\\pi x))\\cdot\\pi=-3\\pi\\cos^2(\\pi x)\\sin(\\pi x)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(cos(pi*x)**3,x)"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$3\\cos^2(\\pi x)\\cdot(\\cos(\\pi x))'$",
+    "$-3\\pi\\cos^2(\\pi x)\\sin(\\pi x)$"
+   ]
   },
   {
    "id": "e231",
@@ -1552,7 +2058,15 @@
    "answer": {
     "kind": "expression",
     "value": "6(2 x^3-x^2+6 x+1)^2(3 x^2-x+3)"
-   }
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$3(\\ )^2\\cdot(6x^2-2x+6)$",
+    "$6(2x^3-x^2+6x+1)^2(3x^2-x+3)$"
+   ]
   },
   {
    "id": "e232",
@@ -1563,7 +2077,7 @@
      "text": "$y=\\frac{1}{\\sin^{2}(x)}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739195259",
    "instructions": [
     {
@@ -1571,7 +2085,31 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-2cos x/sin^3 x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y=(\\sin x)^{-2}$, so $\\dfrac{dy}{dx}=-2(\\sin x)^{-3}\\cos x=-\\dfrac{2\\cos x}{\\sin^3x}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(1/sin(x)**2,x)"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$y=(\\sin x)^{-2}$",
+    "$-2(\\sin x)^{-3}\\cos x$"
+   ]
   },
   {
    "id": "e233",
@@ -1602,7 +2140,14 @@
    "answer": {
     "kind": "expression",
     "value": "-3(tan x+ sin x)^(-4)*(sec^2 x+ cos x)"
-   }
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$-3(\\tan x+\\sin x)^{-4}\\cdot(\\sec^2x+\\cos x)$"
+   ]
   },
   {
    "id": "e234",
@@ -1613,7 +2158,7 @@
      "text": "$y=x^{2}\\cos^{4}x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738989560",
    "instructions": [
     {
@@ -1621,7 +2166,32 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "2x cos^4 x-4x^2 cos^3 x sin x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Product and chain rules: $\\dfrac{dy}{dx}=2x\\cos^4x+x^2\\cdot4\\cos^3x(-\\sin x)=2x\\cos^4x-4x^2\\cos^3x\\sin x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x**2*cos(x)**4,x)"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside.",
+    "Start with the product rule."
+   ],
+   "steps": [
+    "$2x\\cos^4x+x^2(\\cos^4x)'$",
+    "$(\\cos^4x)'=-4\\cos^3x\\sin x$"
+   ]
   },
   {
    "id": "e235",
@@ -1652,7 +2222,14 @@
    "answer": {
     "kind": "expression",
     "value": "-7 cos (cos 7 x)* sin 7 x"
-   }
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$\\cos(\\cos7x)\\cdot(-\\sin7x)\\cdot7$"
+   ]
   },
   {
    "id": "e236",
@@ -1663,7 +2240,7 @@
      "text": "$y=\\sqrt{6+\\sec \\,\\pi x^{2}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736585006",
    "instructions": [
     {
@@ -1671,7 +2248,38 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "pi x sec(pi x^2) tan(pi x^2)/sqrt(6+sec(pi x^2))",
+    "domain": {
+     "x": [
+      0.1,
+      0.6
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "math",
+      "tex": "\\frac{dy}{dx}=\\frac{1}{2\\sqrt{6+\\sec\\pi x^2}}\\cdot\\sec(\\pi x^2)\\tan(\\pi x^2)\\cdot2\\pi x=\\frac{\\pi x\\sec(\\pi x^2)\\tan(\\pi x^2)}{\\sqrt{6+\\sec(\\pi x^2)}}"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sqrt(6+sec(pi*x**2)),x)"
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside.",
+    "There are three layers: square root, secant, $\\pi x^2$."
+   ],
+   "steps": [
+    "$\\dfrac{1}{2\\sqrt{6+\\sec\\pi x^2}}\\cdot(\\sec\\pi x^2)'$",
+    "$(\\sec\\pi x^2)'=\\sec(\\pi x^2)\\tan(\\pi x^2)\\cdot2\\pi x$"
+   ]
   },
   {
    "id": "e237",
@@ -1702,7 +2310,14 @@
    "answer": {
     "kind": "expression",
     "value": "-12 cot^2 (4 x+1)* csc^2 (4 x+1)"
-   }
+   },
+   "hints": [
+    "Chain rule: $\\dfrac{dy}{dx}=\\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$, then write $u$ in terms of $x$.",
+    "Differentiate the outside function, keep the inside, then multiply by the derivative of the inside."
+   ],
+   "steps": [
+    "$3\\cot^2(4x+1)\\cdot(-\\csc^2(4x+1))\\cdot4$"
+   ]
   },
   {
    "id": "e238",
@@ -1713,7 +2328,7 @@
      "text": "Let $y=[f(x)]^{2}$ and suppose that $f'(1)=4$ and $\\frac{dy}{dx}=10$ for $x=1.$ Find $f(1).$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738988193",
    "instructions": [
     {
@@ -1721,7 +2336,30 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "5/4"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{dx}=2f(x)f'(x)$, so at $x=1$: $10=2f(1)\\cdot4$ and $f(1)=\\dfrac54$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(10,8)"
+   },
+   "hints": [
+    "Differentiate $y=[f(x)]^2$ with the chain rule, then plug in $x=1$."
+   ],
+   "steps": [
+    "$y'=2f(x)f'(x)$",
+    "$10=8f(1)$: $f(1)=\\frac54$"
+   ]
   },
   {
    "id": "e239",
@@ -1745,14 +2383,25 @@
     "body": [
      {
       "type": "p",
-      "text": "$10\\frac{3}{4}$"
+      "text": "$10\\frac34$"
+     },
+     {
+      "type": "p",
+      "text": "$y'=4(f(x)+5x^2)^3(f'(x)+10x)$. At $x=-1$: $f(-1)+5=1$, so $3=4\\cdot1\\cdot(f'(-1)-10)$ and $f'(-1)=10+\\frac34=\\frac{43}4$."
      }
     ]
    },
    "answer": {
     "kind": "number",
-    "value": "10(3/4)"
-   }
+    "value": "43/4"
+   },
+   "hints": [
+    "Differentiate with the chain rule, then plug in $x=-1$."
+   ],
+   "steps": [
+    "$y'=4(f+5x^2)^3(f'+10x)$",
+    "$3=4(1)^3(f'(-1)-10)$: $f'(-1)=\\frac{43}4$"
+   ]
   },
   {
    "id": "e240",
@@ -1763,7 +2412,7 @@
      "text": "Let $y=(f(u)+3x)^{2}$ and $u=x^{3}-2x.$ If $f(4)=6$ and $\\frac{dy}{dx}=18$ when $x=2,$ find $f'(4).$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739374499",
    "instructions": [
     {
@@ -1771,7 +2420,35 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-9/40"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{dy}{dx}=2(f(u)+3x)\\left(f'(u)\\dfrac{du}{dx}+3\\right)$ with $\\dfrac{du}{dx}=3x^2-2$."
+     },
+     {
+      "type": "p",
+      "text": "At $x=2$: $u=4$, $\\frac{du}{dx}=10$, so $18=2(6+6)(10f'(4)+3)$, giving $10f'(4)+3=\\frac34$ and $f'(4)=-\\frac{9}{40}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(-9,40)"
+   },
+   "hints": [
+    "Use the chain rule twice: once for the square and once for $f(u)$."
+   ],
+   "steps": [
+    "$u(2)=4$, $u'(2)=10$",
+    "$18=24(10f'(4)+3)$",
+    "$f'(4)=-\\frac{9}{40}$"
+   ]
   },
   {
    "id": "e241",
@@ -1782,7 +2459,7 @@
      "text": "**[T]** Find an equation of the tangent line to $y=-\\sin \\,\\left(\\frac{x}{2}\\right)$ at the origin. Use a calculator to graph the function and the tangent line together."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739374644",
    "instructions": [
     {
@@ -1799,7 +2476,18 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-x/2"
+   },
+   "hints": [
+    "Slope at $0$: $y'=-\\frac12\\cos\\frac x2$."
+   ],
+   "steps": [
+    "$y'(0)=-\\frac12$",
+    "$y=-\\frac12x$"
+   ]
   },
   {
    "id": "e242",
@@ -1810,7 +2498,7 @@
      "text": "**[T]** Find an equation of the tangent line to $y=\\left(3x+\\frac{1}{x}\\right)^{2}$ at the point $(1,16).$ Use a calculator to graph the function and the tangent line together."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738991878",
    "instructions": [
     {
@@ -1818,7 +2506,34 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=16x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=2\\left(3x+\\frac1x\\right)\\left(3-\\frac1{x^2}\\right)$, so $y'(1)=2(4)(2)=16$."
+     },
+     {
+      "type": "p",
+      "text": "$y-16=16(x-1)$: $y=16x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "16*x-y"
+   },
+   "hints": [
+    "Chain rule for the slope at $x=1$; then point-slope form."
+   ],
+   "steps": [
+    "$y'(1)=2(4)(2)=16$",
+    "$y=16x$"
+   ]
   },
   {
    "id": "e243",
@@ -1849,7 +2564,14 @@
    "answer": {
     "kind": "list",
     "value": "sqrt(6), -(sqrt(6))"
-   }
+   },
+   "hints": [
+    "Set $y'=8\\left(x-\\frac6x\\right)^7\\left(1+\\frac{6}{x^2}\\right)=0$."
+   ],
+   "steps": [
+    "$1+\\frac6{x^2}>0$ always",
+    "$x-\\frac6x=0$: $x=\\pm\\sqrt6$"
+   ]
   },
   {
    "id": "e244",
@@ -1860,7 +2582,7 @@
      "text": "**[T]** Find an equation of the line that is normal to $g(\\theta )=\\sin^{2}(\\pi \\theta )$ at the point $\\left(\\frac{1}{4},\\frac{1}{2}\\right).$ Use a calculator to graph the function and the normal line together."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738992014",
    "instructions": [
     {
@@ -1868,7 +2590,35 @@
      "text": "For the following exercises, find $\\frac{dy}{dx}$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-(theta-1/4)/pi+1/2",
+    "prompt": "in terms of θ (type theta)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$g'(\\theta)=2\\sin(\\pi\\theta)\\cos(\\pi\\theta)\\cdot\\pi=\\pi\\sin(2\\pi\\theta)$, so $g'(\\frac14)=\\pi$."
+     },
+     {
+      "type": "p",
+      "text": "The normal line has slope $-\\frac1\\pi$: $y-\\frac12=-\\frac1\\pi\\left(\\theta-\\frac14\\right)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-(theta-Rational(1,4))/pi+Rational(1,2)-y"
+   },
+   "hints": [
+    "The normal line is perpendicular to the tangent: slope $-\\frac{1}{g'(a)}$."
+   ],
+   "steps": [
+    "$g'(\\frac14)=\\pi\\sin\\frac\\pi2=\\pi$",
+    "Normal slope $-\\frac1\\pi$: $y=-\\frac1\\pi(\\theta-\\frac14)+\\frac12$"
+   ]
   },
   {
    "id": "e245",
@@ -1939,7 +2689,15 @@
    "answer": {
     "kind": "number",
     "value": "10"
-   }
+   },
+   "hints": [
+    "Write $h'(x)$ with the chain rule (and product/quotient rules if needed).",
+    "Evaluate the inner functions first, then look up the derivatives in the table."
+   ],
+   "steps": [
+    "$h'(0)=f'(g(0))g'(0)=f'(0)\\cdot2$",
+    "$5\\cdot2=10$"
+   ]
   },
   {
    "id": "e246",
@@ -1950,7 +2708,7 @@
      "text": "$h(x)=g(f(x));a=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739243389",
    "instructions": [
     {
@@ -1998,7 +2756,31 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-5"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(0)=g'(f(0))\\,f'(0)=g'(2)\\cdot5=(-1)(5)=-5$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-1*5"
+   },
+   "hints": [
+    "Write $h'(x)$ with the chain rule (and product/quotient rules if needed).",
+    "Evaluate the inner functions first, then look up the derivatives in the table."
+   ],
+   "steps": [
+    "$g'(f(0))f'(0)=g'(2)\\cdot5$",
+    "$-5$"
+   ]
   },
   {
    "id": "e247",
@@ -2069,7 +2851,15 @@
    "answer": {
     "kind": "number",
     "value": "-(1/8)"
-   }
+   },
+   "hints": [
+    "Write $h'(x)$ with the chain rule (and product/quotient rules if needed).",
+    "Evaluate the inner functions first, then look up the derivatives in the table."
+   ],
+   "steps": [
+    "$h'=-2(x^4+g)^{-3}(4x^3+g')$",
+    "At $1$: $-2(4)^{-3}(4+0)=-\\frac18$"
+   ]
   },
   {
    "id": "e248",
@@ -2080,7 +2870,7 @@
      "text": "$h(x)=\\left(\\frac{f(x)}{g(x)}\\right)^{2};a=3$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736662132",
    "instructions": [
     {
@@ -2128,7 +2918,31 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-45/4"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(x)=2\\dfrac{f}{g}\\cdot\\dfrac{f'g-fg'}{g^2}$. At $x=3$: $2\\cdot\\frac32\\cdot\\dfrac{(-3)(2)-(3)(3)}{4}=3\\cdot\\left(-\\frac{15}4\\right)=-\\frac{45}4$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "2*Rational(3,2)*Rational(-6-9,4)"
+   },
+   "hints": [
+    "Write $h'(x)$ with the chain rule (and product/quotient rules if needed).",
+    "Evaluate the inner functions first, then look up the derivatives in the table."
+   ],
+   "steps": [
+    "$2\\cdot\\frac{f}{g}\\cdot\\frac{f'g-fg'}{g^2}$",
+    "$2\\cdot\\frac32\\cdot\\frac{-15}{4}=-\\frac{45}4$"
+   ]
   },
   {
    "id": "e249",
@@ -2199,7 +3013,15 @@
    "answer": {
     "kind": "number",
     "value": "-4"
-   }
+   },
+   "hints": [
+    "Write $h'(x)$ with the chain rule (and product/quotient rules if needed).",
+    "Evaluate the inner functions first, then look up the derivatives in the table."
+   ],
+   "steps": [
+    "$h'=f'(x+f(x))(1+f'(x))$",
+    "At $1$: $f'(2)(1-2)=4(-1)=-4$"
+   ]
   },
   {
    "id": "e250",
@@ -2210,7 +3032,7 @@
      "text": "$h(x)=(1+g(x))^{3};a=2$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736608237",
    "instructions": [
     {
@@ -2258,7 +3080,31 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-12"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(x)=3(1+g(x))^2g'(x)$, so $h'(2)=3(1+1)^2(-1)=-12$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "3*(1+1)**2*(-1)"
+   },
+   "hints": [
+    "Write $h'(x)$ with the chain rule (and product/quotient rules if needed).",
+    "Evaluate the inner functions first, then look up the derivatives in the table."
+   ],
+   "steps": [
+    "$3(1+g)^2g'$",
+    "$3(4)(-1)=-12$"
+   ]
   },
   {
    "id": "e251",
@@ -2329,7 +3175,15 @@
    "answer": {
     "kind": "number",
     "value": "-12"
-   }
+   },
+   "hints": [
+    "Write $h'(x)$ with the chain rule (and product/quotient rules if needed).",
+    "Evaluate the inner functions first, then look up the derivatives in the table."
+   ],
+   "steps": [
+    "$h'=g'(2+f(x^2))\\cdot f'(x^2)\\cdot2x$",
+    "At $1$: $g'(3)\\cdot f'(1)\\cdot2=3(-2)(2)=-12$"
+   ]
   },
   {
    "id": "e252",
@@ -2340,7 +3194,7 @@
      "text": "$h(x)=f(g(\\sin \\,x));a=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736608372",
    "instructions": [
     {
@@ -2388,7 +3242,31 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "10"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(x)=f'(g(\\sin x))\\cdot g'(\\sin x)\\cdot\\cos x$. At $0$: $f'(g(0))\\,g'(0)\\cdot1=f'(0)\\cdot2=5\\cdot2=10$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "5*2*1"
+   },
+   "hints": [
+    "Write $h'(x)$ with the chain rule (and product/quotient rules if needed).",
+    "Evaluate the inner functions first, then look up the derivatives in the table."
+   ],
+   "steps": [
+    "$f'(g(\\sin x))g'(\\sin x)\\cos x$",
+    "$f'(0)g'(0)(1)=10$"
+   ]
   },
   {
    "id": "e253",
@@ -2409,7 +3287,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736608434",
    "instructions": [
     {
@@ -2466,7 +3344,45 @@
      }
     ]
    },
-   "notes": "self-check: part a is not plain math"
+   "notes": "self-check: part a is not plain math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. velocity (m/s)",
+      "answer": {
+       "kind": "number",
+       "value": "-200/343"
+      }
+     },
+     {
+      "label": "b. acceleration (m/s²)",
+      "answer": {
+       "kind": "number",
+       "value": "600/2401"
+      }
+     },
+     {
+      "label": "c. the train is",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "speeding up",
+        "slowing down"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$v=s'$, $a=s''$; compare their signs."
+   ],
+   "steps": [
+    "$v=-200(t+1)^{-3}$: $-\\frac{200}{343}$",
+    "$a=600(t+1)^{-4}$: $\\frac{600}{2401}$",
+    "Opposite signs: slowing down"
+   ]
   },
   {
    "id": "e254",
@@ -2490,7 +3406,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736592288",
    "instructions": [
     {
@@ -2538,7 +3454,49 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. position (in)",
+      "answer": {
+       "kind": "number",
+       "value": "-3sqrt(2)/2"
+      }
+     },
+     {
+      "label": "b. velocity (in/s)",
+      "answer": {
+       "kind": "number",
+       "value": "-3pi sqrt(2)/2"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $s(1.5)=-3\\cos\\left(\\frac{3\\pi}2+\\frac\\pi4\\right)=-3\\cos\\frac{7\\pi}4=-\\frac{3\\sqrt2}{2}\\approx-2.121$ in."
+     },
+     {
+      "type": "p",
+      "text": "b. $v(t)=3\\pi\\sin\\left(\\pi t+\\frac\\pi4\\right)$, so $v(1.5)=3\\pi\\sin\\frac{7\\pi}{4}=-\\frac{3\\sqrt2\\pi}{2}\\approx-6.664$ in/s."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(-3*cos(7*pi/4), diff(-3*cos(pi*t+pi/4),t).subs(t,Rational(3,2)))"
+   },
+   "hints": [
+    "$v=s'$ by the chain rule; use radians."
+   ],
+   "steps": [
+    "$s(1.5)=-3\\cos\\frac{7\\pi}4\\approx-2.121$",
+    "$v=3\\pi\\sin(\\pi t+\\frac\\pi4)$, $v(1.5)\\approx-6.664$"
+   ]
   },
   {
    "id": "e255",
@@ -2559,7 +3517,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736592402",
    "instructions": [
     {
@@ -2616,7 +3574,33 @@
      }
     ]
    },
-   "notes": "self-check: part c is prose"
+   "notes": "self-check: part c is prose",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $C'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0.0003x^2-0.04x+3"
+      }
+     },
+     {
+      "label": "c. at $t=2$ (dollars per week)",
+      "answer": {
+       "kind": "number",
+       "value": "90300"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$\\frac{dx}{dt}=100$; at $t=2$, $x=1800$."
+   ],
+   "steps": [
+    "$C'(x)=0.0003x^2-0.04x+3$",
+    "$\\frac{dC}{dt}=100C'(1800)=100(903)=90{,}300$ per week"
+   ]
   },
   {
    "id": "e256",
@@ -2636,7 +3620,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736618622",
    "instructions": [
     {
@@ -2684,7 +3668,49 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. rate at $t=4$ (in²/s)",
+      "answer": {
+       "kind": "number",
+       "value": "56800pi/161051"
+      }
+     },
+     {
+      "label": "a. $\\frac{dA}{dt}$ in terms of $r$ and $t$",
+      "answer": {
+       "kind": "expression",
+       "value": "400pi r/(t+7)^3"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\dfrac{dA}{dr}=2\\pi r$ and $\\dfrac{dr}{dt}=\\dfrac{200}{(t+7)^3}$, so $\\dfrac{dA}{dt}=\\dfrac{400\\pi r}{(t+7)^3}$ with $r=2-\\frac{100}{(t+7)^2}$."
+     },
+     {
+      "type": "p",
+      "text": "b. At $t=4$: $r=2-\\frac{100}{121}=\\frac{142}{121}$, so $\\dfrac{dA}{dt}=\\dfrac{400\\pi\\cdot\\frac{142}{121}}{1331}=\\dfrac{56800\\pi}{161051}\\approx1.108$ in²/s."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(diff(pi*(2-100/(t+7)**2)**2, t).subs(t,4), 400*pi*r/(t+7)**3)"
+   },
+   "hints": [
+    "$\\frac{dA}{dt}=2\\pi r\\cdot\\frac{dr}{dt}$."
+   ],
+   "steps": [
+    "$\\frac{dr}{dt}=\\frac{200}{(t+7)^3}$",
+    "At $t=4$: $r=\\frac{142}{121}$, $\\frac{dA}{dt}\\approx1.108$ in²/s"
+   ]
   },
   {
    "id": "e257",
@@ -2704,7 +3730,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736618829",
    "instructions": [
     {
@@ -2761,7 +3787,19 @@
      }
     ]
    },
-   "notes": "self-check: part b is not plain math"
+   "notes": "self-check: part b is not plain math",
+   "answer": {
+    "kind": "number",
+    "value": "-pi/36",
+    "prompt": "part b, in ft³/min"
+   },
+   "hints": [
+    "$\\frac{dS}{dt}=4\\pi r^2\\frac{dr}{dt}$."
+   ],
+   "steps": [
+    "$\\frac{dr}{dt}=-\\frac{2}{(t+1)^3}$; $r(1)=\\frac16$",
+    "$4\\pi\\cdot\\frac1{36}\\cdot(-\\frac28)=-\\frac{\\pi}{36}$"
+   ]
   },
   {
    "id": "e258",
@@ -2772,7 +3810,7 @@
      "text": "**[T]** The daily temperature in degrees Fahrenheit of Phoenix in the summer can be modeled by the function $T(x)=94-10\\,\\cos \\left[\\frac{\\pi}{12}(x-2)\\right],$ where $x$ is hours after midnight. Find the rate at which the temperature is changing at 4 p.m."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739066858",
    "instructions": [
     {
@@ -2820,7 +3858,32 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-5pi/12",
+    "prompt": "°F per hour"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$T'(x)=10\\cdot\\frac{\\pi}{12}\\sin\\left[\\frac\\pi{12}(x-2)\\right]$. At 4 p.m., $x=16$: $T'(16)=\\frac{10\\pi}{12}\\sin\\frac{7\\pi}6=-\\frac{5\\pi}{12}\\approx-1.309$ °F/hr."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(94-10*cos(pi/12*(x-2)),x).subs(x,16)"
+   },
+   "hints": [
+    "4 p.m. is $x=16$.",
+    "Chain rule: the inside derivative is $\\frac{\\pi}{12}$."
+   ],
+   "steps": [
+    "$T'=\\frac{10\\pi}{12}\\sin[\\frac\\pi{12}(x-2)]$",
+    "$T'(16)=-\\frac{5\\pi}{12}\\approx-1.31$ °F/hr"
+   ]
   },
   {
    "id": "e259",
@@ -2831,7 +3894,7 @@
      "text": "**[T]** The depth (in feet) of water at a dock changes with the rise and fall of tides. The depth is modeled by the function $D(t)=5\\,\\sin \\,\\left(\\frac{\\pi}{6}t-\\frac{7\\pi}{6}\\right)+8,$ where $t$ is the number of hours after midnight. Find the rate at which the depth is changing at 6 a.m."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739296655",
    "instructions": [
     {
@@ -2888,7 +3951,22 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "number",
+    "value": "5pi sqrt(3)/12",
+    "tolerance": {
+     "abs": 0.05
+    },
+    "prompt": "ft/hr"
+   },
+   "hints": [
+    "6 a.m. is $t=6$; chain rule gives the factor $\\frac\\pi6$."
+   ],
+   "steps": [
+    "$D'=\\frac{5\\pi}6\\cos(\\frac\\pi6t-\\frac{7\\pi}6)$",
+    "$D'(6)=\\frac{5\\pi}6\\cdot\\frac{\\sqrt3}2\\approx2.27$ ft/hr"
+   ]
   }
  ],
  "proofs": [

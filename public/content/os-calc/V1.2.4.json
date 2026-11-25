@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Explain the three conditions for continuity at a point.",
@@ -505,11 +505,22 @@
       "body": [
        {
         "type": "p",
-        "text": "Follow the steps in (see above). If the function is discontinuous at 1, look at $\\lim_{x\\to 1}f(x)$ and use the definition to determine the type of discontinuity."
+        "text": "Follow the steps in the problem-solving strategy for checking continuity at a point. If the function is discontinuous at 1, look at $\\lim_{x\\to 1}f(x)$ and use the definition to determine the type of discontinuity."
        }
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "continuous",
+     "removable",
+     "jump",
+     "infinite",
+     "other"
+    ],
+    "correct": 1
    }
   },
   {
@@ -627,7 +638,7 @@
    },
    "answer": {
     "kind": "set",
-    "value": "[-3, + inf)"
+    "value": "[-3, inf)"
    }
   },
   {
@@ -636,7 +647,7 @@
    "body": [
     {
      "type": "p",
-     "text": "The (see above) allows us to expand our ability to compute limits. In particular, this theorem ultimately allows us to demonstrate that trigonometric functions are continuous over their domains."
+     "text": "The composite function theorem below allows us to expand our ability to compute limits. In particular, this theorem ultimately allows us to demonstrate that trigonometric functions are continuous over their domains."
     },
     {
      "type": "box",
@@ -921,7 +932,7 @@
      "text": "$f(x)=\\frac{1}{\\sqrt{x}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571246283",
    "instructions": [
     {
@@ -935,10 +946,47 @@
      {
       "type": "p",
       "text": "The function is defined for all *x* in the interval $(0,\\infty ).$"
+     },
+     {
+      "type": "p",
+      "text": "$f$ is continuous on its domain $(0,\\infty)$. At $x=0$ it is undefined and $\\lim_{x\\to0^+}\\frac{1}{\\sqrt x}=+\\infty$: an infinite discontinuity. (For $x<0$ the function is not defined at all.)"
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$f$ is continuous on",
+      "answer": {
+       "kind": "set",
+       "value": "(0, inf)"
+      }
+     },
+     {
+      "label": "type of discontinuity at $x=0$",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "removable",
+        "jump",
+        "infinite",
+        "other"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Find where the function is undefined (zero denominators, roots of negatives, logs of non-positives).",
+    "At each such point compute the one-sided limits: equal finite limits means removable, different finite limits means jump, an infinite limit means infinite."
+   ],
+   "steps": [
+    "Domain: $x>0$",
+    "$\\lim_{x\\to0^+}x^{-1/2}=+\\infty$: infinite discontinuity at $0$"
+   ]
   },
   {
    "id": "e132",
@@ -949,7 +997,7 @@
      "text": "$f(x)=\\frac{2}{x^{2}+1}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571103211",
    "instructions": [
     {
@@ -957,7 +1005,32 @@
      "text": "For the following exercises, determine the point(s), if any, at which each function is discontinuous. Classify any discontinuity as jump, removable, infinite, or other."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "set",
+    "value": "{}",
+    "prompt": "x-values as a set, {} if none"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^2+1\\ge1>0$ for every $x$, so the rational function $\\dfrac{2}{x^2+1}$ is defined, and therefore continuous, everywhere: no discontinuities."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Complement(S.Reals, continuous_domain(2/(x**2+1), x, S.Reals))"
+   },
+   "hints": [
+    "Find where the function is undefined (zero denominators, roots of negatives, logs of non-positives).",
+    "At each such point compute the one-sided limits: equal finite limits means removable, different finite limits means jump, an infinite limit means infinite."
+   ],
+   "steps": [
+    "$x^2+1>0$ always",
+    "Continuous everywhere: no discontinuities"
+   ]
   },
   {
    "id": "e133",
@@ -968,7 +1041,7 @@
      "text": "$f(x)=\\frac{x}{x^{2}-x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573367933",
    "instructions": [
     {
@@ -985,7 +1058,58 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "removable at",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "infinite at",
+      "answer": {
+       "kind": "set",
+       "value": "{1}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Find where the function is undefined (zero denominators, roots of negatives, logs of non-positives).",
+    "At each such point compute the one-sided limits: equal finite limits means removable, different finite limits means jump, an infinite limit means infinite."
+   ],
+   "steps": [
+    "$\\dfrac{x}{x(x-1)}=\\dfrac{1}{x-1}$ for $x\\ne0$",
+    "$x=0$: limit $-1$ exists: removable",
+    "$x=1$: $\\frac{1}{x-1}\\to\\pm\\infty$: infinite"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -6,
+      "max": 6,
+      "exclude": [
+       0
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Where is $f(x)=\\dfrac{x}{x^2-({{a}})x}$ discontinuous? Give the $x$-value of the **infinite** discontinuity."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{a}}"
+    }
+   }
   },
   {
    "id": "e134",
@@ -996,7 +1120,7 @@
      "text": "$g(t)=t^{-1}+1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573734927",
    "instructions": [
     {
@@ -1004,7 +1128,53 @@
      "text": "For the following exercises, determine the point(s), if any, at which each function is discontinuous. Classify any discontinuity as jump, removable, infinite, or other."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "discontinuous at",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "type",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "removable",
+        "jump",
+        "infinite",
+        "other"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$g(t)=\\frac1t+1$ is undefined only at $t=0$, where $\\lim_{t\\to0^\\pm}g(t)=\\pm\\infty$: an infinite discontinuity."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Complement(S.Reals, continuous_domain(1/x+1, x, S.Reals)),)"
+   },
+   "hints": [
+    "Find where the function is undefined (zero denominators, roots of negatives, logs of non-positives).",
+    "At each such point compute the one-sided limits: equal finite limits means removable, different finite limits means jump, an infinite limit means infinite."
+   ],
+   "steps": [
+    "Undefined at $t=0$",
+    "$\\frac1t\\to\\pm\\infty$: infinite discontinuity"
+   ]
   },
   {
    "id": "e135",
@@ -1015,7 +1185,7 @@
      "text": "$f(x)=\\frac{5}{e^{x}-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573581616",
    "instructions": [
     {
@@ -1032,7 +1202,41 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "discontinuous at",
+      "answer": {
+       "kind": "set",
+       "value": "{ln 2}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "type",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "removable",
+        "jump",
+        "infinite",
+        "other"
+       ],
+       "correct": 2
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Find where the function is undefined (zero denominators, roots of negatives, logs of non-positives).",
+    "At each such point compute the one-sided limits: equal finite limits means removable, different finite limits means jump, an infinite limit means infinite."
+   ],
+   "steps": [
+    "$e^x-2=0$ at $x=\\ln2$",
+    "Numerator $5\\ne0$: infinite discontinuity"
+   ]
   },
   {
    "id": "e136",
@@ -1043,7 +1247,7 @@
      "text": "$f(x)=\\frac{|x-2|}{x-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573403108",
    "instructions": [
     {
@@ -1051,7 +1255,57 @@
      "text": "For the following exercises, determine the point(s), if any, at which each function is discontinuous. Classify any discontinuity as jump, removable, infinite, or other."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "discontinuous at",
+      "answer": {
+       "kind": "set",
+       "value": "{2}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "type",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "removable",
+        "jump",
+        "infinite",
+        "other"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x)=\\dfrac{|x-2|}{x-2}$ is $-1$ for $x<2$ and $1$ for $x>2$, undefined at $x=2$."
+     },
+     {
+      "type": "p",
+      "text": "$\\lim_{x\\to2^-}f=-1\\ne1=\\lim_{x\\to2^+}f$: a jump discontinuity at $x=2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Complement(S.Reals, continuous_domain(Abs(x-2)/(x-2), x, S.Reals)),)"
+   },
+   "hints": [
+    "Find where the function is undefined (zero denominators, roots of negatives, logs of non-positives).",
+    "At each such point compute the one-sided limits: equal finite limits means removable, different finite limits means jump, an infinite limit means infinite."
+   ],
+   "steps": [
+    "$f=-1$ for $x<2$, $f=1$ for $x>2$",
+    "One-sided limits $-1$ and $1$: jump at $x=2$"
+   ]
   },
   {
    "id": "e137",
@@ -1062,7 +1316,7 @@
      "text": "$H(x)=\\tan \\,2x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573361738",
    "instructions": [
     {
@@ -1079,7 +1333,41 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "type",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "removable",
+        "jump",
+        "infinite",
+        "other"
+       ],
+       "correct": 2
+      }
+     },
+     {
+      "label": "smallest positive point of discontinuity",
+      "answer": {
+       "kind": "number",
+       "value": "pi/4"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Find where the function is undefined (zero denominators, roots of negatives, logs of non-positives).",
+    "At each such point compute the one-sided limits: equal finite limits means removable, different finite limits means jump, an infinite limit means infinite.",
+    "$\\tan u$ is undefined at $u=\\frac\\pi2+k\\pi$."
+   ],
+   "steps": [
+    "$2x=\\frac\\pi2+k\\pi$, so $x=\\frac{(2k+1)\\pi}{4}$",
+    "$\\tan\\to\\pm\\infty$ there: infinite discontinuities; the first positive one is $\\frac\\pi4$"
+   ]
   },
   {
    "id": "e138",
@@ -1090,7 +1378,7 @@
      "text": "$f(t)=\\frac{t+3}{t^{2}+5t+6}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573581931",
    "instructions": [
     {
@@ -1098,7 +1386,52 @@
      "text": "For the following exercises, determine the point(s), if any, at which each function is discontinuous. Classify any discontinuity as jump, removable, infinite, or other."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "removable at",
+      "answer": {
+       "kind": "set",
+       "value": "{-3}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "infinite at",
+      "answer": {
+       "kind": "set",
+       "value": "{-2}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{t+3}{t^2+5t+6}=\\dfrac{t+3}{(t+2)(t+3)}=\\dfrac{1}{t+2}$ for $t\\ne-3$."
+     },
+     {
+      "type": "p",
+      "text": "At $t=-3$ the limit is $\\frac{1}{-1}=-1$ but $f(-3)$ is undefined: removable. At $t=-2$, $\\frac{1}{t+2}\\to\\pm\\infty$: infinite."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(FiniteSet(-3), FiniteSet(-2))"
+   },
+   "hints": [
+    "Find where the function is undefined (zero denominators, roots of negatives, logs of non-positives).",
+    "At each such point compute the one-sided limits: equal finite limits means removable, different finite limits means jump, an infinite limit means infinite."
+   ],
+   "steps": [
+    "Factor: $\\dfrac{t+3}{(t+2)(t+3)}=\\dfrac{1}{t+2}$",
+    "$t=-3$: removable; $t=-2$: infinite"
+   ]
   },
   {
    "id": "e139",
@@ -1109,7 +1442,7 @@
      "text": "$f(x)=\\frac{2x^{2}-5x+3}{x-1}$ at $x=1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573750411",
    "instructions": [
     {
@@ -1126,7 +1459,26 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "continuous",
+     "removable",
+     "jump",
+     "infinite",
+     "other"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Check the three conditions: $f(a)$ defined, $\\lim_{x\\to a}f(x)$ exists, and they are equal.",
+    "If it fails, use the limits to classify the discontinuity."
+   ],
+   "steps": [
+    "$f(1)$ is $\\frac00$: undefined, so not continuous",
+    "$\\dfrac{(2x-3)(x-1)}{x-1}=2x-3\\to-1$: the limit exists, so removable"
+   ]
   },
   {
    "id": "e140",
@@ -1137,7 +1489,7 @@
      "text": "$h(\\theta )=\\frac{\\sin \\,\\theta -\\cos \\,\\theta}{\\tan \\,\\theta}$ at $\\theta =\\pi$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170570999796",
    "instructions": [
     {
@@ -1145,7 +1497,39 @@
      "text": "For the following exercises, decide if the function continuous at the given point. If it is discontinuous, what type of discontinuity is it?"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "continuous",
+     "removable",
+     "jump",
+     "infinite",
+     "other"
+    ],
+    "correct": 3
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\tan\\pi=0$, so $h(\\pi)$ is undefined. Near $\\pi$ the numerator tends to $\\sin\\pi-\\cos\\pi=0-(-1)=1$ while the denominator tends to $0$."
+     },
+     {
+      "type": "p",
+      "text": "So $h(\\theta)\\to\\pm\\infty$ as $\\theta\\to\\pi$: not continuous; an infinite discontinuity."
+     }
+    ]
+   },
+   "hints": [
+    "Check the three conditions: $f(a)$ defined, $\\lim_{x\\to a}f(x)$ exists, and they are equal.",
+    "If it fails, use the limits to classify the discontinuity."
+   ],
+   "steps": [
+    "$\\tan\\pi=0$: $h(\\pi)$ undefined",
+    "Numerator $\\to1$, denominator $\\to0$: infinite discontinuity"
+   ]
   },
   {
    "id": "e141",
@@ -1156,7 +1540,7 @@
      "text": "$g(u)=\\{\\begin{array}{ll}\\frac{6u^{2}+u-2}{2u-1} & \\text{if}\\,u\\ne \\frac{1}{2} \\\\ \\frac{7}{2} & \\text{if}\\,u=\\frac{1}{2}\\end{array},$ at $u=\\frac{1}{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573580625",
    "instructions": [
     {
@@ -1173,7 +1557,26 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "continuous",
+     "removable",
+     "jump",
+     "infinite",
+     "other"
+    ],
+    "correct": 0
+   },
+   "hints": [
+    "Check the three conditions: $f(a)$ defined, $\\lim_{x\\to a}f(x)$ exists, and they are equal.",
+    "If it fails, use the limits to classify the discontinuity."
+   ],
+   "steps": [
+    "$\\dfrac{6u^2+u-2}{2u-1}=\\dfrac{(2u-1)(3u+2)}{2u-1}=3u+2\\to\\frac72$",
+    "$g(\\frac12)=\\frac72$: continuous"
+   ]
   },
   {
    "id": "e142",
@@ -1184,7 +1587,7 @@
      "text": "$f(y)=\\frac{\\sin \\,(\\pi y)}{\\tan \\,(\\pi y)},$ at $y=1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571120275",
    "instructions": [
     {
@@ -1192,7 +1595,39 @@
      "text": "For the following exercises, decide if the function continuous at the given point. If it is discontinuous, what type of discontinuity is it?"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "continuous",
+     "removable",
+     "jump",
+     "infinite",
+     "other"
+    ],
+    "correct": 1
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(1)=\\dfrac{\\sin\\pi}{\\tan\\pi}=\\dfrac00$ is undefined, so $f$ is not continuous at $y=1$."
+     },
+     {
+      "type": "p",
+      "text": "For $\\sin(\\pi y)\\ne0$, $\\dfrac{\\sin(\\pi y)}{\\tan(\\pi y)}=\\cos(\\pi y)\\to\\cos\\pi=-1$. The limit exists, so the discontinuity is removable."
+     }
+    ]
+   },
+   "hints": [
+    "Check the three conditions: $f(a)$ defined, $\\lim_{x\\to a}f(x)$ exists, and they are equal.",
+    "If it fails, use the limits to classify the discontinuity."
+   ],
+   "steps": [
+    "$f(1)=\\frac00$: undefined",
+    "$f(y)=\\cos(\\pi y)\\to-1$: the limit exists, so removable"
+   ]
   },
   {
    "id": "e143",
@@ -1203,7 +1638,7 @@
      "text": "$f(x)=\\{\\begin{array}{ll}x^{2}-e^{x} & \\text{if}\\,x<0 \\\\ x-1 & \\text{if}\\,x\\ge 0\\end{array},$ at $x=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571120812",
    "instructions": [
     {
@@ -1220,7 +1655,26 @@
      }
     ]
    },
-   "notes": "self-check: answer is prose"
+   "notes": "self-check: answer is prose",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "continuous",
+     "removable",
+     "jump",
+     "infinite",
+     "other"
+    ],
+    "correct": 0
+   },
+   "hints": [
+    "Check the three conditions: $f(a)$ defined, $\\lim_{x\\to a}f(x)$ exists, and they are equal.",
+    "If it fails, use the limits to classify the discontinuity."
+   ],
+   "steps": [
+    "Left: $0-e^0=-1$; right: $0-1=-1$",
+    "$f(0)=-1$: continuous"
+   ]
   },
   {
    "id": "e144",
@@ -1231,7 +1685,7 @@
      "text": "$f(x)=\\{\\begin{array}{l}x\\,\\sin \\,(x)\\,\\text{if}\\,x\\le \\pi \\\\ x\\,\\tan \\,(x)\\,\\text{if}\\,x>\\pi\\end{array},$ at $x=\\pi$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573381217",
    "instructions": [
     {
@@ -1239,7 +1693,39 @@
      "text": "For the following exercises, decide if the function continuous at the given point. If it is discontinuous, what type of discontinuity is it?"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "continuous",
+     "removable",
+     "jump",
+     "infinite",
+     "other"
+    ],
+    "correct": 0
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(\\pi)=\\pi\\sin\\pi=0$. From the left, $x\\sin x\\to\\pi\\cdot0=0$. From the right, $x\\tan x\\to\\pi\\tan\\pi=0$ ($\\tan$ is continuous at $\\pi$)."
+     },
+     {
+      "type": "p",
+      "text": "All three agree, so $f$ is continuous at $x=\\pi$."
+     }
+    ]
+   },
+   "hints": [
+    "Check the three conditions: $f(a)$ defined, $\\lim_{x\\to a}f(x)$ exists, and they are equal.",
+    "If it fails, use the limits to classify the discontinuity."
+   ],
+   "steps": [
+    "$f(\\pi)=0$",
+    "Left limit $\\pi\\sin\\pi=0$, right limit $\\pi\\tan\\pi=0$: continuous"
+   ]
   },
   {
    "id": "e145",
@@ -1270,7 +1756,15 @@
    "answer": {
     "kind": "list",
     "value": "-5"
-   }
+   },
+   "hints": [
+    "At the point where the pieces meet, the left and right limits must agree (and equal the function's value).",
+    "Set the two expressions equal there and solve for $k$."
+   ],
+   "steps": [
+    "$3k+2=2k-3$",
+    "$k=-5$"
+   ]
   },
   {
    "id": "e146",
@@ -1281,7 +1775,7 @@
      "text": "$f(\\theta )=\\{\\begin{array}{ll}\\sin \\,\\theta , & 0\\le \\theta <\\frac{\\pi}{2} \\\\ \\cos \\,(\\theta +k), & \\frac{\\pi}{2}\\le \\theta \\le \\pi\\end{array}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571068186",
    "instructions": [
     {
@@ -1289,7 +1783,36 @@
      "text": "In the following exercises, find the value(s) of *k* that makes each function continuous over the given interval."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-pi/2",
+    "prompt": "the value of k in (-π, π]"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\lim_{\\theta\\to\\pi/2^-}\\sin\\theta=1$, and the right piece at $\\frac\\pi2$ is $\\cos\\left(\\frac\\pi2+k\\right)$."
+     },
+     {
+      "type": "p",
+      "text": "We need $\\cos\\left(\\frac\\pi2+k\\right)=1$, so $\\frac\\pi2+k=2n\\pi$: $k=-\\frac\\pi2+2n\\pi$. The value in $(-\\pi,\\pi]$ is $k=-\\frac\\pi2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-pi/2"
+   },
+   "hints": [
+    "At the point where the pieces meet, the left and right limits must agree (and equal the function's value).",
+    "Set the two expressions equal there and solve for $k$."
+   ],
+   "steps": [
+    "$\\sin\\frac\\pi2=1$, so need $\\cos(\\frac\\pi2+k)=1$",
+    "$\\frac\\pi2+k=0$: $k=-\\frac\\pi2$ (plus multiples of $2\\pi$)"
+   ]
   },
   {
    "id": "e147",
@@ -1320,7 +1843,16 @@
    "answer": {
     "kind": "list",
     "value": "-1"
-   }
+   },
+   "hints": [
+    "At the point where the pieces meet, the left and right limits must agree (and equal the function's value).",
+    "Set the two expressions equal there and solve for $k$.",
+    "Factor $x^2+3x+2$."
+   ],
+   "steps": [
+    "$\\dfrac{(x+1)(x+2)}{x+2}=x+1\\to-1$",
+    "$k=-1$"
+   ]
   },
   {
    "id": "e148",
@@ -1331,7 +1863,7 @@
      "text": "$f(x)=\\{\\begin{array}{cc}e^{kx}, & 0\\le x<4 \\\\ x+3, & 4\\le x\\le 8\\end{array}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573589731",
    "instructions": [
     {
@@ -1339,7 +1871,57 @@
      "text": "In the following exercises, find the value(s) of *k* that makes each function continuous over the given interval."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "ln(7)/4"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "At $x=4$: the left limit is $e^{4k}$ and the right piece gives $4+3=7$."
+     },
+     {
+      "type": "p",
+      "text": "$e^{4k}=7$, so $k=\\dfrac{\\ln7}{4}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "log(7)/4"
+   },
+   "hints": [
+    "At the point where the pieces meet, the left and right limits must agree (and equal the function's value).",
+    "Set the two expressions equal there and solve for $k$."
+   ],
+   "steps": [
+    "$e^{4k}=7$",
+    "$k=\\frac{\\ln7}{4}$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 6
+     },
+     "b": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $k$ so that $f(x)=e^{kx}$ for $0\\le x<{{a}}$ and $f(x)=x+{{b}}$ for ${{a}}\\le x\\le 10$ is continuous on $[0,10]$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "ln({{a+b}})/{{a}}"
+    }
+   }
   },
   {
    "id": "e149",
@@ -1370,7 +1952,15 @@
    "answer": {
     "kind": "list",
     "value": "(16/3)"
-   }
+   },
+   "hints": [
+    "At the point where the pieces meet, the left and right limits must agree (and equal the function's value).",
+    "Set the two expressions equal there and solve for $k$."
+   ],
+   "steps": [
+    "$\\sqrt{3k}=3+1=4$",
+    "$3k=16$, $k=\\frac{16}{3}$"
+   ]
   },
   {
    "id": "e150",
@@ -1389,7 +1979,16 @@
      "text": "In the following exercises, use the Intermediate Value Theorem (IVT)."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The IVT needs $h$ to be continuous on $[0,4]$, and it is not: at $x=2$, $\\lim_{x\\to2^-}h=3(4)-4=8$ but $\\lim_{x\\to2^+}h=5+8=13$. The jump from $8$ to $13$ skips the value $10$, so there is no contradiction."
+     }
+    ]
+   }
   },
   {
    "id": "e151",
@@ -1438,7 +2037,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573590374",
    "instructions": [
     {
@@ -1446,7 +2045,43 @@
      "text": "In the following exercises, use the Intermediate Value Theorem (IVT)."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "0.865474033101614",
+    "tolerance": {
+     "abs": 0.005
+    },
+    "prompt": "part c: a solution, to within 0.005"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $\\cos t=t^3$."
+     },
+     {
+      "type": "p",
+      "text": "b. Let $f(t)=\\cos t-t^3$, continuous everywhere. $f(0)=1>0$ and $f(1)=\\cos1-1\\approx-0.46<0$, so by the IVT there is $c\\in(0,1)$ with $f(c)=0$, i.e. $\\cos c=c^3$."
+     },
+     {
+      "type": "p",
+      "text": "c. $f(0.86)\\approx0.0125>0$ and $f(0.87)\\approx-0.0034<0$, so $[0.86,0.87]$ contains a solution ($t\\approx0.8655$)."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "nsolve(cos(x)-x**3, x, 0.86)"
+   },
+   "hints": [
+    "Rewrite as $f(t)=\\cos t-t^3=0$ and check signs at easy points.",
+    "Halve the interval repeatedly (or zoom in on a graph)."
+   ],
+   "steps": [
+    "$f(0)=1>0$, $f(1)<0$: a root in $(0,1)$",
+    "$f(0.86)>0$, $f(0.87)<0$: root $\\approx0.8655$"
+   ]
   },
   {
    "id": "e153",
@@ -1457,7 +2092,7 @@
      "text": "Apply the IVT to determine whether $2^{x}=x^{3}$ has a solution in one of the intervals $[1.25,1.375]$ or $[1.375,1.5].$ Briefly explain your response for each interval."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170570982565",
    "instructions": [
     {
@@ -1471,10 +2106,49 @@
      {
       "type": "p",
       "text": "The function $f(x)=2^{x}-x^{3}$ is continuous over the interval $[1.25,1.375]$ and has opposite signs at the endpoints."
+     },
+     {
+      "type": "p",
+      "text": "$f(1.25)\\approx2.378-1.953>0$ and $f(1.375)\\approx2.594-2.600<0$: opposite signs, so a solution exists in $[1.25,1.375]$. On $[1.375,1.5]$, $f(1.375)<0$ and $f(1.5)\\approx2.828-3.375<0$ have the same sign, so the IVT gives no conclusion there."
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$[1.25,1.375]$",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "IVT guarantees a solution",
+        "IVT gives no conclusion"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "$[1.375,1.5]$",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "IVT guarantees a solution",
+        "IVT gives no conclusion"
+       ],
+       "correct": 1
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Let $f(x)=2^x-x^3$ and evaluate it at the endpoints.",
+    "The IVT only helps when the signs at the endpoints differ."
+   ],
+   "steps": [
+    "$f(1.25)>0$, $f(1.375)<0$: solution guaranteed",
+    "$f(1.375)<0$, $f(1.5)<0$: no conclusion"
+   ]
   },
   {
    "id": "e154",
@@ -1502,7 +2176,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573423919",
    "instructions": [
     {
@@ -1510,7 +2184,71 @@
      "text": "In the following exercises, use the Intermediate Value Theorem (IVT)."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. all discontinuities",
+      "answer": {
+       "kind": "set",
+       "value": "{-1, 0, 1}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "jump at",
+      "answer": {
+       "kind": "set",
+       "value": "{-1}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "infinite at",
+      "answer": {
+       "kind": "set",
+       "value": "{0}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     },
+     {
+      "label": "removable at",
+      "answer": {
+       "kind": "set",
+       "value": "{1}",
+       "prompt": "x-values as a set, {} if none"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $x=-1$, $x=0$ and $x=1$."
+     },
+     {
+      "type": "p",
+      "text": "b. At $x=-1$: $f(-1)=3$ is defined but the one-sided limits ($3$ from the left, about $0.75$ from the right) differ, so $\\lim_{x\\to-1}f$ does not exist. At $x=0$: the function goes to $+\\infty$ from the left and $f(0)$ is undefined. At $x=1$: $\\lim_{x\\to1}f(x)=1$ exists but $f(1)=2\\ne1$."
+     },
+     {
+      "type": "p",
+      "text": "c. Jump at $-1$, infinite at $0$, removable at $1$."
+     }
+    ]
+   },
+   "hints": [
+    "Look for breaks, open circles and vertical asymptotes in the graph.",
+    "Compare one-sided limits with each other and with the filled dot."
+   ],
+   "steps": [
+    "Breaks at $x=-1,0,1$",
+    "$-1$: different one-sided limits: jump",
+    "$0$: the curve goes to $\\infty$: infinite",
+    "$1$: limit $1$ but $f(1)=2$: removable"
+   ]
   },
   {
    "id": "e155",
@@ -1530,7 +2268,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571290233",
    "instructions": [
     {
@@ -1558,7 +2296,44 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "can $f(1)=k$ make $f$ continuous?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "yes",
+        "no"
+       ],
+       "correct": 1
+      }
+     },
+     {
+      "label": "$\\lim_{x\\to1^-}f(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "1"
+      }
+     },
+     {
+      "label": "$\\lim_{x\\to1^+}f(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Compute both one-sided limits at $x=1$."
+   ],
+   "steps": [
+    "Left: $x^3\\to1$; right: $3x\\to3$",
+    "They differ (jump): no value of $f(1)$ fixes it"
+   ]
   },
   {
    "id": "e156",
@@ -1578,7 +2353,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573359564",
    "instructions": [
     {
@@ -1586,7 +2361,49 @@
      "text": "In the following exercises, use the Intermediate Value Theorem (IVT)."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$k_1$",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "$k_2$",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. For $x\\ne\\pm1$, $\\dfrac{x^4-1}{x^2-1}=\\dfrac{(x^2-1)(x^2+1)}{x^2-1}=x^2+1$: the parabola $y=x^2+1$ with holes at $(-1,2)$ and $(1,2)$."
+     },
+     {
+      "type": "p",
+      "text": "b. Yes: both discontinuities are removable. Set $k_1=f(-1)=2$ and $k_2=f(1)=2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(limit((x**4-1)/(x**2-1), x, -1), limit((x**4-1)/(x**2-1), x, 1))"
+   },
+   "hints": [
+    "Factor $x^4-1=(x^2-1)(x^2+1)$."
+   ],
+   "steps": [
+    "$f(x)=x^2+1$ for $x\\ne\\pm1$",
+    "Limits at $\\pm1$ are $2$, so $k_1=k_2=2$"
+   ]
   },
   {
    "id": "e157",
@@ -1664,7 +2481,28 @@
      "text": "In the following exercises, use the Intermediate Value Theorem (IVT)."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary. One example on $[0,5]$:"
+     },
+     {
+      "type": "p",
+      "text": "on $[0,1)\\cup(1,2]$ draw a line from $(0,0)$ to $(2,2)$ with an open circle at $(1,1)$ and a filled dot at $(1,3)$ (removable at $1$; both one-sided limits are $1$);"
+     },
+     {
+      "type": "p",
+      "text": "on $(2,3)$ draw a curve starting at an open circle at $(2,4)$ and falling to $-\\infty$ as $x\\to3^-$ (jump at $2$, left continuous there since $f(2)=2$);"
+     },
+     {
+      "type": "p",
+      "text": "on $[3,5]$ draw a line starting at the filled dot $(3,2)$ (right continuous at $3$ with $\\lim_{x\\to3^+}f=2$, but not continuous since $\\lim_{x\\to3^-}f=-\\infty$)."
+     }
+    ]
+   }
   },
   {
    "id": "e159",
@@ -1718,7 +2556,16 @@
      "text": "In the following exercises, suppose $y=f(x)$ is defined for all *x*. For each description, sketch a graph with the indicated property."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Answers may vary. Example: $f(x)=\\frac12$ for $x<2$ and $f(x)=3$ for $x\\ge2$. It is continuous everywhere except the jump at $x=2$, and $\\lim_{x\\to0}f(x)=\\frac12$."
+     }
+    ]
+   }
   },
   {
    "id": "e161",
@@ -1729,7 +2576,7 @@
      "text": "$f(t)=\\frac{2}{e^{t}-e^{-t}}$ is continuous everywhere."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573422229",
    "instructions": [
     {
@@ -1746,7 +2593,22 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Look for a counterexample, or check the hypotheses of the theorem."
+   ],
+   "steps": [
+    "$e^t-e^{-t}=0$ when $t=0$",
+    "Undefined at $0$, so not continuous everywhere: false"
+   ]
   },
   {
    "id": "e162",
@@ -1757,7 +2619,7 @@
      "text": "If the left- and right-hand limits of $f(x)$ as $x\\to a$ exist and are equal, then *f* cannot be discontinuous at $x=a.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573624587",
    "instructions": [
     {
@@ -1765,7 +2627,31 @@
      "text": "Determine whether each of the given statements is true. Justify your response with an explanation or counterexample."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. Equal one-sided limits only make $\\lim_{x\\to a}f(x)$ exist. $f$ can still be discontinuous if $f(a)$ is undefined or different from the limit, e.g. $f(x)=x$ for $x\\ne0$ and $f(0)=4$ (a removable discontinuity)."
+     }
+    ]
+   },
+   "hints": [
+    "Look for a counterexample, or check the hypotheses of the theorem."
+   ],
+   "steps": [
+    "The limit exists, but $f(a)$ might be undefined or different",
+    "Removable discontinuity is a counterexample: false"
+   ]
   },
   {
    "id": "e163",
@@ -1776,7 +2662,7 @@
      "text": "If a function is not continuous at a point, then it is not defined at that point."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571287009",
    "instructions": [
     {
@@ -1793,7 +2679,22 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Look for a counterexample, or check the hypotheses of the theorem."
+   ],
+   "steps": [
+    "A removable discontinuity with $f(a)$ defined but wrong is a counterexample",
+    "False"
+   ]
   },
   {
    "id": "e164",
@@ -1804,7 +2705,7 @@
      "text": "According to the IVT, $\\cos \\,x-\\sin \\,x-x=2$ has a solution over the interval $[-1,1].$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571131867",
    "instructions": [
     {
@@ -1812,7 +2713,58 @@
      "text": "Determine whether each of the given statements is true. Justify your response with an explanation or counterexample."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "true or false?",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "true",
+        "false"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "a solution in $[-1,1]$",
+      "answer": {
+       "kind": "number",
+       "value": "-0.607984689099891",
+       "tolerance": {
+        "abs": 0.01
+       },
+       "prompt": "to 2 decimals (use a calculator)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "True. Let $g(x)=\\cos x-\\sin x-x-2$, continuous on $[-1,1]$."
+     },
+     {
+      "type": "p",
+      "text": "$g(-1)=\\cos1+\\sin1+1-2\\approx0.382>0$ and $g(1)=\\cos1-\\sin1-1-2\\approx-3.301<0$. By the IVT $g(c)=0$ for some $c\\in(-1,1)$; numerically $c\\approx-0.608$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "nsolve(cos(x)-sin(x)-x-2, x, -0.8)"
+   },
+   "hints": [
+    "Look for a counterexample, or check the hypotheses of the theorem.",
+    "Move everything to one side and check the signs at $x=\\pm1$."
+   ],
+   "steps": [
+    "$g(x)=\\cos x-\\sin x-x-2$",
+    "$g(-1)\\approx0.38>0$, $g(1)\\approx-3.30<0$: true"
+   ]
   },
   {
    "id": "e165",
@@ -1823,7 +2775,7 @@
      "text": "If $f(x)$ is continuous such that $f(a)$ and $f(b)$ have opposite signs, then $f(x)=0$ has exactly one solution in $[a,b].$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571131236",
    "instructions": [
     {
@@ -1840,7 +2792,22 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Look for a counterexample, or check the hypotheses of the theorem."
+   ],
+   "steps": [
+    "The IVT promises at least one solution, not exactly one",
+    "$\\cos x$ on $[-\\pi,2\\pi]$ has three zeros: false"
+   ]
   },
   {
    "id": "e166",
@@ -1851,7 +2818,7 @@
      "text": "The function $f(x)=\\frac{x^{2}-4x+3}{x^{2}-1}$ is continuous over the interval $[0,3].$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571099130",
    "instructions": [
     {
@@ -1859,7 +2826,31 @@
      "text": "Determine whether each of the given statements is true. Justify your response with an explanation or counterexample."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. $\\dfrac{x^2-4x+3}{x^2-1}=\\dfrac{(x-1)(x-3)}{(x-1)(x+1)}$ is undefined at $x=1$, which lies in $[0,3]$ (a removable discontinuity)."
+     }
+    ]
+   },
+   "hints": [
+    "Look for a counterexample, or check the hypotheses of the theorem."
+   ],
+   "steps": [
+    "The denominator $x^2-1$ is $0$ at $x=1\\in[0,3]$",
+    "Not continuous there: false"
+   ]
   },
   {
    "id": "e167",
@@ -1870,7 +2861,7 @@
      "text": "If $f(x)$ is continuous everywhere and $f(a),f(b)>0,$ then there is no root of $f(x)$ in the interval $[a,b].$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170570998957",
    "instructions": [
     {
@@ -1887,7 +2878,22 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Look for a counterexample, or check the hypotheses of the theorem."
+   ],
+   "steps": [
+    "$(x-1)^2$ is positive at $-2$ and $2$ but has a root at $1$",
+    "False"
+   ]
   },
   {
    "id": "e168",
@@ -1909,7 +2915,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573393357",
    "instructions": [
     {
@@ -1917,7 +2923,46 @@
      "text": "**[T]** The following problems consider the scalar form of Coulomb’s law, which describes the electrostatic force between two point charges, such as electrons. It is given by the equation $F(r)=k_{e}\\frac{|q_{1}q_{2}|}{r^{2}},$ where $k_{e}$ is Coulomb’s constant, $q_{i}$ are the magnitudes of the charges of the two particles, and *r* is the distance between the two particles."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "2.307*10^-28",
+    "tolerance": {
+     "rel": 0.01
+    },
+    "prompt": "part c: Coulomb force at 1 m, in N"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The force falls off like $1/r^2$; far away it is so small that ignoring it barely changes the result and saves a lot of computation."
+     },
+     {
+      "type": "p",
+      "text": "b. $F(r)=k_e\\dfrac{|q_1q_2|}{r^2}$ for $r<R$ and $F(r)=0$ for $r\\ge R$."
+     },
+     {
+      "type": "p",
+      "text": "c. Coulomb's law: $F(1)=8.988\\times10^9\\cdot(1.6022\\times10^{-19})^2\\approx2.307\\times10^{-28}$ N. The approximation gives $0$, an error of only $2.3\\times10^{-28}$ N: very reasonable."
+     },
+     {
+      "type": "p",
+      "text": "d. No. $k_e|q_1q_2|/R^2>0$ for every finite $R$, so the jump down to $0$ at $R$ never closes."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(8988,1000)*10**9*(Rational(16022,10000)*10**-19)**2"
+   },
+   "hints": [
+    "Plug $r=1$ into $F(r)=k_e\\dfrac{q^2}{r^2}$."
+   ],
+   "steps": [
+    "$F(1)=8.988\\times10^9\\times(1.6022\\times10^{-19})^2$",
+    "$\\approx2.307\\times10^{-28}$ N"
+   ]
   },
   {
    "id": "e169",
@@ -1928,7 +2973,7 @@
      "text": "Instead of making the force 0 at *R*, instead we let the force be 10$^{\\text{−20}}$ for $r\\ge R.$ Assume two protons, which have a magnitude of charge $1.6022\\,\\times \\,10^{-19}\\,\\text{C},$ and the Coulomb constant $k_{e}=8.988\\,\\times \\,10^{9}{\\text{Nm}}^{2}/{\\text{C}}^{2}.$ Is there a value *R* that can make this system continuous? If so, find it."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573438919",
    "instructions": [
     {
@@ -1945,7 +2990,19 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "number",
+    "value": "0.0001519",
+    "prompt": "R in meters"
+   },
+   "hints": [
+    "Continuity at $R$ means $k_e\\dfrac{q^2}{R^2}=10^{-20}$."
+   ],
+   "steps": [
+    "$R^2=\\dfrac{k_eq^2}{10^{-20}}=\\dfrac{2.307\\times10^{-28}}{10^{-20}}$",
+    "$R=\\sqrt{2.307\\times10^{-8}}\\approx1.519\\times10^{-4}$ m"
+   ]
   },
   {
    "id": "e170",
@@ -1956,7 +3013,7 @@
      "text": "**[T]** Determine the value and units of *k* given that the mass of the rocket is 3 million kg. (*Hint*: The distance from the center of Earth to its surface is 6378 km.)"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573587225",
    "instructions": [
     {
@@ -1964,7 +3021,39 @@
      "text": "Recall the discussion on spacecraft from the chapter opener. The following problems consider a rocket launch from Earth’s surface. The force of gravity on the rocket is given by $F(d)=-mk/d^{2},$ where *m* is the mass of the rocket, *d* is the distance of the rocket from the center of Earth, and *k* is a constant."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "398653063200000",
+    "tolerance": {
+     "rel": 0.005
+    },
+    "prompt": "k in m³/s²"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "At the surface the force is the rocket's weight: $\\dfrac{mk}{d^2}=mg$, so $k=gd^2$ (the mass cancels)."
+     },
+     {
+      "type": "p",
+      "text": "$k=9.8\\cdot(6.378\\times10^6)^2\\approx3.987\\times10^{14}\\ \\text{m}^3/\\text{s}^2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(98,10)*(6378000)**2"
+   },
+   "hints": [
+    "At Earth's surface the force of gravity is the weight $mg$ with $g=9.8\\ \\text{m/s}^2$.",
+    "Use $d=6378$ km $=6.378\\times10^6$ m."
+   ],
+   "steps": [
+    "$k=gd^2$",
+    "$9.8\\times(6.378\\times10^6)^2\\approx3.987\\times10^{14}\\ \\text{m}^3/\\text{s}^2$"
+   ]
   },
   {
    "id": "e171",
@@ -1975,7 +3064,7 @@
      "text": "**[T]** After a certain distance *D* has passed, the gravitational effect of Earth becomes quite negligible, so we can approximate the force function by $F(d)=\\{\\begin{array}{ll}-\\frac{mk}{d^{2}} & \\text{if}\\,d<D \\\\ 10,000 & \\text{if}\\,d\\ge D\\end{array}.$ Using the value of k found in the previous exercise, find the necessary condition *D* such that the force function remains continuous."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573571185",
    "instructions": [
     {
@@ -1992,7 +3081,23 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "number",
+    "value": "345826",
+    "tolerance": {
+     "rel": 0.002
+    },
+    "prompt": "D in km"
+   },
+   "hints": [
+    "Continuity at $D$: the magnitude $\\dfrac{mk}{D^2}$ must equal $10{,}000$.",
+    "Use $m=3\\times10^6$ kg and $k$ from the previous exercise; convert meters to km."
+   ],
+   "steps": [
+    "$D^2=\\dfrac{mk}{10^4}=\\dfrac{3\\times10^6\\cdot3.987\\times10^{14}}{10^4}$",
+    "$D\\approx3.458\\times10^8$ m $\\approx345{,}826$ km"
+   ]
   },
   {
    "id": "e172",
@@ -2003,7 +3108,7 @@
      "text": "As the rocket travels away from Earth’s surface, there is a distance *D* where the rocket sheds some of its mass, since it no longer needs the excess fuel storage. We can write this function as $F(d)=\\{\\begin{array}{l}-\\frac{m_{1}k}{d^{2}}\\,\\text{if}\\,d<D \\\\ -\\frac{m_{2}k}{d^{2}}\\,\\text{if}\\,d\\ge D\\end{array}.$ Is there a *D* value such that this function is continuous, assuming $m_{1}\\ne m_{2}?$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571124644",
    "instructions": [
     {
@@ -2011,7 +3116,31 @@
      "text": "Recall the discussion on spacecraft from the chapter opener. The following problems consider a rocket launch from Earth’s surface. The force of gravity on the rocket is given by $F(d)=-mk/d^{2},$ where *m* is the mass of the rocket, *d* is the distance of the rocket from the center of Earth, and *k* is a constant."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "yes",
+     "no"
+    ],
+    "correct": 1
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "No. At $d=D$ the two pieces are $-\\dfrac{m_1k}{D^2}$ and $-\\dfrac{m_2k}{D^2}$; they are equal only if $m_1=m_2$. With $m_1\\ne m_2$ there is always a jump at $D$."
+     }
+    ]
+   },
+   "hints": [
+    "Compare the two pieces at $d=D$."
+   ],
+   "steps": [
+    "Need $\\frac{m_1k}{D^2}=\\frac{m_2k}{D^2}$",
+    "Only possible if $m_1=m_2$: no"
+   ]
   },
   {
    "id": "e173",
@@ -2058,7 +3187,24 @@
      "text": "Prove the following functions are continuous everywhere"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "For $a>0$: near $a$, $|x|=x$, a polynomial, so $\\lim_{x\\to a}|x|=a=|a|$. For $a<0$: near $a$, $|x|=-x$, so $\\lim_{x\\to a}|x|=-a=|a|$."
+     },
+     {
+      "type": "p",
+      "text": "For $a=0$: $\\lim_{x\\to0^-}(-x)=0$ and $\\lim_{x\\to0^+}x=0$, so $\\lim_{x\\to0}|x|=0=|0|$."
+     },
+     {
+      "type": "p",
+      "text": "In every case $|a|$ is defined, the limit exists and equals $|a|$, so $g(x)=|x|$ is continuous everywhere."
+     }
+    ]
+   }
   },
   {
    "id": "e175",
@@ -2069,7 +3215,7 @@
      "text": "Where is $f(x)=\\{\\begin{array}{l}0\\,\\text{if}\\,x\\,\\text{is irrational} \\\\ 1\\,\\text{if}\\,x\\,\\text{is rational}\\end{array}$ continuous?"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170573414086",
    "instructions": [
     {
@@ -2086,7 +3232,19 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "set",
+    "value": "{}",
+    "prompt": "a set of x-values, {} if nowhere"
+   },
+   "hints": [
+    "Every interval contains both rationals and irrationals."
+   ],
+   "steps": [
+    "Near any $a$, $f$ takes both values $0$ and $1$",
+    "So $\\lim_{x\\to a}f(x)$ never exists: continuous nowhere"
+   ]
   }
  ],
  "proofs": [
@@ -2110,7 +3268,7 @@
     },
     {
      "type": "p",
-     "text": "We now apply (see above) to determine the points at which a given rational function is continuous."
+     "text": "We now apply the continuity of polynomials and rational functions to determine the points at which a given rational function is continuous."
     },
     {
      "type": "p",

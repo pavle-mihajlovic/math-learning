@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Describe the epsilon-delta definition of a limit.",
@@ -1090,7 +1090,16 @@
      "text": "In the following exercises, write the appropriate $\\varepsilon$-$\\delta$ definition for each of the given statements."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "For every $\\varepsilon>0$ there exists a $\\delta>0$ such that if $0<|x-a|<\\delta$, then $|f(x)-N|<\\varepsilon$."
+     }
+    ]
+   }
   },
   {
    "id": "e177",
@@ -1137,7 +1146,16 @@
      "text": "In the following exercises, write the appropriate $\\varepsilon$-$\\delta$ definition for each of the given statements."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "For every $\\varepsilon>0$ there exists a $\\delta>0$ such that if $0<|x-c|<\\delta$, then $|h(x)-L|<\\varepsilon$."
+     }
+    ]
+   }
   },
   {
    "id": "e179",
@@ -1176,7 +1194,7 @@
      "text": "If $0<|x-2|<\\delta ,$ then $|f(x)-2|<1.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571699048",
    "instructions": [
     {
@@ -1191,7 +1209,37 @@
      "height": 422
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "0.45",
+    "tolerance": {
+     "abs": 0.06
+    },
+    "prompt": "the largest δ that works, estimated from the graph"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "We need $1<f(x)<3$. From the graph, $f(x)=3$ at about $x\\approx2.45$ and $f(x)=1$ at about $x\\approx1.4$."
+     },
+     {
+      "type": "p",
+      "text": "The distances to $2$ are about $0.45$ and $0.6$; take the smaller: any $\\delta\\le0.45$ works (for example $\\delta=0.4$)."
+     }
+    ]
+   },
+   "hints": [
+    "Find the $x$-values where $f(x)$ reaches the two edges $L\\pm\\varepsilon$.",
+    "$\\delta$ is the smaller of the two distances from those $x$-values to $a$."
+   ],
+   "steps": [
+    "$f=3$ near $x\\approx2.45$ (distance $0.45$)",
+    "$f=1$ near $x\\approx1.4$ (distance $0.6$)",
+    "$\\delta\\le0.45$"
+   ]
   },
   {
    "id": "e181",
@@ -1229,7 +1277,15 @@
    "answer": {
     "kind": "set",
     "value": "delta <=0.25"
-   }
+   },
+   "hints": [
+    "Find the $x$-values where $f(x)$ reaches the two edges $L\\pm\\varepsilon$.",
+    "$\\delta$ is the smaller of the two distances from those $x$-values to $a$."
+   ],
+   "steps": [
+    "$f=2.5$ near $x\\approx2.24$ and $f=1.5$ near $x\\approx1.73$",
+    "The closer one is about $0.25$ away: $\\delta\\le0.25$"
+   ]
   },
   {
    "id": "e182",
@@ -1240,7 +1296,7 @@
      "text": "If $0<|x-3|<\\delta ,$ then $|f(x)+1|<1.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572624813",
    "instructions": [
     {
@@ -1255,7 +1311,33 @@
      "height": 422
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "set",
+    "value": "delta <= 1",
+    "prompt": "the δ values that work, as δ ≤ …"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The graph is the line $f(x)=2-x$, so $|f(x)+1|=|3-x|=|x-3|$."
+     },
+     {
+      "type": "p",
+      "text": "$|x-3|<1$ guarantees $|f(x)+1|<1$: $\\delta\\le1$."
+     }
+    ]
+   },
+   "hints": [
+    "Find the $x$-values where $f(x)$ reaches the two edges $L\\pm\\varepsilon$.",
+    "$\\delta$ is the smaller of the two distances from those $x$-values to $a$."
+   ],
+   "steps": [
+    "$f(x)=2-x$, so $|f(x)+1|=|x-3|$",
+    "$\\delta\\le1$"
+   ]
   },
   {
    "id": "e183",
@@ -1293,7 +1375,15 @@
    "answer": {
     "kind": "set",
     "value": "delta <=2"
-   }
+   },
+   "hints": [
+    "Find the $x$-values where $f(x)$ reaches the two edges $L\\pm\\varepsilon$.",
+    "$\\delta$ is the smaller of the two distances from those $x$-values to $a$."
+   ],
+   "steps": [
+    "$|f(x)+1|=|x-3|$",
+    "$\\delta\\le2$"
+   ]
   },
   {
    "id": "e184",
@@ -1304,7 +1394,7 @@
      "text": "$\\varepsilon =1.5$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572618071",
    "instructions": [
     {
@@ -1319,7 +1409,33 @@
      "height": 422
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "set",
+    "value": "delta <= 0.5",
+    "prompt": "the δ values that work, as δ ≤ …"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "The line passes through $(3,2)$ and $(4,5)$, so $f(x)=3x-7$ and $|f(x)-2|=3|x-3|$."
+     },
+     {
+      "type": "p",
+      "text": "$3|x-3|<1.5$ when $|x-3|<0.5$: $\\delta\\le0.5$."
+     }
+    ]
+   },
+   "hints": [
+    "Find the $x$-values where $f(x)$ reaches the two edges $L\\pm\\varepsilon$.",
+    "$\\delta$ is the smaller of the two distances from those $x$-values to $a$."
+   ],
+   "steps": [
+    "$f(x)=3x-7$, so $|f(x)-2|=3|x-3|$",
+    "$3\\delta\\le1.5$: $\\delta\\le0.5$"
+   ]
   },
   {
    "id": "e185",
@@ -1357,7 +1473,15 @@
    "answer": {
     "kind": "set",
     "value": "delta <=1"
-   }
+   },
+   "hints": [
+    "Find the $x$-values where $f(x)$ reaches the two edges $L\\pm\\varepsilon$.",
+    "$\\delta$ is the smaller of the two distances from those $x$-values to $a$."
+   ],
+   "steps": [
+    "$|f(x)-2|=3|x-3|$",
+    "$3\\delta\\le3$: $\\delta\\le1$"
+   ]
   },
   {
    "id": "e186",
@@ -1368,7 +1492,7 @@
      "text": "$\\left|\\sin \\,(2x)-\\frac{1}{2}\\right|<0.1,$ whenever $\\left|x-\\frac{\\pi}{12}\\right|<\\delta$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572601177",
    "instructions": [
     {
@@ -1376,7 +1500,41 @@
      "text": "**[T]** In the following exercises, use a graphing calculator to find a number $\\delta$ such that the statements hold true."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "0.0560409647654054",
+    "tolerance": {
+     "abs": 0.002
+    },
+    "prompt": "the largest δ that works, to 3 decimals"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\sin2x=0.4$ at $x=\\frac12\\arcsin0.4\\approx0.20575$ and $\\sin2x=0.6$ at $x=\\frac12\\arcsin0.6\\approx0.32175$."
+     },
+     {
+      "type": "p",
+      "text": "$\\frac{\\pi}{12}\\approx0.26180$ is $0.05604$ from the first and $0.05995$ from the second, so $\\delta\\approx0.056$ (any $\\delta\\le0.0560$)."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "pi/12-asin(Rational(2,5))/2"
+   },
+   "hints": [
+    "Find the $x$-values where $f(x)$ reaches the two edges $L\\pm\\varepsilon$.",
+    "$\\delta$ is the smaller of the two distances from those $x$-values to $a$.",
+    "Solve $\\sin2x=0.4$ and $\\sin2x=0.6$ near $\\frac{\\pi}{12}$."
+   ],
+   "steps": [
+    "$x=\\frac12\\arcsin0.4\\approx0.20575$, $x=\\frac12\\arcsin0.6\\approx0.32175$",
+    "Distances to $\\frac\\pi{12}$: $0.05604$ and $0.05995$",
+    "$\\delta\\approx0.056$"
+   ]
   },
   {
    "id": "e187",
@@ -1387,7 +1545,7 @@
      "text": "$|\\sqrt{x-4}-2|<0.1,\\,\\text{whenever}\\,|x-8|<\\delta$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571599654",
    "instructions": [
     {
@@ -1404,7 +1562,23 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "0.39",
+    "tolerance": {
+     "abs": 0.003
+    },
+    "prompt": "the largest δ that works"
+   },
+   "hints": [
+    "Find the $x$-values where $f(x)$ reaches the two edges $L\\pm\\varepsilon$.",
+    "$\\delta$ is the smaller of the two distances from those $x$-values to $a$."
+   ],
+   "steps": [
+    "$1.9<\\sqrt{x-4}<2.1$ means $7.61<x<8.41$",
+    "Distances to $8$: $0.39$ and $0.41$; $\\delta<0.39$"
+   ]
   },
   {
    "id": "e188",
@@ -1423,7 +1597,24 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $\\varepsilon>0$ and choose $\\delta=\\frac{\\varepsilon}{5}$. If $0<|x-2|<\\delta$, then"
+     },
+     {
+      "type": "math",
+      "tex": "|(5x+8)-18|=|5x-10|=5|x-2|<5\\delta=\\varepsilon."
+     },
+     {
+      "type": "p",
+      "text": "So $\\lim_{x\\to2}(5x+8)=18$."
+     }
+    ]
+   }
   },
   {
    "id": "e189",
@@ -1470,7 +1661,20 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $\\varepsilon>0$ and choose $\\delta=\\frac{\\varepsilon}{2}$. For $x\\ne2$, $\\dfrac{2x^2-3x-2}{x-2}=\\dfrac{(2x+1)(x-2)}{x-2}=2x+1$."
+     },
+     {
+      "type": "p",
+      "text": "If $0<|x-2|<\\delta$, then $\\left|\\dfrac{2x^2-3x-2}{x-2}-5\\right|=|2x+1-5|=2|x-2|<2\\delta=\\varepsilon$."
+     }
+    ]
+   }
   },
   {
    "id": "e191",
@@ -1517,7 +1721,24 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $\\varepsilon>0$ and choose $\\delta=\\min\\{1,\\frac{\\varepsilon}{7}\\}$. Note $|x^2+2x-8|=|x-2|\\,|x+4|$."
+     },
+     {
+      "type": "p",
+      "text": "If $|x-2|<1$ then $1<x<3$, so $|x+4|<7$. Hence if $0<|x-2|<\\delta$:"
+     },
+     {
+      "type": "math",
+      "tex": "|(x^2+2x)-8|=|x-2|\\,|x+4|<\\frac{\\varepsilon}{7}\\cdot7=\\varepsilon."
+     }
+    ]
+   }
   },
   {
    "id": "e193",
@@ -1564,7 +1785,24 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given one-sided limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $\\varepsilon>0$ and choose $\\delta=\\frac{\\varepsilon}{4}$. For $0<x<\\delta$, $f(x)=4x-2$, so"
+     },
+     {
+      "type": "math",
+      "tex": "|f(x)-(-2)|=|4x|=4x<4\\delta=\\varepsilon."
+     },
+     {
+      "type": "p",
+      "text": "Hence $\\lim_{x\\to0^+}f(x)=-2$."
+     }
+    ]
+   }
   },
   {
    "id": "e195",
@@ -1611,7 +1849,20 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given infinite limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $M>0$ and choose $\\delta=\\frac{1}{\\sqrt M}$. If $0<|x|<\\delta$, then $x^2<\\delta^2=\\frac1M$, so $\\dfrac{1}{x^2}>M$."
+     },
+     {
+      "type": "p",
+      "text": "Hence $\\lim_{x\\to0}\\frac{1}{x^2}=\\infty$."
+     }
+    ]
+   }
   },
   {
    "id": "e197",
@@ -1658,7 +1909,20 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given infinite limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $M>0$ and choose $\\delta=\\frac{1}{\\sqrt M}$. If $0<|x-2|<\\delta$, then $(x-2)^2<\\frac1M$, so $\\dfrac{1}{(x-2)^2}>M$ and $-\\dfrac{1}{(x-2)^2}<-M$."
+     },
+     {
+      "type": "p",
+      "text": "Hence $\\lim_{x\\to2}-\\frac{1}{(x-2)^2}=-\\infty$."
+     }
+    ]
+   }
   },
   {
    "id": "e199",
@@ -1669,7 +1933,7 @@
      "text": "An engineer is using a machine to cut a flat square of Aerogel of area 144 cm$^{\\text{2}}$. If there is a maximum error tolerance in the area of 8 cm$^{\\text{2}}$, how accurately must the engineer cut on the side, assuming all sides have the same length? How do these numbers relate to $\\delta ,$ *ε*, *a*, and *L*?"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571652896",
    "instructions": [
     {
@@ -1683,10 +1947,30 @@
      {
       "type": "p",
       "text": "The engineer must cut within 0.328 cm of 12 cm on each side; $\\varepsilon =8,\\delta =0.328,a=12,L=144$"
+     },
+     {
+      "type": "p",
+      "text": "We need $|s^2-144|<8$: $\\sqrt{136}<s<\\sqrt{152}$, i.e. $11.662<s<12.329$. The tighter side is $\\sqrt{152}-12\\approx0.329$ (the book rounds to $0.328$)."
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "sqrt(152)-12",
+    "tolerance": {
+     "abs": 0.002
+    },
+    "prompt": "allowed error on each side, in cm"
+   },
+   "hints": [
+    "The side should be $12$ cm; the area $s^2$ must stay within $8$ of $144$.",
+    "Solve $136<s^2<152$ and take the smaller distance from $12$."
+   ],
+   "steps": [
+    "$\\sqrt{136}\\approx11.662$, $\\sqrt{152}\\approx12.329$",
+    "Distances to $12$: $0.338$ and $0.329$; take $\\delta\\approx0.33$ cm"
+   ]
   },
   {
    "id": "e200",
@@ -1705,7 +1989,20 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given infinite limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $f(x)=\\dfrac{|x-1|}{x-1}$: $f=1$ for $x>1$ and $f=-1$ for $x<1$. Suppose $\\lim_{x\\to1}f(x)=L$. Take $\\varepsilon=\\frac12$; then some $\\delta>0$ satisfies $|f(x)-L|<\\frac12$ whenever $0<|x-1|<\\delta$."
+     },
+     {
+      "type": "p",
+      "text": "Pick $x_1=1+\\frac\\delta2$ and $x_2=1-\\frac\\delta2$. Then $|1-L|<\\frac12$ and $|-1-L|<\\frac12$, so $2=|1-(-1)|\\le|1-L|+|L+1|<1$, a contradiction. The limit does not exist."
+     }
+    ]
+   }
   },
   {
    "id": "e201",
@@ -1725,11 +2022,11 @@
     }
    ],
    "solution": {
-    "label": "book",
+    "label": "ai",
     "body": [
      {
       "type": "p",
-      "text": "Answers may vary."
+      "text": "Answers may vary. The ceiling function is $0$ for $-1<x\\le0$ and $1$ for $0<x\\le1$. Suppose $\\lim_{x\\to0}f(x)=L$ and take $\\varepsilon=\\frac12$. For any $\\delta<1$, the points $x=\\frac\\delta2$ and $x=-\\frac\\delta2$ give $f=1$ and $f=0$, so $|1-L|<\\frac12$ and $|0-L|<\\frac12$, forcing $1\\le|1-L|+|L|<1$: impossible. So the limit does not exist."
      }
     ]
    },
@@ -1752,7 +2049,20 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given infinite limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Suppose $\\lim_{x\\to0}f(x)=L$ and take $\\varepsilon=\\frac12$. For any $\\delta>0$ there is a rational $r$ and an irrational $s$ in $(0,\\delta)$, with $f(r)=1$ and $f(s)=0$."
+     },
+     {
+      "type": "p",
+      "text": "Then $|1-L|<\\frac12$ and $|0-L|<\\frac12$, so $1\\le|1-L|+|L|<1$, a contradiction. The limit does not exist."
+     }
+    ]
+   }
   },
   {
    "id": "e203",
@@ -1783,7 +2093,14 @@
    "answer": {
     "kind": "number",
     "value": "0"
-   }
+   },
+   "hints": [
+    "Whether $x$ is rational or not, $|f(x)|\\le|x|$."
+   ],
+   "steps": [
+    "$|f(x)-0|\\le|x|$ in both cases",
+    "Choose $\\delta=\\varepsilon$: the limit is $0$"
+   ]
   },
   {
    "id": "e204",
@@ -1802,7 +2119,24 @@
      "text": "In the following exercises, use the precise definition of limit to prove the given infinite limits."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $a\\ne0$ and suppose $\\lim_{x\\to a}f(x)=L$. Take $\\varepsilon=\\frac{|a|}{4}$. Choose any $\\delta$ with $0<\\delta<\\frac{|a|}{2}$; then every $x$ with $0<|x-a|<\\delta$ has $|x|>\\frac{|a|}{2}$."
+     },
+     {
+      "type": "p",
+      "text": "There are irrational $x$ there with $f(x)=0$, so $|L|<\\frac{|a|}{4}$, and rational $x$ there with $f(x)=x$, so $|x-L|<\\frac{|a|}{4}$."
+     },
+     {
+      "type": "p",
+      "text": "Then $|x|\\le|x-L|+|L|<\\frac{|a|}{2}$, contradicting $|x|>\\frac{|a|}{2}$. So the limit does not exist."
+     }
+    ]
+   }
   },
   {
    "id": "e205",
@@ -1822,11 +2156,15 @@
     }
    ],
    "solution": {
-    "label": "book",
+    "label": "ai",
     "body": [
      {
       "type": "p",
-      "text": "$\\begin{array}{l}\\lim_{x\\to a}\\left(f\\left(x\\right)\\right)+\\lim_{x\\to a}\\left(g\\left(x\\right)\\right) \\\\ =L+M\\end{array}$"
+      "text": "Let $\\varepsilon>0$. Choose $\\delta_1$ with $|f(x)-L|<\\frac\\varepsilon2$ when $0<|x-a|<\\delta_1$, and $\\delta_2$ with $|g(x)-M|<\\frac\\varepsilon2$ when $0<|x-a|<\\delta_2$. Let $\\delta=\\min\\{\\delta_1,\\delta_2\\}$."
+     },
+     {
+      "type": "p",
+      "text": "If $0<|x-a|<\\delta$, then $|(f(x)+g(x))-(L+M)|\\le|f(x)-L|+|g(x)-M|<\\frac\\varepsilon2+\\frac\\varepsilon2=\\varepsilon$ (triangle inequality)."
      }
     ]
    },
@@ -1849,7 +2187,20 @@
      "text": "For the following exercises, suppose that $\\lim_{x\\to a}f(x)=L$ and $\\lim_{x\\to a}g(x)=M$ both exist. Use the precise definition of limits to prove the following limit laws:"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "If $c=0$, then $cf(x)=0$ for all $x$ and $\\lim0=0=cL$."
+     },
+     {
+      "type": "p",
+      "text": "If $c\\ne0$, let $\\varepsilon>0$ and choose $\\delta$ so that $|f(x)-L|<\\frac{\\varepsilon}{|c|}$ whenever $0<|x-a|<\\delta$. Then $|cf(x)-cL|=|c|\\,|f(x)-L|<|c|\\cdot\\frac{\\varepsilon}{|c|}=\\varepsilon$."
+     }
+    ]
+   }
   },
   {
    "id": "e207",
@@ -1869,11 +2220,19 @@
     }
    ],
    "solution": {
-    "label": "book",
+    "label": "ai",
     "body": [
      {
       "type": "p",
-      "text": "Answers may vary."
+      "text": "Let $\\varepsilon>0$. Using $\\varepsilon=1$ in the definition for $f$, there is $\\delta_1$ with $|f(x)-L|<1$, so $|f(x)|<|L|+1$, when $0<|x-a|<\\delta_1$."
+     },
+     {
+      "type": "p",
+      "text": "Choose $\\delta_2$ with $|g(x)-M|<\\dfrac{\\varepsilon}{2(|L|+1)}$ and $\\delta_3$ with $|f(x)-L|<\\dfrac{\\varepsilon}{2(|M|+1)}$. Let $\\delta=\\min\\{\\delta_1,\\delta_2,\\delta_3\\}$."
+     },
+     {
+      "type": "p",
+      "text": "Then by the hint, $|f(x)g(x)-LM|\\le|f(x)|\\,|g(x)-M|+|M|\\,|f(x)-L|<(|L|+1)\\dfrac{\\varepsilon}{2(|L|+1)}+|M|\\dfrac{\\varepsilon}{2(|M|+1)}<\\dfrac\\varepsilon2+\\dfrac\\varepsilon2=\\varepsilon$."
      }
     ]
    },
@@ -1888,7 +2247,7 @@
      "text": "A function has to be continuous at $x=a$ if the $\\lim_{x\\to a}f(x)$ exists."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572565358",
    "instructions": [
     {
@@ -1897,7 +2256,31 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. $f(x)=x$ for $x\\ne0$, $f(0)=4$ has $\\lim_{x\\to0}f(x)=0$ but is not continuous at $0$ (a removable discontinuity)."
+     }
+    ]
+   },
+   "hints": [
+    "A removable discontinuity has a limit."
+   ],
+   "steps": [
+    "Counterexample: change one value of a continuous function",
+    "False"
+   ]
   },
   {
    "id": "e209",
@@ -1927,9 +2310,20 @@
     ]
    },
    "answer": {
-    "kind": "text",
-    "value": "false"
-   }
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "The quotient law needs the denominator's limit to be nonzero."
+   ],
+   "steps": [
+    "$\\lim_{x\\to0}x=0$, so the quotient law does not apply",
+    "False"
+   ]
   },
   {
    "id": "e210",
@@ -1940,7 +2334,7 @@
      "text": "If there is a vertical asymptote at $x=a$ for the function $f(x),$ then *f* is undefined at the point $x=a.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572184294",
    "instructions": [
     {
@@ -1949,7 +2343,31 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. $f(x)=\\frac1x$ for $x\\ne0$ and $f(0)=0$ has a vertical asymptote at $x=0$ yet is defined there."
+     }
+    ]
+   },
+   "hints": [
+    "Can you define a function at the asymptote anyway?"
+   ],
+   "steps": [
+    "$f(x)=\\frac1x$, $f(0)=0$",
+    "Defined at $0$ but still has an asymptote: false"
+   ]
   },
   {
    "id": "e211",
@@ -1960,7 +2378,7 @@
      "text": "If $\\lim_{x\\to a}f(x)$ does not exist, then *f* is undefined at the point $x=a.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572184348",
    "instructions": [
     {
@@ -1978,7 +2396,22 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Think of a piecewise function with a jump."
+   ],
+   "steps": [
+    "A jump: limit DNE, but $f(a)$ can be defined",
+    "False"
+   ]
   },
   {
    "id": "e212",
@@ -2007,7 +2440,7 @@
      "height": 272
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571597431",
    "instructions": [
     {
@@ -2016,7 +2449,75 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $\\lim_{x\\to-1}f(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "DNE",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     },
+     {
+      "label": "b. $\\lim_{x\\to1}f(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "1",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     },
+     {
+      "label": "c. $\\lim_{x\\to0^+}f(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "0",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     },
+     {
+      "label": "d. $\\lim_{x\\to2}f(x)$",
+      "answer": {
+       "kind": "number",
+       "value": "1",
+       "prompt": "number, DNE, inf or -inf"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. From the left $f\\to1$ (open circle at $(-1,1)$); from the right $f\\to-2$ (the line starts at $(-1,-2)$). They differ: DNE."
+     },
+     {
+      "type": "p",
+      "text": "b. Both sides approach the open circle $(1,1)$, so the limit is $1$ (even though $f(1)=-1$)."
+     },
+     {
+      "type": "p",
+      "text": "c. The curve right of $0$ starts at the open circle $(0,0)$: $0$."
+     },
+     {
+      "type": "p",
+      "text": "d. Near $x=2$ the graph is the horizontal line $y=1$: $1$."
+     }
+    ]
+   },
+   "hints": [
+    "Read the one-sided limits at each point from the graph.",
+    "A filled dot elsewhere doesn't change the limit."
+   ],
+   "steps": [
+    "a. $1$ from the left, $-2$ from the right: DNE",
+    "b. both sides $\\to1$",
+    "c. $0$",
+    "d. $1$"
+   ]
   },
   {
    "id": "e213",
@@ -2027,7 +2528,7 @@
      "text": "$\\lim_{x\\to 2}\\frac{2x^{2}-3x-2}{x-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572330123",
    "instructions": [
     {
@@ -2045,7 +2546,20 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "5",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side."
+   ],
+   "steps": [
+    "$\\dfrac{(2x+1)(x-2)}{x-2}=2x+1$",
+    "$2(2)+1=5$"
+   ]
   },
   {
    "id": "e214",
@@ -2056,7 +2570,7 @@
      "text": "$\\lim_{x\\to 0}3x^{2}-2x+4$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572330182",
    "instructions": [
     {
@@ -2065,7 +2579,61 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "4",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Polynomial: substitute. $3(0)^2-2(0)+4=4$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "4"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side."
+   ],
+   "steps": [
+    "$3(0)^2-2(0)+4=4$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -4,
+      "max": 4
+     },
+     "b": {
+      "min": 1,
+      "max": 5
+     },
+     "c": {
+      "min": -6,
+      "max": 6
+     },
+     "d": {
+      "min": -9,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Evaluate $\\displaystyle\\lim_{x\\to {{a}}}\\left({{b}}x^2+{{c}}x+{{d}}\\right)$."
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "{{b*a*a+c*a+d}}"
+    }
+   }
   },
   {
    "id": "e215",
@@ -2076,7 +2644,7 @@
      "text": "$\\lim_{x\\to 3}\\frac{x^{3}-2x^{2}-1}{3x-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572373426",
    "instructions": [
     {
@@ -2094,7 +2662,20 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "8/7",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side."
+   ],
+   "steps": [
+    "$\\dfrac{27-18-1}{9-2}$",
+    "$=\\dfrac87$"
+   ]
   },
   {
    "id": "e216",
@@ -2105,7 +2686,7 @@
      "text": "$\\lim_{x\\to \\pi /2}\\frac{\\cot \\,x}{\\cos \\,x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571733984",
    "instructions": [
     {
@@ -2114,7 +2695,33 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "1",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "For $\\cos x\\ne0$, $\\dfrac{\\cot x}{\\cos x}=\\dfrac{\\cos x}{\\sin x\\cos x}=\\dfrac{1}{\\sin x}\\to\\dfrac{1}{\\sin(\\pi/2)}=1$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit(cot(x)/cos(x), x, pi/2)"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side.",
+    "Write $\\cot x=\\frac{\\cos x}{\\sin x}$."
+   ],
+   "steps": [
+    "$\\dfrac{\\cot x}{\\cos x}=\\dfrac1{\\sin x}$",
+    "$\\to\\dfrac{1}{1}=1$"
+   ]
   },
   {
    "id": "e217",
@@ -2125,7 +2732,7 @@
      "text": "$\\lim_{x\\to -5}\\frac{x^{2}+25}{x+5}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571734031",
    "instructions": [
     {
@@ -2143,7 +2750,20 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "DNE",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side."
+   ],
+   "steps": [
+    "Numerator $\\to50$, denominator $\\to0$",
+    "$\\to-\\infty$ from the left, $+\\infty$ from the right: DNE"
+   ]
   },
   {
    "id": "e218",
@@ -2154,7 +2774,7 @@
      "text": "$\\lim_{x\\to 2}\\frac{3x^{2}-2x-8}{x^{2}-4}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571636182",
    "instructions": [
     {
@@ -2163,7 +2783,32 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "5/2",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{3x^2-2x-8}{x^2-4}=\\dfrac{(3x+4)(x-2)}{(x+2)(x-2)}=\\dfrac{3x+4}{x+2}\\to\\dfrac{10}{4}=\\dfrac52$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((3*x**2-2*x-8)/(x**2-4), x, 2)"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side."
+   ],
+   "steps": [
+    "$\\dfrac{(3x+4)(x-2)}{(x+2)(x-2)}=\\dfrac{3x+4}{x+2}$",
+    "$\\dfrac{10}{4}=\\dfrac52$"
+   ]
   },
   {
    "id": "e219",
@@ -2174,7 +2819,7 @@
      "text": "$\\lim_{x\\to 1}\\frac{x^{2}-1}{x^{3}-1}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572510092",
    "instructions": [
     {
@@ -2192,7 +2837,20 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "2/3",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side."
+   ],
+   "steps": [
+    "$\\dfrac{(x-1)(x+1)}{(x-1)(x^2+x+1)}=\\dfrac{x+1}{x^2+x+1}$",
+    "$\\dfrac23$"
+   ]
   },
   {
    "id": "e220",
@@ -2203,7 +2861,7 @@
      "text": "$\\lim_{x\\to 1}\\frac{x^{2}-1}{\\sqrt{x}-1}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572510154",
    "instructions": [
     {
@@ -2212,7 +2870,37 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "4",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x^2-1=(x-1)(x+1)=(\\sqrt x-1)(\\sqrt x+1)(x+1)$, so for $x\\ne1$"
+     },
+     {
+      "type": "math",
+      "tex": "\\frac{x^2-1}{\\sqrt x-1}=(\\sqrt x+1)(x+1)\\to(2)(2)=4."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "limit((x**2-1)/(sqrt(x)-1), x, 1)"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side.",
+    "Factor $x-1=(\\sqrt x-1)(\\sqrt x+1)$."
+   ],
+   "steps": [
+    "$\\dfrac{x^2-1}{\\sqrt x-1}=(\\sqrt x+1)(x+1)$",
+    "$(2)(2)=4$"
+   ]
   },
   {
    "id": "e221",
@@ -2223,7 +2911,7 @@
      "text": "$\\lim_{x\\to 4}\\frac{4-x}{\\sqrt{x}-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572419270",
    "instructions": [
     {
@@ -2241,7 +2929,21 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "-4",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side.",
+    "$4-x=-(\\sqrt x-2)(\\sqrt x+2)$."
+   ],
+   "steps": [
+    "$\\dfrac{4-x}{\\sqrt x-2}=-(\\sqrt x+2)$",
+    "$-(2+2)=-4$"
+   ]
   },
   {
    "id": "e222",
@@ -2252,7 +2954,7 @@
      "text": "$\\lim_{x\\to 4}\\frac{1}{\\sqrt{x}-2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572601237",
    "instructions": [
     {
@@ -2261,7 +2963,32 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "DNE",
+    "prompt": "number, DNE, inf or -inf"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "The numerator is $1$ and the denominator $\\to0$: from the left ($\\sqrt x<2$) the quotient $\\to-\\infty$, from the right $\\to+\\infty$. The limit does not exist."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "DNE"
+   },
+   "hints": [
+    "Substitute if you can; if you get $0/0$, factor or use a conjugate and cancel.",
+    "If you get (nonzero)$/0$, check the signs on each side."
+   ],
+   "steps": [
+    "$\\frac{1}{\\sqrt x-2}$: $\\frac10$ at $x=4$",
+    "$-\\infty$ from the left, $+\\infty$ from the right: DNE"
+   ]
   },
   {
    "id": "e223",
@@ -2310,7 +3037,20 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Since $-1\\le\\sin\\left(\\frac\\pi x\\right)\\le1$, we have $-|x|^3\\le x^3\\sin\\left(\\frac\\pi x\\right)\\le|x|^3$ for $x\\ne0$."
+     },
+     {
+      "type": "p",
+      "text": "Both $-|x|^3$ and $|x|^3$ tend to $0$ as $x\\to0$, so by the squeeze theorem $\\lim_{x\\to0}x^3\\sin\\left(\\frac\\pi x\\right)=0$."
+     }
+    ]
+   }
   },
   {
    "id": "e225",
@@ -2341,8 +3081,15 @@
    },
    "answer": {
     "kind": "set",
-    "value": "[2, inf ]"
-   }
+    "value": "[2, inf)"
+   },
+   "hints": [
+    "$\\sqrt{x-2}$ needs $x\\ge2$; $xe^x$ is defined everywhere."
+   ],
+   "steps": [
+    "$x-2\\ge0$",
+    "$[2,\\infty)$"
+   ]
   },
   {
    "id": "e226",
@@ -2353,7 +3100,7 @@
      "text": "$f(x)=\\{\\begin{array}{l}x^{2}+1,x>c \\\\ 2x,x\\le c\\end{array}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571697209",
    "instructions": [
     {
@@ -2362,7 +3109,30 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "1"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "At $x=c$ the pieces must agree: $c^2+1=2c$, so $(c-1)^2=0$ and $c=1$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "solve(x**2+1-2*x, x)[0]"
+   },
+   "hints": [
+    "Continuity at $x=c$: the two formulas give the same value at $c$."
+   ],
+   "steps": [
+    "$c^2+1=2c$",
+    "$(c-1)^2=0$: $c=1$"
+   ]
   },
   {
    "id": "e227",
@@ -2373,7 +3143,7 @@
      "text": "$f(x)=\\{\\begin{array}{l}\\sqrt{x+1},x>-1 \\\\ x^{2}+c,x\\le -1\\end{array}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571539172",
    "instructions": [
     {
@@ -2391,7 +3161,18 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "-1"
+   },
+   "hints": [
+    "Continuity at $x=-1$: both pieces must give the same value."
+   ],
+   "steps": [
+    "$\\sqrt{-1+1}=0$ and $(-1)^2+c=1+c$",
+    "$1+c=0$: $c=-1$"
+   ]
   },
   {
    "id": "e228",
@@ -2411,7 +3192,16 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Let $\\varepsilon>0$ and choose $\\delta=\\frac\\varepsilon8$. If $0<|x-1|<\\delta$, then $|(8x+16)-24|=8|x-1|<8\\delta=\\varepsilon$."
+     }
+    ]
+   }
   },
   {
    "id": "e229",
@@ -2451,7 +3241,7 @@
      "text": "A ball is thrown into the air and the vertical position is given by $x(t)=-4.9t^{2}+25t+5.$ Use the Intermediate Value Theorem to show that the ball must land on the ground sometime between 5 sec and 6 sec after the throw."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170571710715",
    "instructions": [
     {
@@ -2460,7 +3250,51 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$x(5)$",
+      "answer": {
+       "kind": "number",
+       "value": "7.5"
+      }
+     },
+     {
+      "label": "$x(6)$",
+      "answer": {
+       "kind": "number",
+       "value": "-21.4"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(t)$ is a polynomial, so it is continuous on $[5,6]$."
+     },
+     {
+      "type": "p",
+      "text": "$x(5)=-122.5+125+5=7.5>0$ and $x(6)=-176.4+150+5=-21.4<0$. By the IVT there is a $c\\in(5,6)$ with $x(c)=0$: the ball lands between 5 and 6 seconds."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Rational(-49,10)*25+125+5, Rational(-49,10)*36+150+5)"
+   },
+   "hints": [
+    "Evaluate the height at $t=5$ and $t=6$.",
+    "A continuous function that changes sign must hit $0$."
+   ],
+   "steps": [
+    "$x(5)=7.5>0$",
+    "$x(6)=-21.4<0$",
+    "IVT: a zero between $5$ and $6$"
+   ]
   },
   {
    "id": "e231",
@@ -2471,7 +3305,7 @@
      "text": "A particle moving along a line has a displacement according to the function $x(t)=t^{2}-2t+4,$ where *x* is measured in meters and *t* is measured in seconds. Find the average velocity over the time period $t=[0,2].$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572218614",
    "instructions": [
     {
@@ -2489,7 +3323,19 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "number",
+    "value": "0",
+    "prompt": "m/sec"
+   },
+   "hints": [
+    "Average velocity $=\\dfrac{x(2)-x(0)}{2-0}$."
+   ],
+   "steps": [
+    "$x(2)=4$, $x(0)=4$",
+    "$\\dfrac{4-4}{2}=0$ m/sec"
+   ]
   },
   {
    "id": "e232",
@@ -2500,7 +3346,7 @@
      "text": "From the previous exercises, estimate the instantaneous velocity at $t=2$ by checking the average velocity within $t=0.01\\,\\sec .$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1170572386138",
    "instructions": [
     {
@@ -2509,7 +3355,36 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "2",
+    "prompt": "m/sec"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$x(2)=4$. Over $[2,2.01]$: $\\dfrac{x(2.01)-4}{0.01}=\\dfrac{4.0201-4.02}{0.01}=2.01$. Over $[1.99,2]$: $\\dfrac{4-3.9801}{0.01}=1.99$."
+     },
+     {
+      "type": "p",
+      "text": "So the instantaneous velocity at $t=2$ is about $2$ m/sec."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x**2-2*x+4, x).subs(x, 2)"
+   },
+   "hints": [
+    "Compute average velocities over $[2,2.01]$ and $[1.99,2]$."
+   ],
+   "steps": [
+    "Over $[2,2.01]$: $2.01$",
+    "Over $[1.99,2]$: $1.99$",
+    "Estimate: $2$ m/sec"
+   ]
   }
  ],
  "proofs": [],

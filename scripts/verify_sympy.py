@@ -51,10 +51,20 @@ TARGET_LOCALS = {'continuous_domain': continuous_domain, 'function_range': funct
 
 def to_sympy(s: str):
     """Parse the app's plain-text answer syntax with SymPy."""
+    if s.strip().upper() == 'DNE':  # "does not exist": matches DNE in verify.sympy
+        return sp.Symbol('DNE')
     t = s.replace('−', '-').replace('π', 'pi').replace('∞', 'inf').replace('^', '**')
     t = re.sub(r'\blog_(\w+)\s*\(', r'log(\1, ', t)
     t = re.sub(r'\|([^|]+)\|', r' (abs(\1))', t)
     t = re.sub(r'\b(sin|cos|tan|sec|csc|cot|sinh|cosh|tanh)\*\*\(?-1\)?', r'a\1', t)
+    # Function application without parentheses, as the app reads it: "sin^2 x" is (sin x)^2,
+    # "sin 2x" is sin(2x) and "sin x cos x" is sin(x)·cos(x).
+    fn = r'(?<![a-zA-Z])(sin|cos|tan|sec|csc|cot|sinh|cosh|tanh|sech|csch|coth|arcsin|arccos|arctan|arcsec|arccsc|arccot|ln|log|exp)'
+    arg = r'(\d*\.?\d*[a-zA-Z_][a-zA-Z0-9_]*|\d+(?:\.\d+)?)'
+    t = re.sub(fn + r'\*\*(\d+|\(\d+\))\s*\(', r'\1_POW\2(', t)
+    t = re.sub(fn + r'\*\*(\d+|\(\d+\))\s*' + arg, r'(\1(\3))**\2', t)
+    t = re.sub(fn + r'\s+' + arg, r'\1(\2)', t)
+    t = re.sub(r'([a-zA-Z]+)_POW(\d+|\(\d+\))\(([^()]*(?:\([^()]*\))*[^()]*)\)', r'(\1(\3))**\2', t)
     return parse_expr(t, local_dict=dict(LOCALS), transformations=TRANSFORMS)
 
 
@@ -162,6 +172,12 @@ def selftest() -> None:
           {'label': 'b', 'answer': {'kind': 'set', 'value': '{-1, 1}'}}]}, 'verify': {'sympy': '(2, solveset(x**2 - 1, x, S.Reals))'}}
     assert verify_exercise(ex) is None
     ex = {'answer': {'kind': 'expression', 'value': 'ln|x| + arctan x'}, 'verify': {'sympy': 'log(x) + atan(x)'}}
+    assert verify_exercise(ex) is None
+    ex = {'answer': {'kind': 'expression', 'value': 'sin x+sin x sec^2 x'}, 'verify': {'sympy': 'diff(sin(x)*tan(x),x)'}}
+    assert verify_exercise(ex) is None
+    ex = {'answer': {'kind': 'expression', 'value': '-4sin x cos x'}, 'verify': {'sympy': '-2*sin(2*x)'}}
+    assert verify_exercise(ex) is None
+    ex = {'answer': {'kind': 'expression', 'value': '2cos^2(3x) + sin 2x'}, 'verify': {'sympy': '2*cos(3*x)**2+sin(2*x)'}}
     assert verify_exercise(ex) is None
     print('selftest passed')
 

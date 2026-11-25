@@ -2,7 +2,7 @@
 
 A private, minimal web app for working through every section and exercise of OpenStax Calculus I–III on phone or computer, on the way to Rudin. Other subjects come later.
 
-**Status:** Stages A and B (B01–B13) are done: the app works offline as a Home Screen app, tracks progress in an attempt log, syncs between devices, and has Practice mistakes. All 110 sections are imported (6,316 exercises, 1,570 of them auto-checked so far). Chapter 1 (Functions and Graphs) has its exercises finished; the progress views (B14–B16) are done too. Its readings and the other chapters (K-tasks) are next.
+**Status:** Stages A and B (B01–B13) are done: the app works offline as a Home Screen app, tracks progress in an attempt log, syncs between devices, and has Practice mistakes. All 110 sections are imported (6,316 exercises, 2,013 of them auto-checked so far). Chapters 2 (Limits) and 3 (Derivatives) are fully loaded: readings, answers, solutions, hints and variants. Chapter 1 has its exercises finished; its readings and chapters 4 onward (K-tasks) are next. The progress views (B14–B16) are done too.
 
 - [docs/ROADMAP.md](docs/ROADMAP.md): math route and build milestones
 - [docs/SPEC.md](docs/SPEC.md): product spec, architecture, data model, ingestion pipeline
