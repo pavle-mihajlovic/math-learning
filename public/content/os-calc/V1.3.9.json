@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Find the derivative of exponential functions.",
@@ -475,7 +475,7 @@
     },
     {
      "type": "p",
-     "text": "The derivative in (see above) now follows from the chain rule."
+     "text": "The derivative of $\\log_b x$ now follows from the chain rule."
     },
     {
      "type": "p",
@@ -487,7 +487,7 @@
     },
     {
      "type": "p",
-     "text": "The more general derivative ((see above)) follows from the chain rule."
+     "text": "The more general derivative of $b^{g(x)}$ follows from the chain rule."
     },
     {
      "type": "p",
@@ -511,7 +511,7 @@
     "body": [
      {
       "type": "p",
-      "text": "Use the quotient rule and (see above)."
+      "text": "Use the quotient rule and the derivative of $\\ln x$."
      },
      {
       "type": "math",
@@ -536,7 +536,7 @@
     "body": [
      {
       "type": "p",
-      "text": "To find the slope, we must evaluate $\\frac{dy}{dx}$ at $x=1.$ Using (see above), we see that"
+      "text": "To find the slope, we must evaluate $\\frac{dy}{dx}$ at $x=1.$ Using the derivative of $\\ln(g(x))$, we see that"
      },
      {
       "type": "math",
@@ -838,6 +838,31 @@
    "answer": {
     "kind": "expression",
     "value": "2 x e^x+x^2 e^x"
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "Product rule: $2xe^x+x^2e^x$"
+   ],
+   "variant": {
+    "params": {
+     "n": {
+      "min": 2,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=x^{ {{n}} }e^x$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{n}}x^{{n-1}}e^x+x^{{n}}e^x"
+    }
    }
   },
   {
@@ -849,7 +874,7 @@
      "text": "$f(x)=\\frac{e^{-x}}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738235199",
    "instructions": [
     {
@@ -857,7 +882,31 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-e^(-x)(x+1)/x^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Quotient rule: $f'(x)=\\dfrac{-e^{-x}x-e^{-x}}{x^2}=-\\dfrac{e^{-x}(x+1)}{x^2}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(exp(-x)/x,x)"
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$\\dfrac{-xe^{-x}-e^{-x}}{x^2}$",
+    "$=-\\dfrac{e^{-x}(x+1)}{x^2}$"
+   ]
   },
   {
    "id": "e333",
@@ -888,7 +937,15 @@
    "answer": {
     "kind": "expression",
     "value": "e^(x^3 ln x)(3 x^2 ln x+x^2)"
-   }
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$e^{u}u'$ with $u=x^3\\ln x$",
+    "$u'=3x^2\\ln x+x^2$"
+   ]
   },
   {
    "id": "e334",
@@ -899,7 +956,7 @@
      "text": "$f(x)=\\sqrt{e^{2x}+2x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738085543",
    "instructions": [
     {
@@ -907,7 +964,31 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(e^(2x)+1)/sqrt(e^(2x)+2x)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\dfrac{2e^{2x}+2}{2\\sqrt{e^{2x}+2x}}=\\dfrac{e^{2x}+1}{\\sqrt{e^{2x}+2x}}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sqrt(exp(2*x)+2*x),x)"
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$\\dfrac{(e^{2x}+2x)'}{2\\sqrt{e^{2x}+2x}}$",
+    "$=\\dfrac{e^{2x}+1}{\\sqrt{e^{2x}+2x}}$"
+   ]
   },
   {
    "id": "e335",
@@ -938,7 +1019,15 @@
    "answer": {
     "kind": "expression",
     "value": "(4/((e^x+e^(-x))^2))"
-   }
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$\\dfrac{(e^x+e^{-x})^2-(e^x-e^{-x})^2}{(e^x+e^{-x})^2}$",
+    "Numerator $=4$"
+   ]
   },
   {
    "id": "e336",
@@ -949,7 +1038,7 @@
      "text": "$f(x)=\\frac{10^{x}}{\\ln \\,10}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738240478",
    "instructions": [
     {
@@ -957,7 +1046,54 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "10^x"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\dfrac{10^x\\ln10}{\\ln10}=10^x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(10**x/log(10),x)"
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$(10^x)'=10^x\\ln10$",
+    "$\\div\\ln10$: $10^x$"
+   ],
+   "variant": {
+    "params": {
+     "b": {
+      "choices": [
+       2,
+       3,
+       5,
+       7,
+       10
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=\\dfrac{ {{b}}^x}{\\ln {{b}} }$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{b}}^x"
+    }
+   }
   },
   {
    "id": "e337",
@@ -988,7 +1124,15 @@
    "answer": {
     "kind": "expression",
     "value": "2^(4 x+2)* ln 2+8 x"
-   }
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$(2^{4x})'=2^{4x}\\ln2\\cdot4=2^{4x+2}\\ln2$",
+    "$+8x$"
+   ]
   },
   {
    "id": "e338",
@@ -999,7 +1143,7 @@
      "text": "$f(x)=3^{\\sin \\,3\\text{x}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738071412",
    "instructions": [
     {
@@ -1007,7 +1151,31 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "3ln(3)cos(3x) 3^(sin(3x))"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=3^{\\sin3x}\\ln3\\cdot\\cos(3x)\\cdot3=3\\ln3\\cos(3x)\\,3^{\\sin3x}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(3**sin(3*x),x)"
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$3^{u}\\ln3\\cdot u'$ with $u=\\sin3x$",
+    "$u'=3\\cos3x$"
+   ]
   },
   {
    "id": "e339",
@@ -1038,7 +1206,15 @@
    "answer": {
     "kind": "expression",
     "value": "pi x^(pi -1)*pi^x+x^pi*pi^x ln pi"
-   }
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "Product rule: $(x^\\pi)'\\pi^x+x^\\pi(\\pi^x)'$",
+    "$\\pi x^{\\pi-1}\\pi^x+x^\\pi\\pi^x\\ln\\pi$"
+   ]
   },
   {
    "id": "e340",
@@ -1049,7 +1225,7 @@
      "text": "$f(x)=\\ln \\,(4x^{3}+x)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738039931",
    "instructions": [
     {
@@ -1057,7 +1233,58 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(12x^2+1)/(4x^3+x)",
+    "domain": {
+     "x": [
+      0.5,
+      5
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\dfrac{12x^2+1}{4x^3+x}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(log(4*x**3+x),x)"
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$\\dfrac{(4x^3+x)'}{4x^3+x}$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=\\ln({{a}}x^2+{{b}})$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{2*a}}x/({{a}}x^2+{{b}})"
+    }
+   }
   },
   {
    "id": "e341",
@@ -1088,7 +1315,15 @@
    "answer": {
     "kind": "expression",
     "value": "(5/(2(5 x-7)))"
-   }
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$\\ln\\sqrt{5x-7}=\\frac12\\ln(5x-7)$",
+    "$\\frac12\\cdot\\frac{5}{5x-7}$"
+   ]
   },
   {
    "id": "e342",
@@ -1099,7 +1334,7 @@
      "text": "$f(x)=x^{2}\\ln \\,9x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737904560",
    "instructions": [
     {
@@ -1107,7 +1342,37 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "2x ln(9x)+x",
+    "domain": {
+     "x": [
+      0.5,
+      5
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Product rule: $f'(x)=2x\\ln9x+x^2\\cdot\\dfrac{9}{9x}=2x\\ln9x+x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x**2*log(9*x),x)"
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$2x\\ln9x+x^2\\cdot\\frac1x$",
+    "$2x\\ln9x+x$"
+   ]
   },
   {
    "id": "e343",
@@ -1138,7 +1403,15 @@
    "answer": {
     "kind": "expression",
     "value": "((tan x)/(ln 10))"
-   }
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$\\dfrac{\\sec x\\tan x}{\\sec x\\ln10}$",
+    "$=\\dfrac{\\tan x}{\\ln10}$"
+   ]
   },
   {
    "id": "e344",
@@ -1149,7 +1422,7 @@
      "text": "$f(x)=\\log_{7}(6x^{4}+3)^{5}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738054394",
    "instructions": [
     {
@@ -1157,7 +1430,31 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "120x^3/((6x^4+3)ln 7)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x)=5\\log_7(6x^4+3)$, so $f'(x)=5\\cdot\\dfrac{24x^3}{(6x^4+3)\\ln7}=\\dfrac{120x^3}{(6x^4+3)\\ln7}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(5*log(6*x**4+3)/log(7),x)"
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$f=5\\log_7(6x^4+3)$",
+    "$\\dfrac{5\\cdot24x^3}{(6x^4+3)\\ln7}$"
+   ]
   },
   {
    "id": "e345",
@@ -1188,7 +1485,15 @@
    "answer": {
     "kind": "expression",
     "value": "2^x* ln 2* log_3 7^(x^2-4)+2^x*((2 x ln 7)/(ln 3))"
-   }
+   },
+   "hints": [
+    "$(e^u)'=e^uu'$, $(b^u)'=b^u\\ln b\\cdot u'$, $(\\ln u)'=\\dfrac{u'}{u}$, $(\\log_bu)'=\\dfrac{u'}{u\\ln b}$.",
+    "Use log rules to simplify before differentiating when you can."
+   ],
+   "steps": [
+    "$\\log_37^{x^2-4}=(x^2-4)\\log_37$",
+    "Product rule with $2^x$"
+   ]
   },
   {
    "id": "e346",
@@ -1199,7 +1504,7 @@
      "text": "$y=x^{\\sqrt{x}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738199906",
    "instructions": [
     {
@@ -1207,7 +1512,41 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "x^(sqrt(x))(ln(x)/(2sqrt(x))+1/sqrt(x))",
+    "domain": {
+     "x": [
+      0.5,
+      5
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln y=\\sqrt x\\ln x$, so $\\dfrac{y'}{y}=\\dfrac{\\ln x}{2\\sqrt x}+\\dfrac{\\sqrt x}{x}$."
+     },
+     {
+      "type": "p",
+      "text": "$y'=x^{\\sqrt x}\\left(\\dfrac{\\ln x}{2\\sqrt x}+\\dfrac1{\\sqrt x}\\right)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x**sqrt(x),x)"
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=\\sqrt x\\ln x$",
+    "$\\frac{y'}y=\\frac{\\ln x}{2\\sqrt x}+\\frac1{\\sqrt x}$"
+   ]
   },
   {
    "id": "e347",
@@ -1238,7 +1577,15 @@
    "answer": {
     "kind": "expression",
     "value": "(sin 2 x)^(4 x)[4* ln (sin 2 x)+8 x* cot 2 x]"
-   }
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=4x\\ln(\\sin2x)$",
+    "$\\frac{y'}{y}=4\\ln(\\sin2x)+4x\\cdot\\frac{2\\cos2x}{\\sin2x}$"
+   ]
   },
   {
    "id": "e348",
@@ -1249,7 +1596,7 @@
      "text": "$y=(\\ln \\,x)^{\\ln \\,x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738092208",
    "instructions": [
     {
@@ -1257,7 +1604,41 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(ln x)^(ln x)(ln(ln x)+1)/x",
+    "domain": {
+     "x": [
+      1.5,
+      6
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln y=\\ln x\\cdot\\ln(\\ln x)$, so $\\dfrac{y'}{y}=\\dfrac{\\ln(\\ln x)}{x}+\\ln x\\cdot\\dfrac{1}{x\\ln x}=\\dfrac{\\ln(\\ln x)+1}{x}$."
+     },
+     {
+      "type": "p",
+      "text": "$y'=(\\ln x)^{\\ln x}\\,\\dfrac{\\ln(\\ln x)+1}{x}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(log(x)**log(x),x)"
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=\\ln x\\ln(\\ln x)$",
+    "$\\frac{y'}y=\\frac{\\ln\\ln x+1}{x}$"
+   ]
   },
   {
    "id": "e349",
@@ -1288,7 +1669,15 @@
    "answer": {
     "kind": "expression",
     "value": "x^(log_2 x)*((2 ln x)/(x ln 2))"
-   }
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=\\log_2x\\cdot\\ln x=\\frac{(\\ln x)^2}{\\ln2}$",
+    "$\\frac{y'}y=\\frac{2\\ln x}{x\\ln2}$"
+   ]
   },
   {
    "id": "e350",
@@ -1299,7 +1688,7 @@
      "text": "$y=(x^{2}-1)^{\\ln \\,x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738092392",
    "instructions": [
     {
@@ -1307,7 +1696,41 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(x^2-1)^(ln x)(ln(x^2-1)/x+2x ln(x)/(x^2-1))",
+    "domain": {
+     "x": [
+      1.5,
+      6
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln y=\\ln x\\cdot\\ln(x^2-1)$, so $\\dfrac{y'}{y}=\\dfrac{\\ln(x^2-1)}{x}+\\dfrac{2x\\ln x}{x^2-1}$."
+     },
+     {
+      "type": "p",
+      "text": "$y'=(x^2-1)^{\\ln x}\\left(\\dfrac{\\ln(x^2-1)}{x}+\\dfrac{2x\\ln x}{x^2-1}\\right)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((x**2-1)**log(x),x)"
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=\\ln x\\ln(x^2-1)$",
+    "$\\frac{y'}y=\\frac{\\ln(x^2-1)}{x}+\\frac{2x\\ln x}{x^2-1}$"
+   ]
   },
   {
    "id": "e351",
@@ -1338,7 +1761,15 @@
    "answer": {
     "kind": "expression",
     "value": "x^(cot x)*[- csc^2 x* ln x+((cot x)/x)]"
-   }
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=\\cot x\\ln x$",
+    "$\\frac{y'}y=-\\csc^2x\\ln x+\\frac{\\cot x}x$"
+   ]
   },
   {
    "id": "e352",
@@ -1349,7 +1780,7 @@
      "text": "$y=\\frac{x+11}{\\sqrt[3]{x^{2}-4}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738039285",
    "instructions": [
     {
@@ -1357,7 +1788,41 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(x+11)/(x^2-4)^(1/3)(1/(x+11)-2x/(3(x^2-4)))",
+    "domain": {
+     "x": [
+      2.5,
+      8
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\ln y=\\ln(x+11)-\\frac13\\ln(x^2-4)$, so $\\dfrac{y'}{y}=\\dfrac1{x+11}-\\dfrac{2x}{3(x^2-4)}$."
+     },
+     {
+      "type": "p",
+      "text": "$y'=\\dfrac{x+11}{\\sqrt[3]{x^2-4}}\\left(\\dfrac1{x+11}-\\dfrac{2x}{3(x^2-4)}\\right)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((x+11)/(x**2-4)**Rational(1,3),x)"
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=\\ln(x+11)-\\frac13\\ln(x^2-4)$",
+    "$\\frac{y'}y=\\frac{1}{x+11}-\\frac{2x}{3(x^2-4)}$"
+   ]
   },
   {
    "id": "e353",
@@ -1388,7 +1853,15 @@
    "answer": {
     "kind": "expression",
     "value": "x^(-1/2)(x^2+3)^(2/3)(3 x-4)^4*[((-1)/(2 x))+((4 x)/(3(x^2+3)))+(12/(3 x-4))]"
-   }
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=-\\frac12\\ln x+\\frac23\\ln(x^2+3)+4\\ln(3x-4)$",
+    "$\\frac{y'}y=-\\frac1{2x}+\\frac{4x}{3(x^2+3)}+\\frac{12}{3x-4}$"
+   ]
   },
   {
    "id": "e354",
@@ -1403,7 +1876,7 @@
      "text": "$x=-1.$ Graph both the function and the tangent line."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738209953",
    "instructions": [
     {
@@ -1411,7 +1884,34 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=12x+8"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(-1)=-4e^0=-4$. $f'(x)=4e^{x^2-1}+4x\\cdot2xe^{x^2-1}$, so $f'(-1)=4+8=12$."
+     },
+     {
+      "type": "p",
+      "text": "$y+4=12(x+1)$: $y=12x+8$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "12*x+8-y"
+   },
+   "hints": [
+    "Slope $f'(a)$, point $(a,f(a))$; tangent $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f(-1)=-4$, $f'(-1)=12$",
+    "$y=12x+8$"
+   ]
   },
   {
    "id": "e355",
@@ -1422,7 +1922,7 @@
      "text": "**[T]** Find an equation of the line that is normal to the graph of $f(x)=x\\cdot 5^{x}$ at the point where $x=1.$ Graph both the function and the normal line."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738210057",
    "instructions": [
     {
@@ -1446,7 +1946,19 @@
      }
     ]
    },
-   "notes": "self-check: solution has a figure or table"
+   "notes": "self-check: solution has a figure or table",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-x/(5+5ln 5)+5+1/(5+5ln 5)"
+   },
+   "hints": [
+    "The normal line has slope $-\\frac{1}{f'(1)}$.",
+    "$f'(x)=5^x+x5^x\\ln5$."
+   ],
+   "steps": [
+    "$f(1)=5$, $f'(1)=5+5\\ln5$",
+    "Normal: $y-5=-\\frac{1}{5+5\\ln5}(x-1)$"
+   ]
   },
   {
    "id": "e356",
@@ -1457,7 +1969,7 @@
      "text": "**[T]** Find an equation of the tangent line to the graph of $x^{3}-x\\,\\ln \\,y+y^{3}=2x+5$ at the point (2, 1). (*Hint*: Use implicit differentiation to find $\\frac{dy}{dx}.)$ Graph both the curve and the tangent line."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738080322",
    "instructions": [
     {
@@ -1465,7 +1977,35 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-10x+21"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$3x^2-\\ln y-\\dfrac xyy'+3y^2y'=2$. At $(2,1)$: $12-0-2y'+3y'=2$, so $y'=-10$."
+     },
+     {
+      "type": "p",
+      "text": "$y-1=-10(x-2)$: $y=-10x+21$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-10*x+21-y"
+   },
+   "hints": [
+    "Slope $f'(a)$, point $(a,f(a))$; tangent $y-f(a)=f'(a)(x-a)$.",
+    "Differentiate implicitly; $(x\\ln y)'=\\ln y+\\frac{x}{y}y'$."
+   ],
+   "steps": [
+    "$12-2y'+3y'=2$",
+    "$y'=-10$: $y=-10x+21$"
+   ]
   },
   {
    "id": "e357",
@@ -1485,7 +2025,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738094644",
    "instructions": [
     {
@@ -1502,7 +2042,41 @@
      }
     ]
    },
-   "notes": "self-check: part a is not plain math"
+   "notes": "self-check: part a is not plain math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $x$ where the tangent is horizontal",
+      "answer": {
+       "kind": "number",
+       "value": "e"
+      }
+     },
+     {
+      "label": "b. $y'>0$ on",
+      "answer": {
+       "kind": "set",
+       "value": "(0, e)"
+      }
+     },
+     {
+      "label": "b. $y'<0$ on",
+      "answer": {
+       "kind": "set",
+       "value": "(e, inf)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Take $\\ln$ of both sides and simplify with log rules.",
+    "Differentiate implicitly: $\\frac{y'}{y}=\\dots$, then multiply by $y$."
+   ],
+   "steps": [
+    "$\\ln y=\\frac{\\ln x}{x}$, $\\frac{y'}y=\\frac{1-\\ln x}{x^2}$",
+    "$y'=0$ at $x=e$; positive before, negative after"
+   ]
   },
   {
    "id": "e358",
@@ -1572,7 +2146,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738094772",
    "instructions": [
     {
@@ -1580,7 +2154,102 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "(i) $t=0$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "(ii) $t=\\frac{\\pi}{2}$",
+      "answer": {
+       "kind": "number",
+       "value": "e^(-pi/2)"
+      }
+     },
+     {
+      "label": "(iii) $t=\\pi$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "(iv) $t=\\frac{3\\pi}{2}$",
+      "answer": {
+       "kind": "number",
+       "value": "-e^(-3pi/2)"
+      }
+     },
+     {
+      "label": "(v) $t=2\\pi$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "(vi) $t=\\frac{5\\pi}{2}$",
+      "answer": {
+       "kind": "number",
+       "value": "e^(-5pi/2)"
+      }
+     },
+     {
+      "label": "(vii) $t=3\\pi$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "(viii) $t=\\frac{7\\pi}{2}$",
+      "answer": {
+       "kind": "number",
+       "value": "-e^(-7pi/2)"
+      }
+     },
+     {
+      "label": "(ix) $t=4\\pi$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. (i) $0$, (ii) $e^{-\\pi/2}\\approx0.2079$, (iii) $0$, (iv) $-e^{-3\\pi/2}\\approx-0.00898$, (v) $0$, (vi) $e^{-5\\pi/2}\\approx0.000388$, (vii) $0$, (viii) $-e^{-7\\pi/2}\\approx-0.0000168$, (ix) $0$."
+     },
+     {
+      "type": "p",
+      "text": "b. The table values peak at $t=\\frac\\pi2,\\frac{3\\pi}2,\\dots$ (largest in size), so from the table alone the horizontal tangents appear to be at $t=\\frac{(2k+1)\\pi}{2}$."
+     },
+     {
+      "type": "p",
+      "text": "(In fact $I'(t)=e^{-t}(\\cos t-\\sin t)=0$ at $t=\\frac\\pi4+k\\pi$: the decay shifts the peaks a little to the left.)"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(0, exp(-pi/2), 0, -exp(-3*pi/2), 0, exp(-5*pi/2), 0, -exp(-7*pi/2), 0)"
+   },
+   "hints": [
+    "Evaluate $\\sin t\\cdot e^{-t}$ at each $t$."
+   ],
+   "steps": [
+    "$\\sin t=0,1,0,-1,\\dots$",
+    "So $I=0,\\ e^{-\\pi/2},\\ 0,\\ -e^{-3\\pi/2},\\dots$"
+   ]
   },
   {
    "id": "e359",
@@ -1601,7 +2270,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738229480",
    "instructions": [
     {
@@ -1618,7 +2287,42 @@
      }
     ]
    },
-   "notes": "self-check: part a is not plain math"
+   "notes": "self-check: part a is not plain math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $P(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "500000(1.05)^t"
+      }
+     },
+     {
+      "label": "b. $P'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "500000 ln(1.05)(1.05)^t"
+      }
+     },
+     {
+      "label": "c. rate after 10 years (people/year)",
+      "answer": {
+       "kind": "number",
+       "value": "500000 ln(1.05)(1.05)^10"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Growth of 5% per year: multiply by $1.05$ each year.",
+    "$(b^t)'=b^t\\ln b$."
+   ],
+   "steps": [
+    "$P=500000(1.05)^t$",
+    "$P'=500000\\ln(1.05)(1.05)^t\\approx24395(1.05)^t$",
+    "$P'(10)\\approx39{,}737$ per year"
+   ]
   },
   {
    "id": "e360",
@@ -1639,7 +2343,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738229590",
    "instructions": [
     {
@@ -1647,7 +2351,62 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $A(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "9(1/2)^(t/12)"
+      }
+     },
+     {
+      "label": "b. $A'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-(9ln 2/12)(1/2)^(t/12)"
+      }
+     },
+     {
+      "label": "c. $A'(4)$ (g/hr)",
+      "answer": {
+       "kind": "number",
+       "value": "-(9ln 2/12)(1/2)^(1/3)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $A(t)=9\\left(\\frac12\\right)^{t/12}$ grams."
+     },
+     {
+      "type": "p",
+      "text": "b. $A'(t)=9\\left(\\frac12\\right)^{t/12}\\ln\\left(\\frac12\\right)\\cdot\\frac1{12}=-\\dfrac{9\\ln2}{12}\\left(\\frac12\\right)^{t/12}$ g/hr."
+     },
+     {
+      "type": "p",
+      "text": "c. $A'(4)=-\\dfrac{9\\ln2}{12}\\left(\\frac12\\right)^{1/3}\\approx-0.413$ g/hr."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(9*Rational(1,2)**(t/12), diff(9*Rational(1,2)**(t/12),t), -(9*log(2)/12)*Rational(1,2)**Rational(1,3))"
+   },
+   "hints": [
+    "Half-life 12 h: $A=A_0\\left(\\frac12\\right)^{t/12}$.",
+    "$(b^u)'=b^u\\ln b\\cdot u'$."
+   ],
+   "steps": [
+    "$A=9(\\frac12)^{t/12}$",
+    "$A'=-\\frac{9\\ln2}{12}(\\frac12)^{t/12}$",
+    "$A'(4)\\approx-0.413$ g/hr"
+   ]
   },
   {
    "id": "e361",
@@ -1671,7 +2430,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738220789",
    "instructions": [
     {
@@ -1688,7 +2447,48 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$N(0)$ (thousands)",
+      "answer": {
+       "kind": "number",
+       "value": "5.3"
+      }
+     },
+     {
+      "label": "$N(4)$ (thousands)",
+      "answer": {
+       "kind": "number",
+       "value": "5.3e^(0.093(16)-0.87(4))"
+      }
+     },
+     {
+      "label": "$N'(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "-4.611"
+      }
+     },
+     {
+      "label": "$N'(3)$",
+      "answer": {
+       "kind": "number",
+       "value": "5.3e^(0.093(9)-0.87(3))(0.186(3)-0.87)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$N'(t)=5.3e^{0.093t^2-0.87t}(0.186t-0.87)$."
+   ],
+   "steps": [
+    "$N(0)=5.3$, $N(4)=5.3e^{-1.992}\\approx0.723$",
+    "$N'(0)=5.3(-0.87)=-4.611$",
+    "$N'(3)\\approx-0.281$"
+   ]
   },
   {
    "id": "e362",
@@ -1709,7 +2509,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169737922901",
    "instructions": [
     {
@@ -1717,7 +2517,53 @@
      "text": "For the following exercises, use logarithmic differentiation to find $\\frac{dy}{dx}.$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. relative rate (%)",
+      "answer": {
+       "kind": "expression",
+       "value": "100b c e^(-c x)"
+      }
+     },
+     {
+      "label": "b. at $x=20$ (%)",
+      "answer": {
+       "kind": "number",
+       "value": "100(0.0198)(0.15)e^(-3)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $P'(x)=ae^{-be^{-cx}}\\cdot bce^{-cx}$, so $\\dfrac{100P'(x)}{P(x)}=100bce^{-cx}\\,\\%$."
+     },
+     {
+      "type": "p",
+      "text": "b. $100(0.0198)(0.15)e^{-3}\\approx0.0148\\%$ per month."
+     },
+     {
+      "type": "p",
+      "text": "c. After 20 months the population is growing by only about $0.015\\%$ per month: it has nearly leveled off at its limit $a=204$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(100*b*c*exp(-c*x), 100*Rational(198,10000)*Rational(15,100)*exp(-3))"
+   },
+   "hints": [
+    "Chain rule twice; then divide by $P$."
+   ],
+   "steps": [
+    "$\\frac{P'}{P}=bce^{-cx}$",
+    "$100(0.0198)(0.15)e^{-3}\\approx0.0148\\%$"
+   ]
   },
   {
    "id": "e363",
@@ -1790,7 +2636,13 @@
    "answer": {
     "kind": "equation",
     "value": "p=35741(1.045)^t"
-   }
+   },
+   "hints": [
+    "Use exponential regression on a calculator."
+   ],
+   "steps": [
+    "$a\\approx35741$, $b\\approx1.045$"
+   ]
   },
   {
    "id": "e364",
@@ -1801,7 +2653,7 @@
      "text": "**[T]** Using the exponential best fit for the data, write a table containing the derivatives evaluated at each year."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738066665",
    "instructions": [
     {
@@ -1851,7 +2703,112 @@
      "caption": "New York City Population Over Time Source: http://en.wikipedia.org/wiki/Largest_cities_in_the_United_States\n_by_population_by_decade."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$P'(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "1573.2",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P'(10)$",
+      "answer": {
+       "kind": "number",
+       "value": "2443.1",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P'(20)$",
+      "answer": {
+       "kind": "number",
+       "value": "3794.1",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P'(30)$",
+      "answer": {
+       "kind": "number",
+       "value": "5892.2",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P'(40)$",
+      "answer": {
+       "kind": "number",
+       "value": "9150.4",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P'(50)$",
+      "answer": {
+       "kind": "number",
+       "value": "14210",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P'(60)$",
+      "answer": {
+       "kind": "number",
+       "value": "22068",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P'(70)$",
+      "answer": {
+       "kind": "number",
+       "value": "34271",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$P'(t)=35741\\ln(1.045)(1.045)^t\\approx1573.2(1.045)^t$."
+     },
+     {
+      "type": "p",
+      "text": "$t=0$: $1573$; $10$: $2443$; $20$: $3794$; $30$: $5892$; $40$: $9150$; $50$: $14{,}210$; $60$: $22{,}068$; $70$: $34{,}271$ (people per year)."
+     }
+    ]
+   },
+   "hints": [
+    "$(ab^t)'=ab^t\\ln b$."
+   ],
+   "steps": [
+    "$P'(t)=35741\\ln1.045\\cdot1.045^t$",
+    "$P'(0)\\approx1573$, $P'(70)\\approx34{,}271$"
+   ]
   },
   {
    "id": "e365",
@@ -1862,7 +2819,7 @@
      "text": "**[T]** Using the exponential best fit for the data, write a table containing the second derivatives evaluated at each year."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738071156",
    "instructions": [
     {
@@ -1958,7 +2915,99 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$P''(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "69.25",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P''(10)$",
+      "answer": {
+       "kind": "number",
+       "value": "107.5",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P''(20)$",
+      "answer": {
+       "kind": "number",
+       "value": "167.0",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P''(30)$",
+      "answer": {
+       "kind": "number",
+       "value": "259.4",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P''(40)$",
+      "answer": {
+       "kind": "number",
+       "value": "402.8",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P''(50)$",
+      "answer": {
+       "kind": "number",
+       "value": "625.5",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P''(60)$",
+      "answer": {
+       "kind": "number",
+       "value": "971.4",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "$P''(70)$",
+      "answer": {
+       "kind": "number",
+       "value": "1508.5",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$(ab^t)''=ab^t(\\ln b)^2$."
+   ],
+   "steps": [
+    "$P''(t)=35741(\\ln1.045)^2(1.045)^t$",
+    "$P''(0)\\approx69.25$"
+   ]
   },
   {
    "id": "e366",
@@ -2028,7 +3077,20 @@
      "caption": "New York City Population Over Time Source: http://en.wikipedia.org/wiki/Largest_cities_in_the_United_States\n_by_population_by_decade."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. No. The model keeps growing exponentially, and $P'$ and $P''$ keep increasing, but a city's growth slows as it runs out of space and resources."
+     },
+     {
+      "type": "p",
+      "text": "b. 2010 is $t=220$: $35741(1.045)^{220}\\approx574$ million. The actual 2010 population was about 8.2 million, so the prediction in a. was right: the model is far off."
+     }
+    ]
+   }
   },
   {
    "id": "e367",
@@ -2039,7 +3101,7 @@
      "text": "Every function has a derivative."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738040717",
    "instructions": [
     {
@@ -2057,7 +3119,22 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Think of a function with a corner."
+   ],
+   "steps": [
+    "$|x|$ has no derivative at $0$",
+    "False"
+   ]
   },
   {
    "id": "e368",
@@ -2068,7 +3145,7 @@
      "text": "A continuous function has a continuous derivative."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738040733",
    "instructions": [
     {
@@ -2077,7 +3154,31 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "False. $f(x)=|x|$ is continuous, but its derivative ($-1$ for $x<0$, $1$ for $x>0$) is not even defined at $0$, let alone continuous."
+     }
+    ]
+   },
+   "hints": [
+    "Look at a continuous function with a corner."
+   ],
+   "steps": [
+    "$|x|$ is continuous",
+    "$f'$ jumps from $-1$ to $1$: false"
+   ]
   },
   {
    "id": "e369",
@@ -2088,7 +3189,7 @@
      "text": "A continuous function has a derivative."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738040749",
    "instructions": [
     {
@@ -2106,7 +3207,22 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 1
+   },
+   "hints": [
+    "Think of a continuous function with a corner."
+   ],
+   "steps": [
+    "$|x|$ is continuous but not differentiable at $0$",
+    "False"
+   ]
   },
   {
    "id": "e370",
@@ -2117,7 +3233,7 @@
      "text": "If a function is differentiable, it is continuous."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738040765",
    "instructions": [
     {
@@ -2126,7 +3242,31 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "true",
+     "false"
+    ],
+    "correct": 0
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "True. If $f'(a)$ exists, then $\\lim_{x\\to a}(f(x)-f(a))=\\lim_{x\\to a}\\dfrac{f(x)-f(a)}{x-a}\\cdot(x-a)=f'(a)\\cdot0=0$, so $\\lim_{x\\to a}f(x)=f(a)$."
+     }
+    ]
+   },
+   "hints": [
+    "Write $f(x)-f(a)$ as the difference quotient times $(x-a)$."
+   ],
+   "steps": [
+    "$f(x)-f(a)=\\frac{f(x)-f(a)}{x-a}(x-a)\\to f'(a)\\cdot0$",
+    "True"
+   ]
   },
   {
    "id": "e371",
@@ -2158,7 +3298,14 @@
    "answer": {
     "kind": "expression",
     "value": "(1/(2 sqrt(x+4)))"
-   }
+   },
+   "hints": [
+    "$\\lim_{h\\to0}\\frac{\\sqrt{x+h+4}-\\sqrt{x+4}}{h}$; multiply by the conjugate."
+   ],
+   "steps": [
+    "$\\dfrac{1}{\\sqrt{x+h+4}+\\sqrt{x+4}}$",
+    "$\\to\\dfrac1{2\\sqrt{x+4}}$"
+   ]
   },
   {
    "id": "e372",
@@ -2169,7 +3316,7 @@
      "text": "$f(x)=\\frac{3}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738230342",
    "instructions": [
     {
@@ -2178,7 +3325,30 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-3/x^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$\\dfrac{\\frac{3}{x+h}-\\frac3x}{h}=\\dfrac{-3}{x(x+h)}\\to-\\dfrac{3}{x^2}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(3/x,x)"
+   },
+   "hints": [
+    "$\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$; combine the fractions."
+   ],
+   "steps": [
+    "$\\dfrac{3x-3(x+h)}{hx(x+h)}=\\dfrac{-3}{x(x+h)}$",
+    "$\\to-\\frac3{x^2}$"
+   ]
   },
   {
    "id": "e373",
@@ -2210,7 +3380,13 @@
    "answer": {
     "kind": "expression",
     "value": "9 x^2+(8/(x^3))"
-   }
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$9x^2-4(-2)x^{-3}$"
+   ]
   },
   {
    "id": "e374",
@@ -2221,7 +3397,7 @@
      "text": "$f(x)=(4-x^{2})^{3}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738230460",
    "instructions": [
     {
@@ -2230,7 +3406,51 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-6x(4-x^2)^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Chain rule: $f'(x)=3(4-x^2)^2(-2x)=-6x(4-x^2)^2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((4-x**2)**3,x)"
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$3(4-x^2)^2\\cdot(-2x)$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "n": {
+      "min": 2,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=({{a}}-x^2)^{ {{n}} }$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "-{{2*n}}x({{a}}-x^2)^{{n-1}}"
+    }
+   }
   },
   {
    "id": "e375",
@@ -2262,6 +3482,30 @@
    "answer": {
     "kind": "expression",
     "value": "e^(sin x) cos x"
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$e^{\\sin x}\\cdot\\cos x$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=e^{\\sin {{a}}x}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{a}}e^(sin({{a}}x))cos({{a}}x)"
+    }
    }
   },
   {
@@ -2273,7 +3517,7 @@
      "text": "$f(x)=\\ln \\,(x+2)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738191916",
    "instructions": [
     {
@@ -2282,7 +3526,35 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "1/(x+2)",
+    "domain": {
+     "x": [
+      -1,
+      5
+     ]
+    }
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\dfrac{1}{x+2}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(log(x+2),x)"
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$\\dfrac{1}{x+2}$"
+   ]
   },
   {
    "id": "e377",
@@ -2314,7 +3586,14 @@
    "answer": {
     "kind": "expression",
     "value": "x sec^2 (x)+2 x cos (x)+ tan (x)-x^2 sin (x)"
-   }
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$2x\\cos x-x^2\\sin x$",
+    "$+\\tan x+x\\sec^2x$"
+   ]
   },
   {
    "id": "e378",
@@ -2325,7 +3604,7 @@
      "text": "$f(x)=\\sqrt{3x^{2}+2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738192095",
    "instructions": [
     {
@@ -2334,7 +3613,29 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "3x/sqrt(3x^2+2)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\dfrac{6x}{2\\sqrt{3x^2+2}}=\\dfrac{3x}{\\sqrt{3x^2+2}}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(sqrt(3*x**2+2),x)"
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$\\dfrac{6x}{2\\sqrt{3x^2+2}}$"
+   ]
   },
   {
    "id": "e379",
@@ -2366,7 +3667,13 @@
    "answer": {
     "kind": "expression",
     "value": "(1/4)((x/(sqrt(1-x^2)))+ sin^(-1) (x))"
-   }
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$\\frac14\\sin^{-1}x+\\frac x4\\cdot\\frac1{\\sqrt{1-x^2}}$"
+   ]
   },
   {
    "id": "e380",
@@ -2377,7 +3684,7 @@
      "text": "$x^{2}y=(y+2)+xy\\,\\sin \\,(x)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738082383",
    "instructions": [
     {
@@ -2386,7 +3693,35 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(y sin x+x y cos x-2x y)/(x^2-1-x sin x)",
+    "prompt": "dy/dx in terms of x and y"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Differentiate implicitly: $2xy+x^2y'=y'+y\\sin x+xy'\\sin x+xy\\cos x$."
+     },
+     {
+      "type": "p",
+      "text": "$y'(x^2-1-x\\sin x)=y\\sin x+xy\\cos x-2xy$, so $y'=\\dfrac{y\\sin x+xy\\cos x-2xy}{x^2-1-x\\sin x}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "idiff(x**2*y-(y+2)-x*y*sin(x), y, x)"
+   },
+   "hints": [
+    "Implicit differentiation; product rule on $x^2y$ and $xy\\sin x$."
+   ],
+   "steps": [
+    "$2xy+x^2y'=y'+y\\sin x+xy'\\sin x+xy\\cos x$",
+    "Collect $y'$ terms"
+   ]
   },
   {
    "id": "e381",
@@ -2418,7 +3753,14 @@
    "answer": {
     "kind": "expression",
     "value": "cos x*(ln x+1)-x ln (x) sin x"
-   }
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "Product of three: $(x\\ln x)'\\cos x+x\\ln x(\\cos x)'$",
+    "$(\\ln x+1)\\cos x-x\\ln x\\sin x$"
+   ]
   },
   {
    "id": "e382",
@@ -2429,7 +3771,7 @@
      "text": "Third derivative of $y=(3x+2)^{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738239420",
    "instructions": [
     {
@@ -2438,7 +3780,58 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "0"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=6(3x+2)$, $y''=18$, $y'''=0$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((3*x+2)**2,x,3)"
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$y'=6(3x+2)$",
+    "$y''=18$, $y'''=0$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": -9,
+      "max": 9
+     },
+     "n": {
+      "choices": [
+       3,
+       4
+      ]
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the second derivative of $y=({{a}}x+{{b}})^{ {{n}} }$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{a*a*n*(n-1)}}({{a}}x+{{b}})^{{n-2}}"
+    }
+   }
   },
   {
    "id": "e383",
@@ -2470,7 +3863,14 @@
    "answer": {
     "kind": "expression",
     "value": "4^x(ln 4)^2+2 sin x+4 x cos x-x^2 sin x"
-   }
+   },
+   "hints": [
+    "Use the derivative rules: power, product, quotient, chain, trig, exponential and log."
+   ],
+   "steps": [
+    "$y'=4^x\\ln4+2x\\sin x+x^2\\cos x$",
+    "$y''=4^x(\\ln4)^2+2\\sin x+4x\\cos x-x^2\\sin x$"
+   ]
   },
   {
    "id": "e384",
@@ -2481,7 +3881,7 @@
      "text": "$y=\\cos^{-1}(x)+x$ at $x=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738226411",
    "instructions": [
     {
@@ -2490,7 +3890,34 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=pi/2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y(0)=\\cos^{-1}0=\\frac\\pi2$ and $y'=-\\dfrac{1}{\\sqrt{1-x^2}}+1$, so $y'(0)=0$."
+     },
+     {
+      "type": "p",
+      "text": "The tangent line is horizontal: $y=\\frac\\pi2$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "pi/2-y"
+   },
+   "hints": [
+    "Slope $f'(a)$, point $(a,f(a))$; tangent $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$y(0)=\\frac\\pi2$, $y'(0)=0$",
+    "$y=\\frac\\pi2$"
+   ]
   },
   {
    "id": "e385",
@@ -2522,7 +3949,14 @@
    "answer": {
     "kind": "equation",
     "value": "T=(2+e)x-2"
-   }
+   },
+   "hints": [
+    "Slope $f'(a)$, point $(a,f(a))$; tangent $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$y(1)=e$, $y'=1+e^x+\\frac1{x^2}$, $y'(1)=2+e$",
+    "$T=(2+e)(x-1)+e=(2+e)x-2$"
+   ]
   },
   {
    "id": "e386",
@@ -2545,7 +3979,20 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f$ decreases to a local minimum near $x=-2.3$, then increases: so $f'$ is negative left of $-2.3$, zero at $-2.3$, and positive after."
+     },
+     {
+      "type": "p",
+      "text": "Where the graph of $f$ is steepest, $f'$ is largest in size; where $f$ levels off, $f'$ returns toward $0$. Sketch $f'$ crossing the axis at each local max or min of $f$."
+     }
+    ]
+   }
   },
   {
    "id": "e387",
@@ -2591,7 +4038,7 @@
      "text": "Find and graph the derivative. What is the physical meaning?"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738138040",
    "instructions": [
     {
@@ -2600,7 +4047,33 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-(2.9pi/6) sin(pi t/6)"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$w'(t)=-2.9\\cdot\\dfrac{\\pi}{6}\\sin\\left(\\dfrac\\pi6t\\right)$ ft/hr: a sine wave with amplitude $\\frac{2.9\\pi}6\\approx1.52$ and period 12 hours."
+     },
+     {
+      "type": "p",
+      "text": "It is the rate at which the water level is rising (positive) or falling (negative)."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(Rational(19,10)+Rational(29,10)*cos(pi*t/6),t)"
+   },
+   "hints": [
+    "Chain rule on $\\cos\\left(\\frac\\pi6t\\right)$."
+   ],
+   "steps": [
+    "$w'(t)=-\\frac{2.9\\pi}6\\sin\\frac{\\pi t}6$"
+   ]
   },
   {
    "id": "e389",
@@ -2611,7 +4084,7 @@
      "text": "Find $w'(3).$ What is the physical meaning of this value?"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738138102",
    "instructions": [
     {
@@ -2629,7 +4102,19 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "number",
+    "value": "-2.9pi/6",
+    "prompt": "ft/hr"
+   },
+   "hints": [
+    "$w'(t)=-\\frac{2.9\\pi}{6}\\sin\\left(\\frac\\pi6t\\right)$."
+   ],
+   "steps": [
+    "$w'(3)=-\\frac{2.9\\pi}6\\sin\\frac\\pi2$",
+    "$\\approx-1.518$ ft/hr"
+   ]
   },
   {
    "id": "e390",
@@ -2640,7 +4125,7 @@
      "text": "Using the table, estimate the derivative of the wind speed at hour 39. What is the physical meaning?"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738074859",
    "instructions": [
     {
@@ -2699,7 +4184,32 @@
     }
    ],
    "review": true,
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "1.5",
+    "prompt": "mph per hour"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Hour 39 lies between the data points at 29 h (115 mph) and 49 h (145 mph): $\\dfrac{145-115}{49-29}=\\dfrac{30}{20}=1.5$ mph/hr."
+     },
+     {
+      "type": "p",
+      "text": "At hour 39 the wind speed was increasing by about 1.5 mph each hour."
+     }
+    ]
+   },
+   "hints": [
+    "Use the slope between the two table points on either side of hour 39."
+   ],
+   "steps": [
+    "$\\frac{145-115}{49-29}$",
+    "$=1.5$ mph/hr"
+   ]
   },
   {
    "id": "e391",
@@ -2710,7 +4220,7 @@
      "text": "Estimate the derivative of the wind speed at hour 83. What is the physical meaning?"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169738074887",
    "instructions": [
     {
@@ -2778,7 +4288,18 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "number",
+    "value": "-7.5",
+    "prompt": "mph per hour"
+   },
+   "hints": [
+    "Use the slope between the table points on either side of hour 83."
+   ],
+   "steps": [
+    "$\\frac{95-125}{85-81}=-7.5$ mph/hr"
+   ]
   }
  ],
  "proofs": [
@@ -2866,7 +4387,7 @@
     },
     {
      "type": "p",
-     "text": "Use (see above) directly."
+     "text": "Use the derivative of $\\ln(g(x))$ directly."
     },
     {
      "type": "math",
