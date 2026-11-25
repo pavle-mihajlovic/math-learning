@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "State the constant, constant multiple, and power rules.",
@@ -748,7 +748,7 @@
    },
    "answer": {
     "kind": "number",
-    "value": "(5/8)"
+    "value": "5/8"
    }
   },
   {
@@ -782,7 +782,7 @@
      "text": "$f(x)=x^{7}+10$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739293618",
    "instructions": [
     {
@@ -790,7 +790,52 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "7x^6"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=7x^6$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x**7+10,x)"
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "$(x^7)'=7x^6$, $(10)'=0$"
+   ],
+   "variant": {
+    "params": {
+     "n": {
+      "min": 3,
+      "max": 12
+     },
+     "c": {
+      "min": -9,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=x^{ {{n}} }+{{c}}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{n}}x^{{n-1}}"
+    }
+   }
   },
   {
    "id": "e107",
@@ -821,6 +866,39 @@
    "answer": {
     "kind": "expression",
     "value": "15 x^2-1"
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "$15x^2-1$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 2,
+      "max": 9
+     },
+     "b": {
+      "min": 1,
+      "max": 9
+     },
+     "c": {
+      "min": -9,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)={{a}}x^3-{{b}}x+{{c}}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{3*a}}x^2-{{b}}"
+    }
    }
   },
   {
@@ -832,7 +910,7 @@
      "text": "$f(x)=4x^{2}-7x$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739293752",
    "instructions": [
     {
@@ -840,7 +918,30 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "8x-7"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=8x-7$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(4*x**2-7*x,x)"
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "$(4x^2)'=8x$, $(-7x)'=-7$"
+   ]
   },
   {
    "id": "e109",
@@ -871,7 +972,14 @@
    "answer": {
     "kind": "expression",
     "value": "32 x^3+18 x"
-   }
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "$32x^3+18x$"
+   ]
   },
   {
    "id": "e110",
@@ -882,7 +990,7 @@
      "text": "$f(x)=x^{4}+\\frac{2}{x}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736596045",
    "instructions": [
     {
@@ -890,7 +998,53 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "4x^3-2/x^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f(x)=x^4+2x^{-1}$, so $f'(x)=4x^3-2x^{-2}=4x^3-\\dfrac2{x^2}$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff(x**4+2/x,x)"
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "$f=x^4+2x^{-1}$",
+    "$f'=4x^3-2x^{-2}$"
+   ],
+   "variant": {
+    "params": {
+     "n": {
+      "min": 2,
+      "max": 6
+     },
+     "a": {
+      "min": 2,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=x^{ {{n}} }+\\dfrac{ {{a}} }{x}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{n}}x^{{n-1}}-{{a}}/x^2"
+    }
+   }
   },
   {
    "id": "e111",
@@ -921,7 +1075,15 @@
    "answer": {
     "kind": "expression",
     "value": "270 x^4+(39/((x+1)^2))"
-   }
+   },
+   "hints": [
+    "Product rule: $(fg)'=f'g+fg'$.",
+    "Or expand first, then use the power rule."
+   ],
+   "steps": [
+    "$f=54x^5+\\dfrac{39x}{x+1}$",
+    "$f'=270x^4+\\dfrac{39(x+1)-39x}{(x+1)^2}=270x^4+\\dfrac{39}{(x+1)^2}$"
+   ]
   },
   {
    "id": "e112",
@@ -932,7 +1094,7 @@
      "text": "$f(x)=(x+2)(2x^{2}-3)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736662536",
    "instructions": [
     {
@@ -940,7 +1102,60 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "6x^2+8x-3"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "Product rule: $f'(x)=1\\cdot(2x^2-3)+(x+2)(4x)=2x^2-3+4x^2+8x=6x^2+8x-3$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((x+2)*(2*x**2-3),x)"
+   },
+   "hints": [
+    "Product rule: $(fg)'=f'g+fg'$.",
+    "Or expand first, then use the power rule."
+   ],
+   "steps": [
+    "$(2x^2-3)+(x+2)(4x)$",
+    "$=6x^2+8x-3$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": -6,
+      "max": 6,
+      "exclude": [
+       0
+      ]
+     },
+     "b": {
+      "min": 2,
+      "max": 5
+     },
+     "c": {
+      "min": -6,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=(x+{{a}})({{b}}x^2+{{c}})$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "{{3*b}}x^2+{{2*a*b}}x+{{c}}"
+    }
+   }
   },
   {
    "id": "e113",
@@ -971,7 +1186,15 @@
    "answer": {
     "kind": "expression",
     "value": "((-5)/(x^2))"
-   }
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "Expand: $f=2+\\dfrac5x$",
+    "$f'=-\\dfrac5{x^2}$"
+   ]
   },
   {
    "id": "e114",
@@ -982,7 +1205,7 @@
      "text": "$f(x)=\\frac{x^{3}+2x^{2}-4}{3}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736658888",
    "instructions": [
     {
@@ -990,7 +1213,31 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(3x^2+4x)/3"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=\\dfrac13(3x^2+4x)=x^2+\\dfrac43x$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((x**3+2*x**2-4)/3,x)"
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "$\\frac13(x^3+2x^2-4)'$",
+    "$=x^2+\\frac43x$"
+   ]
   },
   {
    "id": "e115",
@@ -1021,7 +1268,15 @@
    "answer": {
     "kind": "expression",
     "value": "((4 x^4+2 x^2-2 x)/(x^4))"
-   }
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "$f=4x-2x^{-1}+x^{-2}$",
+    "$f'=4+2x^{-2}-2x^{-3}=\\dfrac{4x^4+2x^2-2x}{x^4}$"
+   ]
   },
   {
    "id": "e116",
@@ -1032,7 +1287,7 @@
      "text": "$f(x)=\\frac{x^{2}+4}{x^{2}-4}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739303805",
    "instructions": [
     {
@@ -1040,7 +1295,53 @@
      "text": "For the following exercises, find $f'(x)$ for each function."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "-16x/(x^2-4)^2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "math",
+      "tex": "f'(x)=\\frac{2x(x^2-4)-(x^2+4)(2x)}{(x^2-4)^2}=\\frac{-16x}{(x^2-4)^2}"
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((x**2+4)/(x**2-4),x)"
+   },
+   "hints": [
+    "Quotient rule: $\\left(\\frac fg\\right)'=\\dfrac{f'g-fg'}{g^2}$.",
+    "Simplify the numerator carefully."
+   ],
+   "steps": [
+    "$\\dfrac{2x(x^2-4)-2x(x^2+4)}{(x^2-4)^2}$",
+    "$=\\dfrac{-16x}{(x^2-4)^2}$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 1,
+      "max": 9
+     },
+     "b": {
+      "min": 1,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find $f'(x)$ for $f(x)=\\dfrac{x^2+{{a}}}{x^2-{{b}}}$."
+     }
+    ],
+    "answer": {
+     "kind": "expression",
+     "value": "-{{2*(a+b)}}x/(x^2-{{b}})^2"
+    }
+   }
   },
   {
    "id": "e117",
@@ -1071,7 +1372,15 @@
    "answer": {
     "kind": "expression",
     "value": "((-x^2-18 x+64)/((x^2-7 x+1)^2))"
-   }
+   },
+   "hints": [
+    "Quotient rule: $\\left(\\frac fg\\right)'=\\dfrac{f'g-fg'}{g^2}$.",
+    "Simplify the numerator carefully."
+   ],
+   "steps": [
+    "$\\dfrac{(x^2-7x+1)-(x+9)(2x-7)}{(x^2-7x+1)^2}$",
+    "$=\\dfrac{-x^2-18x+64}{(x^2-7x+1)^2}$"
+   ]
   },
   {
    "id": "e118",
@@ -1082,7 +1391,7 @@
      "text": "**[T]** $y=3x^{2}+4x+1$ at $(0,1)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739285046",
    "instructions": [
     {
@@ -1090,7 +1399,57 @@
      "text": "For the following exercises, find an equation of the tangent line $T(x)$ to the graph of the given function at the indicated point. Use a graphing calculator to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=4x+1"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=6x+4$, so the slope at $x=0$ is $4$: $T(x)=4x+1$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "4*x+1-y"
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$y'(0)=4$",
+    "$T(x)=4x+1$"
+   ],
+   "variant": {
+    "params": {
+     "a": {
+      "min": 1,
+      "max": 5
+     },
+     "b": {
+      "min": -6,
+      "max": 6
+     },
+     "c": {
+      "min": -6,
+      "max": 6
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "Find the tangent line to $y={{a}}x^2+{{b}}x+{{c}}$ at $x=0$."
+     }
+    ],
+    "answer": {
+     "kind": "equation",
+     "value": "y={{b}}x+{{c}}"
+    }
+   }
   },
   {
    "id": "e119",
@@ -1101,7 +1460,7 @@
      "text": "**[T]** $y=\\frac{2}{x^{2}}+1$ at $(1,3)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739376112",
    "instructions": [
     {
@@ -1125,7 +1484,19 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-4x+7"
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$y'=-\\dfrac4{x^3}$, so $m=-4$",
+    "$y-3=-4(x-1)$: $T(x)=-4x+7$"
+   ]
   },
   {
    "id": "e120",
@@ -1136,7 +1507,7 @@
      "text": "**[T]** $y=\\frac{2x}{x-1}$ at $(-1,1)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739376207",
    "instructions": [
     {
@@ -1144,7 +1515,36 @@
      "text": "For the following exercises, find an equation of the tangent line $T(x)$ to the graph of the given function at the indicated point. Use a graphing calculator to graph the function and the tangent line."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=-x/2+1/2"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$y'=\\dfrac{2(x-1)-2x}{(x-1)^2}=\\dfrac{-2}{(x-1)^2}$, so at $x=-1$ the slope is $-\\frac24=-\\frac12$."
+     },
+     {
+      "type": "p",
+      "text": "$T(x)=1-\\frac12(x+1)=-\\frac12x+\\frac12$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "-x/2+Rational(1,2)-y"
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$.",
+    "Quotient rule: $\\left(\\frac fg\\right)'=\\dfrac{f'g-fg'}{g^2}$."
+   ],
+   "steps": [
+    "$y'=\\dfrac{-2}{(x-1)^2}$, $m=-\\frac12$",
+    "$T(x)=-\\frac12x+\\frac12$"
+   ]
   },
   {
    "id": "e121",
@@ -1155,7 +1555,7 @@
      "text": "**[T]** $y=\\frac{2}{x}-\\frac{3}{x^{2}}$ at $(1,-1)$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739345852",
    "instructions": [
     {
@@ -1179,7 +1579,19 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "equation",
+    "value": "y=4x-5"
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$y'=-\\dfrac2{x^2}+\\dfrac6{x^3}$, $m=4$",
+    "$y+1=4(x-1)$: $T(x)=4x-5$"
+   ]
   },
   {
    "id": "e122",
@@ -1190,7 +1602,7 @@
      "text": "$h(x)=4f(x)+\\frac{g(x)}{7}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739273616",
    "instructions": [
     {
@@ -1198,7 +1610,26 @@
      "text": "For the following exercises, assume that $f(x)$ and $g(x)$ are both differentiable functions for all $x.$ Find the derivative of each of the functions $h(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "4f'(x)+g'(x)/7"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "Sum and constant multiple rules: $h'(x)=4f'(x)+\\dfrac{g'(x)}{7}$."
+     }
+    ]
+   },
+   "hints": [
+    "Use the sum, constant multiple, product and quotient rules, keeping $f$ and $g$ as they are."
+   ],
+   "steps": [
+    "$h'=4f'+\\frac17g'$"
+   ]
   },
   {
    "id": "e123",
@@ -1229,7 +1660,14 @@
    "answer": {
     "kind": "expression",
     "value": "3 x^2 f(x)+x^3 f'(x)"
-   }
+   },
+   "hints": [
+    "Use the sum, constant multiple, product and quotient rules, keeping $f$ and $g$ as they are."
+   ],
+   "steps": [
+    "$h'=(x^3)'f+x^3f'$",
+    "$=3x^2f(x)+x^3f'(x)$"
+   ]
   },
   {
    "id": "e124",
@@ -1240,7 +1678,7 @@
      "text": "$h(x)=\\frac{f(x)g(x)}{2}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739325594",
    "instructions": [
     {
@@ -1248,7 +1686,27 @@
      "text": "For the following exercises, assume that $f(x)$ and $g(x)$ are both differentiable functions for all $x.$ Find the derivative of each of the functions $h(x).$"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "expression",
+    "value": "(f'(x)g(x)+f(x)g'(x))/2"
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(x)=\\dfrac{f'(x)g(x)+f(x)g'(x)}{2}$."
+     }
+    ]
+   },
+   "hints": [
+    "Use the sum, constant multiple, product and quotient rules, keeping $f$ and $g$ as they are."
+   ],
+   "steps": [
+    "$\\frac12(fg)'$",
+    "$=\\frac12(f'g+fg')$"
+   ]
   },
   {
    "id": "e125",
@@ -1279,7 +1737,14 @@
    "answer": {
     "kind": "expression",
     "value": "((3 f'(x)(g(x)+2)-3 f(x)g'(x))/((g(x)+2)^2))"
-   }
+   },
+   "hints": [
+    "Use the sum, constant multiple, product and quotient rules, keeping $f$ and $g$ as they are.",
+    "Quotient rule: $\\left(\\frac fg\\right)'=\\dfrac{f'g-fg'}{g^2}$."
+   ],
+   "steps": [
+    "$\\dfrac{3f'(x)(g(x)+2)-3f(x)g'(x)}{(g(x)+2)^2}$"
+   ]
   },
   {
    "id": "e126",
@@ -1290,7 +1755,7 @@
      "text": "Find $h'(1)$ if $h(x)=xf(x)+4g(x).$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739275222",
    "instructions": [
     {
@@ -1338,7 +1803,30 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "18"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(x)=f(x)+xf'(x)+4g'(x)$, so $h'(1)=3+1(-1)+4(4)=18$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "3+1*(-1)+4*4"
+   },
+   "hints": [
+    "Write $h'(x)$ with the rules, then plug in the table values at that $x$."
+   ],
+   "steps": [
+    "$h'=f+xf'+4g'$",
+    "$3-1+16=18$"
+   ]
   },
   {
    "id": "e127",
@@ -1409,7 +1897,14 @@
    "answer": {
     "kind": "number",
     "value": "(16/9)"
-   }
+   },
+   "hints": [
+    "Write $h'(x)$ with the rules, then plug in the table values at that $x$."
+   ],
+   "steps": [
+    "$h'(2)=\\dfrac{f'(2)g(2)-f(2)g'(2)}{g(2)^2}=\\dfrac{7(3)-5(1)}{9}$",
+    "$=\\dfrac{16}9$"
+   ]
   },
   {
    "id": "e128",
@@ -1420,7 +1915,7 @@
      "text": "Find $h'(3)$ if $h(x)=2x+f(x)g(x).$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739303645",
    "instructions": [
     {
@@ -1468,7 +1963,30 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-34"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'(x)=2+f'(x)g(x)+f(x)g'(x)$, so $h'(3)=2+8(-4)+(-2)(2)=-34$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "2+8*(-4)+(-2)*2"
+   },
+   "hints": [
+    "Write $h'(x)$ with the rules, then plug in the table values at that $x$."
+   ],
+   "steps": [
+    "$h'=2+f'g+fg'$",
+    "$2-32-4=-34$"
+   ]
   },
   {
    "id": "e129",
@@ -1539,7 +2057,14 @@
    "answer": {
     "kind": "number",
     "value": "DNE"
-   }
+   },
+   "hints": [
+    "Write $h'(x)$ with the rules, then plug in the table values at that $x$."
+   ],
+   "steps": [
+    "$h'(4)=-\\frac1{16}+\\dfrac{g'f-gf'}{f^2}$ needs $f(4)^2$ in a denominator",
+    "$f(4)=0$: undefined"
+   ]
   },
   {
    "id": "e130",
@@ -1560,7 +2085,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739350764",
    "instructions": [
     {
@@ -1575,7 +2100,57 @@
      "height": 275
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $h'(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "0",
+       "prompt": "DNE if it does not exist"
+      }
+     },
+     {
+      "label": "b. $h'(3)$",
+      "answer": {
+       "kind": "number",
+       "value": "DNE",
+       "prompt": "DNE if it does not exist"
+      }
+     },
+     {
+      "label": "c. $h'(4)$",
+      "answer": {
+       "kind": "number",
+       "value": "1",
+       "prompt": "DNE if it does not exist"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "From the graph: $f$ has slope $-1$ left of $3$ and $1$ right of $3$ (corner at $3$); $g$ has slope $1$ on $(0,2.5)$ and $0$ after $2.5$."
+     },
+     {
+      "type": "p",
+      "text": "a. $h'(1)=-1+1=0$. b. $f'(3)$ does not exist, so $h'(3)$ does not exist. c. $h'(4)=1+0=1$."
+     }
+    ]
+   },
+   "hints": [
+    "$f$ and $g$ are made of line segments: read their values and slopes from the graph.",
+    "At a corner the derivative does not exist."
+   ],
+   "steps": [
+    "$h'=f'+g'$",
+    "a. $-1+1=0$; b. corner of $f$: DNE; c. $1+0=1$"
+   ]
   },
   {
    "id": "e131",
@@ -1645,7 +2220,15 @@
       }
      }
     ]
-   }
+   },
+   "hints": [
+    "$f$ and $g$ are made of line segments: read their values and slopes from the graph.",
+    "At a corner the derivative does not exist."
+   ],
+   "steps": [
+    "$h'=f'g+fg'$",
+    "a. $(-1)(1)+(3)(1)=2$; b. DNE; c. $(1)(2.5)+(2)(0)=2.5$"
+   ]
   },
   {
    "id": "e132",
@@ -1666,7 +2249,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736593638",
    "instructions": [
     {
@@ -1681,7 +2264,67 @@
      "height": 275
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $h'(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "-4",
+       "prompt": "DNE if it does not exist"
+      }
+     },
+     {
+      "label": "b. $h'(3)$",
+      "answer": {
+       "kind": "number",
+       "value": "DNE",
+       "prompt": "DNE if it does not exist"
+      }
+     },
+     {
+      "label": "c. $h'(4)$",
+      "answer": {
+       "kind": "number",
+       "value": "0.4",
+       "prompt": "DNE if it does not exist"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "$h'=\\dfrac{f'g-fg'}{g^2}$."
+     },
+     {
+      "type": "p",
+      "text": "a. $f(1)=3$, $f'(1)=-1$, $g(1)=1$, $g'(1)=1$: $h'(1)=\\dfrac{(-1)(1)-(3)(1)}{1}=-4$."
+     },
+     {
+      "type": "p",
+      "text": "b. $f'(3)$ does not exist: DNE."
+     },
+     {
+      "type": "p",
+      "text": "c. $f(4)=2$, $f'(4)=1$, $g(4)=2.5$, $g'(4)=0$: $h'(4)=\\dfrac{2.5-0}{6.25}=0.4$."
+     }
+    ]
+   },
+   "hints": [
+    "$f$ and $g$ are made of line segments: read their values and slopes from the graph.",
+    "At a corner the derivative does not exist.",
+    "Quotient rule: $\\left(\\frac fg\\right)'=\\dfrac{f'g-fg'}{g^2}$."
+   ],
+   "steps": [
+    "a. $\\dfrac{(-1)(1)-3(1)}{1^2}=-4$",
+    "b. DNE",
+    "c. $\\dfrac{1(2.5)-2(0)}{2.5^2}=0.4$"
+   ]
   },
   {
    "id": "e133",
@@ -1692,7 +2335,7 @@
      "text": "**[T]** $f(x)=2x^{3}+3x-x^{2},a=2$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739266751",
    "instructions": [
     {
@@ -1725,7 +2368,34 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f'(2)$",
+      "answer": {
+       "kind": "number",
+       "value": "23"
+      }
+     },
+     {
+      "label": "b. tangent line",
+      "answer": {
+       "kind": "equation",
+       "value": "y=23x-28"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f'(x)=6x^2+3-2x$, $f'(2)=23$",
+    "$f(2)=18$: $y-18=23(x-2)$"
+   ]
   },
   {
    "id": "e134",
@@ -1736,7 +2406,7 @@
      "text": "**[T]** $f(x)=\\frac{1}{x}-x^{2},a=1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736655206",
    "instructions": [
     {
@@ -1753,7 +2423,50 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f'(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "-3"
+      }
+     },
+     {
+      "label": "b. tangent line",
+      "answer": {
+       "kind": "equation",
+       "value": "y=-3x+3"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f'(x)=-\\dfrac1{x^2}-2x$, so $f'(1)=-3$."
+     },
+     {
+      "type": "p",
+      "text": "b. $f(1)=0$: $y=-3(x-1)=-3x+3$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(-3, -3*x+3-y)"
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f'(1)=-1-2=-3$",
+    "$y=-3x+3$"
+   ]
   },
   {
    "id": "e135",
@@ -1764,7 +2477,7 @@
      "text": "**[T]** $f(x)=x^{2}-x^{12}+3x+2,a=0$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736655292",
    "instructions": [
     {
@@ -1797,7 +2510,34 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f'(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "b. tangent line",
+      "answer": {
+       "kind": "equation",
+       "value": "y=3x+2"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f'(x)=2x-12x^{11}+3$, $f'(0)=3$",
+    "$f(0)=2$: $y=3x+2$"
+   ]
   },
   {
    "id": "e136",
@@ -1808,7 +2548,7 @@
      "text": "**[T]** $f(x)=\\frac{1}{x}-x^{2},a=-1$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739305498",
    "instructions": [
     {
@@ -1825,7 +2565,50 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $f'(-1)$",
+      "answer": {
+       "kind": "number",
+       "value": "1"
+      }
+     },
+     {
+      "label": "b. tangent line",
+      "answer": {
+       "kind": "equation",
+       "value": "y=x-1"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $f'(-1)=-\\dfrac{1}{1}-2(-1)=1$."
+     },
+     {
+      "type": "p",
+      "text": "b. $f(-1)=-1-1=-2$: $y+2=x+1$, so $y=x-1$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(1, x-1-y)"
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f'(-1)=-1+2=1$",
+    "$y=x-1$"
+   ]
   },
   {
    "id": "e137",
@@ -1865,7 +2648,15 @@
    "answer": {
     "kind": "equation",
     "value": "y=-7 x-3"
-   }
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f'(x)=6x^2+8x-5$, $f'(-1)=-7$; $f(-1)=4$",
+    "$y-4=-7(x+1)$: $y=-7x-3$"
+   ]
   },
   {
    "id": "e138",
@@ -1876,7 +2667,7 @@
      "text": "Find an equation of the tangent line to the graph of $f(x)=x^{2}+\\frac{4}{x}-10$ at $x=8.$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736662312",
    "instructions": [
     {
@@ -1893,7 +2684,35 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "equation",
+    "value": "y=255x/16-73"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=2x-\\dfrac4{x^2}$, so $f'(8)=16-\\frac1{16}=\\frac{255}{16}$; $f(8)=64+\\frac12-10=\\frac{109}{2}$."
+     },
+     {
+      "type": "p",
+      "text": "$y=\\frac{255}{16}(x-8)+\\frac{109}2=\\frac{255}{16}x-73$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "Rational(255,16)*x-73-y"
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$."
+   ],
+   "steps": [
+    "$f'(8)=\\frac{255}{16}$, $f(8)=\\frac{109}2$",
+    "$y=\\frac{255}{16}x-73$"
+   ]
   },
   {
    "id": "e139",
@@ -1933,7 +2752,16 @@
    "answer": {
     "kind": "equation",
     "value": "y=-5 x+7"
-   }
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$.",
+    "Product rule: $(fg)'=f'g+fg'$."
+   ],
+   "steps": [
+    "$f(1)=(2)(1)=2$; $f'(x)=(3-2x)(3-x-x^2)+(3x-x^2)(-1-2x)$",
+    "$f'(1)=(1)(1)+(2)(-3)=-5$: $y-2=-5(x-1)$, $y=-5x+7$"
+   ]
   },
   {
    "id": "e140",
@@ -1944,7 +2772,7 @@
      "text": "Find the point on the graph of $f(x)=x^{3}$ such that the tangent line at that point has an $x$ intercept of 6."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739303423",
    "instructions": [
     {
@@ -1961,7 +2789,51 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$x$",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     },
+     {
+      "label": "$y$",
+      "answer": {
+       "kind": "number",
+       "value": "729"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "At $(a,a^3)$ the tangent is $y=3a^2(x-a)+a^3$. Setting $y=0$: $x=a-\\frac a3=\\frac{2a}3$."
+     },
+     {
+      "type": "p",
+      "text": "$\\frac{2a}{3}=6$ gives $a=9$: the point is $(9,729)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(9, 729)"
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$.",
+    "Set $y=0$ in the tangent line at $(a,a^3)$ and solve for $x$."
+   ],
+   "steps": [
+    "Tangent: $y=3a^2(x-a)+a^3$; $x$-intercept $\\frac{2a}3$",
+    "$\\frac{2a}3=6$: $a=9$, point $(9,729)$"
+   ]
   },
   {
    "id": "e141",
@@ -2001,7 +2873,16 @@
    "answer": {
     "kind": "equation",
     "value": "y=-(3/2)x+(15/2)"
-   }
+   },
+   "hints": [
+    "Slope: $m=f'(a)$.",
+    "Tangent line: $y-f(a)=f'(a)(x-a)$.",
+    "Write the tangent at $(a,f(a))$ and require it to pass through $(3,3)$."
+   ],
+   "steps": [
+    "Tangent at $a$: $y=\\frac{6}{a-1}-\\frac{6}{(a-1)^2}(x-a)$; through $(3,3)$ gives $a=3$",
+    "Slope $-\\frac{6}{4}=-\\frac32$: $y=-\\frac32x+\\frac{15}2$"
+   ]
   },
   {
    "id": "e142",
@@ -2021,7 +2902,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739303559",
    "instructions": [
     {
@@ -2038,7 +2919,54 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $x$-values (horizontal tangent)",
+      "answer": {
+       "kind": "list",
+       "value": "-1, 1/3"
+      }
+     },
+     {
+      "label": "b. $x$-values (slope $-1$)",
+      "answer": {
+       "kind": "list",
+       "value": "0, -2/3"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$f'(x)=3x^2+2x-1=(3x-1)(x+1)$."
+     },
+     {
+      "type": "p",
+      "text": "a. $f'(x)=0$ at $x=-1$ and $x=\\frac13$: the points $(-1,0)$ and $\\left(\\frac13,-\\frac{32}{27}\\right)$."
+     },
+     {
+      "type": "p",
+      "text": "b. $3x^2+2x-1=-1$ gives $x(3x+2)=0$: $x=0$ and $x=-\\frac23$, the points $(0,-1)$ and $\\left(-\\frac23,-\\frac{5}{27}\\right)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(-1, Rational(1,3), 0, Rational(-2,3))"
+   },
+   "hints": [
+    "Find $f'(x)$ and set it equal to the slope you want."
+   ],
+   "steps": [
+    "$f'(x)=3x^2+2x-1$",
+    "a. $=0$: $x=-1,\\frac13$",
+    "b. $=-1$: $x=0,-\\frac23$"
+   ]
   },
   {
    "id": "e143",
@@ -2078,7 +3006,14 @@
    "answer": {
     "kind": "equation",
     "value": "y=-3 x^2+9 x-1"
-   }
+   },
+   "hints": [
+    "Let $f(x)=ax^2+bx+c$, so $f''=2a$, $f'(1)=2a+b$, $f(1)=a+b+c$."
+   ],
+   "steps": [
+    "$2a=-6$: $a=-3$",
+    "$-6+b=3$: $b=9$; $-3+9+c=5$: $c=-1$"
+   ]
   },
   {
    "id": "e144",
@@ -2098,7 +3033,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736613877",
    "instructions": [
     {
@@ -2115,7 +3050,56 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. times when $v=0$",
+      "answer": {
+       "kind": "list",
+       "value": "1, 3"
+      }
+     },
+     {
+      "label": "b. $a(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "-6"
+      }
+     },
+     {
+      "label": "c. $a(3)$",
+      "answer": {
+       "kind": "number",
+       "value": "6"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v(t)=s'(t)=3t^2-12t+9=3(t-1)(t-3)$, which is $0$ at $t=1$ and $t=3$ seconds."
+     },
+     {
+      "type": "p",
+      "text": "$a(t)=v'(t)=6t-12$: $a(1)=-6$ m/s² and $a(3)=6$ m/s²."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(1, 3, -6, 6)"
+   },
+   "hints": [
+    "$v=s'$ and $a=v'=s''$."
+   ],
+   "steps": [
+    "$v=3(t-1)(t-3)=0$: $t=1,3$",
+    "$a=6t-12$: $a(1)=-6$, $a(3)=6$"
+   ]
   },
   {
    "id": "e145",
@@ -2130,7 +3114,7 @@
      "text": "Determine the velocity of the herring when it has traveled 3 seconds."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736613986",
    "instructions": [
     {
@@ -2156,7 +3140,18 @@
      }
     ]
    },
-   "notes": "self-check: answer mixes prose and math"
+   "notes": "self-check: answer mixes prose and math",
+   "answer": {
+    "kind": "number",
+    "value": "12/121"
+   },
+   "hints": [
+    "Velocity is $s'(t)$; use the quotient rule."
+   ],
+   "steps": [
+    "$s'(t)=\\dfrac{2t(t^2+2)-t^2(2t)}{(t^2+2)^2}=\\dfrac{4t}{(t^2+2)^2}$",
+    "$s'(3)=\\dfrac{12}{121}\\approx0.0992$ ft/s"
+   ]
   },
   {
    "id": "e146",
@@ -2176,7 +3171,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739341321",
    "instructions": [
     {
@@ -2193,7 +3188,54 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $P(0)$ (millions)",
+      "answer": {
+       "kind": "number",
+       "value": "3"
+      }
+     },
+     {
+      "label": "b. $P'(10)$",
+      "answer": {
+       "kind": "number",
+       "value": "-164/441"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $P(0)=3$: 3 million flounder."
+     },
+     {
+      "type": "p",
+      "text": "b. $P'(t)=\\dfrac{8(0.2t^2+1)-(8t+3)(0.4t)}{(0.2t^2+1)^2}$, so $P'(10)=\\dfrac{8(21)-83(4)}{21^2}=\\dfrac{-164}{441}\\approx-0.372$."
+     },
+     {
+      "type": "p",
+      "text": "After 10 years the population is falling by about $0.372$ million (372,000) fish per year."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(3, diff((8*x+3)/(Rational(1,5)*x**2+1),x).subs(x,10))"
+   },
+   "hints": [
+    "Quotient rule: $\\left(\\frac fg\\right)'=\\dfrac{f'g-fg'}{g^2}$.",
+    "Plug in $t=0$ for the initial population."
+   ],
+   "steps": [
+    "$P(0)=3$",
+    "$P'(10)=\\dfrac{168-332}{441}=-\\dfrac{164}{441}\\approx-0.372$"
+   ]
   },
   {
    "id": "e147",
@@ -2214,7 +3256,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739341415",
    "instructions": [
     {
@@ -2240,7 +3282,54 @@
      }
     ]
    },
-   "notes": "self-check: part b is not plain math"
+   "notes": "self-check: part b is not plain math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $C'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "(-2t^4-2t^3+200t+50)/(t^3+50)^2"
+      }
+     },
+     {
+      "label": "$C'(8)$",
+      "answer": {
+       "kind": "number",
+       "value": "-0.02395"
+      }
+     },
+     {
+      "label": "$C'(12)$",
+      "answer": {
+       "kind": "number",
+       "value": "-0.01344"
+      }
+     },
+     {
+      "label": "$C'(24)$",
+      "answer": {
+       "kind": "number",
+       "value": "-0.003566"
+      }
+     },
+     {
+      "label": "$C'(36)$",
+      "answer": {
+       "kind": "number",
+       "value": "-0.001579"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Quotient rule: $\\left(\\frac fg\\right)'=\\dfrac{f'g-fg'}{g^2}$."
+   ],
+   "steps": [
+    "$C'=\\dfrac{(4t+1)(t^3+50)-(2t^2+t)(3t^2)}{(t^3+50)^2}=\\dfrac{-2t^4-2t^3+200t+50}{(t^3+50)^2}$",
+    "$C'(8)\\approx-0.02395$, …"
+   ]
   },
   {
    "id": "e148",
@@ -2251,7 +3340,7 @@
      "text": "A book publisher has a cost function given by $C(x)=\\frac{x^{3}+2x+3}{x^{2}},$ where *x* is the number of copies of a book in thousands and *C* is the cost, per book, measured in dollars. Evaluate $C'(2)$ and explain its meaning."
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739353348",
    "instructions": [
     {
@@ -2268,7 +3357,35 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "number",
+    "value": "-0.25"
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$C(x)=x+\\dfrac2x+\\dfrac3{x^2}$, so $C'(x)=1-\\dfrac2{x^2}-\\dfrac6{x^3}$ and $C'(2)=1-\\frac12-\\frac34=-\\frac14$."
+     },
+     {
+      "type": "p",
+      "text": "At 2000 copies, the cost per book is falling by about \\$0.25 for each additional thousand copies."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "diff((x**3+2*x+3)/x**2,x).subs(x,2)"
+   },
+   "hints": [
+    "Power rule: $\\frac{d}{dx}x^n=nx^{n-1}$; constants differentiate to $0$.",
+    "Rewrite $\\frac{c}{x^n}$ as $cx^{-n}$ first, or use the quotient rule."
+   ],
+   "steps": [
+    "$C=x+2x^{-1}+3x^{-2}$",
+    "$C'(2)=1-\\frac12-\\frac34=-0.25$"
+   ]
   },
   {
    "id": "e149",
@@ -2288,7 +3405,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739353433",
    "instructions": [
     {
@@ -2314,7 +3431,36 @@
      }
     ]
    },
-   "notes": "self-check: part b is not plain math"
+   "notes": "self-check: part b is not plain math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $F'(d)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-2G m_1 m_2/d^3"
+      }
+     },
+     {
+      "label": "b. rate at $d=10$ (N/m)",
+      "answer": {
+       "kind": "number",
+       "value": "-1.334*10^-7",
+       "tolerance": {
+        "rel": 0.005
+       }
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Treat $G$, $m_1$, $m_2$ as constants: $F=Gm_1m_2d^{-2}$."
+   ],
+   "steps": [
+    "$F'(d)=-2Gm_1m_2d^{-3}$",
+    "$-\\dfrac{2(6.67\\times10^{-11})(10^6)}{1000}\\approx-1.33\\times10^{-7}$ N/m"
+   ]
   }
  ],
  "proofs": [
