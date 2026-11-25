@@ -17,8 +17,8 @@
  },
  "status": {
   "imported": "2026-11-24",
-  "reading": "imported",
-  "answers": "imported"
+  "reading": "adapted",
+  "answers": "reviewed"
  },
  "objectives": [
   "Determine a new value of a quantity from the old value and the amount of change.",
@@ -399,6 +399,14 @@
       ]
      }
     ]
+   },
+   "answer": {
+    "kind": "choice",
+    "options": [
+     "right to left",
+     "left to right"
+    ],
+    "correct": 1
    }
   },
   {
@@ -445,7 +453,7 @@
      },
      {
       "type": "p",
-      "text": "By applying (see above) to $P(t),$ we can estimate the population 2 years from now by writing"
+      "text": "By applying the approximation $f(a+h)\\approx f(a)+f'(a)h$ to $P(t),$ we can estimate the population 2 years from now by writing"
      },
      {
       "type": "math",
@@ -646,7 +654,7 @@
      "text": "$s(t)=2t^{3}-3t^{2}-12t+8$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739303989",
    "instructions": [
     {
@@ -663,7 +671,93 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$v(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "6t^2-6t-12"
+      }
+     },
+     {
+      "label": "$a(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "12t-6"
+      }
+     },
+     {
+      "label": "speeding up on",
+      "answer": {
+       "kind": "set",
+       "value": "(0, 1/2) U (2, inf)",
+       "prompt": "intervals of t, e.g. (0, 1) U (2, inf)"
+      }
+     },
+     {
+      "label": "slowing down on",
+      "answer": {
+       "kind": "set",
+       "value": "(1/2, 2)",
+       "prompt": "intervals of t, e.g. (0, 1) U (2, inf)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $v(t)=6t^2-6t-12=6(t-2)(t+1)$ and $a(t)=12t-6$."
+     },
+     {
+      "type": "p",
+      "text": "b. For $t\\ge0$: $v<0$ on $(0,2)$ and $v>0$ for $t>2$; $a<0$ on $(0,\\frac12)$ and $a>0$ for $t>\\frac12$."
+     },
+     {
+      "type": "p",
+      "text": "Same signs (speeding up) on $(0,\\frac12)\\cup(2,\\infty)$; opposite signs (slowing down) on $(\\frac12,2)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(diff(2*t**3-3*t**2-12*t+8,t), diff(2*t**3-3*t**2-12*t+8,t,2), Union(Interval.open(0,Rational(1,2)), Interval.open(2,oo)), Interval.open(Rational(1,2),2))"
+   },
+   "hints": [
+    "$v(t)=s'(t)$ and $a(t)=v'(t)$.",
+    "The object speeds up when $v$ and $a$ have the same sign and slows down when they have opposite signs."
+   ],
+   "steps": [
+    "$v=6(t-2)(t+1)$, $a=12t-6$",
+    "Sign changes at $t=\\frac12$ ($a$) and $t=2$ ($v$)",
+    "Up: $(0,\\frac12)\\cup(2,\\infty)$; down: $(\\frac12,2)$"
+   ],
+   "variant": {
+    "params": {
+     "p": {
+      "min": 1,
+      "max": 4
+     },
+     "q": {
+      "min": 5,
+      "max": 9
+     }
+    },
+    "prompt": [
+     {
+      "type": "p",
+      "text": "A particle has velocity $v(t)=3(t-{{p}})(t-{{q}})$ for $t\\ge0$. At what time is its acceleration $0$?"
+     }
+    ],
+    "answer": {
+     "kind": "number",
+     "value": "({{p+q}})/2"
+    }
+   }
   },
   {
    "id": "e151",
@@ -674,7 +768,7 @@
      "text": "$s(t)=2t^{3}-15t^{2}+36t-10$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739301136",
    "instructions": [
     {
@@ -700,7 +794,50 @@
      }
     ]
    },
-   "notes": "self-check: part a has an unclear kind"
+   "notes": "self-check: part a has an unclear kind",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$v(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "6t^2-30t+36"
+      }
+     },
+     {
+      "label": "$a(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "12t-30"
+      }
+     },
+     {
+      "label": "speeding up on",
+      "answer": {
+       "kind": "set",
+       "value": "(2, 2.5) U (3, inf)",
+       "prompt": "intervals of t, e.g. (0, 1) U (2, inf)"
+      }
+     },
+     {
+      "label": "slowing down on",
+      "answer": {
+       "kind": "set",
+       "value": "(0, 2) U (2.5, 3)",
+       "prompt": "intervals of t, e.g. (0, 1) U (2, inf)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$v(t)=s'(t)$ and $a(t)=v'(t)$.",
+    "The object speeds up when $v$ and $a$ have the same sign and slows down when they have opposite signs."
+   ],
+   "steps": [
+    "$v=6(t-2)(t-3)$, $a=12t-30$ (zero at $2.5$)",
+    "Same signs on $(2,2.5)\\cup(3,\\infty)$"
+   ]
   },
   {
    "id": "e152",
@@ -711,7 +848,7 @@
      "text": "$s(t)=\\frac{t}{1+t^{2}}$"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739286492",
    "instructions": [
     {
@@ -728,7 +865,70 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "$v(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "(1-t^2)/(1+t^2)^2"
+      }
+     },
+     {
+      "label": "$a(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "2t(t^2-3)/(1+t^2)^3"
+      }
+     },
+     {
+      "label": "speeding up on",
+      "answer": {
+       "kind": "set",
+       "value": "(1, sqrt(3))",
+       "prompt": "intervals of t, e.g. (0, 1) U (2, inf)"
+      }
+     },
+     {
+      "label": "slowing down on",
+      "answer": {
+       "kind": "set",
+       "value": "(0, 1) U (sqrt(3), inf)",
+       "prompt": "intervals of t, e.g. (0, 1) U (2, inf)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $v(t)=\\dfrac{(1+t^2)-t(2t)}{(1+t^2)^2}=\\dfrac{1-t^2}{(1+t^2)^2}$ and $a(t)=\\dfrac{2t(t^2-3)}{(1+t^2)^3}$."
+     },
+     {
+      "type": "p",
+      "text": "b. $v>0$ on $(0,1)$, $v<0$ for $t>1$; $a<0$ on $(0,\\sqrt3)$, $a>0$ for $t>\\sqrt3$."
+     },
+     {
+      "type": "p",
+      "text": "Speeding up on $(1,\\sqrt3)$; slowing down on $(0,1)\\cup(\\sqrt3,\\infty)$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(diff(t/(1+t**2),t), diff(t/(1+t**2),t,2), Interval.open(1,sqrt(3)), Union(Interval.open(0,1), Interval.open(sqrt(3),oo)))"
+   },
+   "hints": [
+    "$v(t)=s'(t)$ and $a(t)=v'(t)$.",
+    "The object speeds up when $v$ and $a$ have the same sign and slows down when they have opposite signs."
+   ],
+   "steps": [
+    "$v=\\dfrac{1-t^2}{(1+t^2)^2}$ (zero at $1$), $a=\\dfrac{2t(t^2-3)}{(1+t^2)^3}$ (zero at $\\sqrt3$)",
+    "Up: $(1,\\sqrt3)$; down: $(0,1)\\cup(\\sqrt3,\\infty)$"
+   ]
   },
   {
    "id": "e153",
@@ -748,7 +948,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736609267",
    "instructions": [
     {
@@ -770,11 +970,38 @@
     "body": [
      {
       "type": "p",
-      "text": "a. $464{\\,\\text{ft/s}}^{2}$ b. $-32{\\,\\text{ft/s}}^{2}$"
+      "text": "a. $464$ ft/s b. $-32$ ft/s²"
      }
     ]
    },
-   "notes": "self-check: part a is not plain math"
+   "notes": "self-check: part a is not plain math",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $v(3)$ (ft/s)",
+      "answer": {
+       "kind": "number",
+       "value": "464"
+      }
+     },
+     {
+      "label": "b. $a(3)$ (ft/s²)",
+      "answer": {
+       "kind": "number",
+       "value": "-32"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Velocity is $s'(t)$ and acceleration is $s''(t)$.",
+    "Solve $s(t)=$ (the position you want) first to find the time."
+   ],
+   "steps": [
+    "$v=-32t+560$, $v(3)=464$ ft/s",
+    "$a=-32$ ft/s²"
+   ]
   },
   {
    "id": "e154",
@@ -794,7 +1021,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739253579",
    "instructions": [
     {
@@ -811,7 +1038,50 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. time to hit the ground (s)",
+      "answer": {
+       "kind": "number",
+       "value": "(-1+sqrt(65))/4"
+      }
+     },
+     {
+      "label": "b. velocity at impact (ft/s)",
+      "answer": {
+       "kind": "number",
+       "value": "-8sqrt(65)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $-16t^2-8t+64=0\\iff2t^2+t-8=0$, so $t=\\dfrac{-1+\\sqrt{65}}{4}\\approx1.766$ s."
+     },
+     {
+      "type": "p",
+      "text": "b. $v(t)=-32t-8$, so $v=-8(-1+\\sqrt{65})-8=-8\\sqrt{65}\\approx-64.50$ ft/s."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((-1+sqrt(65))/4, -8*sqrt(65))"
+   },
+   "hints": [
+    "Velocity is $s'(t)$ and acceleration is $s''(t)$.",
+    "Solve $s(t)=$ (the position you want) first to find the time."
+   ],
+   "steps": [
+    "$2t^2+t-8=0$: $t=\\frac{-1+\\sqrt{65}}4\\approx1.766$",
+    "$v=-32t-8=-8\\sqrt{65}\\approx-64.5$ ft/s"
+   ]
   },
   {
    "id": "e155",
@@ -831,7 +1101,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739274630",
    "instructions": [
     {
@@ -857,7 +1127,34 @@
      }
     ]
    },
-   "notes": "self-check: part a is prose"
+   "notes": "self-check: part a is prose",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. velocity when $s=0$ (ft/s)",
+      "answer": {
+       "kind": "number",
+       "value": "5"
+      }
+     },
+     {
+      "label": "b. velocity when $s=14$ (ft/s)",
+      "answer": {
+       "kind": "number",
+       "value": "9"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Velocity is $s'(t)$ and acceleration is $s''(t)$.",
+    "Solve $s(t)=$ (the position you want) first to find the time."
+   ],
+   "steps": [
+    "$s=0$: $t=4$, $v=2t-3=5$",
+    "$s=14$: $t=6$, $v=9$"
+   ]
   },
   {
    "id": "e156",
@@ -878,7 +1175,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739188624",
    "instructions": [
     {
@@ -895,7 +1192,62 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $v(1)$ (m/s)",
+      "answer": {
+       "kind": "number",
+       "value": "2"
+      }
+     },
+     {
+      "label": "b. $a(1)$ (m/s²)",
+      "answer": {
+       "kind": "number",
+       "value": "18"
+      }
+     },
+     {
+      "label": "c. $a$ when $v=0$ (m/s²)",
+      "answer": {
+       "kind": "number",
+       "value": "6sqrt(7)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v(t)=9t^2-7$ and $a(t)=18t$."
+     },
+     {
+      "type": "p",
+      "text": "a. $v(1)=2$ m/s. b. $a(1)=18$ m/s²."
+     },
+     {
+      "type": "p",
+      "text": "c. $v=0$ at $t=\\frac{\\sqrt7}{3}$, so $a=18\\cdot\\frac{\\sqrt7}3=6\\sqrt7\\approx15.87$ m/s²."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(2, 18, 6*sqrt(7))"
+   },
+   "hints": [
+    "Velocity is $s'(t)$ and acceleration is $s''(t)$.",
+    "Solve $s(t)=$ (the position you want) first to find the time."
+   ],
+   "steps": [
+    "$v=9t^2-7$, $a=18t$",
+    "$v(1)=2$, $a(1)=18$",
+    "$t=\\frac{\\sqrt7}3$: $a=6\\sqrt7$"
+   ]
   },
   {
    "id": "e157",
@@ -919,7 +1271,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739300061",
    "instructions": [
     {
@@ -945,7 +1297,71 @@
      }
     ]
    },
-   "notes": "self-check: part a is prose"
+   "notes": "self-check: part a is prose",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $v(0.5)$",
+      "answer": {
+       "kind": "number",
+       "value": "84"
+      }
+     },
+     {
+      "label": "a. $v(5.75)$",
+      "answer": {
+       "kind": "number",
+       "value": "-84"
+      }
+     },
+     {
+      "label": "b. speed at both times",
+      "answer": {
+       "kind": "number",
+       "value": "84"
+      }
+     },
+     {
+      "label": "c. time of max height (s)",
+      "answer": {
+       "kind": "number",
+       "value": "25/8"
+      }
+     },
+     {
+      "label": "d. acceleration (ft/s²)",
+      "answer": {
+       "kind": "number",
+       "value": "-32"
+      }
+     },
+     {
+      "label": "e. time in the air (s)",
+      "answer": {
+       "kind": "number",
+       "value": "(25+sqrt(965))/8"
+      }
+     },
+     {
+      "label": "f. velocity at impact (ft/s)",
+      "answer": {
+       "kind": "number",
+       "value": "-4sqrt(965)"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Velocity is $s'(t)$ and acceleration is $s''(t)$.",
+    "Solve $s(t)=$ (the position you want) first to find the time.",
+    "Maximum height is where $v=0$; landing is where $s=0$."
+   ],
+   "steps": [
+    "$v=-32t+100$: $84$ and $-84$",
+    "$v=0$ at $t=\\frac{25}8$",
+    "$s=0$: $t=\\frac{25+\\sqrt{965}}8$, $v=-4\\sqrt{965}$"
+   ]
   },
   {
    "id": "e158",
@@ -966,7 +1382,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736656942",
    "instructions": [
     {
@@ -983,7 +1399,94 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. direction at $t=0$",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "east",
+        "west"
+       ],
+       "correct": 1
+      }
+     },
+     {
+      "label": "a. direction at $t=2\\sqrt2$",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "east",
+        "west"
+       ],
+       "correct": 0
+      }
+     },
+     {
+      "label": "b. direction when $a=0$",
+      "answer": {
+       "kind": "choice",
+       "options": [
+        "east",
+        "west"
+       ],
+       "correct": 1
+      }
+     },
+     {
+      "label": "c. slowing down on",
+      "answer": {
+       "kind": "set",
+       "value": "(0, sqrt(8/3))",
+       "prompt": "intervals of t, e.g. (0, 1) U (2, inf)"
+      }
+     },
+     {
+      "label": "c. speeding up on",
+      "answer": {
+       "kind": "set",
+       "value": "(sqrt(8/3), inf)",
+       "prompt": "intervals of t, e.g. (0, 1) U (2, inf)"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "$v(t)=3t^2-8$, $a(t)=6t$."
+     },
+     {
+      "type": "p",
+      "text": "a. $s=0$ at $t=0$ ($v=-8<0$: west) and at $t=2\\sqrt2$ ($v=16>0$: east)."
+     },
+     {
+      "type": "p",
+      "text": "b. $a=0$ at $t=0$, where $v=-8$: west."
+     },
+     {
+      "type": "p",
+      "text": "c. $v<0$ on $(0,\\sqrt{8/3})$ while $a>0$: slowing down there; for $t>\\sqrt{8/3}$ both are positive: speeding up."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(Interval.open(0, sqrt(Rational(8,3))), Interval.open(sqrt(Rational(8,3)), oo))"
+   },
+   "hints": [
+    "$v(t)=s'(t)$ and $a(t)=v'(t)$.",
+    "The object speeds up when $v$ and $a$ have the same sign and slows down when they have opposite signs."
+   ],
+   "steps": [
+    "$s=0$ at $t=0,2\\sqrt2$; $v(0)=-8$, $v(2\\sqrt2)=16$",
+    "$a=0$ at $t=0$: west",
+    "$v=0$ at $t=\\sqrt{8/3}$: slowing before, speeding after"
+   ]
   },
   {
    "id": "e159",
@@ -1070,7 +1573,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739270636",
    "instructions": [
     {
@@ -1087,7 +1590,62 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $C'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-7/x^2+2x/7"
+      }
+     },
+     {
+      "label": "b. estimate of the 13th (dollars)",
+      "answer": {
+       "kind": "number",
+       "value": "-7/144+24/7"
+      }
+     },
+     {
+      "label": "c. actual cost of the 13th (dollars)",
+      "answer": {
+       "kind": "number",
+       "value": "25/7+7/13-7/12"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $C'(x)=-\\dfrac{7}{x^2}+\\dfrac{2x}{7}$."
+     },
+     {
+      "type": "p",
+      "text": "b. $C'(12)=-\\frac{7}{144}+\\frac{24}{7}\\approx\\$3.38$."
+     },
+     {
+      "type": "p",
+      "text": "c. $C(13)-C(12)=\\left(\\frac7{13}+\\frac{169}7\\right)-\\left(\\frac7{12}+\\frac{144}7\\right)\\approx\\$3.53$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(diff(200+7/x+x**2/7,x), Rational(-7,144)+Rational(24,7), (7/Rational(13)+Rational(169,7))-(7/Rational(12)+Rational(144,7)))"
+   },
+   "hints": [
+    "Marginal cost/revenue/profit is the derivative.",
+    "The cost (or profit) of the $n$th item is about the marginal value at $n-1$; the exact value is $f(n)-f(n-1)$."
+   ],
+   "steps": [
+    "$C'(x)=-\\frac7{x^2}+\\frac{2x}7$",
+    "$C'(12)\\approx3.38$",
+    "$C(13)-C(12)\\approx3.53$"
+   ]
   },
   {
    "id": "e161",
@@ -1108,7 +1666,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736659653",
    "instructions": [
     {
@@ -1134,7 +1692,47 @@
      }
     ]
    },
-   "notes": "self-check: part c is prose"
+   "notes": "self-check: part c is prose",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $R(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "10x-0.001x^2"
+      }
+     },
+     {
+      "label": "b. $R'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "10-0.002x"
+      }
+     },
+     {
+      "label": "c. $R'(2000)$",
+      "answer": {
+       "kind": "number",
+       "value": "6"
+      }
+     },
+     {
+      "label": "c. $R'(5000)$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$R(x)=xp$; marginal revenue is $R'(x)$."
+   ],
+   "steps": [
+    "$R=10x-0.001x^2$",
+    "$R'=10-0.002x$: $6$ and $0$"
+   ]
   },
   {
    "id": "e162",
@@ -1154,7 +1752,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736656504",
    "instructions": [
     {
@@ -1171,7 +1769,57 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. exact profit from the 30th",
+      "answer": {
+       "kind": "number",
+       "value": "12.3"
+      }
+     },
+     {
+      "label": "b. $P'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "30-0.6x"
+      }
+     },
+     {
+      "label": "b. estimate",
+      "answer": {
+       "kind": "number",
+       "value": "12.6"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $P(30)-P(29)=(900-270-250)-(870-252.3-250)=380-367.7=\\$12.30$."
+     },
+     {
+      "type": "p",
+      "text": "b. $P'(x)=30-0.6x$; the 30th board's profit is about $P'(29)=30-17.4=\\$12.60$."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "((30*30-Rational(3,10)*900-250)-(30*29-Rational(3,10)*841-250), 30-Rational(6,10)*x, 30-Rational(6,10)*29)"
+   },
+   "hints": [
+    "Marginal cost/revenue/profit is the derivative.",
+    "The cost (or profit) of the $n$th item is about the marginal value at $n-1$; the exact value is $f(n)-f(n-1)$."
+   ],
+   "steps": [
+    "$P(30)-P(29)=12.3$",
+    "$P'(x)=30-0.6x$, $P'(29)=12.6$"
+   ]
   },
   {
    "id": "e163",
@@ -1198,7 +1846,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739301640",
    "instructions": [
     {
@@ -1224,7 +1872,85 @@
      }
     ]
    },
-   "notes": "self-check: part b has an unclear kind"
+   "notes": "self-check: part b has an unclear kind",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $C'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "65"
+      }
+     },
+     {
+      "label": "b. $R(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "143x-0.03x^2"
+      }
+     },
+     {
+      "label": "b. $R'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "143-0.06x"
+      }
+     },
+     {
+      "label": "c. $R'(1000)$",
+      "answer": {
+       "kind": "number",
+       "value": "83"
+      }
+     },
+     {
+      "label": "c. $R'(4000)$",
+      "answer": {
+       "kind": "number",
+       "value": "-97"
+      }
+     },
+     {
+      "label": "d. $P(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-0.03x^2+78x-75000"
+      }
+     },
+     {
+      "label": "d. $P'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-0.06x+78"
+      }
+     },
+     {
+      "label": "e. $P'(1000)$",
+      "answer": {
+       "kind": "number",
+       "value": "18"
+      }
+     },
+     {
+      "label": "e. $P'(4000)$",
+      "answer": {
+       "kind": "number",
+       "value": "-162"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Marginal cost/revenue/profit is the derivative.",
+    "The cost (or profit) of the $n$th item is about the marginal value at $n-1$; the exact value is $f(n)-f(n-1)$.",
+    "$R=xp$ and $P=R-C$."
+   ],
+   "steps": [
+    "$C'=65$; $R=143x-0.03x^2$, $R'=143-0.06x$",
+    "$R'(1000)=83$, $R'(4000)=-97$",
+    "$P=-0.03x^2+78x-75000$, $P'(1000)=18$, $P'(4000)=-162$"
+   ]
   },
   {
    "id": "e164",
@@ -1245,7 +1971,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739274864",
    "instructions": [
     {
@@ -1262,7 +1988,102 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $P'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-t^2+64"
+      }
+     },
+     {
+      "label": "b. $P'(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "63"
+      }
+     },
+     {
+      "label": "b. $P'(2)$",
+      "answer": {
+       "kind": "number",
+       "value": "60"
+      }
+     },
+     {
+      "label": "b. $P'(3)$",
+      "answer": {
+       "kind": "number",
+       "value": "55"
+      }
+     },
+     {
+      "label": "b. $P'(4)$",
+      "answer": {
+       "kind": "number",
+       "value": "48"
+      }
+     },
+     {
+      "label": "c. $P''(1)$",
+      "answer": {
+       "kind": "number",
+       "value": "-2"
+      }
+     },
+     {
+      "label": "c. $P''(2)$",
+      "answer": {
+       "kind": "number",
+       "value": "-4"
+      }
+     },
+     {
+      "label": "c. $P''(3)$",
+      "answer": {
+       "kind": "number",
+       "value": "-6"
+      }
+     },
+     {
+      "label": "c. $P''(4)$",
+      "answer": {
+       "kind": "number",
+       "value": "-8"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $P'(t)=-t^2+64$."
+     },
+     {
+      "type": "p",
+      "text": "b. $63,\\ 60,\\ 55,\\ 48$ thousand people per year: the town keeps growing, but more slowly each year."
+     },
+     {
+      "type": "p",
+      "text": "c. $P''(t)=-2t$: $-2,\\ -4,\\ -6,\\ -8$ thousand people per year per year: the growth rate is decreasing, faster and faster."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(64-t**2, 63, 60, 55, 48, -2, -4, -6, -8)"
+   },
+   "hints": [
+    "Differentiate term by term; then differentiate again."
+   ],
+   "steps": [
+    "$P'=-t^2+64$: $63,60,55,48$",
+    "$P''=-2t$: $-2,-4,-6,-8$"
+   ]
   },
   {
    "id": "e165",
@@ -1284,7 +2105,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736662792",
    "instructions": [
     {
@@ -1310,7 +2131,84 @@
      }
     ]
    },
-   "notes": "self-check: part c is prose"
+   "notes": "self-check: part c is prose",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $N'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "3000(-4t^2+400)/(t^2+100)^2"
+      }
+     },
+     {
+      "label": "$N'(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "120"
+      }
+     },
+     {
+      "label": "$N'(10)$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "$N'(20)$",
+      "answer": {
+       "kind": "number",
+       "value": "-14.4"
+      }
+     },
+     {
+      "label": "$N'(30)$",
+      "answer": {
+       "kind": "number",
+       "value": "-9.6"
+      }
+     },
+     {
+      "label": "$N''(0)$",
+      "answer": {
+       "kind": "number",
+       "value": "0"
+      }
+     },
+     {
+      "label": "$N''(10)$",
+      "answer": {
+       "kind": "number",
+       "value": "-6"
+      }
+     },
+     {
+      "label": "$N''(20)$",
+      "answer": {
+       "kind": "number",
+       "value": "0.384"
+      }
+     },
+     {
+      "label": "$N''(30)$",
+      "answer": {
+       "kind": "number",
+       "value": "0.432"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Quotient rule on $\\dfrac{4t}{t^2+100}$.",
+    "Then differentiate $N'$ again for $N''$."
+   ],
+   "steps": [
+    "$N'(t)=3000\\cdot\\dfrac{400-4t^2}{(t^2+100)^2}$",
+    "$N'(0)=120$, $N'(10)=0$, $N'(20)=-14.4$, $N'(30)=-9.6$",
+    "$N''$: $0,-6,0.384,0.432$"
+   ]
   },
   {
    "id": "e166",
@@ -1330,7 +2228,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736610051",
    "instructions": [
     {
@@ -1347,7 +2245,49 @@
      "style": "a"
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "a. $F'(r)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-m v^2/r^2"
+      }
+     },
+     {
+      "label": "b. rate (N/m)",
+      "answer": {
+       "kind": "number",
+       "value": "-1000(13.89)^2/200^2"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. $F'(r)=-\\dfrac{mv^2}{r^2}$."
+     },
+     {
+      "type": "p",
+      "text": "b. $F'(200)=-\\dfrac{1000(13.89)^2}{200^2}\\approx-4.82$ N/m."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(-m*v**2/r**2, -1000*Rational(1389,100)**2/200**2)"
+   },
+   "hints": [
+    "Treat $m$ and $v$ as constants: $F=mv^2r^{-1}$."
+   ],
+   "steps": [
+    "$F'(r)=-mv^2r^{-2}$",
+    "$-\\dfrac{1000(13.89^2)}{40000}\\approx-4.82$ N/m"
+   ]
   },
   {
    "id": "e167",
@@ -1368,7 +2308,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739270171",
    "instructions": [
     {
@@ -1431,11 +2371,40 @@
     "body": [
      {
       "type": "p",
-      "text": "a. $P(t)=0.03983+0.4280$ b. $P'(t)=0.03983.$ The population is increasing. c. $P''(t)=0.$ The rate at which the population is increasing is constant."
+      "text": "a. $P(t)=0.03983t+0.4280$ b. $P'(t)=0.03983.$ The population is increasing. c. $P''(t)=0.$ The rate at which the population is increasing is constant."
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. $P'(t)$",
+      "answer": {
+       "kind": "number",
+       "value": "0.03983",
+       "tolerance": {
+        "rel": 0.01
+       }
+      }
+     },
+     {
+      "label": "c. $P''(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "The derivative of a line $mt+b$ is its slope $m$."
+   ],
+   "steps": [
+    "Fit: $P(t)\\approx0.03983t+0.4280$",
+    "$P'=0.03983$ million/year, $P''=0$"
+   ]
   },
   {
    "id": "e168",
@@ -1456,7 +2425,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739343732",
    "instructions": [
     {
@@ -1514,7 +2483,51 @@
      "caption": "Population of London Source: http://en.wikipedia.org/wiki/Demographics_of_London."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. $P'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0.0007637t+0.004695"
+      }
+     },
+     {
+      "label": "c. $P''(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0.0007637"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Least squares gives $P(t)\\approx0.0003819t^2+0.004695t+0.9209$."
+     },
+     {
+      "type": "p",
+      "text": "b. $P'(t)\\approx0.0007637t+0.004695$ million people per year: the growth rate of London's population, which increases over the century."
+     },
+     {
+      "type": "p",
+      "text": "c. $P''(t)\\approx0.0007637$ million per year per year: the growth rate itself is increasing at a constant rate."
+     }
+    ]
+   },
+   "hints": [
+    "Use a quadratic regression ($at^2+bt+c$) on a calculator.",
+    "$P'=2at+b$, $P''=2a$."
+   ],
+   "steps": [
+    "$P\\approx0.0003819t^2+0.004695t+0.9209$",
+    "$P'\\approx0.0007637t+0.004695$, $P''\\approx0.0007637$"
+   ]
   },
   {
    "id": "e169",
@@ -1535,7 +2548,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169736654815",
    "instructions": [
     {
@@ -1585,7 +2598,33 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. $p'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-1.214t+0.4357"
+      }
+     },
+     {
+      "label": "c. $p''(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-1.214"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Quadratic regression, then differentiate twice."
+   ],
+   "steps": [
+    "$p\\approx-0.6071t^2+0.4357t-0.3571$",
+    "$p'=-1.214t+0.4357$ (velocity), $p''=-1.214$ (acceleration)"
+   ]
   },
   {
    "id": "e170",
@@ -1607,7 +2646,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739269446",
    "instructions": [
     {
@@ -1648,7 +2687,55 @@
      ]
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. $p'(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-0.4444t^2+1.0079t-1.5939"
+      }
+     },
+     {
+      "label": "c. $p''(t)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-0.8889t+1.0079"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. Least squares gives $p(t)\\approx-0.1481t^3+0.5040t^2-1.5939t+0.0873$."
+     },
+     {
+      "type": "p",
+      "text": "b. $p'(t)\\approx-0.4444t^2+1.0079t-1.5939$: the sensor's velocity (m/s)."
+     },
+     {
+      "type": "p",
+      "text": "c. $p''(t)\\approx-0.8889t+1.0079$: its acceleration (m/s²)."
+     },
+     {
+      "type": "p",
+      "text": "d. Gravity on the planet should give a **constant** acceleration, but the cubic's acceleration changes with time (it is even positive, upward, for $t<1.13$). A quadratic model matches the physics better."
+     }
+    ]
+   },
+   "hints": [
+    "Cubic regression, then differentiate twice."
+   ],
+   "steps": [
+    "$p\\approx-0.1481t^3+0.5040t^2-1.5939t+0.0873$",
+    "$p'\\approx-0.4444t^2+1.0079t-1.5939$",
+    "$p''\\approx-0.8889t+1.0079$: not constant, so not realistic for free fall"
+   ]
   },
   {
    "id": "e171",
@@ -1670,7 +2757,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739336094",
    "instructions": [
     {
@@ -1698,7 +2785,33 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. $f'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "a"
+      }
+     },
+     {
+      "label": "c. $f''(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "0"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "$f(x)=ax$ is a line through the origin."
+   ],
+   "steps": [
+    "$f'(x)=a$",
+    "$f''(x)=0$"
+   ]
   },
   {
    "id": "e172",
@@ -1720,7 +2833,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739190647",
    "instructions": [
     {
@@ -1728,7 +2841,65 @@
      "text": "The following problems deal with the Holling type I, II, and III equations. These equations describe the ecological event of growth of a predator population given the amount of prey available for consumption."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. $f'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "a n/(n+x)^2"
+      }
+     },
+     {
+      "label": "c. $f(n)$",
+      "answer": {
+       "kind": "expression",
+       "value": "a/2"
+      }
+     },
+     {
+      "label": "d. $f''(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "-2a n/(n+x)^3"
+      }
+     }
+    ]
+   },
+   "solution": {
+    "label": "verified",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. With $a=0.5$, $n=5$ the graph rises from the origin and levels off toward $y=0.5$; type I keeps rising in a straight line, type II saturates."
+     },
+     {
+      "type": "p",
+      "text": "b. $f'(x)=\\dfrac{a(n+x)-ax}{(n+x)^2}=\\dfrac{an}{(n+x)^2}>0$: more prey always means more consumption, but the increase gets smaller."
+     },
+     {
+      "type": "p",
+      "text": "c. $f(n)=\\dfrac{an}{2n}=\\dfrac a2$: $n$ is the amount of prey at which the predator eats at half its maximum rate."
+     },
+     {
+      "type": "p",
+      "text": "d. $f''(x)=-\\dfrac{2an}{(n+x)^3}<0$: the benefit of extra prey keeps decreasing (saturation), which is more realistic than type I's constant rate."
+     }
+    ]
+   },
+   "verify": {
+    "sympy": "(a*n/(n+x)**2, a/2, -2*a*n/(n+x)**3)"
+   },
+   "hints": [
+    "Quotient rule; treat $a$ and $n$ as constants."
+   ],
+   "steps": [
+    "$f'=\\dfrac{an}{(n+x)^2}$",
+    "$f(n)=\\dfrac a2$",
+    "$f''=-\\dfrac{2an}{(n+x)^3}$"
+   ]
   },
   {
    "id": "e173",
@@ -1750,7 +2921,7 @@
      "style": "a"
     }
    ],
-   "check": "self",
+   "check": "auto",
    "sourceId": "fs-id1169739299237",
    "instructions": [
     {
@@ -1778,7 +2949,33 @@
      }
     ]
    },
-   "notes": "self-check: the problem asks for a sketch, proof or explanation"
+   "notes": "self-check: the problem asks for a sketch, proof or explanation",
+   "answer": {
+    "kind": "multi",
+    "parts": [
+     {
+      "label": "b. $f'(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "2a x n^2/(n^2+x^2)^2"
+      }
+     },
+     {
+      "label": "c. $f''(x)$",
+      "answer": {
+       "kind": "expression",
+       "value": "2a n^2(n^2-3x^2)/(n^2+x^2)^3"
+      }
+     }
+    ]
+   },
+   "hints": [
+    "Quotient rule; treat $a$ and $n$ as constants."
+   ],
+   "steps": [
+    "$f'=\\dfrac{2axn^2}{(n^2+x^2)^2}$",
+    "$f''=\\dfrac{2an^2(n^2-3x^2)}{(n^2+x^2)^3}$"
+   ]
   },
   {
    "id": "e174",
@@ -1833,7 +3030,24 @@
      "text": "The following problems deal with the Holling type I, II, and III equations. These equations describe the ecological event of growth of a predator population given the amount of prey available for consumption."
     }
    ],
-   "notes": "no book answer yet (even-numbered); a content chat adds one"
+   "notes": "no book answer yet (even-numbered); a content chat adds one",
+   "solution": {
+    "label": "ai",
+    "body": [
+     {
+      "type": "p",
+      "text": "a. The points rise slowly, then sharply, then level off: an S-shape, which is the Holling type III curve."
+     },
+     {
+      "type": "p",
+      "text": "b. The lynx population seems to level off near $60$ (hundred), so $a\\approx60$; half of that, $30$, is reached at roughly $60$ thousand hares, so $n\\approx60$."
+     },
+     {
+      "type": "p",
+      "text": "c. Plotting $f(x)=\\dfrac{60x^2}{60^2+x^2}$ together with the type I and II curves shows the type III curve follows the data most closely, confirming part a."
+     }
+    ]
+   }
   }
  ],
  "proofs": [],
